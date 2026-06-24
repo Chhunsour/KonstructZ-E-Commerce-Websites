@@ -111,14 +111,15 @@ export const Frontpage = (): JSX.Element => {
       <Reveal
         variant="fade"
         delay={2600}
-        className="absolute top-[863px] left-1/2 transform -translate-x-1/2 flex items-center gap-1.5 p-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full z-20"
+        className="absolute top-[863px] flex items-center gap-1.5 p-1 bg-black/45 backdrop-blur-md border border-white/10 z-20"
+        style={{ left: "50%", transform: "translateX(-50%)" }}
       >
         <button
           type="button"
           onClick={() => setActiveModel("v950")}
-          className={`px-5 py-2 rounded-full font-googleSans font-bold text-xs uppercase tracking-wider transition-all duration-300 ${
+          className={`px-5 py-2 font-googleSans font-bold text-xs uppercase tracking-wider transition-all duration-300 ${
             activeModel === "v950"
-              ? "bg-[#d8c79a] text-[#153d28] shadow-[0_0_12px_rgba(216,199,154,0.4)]"
+              ? "bg-[#d8c79a] text-[#153d28]"
               : "text-white/70 hover:text-white hover:bg-white/5"
           }`}
         >
@@ -127,9 +128,9 @@ export const Frontpage = (): JSX.Element => {
         <button
           type="button"
           onClick={() => setActiveModel("v980")}
-          className={`px-5 py-2 rounded-full font-googleSans font-bold text-xs uppercase tracking-wider transition-all duration-300 ${
+          className={`px-5 py-2 font-googleSans font-bold text-xs uppercase tracking-wider transition-all duration-300 ${
             activeModel === "v980"
-              ? "bg-[#d8c79a] text-[#153d28] shadow-[0_0_12px_rgba(216,199,154,0.4)]"
+              ? "bg-[#d8c79a] text-[#153d28]"
               : "text-white/70 hover:text-white hover:bg-white/5"
           }`}
         >

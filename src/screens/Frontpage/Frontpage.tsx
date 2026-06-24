@@ -111,7 +111,7 @@ export const Frontpage = (): JSX.Element => {
       <Reveal
         variant="fade"
         delay={2600}
-        className="absolute top-[863px] flex items-center gap-1.5 p-1 bg-black/45 backdrop-blur-md border border-white/10 z-20"
+        className="absolute top-[927px] flex items-center gap-1.5 p-1 bg-black/45 backdrop-blur-md border border-white/10 z-20"
         style={{ left: "50%", transform: "translateX(-50%)" }}
       >
         <button

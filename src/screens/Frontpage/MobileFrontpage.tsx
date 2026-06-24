@@ -247,7 +247,7 @@ export const MobileFrontpage = (): JSX.Element => {
 
         {/* Mobile Model Switcher */}
         <div
-          className="absolute bottom-[170px] flex items-center gap-1.5 p-1 bg-black/45 backdrop-blur-md border border-white/10 z-20"
+          className="absolute bottom-[110px] flex items-center gap-1.5 p-1 bg-black/45 backdrop-blur-md border border-white/10 z-20"
           style={{ left: "50%", transform: "translateX(-50%)" }}
         >
           <button

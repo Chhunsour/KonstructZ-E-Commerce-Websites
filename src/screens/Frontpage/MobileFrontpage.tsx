@@ -137,6 +137,7 @@ const ProductSlider = () => {
 
 export const MobileFrontpage = (): JSX.Element => {
   const { t } = useI18n();
+  const [activeModel, setActiveModel] = useState<"v950" | "v980">("v950");
 
 
 
@@ -200,9 +201,10 @@ export const MobileFrontpage = (): JSX.Element => {
   return (
     <div className="home-reveal-scope bg-theme-bg text-theme-text w-full overflow-hidden transition-colors duration-200">
       {/* Hero */}
+      {/* Hero */}
       <section className="relative w-full h-[100svh] min-h-[560px] overflow-hidden">
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
           src="/video/banner-konstructz.mp4"
           autoPlay
           muted
@@ -210,15 +212,54 @@ export const MobileFrontpage = (): JSX.Element => {
           playsInline
           preload="auto"
           aria-label={t("auto.frontpage.konstructz.hero.background")}
+          style={{ opacity: activeModel === "v950" ? 1 : 0, zIndex: activeModel === "v950" ? 1 : 0 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
+        <video
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+          src="/video/skid-steer-v980-banner.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-label="STOMP V980 Hero Video"
+          style={{ opacity: activeModel === "v980" ? 1 : 0, zIndex: activeModel === "v980" ? 1 : 0 }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80 z-[2]" />
 
         <div className="relative z-10 px-5 pt-28 pb-16 flex flex-col h-full justify-end">
-          <span className="inline-block self-start border-2 border-[#d8c79a] px-3 py-1 mb-4 font-glonimove text-white text-sm">{t("auto.mobilefrontpage.mini.skid.steer")}</span>
-          <h1 className="font-heading text-white text-5xl leading-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
-            KONSTRUCTZ <span className="text-[#d8c79a]">{t("auto.mobilefrontpage.stomp.v950")}</span>
+          <span className="inline-block self-start border-2 border-[#d8c79a] px-3 py-1 mb-4 font-glonimove text-white text-sm z-10">{t("auto.mobilefrontpage.mini.skid.steer")}</span>
+          <h1 className="font-heading text-white text-5xl leading-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] z-10">
+            KONSTRUCTZ <span className="text-[#d8c79a]">{activeModel === "v950" ? t("auto.mobilefrontpage.stomp.v950") : "STOMP V980"}</span>
           </h1>
-          <div className="mt-6 flex flex-wrap gap-3">
+
+          {/* Mobile Model Switcher */}
+          <div className="mt-5 flex gap-2.5 z-10">
+            <button
+              type="button"
+              onClick={() => setActiveModel("v950")}
+              className={`px-4 py-2 border-2 border-solid text-xs font-bold font-googleSans uppercase tracking-wider rounded-[3px] transition-all duration-300 ${
+                activeModel === "v950"
+                  ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28]"
+                  : "bg-black/35 border-white/20 text-white"
+              }`}
+            >
+              STOMP V950
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveModel("v980")}
+              className={`px-4 py-2 border-2 border-solid text-xs font-bold font-googleSans uppercase tracking-wider rounded-[3px] transition-all duration-300 ${
+                activeModel === "v980"
+                  ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28]"
+                  : "bg-black/35 border-white/20 text-white"
+              }`}
+            >
+              STOMP V980
+            </button>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3 z-10">
             <Link
               to="/equipment"
               className="px-5 py-3 bg-[#153d28] text-white font-googleSans font-bold text-sm"

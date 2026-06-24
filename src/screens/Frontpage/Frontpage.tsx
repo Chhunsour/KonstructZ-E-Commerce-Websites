@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useI18n } from "../../context/I18nContext";
 import { AnimaScaler } from "../../components/layout/AnimaScaler";
 import { MobileFrontpage } from "./MobileFrontpage";
@@ -16,6 +17,7 @@ import "../../styles/home-reveal.css";
 
 export const Frontpage = (): JSX.Element => {
   const { t } = useI18n();
+  const [activeModel, setActiveModel] = useState<"v950" | "v980">("v950");
 
   return (
     <AnimaScaler bgColor="var(--theme-sec)" mobile={<MobileFrontpage />}>
@@ -32,7 +34,7 @@ export const Frontpage = (): JSX.Element => {
         aria-hidden="true"
       />
       <video
-        className="absolute top-0 left-0 w-[1919px] h-[1080px] aspect-[1.78] object-cover"
+        className="absolute top-0 left-0 w-[1919px] h-[1080px] aspect-[1.78] object-cover transition-opacity duration-1000 ease-in-out"
         src="/video/banner-konstructz.mp4"
         autoPlay
         muted
@@ -40,6 +42,18 @@ export const Frontpage = (): JSX.Element => {
         playsInline
         preload="auto"
         aria-label={t("auto.frontpage.konstructz.hero.background")}
+        style={{ opacity: activeModel === "v950" ? 1 : 0, zIndex: activeModel === "v950" ? 1 : 0 }}
+      />
+      <video
+        className="absolute top-0 left-0 w-[1919px] h-[1080px] aspect-[1.78] object-cover transition-opacity duration-1000 ease-in-out"
+        src="/video/skid-steer-v980-banner.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-label="STOMP V980 Hero Video"
+        style={{ opacity: activeModel === "v980" ? 1 : 0, zIndex: activeModel === "v980" ? 1 : 0 }}
       />
 
       {/* Left-side cinematic vignette — no visible edges, just a soft darkening
@@ -88,7 +102,39 @@ export const Frontpage = (): JSX.Element => {
         className="absolute top-[448px] left-[125px] w-[817px] [text-shadow:-6px_5px_10.4px_#00000040] [font-family:'Mission_X-Regular',Helvetica] font-normal text-transparent text-[87px] tracking-[0] leading-[normal]"
       >
         <span className="text-white">KONSTRUCTZ </span>
-        <span className="text-[#d8c79a]">{t("auto.frontpage.stomp.v950")}</span>
+        <span className="text-[#d8c79a]">
+          {activeModel === "v950" ? t("auto.frontpage.stomp.v950") : "STOMP V980"}
+        </span>
+      </Reveal>
+
+      {/* Model Switcher Buttons */}
+      <Reveal
+        variant="fade"
+        delay={2600}
+        className="absolute top-[580px] left-[125px] flex items-center gap-4 z-20"
+      >
+        <button
+          type="button"
+          onClick={() => setActiveModel("v950")}
+          className={`px-8 py-3.5 border-3 border-solid transition-all duration-300 font-googleSans font-bold text-base tracking-wider rounded-[3px] shadow-lg ${
+            activeModel === "v950"
+              ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28] scale-[1.02]"
+              : "bg-black/30 border-white/20 text-white hover:border-[#d8c79a] hover:text-[#d8c79a] hover:bg-black/50"
+          }`}
+        >
+          STOMP V950
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveModel("v980")}
+          className={`px-8 py-3.5 border-3 border-solid transition-all duration-300 font-googleSans font-bold text-base tracking-wider rounded-[3px] shadow-lg ${
+            activeModel === "v980"
+              ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28] scale-[1.02]"
+              : "bg-black/30 border-white/20 text-white hover:border-[#d8c79a] hover:text-[#d8c79a] hover:bg-black/50"
+          }`}
+        >
+          STOMP V980
+        </button>
       </Reveal>
 
       {/* Partner brands bar — fade only, never transform (marquee keeps running) */}

@@ -29,27 +29,27 @@ export const AttachmentsSupport: React.FC = () => {
     { q: t("auto.attachments.can.i.install"), a: "Most quick-attach attachments mount in minutes following our installation guide. Powered attachments require connecting hydraulic lines and a low-flow leak check before full use." },
     { q: t("auto.attachments.do.you.stock"), a: t("auto.attachments.yes.we.stock") },
     { q: t("auto.attachments.how.do.i"), a: t("auto.attachments.grease.pivot.points") },
-    { q: "Can I run a high-flow attachment on a standard machine?", a: "No — running a high-flow attachment on a standard-flow circuit will under-perform and may damage seals over time. We'll confirm whether your machine has standard or high-flow hydraulics before quoting an attachment." },
-    { q: "What's the difference between universal and pin-on mounts?", a: "Universal quick-attach plates let you swap attachments in seconds with the same coupler across multiple attachments. Pin-on mounts are direct-pinned to the boom — stronger for heavy demolition work but slower to change. Most modern Konstructz machines ship quick-attach ready." },
+    { q: "Can I run a high-flow attachment on a standard machine?", a: "Only if the selected machine is configured for that attachment's hydraulic demand. Running a mismatched powered tool can underperform, overheat oil, or shorten seal life, so Konstructz confirms the setup before quoting." },
+    { q: "What's the difference between quick-attach and pin-on mounts?", a: "Quick-attach systems make tool changes faster across compatible couplers. Pin-on mounts connect directly to the boom and can suit heavier-duty work, but they are slower to change. The right answer depends on the machine and attachment." },
   ];
 
   const stats = [
-    { value: "GPM", label: "Flow Match", sub: "Attachment paired to machine output" },
-    { value: "PSI", label: "Pressure Check", sub: "Verified at low flow before full use" },
-    { value: "QA+", label: "Quick-Attach Ready", sub: "Most machines support modern couplers" },
-    { value: "OEM", label: "Genuine Parts", sub: "Teeth, edges & seals from our warehouse" },
+    { value: "Flow", label: "Hydraulic Match", sub: "Attachment paired to machine output" },
+    { value: "Pressure", label: "Circuit Check", sub: "Verified before full use" },
+    { value: "Coupler", label: "Mount Verified", sub: "Plate or pin setup confirmed" },
+    { value: "Parts", label: "Wear Support", sub: "Teeth, edges and seals identified" },
   ];
 
   const compatJourney = [
-    { icon: Icons.machine, title: "Send your machine model", desc: "We need your machine model, serial number, and ideally a photo of the existing coupler. That tells us coupler standard, hydraulic flow, and pressure rating." },
-    { icon: Icons.gauge, title: "We confirm specs", desc: "Our specialist cross-checks the attachment's required GPM and PSI against your machine's hydraulic circuit and writes back a clear compatible / not compatible decision." },
-    { icon: Icons.attachments, title: "Quote with confidence", desc: "If compatible, you receive a quote with the exact attachment SKU and any adapter plates required. If not, we suggest the closest compatible alternative." },
-    { icon: Icons.truck, title: "Ship with the right parts", desc: "Attachment ships with the correct hose ends, couplers, and a printed install card so the on-site crew can mount it without a service visit." },
-    { icon: Icons.check, title: "Verify on site", desc: "On the first start-up, run the attachment at low flow first to check for leaks, then ramp up. Call us if anything looks off — we'll walk through it on the phone." },
+    { icon: Icons.machine, title: "Send your machine model", desc: "Share the machine model, serial number if available, and photos of the coupler and auxiliary lines. That gives us the fitment baseline." },
+    { icon: Icons.gauge, title: "We confirm specs", desc: "Our specialist checks mounting style, hydraulic demand, pressure range, hose ends, and any electrical requirements before recommending an attachment." },
+    { icon: Icons.attachments, title: "Quote with confidence", desc: "If the setup is compatible, you receive a quote with the attachment and any adapter items required. If not, we suggest the closest practical alternative." },
+    { icon: Icons.truck, title: "Ship with the right parts", desc: "Attachment shipments include the matched hose and coupler guidance available for that configuration so the on-site crew knows what to inspect." },
+    { icon: Icons.check, title: "Verify on site", desc: "On first start-up, cycle the attachment slowly, check for leaks or binding, and contact Konstructz if anything looks off before full operation." },
   ];
 
   const trust = [
-    { icon: Icons.shield, label: "Spec-Matched", sub: "GPM & PSI confirmed before quote" },
+    { icon: Icons.shield, label: "Spec-Matched", sub: "Flow and pressure reviewed before quote" },
     { icon: Icons.attachments, label: "Coupler Verified", sub: "Mounting plate compatibility cleared" },
     { icon: Icons.wrench, label: "Install Cards", sub: "Printed mount instructions in every box" },
     { icon: Icons.bolt, label: "Phone-In Setup", sub: "Specialist walkthrough on first start" },
@@ -59,9 +59,9 @@ export const AttachmentsSupport: React.FC = () => {
     left: {
       title: "Compatible setups",
       items: [
-        "Matching coupler standard (universal quick-attach or pin-on)",
-        "Hydraulic flow within the attachment's GPM range",
-        "Operating pressure within the attachment's PSI rating",
+        "Matching coupler style or adapter path",
+        "Hydraulic flow within the attachment's required range",
+        "Operating pressure within the attachment's required range",
         "Required auxiliary circuit (e.g., case drain) present",
         "Machine weight & lift capacity adequate for the load",
       ],
@@ -127,7 +127,7 @@ export const AttachmentsSupport: React.FC = () => {
         image="/img/support/production-hall.jpg"
         eyebrow="Real Hydraulics, Real Tools"
         title="Attachments Engineered, Not Adapted"
-        body="Every attachment in our catalogue is paired with a verified hydraulic spec and mounting standard. No 'we think it might fit' — only confirmed compatibility before you commit."
+        body="Every attachment inquiry is checked against machine fitment, hydraulic demand, and mounting style before quote. The result is a cleaner buying path and fewer surprises at first start."
         tone="green"
       />
 

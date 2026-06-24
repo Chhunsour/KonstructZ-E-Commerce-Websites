@@ -54,14 +54,14 @@ export const TowableExcavators: React.FC = () => {
 
         <CategoryInfoSections
           categoryName="Towable Excavator"
-          usedFor="A towable excavator is a small excavator on a road-legal trailer chassis that gets pulled behind a pickup or utility vehicle. Once on site, outriggers deploy and the boom and bucket dig like a standard mini excavator. It is built for remote, rural and access-limited work."
+          usedFor="A towable excavator is a small excavator on a tow-behind chassis that can be moved with a suitable pickup or utility vehicle where local towing rules allow. Once on site, outriggers deploy and the boom and bucket handle light excavation tasks. It is built for remote, rural and access-limited work."
           bestFor="Towable excavators fit landowners, farms, ranches, utility crews, telecom and irrigation installers, and contractors who travel between many small jobs and want to avoid trucking a tracked machine on a separate trailer each time."
           benefits={[
-            "Tows behind a standard pickup or utility vehicle",
+            "Tow-behind format reduces transport complexity for suitable vehicles",
             "Outriggers stabilize the dig on slopes and uneven ground",
             "Lower transport cost than a tracked mini and dedicated trailer",
             "Compact deployed footprint for access-limited sites",
-            "Easy to store between jobs on a standard trailer slot",
+            "Compact storage footprint between jobs",
           ]}
           applications={[
             "Rural utility installs",
@@ -72,7 +72,7 @@ export const TowableExcavators: React.FC = () => {
             "Garden & pond digging",
             "Off-grid property work",
           ]}
-          compatibility="Konstructz towable excavators accept standard digging and trenching buckets and a thumb attachment for material handling. Confirm coupler pin size and hydraulic flow against the attachments you plan to run."
+          compatibility="Konstructz towable excavators can be configured with digging and trenching buckets and thumb options for material handling. Confirm coupler pin size and hydraulic flow against the attachments you plan to run."
           maintenance="Trailer brakes, lights, wheel bearings and boom hydraulics are the four areas to check before every haul. The Konstructz support team can help owners set a preventative service schedule and source replacement wear parts."
           buyingTips={[
             "Match towing weight, hitch class and brake spec to the vehicle that will pull it most often.",
@@ -83,11 +83,11 @@ export const TowableExcavators: React.FC = () => {
           faqs={[
             {
               q: "What is a towable excavator?",
-              a: "A towable excavator is a small excavator mounted on a road-legal trailer chassis. You tow it behind a pickup, lower the outriggers on site, and operate it like a mini excavator without needing a separate trailer or commercial transport.",
+              a: "A towable excavator is a small excavator mounted on a tow-behind chassis. You move it with a suitable vehicle, lower the outriggers on site, and operate the boom and bucket for light digging and property work.",
             },
             {
               q: "Do I need a CDL to tow one?",
-              a: "Towing requirements depend on combined vehicle weight and local law. Most light towable excavators fall under standard non-commercial towing class, but always verify the hitch class, brake controller requirement and weight limits in your region.",
+              a: "Towing requirements depend on combined vehicle weight, hitch class, brake equipment, and local law. Always verify your vehicle, route, and regional rules before towing.",
             },
             {
               q: "Towable vs tracked mini excavator — which should I buy?",
@@ -95,7 +95,7 @@ export const TowableExcavators: React.FC = () => {
             },
             {
               q: "How deep can a towable excavator dig?",
-              a: "Dig depth varies by model — check the spec on each product page. For most residential, agricultural and small utility work, towable excavators reach the depth needed for footings, septic, and standard utility runs.",
+              a: "Dig depth varies by model and configuration. Confirm the required depth, soil conditions, and bucket choice with Konstructz before selecting a towable excavator.",
             },
           ]}
         />

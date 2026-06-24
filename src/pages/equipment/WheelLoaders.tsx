@@ -13,7 +13,7 @@ export const WheelLoaders: React.FC = () => {
   const upcomingProduct = {
     name: t("auto.wheelloaders.k.load.1200"),
     tagline: t("auto.wheelloaders.next.generation.heavy"),
-    description: "The upcoming Konstructz K-LOAD 1200 is being engineered for high-capacity bulk material handling — built around traction, loading speed, fuel efficiency, and operator comfort. Final specifications will be published ahead of launch.",
+    description: "The upcoming Konstructz K-LOAD 1200 is being engineered for bulk material handling — built around traction, loading rhythm, service access, and operator comfort. Final specifications will be published ahead of launch.",
     specs: [
       { label: t("auto.wheelloaders.operating.capacity"), value: "Varies by model" },
       { label: t("auto.wheelloaders.engine.power"), value: "Depends on final configuration" },
@@ -98,7 +98,7 @@ export const WheelLoaders: React.FC = () => {
           bestFor="Wheel loaders fit aggregate yards, recycling operations, snow and ice contractors, large landscapers, agricultural users, ready-mix plants and any commercial site that loads trucks or moves bulk material every day."
           benefits={[
             "Articulated chassis turns tight while keeping the bucket level",
-            "High lift and dump height suits standard truck and hopper heights",
+            "Loader geometry can be matched to truck, hopper, and stockpile height requirements",
             "Wheeled travel is fast between piles and across paved yards",
             "Cab visibility designed for repetitive loading cycles",
             "Quick-coupler enables fast tool changes between buckets, forks and snow blades",
@@ -112,10 +112,10 @@ export const WheelLoaders: React.FC = () => {
             "Mulch & landscape supply",
             "Agriculture & feed",
           ]}
-          compatibility="Konstructz wheel loaders are designed for a coupler-based attachment workflow — general purpose buckets, light-material buckets, pallet forks, grapples, snow plows and snow buckets. Confirm bucket capacity, coupler type and hydraulic flow before pairing tools."
+          compatibility="Konstructz wheel loaders are designed for a coupler-based attachment workflow — general purpose buckets, light-material buckets, pallet forks, grapples, snow plows and snow buckets. Confirm bucket size, coupler type and hydraulic flow before pairing tools."
           maintenance="Tire condition, articulation pivot pins, hydraulic oil and air filtration are the daily and weekly checks that keep a wheel loader productive. The Konstructz support team helps owners stay ahead of service intervals so loading cycles stay predictable."
           buyingTips={[
-            "Size the bucket capacity to the truck or hopper you load most often — undersized buckets waste cycles, oversized buckets waste fuel.",
+            "Size the bucket to the truck or hopper you load most often so cycle time and machine strain stay balanced.",
             "Check dump height and reach against the side of your loading targets, not just the spec sheet.",
             "Choose tire type for the surface — block tires for hard pavement, lug tires for soft ground.",
             "Plan attachment range — forks and snow tools dramatically increase the seasons a wheel loader earns in.",
@@ -135,7 +135,7 @@ export const WheelLoaders: React.FC = () => {
             },
             {
               q: "Can a wheel loader run a snow plow?",
-              a: "Yes. With a coupler-mounted snow blade, snow bucket or pusher box, a wheel loader becomes a high-capacity snow and ice machine for commercial lots and roadways.",
+              a: "Yes. With a correctly matched snow blade, snow bucket, or pusher box, a wheel loader can support commercial snow and ice operations on lots, yards, and private roads.",
             },
           ]}
         />

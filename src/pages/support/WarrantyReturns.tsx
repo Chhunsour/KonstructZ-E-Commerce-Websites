@@ -25,7 +25,7 @@ export const WarrantyReturns: React.FC = () => {
 
   const faqs = [
     { q: t("auto.warrantyreturns.what.warranty.comes"), a: t("auto.warrantyreturns.each.machine.includes") },
-    { q: t("auto.warrantyreturns.how.do.i"), a: t("auto.warrantyreturns.submit.your.machine") },
+    { q: t("auto.warrantyreturns.how.do.i"), a: "Submit your machine model, serial number, and issue details through Contact Support. The service team reviews the case, asks for photos or video if needed, and responds with the next practical step." },
     { q: t("auto.warrantyreturns.am.i.eligible"), a: t("auto.warrantyreturns.unused.units.in") },
     { q: t("auto.warrantyreturns.how.do.replacement"), a: t("auto.warrantyreturns.approved.warranty.parts") },
     { q: t("auto.warrantyreturns.does.the.warranty"), a: t("auto.warrantyreturns.routine.wear.items") },
@@ -37,13 +37,13 @@ export const WarrantyReturns: React.FC = () => {
     { value: "Frame", label: "Structural Cover", sub: "Reinforced castings & chassis" },
     { value: "Engine", label: "Powertrain Cover", sub: "Industrial diesel & drive" },
     { value: "Hydraulics", label: "System Cover", sub: "Pumps, valves & cylinders" },
-    { value: "1×", label: "Specialist Per Claim", sub: "Same point of contact end-to-end" },
+    { value: "Direct", label: "Claim Support", sub: "Service team coordinates the case" },
   ];
 
   const claimJourney = [
     { icon: Icons.doc, title: "Open a claim", desc: "Send model, serial, purchase date, and a description of the issue through the contact form or call our service line." },
     { icon: Icons.search, title: "Service review", desc: "Our service team reviews your claim, asks for photos or a short video if needed, and confirms what the warranty covers." },
-    { icon: Icons.check, title: "Approval & plan", desc: "Once approved, you get a plan: parts shipped, mobile service dispatched, or a remote troubleshooting walkthrough." },
+    { icon: Icons.check, title: "Approval & plan", desc: "Once approved, you get a plan: parts shipped, partner service scheduled where available, or a remote troubleshooting walkthrough." },
     { icon: Icons.truck, title: "Parts or service", desc: "Genuine replacement parts ship from our warehouse, or a service appointment is scheduled with one of our partners in your region." },
     { icon: Icons.wrench, title: "Repair & verify", desc: "After the repair, we verify the unit is operating normally and close out the claim with documentation for your records." },
   ];
@@ -73,8 +73,8 @@ export const WarrantyReturns: React.FC = () => {
 
   const trust = [
     { icon: Icons.shield, label: "Direct From Maker", sub: "No outsourced warranty middlemen" },
-    { icon: Icons.bolt, label: "Same-Day Response", sub: "Claims acknowledged inside one business day" },
-    { icon: Icons.wrench, label: "Genuine Parts", sub: "Shipped from our own parts warehouse" },
+    { icon: Icons.bolt, label: "Responsive Review", sub: "Claims routed to the service team" },
+    { icon: Icons.wrench, label: "Parts Support", sub: "Replacement path confirmed per claim" },
     { icon: Icons.doc, label: "Documented Closure", sub: "Every repair logged for your records" },
   ];
 
@@ -134,7 +134,7 @@ export const WarrantyReturns: React.FC = () => {
         <SectionHeading
           eyebrow="Service Promise"
           title="What You Can Expect From Us"
-          description="Warranty support without the runaround — that's been our standard since day one."
+          description="Warranty support should feel clear, documented, and practical from the first claim note to the final repair record."
         />
         <div className="mt-12"><TrustStrip items={trust} /></div>
       </Section>
@@ -160,7 +160,7 @@ export const WarrantyReturns: React.FC = () => {
         image="/img/support/factory-worker.png"
         eyebrow="Built To Be Repairable"
         title="Heavy Castings, Honest Hydraulics, Simple Service"
-        body="Our machines are built without the electronic fragility that traps modern equipment. When something does need attention, parts are accessible, components are standard, and our team is on the line."
+        body="Konstructz machines are selected for serviceable layouts, accessible components, and practical troubleshooting. When something needs attention, the support path is documented before work begins."
         tone="green"
       />
 

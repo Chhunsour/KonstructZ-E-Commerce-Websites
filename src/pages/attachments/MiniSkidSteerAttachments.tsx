@@ -107,21 +107,21 @@ export const MiniSkidSteerAttachments: React.FC = () => {
           scope="skid steer"
           intro="A skid steer is only as productive as the attachment library it can run. The same chassis becomes a drill, a sorter, a snow pusher, a grapple, a sweeper or a trencher — depending on what's mounted to the plate. Konstructz attachments are built around the way skid steers are actually worked: hard cycles, fast swaps, varied ground."
           benefits={[
-            "Universal quick-attach plate for fast tool changes",
+            "Quick-attach plate options for fast tool changes",
             "Hardened wear steel sized for daily skid steer cycles",
-            "Matched to common standard-flow hydraulic specs",
+            "Matched to the machine's hydraulic flow class",
             "Replaceable wear parts to extend tool life",
             "Backed by Konstructz parts and fitment support",
           ]}
-          compatibility="Most Konstructz skid steer attachments mount on a universal quick-attach plate, so they fit a wide range of compact and standard skid steers. Flow class matters — high-flow attachments like augers and breakers require a machine rated for high flow. Send us your machine specs before ordering and we will confirm fitment."
+          compatibility="Konstructz skid steer attachments are matched by coupler style, machine class, hydraulic flow, and operating pressure. Send us your machine details before ordering and we will confirm fitment."
           faqs={[
             {
               q: "Will Konstructz attachments fit any skid steer?",
-              a: "Most do. The universal quick-attach plate is the common standard across skid steers. Some compact loaders use a smaller plate — confirm the plate style and hydraulic flow with our team before ordering.",
+              a: "Many can be matched across compatible quick-attach systems. Some compact loaders use smaller plates, so confirm the plate style and hydraulic flow with our team before ordering.",
             },
             {
               q: "What is standard-flow vs high-flow on a skid steer?",
-              a: "Flow describes hydraulic gallons per minute. Standard-flow covers most attachments. High-flow attachments — mulchers, cold planers, large augers — need a machine rated for high flow or they will starve.",
+              a: "Flow describes hydraulic output. Many everyday tools run on lower-flow circuits, while higher-demand attachments such as mulchers, cold planers, and large augers need a matching machine setup.",
             },
             {
               q: "How fast can I swap attachments?",

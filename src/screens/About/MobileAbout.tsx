@@ -83,8 +83,8 @@ export const MobileAbout = (): JSX.Element => {
     {
       id: 1,
       rating: "5.0 / 5.0 Review",
-      title: "Reliable Machinery & Direct Support",
-      body: "Outstanding build quality. We purchased the Stomp V980 skid steer and it has been running non-stop on our landscaping site without any issues.",
+      title: "Seamless Online Purchase",
+      body: "We ordered the Stomp V980 loader directly through their online checkout. The financing approval took minutes, and the machine was delivered to our site fully ready for deployment.",
       author: "- John Mirkant - Operations Manager",
       starFilled: "/img/star-3.svg",
       starEmpty: "/img/star-5.svg",
@@ -92,8 +92,8 @@ export const MobileAbout = (): JSX.Element => {
     {
       id: 2,
       rating: "4.8 / 5.0 Review",
-      title: "Excellent Service & Parts Dispatch",
-      body: "Incredible direct customer support. Our technical questions about attachment hydraulic flows were answered quickly by a machinery specialist.",
+      title: "Easy E-Commerce Compatibility",
+      body: "Finding attachment options on this digital store is incredibly easy. We bought a trenching bucket online and had it shipped to our site. The specs check tool is 100% accurate.",
       author: "- Sarah Jenkins - Site Supervisor",
       starFilled: "/img/star-3-2.svg",
       starEmpty: "/img/star-5-2.svg",
@@ -101,8 +101,8 @@ export const MobileAbout = (): JSX.Element => {
     {
       id: 3,
       rating: "4.9 / 5.0 Review",
-      title: "Tough, Job-Site Ready Equipment",
-      body: "The mini excavator is extremely robust and easy to operate. Delivery was fast, DOT-compliant, and direct to our residential construction site.",
+      title: "Fast Online Orders & Tracking",
+      body: "Ordering heavy equipment online felt risky, but the support chat helped us select the right model. Secure checkout, easy real-time tracking, and fast delivery direct to our yard.",
       author: "- Mateo Silva - Contractor",
       starFilled: "/img/star-3-2.svg",
       starEmpty: "/img/star-5-2.svg",

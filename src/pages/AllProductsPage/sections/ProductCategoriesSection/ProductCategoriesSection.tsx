@@ -130,12 +130,12 @@ export const ProductCategoriesSection = (): JSX.Element => {
             </div>
             <div className={testimonial.contentClassName}>
               <div className={testimonial.ratingTextClassName}>{t("auto.productcategories.4.0.5")}</div>
-              <h3 className={testimonial.titleClassName}>{t("auto.productcategories.good.offer.dealer")}</h3>
+              <h3 className={testimonial.titleClassName}>Equipment guidance that feels specific</h3>
               <p className={testimonial.descriptionClassName}>
-                It is a long established fact that a reader will be distracted
-                the industry&#39;s standard.
+                Konstructz helps buyers compare machines by jobsite access, material type,
+                attachment needs, and support path before a quote is approved.
               </p>
-              <p className={testimonial.authorClassName}>{t("auto.productcategories.jhon.mirkant.manager")}</p>
+              <p className={testimonial.authorClassName}>Konstructz buyer support</p>
             </div>
             <img
               className={testimonial.avatarImgClassName}

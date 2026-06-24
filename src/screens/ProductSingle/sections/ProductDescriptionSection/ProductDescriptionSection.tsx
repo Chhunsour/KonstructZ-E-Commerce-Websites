@@ -113,7 +113,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
         a: "Track construction varies by model and configuration. The right track choice depends on the surface, soil, transport method, and expected duty cycle."
       },
       {
-        q: "Does the machine come pre-plumbed for attachments?",
+        q: "Can it be configured for powered attachments?",
         a: "Attachment plumbing depends on final configuration. Confirm auxiliary lines, coupler type, and flow needs with Konstructz before ordering powered tools."
       },
       {
@@ -243,7 +243,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     ],
     applications: ["Soft-ground hauling", "Backyard landscaping", "Urban demolition", "Trail building"],
     buyerGuidance: [
-      "Match payload class to your material type, haul distance, slope, and access width.",
+      "Match hauling class to your material type, haul distance, slope, and access width.",
       "Choose a model with a self-loading shovel if working without an auxiliary excavator.",
       "Consider a 180-degree swivel dump box for precise side-dumping in narrow trenches."
     ],
@@ -338,7 +338,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     applications: ["Utility pipe laying", "Irrigation prep", "Drainage install", "Fiber optic routing"],
     buyerGuidance: [
       "Determine required trench depth, width, soil type, route length, and access clearance.",
-      "Choose track models for superior control and less ground disruption on turf.",
+      "Choose track models when the work calls for more ground contact and lower turf disruption.",
       "Review the chain configurations (e.g., cup teeth vs. shark teeth) for clay vs. rock soil."
     ],
     maintenance: [

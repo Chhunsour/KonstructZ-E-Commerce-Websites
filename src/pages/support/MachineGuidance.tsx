@@ -159,7 +159,7 @@ export const MachineGuidance: React.FC = () => {
         <div className="mt-14 space-y-16">
           <FeatureSplit eyebrow={t("auto.machineguidance.mini.excavator.guide")} title={t("auto.machineguidance.dig.deep.fit")} body={t("auto.machineguidance.our.mini.excavators")} image="/img/mini-excavator-png-4-1.png" />
           <FeatureSplit reverse eyebrow={t("auto.machineguidance.mini.skid.steer")} title={t("auto.machineguidance.compact.power.endless")} body={t("auto.machineguidance.the.stomp.class")} image="/img/stomp-v980-5.png" />
-          <FeatureSplit eyebrow={t("auto.machineguidance.wheel.loader.guide")} title={t("auto.machineguidance.load.haul.repeat")} body="High-torque wheel loaders move aggregate and stockpile material all day with strong bucket capacity and simple, serviceable mechanical drive." image="/img/skoop-png-4.png" />
+          <FeatureSplit eyebrow={t("auto.machineguidance.wheel.loader.guide")} title={t("auto.machineguidance.load.haul.repeat")} body="Wheel loaders move aggregate and stockpile material through repeatable loading cycles, with bucket selection, tire setup, and service access matched to the yard." image="/img/skoop-png-4.png" />
           <FeatureSplit reverse eyebrow={t("auto.machineguidance.stone.crusher.guide")} title={t("auto.machineguidance.process.aggregate.on")} body={t("auto.machineguidance.heavy.duty.ground")} image="/img/groundripper-png-4.png" />
         </div>
       </Section>

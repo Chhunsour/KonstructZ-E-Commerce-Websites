@@ -54,7 +54,7 @@ export const Dumpers: React.FC = () => {
 
         <CategoryInfoSections
           categoryName="Compact Dumper"
-          usedFor="A compact dumper is a small, high-payload hauler used on construction, landscaping and farm sites to move bulk material — concrete, aggregate, soil, mulch, demolition waste — between the staging point and the work area. Tracked dumpers extend that capability onto soft, sloped or muddy ground."
+          usedFor="A compact dumper is a small jobsite hauler used on construction, landscaping and farm sites to move bulk material — concrete, aggregate, soil, mulch, demolition waste — between the staging point and the work area. Tracked dumpers extend that capability onto soft, sloped or muddy ground when configured correctly."
           bestFor="Compact dumpers fit residential builders, hardscape and landscape crews, concrete contractors, demolition teams, farms, and anyone moving material across ground a wheeled dump truck can't safely cross."
           benefits={[
             "Tracked undercarriage handles mud, slope and soft ground",
@@ -75,7 +75,7 @@ export const Dumpers: React.FC = () => {
           compatibility="Konstructz dumpers ship in tracked and wheeled formats with hydraulic tip and (on select models) hydraulic swivel and self-loading shovel options — so you can match the chassis and box to how the material gets in, out, and across the site."
           maintenance="Track tension, hydraulic cylinder condition, and bed pivot pins are the daily checks that keep a dumper running. Konstructz support can guide owners through scheduled service intervals and source replacement wear parts when needed."
           buyingTips={[
-            "Match payload to your most-repeated load — concrete is much heavier than mulch for the same box volume.",
+            "Match hauling class to your most-repeated load — concrete is much heavier than mulch for the same box volume.",
             "Choose tracked or wheeled based on ground condition — tracks for mud and slopes, wheels for hard surfaces.",
             "Pick the dump style — straight tip, three-way tip, or swivel — based on how often you need to discharge to one side.",
             "Decide whether you need a self-loading shovel — it removes one machine from the loading cycle on solo jobs.",
@@ -91,7 +91,7 @@ export const Dumpers: React.FC = () => {
             },
             {
               q: "Can I use a dumper on a slope?",
-              a: "Tracked compact dumpers are designed for sloped ground within the rated incline angle on each product page. Always load within capacity and follow the operator's manual for slope direction.",
+              a: "Tracked compact dumpers can help on uneven or sloped ground when used within the selected model's operating guidance. Keep loads balanced, avoid unsafe side slopes, and follow the operator's manual.",
             },
             {
               q: "How do dumpers compare to wheelbarrows for concrete?",

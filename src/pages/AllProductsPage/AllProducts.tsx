@@ -195,9 +195,9 @@ const HeroSection: React.FC = () => {
   ];
 
   const HERO_SPECS = [
-    { icon: "/all-products/img/car-service-parts-warning-error-electric-refueling.svg", value: "3", label: "TONS" },
-    { icon: "/all-products/img/car-service-parts-speedometer.svg", value: t("auto.allproducts.30.mpa"), label: t("auto.allproducts.digging.force") },
-    { icon: "/all-products/img/car-service-parts-car-time-timer.svg", value: "21", label: "Horsepower" },
+    { icon: "/all-products/img/car-service-parts-warning-error-electric-refueling.svg", value: "Setup", label: "Varies" },
+    { icon: "/all-products/img/car-service-parts-speedometer.svg", value: "Fit", label: "Confirmed" },
+    { icon: "/all-products/img/car-service-parts-car-time-timer.svg", value: "Power", label: "Configured" },
   ];
 
   return (
@@ -255,13 +255,7 @@ const HeroSection: React.FC = () => {
                 <img src={s.icon} alt="" aria-hidden="true" className="w-7 h-7 sm:w-10 sm:h-10 dark:invert-0 invert opacity-80 dark:opacity-100" />
                 <div className="flex items-baseline gap-2">
                   <span className="font-[Cal_Sans] text-theme-text text-xl sm:text-2xl lg:text-[28px]">{s.value}</span>
-                  <span className="font-[Roboto_Flex] text-theme-muted text-xs sm:text-sm lg:text-base">
-                    {s.label === "TONS"
-                      ? t("allProducts.tons")
-                      : s.label === "Digging Force"
-                        ? t("allProducts.diggingForce")
-                        : t("equipment.horsepower")}
-                  </span>
+                  <span className="font-[Roboto_Flex] text-theme-muted text-xs sm:text-sm lg:text-base">{s.label}</span>
                 </div>
               </li>
               {i < HERO_SPECS.length - 1 && (
@@ -603,11 +597,11 @@ const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCategory, s
     "Stone Crusher": "stone-crushers"
   };
 
-  const WEIGHT_FILTERS = [t("auto.allproducts.1.ton"), t("auto.allproducts.1.ton"), t("auto.allproducts.2.tons"), t("auto.allproducts.3.tons"), t("auto.allproducts.4.tons"), t("auto.allproducts.5.tons"), t("auto.allproducts.6.tons")];
+  const WEIGHT_FILTERS = ["Based on selected setup", "Varies by model", "Transport class to confirm"];
 
-  const ENGINE_FILTERS = ["Kubota", "Yamaha", t("auto.allproducts.briggs.stratton"), "Honda", "Perkins"];
+  const ENGINE_FILTERS = ["Depends on final configuration", "Gas or diesel options", "Confirm before quote"];
 
-  const HORSEPOWER_FILTERS = [t("auto.allproducts.11.1.hp"), t("auto.allproducts.22.2.hp"), t("auto.allproducts.33.3.hp"), t("auto.allproducts.44.4.hp"), t("auto.allproducts.55.5.hp"), t("auto.allproducts.66.6.hp"), t("auto.allproducts.77.7.hp")];
+  const HORSEPOWER_FILTERS = ["Power varies by model", "Match to attachment load", "Confirm final setup"];
 
   const filteredList = EQUIPMENT_LIST
     .filter((e) => !query || e.name.toLowerCase().includes(query.toLowerCase()))

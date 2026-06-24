@@ -107,7 +107,7 @@ export const ContactSupport: React.FC = () => {
               <div className="mt-8 bg-theme-accent/10 border-2 border-theme-accent text-theme-heading p-6 rounded text-center space-y-3">
                 <span className="w-10 h-10 mx-auto block text-theme-accent"><Icons.warranty /></span>
                 <h3 className="text-lg font-googleSans font-bold uppercase">{t("auto.contact.message.received")}</h3>
-                <p className="font-glonimove text-sm leading-relaxed max-w-md mx-auto text-theme-muted">{t("auto.contact.a.konstructz.specialist")}</p>
+                <p className="font-glonimove text-sm leading-relaxed max-w-md mx-auto text-theme-muted">A Konstructz specialist will review your request and route the next step based on machine model, attachment fitment, or purchase topic.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -186,7 +186,7 @@ export const ContactSupport: React.FC = () => {
         image="/img/support/analyzing-data.jpg"
         eyebrow="Real Specialists"
         title="Direct Lines To People Who Run Machines"
-        body="When you call, you reach someone who knows the difference between a thumb and a grapple, between a high-flow circuit and a standard one. No transfers. No scripts."
+        body="When you call, you reach a support path built around machine model, attachment fitment, hydraulic setup, and the job you need to finish."
       />
 
       <Section variant="secondary" bordered>

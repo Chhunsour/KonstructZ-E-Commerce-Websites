@@ -65,12 +65,12 @@ export const MiniSkidSteers: React.FC = () => {
             "Trenching with attachments",
             "Farm & ranch work",
           ]}
-          compatibility="Konstructz skid steer loaders use a universal quick-attach plate, opening up a deep attachment library — buckets, forks, augers, trenchers, brooms, snow blades, hydraulic breakers, grapples, and more. Always confirm hydraulic flow class (standard vs high-flow) before pairing a tool."
+          compatibility="Konstructz skid steer loaders are configured around quick-attach workflows, opening up a deep attachment library — buckets, forks, augers, trenchers, brooms, snow blades, hydraulic breakers, grapples, and more. Confirm coupler style and hydraulic flow class before pairing a tool."
           maintenance="Daily checks on hydraulic oil, track or tire condition, and the quick-attach pins keep a skid steer running reliably. Konstructz maintenance support covers schedules, fluid specs, and parts sourcing so downtime stays predictable."
           buyingTips={[
             "Choose tracked or wheeled based on the surfaces you work on most — tracks float on soft ground, wheels are faster and gentler on finished pavement.",
-            "Match operating capacity to the heaviest pallet, bucket load, or attachment you actually lift, including with materials.",
-            "Confirm hydraulic flow class — high-flow attachments will starve on a standard-flow machine.",
+            "Match lift class to the heaviest pallet, bucket load, or attachment you regularly handle.",
+            "Confirm hydraulic flow class so powered attachments match the selected machine setup.",
             "Plan cab options for the environment: open cabs are lighter and cheaper, enclosed cabs add comfort and safety in dust, cold, or noise.",
           ]}
           faqs={[
@@ -84,11 +84,11 @@ export const MiniSkidSteers: React.FC = () => {
             },
             {
               q: "Can I run any attachment on a skid steer?",
-              a: "Most attachments mount on a standard universal quick-attach plate. The key check is hydraulic flow — high-flow tools like cold planers, mulchers and rock saws need a machine rated for that flow class.",
+              a: "Many attachments mount through quick-attach couplers, but the key checks are coupler type, hydraulic flow, and machine lift class. Tools such as cold planers, mulchers, and rock saws need a matching hydraulic setup.",
             },
             {
               q: "How heavy a load can a skid steer lift?",
-              a: "Lift capacity varies by model. Check the rated operating capacity on each product page and add a safety margin for the weight of the attachment itself.",
+              a: "Lift capability varies by model and final setup. Ask Konstructz to confirm the machine, attachment weight, and material load together before ordering.",
             },
           ]}
         />

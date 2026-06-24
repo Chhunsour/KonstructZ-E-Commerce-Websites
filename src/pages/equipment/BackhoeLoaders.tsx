@@ -65,11 +65,11 @@ export const BackhoeLoaders: React.FC = () => {
             "Farm & ranch work",
             "Municipal repair",
           ]}
-          compatibility="Konstructz backhoe loaders accept standard digging buckets, ditching buckets, hydraulic breakers, augers and thumbs on the backhoe end; and quick-attach loader buckets, forks and blades on the front. Confirm coupler type and hydraulic flow before pairing tools."
+          compatibility="Konstructz backhoe loaders can be configured with digging buckets, ditching buckets, hydraulic breakers, augers and thumbs on the backhoe end; and loader buckets, forks and blades on the front. Confirm coupler type and hydraulic flow before pairing tools."
           maintenance="Daily greasing of every pivot, regular hydraulic oil and filter service, and stabilizer pad checks keep a backhoe loader productive across long projects. Konstructz support provides maintenance schedules, parts diagrams and remote guidance to keep planned downtime predictable."
           buyingTips={[
             "Match backhoe dig depth to the deepest utility trench you actually run, not best-case spec sheets.",
-            "Check loader bucket capacity against your most common load — material, not just water capacity.",
+            "Check loader bucket size against your most common load and material density.",
             "Decide between 2WD and 4WD based on jobsite surfaces — mud, snow and slopes need 4WD.",
             "Plan stabilizer pad type for the surface you set down on — finished asphalt needs different pads than soft soil.",
           ]}
@@ -84,7 +84,7 @@ export const BackhoeLoaders: React.FC = () => {
             },
             {
               q: "Can a backhoe loader run on public roads?",
-              a: "Most wheeled backhoes are roadable. Local rules cover lighting, slow-moving vehicle signage, and licensing. Check your jurisdiction's road code before driving between sites.",
+              a: "Some wheeled backhoes can travel between nearby sites when properly equipped. Local rules cover lighting, signage, licensing, and road use, so check your jurisdiction before driving between sites.",
             },
             {
               q: "What attachments work with a backhoe?",

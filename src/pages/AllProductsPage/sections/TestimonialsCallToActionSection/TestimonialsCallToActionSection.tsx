@@ -64,7 +64,7 @@ export const TestimonialsCallToActionSection = (): JSX.Element => {
               id="testimonials-call-to-action-heading"
               className="inline text-white"
             >
-              Make An Appointment This Call Now{" "}
+              Make An Appointment or Call Us Now{" "}
             </h2>
             <a
               href="tel:+12132142203"

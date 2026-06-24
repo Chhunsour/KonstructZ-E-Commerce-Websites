@@ -25,7 +25,7 @@ export const AttachmentInfo: React.FC<AttachmentInfoProps> = ({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="max-w-5xl mx-auto mt-16 space-y-12">
+    <section className="max-w-6xl mx-auto mt-16 space-y-12">
       <Reveal variant="rise">
         <h2 className="text-2xl md:text-3xl font-heading uppercase tracking-wide text-brand-dark">
           Why the right attachment matters
@@ -34,6 +34,25 @@ export const AttachmentInfo: React.FC<AttachmentInfoProps> = ({
         <p className="text-neutral-600 font-glonimove text-base leading-relaxed">
           {intro}
         </p>
+      </Reveal>
+
+      <Reveal variant="rise">
+        <div className="grid sm:grid-cols-3 gap-px bg-brand-green/15 border border-brand-green/15">
+          {[
+            { title: "Fitment check", body: "Confirm coupler type, pins or plate, hydraulic flow, pressure, and hose routing before purchase." },
+            { title: "Best pairing", body: `Match each attachment to the ${scope} model, surface, material, and expected duty cycle.` },
+            { title: "Support path", body: "Keep model, serial number, photos, and attachment requirements ready when contacting Konstructz." },
+          ].map((item) => (
+            <div key={item.title} className="bg-white px-5 py-6">
+              <h3 className="font-googleSans font-bold uppercase tracking-wide text-xs text-brand-green">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-neutral-600 font-glonimove text-sm leading-relaxed">
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
       </Reveal>
 
       <Reveal variant="rise">
@@ -47,7 +66,7 @@ export const AttachmentInfo: React.FC<AttachmentInfoProps> = ({
               key={i}
               as="span"
               variant="rise"
-              className="flex gap-3 items-start bg-white border border-brand-green/10 rounded p-4 font-glonimove text-sm text-brand-dark k-hover-lift"
+              className="flex gap-3 items-start bg-white border border-brand-green/10 p-4 font-glonimove text-sm text-brand-dark k-hover-lift"
             >
               <span className="text-brand-green font-bold mt-0.5">›</span>
               <span>{b}</span>
@@ -71,7 +90,7 @@ export const AttachmentInfo: React.FC<AttachmentInfoProps> = ({
           Frequently asked questions
         </h3>
         <div className="w-12 h-1 bg-brand-green mt-3 mb-5" />
-        <div className="divide-y divide-brand-green/10 border border-brand-green/10 rounded overflow-hidden bg-white">
+        <div className="divide-y divide-brand-green/10 border border-brand-green/10 overflow-hidden bg-white">
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (

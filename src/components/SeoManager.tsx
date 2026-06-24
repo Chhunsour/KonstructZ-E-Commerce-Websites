@@ -39,7 +39,7 @@ const categoryFaqs: Record<string, FAQ[]> = {
     },
     {
       q: "How do I choose the right skid steer?",
-      a: "Match the machine to rated operating capacity, ground conditions, hydraulic flow needs, transport weight, and attachment plans.",
+      a: "Match the machine to lift class, ground conditions, hydraulic flow needs, transport limits, and attachment plans.",
     },
   ],
   "mini-skid-steers": [

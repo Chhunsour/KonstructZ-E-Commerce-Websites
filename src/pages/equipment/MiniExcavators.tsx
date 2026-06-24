@@ -47,12 +47,12 @@ export const MiniExcavators: React.FC = () => {
           usedFor="A mini excavator is a compact tracked digging machine used for trenching, foundation prep, utility installation, drainage, demolition, and landscaping in tight spaces where a full-size excavator cannot work. With the right attachment it can dig, grade, break, drill, lift and handle materials on the same job."
           bestFor="Mini excavators are ideal for contractors, landscapers, plumbers, electricians, rental fleets, farms and property owners who need precise digging power on residential lots, urban worksites, and confined commercial sites where access, footprint and surface protection matter."
           benefits={[
-            "Compact footprint that fits through standard gates and access ramps",
+            "Compact footprint for narrow gates, ramps, and restricted access paths",
             "Tracked undercarriage delivers stable digging on slopes and soft ground",
             "Hydraulic auxiliary lines support a wide range of work tools",
             "Operator-friendly controls reduce fatigue across long shifts",
             "Lower fuel consumption than full-size excavators for the same task",
-            "Easy to trailer between jobs without a CDL in most regions",
+            "Transport planning is simpler than full-size excavation fleets",
           ]}
           applications={[
             "Utility trenching",
@@ -77,7 +77,7 @@ export const MiniExcavators: React.FC = () => {
           faqs={[
             {
               q: "What is a mini excavator?",
-              a: "A mini excavator is a small tracked excavator typically under a few metric tons, designed for digging, trenching and material handling in confined spaces. It uses a boom, arm and bucket powered by a hydraulic system, and accepts a wide range of attachments.",
+              a: "A mini excavator is a small tracked excavator designed for digging, trenching and material handling in confined spaces. It uses a boom, arm and bucket powered by a hydraulic system, and can accept a wide range of matched attachments.",
             },
             {
               q: "What jobs is a mini excavator best for?",
@@ -85,15 +85,15 @@ export const MiniExcavators: React.FC = () => {
             },
             {
               q: "Can a mini excavator replace a full-size excavator?",
-              a: "For small to mid-size residential and commercial work, yes. For deep digs, heavy lifting, or large-volume earthmoving, a standard excavator is still the right tool. Many contractors run both for the right job at the right cost.",
+              a: "For many small to mid-size residential and commercial jobs, yes. For deep digs, heavy lifting, or large-volume earthmoving, a larger excavator may still be the right tool. Many contractors run both for the right job at the right cost.",
             },
             {
               q: "Do I need a special license to operate one?",
-              a: "Licensing rules vary by country and state. In most regions a CDL is not required to tow or operate a small mini excavator on private property, but commercial jobsites usually require operator training and competency sign-off. Check local regulations.",
+              a: "Licensing and towing rules vary by country, state, and jobsite. Commercial jobsites usually require operator training and competency sign-off. Check local regulations before transport or operation.",
             },
             {
               q: "What attachments work with a Konstructz mini excavator?",
-              a: "Standard digging buckets, grading and ditching buckets, hydraulic breakers, augers, thumbs, rippers and quick couplers. Reach out to the Konstructz attachments team to confirm fitment and hydraulic flow for your model.",
+              a: "Matched digging buckets, grading and ditching buckets, hydraulic breakers, augers, thumbs, rippers and quick couplers can be available depending on the model. Reach out to the Konstructz attachments team to confirm fitment and hydraulic flow.",
             },
           ]}
         />

@@ -51,7 +51,7 @@ export const Support: React.FC = () => {
   ];
 
   const trust = [
-    { icon: Icons.shield, label: "Genuine Parts", sub: "Components dispatched from our own warehouse" },
+    { icon: Icons.shield, label: "Parts Guidance", sub: "Replacement path confirmed by model" },
     { icon: Icons.bolt, label: "Direct Specialists", sub: "Talk to real machinery experts, not call-centre scripts" },
     { icon: Icons.truck, label: "Freight Guidance", sub: "Delivery method reviewed by machine size and route" },
     { icon: Icons.gauge, label: "Job-Site Prep", sub: "Startup, offload and inspection guidance before work begins" },
@@ -140,7 +140,7 @@ export const Support: React.FC = () => {
           <Callout
             tone="info"
             title="Need a more specific answer?"
-            body="If your question isn't covered above, send us your machine model and serial number and a specialist will respond within one business day."
+            body="If your question isn't covered above, send us your machine model and serial number so a specialist can route the right answer."
           />
         </div>
       </Section>

@@ -16,7 +16,7 @@ export const AttachmentsSection: React.FC = () => {
     },
     {
       title: t("auto.attachments.material.buckets"),
-      desc: "Reinforced wear strips and high-capacity bowls for severe sand and aggregate hauling.",
+      desc: "Reinforced wear strips and bucket profiles matched to sand, soil, and aggregate work.",
     },
     {
       title: t("auto.attachments.hydraulic.thumbs"),

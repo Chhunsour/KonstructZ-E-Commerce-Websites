@@ -80,7 +80,7 @@ export const Attachments: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-heading uppercase tracking-wide">{t("auto.attachments.engineered.attachments")}</h1>
           <div className="w-16 h-1 bg-brand-green mx-auto my-2" />
           <p className="text-neutral-600 font-glonimove text-base leading-relaxed">
-            Expand what your loader, skid steer or excavator can do. Konstructz attachments are engineered around real jobsite wear — built from thick, high-tensile steel and designed to fit standard quick-attach couplers so you can move between digging, lifting, breaking and sorting without leaving the seat.
+            Expand what your loader, skid steer or excavator can do. Konstructz attachments are engineered around real jobsite wear, matched coupler setups, and hydraulic fitment checks so you can move between digging, lifting, breaking and sorting with confidence.
           </p>
         </div>
 
@@ -149,20 +149,20 @@ export const Attachments: React.FC = () => {
           intro="An attachment is the difference between a one-job machine and a multi-job machine. The right work tool turns the same loader or excavator into a trencher, breaker, auger drill, grapple, or material sorter — so you get more billable hours per machine and spend less on rental, transport and fleet count."
           benefits={[
             "High-tensile wear steel built for continuous daily cycles",
-            "Standard universal quick-attach mounting on most models",
+            "Quick-attach and pin-on options matched to machine setup",
             "Sized to common machine flow and pressure classes",
             "Replaceable wear edges and teeth to extend service life",
             "Backed by the Konstructz parts and support team",
           ]}
-          compatibility="Most attachments mount with a universal quick-attach plate, but flow class still matters. High-flow tools (mulchers, cold planers, snow blowers) require a machine rated for high flow; standard-flow tools cover most digging, lifting and breaking work. Before ordering, send us your machine model and we will confirm pin size, plate type, hydraulic flow and electrical requirements."
+          compatibility="Attachment fit depends on coupler style, pin size, machine weight class, hydraulic flow, pressure range, and any electrical requirements. Before ordering, send us your machine model and we will confirm the safest attachment path."
           faqs={[
             {
               q: "Will Konstructz attachments fit other brands of machine?",
-              a: "Most do. A universal quick-attach plate is the common standard across compact loaders and excavators. Confirm coupler type and hydraulic flow with our team before you order and we'll match the right unit.",
+              a: "Many can be matched across compatible coupler systems. Confirm coupler type, pin size, machine weight class, and hydraulic flow with our team before you order and we will identify the right unit.",
             },
             {
               q: "What is the difference between standard-flow and high-flow attachments?",
-              a: "Standard-flow attachments work on most compact loaders and excavators. High-flow attachments need extra hydraulic gallons per minute — running them on a standard-flow machine will starve the tool and burn through the seals. Always match the flow class to the machine.",
+              a: "Flow classes describe the hydraulic demand of a powered attachment. Running a tool on the wrong hydraulic setup can underperform, overheat oil, or shorten seal life. Always match the attachment to the machine before purchase.",
             },
             {
               q: "Can I run more than one attachment from a single hydraulic line?",

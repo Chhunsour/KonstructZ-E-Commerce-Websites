@@ -11,12 +11,12 @@ export const FeaturedProduct: React.FC = () => {
     category: t("auto.featuredproduct.skid.steer.loader"),
     tagline: t("auto.featuredproduct.high.productivity.zero"),
     description:
-      "The Konstructz STOMP V950 represents the pinnacle of compact earthmoving. Engineering with thick structural steel plate, dual-joystick controls, and high-flow auxiliary hydraulics, it performs where larger machines cannot. Adaptive cooling ensures reliable operations under demanding conditions.",
+      "The Konstructz STOMP V950 is a compact loader platform for tight-access loading, grading, cleanup, and attachment work. Final performance values depend on the selected configuration, so buyers should confirm hydraulic flow, attachment plans, transport setup, and site conditions before ordering.",
     specs: [
-      { label: t("auto.featuredproduct.operating.capacity"), value: t("auto.featuredproduct.950.lbs") },
-      { label: t("auto.featuredproduct.operating.weight"), value: t("auto.featuredproduct.3.280.lbs") },
-      { label: "Engine", value: t("auto.featuredproduct.kubota.25hp.diesel") },
-      { label: t("auto.featuredproduct.system.pressure"), value: t("auto.featuredproduct.3.000.psi") },
+      { label: t("auto.featuredproduct.operating.capacity"), value: "Varies by model" },
+      { label: t("auto.featuredproduct.operating.weight"), value: "Based on selected setup" },
+      { label: "Engine", value: "Depends on final configuration" },
+      { label: t("auto.featuredproduct.system.pressure"), value: "Match to attachment requirements" },
     ],
   };
 
@@ -103,7 +103,7 @@ export const FeaturedProduct: React.FC = () => {
 
             {/* Specs Table */}
             <div className="bg-brand-dark/50 border border-brand-green/20 p-6 rounded">
-              <h3 className="font-googleSans font-bold text-brand-sand text-xs uppercase tracking-wider mb-4">{t("auto.featuredproduct.core.metrics")}</h3>
+              <h3 className="font-googleSans font-bold text-brand-sand text-xs uppercase tracking-wider mb-4">Configuration Notes</h3>
               <div className="grid grid-cols-2 gap-x-6 gap-y-3 font-googleSans text-sm">
                 {productInfo.specs.map((spec) => (
                   <div key={spec.label} className="flex flex-col border-b border-neutral-700 pb-2">

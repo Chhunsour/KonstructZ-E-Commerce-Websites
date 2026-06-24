@@ -26,7 +26,7 @@ export const products: Product[] = [
     categoryLabel: "Skid Steer",
     weight: "Configurable",
     tagline: "Uncompromised Torque and Performance",
-    description: "Built for heavier operations, the STOMP V980 expands on the V950 platform with an upgraded diesel powertrain and reinforced lift arms. Ideal for operations requiring continuous heavy loading and grading.",
+    description: "Built for compact loading, grading, cleanup, and attachment work where access is limited but daily production still matters. Final configuration should be matched to the jobsite and attachment plan.",
     image: "/img/STOMP V980 v1.png",
     gallery: [
       "/img/STOMP V980 v1.png",
@@ -42,10 +42,10 @@ export const products: Product[] = [
       { label: "Hydraulic Flow", value: "Match to attachment requirements" }
     ],
     features: [
-      "Turbocharged diesel engine for superior fuel efficiency and power",
-      "Reinforced heavy loader arms with high-strength geometry",
-      "Pre-wired auxiliary electrical outlets for specialized attachments",
-      "Enhanced sound dampening for comfortable daily operation"
+      "Compact loader platform for loading, grading, and cleanup cycles",
+      "Attachment-ready layout for common jobsite tools",
+      "Operator-focused controls for repeated task changes",
+      "Configuration support for matching hydraulics and work tools"
     ],
     featured: true
   },
@@ -84,7 +84,7 @@ export const products: Product[] = [
     categoryLabel: "Wheel Loader",
     weight: "Configurable",
     tagline: "Heavy Duty Wheel Loader",
-    description: "The SKOOP II is engineered for high-capacity bulk material handling, offering unmatched traction, loading speed, and fuel efficiency.",
+    description: "The SKOOP II is a wheel-loader platform for bulk material handling, yard cleanup, stockpile work, and repeated loading cycles on firm ground.",
     image: "/img/skoop ii v2.png",
     gallery: [
       "/img/skoop ii v2.png",
@@ -140,7 +140,7 @@ export const products: Product[] = [
     categoryLabel: "Dumper",
     weight: "Configurable",
     tagline: "Unstoppable Bulk Materials Hauler",
-    description: "When the grade is steep and the payload is heavy, THUNDERDUMP delivers. This compact tracked dumper transports concrete, aggregates, and soil across the roughest terrains.",
+    description: "THUNDERDUMP is a compact dumper platform for moving soil, aggregate, concrete, and debris through narrow, soft, or uneven access routes.",
     image: "/img/thunder dump lift.png",
     gallery: [
       "/img/thunder dump lift.png",
@@ -168,7 +168,7 @@ export const products: Product[] = [
     categoryLabel: "Stone Crusher",
     weight: "Configurable",
     tagline: "Aggregate Reduction in Place",
-    description: "The STONE CRUSHER reduces rubble, concrete chunks, and fieldstones into useful fill. Saves thousands in aggregate delivery and waste transportation fees by crushing on-site.",
+    description: "The STONE CRUSHER supports on-site material reduction for rubble, masonry, concrete, asphalt, and stone where reclaimed aggregate can be reused or staged more efficiently.",
     image: "/img/stone krusher k1.png",
     gallery: [
       "/img/stone krusher k1.png",
@@ -308,7 +308,7 @@ export const products: Product[] = [
     categoryLabel: "Dumper",
     weight: "Configurable",
     tagline: "High-Capacity Tracked Dumper",
-    description: "The THUNDERDUMP Pro is a professional-grade tracked dumper built to transport concrete, aggregates, and soil across the toughest terrains with a larger payload limit.",
+    description: "The THUNDERDUMP Pro is a compact tracked dumper option for crews that need controlled material movement across soft, uneven, or access-limited worksites.",
     image: "/img/thunder dump 180.png",
     gallery: [
       "/img/thunder dump 180.png",

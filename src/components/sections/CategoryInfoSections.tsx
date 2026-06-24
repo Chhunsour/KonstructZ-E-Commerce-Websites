@@ -46,9 +46,9 @@ export const CategoryInfoSections: React.FC<CategoryInfoSectionsProps> = ({
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="mt-24 max-w-5xl mx-auto space-y-16">
+    <section className="mt-24 max-w-6xl mx-auto space-y-16">
       {/* What is this machine used for */}
-      <Stagger as="div" step={120} className="grid md:grid-cols-2 gap-10 items-start">
+      <Stagger as="div" step={120} className="grid md:grid-cols-2 gap-10 items-start border-y border-theme-border/15 py-10">
         <Reveal variant="rise">
           <h2 className="text-2xl md:text-3xl font-heading uppercase tracking-wide text-theme-heading">
             {usedForHeading ?? `What is a ${categoryName} used for?`}
@@ -69,6 +69,25 @@ export const CategoryInfoSections: React.FC<CategoryInfoSectionsProps> = ({
         </Reveal>
       </Stagger>
 
+      <Reveal variant="rise">
+        <div className="grid sm:grid-cols-3 gap-px bg-theme-border/20 border border-theme-border/20">
+          {[
+            { title: "Best fit", body: bestFor },
+            { title: "Common work", body: applications.slice(0, 4).join(", ") },
+            { title: "Before quote", body: "Confirm access, surface, attachments, transport, and final configuration." },
+          ].map((item) => (
+            <div key={item.title} className="bg-theme-card px-5 py-6">
+              <h3 className="font-googleSans font-bold uppercase tracking-wide text-xs text-theme-accent">
+                {item.title}
+              </h3>
+              <p className="mt-3 font-glonimove text-sm leading-relaxed text-theme-muted line-clamp-5">
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+
       {/* Key benefits */}
       <Reveal variant="rise">
         <h2 className="text-2xl md:text-3xl font-heading uppercase tracking-wide text-theme-heading">
@@ -77,7 +96,7 @@ export const CategoryInfoSections: React.FC<CategoryInfoSectionsProps> = ({
         <div className="w-12 h-1 bg-theme-accent mt-3 mb-6" />
         <Stagger as="ul" step={70} className="grid sm:grid-cols-2 gap-4">
           {benefits.map((b, i) => (
-            <Reveal key={i} as="span" variant="rise" className="flex gap-3 items-start bg-theme-card border border-theme-border/20 rounded p-4 font-glonimove text-sm text-theme-text k-hover-lift">
+            <Reveal key={i} as="span" variant="rise" className="flex gap-3 items-start bg-theme-card border border-theme-border/20 p-4 font-glonimove text-sm text-theme-text k-hover-lift">
               <span className="text-theme-accent font-bold mt-0.5">›</span>
               <span>{b}</span>
             </Reveal>
@@ -97,7 +116,7 @@ export const CategoryInfoSections: React.FC<CategoryInfoSectionsProps> = ({
               key={i}
               as="span"
               variant="zoom"
-              className="px-3 py-1.5 rounded-full bg-theme-sec border border-theme-border/20 text-theme-text font-googleSans text-xs uppercase tracking-wider transition-colors duration-200 hover:bg-theme-accent/15 hover:border-theme-accent/40 hover:text-theme-accent"
+              className="px-3 py-1.5 bg-theme-sec border border-theme-border/20 text-theme-text font-googleSans text-xs uppercase tracking-wider transition-colors duration-200 hover:bg-theme-accent/15 hover:border-theme-accent/40 hover:text-theme-accent"
             >
               {a}
             </Reveal>
@@ -154,7 +173,7 @@ export const CategoryInfoSections: React.FC<CategoryInfoSectionsProps> = ({
           Frequently asked questions
         </h2>
         <div className="w-12 h-1 bg-theme-accent mt-3 mb-6" />
-        <div className="divide-y divide-theme-border/20 border border-theme-border/20 rounded overflow-hidden bg-theme-card/30">
+        <div className="divide-y divide-theme-border/20 border border-theme-border/20 overflow-hidden bg-theme-card/30">
           {faqs.map((faq, i) => {
             const open = openIdx === i;
             return (

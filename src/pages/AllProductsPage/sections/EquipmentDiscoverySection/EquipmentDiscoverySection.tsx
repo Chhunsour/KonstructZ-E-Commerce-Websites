@@ -348,31 +348,31 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
   ];
 
   const operationWeightOptions = [
-    { id: "gt-1-ton", label: t("auto.equipmentdiscovery.1.ton"), top: 73 },
-    { id: "1-ton", label: t("auto.equipmentdiscovery.1.ton"), top: 112 },
-    { id: "2-tons", label: t("auto.equipmentdiscovery.2.tons"), top: 151 },
-    { id: "3-tons", label: t("auto.equipmentdiscovery.3.tons"), top: 190 },
-    { id: "4-tons", label: t("auto.equipmentdiscovery.4.tons"), top: 229 },
-    { id: "5-tons", label: t("auto.equipmentdiscovery.5.tons"), top: 268 },
-    { id: "6-tons", label: t("auto.equipmentdiscovery.6.tons"), top: 307 },
+    { id: "compact", label: "Compact setup", top: 73 },
+    { id: "medium", label: "Medium setup", top: 112 },
+    { id: "heavy", label: "Heavy setup", top: 151 },
+    { id: "towable", label: "Towable format", top: 190 },
+    { id: "tracked", label: "Tracked format", top: 229 },
+    { id: "wheeled", label: "Wheeled format", top: 268 },
+    { id: "configured", label: "Configured to quote", top: 307 },
   ];
 
   const engineOptions = [
-    { id: "kubota", label: "Kubota", top: 73 },
-    { id: "yamaha", label: "Yamaha", top: 112 },
-    { id: "briggs-stratton", label: t("auto.equipmentdiscovery.briggs.stratton"), top: 151 },
-    { id: "honda", label: "Honda", top: 190 },
-    { id: "perkins", label: "Perkins", top: 229 },
+    { id: "gas", label: "Gas option", top: 73 },
+    { id: "diesel", label: "Diesel option", top: 112 },
+    { id: "hydraulic", label: "Hydraulic match", top: 151 },
+    { id: "confirmed", label: "Confirmed before quote", top: 190 },
+    { id: "varies", label: "Varies by model", top: 229 },
   ];
 
   const horsepowerOptions = [
-    { id: "gt-11-1-hp", label: t("auto.equipmentdiscovery.11.1.hp"), top: 73 },
-    { id: "gt-22-2-hp", label: t("auto.equipmentdiscovery.22.2.hp"), top: 112 },
-    { id: "gt-33-3-hp", label: t("auto.equipmentdiscovery.33.3.hp"), top: 151 },
-    { id: "gt-44-4-hp", label: t("auto.equipmentdiscovery.44.4.hp"), top: 190 },
-    { id: "gt-55-5-hp", label: t("auto.equipmentdiscovery.55.5.hp"), top: 229 },
-    { id: "gt-66-6-hp", label: t("auto.equipmentdiscovery.66.6.hp"), top: 268 },
-    { id: "gt-77-7-hp", label: t("auto.equipmentdiscovery.77.7.hp"), top: 307 },
+    { id: "power-varies", label: "Power varies by model", top: 73 },
+    { id: "attachment-load", label: "Match attachment load", top: 112 },
+    { id: "duty-cycle", label: "Duty-cycle based", top: 151 },
+    { id: "flow-match", label: "Flow requirement", top: 190 },
+    { id: "transport-limit", label: "Transport limit", top: 229 },
+    { id: "site-condition", label: "Site condition", top: 268 },
+    { id: "quote-confirmed", label: "Confirmed before quote", top: 307 },
   ];
 
   return (

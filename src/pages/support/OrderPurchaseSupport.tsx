@@ -27,7 +27,7 @@ export const OrderPurchaseSupport: React.FC = () => {
     { q: t("auto.orderpurchase.do.you.issue"), a: t("auto.orderpurchase.absolutely.itemized.invoices") },
     { q: t("auto.orderpurchase.what.deposit.is"), a: t("auto.orderpurchase.most.orders.are") },
     { q: t("auto.orderpurchase.can.i.buy"), a: t("auto.orderpurchase.yes.fleet.and") },
-    { q: "How do I get an itemised quote?", a: "Send your shortlist of models, attachments, and shipping destination to our purchase team and we will reply within one business day with a written quotation that breaks out machine price, attachments, freight, and applicable taxes separately." },
+    { q: "How do I get an itemised quote?", a: "Send your shortlist of models, attachments, and shipping destination to our purchase team. We will prepare a written quotation that separates machine price, attachments, freight, and applicable taxes where possible." },
     { q: "Can I request a custom build configuration?", a: "Yes — many machines accept optional auxiliary hydraulic kits, canopy upgrades, attachment plates, and lighting packages. Tell your specialist what the job site needs and they will confirm what is buildable and how it affects lead time." },
   ];
 
@@ -126,7 +126,7 @@ export const OrderPurchaseSupport: React.FC = () => {
           <Callout
             tone="info"
             title="Need a specific payment instrument?"
-            body="If your accounting team needs a particular payment method or document set we have not listed, just ask. We have processed letters of credit, escrow arrangements, and government PO workflows before."
+            body="If your accounting team needs a particular payment method or document set we have not listed, ask before quote approval. We will confirm what can be supported for your order."
           />
         </div>
       </Section>
@@ -136,7 +136,7 @@ export const OrderPurchaseSupport: React.FC = () => {
         <SectionHeading
           eyebrow="Buying Journey"
           title="Six Stages, Fully Mapped"
-          description="From the first conversation to the first job-site start-up, here is exactly how a Konstructz order moves."
+          description="From first conversation to job-site handoff, this is the practical order path Konstructz follows."
         />
         <div className="mt-14">
           <Timeline items={buyingJourney} />

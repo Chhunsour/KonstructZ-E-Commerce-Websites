@@ -4,8 +4,8 @@ import React from "react";
 export const BrandIntro: React.FC = () => {
   const { t } = useI18n();
   const stats = [
-    { value: "100%", label: t("auto.brandintro.heavy.steel.build") },
-    { value: "48hr", label: t("auto.brandintro.parts.dispatch") },
+    { value: "Steel", label: t("auto.brandintro.heavy.steel.build") },
+    { value: "Parts", label: t("auto.brandintro.parts.dispatch") },
     { value: "US", label: t("auto.brandintro.based.logistics") },
   ];
 

@@ -66,7 +66,7 @@ export const Trenchers: React.FC = () => {
             "Invisible fence",
             "Root pruning",
           ]}
-          compatibility="Konstructz trenchers ship with standard digging chains and tooth options sized to common channel widths. Reach out to confirm chain length, tooth pattern, and chain speed for the depth and soil class on your project."
+          compatibility="Konstructz trenchers are matched with digging chains and tooth options sized to common channel widths. Reach out to confirm chain length, tooth pattern, and chain speed for the depth and soil class on your project."
           maintenance="Trencher uptime depends on chain tension, tooth condition, and clean drive components. Replace worn carbide teeth before they start tearing the channel, keep the chain lubricated, and clear the auger system at the end of each shift to keep the next dig fast."
           buyingTips={[
             "Match the trench depth and width to your most common install — pipe diameter and bury depth set the spec, not personal preference.",

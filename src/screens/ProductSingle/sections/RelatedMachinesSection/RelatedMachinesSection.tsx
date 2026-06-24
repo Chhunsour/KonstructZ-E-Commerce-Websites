@@ -39,8 +39,6 @@ export const RelatedMachinesSection: React.FC<RelatedMachinesSectionProps> = ({ 
       >
         {related.map((p, idx) => {
           const leftClass = lefts[idx] || "left-0";
-          const weight = p.specs.find(s => s.label.toLowerCase().includes("weight") || s.label.toLowerCase().includes("capacity"))?.value || "2T";
-          
           // Get first 2 specs for display
           const displaySpecs = p.specs.slice(0, 2);
           
@@ -59,7 +57,7 @@ export const RelatedMachinesSection: React.FC<RelatedMachinesSectionProps> = ({ 
                   src="/img/kilogram-kg-and-pound-lbs-weight-symbol-icon-dumbbell-vector-ill-12.png"
                 />
                 <div className="absolute top-[26px] left-[12px] [font-family:'Clofie-Bold',Helvetica] font-bold text-white text-[15px] tracking-[0] leading-[normal] whitespace-nowrap">
-                  {weight.replace(/\s+/g, '').slice(0, 4)}
+                  Fit
                 </div>
               </div>
               <Link to={`/equipment/${p.id}`} className="absolute top-[37px] left-[10px] w-[271px] h-[271px] flex items-center justify-center overflow-hidden cursor-pointer">

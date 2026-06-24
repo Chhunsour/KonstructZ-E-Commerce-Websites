@@ -114,7 +114,7 @@ export const ShippingDelivery: React.FC = () => {
         image="/img/support/sawmill-production.jpg"
         eyebrow="Coast To Coast"
         title="Built To Land Ready For Work, Anywhere"
-        body="Whether it's a sawmill in the Pacific Northwest or a foundation crew in Florida, the same load standards, the same tracking discipline, the same end-to-end specialist."
+        body="From rural yards to active construction sites, each shipment is planned around machine configuration, access conditions, offload needs, and carrier requirements."
       />
 
 
@@ -122,7 +122,7 @@ export const ShippingDelivery: React.FC = () => {
         <SectionHeading
           eyebrow="Logistics Standards"
           title="How We Protect Your Investment In Transit"
-          description="A machine that arrives damaged isn't really delivered. Our logistics standards are designed to make sure your unit lands ready to work."
+          description="Heavy equipment freight needs careful loading, clear handoff details, and an offload plan that matches the site before the truck arrives."
         />
         <div className="mt-12"><TrustStrip items={trust} /></div>
       </Section>

@@ -233,32 +233,6 @@ export const MobileFrontpage = (): JSX.Element => {
             KONSTRUCTZ <span className="text-[#d8c79a]">{activeModel === "v950" ? t("auto.mobilefrontpage.stomp.v950") : "STOMP V980"}</span>
           </h1>
 
-          {/* Mobile Model Switcher */}
-          <div className="mt-5 flex gap-2.5 z-10">
-            <button
-              type="button"
-              onClick={() => setActiveModel("v950")}
-              className={`px-4 py-2 border-2 border-solid text-xs font-bold font-googleSans uppercase tracking-wider rounded-[3px] transition-all duration-300 ${
-                activeModel === "v950"
-                  ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28]"
-                  : "bg-black/35 border-white/20 text-white"
-              }`}
-            >
-              STOMP V950
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveModel("v980")}
-              className={`px-4 py-2 border-2 border-solid text-xs font-bold font-googleSans uppercase tracking-wider rounded-[3px] transition-all duration-300 ${
-                activeModel === "v980"
-                  ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28]"
-                  : "bg-black/35 border-white/20 text-white"
-              }`}
-            >
-              STOMP V980
-            </button>
-          </div>
-
           <div className="mt-6 flex flex-wrap gap-3 z-10">
             <Link
               to="/equipment"
@@ -269,6 +243,32 @@ export const MobileFrontpage = (): JSX.Element => {
               className="px-5 py-3 border-2 border-[#d8c79a] text-[#d8c79a] font-googleSans font-bold text-sm"
             >{t("auto.mobilefrontpage.get.a.quote")}</Link>
           </div>
+        </div>
+
+        {/* Mobile Model Switcher */}
+        <div className="absolute bottom-[170px] left-1/2 transform -translate-x-1/2 flex items-center gap-1.5 p-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full z-20">
+          <button
+            type="button"
+            onClick={() => setActiveModel("v950")}
+            className={`px-4 py-1.5 rounded-full text-[10px] font-bold font-googleSans uppercase tracking-wider transition-all duration-300 ${
+              activeModel === "v950"
+                ? "bg-[#d8c79a] text-[#153d28] shadow-[0_0_8px_rgba(216,199,154,0.4)]"
+                : "text-white/70 hover:text-white"
+            }`}
+          >
+            STOMP V950
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveModel("v980")}
+            className={`px-4 py-1.5 rounded-full text-[10px] font-bold font-googleSans uppercase tracking-wider transition-all duration-300 ${
+              activeModel === "v980"
+                ? "bg-[#d8c79a] text-[#153d28] shadow-[0_0_8px_rgba(216,199,154,0.4)]"
+                : "text-white/70 hover:text-white"
+            }`}
+          >
+            STOMP V980
+          </button>
         </div>
       </section>
 

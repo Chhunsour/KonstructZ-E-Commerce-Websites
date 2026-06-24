@@ -63,7 +63,7 @@ export const Frontpage = (): JSX.Element => {
         variant="fade"
         delay={1600}
         ariaHidden
-        className="absolute top-0 left-0 w-[1200px] h-[1080px] pointer-events-none"
+        className="absolute top-0 left-0 w-[1200px] h-[1080px] pointer-events-none z-10"
       >
         <div
           className="absolute inset-0"
@@ -85,7 +85,7 @@ export const Frontpage = (): JSX.Element => {
       <Reveal
         variant="fall"
         delay={2100}
-        className="absolute top-[364px] left-[125px] flex items-center justify-center px-5 h-[53px] border-[3px] border-solid border-[#d8c79a] bg-black/10 backdrop-blur-[1px]"
+        className="absolute top-[364px] left-[125px] flex items-center justify-center px-5 h-[53px] border-[3px] border-solid border-[#d8c79a] bg-black/10 backdrop-blur-[1px] z-20"
         style={{ boxShadow: "0 0 24px rgba(216,199,154,0.25)" }}
       >
         <span
@@ -99,7 +99,7 @@ export const Frontpage = (): JSX.Element => {
         as="h1"
         variant="cinematic"
         delay={2400}
-        className="absolute top-[448px] left-[125px] w-[817px] [text-shadow:-6px_5px_10.4px_#00000040] [font-family:'Mission_X-Regular',Helvetica] font-normal text-transparent text-[87px] tracking-[0] leading-[normal]"
+        className="absolute top-[448px] left-[125px] w-[817px] [text-shadow:-6px_5px_10.4px_#00000040] [font-family:'Mission_X-Regular',Helvetica] font-normal text-transparent text-[87px] tracking-[0] leading-[normal] z-20"
       >
         <span className="text-white">KONSTRUCTZ </span>
         <span className="text-[#d8c79a]">
@@ -111,15 +111,15 @@ export const Frontpage = (): JSX.Element => {
       <Reveal
         variant="fade"
         delay={2600}
-        className="absolute top-[580px] left-[125px] flex items-center gap-4 z-20"
+        className="absolute top-[863px] left-1/2 transform -translate-x-1/2 flex items-center gap-1.5 p-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full z-20"
       >
         <button
           type="button"
           onClick={() => setActiveModel("v950")}
-          className={`px-8 py-3.5 border-3 border-solid transition-all duration-300 font-googleSans font-bold text-base tracking-wider rounded-[3px] shadow-lg ${
+          className={`px-5 py-2 rounded-full font-googleSans font-bold text-xs uppercase tracking-wider transition-all duration-300 ${
             activeModel === "v950"
-              ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28] scale-[1.02]"
-              : "bg-black/30 border-white/20 text-white hover:border-[#d8c79a] hover:text-[#d8c79a] hover:bg-black/50"
+              ? "bg-[#d8c79a] text-[#153d28] shadow-[0_0_12px_rgba(216,199,154,0.4)]"
+              : "text-white/70 hover:text-white hover:bg-white/5"
           }`}
         >
           STOMP V950
@@ -127,10 +127,10 @@ export const Frontpage = (): JSX.Element => {
         <button
           type="button"
           onClick={() => setActiveModel("v980")}
-          className={`px-8 py-3.5 border-3 border-solid transition-all duration-300 font-googleSans font-bold text-base tracking-wider rounded-[3px] shadow-lg ${
+          className={`px-5 py-2 rounded-full font-googleSans font-bold text-xs uppercase tracking-wider transition-all duration-300 ${
             activeModel === "v980"
-              ? "bg-[#d8c79a] border-[#d8c79a] text-[#153d28] scale-[1.02]"
-              : "bg-black/30 border-white/20 text-white hover:border-[#d8c79a] hover:text-[#d8c79a] hover:bg-black/50"
+              ? "bg-[#d8c79a] text-[#153d28] shadow-[0_0_12px_rgba(216,199,154,0.4)]"
+              : "text-white/70 hover:text-white hover:bg-white/5"
           }`}
         >
           STOMP V980

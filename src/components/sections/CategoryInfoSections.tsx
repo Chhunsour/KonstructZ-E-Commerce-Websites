@@ -189,15 +189,11 @@ export const CategoryInfoSections: React.FC<CategoryInfoSectionsProps> = ({
                     +
                   </span>
                 </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="px-5 pb-5 text-theme-muted font-glonimove text-sm md:text-base leading-relaxed">
-                      {faq.a}
-                    </div>
+                {open && (
+                  <div className="px-5 pb-5 text-theme-muted font-glonimove text-sm md:text-base leading-relaxed border-t border-theme-border/10 pt-4">
+                    {faq.a}
                   </div>
-                </div>
+                )}
               </div>
             );
           })}

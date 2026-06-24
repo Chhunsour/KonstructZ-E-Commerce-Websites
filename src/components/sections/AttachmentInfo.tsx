@@ -106,15 +106,11 @@ export const AttachmentInfo: React.FC<AttachmentInfoProps> = ({
                     +
                   </span>
                 </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="px-5 pb-5 text-neutral-600 font-glonimove text-sm md:text-base leading-relaxed">
-                      {faq.a}
-                    </div>
+                {isOpen && (
+                  <div className="px-5 pb-5 text-neutral-600 font-glonimove text-sm md:text-base leading-relaxed border-t border-brand-green/10 pt-4">
+                    {faq.a}
                   </div>
-                </div>
+                )}
               </div>
             );
           })}

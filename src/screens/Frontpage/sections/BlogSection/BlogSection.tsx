@@ -49,7 +49,7 @@ export const BlogSection = (): JSX.Element => {
             <Reveal key={post.id} variant="stack" className="contents-fix">
               <Link
                 to={`/blog/${post.slug}`}
-                className="k-card-hover group flex flex-col justify-between h-[540px] bg-[#282828] border border-white/5 hover:border-theme-accent/30 rounded-xl overflow-hidden shadow-lg"
+                className="k-card-hover group flex flex-col justify-between h-[540px] bg-transparent"
               >
                 {/* Image Frame */}
                 <div className="k-image-zoom relative w-full aspect-video overflow-hidden bg-[#1e1e1e]">
@@ -59,13 +59,13 @@ export const BlogSection = (): JSX.Element => {
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute top-4 left-4 bg-[#153d28] text-white text-[10px] font-googleSans font-bold uppercase tracking-widest px-2.5 py-1 rounded shadow-md">
+                  <div className="absolute top-4 left-4 bg-[#153d28] text-white text-[10px] font-googleSans font-bold uppercase tracking-widest px-2.5 py-1 shadow-md">
                     {post.category.split("'s")[0] || "ARTICLE"}
                   </div>
                 </div>
 
                 {/* Text Meta Info & Excerpt */}
-                <div className="flex-1 p-6 flex flex-col justify-between">
+                <div className="flex-1 pt-6 px-0 pb-2 flex flex-col justify-between">
                   <div className="flex flex-col gap-2">
                     <span className="font-glonimove text-xs text-theme-accent/80 uppercase tracking-widest font-semibold">
                       {post.date} &nbsp;·&nbsp; BY {post.author.toUpperCase()}

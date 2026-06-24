@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useI18n } from "../../context/I18nContext";
 import { AnimaScaler } from "../../components/layout/AnimaScaler";
 import { MobileFrontpage } from "./MobileFrontpage";
@@ -18,6 +18,28 @@ import "../../styles/home-reveal.css";
 export const Frontpage = (): JSX.Element => {
   const { t } = useI18n();
   const [activeModel, setActiveModel] = useState<"v950" | "v980">("v950");
+  const v950Ref = useRef<HTMLVideoElement>(null);
+  const v980Ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (activeModel === "v950") {
+      if (v950Ref.current) {
+        v950Ref.current.currentTime = 0;
+        v950Ref.current.play().catch((err) => console.log("v950 play error", err));
+      }
+      if (v980Ref.current) {
+        v980Ref.current.pause();
+      }
+    } else {
+      if (v980Ref.current) {
+        v980Ref.current.currentTime = 0;
+        v980Ref.current.play().catch((err) => console.log("v980 play error", err));
+      }
+      if (v950Ref.current) {
+        v950Ref.current.pause();
+      }
+    }
+  }, [activeModel]);
 
   return (
     <AnimaScaler bgColor="var(--theme-sec)" mobile={<MobileFrontpage />}>
@@ -34,26 +56,28 @@ export const Frontpage = (): JSX.Element => {
         aria-hidden="true"
       />
       <video
+        ref={v950Ref}
         className="absolute top-0 left-0 w-[1919px] h-[1080px] aspect-[1.78] object-cover transition-opacity duration-1000 ease-in-out"
         src="/video/banner-konstructz.mp4"
         autoPlay
         muted
-        loop
         playsInline
         preload="auto"
         aria-label={t("auto.frontpage.konstructz.hero.background")}
         style={{ opacity: activeModel === "v950" ? 1 : 0, zIndex: activeModel === "v950" ? 1 : 0 }}
+        onEnded={() => setActiveModel("v980")}
       />
       <video
+        ref={v980Ref}
         className="absolute top-0 left-0 w-[1919px] h-[1080px] aspect-[1.78] object-cover transition-opacity duration-1000 ease-in-out"
         src="/video/skid-steer-v980-banner.mp4"
         autoPlay
         muted
-        loop
         playsInline
         preload="auto"
         aria-label="STOMP V980 Hero Video"
         style={{ opacity: activeModel === "v980" ? 1 : 0, zIndex: activeModel === "v980" ? 1 : 0 }}
+        onEnded={() => setActiveModel("v950")}
       />
 
       {/* Left-side cinematic vignette — no visible edges, just a soft darkening

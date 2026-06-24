@@ -40,7 +40,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       {/* TITLE + CATEGORY ROW */}
       <div className="px-3 pt-2 flex items-start justify-between gap-2 min-h-[58px]">
-        <h3 className="[font-family:'Cal_Sans',Helvetica] font-normal text-[#153d28] text-xl sm:text-2xl leading-tight truncate">
+        <h3 className="[font-family:'Cal_Sans',Helvetica] font-normal text-[#153d28] text-xl sm:text-2xl leading-tight flex-1 min-w-0 truncate">
           <Link to={detailHref} className="hover:opacity-80 transition-opacity">
             {product.name}
           </Link>

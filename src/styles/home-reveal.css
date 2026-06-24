@@ -178,8 +178,8 @@
   will-change: transform;
 }
 .k-hover-lift:hover {
-  transform: translate3d(0, -6px, 0);
-  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .k-card-hover {
@@ -190,10 +190,10 @@
   will-change: transform;
 }
 .k-card-hover:hover {
-  transform: translate3d(0, -8px, 0);
+  transform: translate3d(0, -4px, 0);
   box-shadow:
-    0 28px 60px rgba(0, 0, 0, 0.28),
-    0 0 0 1px rgba(216, 199, 154, 0.18);
+    0 14px 34px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(21, 61, 40, 0.16);
 }
 
 .k-image-zoom {
@@ -206,7 +206,7 @@
 }
 .k-image-zoom:hover > img,
 .k-image-zoom:hover .k-image {
-  transform: scale(1.06);
+  transform: scale(1.035);
 }
 
 .k-btn-lift {
@@ -218,8 +218,8 @@
   will-change: transform;
 }
 .k-btn-lift:hover {
-  transform: translate3d(0, -2px, 0);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+  transform: translate3d(0, -1px, 0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 .k-btn-lift:active {
   transform: translate3d(0, 0, 0);

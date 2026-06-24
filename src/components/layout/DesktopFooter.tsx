@@ -88,37 +88,25 @@ export const DesktopFooter: React.FC<DesktopFooterProps> = ({ top }) => {
 
   const recentBlogs = [
     {
-      date: t("auto.footer.12th.june.2026"),
-      title: t("auto.footer.on.the.other"),
+      date: "12th June 2026",
+      title: "Choosing the Right Compact Machinery for Landscaping",
       imageSrc: "/img/footer/chatgpt-image-apr-28-2026-09-24-09-am-2.png",
-      imageAlt: "Article thumbnail for On The Other Hand",
-      imageWidthClass: "w-[131px]",
-      imageHeightClass: "h-[74px]",
-      topClass: "top-0",
-      dateTopClass: "top-[9px]",
-      titleTopClass: "top-[30px]",
+      imageAlt: "Choosing the Right Compact Machinery for Landscaping",
+      topClass: "0px",
     },
     {
-      date: t("auto.footer.9th.june.2026"),
-      title: t("auto.footer.on.the.other"),
+      date: "9th June 2026",
+      title: "Top Attachments to Boost Mini Excavator Efficiency",
       imageSrc: "/img/footer/chatgpt-image-apr-28-2026-09-26-28-am-3.png",
-      imageAlt: "Article thumbnail for On The Other Hand",
-      imageWidthClass: "w-[130px]",
-      imageHeightClass: "h-[73px]",
-      topClass: "top-[89px]",
-      dateTopClass: "top-[98px]",
-      titleTopClass: "top-[119px]",
+      imageAlt: "Top Attachments to Boost Mini Excavator Efficiency",
+      topClass: "89px",
     },
     {
-      date: t("auto.footer.9th.june.2026"),
-      title: t("auto.footer.on.the.other"),
-      imageSrc: "/img/footer/chatgpt-image-apr-28-2026-09-26-28-am-3.png",
-      imageAlt: "Article thumbnail for On The Other Hand",
-      imageWidthClass: "w-[130px]",
-      imageHeightClass: "h-[73px]",
-      topClass: "top-[177px]",
-      dateTopClass: "top-[186px]",
-      titleTopClass: "top-[207px]",
+      date: "4th June 2026",
+      title: "Preventative Maintenance Tips for Construction Gear",
+      imageSrc: "/single-blog/img/chatgpt-image-apr-28-2026-02-48-35-pm-1.png",
+      imageAlt: "Preventative Maintenance Tips for Construction Gear",
+      topClass: "177px",
     },
   ];
 
@@ -330,28 +318,32 @@ export const DesktopFooter: React.FC<DesktopFooterProps> = ({ top }) => {
         >
           <div className="relative h-full w-full">
             {recentBlogs.map((item, index) => (
-              <article key={`${item.date}-${index}`} className="contents">
-                <Link to="/media">
+              <article
+                key={`${item.date}-${index}`}
+                className="absolute left-0 w-[347px] flex items-center gap-[15px]"
+                style={{ top: item.topClass }}
+              >
+                <Link to="/media" className="shrink-0">
                   <img
-                    className={`absolute left-0 ${item.topClass} ${item.imageWidthClass} ${item.imageHeightClass} aspect-[1.78] object-cover hover:scale-[1.03] transition-transform duration-300`}
+                    className="w-[130px] h-[73px] aspect-[1.78] object-cover hover:scale-[1.03] transition-transform duration-300 rounded-[4px]"
                     alt={item.imageAlt}
                     src={item.imageSrc}
                     loading="lazy"
                   />
                 </Link>
-                <time
-                  className={`absolute left-[141px] ${item.dateTopClass} w-[77px] [font-family:'Glonimove-Regular',Helvetica] text-xs font-normal leading-[normal] tracking-[0] text-neutral-100`}
-                  dateTime={item.date}
-                >
-                  {item.date}
-                </time>
-                <p
-                  className={`absolute left-[141px] ${item.titleTopClass} w-[194px] [font-family:'Clofie-Bold',Helvetica] text-[15px] font-bold leading-[normal] tracking-[0] text-neutral-100 hover:text-[#d8c79a] transition-colors`}
-                >
-                  <Link to="/media" className="text-white hover:text-[#d8c79a] transition-colors">
-                    {item.title}
-                  </Link>
-                </p>
+                <div className="flex flex-col justify-center gap-1 flex-grow">
+                  <time
+                    className="[font-family:'Glonimove-Regular',Helvetica] text-xs font-normal text-neutral-300 leading-none"
+                    dateTime={item.date}
+                  >
+                    {item.date}
+                  </time>
+                  <p className="[font-family:'Clofie-Bold',Helvetica] text-[15px] font-bold leading-tight text-white hover:text-[#d8c79a] transition-colors line-clamp-2">
+                    <Link to="/media" className="text-white hover:text-[#d8c79a] transition-colors">
+                      {item.title}
+                    </Link>
+                  </p>
+                </div>
               </article>
             ))}
           </div>

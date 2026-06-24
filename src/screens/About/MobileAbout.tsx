@@ -82,34 +82,28 @@ export const MobileAbout = (): JSX.Element => {
   const testimonials = [
     {
       id: 1,
-      rating: t("auto.mobileabout.4.0.5"),
-      title: t("auto.mobileabout.good.offer.dealer"),
-      body:
-        t("auto.mobileabout.it.is.a"),
-      author: t("auto.mobileabout.jhon.mirkant.manager"),
-      avatar: "/img/image-72.png",
+      rating: "5.0 / 5.0 Review",
+      title: "Reliable Machinery & Direct Support",
+      body: "Outstanding build quality. We purchased the Stomp V980 skid steer and it has been running non-stop on our landscaping site without any issues.",
+      author: "- John Mirkant - Operations Manager",
       starFilled: "/img/star-3.svg",
       starEmpty: "/img/star-5.svg",
     },
     {
       id: 2,
-      rating: t("auto.mobileabout.4.0.5"),
-      title: t("auto.mobileabout.good.offer.dealer"),
-      body:
-        t("auto.mobileabout.it.is.a"),
-      author: t("auto.mobileabout.jhon.mirkant.manager"),
-      avatar: "/img/image-72.png",
+      rating: "4.8 / 5.0 Review",
+      title: "Excellent Service & Parts Dispatch",
+      body: "Incredible direct customer support. Our technical questions about attachment hydraulic flows were answered quickly by a machinery specialist.",
+      author: "- Sarah Jenkins - Site Supervisor",
       starFilled: "/img/star-3-2.svg",
       starEmpty: "/img/star-5-2.svg",
     },
     {
       id: 3,
-      rating: t("auto.mobileabout.4.0.5"),
-      title: t("auto.mobileabout.good.offer.dealer"),
-      body:
-        t("auto.mobileabout.it.is.a"),
-      author: t("auto.mobileabout.jhon.mirkant.manager"),
-      avatar: "/img/image-72.png",
+      rating: "4.9 / 5.0 Review",
+      title: "Tough, Job-Site Ready Equipment",
+      body: "The mini excavator is extremely robust and easy to operate. Delivery was fast, DOT-compliant, and direct to our residential construction site.",
+      author: "- Mateo Silva - Contractor",
       starFilled: "/img/star-3-2.svg",
       starEmpty: "/img/star-5-2.svg",
     },
@@ -275,16 +269,17 @@ export const MobileAbout = (): JSX.Element => {
           {testimonials.map((t) => (
             <article
               key={t.id}
-              className="bg-theme-card border border-theme-border/10 p-5 flex gap-4 items-start transition-colors duration-200"
+              className="bg-theme-card border border-theme-border/10 p-5 flex gap-4 items-start transition-colors duration-200 rounded-[12px] shadow-sm"
             >
-              <img
-                src={t.avatar}
-                alt=""
-                className="w-16 h-16 rounded-full object-cover shrink-0"
-              />
+              <div className="w-14 h-14 rounded-full bg-neutral-200 border border-neutral-300 flex-shrink-0 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-neutral-500">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
               <div className="flex-1">
                 <div className="flex items-center gap-1">
-                  {[0, 1, 2].map((i) => (
+                  {[0, 1, 2, 3].map((i) => (
                     <img
                       key={`f-${i}`}
                       src={t.starFilled}
@@ -292,25 +287,22 @@ export const MobileAbout = (): JSX.Element => {
                       className="w-3 h-3"
                     />
                   ))}
-                  {[0, 1].map((i) => (
-                    <img
-                      key={`e-${i}`}
-                      src={t.starEmpty}
-                      alt=""
-                      className="w-3 h-3"
-                    />
-                  ))}
+                  <img
+                    src={t.id === 1 ? t.starFilled : t.starEmpty}
+                    alt=""
+                    className="w-3 h-3"
+                  />
                   <span className="ml-2 font-outfit text-xs text-theme-text transition-colors">
                     {t.rating}
                   </span>
                 </div>
-                <h3 className="mt-2 font-outfit font-bold text-theme-text text-base transition-colors">
+                <h3 className="mt-2 font-outfit font-bold text-theme-text text-base transition-colors leading-tight">
                   {t.title}
                 </h3>
-                <p className="mt-1 font-outfit text-theme-text text-sm leading-snug transition-colors">
+                <p className="mt-1.5 font-outfit text-theme-text text-sm leading-snug transition-colors">
                   {t.body}
                 </p>
-                <p className="mt-2 font-outfit text-theme-muted text-sm transition-colors">{t.author}</p>
+                <p className="mt-2 font-outfit font-medium text-theme-muted text-xs transition-colors">{t.author}</p>
               </div>
             </article>
           ))}

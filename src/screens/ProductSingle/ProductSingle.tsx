@@ -114,28 +114,27 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
             {t("product.overviewText")}
           </p>
           <div className="relative mt-10 w-[519px] h-[111px]">
-            {/* Add to Cart */}
-            <button
-              type="button"
+            <Link
+              to={`/contact?product=${product.id}&topic=fit-check`}
               className="absolute top-0 left-0 w-[220px] h-[50px] flex items-center justify-center border-[3px] border-solid border-theme-border/40 hover:border-theme-accent transition-colors duration-200"
-              aria-label={t("action.addToCart")}
+              aria-label={`Request a fit check for ${product.name}`}
             >
               <span className="flex items-center gap-2">
                 <span className="[font-family:'Google_Sans_Flex',Helvetica] font-bold text-theme-text text-xl tracking-[-0.24px] leading-none">
-                  {t("action.addToCart")}
+                  Fit Check
                 </span>
                 <img
                   className="w-6 h-6 dark:invert-0 invert object-contain"
                   alt=""
-                  src="/img/basket.svg"
+                  src="/img/search.svg"
                   aria-hidden="true"
                 />
               </span>
-            </button>
+            </Link>
 
             {/* Get a Quote */}
-            <button
-              type="button"
+            <Link
+              to={`/contact?product=${product.id}`}
               className="absolute top-0 left-[236px] w-[220px] h-[50px] flex items-center justify-center bg-theme-accent hover:bg-brand-green transition-all"
               aria-label={t("action.getAQuote")}
             >
@@ -150,7 +149,7 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
                   aria-hidden="true"
                 />
               </span>
-            </button>
+            </Link>
 
             {/* Share */}
             <button

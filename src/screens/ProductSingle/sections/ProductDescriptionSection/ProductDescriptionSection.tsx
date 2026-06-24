@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Product } from "../../../../data/products";
 import { useI18n } from "../../../../context/I18nContext";
 
@@ -30,7 +31,7 @@ interface CategoryContent {
 // Complete category-based content catalog
 const CATEGORY_CATALOG: Record<string, CategoryContent> = {
   "skid-steer-loaders": {
-    intro: "The Konstructz Skid Steer Loader series represents the pinnacle of compact versatility on modern jobsites. Engineered for maximum performance in confined spaces, these loaders combine a compact footprint with high-torque hydraulic systems and rugged construction. Whether you are moving earth, grading, or operating high-demand hydraulic attachments, our skid steers deliver consistent reliability and power.",
+    intro: "A Konstructz skid steer loader is built for crews that need one compact machine to load, grade, clean up, carry material, and run attachments through the same workday. The category is strongest on sites where maneuverability, hydraulic tool support, and fast task changes matter more than oversized equipment.",
     chooseIf: "Choose this machine if your crew needs one compact loader to load, grade, carry, clear, and power attachments across changing jobsite tasks. It is especially useful when access is tight but daily production still matters.",
     whatItIsUsedFor: [
       "Earthmoving, excavation, and site preparation",
@@ -39,15 +40,15 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       "Operating specialized attachments like sweepers, augers, and trenchers"
     ],
     benefits: [
-      "Exceptional maneuverability with zero-turn capability",
-      "High auxiliary hydraulic flow to run demanding attachments",
-      "Heavy-duty steel track/wheel options for superior traction on mud, sand, or asphalt",
-      "Ergonomic operator station with intuitive joystick controls and desert-adapted cooling"
+      "Tight-turning control for confined yards, alleys, and residential access",
+      "Attachment-ready layout for buckets, forks, augers, sweepers, trenchers, and grapples",
+      "Track or wheel configurations can be matched to surface and ground conditions",
+      "Operator-focused controls keep repeated loading and grading cycles predictable"
     ],
     applications: ["Construction", "Landscaping", "Farming", "Utility work"],
     buyerGuidance: [
-      "Choose based on rated operating capacity (ROC) requirements and standard worksite widths.",
-      "Verify if your application requires high-flow hydraulics for heavy attachments.",
+      "Choose based on your heaviest routine load, access width, and the surfaces you work on most.",
+      "Verify hydraulic flow needs before ordering powered attachments.",
       "Consider undercarriage options (tracks vs. wheels) depending on ground conditions."
     ],
     maintenance: [
@@ -57,8 +58,8 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     ],
     faqs: [
       {
-        q: "Can I use standard universal skid steer attachments?",
-        a: "Yes, our skid steers are equipped with standard universal quick-attach couplings compatible with most major attachment brands."
+        q: "Can I use common skid steer attachments?",
+        a: "Many common attachments can be matched to Konstructz skid steers, but coupler type, hydraulic flow, electrical needs, and machine balance must be confirmed before purchase."
       },
       {
         q: "What type of fuel is recommended?",
@@ -74,14 +75,14 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       applications: "Earthmoving, material handling, grading, landscaping",
       powerType: "Diesel engine powertrain (Varies by model)",
       bestFor: "High-maneuverability tasks and heavy multi-tool operations",
-      attachments: "Universal quick-attach system (augers, trenchers, forks, buckets)",
+      attachments: "Common quick-attach workflow for augers, trenchers, forks, buckets, and grapples",
       worksiteUse: "Confined spaces, soft ground, residential and commercial yards",
-      advantages: "Excellent zero-turn agility, high hydraulic flow, robust track traction",
-      maintenanceNotes: "Regular hydraulic fluid checks, track tensioning, and daily greasing"
+      advantages: "Compact agility, attachment flexibility, and strong traction options",
+      maintenanceNotes: "Hydraulic-fluid checks, undercarriage cleaning, quick-attach inspection, and routine greasing"
     }
   },
   "mini-excavators": {
-    intro: "The Konstructz Mini Excavator lineup is engineered to deliver powerful digging performance in compact spaces where larger machinery cannot operate. Featuring advanced hydraulics, smooth controls, and zero-tail-swing options, these excavators are ideal for precise utility trenching, pool excavation, foundation work, and general landscaping. Their retractable undercarriage makes passing through narrow gates simple.",
+    intro: "A Konstructz mini excavator gives contractors, property owners, landscapers, and utility crews controlled digging power without the footprint of a full-size excavator. It is designed for trenching, shaping, demolition prep, drainage, and attachment work in areas where access and surface protection matter.",
     chooseIf: "Choose this machine if your work is built around digging accuracy, trench control, foundation prep, landscaping, drainage, or utility access. It is the practical choice when a full-size excavator is too large for the site.",
     whatItIsUsedFor: [
       "Utility trenching for pipes, water lines, and electrical conduits",
@@ -90,16 +91,16 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       "Landscaping, tree planting, and retaining wall preparation"
     ],
     benefits: [
-      "Zero-tail-swing design prevents damage to surrounding walls or fences",
-      "Smooth, pilot-operated hydraulic controls for micro-adjustments",
-      "Retractable track systems allow access through narrow passageways",
-      "Auxiliary hydraulics pre-plumbed to the boom for thumbs, augers, or breakers"
+      "Compact tracked footprint helps protect access routes and finished surfaces",
+      "Controlled boom, arm, and bucket movement supports careful work near structures",
+      "Attachment support can expand one machine into digging, grabbing, drilling, and breaking roles",
+      "Transport-friendly size helps crews move between residential and commercial jobs"
     ],
     applications: ["Utility installations", "Landscaping", "Foundation digging", "Demolition"],
     buyerGuidance: [
-      "Select the machine based on your maximum required digging depth and breakout force.",
-      "For tight spaces near walls or structures, zero-tail-swing models are highly recommended.",
-      "Ensure you select appropriate bucket sizes and thumb attachments for your primary projects."
+      "Select the model around your common trench depth, access width, soil conditions, and lift expectations.",
+      "For tight work near walls or fences, confirm tail-swing clearance before purchase.",
+      "Match buckets, thumbs, augers, and breakers to the machine's hydraulic setup before ordering."
     ],
     maintenance: [
       "Grease boom, arm, and bucket pins daily to minimize wear.",
@@ -109,11 +110,11 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     faqs: [
       {
         q: "Are the rubber tracks durable?",
-        a: "Yes, our mini excavators use high-durability, steel-reinforced rubber tracks designed to minimize ground damage while ensuring long wear life."
+        a: "Track construction varies by model and configuration. The right track choice depends on the surface, soil, transport method, and expected duty cycle."
       },
       {
         q: "Does the machine come pre-plumbed for attachments?",
-        a: "Yes, auxiliary hydraulic piping is standard on the boom, allowing easy plug-and-play hookup for hydraulic attachments."
+        a: "Attachment plumbing depends on final configuration. Confirm auxiliary lines, coupler type, and flow needs with Konstructz before ordering powered tools."
       },
       {
         q: "What is the warranty coverage?",
@@ -123,16 +124,16 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Compact Mini Excavator",
       applications: "Trenching, footings, foundation prep, landscaping, demolition",
-      powerType: "High-efficiency diesel engine (Varies by model)",
+      powerType: "Diesel or gas powertrain options (varies by model)",
       bestFor: "Precise digging in restricted or residential spaces",
       attachments: "Compatible with buckets, hydraulic thumbs, augers, breakers",
       worksiteUse: "Narrow yards, utility corridors, near building walls",
-      advantages: "Zero-tail-swing body, retractable tracks, excellent bucket breakout force",
-      maintenanceNotes: "Daily joint greasing, track tension checks, and hydraulic hose safety inspection"
+      advantages: "Precise digging, compact access, broad attachment support, and controlled operation",
+      maintenanceNotes: "Grease points, track condition, hydraulic hoses, filters, and coupler locks"
     }
   },
   "wheel-loaders": {
-    intro: "The Konstructz Wheel Loader series is built for rapid material handling and bulk loading operations. Combining high-capacity buckets, articulating steering, and heavy-duty 4WD, these loaders move soil, gravel, sand, and agricultural products quickly and efficiently. The spacious, ergonomic cabin provides excellent 360-degree visibility, ensuring operators can work safely and comfortably for long shifts.",
+    intro: "A Konstructz wheel loader is built for repeated material movement: loading trucks, feeding hoppers, clearing yards, handling aggregate, and keeping stockpiles organized. It fits operations where travel speed, bucket control, visibility, and steady loading cycles matter.",
     chooseIf: "Choose this machine if your main bottleneck is moving bulk material quickly: aggregate, soil, mulch, feed, palletized goods, or stockpile material. Wheel loaders work best where repeated loading cycles and travel speed matter.",
     whatItIsUsedFor: [
       "Bulk material loading and stockpiling",
@@ -141,15 +142,15 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       "Agricultural feed, manure, and silage handling"
     ],
     benefits: [
-      "Articulated steering offers tight turning radiuses and minimal turf damage",
-      "Four-wheel-drive transmission provides maximum traction in slick conditions",
-      "High travel speeds for fast cycle times across large worksites",
-      "Comfortable cabin with intuitive controls and panoramic visibility"
+      "Articulated steering keeps loading cycles controlled in yards and stockpile areas",
+      "Wheel configuration is efficient on firm ground, paved lots, and repeated travel routes",
+      "Bucket and fork options let one machine support loading, staging, and cleanup",
+      "Operator visibility and simple controls matter during repetitive material handling"
     ],
     applications: ["Aggregate loading", "Agriculture", "Commercial construction", "Road work"],
     buyerGuidance: [
-      "Select your loader size based on bucket capacity (cubic yards) and material density.",
-      "Consider the dump clearance height to ensure compatibility with your haul trucks.",
+      "Select loader size around material type, truck height, route distance, and ground condition.",
+      "Confirm dump clearance against the trucks, hoppers, or bins you load most often.",
       "Review tire options (e.g., agricultural, industrial) for your specific ground surface."
     ],
     maintenance: [
@@ -159,44 +160,44 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     ],
     faqs: [
       {
-        q: "Can this machine travel on paved roads?",
-        a: "Yes, our wheel loaders can travel on asphalt roads without damaging the road surface, unlike tracked loaders."
+        q: "Can a wheel loader work on paved yards?",
+        a: "Wheel loaders are generally better suited than tracked machines for paved yards and firm travel routes. Local road-use rules and machine configuration still need to be confirmed."
       },
       {
-        q: "Is the cab climate-controlled?",
-        a: "Yes, premium cabin configurations include heating and air conditioning systems."
+        q: "Which attachments are most useful for a wheel loader?",
+        a: "Common wheel-loader tools include general-purpose buckets, light-material buckets, pallet forks, grapples, snow tools, and cleanup attachments."
       }
     ],
     tableData: {
       category: "Articulated Wheel Loader",
       applications: "Bulk material loading, stockpiling, agricultural transport",
-      powerType: "Turbocharged diesel powertrain",
+      powerType: "Diesel powertrain options (varies by model)",
       bestFor: "High-speed bulk material handling and transferring",
-      attachments: "Forks, high-capacity buckets, sweepers, grapple buckets",
+      attachments: "Forks, buckets, sweepers, grapples, and snow tools depending on setup",
       worksiteUse: "Aggregate yards, farms, large construction sites",
-      advantages: "4WD traction, articulated frame, fast cycle speeds, roomy cab",
+      advantages: "Strong material flow, yard mobility, controlled loading, and multi-tool utility",
       maintenanceNotes: "Linkage grease points, engine oil intervals, and tire pressure monitoring"
     }
   },
   "backhoe-loaders": {
-    intro: "The Konstructz Backhoe Loader series is the ultimate multi-tasker, combining the digging power of an excavator and the loading capability of a wheel loader on a single rugged chassis. Perfect for worksites that require trenching, backfilling, lifting, and loading, these dual-duty machines save space and reduce transport costs by replacing two single-purpose units. Features include stabilizer legs and a 180-degree swivel operator station.",
+    intro: "A Konstructz backhoe loader is for sites that need digging and front loading from one machine platform. It can trench, backfill, move loose material, handle site cleanup, and support utility work without bringing separate loader and excavator units to every job.",
     chooseIf: "Choose this machine if your site needs both digging and loading but does not justify moving two separate machines. It is a strong fit for utility repair, farm work, road edges, and general site service.",
     whatItIsUsedFor: [
       "Excavating trenches and backfilling soil",
       "Loading materials into dump trucks",
-      "Lifting pipes, concrete barriers, and heavy building blocks",
+      "Positioning pipe, jobsite material, and compact attachments within safe working limits",
       "Breaking concrete and asphalt for utility repair"
     ],
     benefits: [
-      "Dual-purpose utility eliminates the need to transport multiple machines",
-      "Rugged 4WD chassis handles uneven and muddy ground easily",
-      "Wide stabilizer pads provide a solid, safe base during digging operations",
-      "Swivel seat allows operators to transition from front loader to rear digger in seconds"
+      "Dual-purpose layout reduces machine swaps on small and mid-size jobs",
+      "Front bucket and rear boom support trenching, loading, and backfill sequences",
+      "Stabilizer setup helps prepare the machine for controlled digging",
+      "Single-machine workflow is useful for utility repair, farms, roadsides, and service yards"
     ],
     applications: ["Road repair", "Utility trenching", "Public works", "Farming & development"],
     buyerGuidance: [
-      "Evaluate the backhoe digging depth against your utility excavation requirements.",
-      "Check loader lifting capacities and bucket sizes for bulk transport tasks.",
+      "Evaluate reach and digging needs against your typical trench and repair work.",
+      "Check loader configuration against the material you move most often.",
       "Examine worksite spaces to ensure the machine can deploy its stabilizer legs safely."
     ],
     maintenance: [
@@ -207,7 +208,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     faqs: [
       {
         q: "How does the operator control both sections?",
-        a: "The operator station features a 180-degree swivel seat. Once turned, the operator has full control of the backhoe section via pilot joysticks."
+        a: "Operator layout varies by model. The important check is whether the controls, stabilizer setup, and visibility fit the way your crew moves between loading and digging tasks."
       },
       {
         q: "What attachments can I run on a backhoe?",
@@ -217,16 +218,16 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Backhoe Loader (Dual-Duty)",
       applications: "Trenching, loading, backfilling, material handling",
-      powerType: "High-torque diesel engine (Varies by model)",
+      powerType: "Diesel powertrain options (varies by model)",
       bestFor: "Worksite tasks requiring both loading and digging in one unit",
       attachments: "Digger buckets, hammers, front forks, landscape buckets",
       worksiteUse: "Roads, utilities, farms, and public works projects",
-      advantages: "Dual functionality, stabilizer legs, robust 4WD chassis",
+      advantages: "Digging and loading in one platform, fewer machine moves, and strong jobsite flexibility",
       maintenanceNotes: "Dual-end grease points, stabilizer checks, hydraulic health checks"
     }
   },
   "dumpers": {
-    intro: "The Konstructz Tracked Dumper lineup is engineered to haul heavy payloads across terrain that would stop a wheeled truck. Featuring thick rubber tracks, low ground pressure, and robust dump boxes, these haulers navigate mud, sand, snow, and steep slopes without sinking or tearing up the ground. Available self-loading shovels allow for efficient single-operator cycles, boosting productivity on any worksite.",
+    intro: "A Konstructz dumper is built to keep material moving when wheelbarrows, small trucks, or loader shuttles slow the job down. It is most useful for hauling soil, aggregate, concrete, debris, and landscape material through narrow, soft, or uneven access routes.",
     chooseIf: "Choose this machine if your crew loses time moving material by wheelbarrow, compact truck, or loader shuttle. Dumpers are designed for short, repetitive hauling on rough, soft, narrow, or sloped access routes.",
     whatItIsUsedFor: [
       "Hauling concrete, aggregates, soil, and site debris",
@@ -235,14 +236,14 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       "Site clean-up and muck-away operations"
     ],
     benefits: [
-      "High payload capacities relative to compact machine dimensions",
-      "Extremely low ground pressure tracks prevent surface damage and sinking",
-      "Self-loading bucket options enable one operator to load and haul autonomously",
-      "Tip and swivel dump boxes simplify material placement in tight spaces"
+      "Compact hauling format reduces manual material handling",
+      "Tracked configurations can help on soft, uneven, or narrow access routes",
+      "Self-loading and swivel-dump options vary by setup and can improve placement control",
+      "Useful support machine for excavators, concrete crews, landscapers, and demolition cleanup"
     ],
     applications: ["Soft-ground hauling", "Backyard landscaping", "Urban demolition", "Trail building"],
     buyerGuidance: [
-      "Match the machine payload rating with your daily volume haul requirements.",
+      "Match payload class to your material type, haul distance, slope, and access width.",
       "Choose a model with a self-loading shovel if working without an auxiliary excavator.",
       "Consider a 180-degree swivel dump box for precise side-dumping in narrow trenches."
     ],
@@ -254,11 +255,11 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     faqs: [
       {
         q: "Can the dumper spin in place?",
-        a: "Yes, the tracked design allows the dumper to spin 360 degrees in place, making it perfect for dead-end paths."
+        a: "Turning behavior depends on track setup, ground condition, load, and operator technique. Confirm maneuverability needs before choosing a model."
       },
       {
         q: "Does the dumper damage lawns?",
-        a: "Because the payload weight is distributed over wide tracks, it has extremely low ground pressure, minimizing turf damage."
+        a: "Tracked dumpers can reduce ground pressure compared with wheeled hauling, but turf protection depends on load, soil moisture, turns, and the selected track setup."
       }
     ],
     tableData: {
@@ -268,12 +269,12 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       bestFor: "Transporting heavy materials over mud, slopes, and soft ground",
       attachments: "Self-loading shovel, flatbed options (varies by config)",
       worksiteUse: "Backyards, wet fields, narrow trails, demolition sites",
-      advantages: "Low ground pressure, 360-degree pivot, self-loading capability",
+      advantages: "Compact hauling, controlled dumping, rough-access movement, and reduced manual handling",
       maintenanceNotes: "Undercarriage cleaning, dump cylinder lubrication, track wear monitoring"
     }
   },
   "stone-crushers": {
-    intro: "The Konstructz Mobile Stone Crusher series is designed to convert demolition waste, bricks, concrete, and stones into high-quality reusable fill directly on the jobsite. By recycling aggregate in place, these heavy-duty crushers save contractors thousands of dollars in transport fees, disposal costs, and new material delivery charges. Built with high-manganese steel jaw plates, they tackle tough aggregate with ease.",
+    intro: "A Konstructz stone crusher helps crews process rubble, concrete, masonry, asphalt, and fieldstone closer to the work area. The goal is simple: reduce hauling, sort material more efficiently, and turn compatible site debris into usable fill or aggregate where the project allows it.",
     chooseIf: "Choose this machine if you regularly handle concrete, masonry, asphalt, rubble, or fieldstone and want to reduce hauling and disposal cycles. It is best for crews that can reuse crushed material on the same project or yard.",
     whatItIsUsedFor: [
       "Crushing concrete, masonry, brick, and asphalt rubble on-site",
@@ -282,16 +283,16 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       "Fieldstone and river rock reduction for landscaping"
     ],
     benefits: [
-      "Recycles waste material on-site, eliminating dump fees and trucking costs",
-      "Adjustable jaw openings to control the output sizing of the crushed material",
-      "Compact, towable or self-propelled track designs for easy transport",
-      "Robust construction with manganese jaw plates for long-lasting operation"
+      "Helps reduce off-site hauling when reclaimed material can be reused",
+      "Output size and throughput depend on material, setup, and machine configuration",
+      "Useful for demolition cleanup, landscape supply, road-base prep, and yard recycling",
+      "Wear parts, belts, guards, and dust control should be planned before heavy use"
     ],
     applications: ["Demolition recycling", "Road base prep", "Rock reclaiming", "Landscape depot"],
     buyerGuidance: [
-      "Select your crusher based on the expected tons-per-hour processing volume.",
-      "Verify the feed opening size to ensure it matches the size of your demolition debris.",
-      "Choose between diesel power for remote fields or electric models for indoor/low-noise work."
+      "Select the crusher around material type, desired output, feed preparation, and site access.",
+      "Plan how oversized material, metal, dust, and finished aggregate will be handled.",
+      "Confirm powertrain, feed size, and output settings before purchase."
     ],
     maintenance: [
       "Inspect jaw plates daily for wear and tighten bolts if necessary.",
@@ -301,11 +302,11 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     faqs: [
       {
         q: "Can it crush concrete with rebar inside?",
-        a: "Yes, but we recommend selecting models with magnetic separators to extract rebar from the output."
+        a: "Rebar handling depends on crusher configuration and the material stream. Ask Konstructz to confirm whether a separator or different processing method is needed."
       },
       {
         q: "How do I adjust the output size?",
-        a: "Our crushers feature a simple mechanical wedge adjustment system to quickly set the target jaw gap."
+        a: "Output adjustment varies by crusher model. Confirm the adjustment method and expected material size before ordering."
       }
     ],
     tableData: {
@@ -315,12 +316,12 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       bestFor: "On-site recycling of masonry, concrete, and stone waste",
       attachments: "Magnetic separators, dust suppression sprays",
       worksiteUse: "Demolition sites, recycling centers, stone quarries",
-      advantages: "Saves waste disposal fees, adjustable output size, heavy manganese jaw plates",
+      advantages: "On-site material reduction, reuse potential, less hauling, and better debris control",
       maintenanceNotes: "Jaw plate wear check, main shaft bearing lubrication, belt tensioning"
     }
   },
   "trenchers": {
-    intro: "The Konstructz Trencher series is built to slice clean, precise utility channels through the toughest soil, clay, and roots. Engineered with dual tracks and high-torque engines, these trenchers provide steady forward traction and deep cutting force. The carbide-tipped chains and auger spoil management systems ensure that digging trenches for irrigation, water, or power cables is fast, clean, and efficient.",
+    intro: "A Konstructz trencher is built for repeatable narrow cuts where a bucket would be slower or less precise. It supports irrigation, drainage, conduit, landscape lighting, utility routing, and other trench paths that need consistent width and controlled spoil placement.",
     chooseIf: "Choose this machine if your work depends on straight, repeatable trenches for pipe, drainage, irrigation, fiber, landscape lighting, or utility conduit. It saves time when the trench path is narrow and consistent.",
     whatItIsUsedFor: [
       "Digging trenches for water lines, gas pipes, and electric lines",
@@ -329,14 +330,14 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       "Installing underground lighting and landscaping cables"
     ],
     benefits: [
-      "Dual tracks provide superior stability and traction without spinning tires",
-      "Carbide-tipped teeth carve through shale, rocky soil, and thick root systems",
-      "Side augers push dug soil away from the trench edge, preventing backfill",
-      "Adjustable boom depth with safety lock lets you control trench parameters precisely"
+      "Narrow cutting path keeps utility work cleaner than broad excavation",
+      "Track or wheel setup can be matched to turf, soil, and access conditions",
+      "Chain selection should match clay, roots, loose soil, or rocky ground",
+      "Spoil handling helps keep the trench line open for pipe, wire, or drainage work"
     ],
     applications: ["Utility pipe laying", "Irrigation prep", "Drainage install", "Fiber optic routing"],
     buyerGuidance: [
-      "Determine the maximum depth and width requirements of the utility lines you install.",
+      "Determine required trench depth, width, soil type, route length, and access clearance.",
       "Choose track models for superior control and less ground disruption on turf.",
       "Review the chain configurations (e.g., cup teeth vs. shark teeth) for clay vs. rock soil."
     ],
@@ -348,7 +349,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     faqs: [
       {
         q: "Does it dig through tree roots?",
-        a: "Yes, the carbide-tipped teeth are designed to slice through roots, clay, and compact gravel."
+        a: "Root and rock performance depends on chain type, ground conditions, and machine configuration. Share your soil conditions before choosing a chain."
       },
       {
         q: "What happens to the soil that is dug up?",
@@ -362,12 +363,12 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       bestFor: "Digging straight, narrow channels for pipes and cables",
       attachments: "Alternative chain types (rock, clay, turf)",
       worksiteUse: "Lawns, golf courses, utility corridors, farms",
-      advantages: "Clean trenches, carbide chain durability, auger soil clearing",
+      advantages: "Consistent trench width, controlled spoil, faster utility routing, and cleaner backfill prep",
       maintenanceNotes: "Chain tension adjustment, teeth replacement, auger cleanup"
     }
   },
   "towable-excavators": {
-    intro: "The Konstructz Towable Excavator is a unique, lightweight digging solution built for remote or sensitive worksites. Featuring heavy-duty outriggers for secure leveling on slopes, these compact diggers can be easily towed behind standard utility vehicles or ATVs. Perfect for landowners, agricultural workers, and contractors working on soft turf or steep embankments.",
+    intro: "A Konstructz towable excavator is a portable digging solution for farms, landowners, trail crews, and smaller contractors who need occasional excavation away from dense jobsite infrastructure. It favors transport simplicity, setup flexibility, and practical maintenance over high-volume earthmoving.",
     chooseIf: "Choose this machine if portability, simple transport, and remote-site access are more important than high-volume excavation. It suits farms, land maintenance, trail work, small drainage jobs, and property owners who need occasional digging power.",
     whatItIsUsedFor: [
       "Remote-site excavation, pond digging, and drainage prep",
@@ -376,19 +377,19 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       "Ditch clearing and path maintenance on hillsides"
     ],
     benefits: [
-      "Extremely lightweight and towable by standard trucks, SUVs, or ATVs",
-      "Stabilizing outriggers slide and lock to provide stability on steep slopes",
-      "Simple, robust design minimizes maintenance costs and breakdown risks",
-      "Low ground disruption — ideal for lawns, golf courses, and nature preserves"
+      "Portable format supports remote property, farm, drainage, and trail maintenance",
+      "Outrigger setup helps prepare the machine before digging begins",
+      "Simple mechanical layout keeps ownership and inspection straightforward",
+      "Useful when a larger excavator cannot be staged economically"
     ],
     applications: ["Remote off-grid digging", "Trail & park maintenance", "Sensitive turf yards", "Farming"],
     buyerGuidance: [
-      "Confirm your towing vehicle's capacity matches the excavator towing weight.",
+      "Confirm towing rules, coupler setup, trailer requirements, and local transport regulations.",
       "Verify that the digging depth and reach fit your ditching or planting projects.",
       "Ensure you have flat mud plates for outriggers if working on soft or swampy ground."
     ],
     maintenance: [
-      "Grease boom pivots and bucket linkage pins after every 8 hours of work.",
+      "Grease boom pivots and bucket linkage pins according to the operator manual.",
       "Inspect outrigger locking pins and structural frame welds for safety.",
       "Check engine oil levels and hydraulic cylinder seals."
     ],
@@ -398,8 +399,8 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
         a: "Operators use the digging arm to pull or push the machine short distances, or they can hook it to an ATV for longer relocations."
       },
       {
-        q: "Can I tow this on the highway?",
-        a: "Yes, our towable excavators feature a standard trailer hitch coupler and highway-rated tires."
+        q: "Can I tow this on public roads?",
+        a: "Road towing rules depend on configuration and local regulations. Confirm coupler, lighting, tire, registration, and tow-vehicle requirements before transport."
       }
     ],
     tableData: {
@@ -409,7 +410,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
       bestFor: "Sensitive turf and remote, off-grid digging projects",
       attachments: "Various bucket sizes, ripper tooth, mechanical thumb",
       worksiteUse: "Steep slopes, soft yards, narrow wooded paths",
-      advantages: "Light towing weight, outrigger stability, simple mechanical design",
+      advantages: "Portable digging, simple setup, remote access, and practical ownership",
       maintenanceNotes: "Pivot pin greasing, coupler safety check, hydraulic cylinder seals check"
     }
   }
@@ -582,7 +583,7 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
                 Worksite Deployment Guide
               </h3>
               <p className="font-glonimove text-lg leading-relaxed text-theme-muted">
-                Designed for optimal worksite integration, this equipment category is commonly deployed in settings requiring active {categoryInfo.applications.join(", ").toLowerCase()}. Their durable configuration supports robust duty cycles while keeping undercarriage footprint minimal, protecting finished surfaces and sensitive turf.
+                This category is commonly deployed for {categoryInfo.applications.join(", ").toLowerCase()}. Before final selection, confirm access width, surface condition, operator experience, transport method, and the attachments or tools expected to run on the machine.
               </p>
             </div>
 
@@ -617,18 +618,18 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
           </div>
 
           <div className="grid grid-cols-3 gap-5">
-            <a href="/#/attachments" className="border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors">
+            <Link to="/attachments" className="border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors k-hover-lift">
               <h3 className="font-glonimoveBold text-[20px] text-theme-heading">Attachments That Expand Your Machine</h3>
               <p className="mt-2 font-glonimove text-base text-theme-muted leading-relaxed">Review buckets, breakers, augers, forks, and fitment checks for the work you plan to run.</p>
-            </a>
-            <a href="/#/support/machine-guidance" className="border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors">
+            </Link>
+            <Link to="/support/machine-guidance" className="border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors k-hover-lift">
               <h3 className="font-glonimoveBold text-[20px] text-theme-heading">Machine Selection Help</h3>
               <p className="mt-2 font-glonimove text-base text-theme-muted leading-relaxed">Compare categories and get a practical recommendation before you commit to a model.</p>
-            </a>
-            <a href="/#/support/contact-support" className="border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors">
+            </Link>
+            <Link to="/support/contact-support" className="border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors k-hover-lift">
               <h3 className="font-glonimoveBold text-[20px] text-theme-heading">Support After Purchase</h3>
               <p className="mt-2 font-glonimove text-base text-theme-muted leading-relaxed">Get help with manuals, parts, delivery questions, warranty cases, and technical support.</p>
-            </a>
+            </Link>
           </div>
 
           {/* Interactive FAQ Accordion */}

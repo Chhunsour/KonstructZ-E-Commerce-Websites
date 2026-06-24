@@ -7,20 +7,20 @@ const testimonials = [
     body: "Outstanding build quality. We purchased the Stomp V980 skid steer and it has been running non-stop on our landscaping site without any issues.",
     author: "- John Mirkant - Operations Manager",
     cardClassName:
-      "absolute top-[99px] left-0 w-[461px] h-[223px] bg-[#f3f3f4]",
+      "absolute top-[99px] left-0 w-[461px] h-[290px] bg-[#f3f3f4] rounded-[12px] shadow-sm border border-neutral-200/40",
     contentClassName:
-      "absolute top-[130px] left-[138px] w-[308px] h-[163px] flex flex-col",
+      "absolute top-[130px] left-[138px] w-[308px] h-[230px] flex flex-col justify-start",
     starsClassName: "absolute top-[138px] left-[141px] w-[65px] h-2.5 flex",
     avatarImageClassName:
       "absolute top-[136px] left-[33px] w-[79px] h-[79px] aspect-[1]",
     reviewTextClassName:
-      "ml-[85.7px] w-[105px] h-6 [font-family:'Outfit',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-6 whitespace-nowrap",
+      "ml-[85.7px] [font-family:'Outfit',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-6 whitespace-nowrap",
     titleClassName:
-      "ml-[0.2px] w-[280px] h-5 mt-[17.3px] [font-family:'Outfit',Helvetica] font-bold text-black text-[24px] tracking-[0] leading-[normal]",
+      "ml-[0.2px] w-[280px] mt-[12px] [font-family:'Outfit',Helvetica] font-bold text-black text-[24px] tracking-[0] leading-tight",
     descriptionClassName:
-      "w-[300px] h-[47px] mt-[10.3px] [font-family:'Outfit',Helvetica] font-normal text-black text-[22px] leading-5",
+      "w-[300px] mt-[8px] [font-family:'Outfit',Helvetica] font-normal text-neutral-800 text-[19px] leading-snug",
     authorClassName:
-      "ml-[0.2px] w-[280px] h-6 mt-[20.1px] [font-family:'Outfit',Helvetica] font-normal text-black text-[22px] leading-6 whitespace-nowrap",
+      "ml-[0.2px] w-[280px] mt-auto mb-[5px] [font-family:'Outfit',Helvetica] font-medium text-neutral-600 text-[18px] leading-normal whitespace-nowrap",
     starSources: [
       "/img/star-3.svg",
       "/img/star-3.svg",
@@ -43,20 +43,20 @@ const testimonials = [
     body: "Incredible direct customer support. Our technical questions about attachment hydraulic flows were answered quickly by a machinery specialist.",
     author: "- Sarah Jenkins - Site Supervisor",
     cardClassName:
-      "absolute top-[99px] left-[484px] w-[462px] h-[223px] bg-[#e2e2e2]",
+      "absolute top-[99px] left-[484px] w-[462px] h-[290px] bg-[#e2e2e2] rounded-[12px] shadow-sm border border-neutral-300/40",
     contentClassName:
-      "absolute top-[130px] left-[618px] w-[302px] h-[163px] flex flex-col",
+      "absolute top-[130px] left-[618px] w-[302px] h-[230px] flex flex-col justify-start",
     starsClassName: "absolute top-[138px] left-[618px] w-[65px] h-2.5 flex",
     avatarImageClassName:
       "absolute top-[136px] left-[515px] w-[79px] h-[79px] aspect-[1]",
     reviewTextClassName:
-      "ml-[85.8px] w-[105px] h-6 [font-family:'Outfit',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-6 whitespace-nowrap",
+      "ml-[85.8px] [font-family:'Outfit',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-6 whitespace-nowrap",
     titleClassName:
-      "ml-[0.3px] w-[280px] h-5 mt-[17.3px] [font-family:'Outfit',Helvetica] font-bold text-black text-[24px] tracking-[0] leading-[normal]",
+      "ml-[0.3px] w-[280px] mt-[12px] [font-family:'Outfit',Helvetica] font-bold text-black text-[24px] tracking-[0] leading-tight",
     descriptionClassName:
-      "w-[294px] h-[47px] mt-[10.3px] [font-family:'Outfit',Helvetica] font-normal text-black text-[22px] leading-5",
+      "w-[294px] mt-[8px] [font-family:'Outfit',Helvetica] font-normal text-neutral-800 text-[19px] leading-snug",
     authorClassName:
-      "ml-[0.3px] w-[280px] h-6 mt-[20.1px] [font-family:'Outfit',Helvetica] font-normal text-black text-[22px] leading-6 whitespace-nowrap",
+      "ml-[0.3px] w-[280px] mt-auto mb-[5px] [font-family:'Outfit',Helvetica] font-medium text-neutral-600 text-[18px] leading-normal whitespace-nowrap",
     starSources: [
       "/img/star-3-2.svg",
       "/img/star-3-2.svg",
@@ -79,20 +79,20 @@ const testimonials = [
     body: "The mini excavator is extremely robust and easy to operate. Delivery was fast, DOT-compliant, and direct to our residential construction site.",
     author: "- Mateo Silva - Contractor",
     cardClassName:
-      "absolute top-[99px] left-[969px] w-[461px] h-[223px] bg-[#f3f3f4]",
+      "absolute top-[99px] left-[969px] w-[461px] h-[290px] bg-[#f3f3f4] rounded-[12px] shadow-sm border border-neutral-200/40",
     contentClassName:
-      "absolute top-[130px] left-[1103px] w-[301px] h-[163px] flex flex-col",
+      "absolute top-[130px] left-[1103px] w-[301px] h-[230px] flex flex-col justify-start",
     starsClassName: "absolute top-[138px] left-[1101px] w-[65px] h-2.5 flex",
     avatarImageClassName:
       "absolute top-[136px] left-[1002px] w-[79px] h-[79px] aspect-[1]",
     reviewTextClassName:
-      "ml-[85.5px] w-[105px] h-6 [font-family:'Outfit',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-6 whitespace-nowrap",
+      "ml-[85.5px] [font-family:'Outfit',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-6 whitespace-nowrap",
     titleClassName:
-      "ml-0 w-[280px] h-5 mt-[17.3px] [font-family:'Outfit',Helvetica] font-bold text-black text-[24px] tracking-[0] leading-[normal]",
+      "ml-0 w-[280px] mt-[12px] [font-family:'Outfit',Helvetica] font-bold text-black text-[24px] tracking-[0] leading-tight",
     descriptionClassName:
-      "w-[293px] h-[47px] mt-[10.3px] [font-family:'Outfit',Helvetica] font-normal text-black text-[22px] leading-5",
+      "w-[293px] mt-[8px] [font-family:'Outfit',Helvetica] font-normal text-neutral-800 text-[19px] leading-snug",
     authorClassName:
-      "ml-0 w-[280px] h-6 mt-[20.1px] [font-family:'Outfit',Helvetica] font-normal text-black text-[22px] leading-6 whitespace-nowrap",
+      "ml-0 w-[280px] mt-auto mb-[5px] [font-family:'Outfit',Helvetica] font-medium text-neutral-600 text-[18px] leading-normal whitespace-nowrap",
     starSources: [
       "/img/star-3-2.svg",
       "/img/star-3-2.svg",
@@ -114,14 +114,14 @@ export const CustomerTestimonialsSection = (): JSX.Element => {
   const { t } = useI18n();
   return (
     <section
-      className="absolute top-[4785px] left-[260px] w-[1430px] h-[470px]"
+      className="absolute top-[4785px] left-[260px] w-[1430px] h-[550px]"
       aria-labelledby="customer-testimonials-heading"
     >
       <h2
         id="customer-testimonials-heading"
         className="absolute top-0 left-[159px] [font-family:'Malking-Regular',Helvetica] font-normal text-[#d8c79a] text-[50px] tracking-[0] leading-[normal] whitespace-nowrap"
       >{t("auto.customertestimonials.what.our.customers")}</h2>
-      <div className="absolute top-[148px] left-0 w-[1432px] h-[322px]">
+      <div className="absolute top-[148px] left-0 w-[1432px] h-[390px]">
         {testimonials.map((testimonial) => (
           <div key={testimonial.id}>
             <article

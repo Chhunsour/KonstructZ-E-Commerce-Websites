@@ -1,0 +1,509 @@
+import React, { useEffect, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
+
+/**
+ * Equipment showcase banner — 1:1 of the Figma export with a real carousel
+ * rotation engine.
+ *
+ * Every slide is permanently mounted at all times and assigned to a "slot" by
+ * its offset to the active index. Changing the active index just re-targets
+ * each slide → CSS transitions animate them smoothly between slots. Clicking
+ * the left/right machine sets it as active, so it slides into the centre while
+ * the old centre slides out to the opposite side (cinematic carousel rotation,
+ * no flickering, no DOM unmounts).
+ *
+ * Per-product display knobs (`scale` / `xOffset` / `yOffset`) compensate for
+ * PNGs that have different amounts of transparent padding so every machine
+ * looks visually balanced.
+ *
+ * Reference canvas: 1920 × 1080  →  X% = px/19.2, Y% = px/10.8, C(px) = cqw
+ */
+
+/* ── coordinate helpers (Figma px → responsive units) ───────────────────── */
+const X = (px: number) => `${(px / 1920) * 100}%`;
+const Y = (px: number) => `${(px / 1080) * 100}%`;
+const C = (px: number) => `${px / 19.2}cqw`;
+
+/* ── data ───────────────────────────────────────────────────────────────── */
+interface BannerStat { icon: string; value: string; label: string; }
+interface BannerSlide {
+  id: string;
+  category: string;
+  productSlug: string;
+  modelName: string;
+  description: string;
+  image: string;
+  stats: [BannerStat, BannerStat, BannerStat];
+  /** Per-image tuning — adjust until every machine looks the same visible size. */
+  display?: { scale?: number; xOffset?: number; yOffset?: number };
+}
+
+const ICON_TONS = "/img/banner/icon-tons.svg";
+const ICON_FORCE = "/img/banner/icon-force.svg";
+const ICON_HP = "/img/banner/icon-hp.svg";
+
+const SLIDES: BannerSlide[] = [
+  {
+    id: "skid-steer", category: "SKID STEER", productSlug: "stomp-v980",
+    modelName: "STOMP V980",
+    description: "Uncompromised torque and reinforced lift arms — built for continuous heavy loading.",
+    image: "/img/banner/banner-stomp-v980.png",
+    display: { scale: 1.09, xOffset: 0, yOffset: 0 },
+    stats: [
+      { icon: ICON_TONS, value: "2.1", label: "TONS" },
+      { icon: ICON_FORCE, value: "16", label: "GPM Flow" },
+      { icon: ICON_HP, value: "28", label: "Horsepower" },
+    ],
+  },
+  {
+    id: "wheel-loader", category: "WHEEL LOADER", productSlug: "skoop-ii",
+    modelName: "SKOOP II",
+    description: "Heavy-duty articulated chassis with 4WD and a Tier 4 final diesel engine.",
+    image: "/img/banner/banner-skoop-ii.png",
+    display: { scale: 1.36, xOffset: 0, yOffset: 9 },
+    stats: [
+      { icon: ICON_TONS, value: "2.4", label: "TONS" },
+      { icon: ICON_FORCE, value: "1.2", label: "yd³ Bucket" },
+      { icon: ICON_HP, value: "74", label: "Horsepower" },
+    ],
+  },
+  {
+    id: "excavator", category: "EXCAVATOR", productSlug: "kuvuo-2-5",
+    modelName: "KUVUO 2.5",
+    description: "Agile compact excavator with zero-tail-swing and retractable tracks for tight sites.",
+    image: "/img/banner/banner-kuvuo.png",
+    display: { scale: 1.33, xOffset: 0, yOffset: 6 },
+    stats: [
+      { icon: ICON_TONS, value: "2.5", label: "TONS" },
+      { icon: ICON_FORCE, value: "2.2k", label: "lbs Force" },
+      { icon: ICON_HP, value: "8.5", label: "ft Depth" },
+    ],
+  },
+  {
+    id: "backhoe-loader", category: "BACKHOE LOADER", productSlug: "scoopydig",
+    modelName: "SCOOPYDIG",
+    description: "Backhoe depth and front-end loader capability on a single rugged 4WD chassis.",
+    image: "/img/banner/banner-scoopydig.png",
+    display: { scale: 1.42, xOffset: 0, yOffset: 15 },
+    stats: [
+      { icon: ICON_TONS, value: "2.7", label: "TONS" },
+      { icon: ICON_FORCE, value: "7.8", label: "ft Depth" },
+      { icon: ICON_HP, value: "32", label: "Horsepower" },
+    ],
+  },
+  {
+    id: "dumper", category: "DUMPER", productSlug: "thunderdump-1",
+    modelName: "THUNDERDUMP",
+    description: "Compact tracked dumper that conquers steep grades with heavy payloads.",
+    image: "/img/banner/banner-thunderdump.png",
+    display: { scale: 1.15, xOffset: 0, yOffset: 0 },
+    stats: [
+      { icon: ICON_TONS, value: "2.4", label: "TONS" },
+      { icon: ICON_FORCE, value: "0.40", label: "yd³ Bucket" },
+      { icon: ICON_HP, value: "13", label: "Horsepower" },
+    ],
+  },
+  {
+    id: "towable-excavator", category: "TOWABLE EXCAVATOR", productSlug: "spider-one",
+    modelName: "SPIDER ONE",
+    description: "All-terrain towable excavator that sets up on steep embankments and rough hillsides.",
+    image: "/img/banner/banner-spider-one.png",
+    display: { scale: 1.15, xOffset: 0, yOffset: 9 },
+    stats: [
+      { icon: ICON_TONS, value: "2.4", label: "TONS" },
+      { icon: ICON_FORCE, value: "120", label: "° Swing" },
+      { icon: ICON_HP, value: "9", label: "Horsepower" },
+    ],
+  },
+  {
+    id: "stone-crusher", category: "STONE CRUSHER", productSlug: "stone-crusher-1",
+    modelName: "STONE CRUSHER",
+    description: "On-site aggregate reduction — turns rubble, concrete, and fieldstones into fill.",
+    image: "/img/banner/banner-stone-crusher.png",
+    display: { scale: 1.36, xOffset: 0, yOffset: 12 },
+    stats: [
+      { icon: ICON_TONS, value: "2.4", label: "TONS" },
+      { icon: ICON_FORCE, value: "5", label: "T/hr Crush" },
+      { icon: ICON_HP, value: "15", label: "Horsepower" },
+    ],
+  },
+  {
+    id: "trencher", category: "TRENCHER", productSlug: "group-ripper-grx",
+    modelName: "GROUP RIPPER GRX",
+    description: "Carbide-tipped cutting through packed clay, roots, and rocky soil on dual tracks.",
+    image: "/img/banner/banner-trencher.png",
+    display: { scale: 1.57, xOffset: 0, yOffset: 24 },
+    stats: [
+      { icon: ICON_TONS, value: "2.4", label: "TONS" },
+      { icon: ICON_FORCE, value: "36", label: "in Depth" },
+      { icon: ICON_HP, value: "15", label: "Horsepower" },
+    ],
+  },
+];
+
+const AUTO_ROTATE_MS = 7000;
+const ANIM_MS = 650;
+const ANIM_EASE = "cubic-bezier(0.65, 0, 0.35, 1)";
+
+/* ── slot system ────────────────────────────────────────────────────────── */
+/** Convert "slide i with active a" → signed offset using the shortest wrap. */
+function signedOffset(i: number, active: number, n: number) {
+  let off = i - active;
+  if (off > n / 2) off -= n;
+  if (off < -n / 2) off += n;
+  return off;
+}
+
+interface Slot {
+  left: number; top: number; width: number; height: number;
+  imgScale: number; blur: number; brightness: number;
+  opacity: number; z: number; shadow: string;
+}
+
+/**
+ * Slot lookup. Coordinates use the 1920×1080 Figma canvas. Sizes are kept close
+ * to the original Figma export (centre 632×479, sides 455/401) with a small
+ * bump for centre dominance — both side slots are equal size and symmetric.
+ * Slot `imgScale` stays close to 1.0; visible-size tuning is per-product via
+ * `BannerSlide.display.scale`.
+ */
+function slotForOffset(off: number, isDark: boolean): Slot {
+  // CENTER — dominant but balanced (Figma 632×479 ⇒ +10% bump)
+  if (off === 0) return {
+    left: 610, top: 138, width: 700, height: 530,
+    imgScale: 1.0, blur: 0, brightness: 1, opacity: 1, z: 5,
+    shadow: isDark
+      ? "drop-shadow(0 28px 44px rgba(0,0,0,0.7))"
+      : "drop-shadow(0 20px 30px rgba(21,61,40,0.15))",
+  };
+  // LEFT (prev) — secondary, soft (Figma left 455×455)
+  if (off === -1) return {
+    left: 130, top: 192, width: 430, height: 430,
+    imgScale: 0.78, blur: 4, brightness: isDark ? 0.72 : 0.9, opacity: isDark ? 1 : 0.6, z: 3,
+    shadow: isDark
+      ? "drop-shadow(0 16px 24px rgba(0,0,0,0.4))"
+      : "drop-shadow(0 12px 18px rgba(21,61,40,0.1))",
+  };
+  // RIGHT (next) — equal size to LEFT
+  if (off === 1) return {
+    left: 1360, top: 192, width: 430, height: 430,
+    imgScale: 0.78, blur: 4, brightness: isDark ? 0.72 : 0.9, opacity: isDark ? 1 : 0.6, z: 3,
+    shadow: isDark
+      ? "drop-shadow(0 16px 24px rgba(0,0,0,0.4))"
+      : "drop-shadow(0 12px 18px rgba(21,61,40,0.1))",
+  };
+  // FAR LEFT — fades in from off-stage during rotation
+  if (off === -2) return {
+    left: -260, top: 230, width: 360, height: 360,
+    imgScale: 0.6, blur: 8, brightness: isDark ? 0.5 : 0.9, opacity: 0, z: 1, shadow: "none",
+  };
+  // FAR RIGHT
+  if (off === 2) return {
+    left: 1820, top: 230, width: 360, height: 360,
+    imgScale: 0.6, blur: 8, brightness: isDark ? 0.5 : 0.9, opacity: 0, z: 1, shadow: "none",
+  };
+  // HIDDEN — parked behind centre
+  return {
+    left: 800, top: 260, width: 320, height: 320,
+    imgScale: 0.4, blur: 12, brightness: isDark ? 0.3 : 0.9, opacity: 0, z: 0, shadow: "none",
+  };
+}
+
+/* ─────────────────────────────────────────────────────────────────────── */
+
+export const EquipmentBanner: React.FC = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const [active, setActive] = useState(0);
+  const [hoverPaused, setHoverPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const total = SLIDES.length;
+  const slide = SLIDES[active];
+
+  const goTo = useCallback((i: number) => setActive(((i % total) + total) % total), [total]);
+
+  // Respect reduced-motion: no auto-advance, instant slot changes.
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () => setReduceMotion(mq.matches);
+    apply();
+    mq.addEventListener?.("change", apply);
+    return () => mq.removeEventListener?.("change", apply);
+  }, []);
+
+  const playing = !reduceMotion && !hoverPaused && !userPaused;
+  useEffect(() => {
+    if (!playing) return;
+    const id = window.setInterval(() => setActive((i) => (i + 1) % total), AUTO_ROTATE_MS);
+    return () => window.clearInterval(id);
+  }, [playing, total]);
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); goTo(active - 1); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); goTo(active + 1); }
+  };
+
+  // Reduced-motion: drop fades + transitions
+  const fade = reduceMotion ? "" : "animate-fade-in";
+  const slotTransition = reduceMotion
+    ? "none"
+    : `left ${ANIM_MS}ms ${ANIM_EASE}, top ${ANIM_MS}ms ${ANIM_EASE}, width ${ANIM_MS}ms ${ANIM_EASE}, height ${ANIM_MS}ms ${ANIM_EASE}, opacity ${ANIM_MS}ms ${ANIM_EASE}`;
+  const imgFilterTransition = reduceMotion
+    ? "none"
+    : `filter ${ANIM_MS}ms ${ANIM_EASE}, transform ${ANIM_MS}ms ${ANIM_EASE}`;
+
+  // Figma headline = 210px on 1920 (10.94cqw); reduced 15% per request → 9.30cqw,
+  // auto-shrinking for longer category names so they never overflow.
+  const headlineCqw = Math.min(9.297, 148.75 / slide.category.length);
+
+  const SpecCol = ({ s, scale = 1 }: { s: BannerStat; scale?: number }) => (
+    <div className="flex flex-col items-center justify-center" style={{ gap: C(14 * scale) }}>
+      <img src={s.icon} alt="" aria-hidden="true" className={isDark ? "" : "invert opacity-80"} style={{ width: C(40 * scale), height: C(40 * scale) }} />
+      <div className="flex items-baseline justify-center" style={{ gap: C(8 * scale) }}>
+        <span className="font-[Cal_Sans] text-theme-text whitespace-nowrap tabular-nums" style={{ fontSize: C(28 * scale), lineHeight: 1 }}>{s.value}</span>
+        <span className="font-[Roboto_Flex] text-theme-muted whitespace-nowrap" style={{ fontSize: C(16 * scale), lineHeight: 1 }}>{s.label}</span>
+      </div>
+    </div>
+  );
+
+  return (
+    <section
+      className="relative w-full overflow-hidden bg-theme-bg text-theme-text select-none transition-colors duration-200"
+      aria-roledescription="carousel"
+      aria-label="Featured equipment showcase"
+      onMouseEnter={() => setHoverPaused(true)}
+      onMouseLeave={() => setHoverPaused(false)}
+      onFocus={() => setHoverPaused(true)}
+      onBlur={() => setHoverPaused(false)}
+      onKeyDown={onKeyDown}
+    >
+      <p className="sr-only" aria-live="polite">
+        {`${slide.category}, ${slide.modelName}. Slide ${active + 1} of ${total}.`}
+      </p>
+
+      {/* ═══════════════ DESKTOP STAGE (lg+) — 1:1 Figma replica ═══════════════ */}
+      {/* Container is capped at 1600w so cqw-based typography stays controlled */}
+      {/* on ultra-wide monitors and the section height lands ~720–900px sweet spot. */}
+      <div
+        className="hidden lg:block relative w-full mx-auto"
+        style={{ aspectRatio: "1920 / 920", maxWidth: "1600px", containerType: "inline-size" }}
+      >
+        {/* Spotlight glow */}
+        <div
+          aria-hidden="true"
+          className="absolute pointer-events-none z-0"
+          style={{
+            left: X(591), top: Y(322), width: X(838), height: Y(175),
+            background: isDark ? "rgba(217,217,217,0.16)" : "rgba(104,130,91,0.12)", borderRadius: "50%", filter: `blur(${C(100)})`,
+          }}
+        />
+
+
+
+        {/* Giant headline (behind machines, decorative) */}
+        <div
+          key={`hl-${slide.id}`}
+          aria-hidden="true"
+          className={`absolute z-[2] left-0 right-0 text-center font-[Malking-Regular] text-theme-accent whitespace-nowrap ${fade}`}
+          style={{ top: Y(201), fontSize: `${headlineCqw}cqw`, lineHeight: 1, letterSpacing: C(-4.2) }}
+        >
+          {slide.category}
+        </div>
+
+        {/* ── CAROUSEL: every slide rendered, slot-animated ─────────────── */}
+        {SLIDES.map((s, i) => {
+          const off = signedOffset(i, active, total);
+          const slot = slotForOffset(off, isDark);
+          const d = s.display ?? {};
+          const productScale = d.scale ?? 1;
+          const productX = d.xOffset ?? 0;
+          const productY = d.yOffset ?? 0;
+          const interactive = slot.z >= 3 && off !== 0;
+          const isCenter = off === 0;
+
+          // Scale adjustments for preview slides (preloads)
+          let currentProductScale = productScale;
+          if (!isCenter) {
+            if (s.id === "trencher") {
+              currentProductScale = productScale * 0.88; // 12% smaller
+            } else if (s.id === "stone-crusher") {
+              currentProductScale = productScale * 0.82; // 18% smaller
+            }
+          }
+
+          // Vertical offset adjustments for preview slides (preloads)
+          let currentProductY = productY;
+          if (!isCenter) {
+            if (s.id === "trencher" || s.id === "excavator") {
+              currentProductY = productY - 12; // 12% up
+            } else if (s.id === "stone-crusher") {
+              currentProductY = productY - 15; // 9% + 6% up
+            }
+          }
+
+          const label = isCenter
+            ? `${s.modelName} — current selection`
+            : `Show ${s.category}: ${s.modelName}`;
+
+          return (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => { if (!isCenter) goTo(i); }}
+              tabIndex={interactive ? 0 : -1}
+              aria-hidden={!interactive && !isCenter}
+              aria-label={label}
+              disabled={isCenter}
+              className={`absolute group ${interactive ? "cursor-pointer" : "cursor-default"} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-accent`}
+              style={{
+                left: X(slot.left), top: Y(slot.top),
+                width: X(slot.width), height: Y(slot.height),
+                opacity: slot.opacity, zIndex: slot.z,
+                pointerEvents: slot.opacity === 0 ? "none" : "auto",
+                transition: slotTransition,
+                background: "transparent",
+                border: 0, padding: 0,
+              }}
+            >
+              <img
+                src={s.image}
+                alt={isCenter ? s.modelName : ""}
+                aria-hidden={!isCenter}
+                draggable={false}
+                decoding="async"
+                className={`block w-full h-full object-contain ${interactive ? "group-hover:brightness-90" : ""}`}
+                style={{
+                  transformOrigin: "center bottom",
+                  transform: `translate(${productX}%, ${currentProductY}%) scale(${slot.imgScale * currentProductScale})`,
+                  filter: `blur(${slot.blur}px) brightness(${slot.brightness}) ${slot.shadow}`.replace(" none", ""),
+                  transition: imgFilterTransition,
+                  willChange: "transform, filter",
+                }}
+              />
+            </button>
+          );
+        })}
+
+        {/* ── Bottom content row (model · specs · CTA) ───────────────── */}
+        <div
+          className="absolute z-[10] flex items-center justify-between"
+          style={{ left: X(329), top: Y(735), width: X(1262) }}
+        >
+          <div className="flex items-stretch" style={{ gap: C(23) }}>
+            <span aria-hidden="true" className="bg-theme-accent shrink-0" style={{ width: C(4), height: C(144) }} />
+            <div className="flex flex-col" style={{ gap: C(8) }}>
+              <h3 className={`font-clofieBold text-theme-text ${fade}`} key={`name-${slide.id}`} style={{ fontSize: C(42), lineHeight: 1.15 }}>{slide.modelName}</h3>
+              <p className={`font-glonimove text-theme-muted ${fade}`} key={`desc-${slide.id}`} style={{ width: C(301), fontSize: C(20), lineHeight: 1.4 }}>{slide.description}</p>
+            </div>
+          </div>
+
+          <ul className="flex items-center" style={{ gap: C(40) }} aria-label={`${slide.modelName} specifications`}>
+            {slide.stats.map((s, i) => (
+              <React.Fragment key={`${s.label}-${i}`}>
+                <li><SpecCol s={s} /></li>
+                {i < slide.stats.length - 1 && (
+                  <li aria-hidden="true" className="bg-theme-text/20" style={{ width: 1.5, height: C(52) }} />
+                )}
+              </React.Fragment>
+            ))}
+          </ul>
+
+          <Link
+            to={`/equipment/${slide.productSlug}`}
+            aria-label={`Explore more about ${slide.modelName}`}
+            className="inline-flex items-center bg-theme-accent text-theme-bg hover:bg-theme-text hover:text-theme-bg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-accent"
+            style={{ paddingInline: C(20), paddingBlock: C(12), gap: C(12) }}
+          >
+            <span className="font-googleSans font-medium" style={{ fontSize: C(24), letterSpacing: C(-0.48) }}>EXPLORE MORE</span>
+            <svg width="19" height="18" viewBox="0 0 19 18" fill="none" aria-hidden="true" style={{ width: C(19), height: "auto" }}>
+              <path d="M17.4121 17V1H1.41211M17.4121 1L1.41211 15.4008" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+
+      {/* ═══════════════ MOBILE / TABLET (< lg) — stacked ═══════════════ */}
+      <div className="lg:hidden relative px-5 pt-16 pb-10 text-center">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-[42%] w-[85%] h-[180px] rounded-[50%] blur-[80px]"
+          style={{ background: isDark ? "rgba(217,217,217,0.16)" : "rgba(104,130,91,0.12)" }}
+        />
+        <div
+          key={`mhl-${slide.id}`}
+          aria-hidden="true"
+          className={`relative font-[Malking-Regular] text-theme-accent leading-[0.9] tracking-[-0.02em] ${fade}`}
+          style={{ fontSize: "clamp(2.35rem, 11vw, 5.1rem)" }}
+        >
+          {slide.category}
+        </div>
+
+        {/* Mobile carousel: only the centre image swaps, with crossfade */}
+        <div className="relative mt-2 h-[320px] sm:h-[420px]">
+          {SLIDES.map((s, i) => {
+            const isActive = i === active;
+            const d = s.display ?? {};
+            return (
+              <img
+                key={s.id}
+                src={s.image}
+                alt={isActive ? s.modelName : ""}
+                aria-hidden={!isActive}
+                decoding="async"
+                className={`absolute inset-0 m-auto max-h-full w-auto max-w-[92%] object-contain ${
+                  isDark ? "drop-shadow-[0_24px_40px_rgba(0,0,0,0.7)]" : "drop-shadow-[0_20px_30px_rgba(21,61,40,0.15)]"
+                }`}
+                style={{
+                  opacity: isActive ? 1 : 0,
+                  transform: `translate(${d.xOffset ?? 0}%, ${d.yOffset ?? 0}%) scale(${d.scale ?? 1})`,
+                  transition: reduceMotion ? "none" : `opacity ${ANIM_MS}ms ${ANIM_EASE}`,
+                  pointerEvents: isActive ? "auto" : "none",
+                }}
+              />
+            );
+          })}
+        </div>
+
+
+
+        <div className="relative mt-4 flex items-stretch gap-3 text-left max-w-md mx-auto">
+          <span aria-hidden="true" className="w-1 bg-theme-accent shrink-0 self-stretch" />
+          <div>
+            <h3 className={`font-clofieBold text-theme-text text-2xl sm:text-3xl leading-tight ${fade}`} key={`mname-${slide.id}`}>{slide.modelName}</h3>
+            <p className={`mt-1.5 font-glonimove text-theme-muted text-sm sm:text-base leading-snug ${fade}`} key={`mdesc-${slide.id}`}>{slide.description}</p>
+          </div>
+        </div>
+
+        <ul className="relative mt-6 flex items-start justify-center gap-5 sm:gap-8" aria-label={`${slide.modelName} specifications`}>
+          {slide.stats.map((s, i) => (
+            <React.Fragment key={`${s.label}-${i}`}>
+              <li className="flex flex-col items-center gap-2">
+                <img src={s.icon} alt="" aria-hidden="true" className={`w-8 h-8 sm:w-10 sm:h-10 ${isDark ? "" : "invert opacity-80"}`} />
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-[Cal_Sans] text-theme-text text-xl sm:text-2xl leading-none tabular-nums">{s.value}</span>
+                  <span className="font-[Roboto_Flex] text-theme-muted text-xs sm:text-sm leading-none">{s.label}</span>
+                </div>
+              </li>
+              {i < slide.stats.length - 1 && <li aria-hidden="true" className="w-px h-10 bg-theme-text/20 self-center" />}
+            </React.Fragment>
+          ))}
+        </ul>
+
+        <Link
+          to={`/equipment/${slide.productSlug}`}
+          aria-label={`Explore more about ${slide.modelName}`}
+          className="relative mt-7 inline-flex items-center gap-3 bg-theme-accent text-theme-bg hover:bg-theme-text hover:text-theme-bg transition-colors px-6 py-3.5 font-googleSans font-medium text-lg sm:text-xl tracking-[-0.02em]"
+        >
+          <span>EXPLORE MORE</span>
+          <svg width="18" height="18" viewBox="0 0 19 18" fill="none" aria-hidden="true">
+            <path d="M17.4121 17V1H1.41211M17.4121 1L1.41211 15.4008" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+          </svg>
+        </Link>
+      </div>
+    </section>
+  );
+};
+
+export default EquipmentBanner;

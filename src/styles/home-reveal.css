@@ -1,0 +1,324 @@
+/*
+  Premium scroll-reveal + motion system.
+
+  Reveal animations are scoped to homepage via .home-reveal-scope so they don't
+  re-trigger on every page. Hover / interactive utilities (.k-hover-lift, etc.)
+  are global so they work on every page.
+
+  GPU-friendly — only opacity / transform / filter / clip-path animate. Respects
+  prefers-reduced-motion. Lighter timings on mobile.
+*/
+
+:root {
+  --k-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --k-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --k-ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --k-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Scroll reveals (homepage scope)                                            */
+/* -------------------------------------------------------------------------- */
+
+.home-reveal-scope [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 1100ms var(--k-ease-out),
+    transform 1100ms var(--k-ease-out),
+    filter 1100ms var(--k-ease-out),
+    clip-path 1200ms var(--k-ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+/* ---- Hidden-state variants (the "from" pose) ---- */
+.home-reveal-scope [data-reveal="fade"]      { transform: none; }
+.home-reveal-scope [data-reveal="rise"]      { transform: translate3d(0, 46px, 0); }
+.home-reveal-scope [data-reveal="fall"]      { transform: translate3d(0, -42px, 0); }
+.home-reveal-scope [data-reveal="left"]      { transform: translate3d(-58px, 0, 0); }
+.home-reveal-scope [data-reveal="right"]     { transform: translate3d(58px, 0, 0); }
+.home-reveal-scope [data-reveal="slide-l"]   { transform: translate3d(-110px, 0, 0); }
+.home-reveal-scope [data-reveal="slide-r"]   { transform: translate3d(110px, 0, 0); }
+.home-reveal-scope [data-reveal="zoom"]      { transform: translate3d(0, 18px, 0) scale(0.92); }
+.home-reveal-scope [data-reveal="zoom-out"]  { transform: scale(1.08); }
+.home-reveal-scope [data-reveal="blur"]      { transform: translate3d(0, 22px, 0); filter: blur(14px); }
+.home-reveal-scope [data-reveal="float"]     { transform: translate3d(0, 36px, 0) scale(0.96); filter: blur(4px); }
+.home-reveal-scope [data-reveal="stack"]     { transform: translate3d(0, 68px, 0) scale(0.9); filter: blur(2px); }
+.home-reveal-scope [data-reveal="tilt-in"]   { transform: perspective(900px) rotateX(8deg) translate3d(0, 32px, 0); transform-origin: 50% 100%; }
+.home-reveal-scope [data-reveal="cinematic"] {
+  transform: translate3d(0, 30px, 0) scale(0.985);
+  filter: blur(6px);
+  clip-path: inset(0 0 100% 0);
+}
+.home-reveal-scope [data-reveal="reveal-x"] {
+  clip-path: inset(0 100% 0 0);
+  transform: none;
+}
+
+/* ---- Revealed-state (the "to" pose) ---- */
+.home-reveal-scope [data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: none;
+  clip-path: inset(0 0 0 0);
+  will-change: auto;
+}
+.home-reveal-scope [data-reveal="tilt-in"][data-revealed="true"] {
+  transform: perspective(900px) rotateX(0deg) translate3d(0, 0, 0);
+}
+
+/* Slightly longer, more deliberate timing for the cinematic hero reveal */
+.home-reveal-scope [data-reveal="cinematic"] { transition-duration: 1300ms; }
+.home-reveal-scope [data-reveal="reveal-x"]  { transition-duration: 1200ms; }
+.home-reveal-scope [data-reveal="stack"]     { transition-duration: 1200ms; }
+.home-reveal-scope [data-reveal="float"]     { transition-duration: 1200ms; }
+
+/* -------------------------------------------------------------------------- */
+/*  Stagger groups — direct children with [data-reveal] auto-stagger          */
+/* -------------------------------------------------------------------------- */
+
+.home-reveal-scope [data-stagger] > [data-reveal] {
+  transition-delay: calc(
+    var(--reveal-delay, 0ms) +
+    var(--stagger-base, 0ms) +
+    var(--stagger-step, 110ms) * var(--stagger-i, 0)
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Text-split reveal — characters slide up one at a time                      */
+/* -------------------------------------------------------------------------- */
+
+.k-split-text {
+  display: inline-flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.k-split-text > .k-split-char,
+.k-split-text > .k-split-word {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  opacity: 0;
+  transition:
+    transform 900ms var(--k-ease-out-expo),
+    opacity 900ms var(--k-ease-out);
+  transition-delay: calc(var(--split-base, 0ms) + var(--split-step, 28ms) * var(--split-i, 0));
+  will-change: transform, opacity;
+}
+.k-split-text[data-revealed="true"] > .k-split-char,
+.k-split-text[data-revealed="true"] > .k-split-word {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Parallax — set via inline style (--parallax-y) by the Parallax component   */
+/* -------------------------------------------------------------------------- */
+
+[data-parallax] {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  will-change: transform;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Sitewide scroll reveals — opt-in via [data-reveal] anywhere               */
+/*  Mirrors the homepage rules without a scope prefix.                         */
+/* -------------------------------------------------------------------------- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 900ms var(--k-ease-out),
+    transform 900ms var(--k-ease-out),
+    filter 900ms var(--k-ease-out),
+    clip-path 1000ms var(--k-ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal="fade"]      { transform: none; }
+[data-reveal="rise"]      { transform: translate3d(0, 40px, 0); }
+[data-reveal="fall"]      { transform: translate3d(0, -36px, 0); }
+[data-reveal="left"]      { transform: translate3d(-48px, 0, 0); }
+[data-reveal="right"]     { transform: translate3d(48px, 0, 0); }
+[data-reveal="zoom"]      { transform: translate3d(0, 14px, 0) scale(0.94); }
+[data-reveal="zoom-out"]  { transform: scale(1.06); }
+[data-reveal="blur"]      { transform: translate3d(0, 18px, 0); filter: blur(10px); }
+[data-reveal="cinematic"] {
+  transform: translate3d(0, 24px, 0) scale(0.99);
+  filter: blur(4px);
+  clip-path: inset(0 0 100% 0);
+  transition-duration: 1100ms;
+}
+[data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: none;
+  clip-path: inset(0 0 0 0);
+  will-change: auto;
+}
+
+[data-stagger] > [data-reveal] {
+  transition-delay: calc(
+    var(--reveal-delay, 0ms) +
+    var(--stagger-base, 0ms) +
+    var(--stagger-step, 90ms) * var(--stagger-i, 0)
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Sitewide hover / interactive utilities                                     */
+/* -------------------------------------------------------------------------- */
+
+.k-hover-lift {
+  transition:
+    transform 420ms var(--k-ease-out),
+    box-shadow 420ms var(--k-ease-out);
+  will-change: transform;
+}
+.k-hover-lift:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
+}
+
+.k-card-hover {
+  transition:
+    transform 480ms var(--k-ease-out),
+    box-shadow 480ms var(--k-ease-out),
+    border-color 480ms var(--k-ease-out);
+  will-change: transform;
+}
+.k-card-hover:hover {
+  transform: translate3d(0, -8px, 0);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(216, 199, 154, 0.18);
+}
+
+.k-image-zoom {
+  overflow: hidden;
+}
+.k-image-zoom > img,
+.k-image-zoom .k-image {
+  transition: transform 800ms var(--k-ease-out);
+  will-change: transform;
+}
+.k-image-zoom:hover > img,
+.k-image-zoom:hover .k-image {
+  transform: scale(1.06);
+}
+
+.k-btn-lift {
+  transition:
+    transform 240ms var(--k-ease-out),
+    box-shadow 240ms var(--k-ease-out),
+    background-color 240ms var(--k-ease-out),
+    color 240ms var(--k-ease-out);
+  will-change: transform;
+}
+.k-btn-lift:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+.k-btn-lift:active {
+  transform: translate3d(0, 0, 0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.k-float {
+  animation: k-float 6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes k-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -10px, 0); }
+}
+
+.k-glow-pulse {
+  animation: k-glow-pulse 3.6s ease-in-out infinite;
+}
+@keyframes k-glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 0px rgba(216, 199, 154, 0)); }
+  50%      { filter: drop-shadow(0 0 18px rgba(216, 199, 154, 0.55)); }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Mobile — lighter, snappier, no heavy blur / clip-path                      */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .home-reveal-scope [data-reveal] {
+    transform: translate3d(0, 16px, 0);
+    transition-duration: 720ms;
+  }
+  .home-reveal-scope [data-reveal="rise"]     { transform: translate3d(0, 24px, 0); }
+  .home-reveal-scope [data-reveal="fall"]     { transform: translate3d(0, -20px, 0); }
+  .home-reveal-scope [data-reveal="left"]     { transform: translate3d(-26px, 0, 0); }
+  .home-reveal-scope [data-reveal="right"]    { transform: translate3d(26px, 0, 0); }
+  .home-reveal-scope [data-reveal="slide-l"]  { transform: translate3d(-44px, 0, 0); }
+  .home-reveal-scope [data-reveal="slide-r"]  { transform: translate3d(44px, 0, 0); }
+  .home-reveal-scope [data-reveal="zoom"]     { transform: translate3d(0, 10px, 0) scale(0.96); }
+  .home-reveal-scope [data-reveal="zoom-out"] { transform: scale(1.04); }
+  .home-reveal-scope [data-reveal="blur"]     { transform: translate3d(0, 14px, 0); filter: blur(8px); }
+  .home-reveal-scope [data-reveal="float"]    { transform: translate3d(0, 18px, 0) scale(0.98); filter: none; }
+  .home-reveal-scope [data-reveal="stack"]    { transform: translate3d(0, 32px, 0) scale(0.96); filter: none; }
+  .home-reveal-scope [data-reveal="tilt-in"]  { transform: translate3d(0, 18px, 0); }
+  .home-reveal-scope [data-reveal="cinematic"] {
+    transform: translate3d(0, 16px, 0) scale(0.99);
+    filter: none;
+    clip-path: none;
+    transition-duration: 760ms;
+  }
+  .home-reveal-scope [data-reveal="reveal-x"] {
+    clip-path: inset(0 30% 0 0);
+    transition-duration: 760ms;
+  }
+  .k-split-text > .k-split-char,
+  .k-split-text > .k-split-word {
+    transition-duration: 620ms;
+  }
+  /* Parallax is more conservative on mobile */
+  [data-parallax] { --parallax-strength: 0.5; }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Honour reduced-motion: show everything, no animation                       */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .home-reveal-scope [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+  .k-split-text > .k-split-char,
+  .k-split-text > .k-split-word {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  [data-parallax] {
+    transform: none !important;
+    will-change: auto;
+  }
+  .k-hover-lift,
+  .k-card-hover,
+  .k-btn-lift,
+  .k-image-zoom > img,
+  .k-image-zoom .k-image {
+    transition: none !important;
+  }
+  .k-hover-lift:hover,
+  .k-card-hover:hover,
+  .k-btn-lift:hover,
+  .k-btn-lift:active,
+  .k-image-zoom:hover > img,
+  .k-image-zoom:hover .k-image {
+    transform: none !important;
+  }
+  .k-float, .k-glow-pulse { animation: none !important; }
+}

@@ -1,0 +1,795 @@
+{
+  "nodes": [
+    {
+      "id": "src/pages/Home.tsx",
+      "label": "Home",
+      "routes": [
+        "/"
+      ],
+      "isRoot": true
+    },
+    {
+      "id": "src/pages/AllProductsPage/AllProducts.tsx",
+      "label": "AllProducts",
+      "routes": [
+        "/equipment"
+      ]
+    },
+    {
+      "id": "src/pages/KonstructzMachine.tsx",
+      "label": "KonstructzMachine",
+      "routes": [
+        "/equipment/konstructz-machine"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/MiniExcavators.tsx",
+      "label": "MiniExcavators",
+      "routes": [
+        "/equipment/mini-excavators"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/MiniSkidSteers.tsx",
+      "label": "MiniSkidSteers",
+      "routes": [
+        "/equipment/mini-skid-steers"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/Trenchers.tsx",
+      "label": "Trenchers",
+      "routes": [
+        "/equipment/trenchers"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/WheelLoaders.tsx",
+      "label": "WheelLoaders",
+      "routes": [
+        "/equipment/wheel-loaders"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/StoneCrushers.tsx",
+      "label": "StoneCrushers",
+      "routes": [
+        "/equipment/stone-crushers"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/BackhoeLoaders.tsx",
+      "label": "BackhoeLoaders",
+      "routes": [
+        "/equipment/backhoe-loaders"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/Dumpers.tsx",
+      "label": "Dumpers",
+      "routes": [
+        "/equipment/dumpers"
+      ]
+    },
+    {
+      "id": "src/pages/equipment/TowableExcavators.tsx",
+      "label": "TowableExcavators",
+      "routes": [
+        "/equipment/towable-excavators"
+      ]
+    },
+    {
+      "id": "src/pages/ProductDetail.tsx",
+      "label": "ProductDetail",
+      "routes": [
+        "/equipment/:productId"
+      ]
+    },
+    {
+      "id": "src/pages/Attachments.tsx",
+      "label": "Attachments",
+      "routes": [
+        "/attachments"
+      ]
+    },
+    {
+      "id": "src/pages/attachments/MiniExcavatorAttachments.tsx",
+      "label": "MiniExcavatorAttachments",
+      "routes": [
+        "/attachments/mini-excavator"
+      ]
+    },
+    {
+      "id": "src/pages/attachments/MiniSkidSteerAttachments.tsx",
+      "label": "MiniSkidSteerAttachments",
+      "routes": [
+        "/attachments/mini-skid-steer"
+      ]
+    },
+    {
+      "id": "src/pages/BlogPage/BlogPage.tsx",
+      "label": "BlogPage",
+      "routes": [
+        "/media",
+        "/blog"
+      ]
+    },
+    {
+      "id": "src/pages/SingleBlogPage/SingleBlog.tsx",
+      "label": "SingleBlog",
+      "routes": [
+        "/media/:blogSlug",
+        "/blog/:blogSlug"
+      ]
+    },
+    {
+      "id": "src/pages/brand/QualityEquipment.tsx",
+      "label": "QualityEquipment",
+      "routes": [
+        "/quality-equipment"
+      ]
+    },
+    {
+      "id": "src/pages/brand/TrustedSupport.tsx",
+      "label": "TrustedSupport",
+      "routes": [
+        "/trusted-support"
+      ]
+    },
+    {
+      "id": "src/pages/brand/JobSiteReady.tsx",
+      "label": "JobSiteReady",
+      "routes": [
+        "/job-site-ready"
+      ]
+    },
+    {
+      "id": "src/pages/brand/LongTermValue.tsx",
+      "label": "LongTermValue",
+      "routes": [
+        "/long-term-value"
+      ]
+    },
+    {
+      "id": "src/screens/About/About.tsx",
+      "label": "About",
+      "routes": [
+        "/about"
+      ]
+    },
+    {
+      "id": "src/pages/Contact.tsx",
+      "label": "Contact",
+      "routes": [
+        "/contact"
+      ]
+    },
+    {
+      "id": "src/pages/support/Support.tsx",
+      "label": "Support",
+      "routes": [
+        "/support"
+      ]
+    },
+    {
+      "id": "src/pages/support/OrderPurchaseSupport.tsx",
+      "label": "OrderPurchaseSupport",
+      "routes": [
+        "/support/order-purchase-support"
+      ]
+    },
+    {
+      "id": "src/pages/support/ShippingDelivery.tsx",
+      "label": "ShippingDelivery",
+      "routes": [
+        "/support/shipping-delivery"
+      ]
+    },
+    {
+      "id": "src/pages/support/WarrantyReturns.tsx",
+      "label": "WarrantyReturns",
+      "routes": [
+        "/support/warranty-returns"
+      ]
+    },
+    {
+      "id": "src/pages/support/MachineGuidance.tsx",
+      "label": "MachineGuidance",
+      "routes": [
+        "/support/machine-guidance"
+      ]
+    },
+    {
+      "id": "src/pages/support/AttachmentsSupport.tsx",
+      "label": "AttachmentsSupport",
+      "routes": [
+        "/support/attachments-support"
+      ]
+    },
+    {
+      "id": "src/pages/support/ContactSupport.tsx",
+      "label": "ContactSupport",
+      "routes": [
+        "/support/contact-support"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:222:12-to-src/pages/AllProductsPage/AllProducts.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/AllProductsPage/AllProducts.tsx",
+      "data": {
+        "viaRoute": "/equipment",
+        "trigger": {
+          "element": "<Link\n              to=\"/equipment\"\n              className=\"px-5 py-3 bg-[#153d28] text-white font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.explore.equipment\")}</Link>",
+          "line": 222,
+          "endLine": 225,
+          "column": 12,
+          "endColumn": 65,
+          "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:226:12-to-src/pages/Contact.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/Contact.tsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n              to=\"/contact\"\n              className=\"px-5 py-3 border-2 border-[#d8c79a] text-[#d8c79a] font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.get.a.quote\")}</Link>",
+          "line": 226,
+          "endLine": 229,
+          "column": 12,
+          "endColumn": 59,
+          "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:410:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/BlogPage/BlogPage.tsx",
+      "data": {
+        "viaRoute": "/blog",
+        "trigger": {
+          "element": "<Link\n            to=\"/blog\"\n            className=\"w-full max-w-md py-4 bg-[#153d28] text-white text-center font-googleSans font-bold text-base tracking-wide flex items-center justify-center gap-2 btn\"\n          >\n            <span>EXPLORE ALL ARTICLES</span>\n            <span>→</span>\n          </Link>",
+          "line": 410,
+          "endLine": 416,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx:87:10-to-src/pages/brand/QualityEquipment.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/brand/QualityEquipment.tsx",
+      "data": {
+        "viaRoute": "/quality-equipment",
+        "trigger": {
+          "element": "<LearnMoreButton\n            ariaLabel={t(\"auto.brandshowcase.learn.more.about\")}\n            className=\"w-[124px] h-[30px] mt-0.5\"\n            vectorSrc=\"/img/vector-6.svg\"\n            href=\"/quality-equipment\"\n            textSizeClass=\"text-[13px]\"\n          />",
+          "line": 87,
+          "endLine": 93,
+          "column": 10,
+          "endColumn": 12,
+          "sourceFile": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx:117:10-to-src/pages/brand/TrustedSupport.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/brand/TrustedSupport.tsx",
+      "data": {
+        "viaRoute": "/trusted-support",
+        "trigger": {
+          "element": "<LearnMoreButton\n            ariaLabel={t(\"auto.brandshowcase.learn.more.about\")}\n            className=\"w-[124px] h-[30px] mt-0.5\"\n            vectorSrc=\"/img/vector-6.svg\"\n            href=\"/trusted-support\"\n            textSizeClass=\"text-[13px]\"\n          />",
+          "line": 117,
+          "endLine": 123,
+          "column": 10,
+          "endColumn": 12,
+          "sourceFile": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx:147:10-to-src/pages/brand/JobSiteReady.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/brand/JobSiteReady.tsx",
+      "data": {
+        "viaRoute": "/job-site-ready",
+        "trigger": {
+          "element": "<LearnMoreButton\n            ariaLabel={t(\"auto.brandshowcase.learn.more.about\")}\n            className=\"w-[124px] h-[30px] mt-0.5\"\n            vectorSrc=\"/img/vector-6.svg\"\n            href=\"/job-site-ready\"\n            textSizeClass=\"text-[13px]\"\n          />",
+          "line": 147,
+          "endLine": 153,
+          "column": 10,
+          "endColumn": 12,
+          "sourceFile": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx:177:10-to-src/pages/brand/LongTermValue.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/brand/LongTermValue.tsx",
+      "data": {
+        "viaRoute": "/long-term-value",
+        "trigger": {
+          "element": "<LearnMoreButton\n            ariaLabel={t(\"auto.brandshowcase.learn.more.about\")}\n            className=\"w-[124px] h-[30px] mt-0.5\"\n            vectorSrc=\"/img/vector-6.svg\"\n            href=\"/long-term-value\"\n            textSizeClass=\"text-[13px]\"\n          />",
+          "line": 177,
+          "endLine": 183,
+          "column": 10,
+          "endColumn": 12,
+          "sourceFile": "src/screens/Frontpage/sections/BrandShowcaseSection/BrandShowcaseSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx:99:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "source": "src/pages/Home.tsx",
+      "target": "src/pages/BlogPage/BlogPage.tsx",
+      "data": {
+        "viaRoute": "/blog",
+        "trigger": {
+          "element": "<Link\n            to=\"/blog\"\n            className=\"k-btn-lift inline-flex items-center justify-center gap-3 bg-[#153d28] border-3 border-[#153d28] text-white hover:bg-theme-accent hover:text-[#153d28] hover:border-theme-accent h-14 px-10 font-googleSans font-bold text-lg tracking-[0.02em] shadow-md\"\n          >\n            <span>{t(\"action.exploreMore\") || \"EXPLORE MORE ARTICLES\"}</span>\n            <span aria-hidden>→</span>\n          </Link>",
+          "line": 99,
+          "endLine": 105,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/ProductDetail.tsx:28:8-to-src/pages/AllProductsPage/AllProducts.tsx",
+      "source": "src/pages/ProductDetail.tsx",
+      "target": "src/pages/AllProductsPage/AllProducts.tsx",
+      "data": {
+        "viaRoute": "/equipment",
+        "trigger": {
+          "element": "<Link to=\"/equipment\">\n          <Button variant=\"outline\" className=\"btn border-theme-border text-theme-text hover:bg-theme-accent/20\">\n            {t(\"action.backToCatalog\")}\n          </Button>\n        </Link>",
+          "line": 28,
+          "endLine": 32,
+          "column": 8,
+          "endColumn": 15,
+          "sourceFile": "src/pages/ProductDetail.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/ProductSingle/ProductSingle.tsx:50:10-to-src/pages/Home.tsx",
+      "source": "src/pages/ProductDetail.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"absolute top-2 left-0 flex items-center gap-[7px] group transition-colors duration-200 text-white hover:text-theme-accent\"\n            aria-label=\"Go to home page\"\n          >\n            <img\n              className=\"w-[38px] h-[38px] dark:invert-0 invert group-hover:opacity-85 transition-opacity\"\n              alt=\"\"\n              src=\"/img/home.svg\"\n              aria-hidden=\"true\"\n            />\n            <span className=\"[font-family:'Google_Sans_Flex',Helvetica] font-normal text-2xl tracking-[0] leading-[normal] group-hover:underline\">\n              {t(\"nav.home\")}\n            </span>\n          </Link>",
+          "line": 50,
+          "endLine": 64,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/ProductSingle/ProductSingle.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/Attachments.tsx:141:12-to-src/pages/Contact.tsx",
+      "source": "src/pages/Attachments.tsx",
+      "target": "src/pages/Contact.tsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link to=\"/contact\">\n              <Button variant=\"sand\">{t(\"auto.attachments.consult.with.engineer\")}</Button>\n            </Link>",
+          "line": 141,
+          "endLine": 143,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src/pages/Attachments.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/BlogPage/BlogPage.tsx:290:16-to-src/pages/Home.tsx",
+      "source": "src/pages/BlogPage/BlogPage.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n                  to=\"/\"\n                  className=\"inline-flex items-center gap-2 hover:text-theme-accent transition-colors\"\n                >\n                  <svg\n                    width=\"22\"\n                    height=\"22\"\n                    viewBox=\"0 0 24 24\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    strokeWidth=\"2\"\n                    strokeLinecap=\"round\"\n                    strokeLinejoin=\"round\"\n                    aria-hidden=\"true\"\n                  >\n                    <path d=\"M3 12l9-9 9 9\" />\n                    <path d=\"M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10\" />\n                  </svg>\n                  <span>{t(\"nav.home\")}</span>\n                </Link>",
+          "line": 290,
+          "endLine": 309,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/pages/BlogPage/BlogPage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:202:8-to-src/pages/Home.tsx",
+      "source": "src/pages/SingleBlogPage/SingleBlog.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n          to=\"/\"\n          className=\"mb-5 inline-flex items-center gap-2 [font-family:'Google_Sans_Flex',Helvetica] text-theme-text text-base transition-colors\"\n        >\n          <img className=\"w-5 h-5 dark:invert-0 invert\" alt=\"\" src=\"/single-blog/img/home.svg\" />\n          {t(\"nav.home\")}\n        </Link>",
+          "line": 202,
+          "endLine": 208,
+          "column": 8,
+          "endColumn": 15,
+          "sourceFile": "src/pages/SingleBlogPage/SingleBlog.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:522:8-to-src/pages/Home.tsx",
+      "source": "src/pages/SingleBlogPage/SingleBlog.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n          to=\"/\"\n          className=\"absolute top-[204px] left-[1456px] [font-family:'Google_Sans_Flex',Helvetica] font-normal text-theme-text hover:text-theme-accent text-2xl tracking-[0] leading-[normal] transition-colors\"\n        >\n          {t(\"nav.home\")}\n        </Link>",
+          "line": 522,
+          "endLine": 527,
+          "column": 8,
+          "endColumn": 15,
+          "sourceFile": "src/pages/SingleBlogPage/SingleBlog.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/brand/BrandPillarPage.tsx:109:12-to-src/pages/Home.tsx",
+      "source": "src/pages/brand/QualityEquipment.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"hover:text-theme-accent transition-colors\">{t(\"auto.brandpillarpage.home\")}</Link>",
+          "line": 109,
+          "endLine": 109,
+          "column": 12,
+          "endColumn": 118,
+          "sourceFile": "src/pages/brand/BrandPillarPage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/brand/BrandPillarPage.tsx:109:12-to-src/pages/Home.tsx",
+      "source": "src/pages/brand/QualityEquipment.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"hover:text-theme-accent transition-colors\">{t(\"auto.brandpillarpage.home\")}</Link>",
+          "line": 109,
+          "endLine": 109,
+          "column": 12,
+          "endColumn": 118,
+          "sourceFile": "src/pages/brand/BrandPillarPage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/brand/BrandPillarPage.tsx:109:12-to-src/pages/Home.tsx",
+      "source": "src/pages/brand/QualityEquipment.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"hover:text-theme-accent transition-colors\">{t(\"auto.brandpillarpage.home\")}</Link>",
+          "line": 109,
+          "endLine": 109,
+          "column": 12,
+          "endColumn": 118,
+          "sourceFile": "src/pages/brand/BrandPillarPage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/brand/BrandPillarPage.tsx:109:12-to-src/pages/Home.tsx",
+      "source": "src/pages/brand/QualityEquipment.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"hover:text-theme-accent transition-colors\">{t(\"auto.brandpillarpage.home\")}</Link>",
+          "line": 109,
+          "endLine": 109,
+          "column": 12,
+          "endColumn": 118,
+          "sourceFile": "src/pages/brand/BrandPillarPage.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/About/MobileAbout.tsx:129:10-to-src/pages/Home.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n            to=\"/\"\n            className=\"inline-flex items-center gap-2 text-white font-googleSans text-sm\"\n          >\n            <img src=\"/img/home.svg\" alt={t(\"auto.mobileabout.home\")} className=\"w-5 h-5\" />\n            <span>{t(\"auto.mobileabout.home\")}</span>\n          </Link>",
+          "line": 129,
+          "endLine": 135,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/About/MobileAbout.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/About/sections/HeroIntroSection/HeroIntroSection.tsx:35:14-to-src/pages/Home.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link\n                to=\"/\"\n                className=\"group inline-flex items-center text-white\"\n              >\n                <img\n                  className=\"h-[38px] w-[38px] shrink-0\"\n                  alt={t(\"auto.herointro.home\")}\n                  src=\"/img/home.svg\"\n                />\n                <span className=\"absolute left-[45px] top-[8px] [font-family:'Google_Sans_Flex',Helvetica] text-2xl font-normal leading-[normal] tracking-[0] text-white\">{t(\"auto.herointro.home\")}</span>\n              </Link>",
+          "line": 35,
+          "endLine": 45,
+          "column": 14,
+          "endColumn": 21,
+          "sourceFile": "src/screens/About/sections/HeroIntroSection/HeroIntroSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/DesktopFooter.tsx:334:16-to-src/pages/BlogPage/BlogPage.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/BlogPage/BlogPage.tsx",
+      "data": {
+        "viaRoute": "/media",
+        "trigger": {
+          "element": "<Link to=\"/media\">\n                  <img\n                    className={`absolute left-0 ${item.topClass} ${item.imageWidthClass} ${item.imageHeightClass} aspect-[1.78] object-cover hover:scale-[1.03] transition-transform duration-300`}\n                    alt={item.imageAlt}\n                    src={item.imageSrc}\n                    loading=\"lazy\"\n                  />\n                </Link>",
+          "line": 334,
+          "endLine": 341,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/components/layout/DesktopFooter.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/DesktopFooter.tsx:351:18-to-src/pages/BlogPage/BlogPage.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/BlogPage/BlogPage.tsx",
+      "data": {
+        "viaRoute": "/media",
+        "trigger": {
+          "element": "<Link to=\"/media\" className=\"text-white hover:text-[#d8c79a] transition-colors\">\n                    {item.title}\n                  </Link>",
+          "line": 351,
+          "endLine": 353,
+          "column": 18,
+          "endColumn": 25,
+          "sourceFile": "src/components/layout/DesktopFooter.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/DesktopFooter.tsx:377:16-to-src/screens/About/About.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/screens/About/About.tsx",
+      "data": {
+        "viaRoute": "/about",
+        "trigger": {
+          "element": "<Link to=\"/about\" className=\"hover:text-[#d8c79a] transition-colors text-white\">Privacy</Link>",
+          "line": 377,
+          "endLine": 377,
+          "column": 16,
+          "endColumn": 110,
+          "sourceFile": "src/components/layout/DesktopFooter.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/DesktopFooter.tsx:380:16-to-src/screens/About/About.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/screens/About/About.tsx",
+      "data": {
+        "viaRoute": "/about",
+        "trigger": {
+          "element": "<Link to=\"/about\" className=\"hover:text-[#d8c79a] transition-colors text-white\">Policy</Link>",
+          "line": 380,
+          "endLine": 380,
+          "column": 16,
+          "endColumn": 109,
+          "sourceFile": "src/components/layout/DesktopFooter.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/DesktopFooter.tsx:383:16-to-src/pages/Contact.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Contact.tsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link to=\"/contact\" className=\"hover:text-[#d8c79a] transition-colors text-white\">{t(\"auto.footer.contact.us\")}</Link>",
+          "line": 383,
+          "endLine": 383,
+          "column": 16,
+          "endColumn": 134,
+          "sourceFile": "src/components/layout/DesktopFooter.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/Navbar.tsx:153:2-to-src/pages/AllProductsPage/AllProducts.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/AllProductsPage/AllProducts.tsx",
+      "data": {
+        "viaRoute": "/equipment",
+        "trigger": {
+          "element": "<Link\n    to=\"/equipment\"\n    aria-label={label}\n    className={className}\n  >\n    <svg\n      width=\"15\"\n      height=\"15\"\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2.25\"\n      className=\"transition-colors\"\n    >\n      <circle cx=\"11\" cy=\"11\" r=\"7\" />\n      <path d=\"M21 21L16.65 16.65\" strokeLinecap=\"round\" />\n    </svg>\n  </Link>",
+          "line": 153,
+          "endLine": 170,
+          "column": 2,
+          "endColumn": 9,
+          "sourceFile": "src/components/layout/Navbar.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/Navbar.tsx:324:10-to-src/pages/Home.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n            <KonstructzLogo height={61.6} isDark={theme === \"light\" && !useLightHeader} />\n          </Link>",
+          "line": 324,
+          "endLine": 326,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/components/layout/Navbar.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/Navbar.tsx:474:12-to-src/pages/Contact.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Contact.tsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n              to=\"/contact\"\n              className={`flex h-[32px] min-w-[98px] items-center justify-center border rounded-[3px] px-[15px] cursor-pointer bg-transparent transition-all duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B] ${\n                scrolled\n                  ? \"border-theme-border text-theme-text hover:bg-theme-border/10\"\n                  : useLightHeader\n                    ? \"border-[#68825B] text-white hover:bg-white/10\"\n                    : \"border-[#153d28] text-[#212121] hover:bg-black/5\"\n              }`}\n            >\n              <span className={`${headerActionTextClass} whitespace-nowrap`}>\n                {t(\"action.getAQuote\")}\n              </span>\n            </Link>",
+          "line": 474,
+          "endLine": 487,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src/components/layout/Navbar.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/Navbar.tsx:502:8-to-src/pages/Home.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n          <KonstructzLogo height={36.96} isDark={theme === \"light\" && !useLightHeader} />\n        </Link>",
+          "line": 502,
+          "endLine": 504,
+          "column": 8,
+          "endColumn": 15,
+          "sourceFile": "src/components/layout/Navbar.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/Navbar.tsx:682:10-to-src/pages/Contact.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Contact.tsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n            to=\"/contact\"\n            className=\"text-center py-3 px-5 [font-family:'Clofie-Regular',Helvetica] text-lg leading-none text-theme-text border border-theme-border/95 bg-theme-bg/20 hover:border-theme-border hover:bg-theme-border/10 hover:text-theme-accent active:translate-y-px transition-all duration-200\"\n          >\n            {t(\"action.getAQuote\")}\n          </Link>",
+          "line": 682,
+          "endLine": 687,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/components/layout/Navbar.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/support/MachineGuidance.tsx:193:10-to-src/pages/support/AttachmentsSupport.tsx",
+      "source": "src/pages/support/MachineGuidance.tsx",
+      "target": "src/pages/support/AttachmentsSupport.tsx",
+      "data": {
+        "viaRoute": "/support/attachments-support",
+        "trigger": {
+          "element": "<InfoCard icon={Icons.attachments} title={t(\"auto.machineguidance.match.by.hydraulics\")} desc={t(\"auto.machineguidance.pair.attachments.to\")} to=\"/support/attachments-support\" />",
+          "line": 193,
+          "endLine": 193,
+          "column": 10,
+          "endColumn": 188,
+          "sourceFile": "src/pages/support/MachineGuidance.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/support/MachineGuidance.tsx:194:10-to-src/pages/support/AttachmentsSupport.tsx",
+      "source": "src/pages/support/MachineGuidance.tsx",
+      "target": "src/pages/support/AttachmentsSupport.tsx",
+      "data": {
+        "viaRoute": "/support/attachments-support",
+        "trigger": {
+          "element": "<InfoCard icon={Icons.wrench} title={t(\"auto.machineguidance.quick.attach.ready\")} desc={t(\"auto.machineguidance.swap.buckets.augers\")} to=\"/support/attachments-support\" />",
+          "line": 194,
+          "endLine": 194,
+          "column": 10,
+          "endColumn": 182,
+          "sourceFile": "src/pages/support/MachineGuidance.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/support/MachineGuidance.tsx:195:10-to-src/pages/support/AttachmentsSupport.tsx",
+      "source": "src/pages/support/MachineGuidance.tsx",
+      "target": "src/pages/support/AttachmentsSupport.tsx",
+      "data": {
+        "viaRoute": "/support/attachments-support",
+        "trigger": {
+          "element": "<InfoCard icon={Icons.search} title={t(\"auto.machineguidance.compatibility.check\")} desc={t(\"auto.machineguidance.send.us.your\")} to=\"/support/attachments-support\" />",
+          "line": 195,
+          "endLine": 195,
+          "column": 10,
+          "endColumn": 176,
+          "sourceFile": "src/pages/support/MachineGuidance.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/support/ContactSupport.tsx:240:10-to-src/pages/support/OrderPurchaseSupport.tsx",
+      "source": "src/pages/support/ContactSupport.tsx",
+      "target": "src/pages/support/OrderPurchaseSupport.tsx",
+      "data": {
+        "viaRoute": "/support/order-purchase-support",
+        "trigger": {
+          "element": "<InfoCard icon={Icons.order} title={t(\"auto.contact.order.support\")} desc={t(\"auto.contact.quotes.payments.invoices\")} to=\"/support/order-purchase-support\" />",
+          "line": 240,
+          "endLine": 240,
+          "column": 10,
+          "endColumn": 168,
+          "sourceFile": "src/pages/support/ContactSupport.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/support/ContactSupport.tsx:241:10-to-src/pages/support/WarrantyReturns.tsx",
+      "source": "src/pages/support/ContactSupport.tsx",
+      "target": "src/pages/support/WarrantyReturns.tsx",
+      "data": {
+        "viaRoute": "/support/warranty-returns",
+        "trigger": {
+          "element": "<InfoCard icon={Icons.warranty} title={t(\"auto.contact.warranty.help\")} desc={t(\"auto.contact.file.a.claim\")} to=\"/support/warranty-returns\" />",
+          "line": 241,
+          "endLine": 241,
+          "column": 10,
+          "endColumn": 153,
+          "sourceFile": "src/pages/support/ContactSupport.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/support/ContactSupport.tsx:242:10-to-src/pages/support/MachineGuidance.tsx",
+      "source": "src/pages/support/ContactSupport.tsx",
+      "target": "src/pages/support/MachineGuidance.tsx",
+      "data": {
+        "viaRoute": "/support/machine-guidance",
+        "trigger": {
+          "element": "<InfoCard icon={Icons.machine} title={t(\"auto.contact.machine.guidance\")} desc={t(\"auto.contact.get.matched.to\")} to=\"/support/machine-guidance\" />",
+          "line": 242,
+          "endLine": 242,
+          "column": 10,
+          "endColumn": 157,
+          "sourceFile": "src/pages/support/ContactSupport.tsx"
+        }
+      }
+    }
+  ]
+}

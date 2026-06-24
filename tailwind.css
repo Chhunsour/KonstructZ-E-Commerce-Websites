@@ -1,0 +1,383 @@
+@import url("https://fonts.googleapis.com/css?family=Google+Sans+Flex:500,700,400|Readex+Pro:600|Saira:400");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Rajdhani:wght@500;600;700&family=Sora:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+/* Language-specific fonts configuration */
+html[lang="ja"] {
+  font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif !important;
+}
+html[lang="ja"] :not(i):not(.icon):not(svg):not(path) {
+  font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif !important;
+}
+
+html[lang="ko"] {
+  font-family: 'Noto Sans KR', 'Pretendard', sans-serif !important;
+}
+html[lang="ko"] :not(i):not(.icon):not(svg):not(path) {
+  font-family: 'Noto Sans KR', 'Pretendard', sans-serif !important;
+}
+
+html[lang="zh"] {
+  font-family: 'Noto Sans SC', sans-serif !important;
+}
+html[lang="zh"] :not(i):not(.icon):not(svg):not(path) {
+  font-family: 'Noto Sans SC', sans-serif !important;
+}
+
+/* Western languages premium font defaults */
+html[lang="en"], html[lang="en"] body {
+  font-family: 'Sora', 'Google Sans Flex', sans-serif;
+}
+html[lang="fr"], html[lang="fr"] body {
+  font-family: 'Sora', 'Google Sans Flex', sans-serif;
+}
+html[lang="es"], html[lang="es"] body {
+  font-family: 'Sora', 'Google Sans Flex', sans-serif;
+}
+html[lang="it"], html[lang="it"] body {
+  font-family: 'Sora', 'Google Sans Flex', sans-serif;
+}
+html[lang="de"], html[lang="de"] body {
+  font-family: 'Sora', 'Google Sans Flex', sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --theme-bg-rgb: 40 40 40; /* #282828 default dark bg */
+  --theme-sec-rgb: 47 47 47; /* #2f2f2f alternate dark bg */
+  --theme-bg: rgb(var(--theme-bg-rgb));
+  --theme-sec: rgb(var(--theme-sec-rgb));
+  --theme-card-rgb: 33 33 33; /* #212121 dark card bg */
+  --theme-border-rgb: 104 130 91; /* #68825B dark border green */
+  --theme-text-rgb: 255 255 255; /* white text */
+  --theme-muted-rgb: 153 153 153; /* #999999 muted text */
+  --theme-accent-rgb: 216 199 154; /* #d8c79a desert sand accent */
+  --theme-heading-rgb: 216 199 154; /* #d8c79a heading accent */
+
+  --www-ferrari-com-inter-medium-font-family: "Inter", Helvetica;
+  --www-ferrari-com-inter-medium-font-size: 13px;
+  --www-ferrari-com-inter-medium-font-style: normal;
+  --www-ferrari-com-inter-medium-font-weight: 500;
+  --www-ferrari-com-inter-medium-letter-spacing: 0px;
+  --www-ferrari-com-inter-medium-line-height: normal;
+  --www-ferrari-com-inter-regular-font-family: "Inter", Helvetica;
+  --www-ferrari-com-inter-regular-font-size: 15.100000381469727px;
+  --www-ferrari-com-inter-regular-font-style: normal;
+  --www-ferrari-com-inter-regular-font-weight: 400;
+  --www-ferrari-com-inter-regular-letter-spacing: 0px;
+  --www-ferrari-com-inter-regular-line-height: normal;
+  --www-ferrari-com-inter-regular-upper-font-family: "Inter", Helvetica;
+  --www-ferrari-com-inter-regular-upper-font-size: 10px;
+  --www-ferrari-com-inter-regular-upper-font-style: normal;
+  --www-ferrari-com-inter-regular-upper-font-weight: 400;
+  --www-ferrari-com-inter-regular-upper-letter-spacing: 0px;
+  --www-ferrari-com-inter-regular-upper-line-height: normal;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-family: "Roboto", Helvetica;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-size: 18px;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-style: normal;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-weight: 300;
+  --www-lamborghini-com-roboto-condensed-light-upper-letter-spacing: 0px;
+  --www-lamborghini-com-roboto-condensed-light-upper-line-height: 28px;
+  --www-lamborghini-com-roboto-light-font-family: "Roboto", Helvetica;
+  --www-lamborghini-com-roboto-light-font-size: 16px;
+  --www-lamborghini-com-roboto-light-font-style: normal;
+  --www-lamborghini-com-roboto-light-font-weight: 300;
+  --www-lamborghini-com-roboto-light-letter-spacing: 0px;
+  --www-lamborghini-com-roboto-light-line-height: 26px;
+  --www-lamborghini-com-roboto-light-upper-font-family: "Roboto", Helvetica;
+  --www-lamborghini-com-roboto-light-upper-font-size: 10px;
+  --www-lamborghini-com-roboto-light-upper-font-style: normal;
+  --www-lamborghini-com-roboto-light-upper-font-weight: 300;
+  --www-lamborghini-com-roboto-light-upper-letter-spacing: 0.22499999403953552px;
+  --www-lamborghini-com-roboto-light-upper-line-height: 20px;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-family: "Inter", Helvetica;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-size: 23.399999618530273px;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-weight: 300;
+  --www-lamborghini-com-www-boleous-com-inter-light-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-inter-light-line-height: normal;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-family: "Inter", Helvetica;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-size: 8px;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-weight: 400;
+  --www-lamborghini-com-www-boleous-com-inter-regular-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-inter-regular-line-height: 16px;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-size: 19.200000762939453px;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-weight: 200;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-line-height: 31.68000030517578px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-size: 29.600000381469727px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-weight: 300;
+  --www-lamborghini-com-www-boleous-com-poppins-light-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-line-height: 48.84000015258789px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-size: 57.599998474121094px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-weight: 300;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-line-height: 69.12000274658203px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-size: 28px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-weight: 500;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-line-height: 35px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-size: 18px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-weight: 500;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-line-height: 29.700000762939453px;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-size: 110px;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-weight: 400;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-line-height: 126.5px;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-size: 54px;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-weight: 600;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-line-height: 54px;
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+/* Custom Header Texts and Buttons Scaling (9% smaller) */
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-xs { font-size: calc(0.75rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-sm { font-size: calc(0.875rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-base { font-size: calc(1rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-lg { font-size: calc(1.125rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-xl { font-size: calc(1.25rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-2xl { font-size: calc(1.5rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-3xl { font-size: calc(1.875rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-4xl { font-size: calc(2.25rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-5xl { font-size: calc(3rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-6xl { font-size: calc(3.75rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-7xl { font-size: calc(4.5rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-8xl { font-size: calc(6rem * 0.91) !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-9xl { font-size: calc(8rem * 0.91) !important; }
+
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[10px\] { font-size: 9.1px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[15px\] { font-size: 13.65px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[16px\] { font-size: 14.56px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[19px\] { font-size: 17.29px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[20px\] { font-size: 18.2px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[21px\] { font-size: 19.11px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[22px\] { font-size: 20.02px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[23px\] { font-size: 20.93px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[27px\] { font-size: 24.57px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[28px\] { font-size: 25.48px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[33px\] { font-size: 30.03px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[34px\] { font-size: 30.94px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[40px\] { font-size: 36.4px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[42px\] { font-size: 38.22px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[45px\] { font-size: 40.95px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[54px\] { font-size: 49.14px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[56px\] { font-size: 50.96px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[61px\] { font-size: 55.51px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[63px\] { font-size: 57.33px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[66px\] { font-size: 60.06px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[75px\] { font-size: 68.25px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[81px\] { font-size: 73.71px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[88px\] { font-size: 80.08px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[90px\] { font-size: 81.9px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[110px\] { font-size: 100.1px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[130px\] { font-size: 118.3px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[210px\] { font-size: 191.1px !important; }
+:is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).text-\[clamp\(64px\,14vw\,210px\)\] { font-size: calc(clamp(64px, 14vw, 210px) * 0.91) !important; }
+
+/* sm variant overrides */
+@media (min-width: 640px) {
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-sm { font-size: calc(0.875rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-xl { font-size: calc(1.25rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-2xl { font-size: calc(1.5rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-3xl { font-size: calc(1.875rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-4xl { font-size: calc(2.25rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-5xl { font-size: calc(3rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-6xl { font-size: calc(3.75rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).sm\:text-\[88px\] { font-size: 80.08px !important; }
+}
+
+/* md variant overrides */
+@media (min-width: 768px) {
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).md\:text-2xl { font-size: calc(1.5rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).md\:text-3xl { font-size: calc(1.875rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).md\:text-5xl { font-size: calc(3rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).md\:text-6xl { font-size: calc(3.75rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).md\:text-8xl { font-size: calc(6rem * 0.91) !important; }
+}
+
+/* lg variant overrides */
+@media (min-width: 1024px) {
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-lg { font-size: calc(1.125rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-2xl { font-size: calc(1.5rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-3xl { font-size: calc(1.875rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-6xl { font-size: calc(3.75rem * 0.91) !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-\[42px\] { font-size: 38.22px !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-\[56px\] { font-size: 50.96px !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-\[75px\] { font-size: 68.25px !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).lg\:text-\[110px\] { font-size: 100.1px !important; }
+}
+
+/* xl variant overrides */
+@media (min-width: 1280px) {
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).xl\:text-\[63px\] { font-size: 57.33px !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).xl\:text-\[90px\] { font-size: 81.9px !important; }
+  :is(h1, h2, h3, h4, h5, h6, button, .btn, .button, [role="button"]).xl\:text-\[130px\] { font-size: 118.3px !important; }
+}
+
+[data-theme="light"] {
+  --theme-bg-rgb: 245 245 245; /* #f5f5f5 off-white background */
+  --theme-sec-rgb: 244 238 224; /* Soft sand/cream section bg */
+  --theme-card-rgb: 255 255 255; /* White cards for nice elevation */
+  --theme-border-rgb: 21 61 40; /* Soft dark green borders */
+  --theme-text-rgb: 23 26 22; /* Charcoal text */
+  --theme-muted-rgb: 100 100 100; /* Soft dark grey text */
+  --theme-accent-rgb: 104 130 91; /* Industrial green */
+  --theme-heading-rgb: 21 61 40; /* Dark green headings */
+}
+@keyframes gallery-swap {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-gallery-swap {
+  animation: gallery-swap 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

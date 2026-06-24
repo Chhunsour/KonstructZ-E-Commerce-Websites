@@ -1,0 +1,1 @@
+export { EquipmentDiscoverySection } from "./EquipmentDiscoverySection";

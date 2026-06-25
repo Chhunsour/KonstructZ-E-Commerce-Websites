@@ -88,7 +88,7 @@ export const MiniSkidSteers: React.FC = () => {
             },
             {
               q: "How heavy a load can a skid steer lift?",
-              a: "Lift capability varies by model and final setup. Ask Konstructz to confirm the machine, attachment weight, and material load together before ordering.",
+              a: "The STOMP V980 and V950 have operating capacities ranging from 2,090 lbs to 2,650 lbs. Always confirm that the combined weight of your attachment and material load remains within safe operating limits.",
             },
           ]}
         />

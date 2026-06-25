@@ -8,6 +8,7 @@ import { Footer } from "./components/layout/Footer";
 import { SeoManager } from "./components/SeoManager";
 import { Home } from "./pages/Home";
 import { AllProducts } from "./pages/AllProductsPage";
+import { AllEquipment } from "./pages/AllEquipment";
 import { KonstructzMachine } from "./pages/KonstructzMachine";
 import { Attachments } from "./pages/Attachments";
 import { BlogPage } from "./pages/BlogPage";
@@ -15,6 +16,8 @@ import { SingleBlog } from "./pages/SingleBlogPage";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { ProductDetail } from "./pages/ProductDetail";
+import { TyphonCatalog } from "./pages/TyphonCatalog";
+import { TyphonProductDetail } from "./pages/TyphonProductDetail";
 import { QualityEquipment } from "./pages/brand/QualityEquipment";
 import { TrustedSupport } from "./pages/brand/TrustedSupport";
 import { JobSiteReady } from "./pages/brand/JobSiteReady";
@@ -36,6 +39,12 @@ import { WarrantyReturns } from "./pages/support/WarrantyReturns";
 import { MachineGuidance } from "./pages/support/MachineGuidance";
 import { AttachmentsSupport } from "./pages/support/AttachmentsSupport";
 import { ContactSupport } from "./pages/support/ContactSupport";
+import { AuthProvider, RequireAuth } from "./context/AuthContext";
+import { AdminLogin } from "./pages/admin/Login";
+import { AdminLayout } from "./pages/admin/AdminLayout";
+import { AdminDashboard } from "./pages/admin/Dashboard";
+import { PostEditor } from "./pages/admin/PostEditor";
+import { AdminCategories } from "./pages/admin/Categories";
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -61,18 +70,20 @@ const AppLayout: React.FC = () => {
   // Desktop versions of these Anima pages embed their own footer in the
   // scaled design. On mobile those pages render lightweight mobile layouts
   // which do NOT include a footer, so we let the global Footer render instead.
+  // Admin lives in its own self-contained shell: no public Navbar/Footer.
+  const isAdminRoute = pathname === "/sour" || pathname.startsWith("/sour/");
+
   const hideAppFooter =
-    (desktopEmbeddedFooterPages.includes(pathname) && isDesktop) ||
-    pathname.startsWith("/media") ||
-    pathname.startsWith("/blog");
+    isAdminRoute || (desktopEmbeddedFooterPages.includes(pathname) && isDesktop);
 
   return (
     <div className="flex flex-col min-h-screen bg-theme-bg text-theme-text transition-colors duration-200">
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/equipment" element={<AllProducts />} />
+          <Route path="/equipment" element={<AllEquipment />} />
+          <Route path="/product" element={<KonstructzMachine />} />
           <Route path="/equipment/konstructz-machine" element={<KonstructzMachine />} />
           <Route path="/equipment/mini-excavators" element={<MiniExcavators />} />
           <Route path="/equipment/mini-skid-steers" element={<MiniSkidSteers />} />
@@ -83,6 +94,8 @@ const AppLayout: React.FC = () => {
           <Route path="/equipment/dumpers" element={<Dumpers />} />
           <Route path="/equipment/towable-excavators" element={<TowableExcavators />} />
           <Route path="/equipment/:productId" element={<ProductDetail />} />
+          <Route path="/typhon-machinery" element={<TyphonCatalog />} />
+          <Route path="/typhon-machinery/:productId" element={<TyphonProductDetail />} />
           <Route path="/attachments" element={<Attachments />} />
           <Route path="/attachments/mini-excavator" element={<MiniExcavatorAttachments />} />
           <Route path="/attachments/mini-skid-steer" element={<MiniSkidSteerAttachments />} />
@@ -103,6 +116,21 @@ const AppLayout: React.FC = () => {
           <Route path="/support/machine-guidance" element={<MachineGuidance />} />
           <Route path="/support/attachments-support" element={<AttachmentsSupport />} />
           <Route path="/support/contact-support" element={<ContactSupport />} />
+
+          {/* ── Hidden admin (login + dashboard). Real auth via Supabase. ── */}
+          <Route path="/sour" element={<AdminLogin />} />
+          <Route
+            element={
+              <RequireAuth>
+                <AdminLayout />
+              </RequireAuth>
+            }
+          >
+            <Route path="/sour/dashboard" element={<AdminDashboard />} />
+            <Route path="/sour/posts/new" element={<PostEditor />} />
+            <Route path="/sour/posts/:id" element={<PostEditor />} />
+            <Route path="/sour/categories" element={<AdminCategories />} />
+          </Route>
         </Routes>
       </main>
       {!hideAppFooter && <Footer />}
@@ -114,11 +142,13 @@ export const App: React.FC = () => {
   return (
     <ThemeProvider>
       <I18nProvider>
-        <Router>
-          <SeoManager />
-          <ScrollToTop />
-          <AppLayout />
-        </Router>
+        <AuthProvider>
+          <Router>
+            <SeoManager />
+            <ScrollToTop />
+            <AppLayout />
+          </Router>
+        </AuthProvider>
       </I18nProvider>
     </ThemeProvider>
   );

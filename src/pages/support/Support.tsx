@@ -52,7 +52,7 @@ export const Support: React.FC = () => {
 
   const trust = [
     { icon: Icons.shield, label: "Parts Guidance", sub: "Replacement path confirmed by model" },
-    { icon: Icons.bolt, label: "Direct Specialists", sub: "Talk to real machinery experts, not call-centre scripts" },
+    { icon: Icons.bolt, label: "Direct Specialists", sub: "Talk to real machinery experts, not call-center scripts" },
     { icon: Icons.truck, label: "Freight Guidance", sub: "Delivery method reviewed by machine size and route" },
     { icon: Icons.gauge, label: "Job-Site Prep", sub: "Startup, offload and inspection guidance before work begins" },
   ];

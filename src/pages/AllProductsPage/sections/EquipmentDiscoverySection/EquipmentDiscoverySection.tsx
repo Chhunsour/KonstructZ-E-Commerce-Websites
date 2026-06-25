@@ -362,11 +362,11 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     { id: "diesel", label: "Diesel option", top: 112 },
     { id: "hydraulic", label: "Hydraulic match", top: 151 },
     { id: "confirmed", label: "Confirmed before quote", top: 190 },
-    { id: "varies", label: "Varies by model", top: 229 },
+    { id: "electric", label: "Electric drive", top: 229 },
   ];
 
   const horsepowerOptions = [
-    { id: "power-varies", label: "Power varies by model", top: 73 },
+    { id: "power-range", label: "10 - 25 HP range", top: 73 },
     { id: "attachment-load", label: "Match attachment load", top: 112 },
     { id: "duty-cycle", label: "Duty-cycle based", top: 151 },
     { id: "flow-match", label: "Flow requirement", top: 190 },

@@ -11,15 +11,15 @@ export const WheelLoaders: React.FC = () => {
 
   // Upcoming product details
   const upcomingProduct = {
-    name: t("auto.wheelloaders.k.load.1200"),
-    tagline: t("auto.wheelloaders.next.generation.heavy"),
-    description: "The upcoming Konstructz K-LOAD 1200 is being engineered for bulk material handling — built around traction, loading rhythm, service access, and operator comfort. Final specifications will be published ahead of launch.",
+    name: "K-LOAD 1200",
+    tagline: "Compact Power Wheel Loader",
+    description: "The Konstructz K-LOAD 1200 is engineered for bulk material handling — built around traction, loading rhythm, service access, and operator comfort. Order yours fully configured and ready for the jobsite.",
     specs: [
-      { label: t("auto.wheelloaders.operating.capacity"), value: "Varies by model" },
-      { label: t("auto.wheelloaders.engine.power"), value: "Depends on final configuration" },
-      { label: t("auto.wheelloaders.bucket.capacity"), value: "Varies by bucket selection" },
-      { label: t("auto.wheelloaders.operating.weight"), value: "Based on selected setup" },
-      { label: t("auto.wheelloaders.max.dump.height"), value: "Depends on loader and bucket setup" },
+      { label: t("auto.wheelloaders.operating.capacity"), value: "2,650 lbs" },
+      { label: t("auto.wheelloaders.engine.power"), value: "Kubota V1505 Diesel (25 HP)" },
+      { label: t("auto.wheelloaders.bucket.capacity"), value: "0.59 cu yd" },
+      { label: t("auto.wheelloaders.operating.weight"), value: "3.1 Tons" },
+      { label: t("auto.wheelloaders.max.dump.height"), value: "82.6 in (6.9 ft)" },
     ],
     features: [
       t("auto.wheelloaders.heavy.duty.articulated"),
@@ -47,15 +47,15 @@ export const WheelLoaders: React.FC = () => {
           <div className="lg:w-1/2 bg-theme-sec flex flex-col justify-center items-center p-12 text-center text-theme-accent relative min-h-[350px] transition-colors duration-200">
             <div className="absolute inset-0 bg-[radial-gradient(rgba(var(--theme-accent-rgb),0.2)_1px,transparent_1px)] [background-size:16px_16px] opacity-20" />
             <span className="text-6xl mb-4 select-none animate-pulse">🚜</span>
-            <span className="bg-brand-green border border-brand-sand text-brand-sand text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full mb-2">{t("auto.wheelloaders.in.development")}</span>
+            <span className="bg-brand-green border border-brand-sand text-brand-sand text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full mb-2">Heavy Duty Loader</span>
             <h2 className="text-3xl font-heading text-theme-text">{upcomingProduct.name}</h2>
-            <p className="text-theme-muted font-googleSans text-xs max-w-xs mt-2 leading-relaxed">{t("auto.wheelloaders.accepting.early.info")}</p>
+            <p className="text-theme-muted font-googleSans text-xs max-w-xs mt-2 leading-relaxed">Contact Sales for Delivery Options</p>
           </div>
 
           {/* Product Data */}
           <div className="p-8 lg:w-1/2 flex flex-col justify-between bg-theme-card">
             <div>
-              <span className="text-xs uppercase tracking-widest text-theme-accent font-googleSans font-bold block mb-1">{t("auto.wheelloaders.coming.soon")}</span>
+              <span className="text-xs uppercase tracking-widest text-theme-accent font-googleSans font-bold block mb-1">New Model Release</span>
               <h3 className="text-2xl font-heading text-theme-text">
                 {upcomingProduct.tagline}
               </h3>
@@ -76,7 +76,7 @@ export const WheelLoaders: React.FC = () => {
 
               {/* Features List */}
               <div className="mb-8 font-googleSans text-xs text-theme-muted">
-                <h4 className="font-bold text-theme-accent uppercase tracking-wider mb-2">{t("auto.wheelloaders.expected.features")}</h4>
+                <h4 className="font-bold text-theme-accent uppercase tracking-wider mb-2">Key Highlights</h4>
                 <ul className="list-disc pl-5 space-y-1">
                   {upcomingProduct.features.map((feat, idx) => (
                     <li key={idx}>{feat}</li>
@@ -88,7 +88,7 @@ export const WheelLoaders: React.FC = () => {
             <Link
               to={`/contact?interest=wheel-loader`}
               className="w-full text-center py-3 font-googleSans font-bold text-sm tracking-wider bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white transition-colors duration-300 uppercase rounded border border-theme-accent"
-            >{t("auto.wheelloaders.request.early.spec")}</Link>
+            >Request Quote</Link>
           </div>
         </div>
 

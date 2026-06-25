@@ -146,9 +146,12 @@ const FilterGroup: React.FC<{
   );
 };
 
-const PriceFilter: React.FC<{ disabled?: boolean }> = ({ disabled = false }) => {
+const PriceFilter: React.FC<{
+  value: number;
+  onChange: (val: number) => void;
+  disabled?: boolean;
+}> = ({ value, onChange, disabled = false }) => {
   const { t } = useI18n();
-  const [value, setValue] = useState(36990);
   return (
     <div className={`bg-theme-sec text-theme-text p-4 border border-theme-border/10 rounded transition-all duration-200 ${disabled ? "opacity-50" : ""}`}>
       <div className="flex items-center justify-between pb-3 border-b-[3px] border-theme-border">
@@ -168,7 +171,7 @@ const PriceFilter: React.FC<{ disabled?: boolean }> = ({ disabled = false }) => 
           max={69999}
           value={value}
           disabled={disabled}
-          onChange={(e) => setValue(Number(e.target.value))}
+          onChange={(e) => onChange(Number(e.target.value))}
           className={`w-full accent-theme-accent ${disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
           aria-label={t("equipment.price")}
         />
@@ -565,6 +568,63 @@ const CategoriesSection: React.FC<CategoriesSectionProps> = ({ selectedCategory,
   );
 };
 
+/* Deterministic pricing map for client-side filters */
+const PRODUCT_PRICES: Record<string, number> = {
+  "stomp-v980": 42500,
+  "kuvuo-2-5": 28900,
+  "skoop-ii": 48000,
+  "scoopydig": 59500,
+  "thunderdump-1": 14200,
+  "stone-crusher-1": 34000,
+  "group-ripper-grx": 18500,
+  "kuvuo-2-7": 32400,
+  "spider-one": 8900,
+  "stone-crusher-2": 49000,
+  "thunderdump-2": 22800,
+  "stomp-v950": 39500,
+  "stone-crusher-3": 68500,
+};
+
+const getProductWeightInTons = (product: Product): number => {
+  const normalized = product.weight.toLowerCase();
+  const num = parseFloat(normalized.replace(/,/g, ""));
+  if (isNaN(num)) return 0;
+  if (normalized.includes("lb") || normalized.includes("pound")) {
+    return num / 2000;
+  }
+  return num;
+};
+
+const getProductEngineType = (product: Product): string => {
+  const engineSpec = product.specs.find(s => s.label.toLowerCase().includes("engine"));
+  const textToSearch = (engineSpec?.value || "") + " " + product.description + " " + product.tagline;
+  const normalized = textToSearch.toLowerCase();
+  
+  if (normalized.includes("electric") || normalized.includes("battery")) {
+    return "Electric Drive";
+  }
+  if (normalized.includes("petrol") || normalized.includes("gasoline") || normalized.includes("gas engine") || normalized.includes("honda gx")) {
+    return "Gasoline Powertrain";
+  }
+  return "Diesel Powertrain";
+};
+
+const getProductHorsepower = (product: Product): number => {
+  for (const spec of product.specs) {
+    const val = spec.value;
+    const match = val.match(/(\d+(?:\.\d+)?)\s*HP/i);
+    if (match) {
+      return parseFloat(match[1]);
+    }
+  }
+  const text = product.description + " " + product.tagline;
+  const match = text.match(/(\d+(?:\.\d+)?)\s*HP/i);
+  if (match) {
+    return parseFloat(match[1]);
+  }
+  return 0;
+};
+
 interface EquipmentSectionProps {
   selectedCategory: string | null;
   setSelectedCategory: (cat: string | null) => void;
@@ -574,6 +634,12 @@ const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCategory, s
   const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+  // Lifted states for side filters
+  const [priceMax, setPriceMax] = useState(69999);
+  const [selectedWeight, setSelectedWeight] = useState<string | null>(null);
+  const [selectedEngine, setSelectedEngine] = useState<string | null>(null);
+  const [selectedHorsepower, setSelectedHorsepower] = useState<string | null>(null);
 
   const CATEGORY_LABELS = [
     "Skid Steer",
@@ -597,21 +663,45 @@ const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCategory, s
     "Stone Crusher": "stone-crushers"
   };
 
-  const WEIGHT_FILTERS = ["Based on selected setup", "Varies by model", "Transport class to confirm"];
+  const WEIGHT_FILTERS = ["1.0 - 2.5 Tons", "2.6 - 4.5 Tons", "4.6+ Tons"];
 
-  const ENGINE_FILTERS = ["Depends on final configuration", "Gas or diesel options", "Confirm before quote"];
+  const ENGINE_FILTERS = ["Diesel Powertrain", "Gasoline Powertrain", "Electric Drive"];
 
-  const HORSEPOWER_FILTERS = ["Power varies by model", "Match to attachment load", "Confirm final setup"];
+  const HORSEPOWER_FILTERS = ["Under 25 HP", "25 - 50 HP", "Over 50 HP"];
 
   const filteredList = EQUIPMENT_LIST
     .filter((e) => !query || e.name.toLowerCase().includes(query.toLowerCase()))
-    .filter((e) => !selectedCategory || e.category === selectedCategory);
+    .filter((e) => !selectedCategory || e.category === selectedCategory)
+    .filter((e) => {
+      const price = PRODUCT_PRICES[e.id] ?? 0;
+      return price <= priceMax;
+    })
+    .filter((e) => {
+      if (!selectedWeight) return true;
+      const w = getProductWeightInTons(e);
+      if (selectedWeight === "1.0 - 2.5 Tons") return w <= 2.5;
+      if (selectedWeight === "2.6 - 4.5 Tons") return w > 2.5 && w <= 4.5;
+      if (selectedWeight === "4.6+ Tons") return w > 4.5;
+      return true;
+    })
+    .filter((e) => {
+      if (!selectedEngine) return true;
+      return getProductEngineType(e) === selectedEngine;
+    })
+    .filter((e) => {
+      if (!selectedHorsepower) return true;
+      const hp = getProductHorsepower(e);
+      if (selectedHorsepower === "Under 25 HP") return hp < 25;
+      if (selectedHorsepower === "25 - 50 HP") return hp >= 25 && hp <= 50;
+      if (selectedHorsepower === "Over 50 HP") return hp > 50;
+      return true;
+    });
 
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, query]);
+  }, [selectedCategory, query, priceMax, selectedWeight, selectedEngine, selectedHorsepower]);
 
   const PAGE_SIZE = 8;
   const totalPages = Math.ceil(filteredList.length / PAGE_SIZE);
@@ -692,10 +782,25 @@ const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCategory, s
               onOptionSelect={setSelectedCategory}
               optionValueMapping={categoryValueMapping}
             />
-            <PriceFilter disabled />
-            <FilterGroup title={t("equipment.operationWeight")} options={WEIGHT_FILTERS} disabled />
-            <FilterGroup title={t("equipment.engine")} options={ENGINE_FILTERS} disabled />
-            <FilterGroup title={t("equipment.horsepower")} options={HORSEPOWER_FILTERS} disabled />
+            <PriceFilter value={priceMax} onChange={setPriceMax} />
+            <FilterGroup
+              title={t("equipment.operationWeight")}
+              options={WEIGHT_FILTERS}
+              selectedOption={selectedWeight}
+              onOptionSelect={setSelectedWeight}
+            />
+            <FilterGroup
+              title={t("equipment.engine")}
+              options={ENGINE_FILTERS}
+              selectedOption={selectedEngine}
+              onOptionSelect={setSelectedEngine}
+            />
+            <FilterGroup
+              title={t("equipment.horsepower")}
+              options={HORSEPOWER_FILTERS}
+              selectedOption={selectedHorsepower}
+              onOptionSelect={setSelectedHorsepower}
+            />
           </aside>
 
           {/* Grid */}

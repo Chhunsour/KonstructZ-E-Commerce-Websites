@@ -9,8 +9,8 @@
       "isRoot": true
     },
     {
-      "id": "src/pages/AllProductsPage/AllProducts.tsx",
-      "label": "AllProducts",
+      "id": "src/pages/AllEquipment.tsx",
+      "label": "AllEquipment",
       "routes": [
         "/equipment"
       ]
@@ -19,6 +19,7 @@
       "id": "src/pages/KonstructzMachine.tsx",
       "label": "KonstructzMachine",
       "routes": [
+        "/product",
         "/equipment/konstructz-machine"
       ]
     },
@@ -83,6 +84,20 @@
       "label": "ProductDetail",
       "routes": [
         "/equipment/:productId"
+      ]
+    },
+    {
+      "id": "src/pages/TyphonCatalog.tsx",
+      "label": "TyphonCatalog",
+      "routes": [
+        "/typhon-machinery"
+      ]
+    },
+    {
+      "id": "src/pages/TyphonProductDetail.tsx",
+      "label": "TyphonProductDetail",
+      "routes": [
+        "/typhon-machinery/:productId"
       ]
     },
     {
@@ -212,19 +227,27 @@
       "routes": [
         "/support/contact-support"
       ]
+    },
+    {
+      "id": "src/pages/admin/PostEditor.tsx",
+      "label": "PostEditor",
+      "routes": [
+        "/sour/posts/new",
+        "/sour/posts/:id"
+      ]
     }
   ],
   "edges": [
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:222:12-to-src/pages/AllProductsPage/AllProducts.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:261:12-to-src/pages/AllEquipment.tsx",
       "source": "src/pages/Home.tsx",
-      "target": "src/pages/AllProductsPage/AllProducts.tsx",
+      "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link\n              to=\"/equipment\"\n              className=\"px-5 py-3 bg-[#153d28] text-white font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.explore.equipment\")}</Link>",
-          "line": 222,
-          "endLine": 225,
+          "line": 261,
+          "endLine": 264,
           "column": 12,
           "endColumn": 65,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -232,15 +255,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:226:12-to-src/pages/Contact.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:265:12-to-src/pages/Contact.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n              to=\"/contact\"\n              className=\"px-5 py-3 border-2 border-[#d8c79a] text-[#d8c79a] font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.get.a.quote\")}</Link>",
-          "line": 226,
-          "endLine": 229,
+          "line": 265,
+          "endLine": 268,
           "column": 12,
           "endColumn": 59,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -248,15 +271,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:410:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:478:10-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/blog",
         "trigger": {
           "element": "<Link\n            to=\"/blog\"\n            className=\"w-full max-w-md py-4 bg-[#153d28] text-white text-center font-googleSans font-bold text-base tracking-wide flex items-center justify-center gap-2 btn\"\n          >\n            <span>EXPLORE ALL ARTICLES</span>\n            <span>→</span>\n          </Link>",
-          "line": 410,
-          "endLine": 416,
+          "line": 478,
+          "endLine": 484,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -328,15 +351,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx:99:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx:112:10-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/blog",
         "trigger": {
           "element": "<Link\n            to=\"/blog\"\n            className=\"k-btn-lift inline-flex items-center justify-center gap-3 bg-[#153d28] border-3 border-[#153d28] text-white hover:bg-theme-accent hover:text-[#153d28] hover:border-theme-accent h-14 px-10 font-googleSans font-bold text-lg tracking-[0.02em] shadow-md\"\n          >\n            <span>{t(\"action.exploreMore\") || \"EXPLORE MORE ARTICLES\"}</span>\n            <span aria-hidden>→</span>\n          </Link>",
-          "line": 99,
-          "endLine": 105,
+          "line": 112,
+          "endLine": 118,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx"
@@ -344,9 +367,25 @@
       }
     },
     {
-      "id": "src/pages/ProductDetail.tsx:28:8-to-src/pages/AllProductsPage/AllProducts.tsx",
+      "id": "src/pages/AllEquipment.tsx:79:12-to-src/pages/AllEquipment.tsx",
+      "source": "src/pages/AllEquipment.tsx",
+      "target": "src/pages/AllEquipment.tsx",
+      "data": {
+        "viaRoute": "/equipment",
+        "trigger": {
+          "element": "<Link\n              to=\"/equipment\"\n              className={`border px-4 py-2 font-googleSans text-sm font-bold transition-colors ${\n                !selectedCategory\n                  ? \"border-[#d8c79a] bg-[#d8c79a] text-[#153d28]\"\n                  : \"border-theme-border/40 text-theme-muted hover:border-[#d8c79a] hover:text-theme-text\"\n              }`}\n            >\n              All ({typhonProducts.length})\n            </Link>",
+          "line": 79,
+          "endLine": 88,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src/pages/AllEquipment.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/ProductDetail.tsx:28:8-to-src/pages/AllEquipment.tsx",
       "source": "src/pages/ProductDetail.tsx",
-      "target": "src/pages/AllProductsPage/AllProducts.tsx",
+      "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
@@ -376,6 +415,134 @@
       }
     },
     {
+      "id": "src/screens/ProductSingle/sections/ProductDescriptionSection/ProductDescriptionSection.tsx:621:12-to-src/pages/Attachments.tsx",
+      "source": "src/pages/ProductDetail.tsx",
+      "target": "src/pages/Attachments.tsx",
+      "data": {
+        "viaRoute": "/attachments",
+        "trigger": {
+          "element": "<Link to=\"/attachments\" className=\"border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors k-hover-lift\">\n              <h3 className=\"font-glonimoveBold text-[20px] text-theme-heading\">Attachments That Expand Your Machine</h3>\n              <p className=\"mt-2 font-glonimove text-base text-theme-muted leading-relaxed\">Review buckets, breakers, augers, forks, and fitment checks for the work you plan to run.</p>\n            </Link>",
+          "line": 621,
+          "endLine": 624,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src/screens/ProductSingle/sections/ProductDescriptionSection/ProductDescriptionSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/ProductSingle/sections/ProductDescriptionSection/ProductDescriptionSection.tsx:625:12-to-src/pages/support/MachineGuidance.tsx",
+      "source": "src/pages/ProductDetail.tsx",
+      "target": "src/pages/support/MachineGuidance.tsx",
+      "data": {
+        "viaRoute": "/support/machine-guidance",
+        "trigger": {
+          "element": "<Link to=\"/support/machine-guidance\" className=\"border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors k-hover-lift\">\n              <h3 className=\"font-glonimoveBold text-[20px] text-theme-heading\">Machine Selection Help</h3>\n              <p className=\"mt-2 font-glonimove text-base text-theme-muted leading-relaxed\">Compare categories and get a practical recommendation before you commit to a model.</p>\n            </Link>",
+          "line": 625,
+          "endLine": 628,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src/screens/ProductSingle/sections/ProductDescriptionSection/ProductDescriptionSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/ProductSingle/sections/ProductDescriptionSection/ProductDescriptionSection.tsx:629:12-to-src/pages/support/ContactSupport.tsx",
+      "source": "src/pages/ProductDetail.tsx",
+      "target": "src/pages/support/ContactSupport.tsx",
+      "data": {
+        "viaRoute": "/support/contact-support",
+        "trigger": {
+          "element": "<Link to=\"/support/contact-support\" className=\"border border-theme-border/15 bg-theme-sec/5 p-5 rounded hover:border-theme-accent transition-colors k-hover-lift\">\n              <h3 className=\"font-glonimoveBold text-[20px] text-theme-heading\">Support After Purchase</h3>\n              <p className=\"mt-2 font-glonimove text-base text-theme-muted leading-relaxed\">Get help with manuals, parts, delivery questions, warranty cases, and technical support.</p>\n            </Link>",
+          "line": 629,
+          "endLine": 632,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src/screens/ProductSingle/sections/ProductDescriptionSection/ProductDescriptionSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/TyphonCatalog.tsx:36:10-to-src/pages/TyphonCatalog.tsx",
+      "source": "src/pages/TyphonCatalog.tsx",
+      "target": "src/pages/TyphonCatalog.tsx",
+      "data": {
+        "viaRoute": "/typhon-machinery",
+        "trigger": {
+          "element": "<Link\n            to=\"/typhon-machinery\"\n            className={`border px-4 py-2 font-googleSans text-sm font-bold ${\n              !selectedCategory ? \"border-[#d8c79a] bg-[#d8c79a] text-[#153d28]\" : \"border-white/20 text-white hover:border-[#d8c79a]\"\n            }`}\n          >\n            All {typhonProducts.length}\n          </Link>",
+          "line": 36,
+          "endLine": 43,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/pages/TyphonCatalog.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/TyphonProductDetail.tsx:21:8-to-src/pages/TyphonCatalog.tsx",
+      "source": "src/pages/TyphonProductDetail.tsx",
+      "target": "src/pages/TyphonCatalog.tsx",
+      "data": {
+        "viaRoute": "/typhon-machinery",
+        "trigger": {
+          "element": "<Link\n          to=\"/typhon-machinery\"\n          className=\"mt-7 inline-flex min-h-[48px] items-center justify-center bg-[#d8c79a] px-6 font-googleSans font-bold text-[#153d28]\"\n        >\n          Back to Typhon catalog\n        </Link>",
+          "line": 21,
+          "endLine": 26,
+          "column": 8,
+          "endColumn": 15,
+          "sourceFile": "src/pages/TyphonProductDetail.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:41:10-to-src/pages/Home.tsx",
+      "source": "src/pages/TyphonProductDetail.tsx",
+      "target": "src/pages/Home.tsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"hover:text-white\">\n            Home\n          </Link>",
+          "line": 41,
+          "endLine": 43,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:45:10-to-src/pages/TyphonCatalog.tsx",
+      "source": "src/pages/TyphonProductDetail.tsx",
+      "target": "src/pages/TyphonCatalog.tsx",
+      "data": {
+        "viaRoute": "/typhon-machinery",
+        "trigger": {
+          "element": "<Link to=\"/typhon-machinery\" className=\"hover:text-white\">\n            Typhon Machinery\n          </Link>",
+          "line": 45,
+          "endLine": 47,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:218:10-to-src/pages/TyphonCatalog.tsx",
+      "source": "src/pages/TyphonProductDetail.tsx",
+      "target": "src/pages/TyphonCatalog.tsx",
+      "data": {
+        "viaRoute": "/typhon-machinery",
+        "trigger": {
+          "element": "<Link to=\"/typhon-machinery\" className=\"font-googleSans text-sm font-bold uppercase text-[#d8c79a] hover:text-white\">\n            View Typhon Catalog\n          </Link>",
+          "line": 218,
+          "endLine": 220,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
+        }
+      }
+    },
+    {
       "id": "src/pages/Attachments.tsx:141:12-to-src/pages/Contact.tsx",
       "source": "src/pages/Attachments.tsx",
       "target": "src/pages/Contact.tsx",
@@ -392,15 +559,15 @@
       }
     },
     {
-      "id": "src/pages/BlogPage/BlogPage.tsx:290:16-to-src/pages/Home.tsx",
+      "id": "src/pages/BlogPage/BlogPage.tsx:354:16-to-src/pages/Home.tsx",
       "source": "src/pages/BlogPage/BlogPage.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link\n                  to=\"/\"\n                  className=\"inline-flex items-center gap-2 hover:text-theme-accent transition-colors\"\n                >\n                  <svg\n                    width=\"22\"\n                    height=\"22\"\n                    viewBox=\"0 0 24 24\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    strokeWidth=\"2\"\n                    strokeLinecap=\"round\"\n                    strokeLinejoin=\"round\"\n                    aria-hidden=\"true\"\n                  >\n                    <path d=\"M3 12l9-9 9 9\" />\n                    <path d=\"M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10\" />\n                  </svg>\n                  <span>{t(\"nav.home\")}</span>\n                </Link>",
-          "line": 290,
-          "endLine": 309,
+          "line": 354,
+          "endLine": 373,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/pages/BlogPage/BlogPage.tsx"
@@ -408,33 +575,65 @@
       }
     },
     {
-      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:202:8-to-src/pages/Home.tsx",
+      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:253:10-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/pages/SingleBlogPage/SingleBlog.tsx",
-      "target": "src/pages/Home.tsx",
+      "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
-        "viaRoute": "/",
+        "viaRoute": "/blog",
         "trigger": {
-          "element": "<Link\n          to=\"/\"\n          className=\"mb-5 inline-flex items-center gap-2 [font-family:'Google_Sans_Flex',Helvetica] text-theme-text text-base transition-colors\"\n        >\n          <img className=\"w-5 h-5 dark:invert-0 invert\" alt=\"\" src=\"/single-blog/img/home.svg\" />\n          {t(\"nav.home\")}\n        </Link>",
-          "line": 202,
-          "endLine": 208,
-          "column": 8,
-          "endColumn": 15,
+          "element": "<Link\n            to=\"/blog\"\n            className=\"inline-flex items-center gap-2 bg-brand-green hover:bg-brand-greenDark text-white font-googleSans font-semibold text-base px-6 py-3.5 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] transition-colors\"\n          >\n            ← {t(\"blog.backToBlog\", { fallback: \"Back to Blog\" })}\n          </Link>",
+          "line": 253,
+          "endLine": 258,
+          "column": 10,
+          "endColumn": 17,
           "sourceFile": "src/pages/SingleBlogPage/SingleBlog.tsx"
         }
       }
     },
     {
-      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:522:8-to-src/pages/Home.tsx",
+      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:330:16-to-src/pages/Home.tsx",
       "source": "src/pages/SingleBlogPage/SingleBlog.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n          to=\"/\"\n          className=\"absolute top-[204px] left-[1456px] [font-family:'Google_Sans_Flex',Helvetica] font-normal text-theme-text hover:text-theme-accent text-2xl tracking-[0] leading-[normal] transition-colors\"\n        >\n          {t(\"nav.home\")}\n        </Link>",
-          "line": 522,
-          "endLine": 527,
-          "column": 8,
-          "endColumn": 15,
+          "element": "<Link\n                  to=\"/\"\n                  className=\"inline-flex items-center gap-2 hover:text-theme-accent transition-colors\"\n                >\n                  <svg\n                    width=\"18\"\n                    height=\"18\"\n                    viewBox=\"0 0 24 24\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    strokeWidth=\"2\"\n                    strokeLinecap=\"round\"\n                    strokeLinejoin=\"round\"\n                    aria-hidden=\"true\"\n                  >\n                    <path d=\"M3 12l9-9 9 9\" />\n                    <path d=\"M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10\" />\n                  </svg>\n                  <span>{t(\"nav.home\")}</span>\n                </Link>",
+          "line": 330,
+          "endLine": 349,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/pages/SingleBlogPage/SingleBlog.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:351:16-to-src/pages/BlogPage/BlogPage.tsx",
+      "source": "src/pages/SingleBlogPage/SingleBlog.tsx",
+      "target": "src/pages/BlogPage/BlogPage.tsx",
+      "data": {
+        "viaRoute": "/blog",
+        "trigger": {
+          "element": "<Link\n                  to=\"/blog\"\n                  className=\"hover:text-theme-accent transition-colors\"\n                >\n                  {t(\"blog.title\")}\n                </Link>",
+          "line": 351,
+          "endLine": 356,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src/pages/SingleBlogPage/SingleBlog.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/pages/SingleBlogPage/SingleBlog.tsx:568:20-to-src/pages/BlogPage/BlogPage.tsx",
+      "source": "src/pages/SingleBlogPage/SingleBlog.tsx",
+      "target": "src/pages/BlogPage/BlogPage.tsx",
+      "data": {
+        "viaRoute": "/blog",
+        "trigger": {
+          "element": "<Link to=\"/blog\" className=\"hover:text-theme-accent transition-colors\">\n                      {t(blogCategoryKey(c), { fallback: c })}\n                    </Link>",
+          "line": 568,
+          "endLine": 570,
+          "column": 20,
+          "endColumn": 27,
           "sourceFile": "src/pages/SingleBlogPage/SingleBlog.tsx"
         }
       }
@@ -504,17 +703,33 @@
       }
     },
     {
-      "id": "src/screens/About/MobileAbout.tsx:129:10-to-src/pages/Home.tsx",
+      "id": "src/screens/About/MobileAbout.tsx:123:10-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link\n            to=\"/\"\n            className=\"inline-flex items-center gap-2 text-white font-googleSans text-sm\"\n          >\n            <img src=\"/img/home.svg\" alt={t(\"auto.mobileabout.home\")} className=\"w-5 h-5\" />\n            <span>{t(\"auto.mobileabout.home\")}</span>\n          </Link>",
-          "line": 129,
-          "endLine": 135,
+          "line": 123,
+          "endLine": 129,
           "column": 10,
           "endColumn": 17,
+          "sourceFile": "src/screens/About/MobileAbout.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/screens/About/MobileAbout.tsx:257:8-to-src/pages/Contact.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Contact.tsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n          to=\"/contact\"\n          className=\"mt-8 flex items-center justify-center bg-[#153d28] py-4 text-white font-googleSans text-lg shadow hover:bg-brand-green transition-colors\"\n        >{t(\"auto.mobileabout.get.a.quote\")}</Link>",
+          "line": 257,
+          "endLine": 260,
+          "column": 8,
+          "endColumn": 51,
           "sourceFile": "src/screens/About/MobileAbout.tsx"
         }
       }
@@ -526,7 +741,7 @@
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link\n                to=\"/\"\n                className=\"group inline-flex items-center text-white\"\n              >\n                <img\n                  className=\"h-[38px] w-[38px] shrink-0\"\n                  alt={t(\"auto.herointro.home\")}\n                  src=\"/img/home.svg\"\n                />\n                <span className=\"absolute left-[45px] top-[8px] [font-family:'Google_Sans_Flex',Helvetica] text-2xl font-normal leading-[normal] tracking-[0] text-white\">{t(\"auto.herointro.home\")}</span>\n              </Link>",
+          "element": "<Link\n                to=\"/\"\n                className=\"group inline-flex items-center text-white\"\n              >\n                <img\n                  className=\"h-[38px] w-[38px] shrink-0\"\n                  alt={t(\"auto.herointro.home\")}\n                  src=\"/img/home.svg\"\n                />\n                <span className=\"absolute left-[45px] top-[8px] [font-family:'Google_Sans_Flex',Helvetica] text-[22px] font-normal leading-[normal] tracking-[0] text-white\">{t(\"auto.herointro.home\")}</span>\n              </Link>",
           "line": 35,
           "endLine": 45,
           "column": 14,
@@ -536,15 +751,31 @@
       }
     },
     {
-      "id": "src/components/layout/DesktopFooter.tsx:334:16-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/screens/About/sections/TrustPillarsSection/TrustPillarsSection.tsx:117:10-to-src/pages/Contact.tsx",
+      "source": "src/screens/About/About.tsx",
+      "target": "src/pages/Contact.tsx",
+      "data": {
+        "viaRoute": "/contact",
+        "trigger": {
+          "element": "<Link\n            to=\"/contact\"\n            aria-label={t(\"auto.trustpillars.get.a.quote\")}\n            className=\"absolute left-[1513px] top-[246px] inline-flex h-[71px] w-[265px] items-center justify-center bg-[#153d28] shadow-[0px_4px_4px_#00000040] transition-opacity hover:opacity-90 focus-visible:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white\"\n          >\n            <span className=\"[font-family:'Google_Sans_Flex',Helvetica] text-[22px] font-normal leading-[normal] tracking-[0] text-white\">\n              {t(\"auto.trustpillars.get.a.quote\")}\n            </span>\n          </Link>",
+          "line": 117,
+          "endLine": 125,
+          "column": 10,
+          "endColumn": 17,
+          "sourceFile": "src/screens/About/sections/TrustPillarsSection/TrustPillarsSection.tsx"
+        }
+      }
+    },
+    {
+      "id": "src/components/layout/DesktopFooter.tsx:326:16-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/media",
         "trigger": {
-          "element": "<Link to=\"/media\">\n                  <img\n                    className={`absolute left-0 ${item.topClass} ${item.imageWidthClass} ${item.imageHeightClass} aspect-[1.78] object-cover hover:scale-[1.03] transition-transform duration-300`}\n                    alt={item.imageAlt}\n                    src={item.imageSrc}\n                    loading=\"lazy\"\n                  />\n                </Link>",
-          "line": 334,
-          "endLine": 341,
+          "element": "<Link to=\"/media\" className=\"shrink-0\">\n                  <img\n                    className=\"w-[130px] h-[73px] aspect-[1.78] object-cover hover:scale-[1.03] transition-transform duration-300 rounded-[4px]\"\n                    alt={item.imageAlt}\n                    src={item.imageSrc}\n                    loading=\"lazy\"\n                  />\n                </Link>",
+          "line": 326,
+          "endLine": 333,
           "column": 16,
           "endColumn": 23,
           "sourceFile": "src/components/layout/DesktopFooter.tsx"
@@ -552,31 +783,31 @@
       }
     },
     {
-      "id": "src/components/layout/DesktopFooter.tsx:351:18-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/components/layout/DesktopFooter.tsx:342:20-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/media",
         "trigger": {
-          "element": "<Link to=\"/media\" className=\"text-white hover:text-[#d8c79a] transition-colors\">\n                    {item.title}\n                  </Link>",
-          "line": 351,
-          "endLine": 353,
-          "column": 18,
-          "endColumn": 25,
+          "element": "<Link to=\"/media\" className=\"text-white hover:text-[#d8c79a] transition-colors\">\n                      {item.title}\n                    </Link>",
+          "line": 342,
+          "endLine": 344,
+          "column": 20,
+          "endColumn": 27,
           "sourceFile": "src/components/layout/DesktopFooter.tsx"
         }
       }
     },
     {
-      "id": "src/components/layout/DesktopFooter.tsx:377:16-to-src/screens/About/About.tsx",
+      "id": "src/components/layout/DesktopFooter.tsx:369:16-to-src/screens/About/About.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/screens/About/About.tsx",
       "data": {
         "viaRoute": "/about",
         "trigger": {
           "element": "<Link to=\"/about\" className=\"hover:text-[#d8c79a] transition-colors text-white\">Privacy</Link>",
-          "line": 377,
-          "endLine": 377,
+          "line": 369,
+          "endLine": 369,
           "column": 16,
           "endColumn": 110,
           "sourceFile": "src/components/layout/DesktopFooter.tsx"
@@ -584,15 +815,15 @@
       }
     },
     {
-      "id": "src/components/layout/DesktopFooter.tsx:380:16-to-src/screens/About/About.tsx",
+      "id": "src/components/layout/DesktopFooter.tsx:372:16-to-src/screens/About/About.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/screens/About/About.tsx",
       "data": {
         "viaRoute": "/about",
         "trigger": {
           "element": "<Link to=\"/about\" className=\"hover:text-[#d8c79a] transition-colors text-white\">Policy</Link>",
-          "line": 380,
-          "endLine": 380,
+          "line": 372,
+          "endLine": 372,
           "column": 16,
           "endColumn": 109,
           "sourceFile": "src/components/layout/DesktopFooter.tsx"
@@ -600,15 +831,15 @@
       }
     },
     {
-      "id": "src/components/layout/DesktopFooter.tsx:383:16-to-src/pages/Contact.tsx",
+      "id": "src/components/layout/DesktopFooter.tsx:375:16-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link to=\"/contact\" className=\"hover:text-[#d8c79a] transition-colors text-white\">{t(\"auto.footer.contact.us\")}</Link>",
-          "line": 383,
-          "endLine": 383,
+          "line": 375,
+          "endLine": 375,
           "column": 16,
           "endColumn": 134,
           "sourceFile": "src/components/layout/DesktopFooter.tsx"
@@ -616,15 +847,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:153:2-to-src/pages/AllProductsPage/AllProducts.tsx",
+      "id": "src/components/layout/Navbar.tsx:179:2-to-src/pages/AllEquipment.tsx",
       "source": "src/screens/About/About.tsx",
-      "target": "src/pages/AllProductsPage/AllProducts.tsx",
+      "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link\n    to=\"/equipment\"\n    aria-label={label}\n    className={className}\n  >\n    <svg\n      width=\"15\"\n      height=\"15\"\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2.25\"\n      className=\"transition-colors\"\n    >\n      <circle cx=\"11\" cy=\"11\" r=\"7\" />\n      <path d=\"M21 21L16.65 16.65\" strokeLinecap=\"round\" />\n    </svg>\n  </Link>",
-          "line": 153,
-          "endLine": 170,
+          "line": 179,
+          "endLine": 196,
           "column": 2,
           "endColumn": 9,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -632,15 +863,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:324:10-to-src/pages/Home.tsx",
+      "id": "src/components/layout/Navbar.tsx:350:10-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n            <KonstructzLogo height={61.6} isDark={theme === \"light\" && !useLightHeader} />\n          </Link>",
-          "line": 324,
-          "endLine": 326,
+          "line": 350,
+          "endLine": 352,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -648,15 +879,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:474:12-to-src/pages/Contact.tsx",
+      "id": "src/components/layout/Navbar.tsx:588:12-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n              to=\"/contact\"\n              className={`flex h-[32px] min-w-[98px] items-center justify-center border rounded-[3px] px-[15px] cursor-pointer bg-transparent transition-all duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B] ${\n                scrolled\n                  ? \"border-theme-border text-theme-text hover:bg-theme-border/10\"\n                  : useLightHeader\n                    ? \"border-[#68825B] text-white hover:bg-white/10\"\n                    : \"border-[#153d28] text-[#212121] hover:bg-black/5\"\n              }`}\n            >\n              <span className={`${headerActionTextClass} whitespace-nowrap`}>\n                {t(\"action.getAQuote\")}\n              </span>\n            </Link>",
-          "line": 474,
-          "endLine": 487,
+          "line": 588,
+          "endLine": 601,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -664,15 +895,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:502:8-to-src/pages/Home.tsx",
+      "id": "src/components/layout/Navbar.tsx:616:8-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n          <KonstructzLogo height={36.96} isDark={theme === \"light\" && !useLightHeader} />\n        </Link>",
-          "line": 502,
-          "endLine": 504,
+          "line": 616,
+          "endLine": 618,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -680,15 +911,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:682:10-to-src/pages/Contact.tsx",
+      "id": "src/components/layout/Navbar.tsx:855:10-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n            to=\"/contact\"\n            className=\"text-center py-3 px-5 [font-family:'Clofie-Regular',Helvetica] text-lg leading-none text-theme-text border border-theme-border/95 bg-theme-bg/20 hover:border-theme-border hover:bg-theme-border/10 hover:text-theme-accent active:translate-y-px transition-all duration-200\"\n          >\n            {t(\"action.getAQuote\")}\n          </Link>",
-          "line": 682,
-          "endLine": 687,
+          "line": 855,
+          "endLine": 860,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/components/layout/Navbar.tsx"

@@ -13,10 +13,10 @@ export const FeaturedProduct: React.FC = () => {
     description:
       "The Konstructz STOMP V950 is a compact loader platform for tight-access loading, grading, cleanup, and attachment work. Final performance values depend on the selected configuration, so buyers should confirm hydraulic flow, attachment plans, transport setup, and site conditions before ordering.",
     specs: [
-      { label: t("auto.featuredproduct.operating.capacity"), value: "Varies by model" },
-      { label: t("auto.featuredproduct.operating.weight"), value: "Based on selected setup" },
-      { label: "Engine", value: "Depends on final configuration" },
-      { label: t("auto.featuredproduct.system.pressure"), value: "Match to attachment requirements" },
+      { label: t("auto.featuredproduct.operating.capacity"), value: "2,090 lbs" },
+      { label: t("auto.featuredproduct.operating.weight"), value: "3.25 Tons" },
+      { label: "Engine", value: "Yanmar 4TNV98T Diesel (72 HP)" },
+      { label: t("auto.featuredproduct.system.pressure"), value: "3,045 psi" },
     ],
   };
 

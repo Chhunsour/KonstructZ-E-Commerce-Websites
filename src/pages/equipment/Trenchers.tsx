@@ -85,7 +85,7 @@ export const Trenchers: React.FC = () => {
             },
             {
               q: "How deep can a Konstructz trencher dig?",
-              a: "Trench depth depends on the model and chain. Each product page lists the rated trench depth and width — check that against your bury-depth requirement and soil class.",
+              a: "The GROUP RIPPER GRX is designed to dig trenches up to 48 inches deep and 6 inches wide using a standard heavy-duty chain. Confirm your required depth and chain width with Konstructz to select the best setup.",
             },
             {
               q: "What soils does a trencher handle?",

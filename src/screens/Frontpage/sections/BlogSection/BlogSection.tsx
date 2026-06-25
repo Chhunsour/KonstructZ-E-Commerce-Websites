@@ -40,59 +40,72 @@ export const BlogSection = (): JSX.Element => {
         </header>
 
         {/* Blog Post Grid — staggered card reveal */}
-        <Stagger
-          step={140}
-          base={120}
-          className="grid grid-cols-3 gap-10 mt-8 mb-10 w-full"
-        >
-          {posts.map((post) => (
-            <Reveal key={post.id} variant="stack" className="contents-fix">
-              <Link
-                to={`/blog/${post.slug}`}
-                className="k-card-hover group flex flex-col justify-between h-[540px] bg-transparent"
-              >
-                {/* Image Frame */}
-                <div className="k-image-zoom relative w-full aspect-video overflow-hidden bg-[#1e1e1e]">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-4 left-4 bg-[#153d28] text-white text-[10px] font-googleSans font-bold uppercase tracking-widest px-2.5 py-1 shadow-md">
-                    {post.category.split("'s")[0] || "ARTICLE"}
-                  </div>
-                </div>
-
-                {/* Text Meta Info & Excerpt */}
-                <div className="flex-1 pt-6 px-0 pb-2 flex flex-col justify-between">
-                  <div className="flex flex-col gap-2">
-                    <span className="font-glonimove text-xs text-theme-accent/80 uppercase tracking-widest font-semibold">
-                      {post.date} &nbsp;·&nbsp; BY {post.author.toUpperCase()}
-                    </span>
-                    <h3 className="font-clofieBold text-xl text-white group-hover:text-theme-accent transition-colors duration-300 line-clamp-2 mt-1 leading-snug">
-                      {post.title}
-                    </h3>
-                    <p className="font-glonimove text-sm text-neutral-400 line-clamp-3 mt-2 leading-relaxed">
-                      {post.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-4 w-full">
-                    <span className="font-googleSans text-xs font-bold uppercase tracking-widest text-theme-accent group-hover:text-white transition-colors duration-300">
-                      READ ARTICLE
-                    </span>
-                    <div className="w-8 h-8 rounded-full bg-[#153d28]/30 border border-theme-accent/15 flex items-center justify-center text-theme-accent group-hover:bg-theme-accent group-hover:text-brand-dark group-hover:scale-110 transition-all duration-300">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                        <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+        {posts.length > 0 ? (
+          <Stagger
+            step={140}
+            base={120}
+            className="grid grid-cols-3 gap-10 mt-8 mb-10 w-full"
+          >
+            {posts.map((post) => (
+              <Reveal key={post.id} variant="stack" className="contents-fix">
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="k-card-hover group flex flex-col justify-between h-[540px] bg-transparent"
+                >
+                  {/* Image Frame */}
+                  <div className="k-image-zoom relative w-full aspect-video overflow-hidden bg-[#1e1e1e]">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-4 left-4 bg-[#153d28] text-white text-[10px] font-googleSans font-bold uppercase tracking-widest px-2.5 py-1 shadow-md">
+                      {post.category.split("'s")[0] || "ARTICLE"}
                     </div>
                   </div>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </Stagger>
+
+                  {/* Text Meta Info & Excerpt */}
+                  <div className="flex-1 pt-6 px-0 pb-2 flex flex-col justify-between">
+                    <div className="flex flex-col gap-2">
+                      <span className="font-glonimove text-xs text-theme-accent/80 uppercase tracking-widest font-semibold">
+                        {post.date} &nbsp;·&nbsp; BY {post.author.toUpperCase()}
+                      </span>
+                      <h3 className="font-clofieBold text-xl text-white group-hover:text-theme-accent transition-colors duration-300 line-clamp-2 mt-1 leading-snug">
+                        {post.title}
+                      </h3>
+                      <p className="font-glonimove text-sm text-neutral-400 line-clamp-3 mt-2 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-4 w-full">
+                      <span className="font-googleSans text-xs font-bold uppercase tracking-widest text-theme-accent group-hover:text-white transition-colors duration-300">
+                        READ ARTICLE
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-[#153d28]/30 border border-theme-accent/15 flex items-center justify-center text-theme-accent group-hover:bg-theme-accent group-hover:text-brand-dark group-hover:scale-110 transition-all duration-300">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                          <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </Stagger>
+        ) : (
+          <div className="flex-grow flex flex-col items-center justify-center py-16 bg-[#212121]/30 border border-white/5 rounded-lg mb-10 mt-8 w-full text-center px-6">
+            <div className="w-12 h-12 rounded-full border border-theme-accent/20 flex items-center justify-center text-theme-accent/80 mb-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+              </svg>
+            </div>
+            <p className="font-glonimove text-neutral-300 text-base max-w-[480px] leading-relaxed">
+              {t("blog.comingSoonText", { fallback: "We’re preparing helpful equipment guides, product updates, and industry articles." })}
+            </p>
+          </div>
+        )}
 
         {/* View All Posts Button */}
         <Reveal variant="rise" delay={120} className="flex justify-center">

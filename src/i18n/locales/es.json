@@ -1402,5 +1402,16 @@
   "auto.supportkit.m9.16h6": "M9 16h6",
   "auto.supportkit.m5.12l5.5": "M5 12l5 5 9-11",
   "auto.supportkit.m14.3v4h4": "M14 3v4h4",
-  "whychooseus.description": "Fabricamos maquinaria compacta y de trabajo pesado diseñada para soportar las condiciones más exigentes de la obra. Al enfocarnos en la confiabilidad mecánica y el soporte directo, garantizamos que sus proyectos avancen sin contratiempos."
+  "whychooseus.description": "Fabricamos maquinaria compacta y de trabajo pesado diseñada para soportar las condiciones más exigentes de la obra. Al enfocarnos en la confiabilidad mecánica y el soporte directo, garantizamos que sus proyectos avancen sin contratiempos.",
+  "nav.typhonForklifts": "Carretillas elevadoras",
+  "nav.typhonRoadRollers": "Apisonadoras",
+  "nav.typhonScissorLifts": "Elevadores de tijera",
+  "nav.typhonWheelLoaders": "Cargadores de ruedas",
+  "nav.typhonMiniExcavators": "Miniexcavadoras",
+  "nav.typhonSkidSteerLoaders": "Cargadoras compactas",
+  "nav.typhonMachinery": "Typhon Maquinaria",
+  "nav.towableExcavators": "Excavadoras remolcables",
+  "nav.dumpers": "Volquetes",
+  "nav.typhonAllEquipment": "Todo el equipo",
+  "auto.footer.dumpers": "Volquetes"
 }

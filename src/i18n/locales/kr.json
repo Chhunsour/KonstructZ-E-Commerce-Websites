@@ -1402,5 +1402,16 @@
   "auto.supportkit.m14.3v4h4": "M14 3v4h4",
   "auto.supportkit.m12.5v14m5.12h14": "M12 5v14M5 12h14",
   "auto.supportkit.m13.6l6.6": "M13 6l6 6-6 6",
-  "whychooseus.description": "가장 가혹한 현장에서도 견딜 수 있는 튼튼하고 컴팩트한 장비를 제작합니다. 기계적 신뢰성, 직접적인 기술 지원 및 철저한 부품 검증에 집중하여 예상치 못한 작동 중단 없이 프로젝트가 원활하게 진행되도록 보장합니다."
+  "whychooseus.description": "가장 가혹한 현장에서도 견딜 수 있는 튼튼하고 컴팩트한 장비를 제작합니다. 기계적 신뢰성, 직접적인 기술 지원 및 철저한 부품 검증에 집중하여 예상치 못한 작동 중단 없이 프로젝트가 원활하게 진행되도록 보장합니다.",
+  "nav.typhonSkidSteerLoaders": "스키드 스티어 로더",
+  "nav.typhonMiniExcavators": "미니 굴삭기",
+  "nav.typhonWheelLoaders": "휠 로더",
+  "nav.typhonScissorLifts": "가위 리프트",
+  "nav.typhonForklifts": "지게차",
+  "nav.typhonMachinery": "Typhon 기계",
+  "nav.typhonRoadRollers": "로드 롤러",
+  "nav.dumpers": "덤퍼",
+  "nav.typhonAllEquipment": "모든 장비",
+  "nav.towableExcavators": "견인형 굴삭기",
+  "auto.footer.dumpers": "덤퍼"
 }

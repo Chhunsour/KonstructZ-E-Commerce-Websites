@@ -26,7 +26,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="relative block aspect-[293/315] overflow-hidden k-image-zoom focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#153d28]"
       >
         <span className="absolute top-3 left-3 z-10 bg-[#153d28] text-[#d9d9d9] border border-[#d8c79a]/40 px-2.5 py-1 [font-family:'Google_Sans_Flex',Helvetica] text-[10px] font-bold uppercase tracking-wider">
-          Setup varies
+          {product.weight}
         </span>
 
         {/* Product image (centered, contained so shadows/details aren't cropped) */}

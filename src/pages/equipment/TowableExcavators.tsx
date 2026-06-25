@@ -95,7 +95,7 @@ export const TowableExcavators: React.FC = () => {
             },
             {
               q: "How deep can a towable excavator dig?",
-              a: "Dig depth varies by model and configuration. Confirm the required depth, soil conditions, and bucket choice with Konstructz before selecting a towable excavator.",
+              a: "The SPIDER ONE is designed for a digging depth of 7.0 feet (2.1 meters) using a standard 12-inch digging bucket. Confirm your required digging depth and soil conditions with our engineering team for best performance.",
             },
           ]}
         />

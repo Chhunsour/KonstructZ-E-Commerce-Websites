@@ -1402,5 +1402,16 @@
   "auto.supportkit.m14.3v4h4": "M14 3v4h4",
   "auto.supportkit.m13.6l6.6": "M136l66-66",
   "auto.supportkit.m5.12h14": "M5 12:14",
-  "whychooseus.description": "Costruiamo macchinari compatti e resistenti, progettati per resistere ai cantieri più impegnativi. Concentrandoci sull'affidabilità meccanica e sul supporto diretto, garantiamo che i vostri progetti proseguano senza intoppi."
+  "whychooseus.description": "Costruiamo macchinari compatti e resistenti, progettati per resistere ai cantieri più impegnativi. Concentrandoci sull'affidabilità meccanica e sul supporto diretto, garantiamo che i vostri progetti proseguano senza intoppi.",
+  "nav.typhonForklifts": "Carrelli elevatori",
+  "nav.typhonScissorLifts": "Sollevatori a forbice",
+  "nav.towableExcavators": "Escavatori trainabili",
+  "nav.typhonSkidSteerLoaders": "Pale compatte",
+  "nav.dumpers": "Dumper",
+  "nav.typhonAllEquipment": "Tutta l'attrezzatura",
+  "nav.typhonMiniExcavators": "Miniescavatori",
+  "nav.typhonWheelLoaders": "Pale gommate",
+  "nav.typhonRoadRollers": "Rulli stradali",
+  "nav.typhonMachinery": "Typhon Macchinari",
+  "auto.footer.dumpers": "Dumper"
 }

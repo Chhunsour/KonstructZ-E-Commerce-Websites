@@ -27,8 +27,8 @@ export const MiniSkidSteerAttachments: React.FC = () => {
       tagline: "High-torque planetary auger drives for fast, repeatable bore holes from the skid steer plate.",
       specs: [
         { label: t("auto.miniskidsteerattachments.mount.type"), value: t("auto.miniskidsteerattachments.universal.quick.attach") },
-        { label: t("auto.miniskidsteerattachments.max.torque"), value: "Varies by drive model" },
-        { label: t("auto.miniskidsteerattachments.bits.supported"), value: "Depends on selected setup" },
+        { label: t("auto.miniskidsteerattachments.max.torque"), value: "2,800 Nm (2,065 ft-lbs)" },
+        { label: t("auto.miniskidsteerattachments.bits.supported"), value: "6\" to 30\" (150-750mm) Bits" },
       ],
     },
     {
@@ -38,8 +38,8 @@ export const MiniSkidSteerAttachments: React.FC = () => {
       image: "https://c.animaapp.com/9h31joeZ/img/mini-excavator-png-4-1.png",
       tagline: t("auto.miniskidsteerattachments.sift.soil.and"),
       specs: [
-        { label: t("auto.miniskidsteerattachments.sieve.opening"), value: "Varies by bucket configuration" },
-        { label: t("auto.miniskidsteerattachments.bucket.width"), value: "Depends on selected width" },
+        { label: t("auto.miniskidsteerattachments.sieve.opening"), value: "3\" x 3\" (75mm) Grid" },
+        { label: t("auto.miniskidsteerattachments.bucket.width"), value: "36\" to 48\" (915-1220mm)" },
         { label: t("auto.miniskidsteerattachments.cutting.edge"), value: t("auto.miniskidsteerattachments.bolt.on.dual") },
       ],
     },

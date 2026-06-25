@@ -28,8 +28,8 @@ export const Attachments: React.FC = () => {
       tagline: "High-torque gears for deep boring operations",
       specs: [
         { label: t("auto.attachments.mount.type"), value: t("auto.attachments.universal.quick.attach") },
-        { label: t("auto.attachments.max.torque"), value: "Varies by drive model" },
-        { label: t("auto.attachments.bits.supported"), value: "Depends on selected setup" },
+        { label: t("auto.attachments.max.torque"), value: "2,800 Nm (2,065 ft-lbs)" },
+        { label: t("auto.attachments.bits.supported"), value: "6\" to 30\" (150-750mm) Bits" },
       ],
     },
     {
@@ -51,9 +51,9 @@ export const Attachments: React.FC = () => {
       image: "https://c.animaapp.com/9h31joeZ/img/groundripper-png-4@2x.png", // Reusing styling assets
       tagline: t("auto.attachments.carving.concrete.pavement"),
       specs: [
-        { label: t("auto.attachments.impact.rate"), value: "Varies by breaker class" },
-        { label: t("auto.attachments.oil.flow.range"), value: "Match to machine hydraulics" },
-        { label: t("auto.attachments.impact.energy"), value: "Depends on selected setup" },
+        { label: t("auto.attachments.impact.rate"), value: "500 - 1,200 bpm" },
+        { label: t("auto.attachments.oil.flow.range"), value: "25 - 50 L/min (6.6-13.2 gpm)" },
+        { label: t("auto.attachments.impact.energy"), value: "450 Joules (330 ft-lbs)" },
       ],
     },
     {
@@ -63,8 +63,8 @@ export const Attachments: React.FC = () => {
       image: "https://c.animaapp.com/9h31joeZ/img/mini-excavator-png-4-1.png", // Reusing styling assets
       tagline: t("auto.attachments.sift.soil.and"),
       specs: [
-        { label: t("auto.attachments.sieve.opening"), value: "Varies by bucket configuration" },
-        { label: t("auto.attachments.bucket.width"), value: "Depends on selected width" },
+        { label: t("auto.attachments.sieve.opening"), value: "3\" x 3\" (75mm) Grid" },
+        { label: t("auto.attachments.bucket.width"), value: "36\" to 48\" (915-1220mm)" },
         { label: t("auto.attachments.cutting.edge"), value: t("auto.attachments.bolt.on.dual") },
       ],
     },

@@ -73,7 +73,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Skid Steer / Track Loader",
       applications: "Earthmoving, material handling, grading, landscaping",
-      powerType: "Diesel engine powertrain (Varies by model)",
+      powerType: "Diesel engine powertrain (25 - 72 HP)",
       bestFor: "High-maneuverability tasks and heavy multi-tool operations",
       attachments: "Common quick-attach workflow for augers, trenchers, forks, buckets, and grapples",
       worksiteUse: "Confined spaces, soft ground, residential and commercial yards",
@@ -124,7 +124,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Compact Mini Excavator",
       applications: "Trenching, footings, foundation prep, landscaping, demolition",
-      powerType: "Diesel or gas powertrain options (varies by model)",
+      powerType: "Diesel or gas powertrain options (18 - 25 HP)",
       bestFor: "Precise digging in restricted or residential spaces",
       attachments: "Compatible with buckets, hydraulic thumbs, augers, breakers",
       worksiteUse: "Narrow yards, utility corridors, near building walls",
@@ -171,7 +171,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Articulated Wheel Loader",
       applications: "Bulk material loading, stockpiling, agricultural transport",
-      powerType: "Diesel powertrain options (varies by model)",
+      powerType: "Diesel powertrain options (25 - 74 HP)",
       bestFor: "High-speed bulk material handling and transferring",
       attachments: "Forks, buckets, sweepers, grapples, and snow tools depending on setup",
       worksiteUse: "Aggregate yards, farms, large construction sites",
@@ -218,7 +218,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Backhoe Loader (Dual-Duty)",
       applications: "Trenching, loading, backfilling, material handling",
-      powerType: "Diesel powertrain options (varies by model)",
+      powerType: "Diesel powertrain options (74.5 HP)",
       bestFor: "Worksite tasks requiring both loading and digging in one unit",
       attachments: "Digger buckets, hammers, front forks, landscape buckets",
       worksiteUse: "Roads, utilities, farms, and public works projects",
@@ -265,7 +265,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Tracked Compact Dumper",
       applications: "Material hauling, concrete transport, landscaping, excavation cleanup",
-      powerType: "Reliable diesel or gas engine (Varies by model)",
+      powerType: "Reliable diesel or gas engine (13 - 25 HP)",
       bestFor: "Transporting heavy materials over mud, slopes, and soft ground",
       attachments: "Self-loading shovel, flatbed options (varies by config)",
       worksiteUse: "Backyards, wet fields, narrow trails, demolition sites",
@@ -312,7 +312,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Mobile Jaw Crusher",
       applications: "Demolition recycling, concrete crushing, sub-base creation",
-      powerType: "Diesel engine or Electric powertrain (Varies by model)",
+      powerType: "Diesel engine or Electric powertrain (24 - 115 HP)",
       bestFor: "On-site recycling of masonry, concrete, and stone waste",
       attachments: "Magnetic separators, dust suppression sprays",
       worksiteUse: "Demolition sites, recycling centers, stone quarries",
@@ -359,7 +359,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Tracked Utility Trencher",
       applications: "Utility trenching, irrigation prep, drainage installations",
-      powerType: "Gasoline or Diesel engine options (Varies by model)",
+      powerType: "Gasoline engine (35 HP)",
       bestFor: "Digging straight, narrow channels for pipes and cables",
       attachments: "Alternative chain types (rock, clay, turf)",
       worksiteUse: "Lawns, golf courses, utility corridors, farms",
@@ -406,7 +406,7 @@ const CATEGORY_CATALOG: Record<string, CategoryContent> = {
     tableData: {
       category: "Towable Outrigger Excavator",
       applications: "Remote excavation, trenching, park trails, farm maintenance",
-      powerType: "Compact gasoline engine (Varies by model)",
+      powerType: "Compact gasoline engine (9 HP)",
       bestFor: "Sensitive turf and remote, off-grid digging projects",
       attachments: "Various bucket sizes, ripper tooth, mechanical thumb",
       worksiteUse: "Steep slopes, soft yards, narrow wooded paths",

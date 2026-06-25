@@ -1085,7 +1085,7 @@
   "auto.herointro.building.trust.powering": "CONSTRUIRE LA CONFIANCE, ALIMENTER LES PROJETS",
   "auto.footercontact.subscribe.your.news": "Abonnez-vous à vos actualités",
   "auto.herointro.home": "Maison",
-  "auto.herointro.manager.meeting.with": "Manager meeting with engineer at an outdoor project site",
+  "auto.herointro.manager.meeting.with": "Réunion du gestionnaire avec l'ingénieur sur un site de projet extérieur",
   "auto.locationmap.map.screenshot.showing": "Capture d'écran de la carte montrant l'emplacement de l'entrepôt de Commerce, en Californie",
   "auto.locationmap.our.main.warehouse": "Notre entrepôt principal est situé au 2522 S Malt Ave., Commerce, CA 90040,\n          États-Unis.",
   "auto.locationmap.warehouse.location.section": "Section d'emplacement de l'entrepôt avec détails d'adresse et visuels de carte régionale",
@@ -1402,5 +1402,16 @@
   "auto.supportkit.m9.12h6": "M9 12h6",
   "auto.supportkit.m9.16h6": "M9 16h6",
   "auto.supportkit.m12.5v14m5.12h14": "M12 5v14M5 12h14",
-  "whychooseus.description": "Nous fabriquons des machines compactes et robustes conçues pour résister aux chantiers les plus exigeants. En nous concentrant sur la fiabilité mécanique, l'assistance directe et des composants de haute qualité, nous assurons le bon déroulement de vos projets."
+  "whychooseus.description": "Nous fabriquons des machines compactes et robustes conçues pour résister aux chantiers les plus exigeants. En nous concentrant sur la fiabilité mécanique, l'assistance directe et des composants de haute qualité, nous assurons le bon déroulement de vos projets.",
+  "nav.typhonRoadRollers": "Rouleaux compresseurs",
+  "nav.typhonMiniExcavators": "Mini-pelles",
+  "nav.typhonForklifts": "Chariots élévateurs",
+  "nav.typhonWheelLoaders": "Chargeuses sur pneus",
+  "nav.typhonScissorLifts": "Plateformes élévatrices à ciseaux",
+  "nav.dumpers": "Tombereaux",
+  "nav.typhonAllEquipment": "Tout l'équipement",
+  "nav.typhonSkidSteerLoaders": "Chargeuses compactes",
+  "nav.towableExcavators": "Excavatrices tractables",
+  "nav.typhonMachinery": "Typhon Machines",
+  "auto.footer.dumpers": "Tombereaux"
 }

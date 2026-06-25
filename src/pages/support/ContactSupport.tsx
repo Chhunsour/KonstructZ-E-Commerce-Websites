@@ -38,7 +38,7 @@ export const ContactSupport: React.FC = () => {
 
   const trust = [
     { icon: Icons.bolt, label: "Real Specialists", sub: "Machinery experts, not scripted agents" },
-    { icon: Icons.shield, label: "Direct Channel", sub: "No outsourced call centre between you and us" },
+    { icon: Icons.shield, label: "Direct Channel", sub: "No outsourced call center between you and us" },
     { icon: Icons.doc, label: "Documented", sub: "Every conversation tracked to your account" },
     { icon: Icons.clock, label: "Clear Triage", sub: "Routed to the right team by topic" },
   ];

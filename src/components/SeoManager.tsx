@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { blogPosts, getBlogPostBySlug } from "../data/blogPosts";
 import { categories } from "../data/categories";
 import { products } from "../data/products";
+import { getTyphonProductById } from "../data/typhonProducts";
 
 const SITE_URL = "https://konstructz.com";
 const SITE_NAME = "Konstructz";
@@ -163,6 +164,11 @@ const staticMeta: Record<string, MetaConfig> = {
     title: "Konstructz Machine Lineup | Compact Equipment Guide",
     description:
       "Explore the Konstructz compact machinery lineup with buyer guidance, category summaries, attachment support, and jobsite-ready equipment options.",
+  },
+  "/typhon-machinery": {
+    title: "Typhon Machinery Product Pages | Konstructz",
+    description:
+      "Browse CSV-imported Typhon Machinery product pages by category, including excavators, skid steers, forklifts, rollers, scissor lifts, and loaders.",
   },
   "/attachments": {
     title: "Construction Machine Attachments | Konstructz",
@@ -343,6 +349,28 @@ const getRouteConfig = (pathname: string): MetaConfig => {
     }
   }
 
+  const typhonProductMatch = pathname.match(/^\/typhon-machinery\/([^/]+)$/);
+  if (typhonProductMatch) {
+    const product = getTyphonProductById(typhonProductMatch[1]);
+    if (product) {
+      return {
+        title: `${product.name} ${product.categoryLabel} | Typhon Machinery`,
+        description: `${product.name} is a Typhon Machinery ${product.categoryLabel.toLowerCase()} for ${product.applications.join(", ").toLowerCase()}.`,
+        image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
+        schema: [
+          {
+            "@type": "Product",
+            name: product.name,
+            brand: { "@type": "Brand", name: "Typhon Machinery" },
+            category: product.categoryLabel,
+            description: product.description,
+            image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
+          },
+        ],
+      };
+    }
+  }
+
   const blogMatch = pathname.match(/^\/(?:blog|media)\/([^/]+)$/);
   if (blogMatch) {
     const post = getBlogPostBySlug(blogMatch[1]);
@@ -397,6 +425,19 @@ export const SeoManager = () => {
     const image = config.image ?? DEFAULT_IMAGE;
 
     document.title = config.title;
+
+    // Admin routes must never be indexed by search engines or AI crawlers.
+    const isAdminRoute = pathname === "/sour" || pathname.startsWith("/sour/");
+    upsertMeta(
+      'meta[name="robots"]',
+      () => {
+        const tag = document.createElement("meta");
+        tag.setAttribute("name", "robots");
+        return tag;
+      },
+      isAdminRoute ? "noindex, nofollow, noarchive, nosnippet" : "index, follow"
+    );
+
     upsertMeta('meta[name="description"]', () => {
       const tag = document.createElement("meta");
       tag.setAttribute("name", "description");

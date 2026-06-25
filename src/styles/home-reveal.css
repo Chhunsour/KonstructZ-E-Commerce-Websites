@@ -320,5 +320,20 @@
   .k-image-zoom:hover .k-image {
     transform: none !important;
   }
-  .k-float, .k-glow-pulse { animation: none !important; }
+  .k-float, .k-glow-pulse, .k-wolf-breath { animation: none !important; }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Konstructz wolf logo — subtle idle breath                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Gentle floating wolf — small vertical hover, calm and premium. */
+@keyframes k-wolf-breath {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.k-wolf-breath {
+  animation: k-wolf-breath 3.8s ease-in-out infinite;
+  will-change: transform;
 }

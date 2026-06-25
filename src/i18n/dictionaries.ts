@@ -39,6 +39,16 @@ const en: TranslationDictionary = {
   "nav.wheelLoaders": "Wheel Loaders",
   "nav.stoneCrushers": "Stone Crushers",
   "nav.backhoeLoaders": "Backhoe Loaders",
+  "nav.dumpers": "Dumpers",
+  "nav.towableExcavators": "Towable Excavators",
+  "nav.typhonMachinery": "Typhon Machinery",
+  "nav.typhonAllEquipment": "All Equipment",
+  "nav.typhonForklifts": "Forklifts",
+  "nav.typhonMiniExcavators": "Mini Excavators",
+  "nav.typhonRoadRollers": "Road Rollers",
+  "nav.typhonScissorLifts": "Scissor Lifts",
+  "nav.typhonSkidSteerLoaders": "Skid Steer Loaders",
+  "nav.typhonWheelLoaders": "Wheel Loaders",
   "nav.miniExcavatorAttachments": "Mini Excavator Attachments",
   "nav.miniSkidSteerAttachments": "Mini Skid Steer Attachments",
   "nav.supportCenter": "Support Center",
@@ -2450,7 +2460,7 @@ const fr: TranslationDictionary = {
   "auto.herointro.building.trust.powering": "CONSTRUIRE LA CONFIANCE, ALIMENTER LES PROJETS",
   "auto.footercontact.subscribe.your.news": "Abonnez-vous à vos actualités",
   "auto.herointro.home": "Maison",
-  "auto.herointro.manager.meeting.with": "Manager meeting with engineer at an outdoor project site",
+  "auto.herointro.manager.meeting.with": "Réunion du gestionnaire avec l'ingénieur sur un site de projet extérieur",
   "auto.locationmap.map.screenshot.showing": "Capture d'écran de la carte montrant l'emplacement de l'entrepôt de Commerce, en Californie",
   "auto.locationmap.our.main.warehouse": "Notre entrepôt principal est situé au 2522 S Malt Ave., Commerce, CA 90040,\n          États-Unis.",
   "auto.locationmap.warehouse.location.section": "Section d'emplacement de l'entrepôt avec détails d'adresse et visuels de carte régionale",
@@ -2767,7 +2777,18 @@ const fr: TranslationDictionary = {
   "auto.supportkit.m9.12h6": "M9 12h6",
   "auto.supportkit.m9.16h6": "M9 16h6",
   "auto.supportkit.m12.5v14m5.12h14": "M12 5v14M5 12h14",
-  "whychooseus.description": "Nous fabriquons des machines compactes et robustes conçues pour résister aux chantiers les plus exigeants. En nous concentrant sur la fiabilité mécanique, l'assistance directe et des composants de haute qualité, nous assurons le bon déroulement de vos projets."
+  "whychooseus.description": "Nous fabriquons des machines compactes et robustes conçues pour résister aux chantiers les plus exigeants. En nous concentrant sur la fiabilité mécanique, l'assistance directe et des composants de haute qualité, nous assurons le bon déroulement de vos projets.",
+  "nav.typhonRoadRollers": "Rouleaux compresseurs",
+  "nav.typhonMiniExcavators": "Mini-pelles",
+  "nav.typhonForklifts": "Chariots élévateurs",
+  "nav.typhonWheelLoaders": "Chargeuses sur pneus",
+  "nav.typhonScissorLifts": "Plateformes élévatrices à ciseaux",
+  "nav.dumpers": "Tombereaux",
+  "nav.typhonAllEquipment": "Tout l'équipement",
+  "nav.typhonSkidSteerLoaders": "Chargeuses compactes",
+  "nav.towableExcavators": "Excavatrices tractables",
+  "nav.typhonMachinery": "Typhon Machines",
+  "auto.footer.dumpers": "Tombereaux"
 };
 
 const es: TranslationDictionary = {
@@ -4174,7 +4195,18 @@ const es: TranslationDictionary = {
   "auto.supportkit.m9.16h6": "M9 16h6",
   "auto.supportkit.m5.12l5.5": "M5 12l5 5 9-11",
   "auto.supportkit.m14.3v4h4": "M14 3v4h4",
-  "whychooseus.description": "Fabricamos maquinaria compacta y de trabajo pesado diseñada para soportar las condiciones más exigentes de la obra. Al enfocarnos en la confiabilidad mecánica y el soporte directo, garantizamos que sus proyectos avancen sin contratiempos."
+  "whychooseus.description": "Fabricamos maquinaria compacta y de trabajo pesado diseñada para soportar las condiciones más exigentes de la obra. Al enfocarnos en la confiabilidad mecánica y el soporte directo, garantizamos que sus proyectos avancen sin contratiempos.",
+  "nav.typhonForklifts": "Carretillas elevadoras",
+  "nav.typhonRoadRollers": "Apisonadoras",
+  "nav.typhonScissorLifts": "Elevadores de tijera",
+  "nav.typhonWheelLoaders": "Cargadores de ruedas",
+  "nav.typhonMiniExcavators": "Miniexcavadoras",
+  "nav.typhonSkidSteerLoaders": "Cargadoras compactas",
+  "nav.typhonMachinery": "Typhon Maquinaria",
+  "nav.towableExcavators": "Excavadoras remolcables",
+  "nav.dumpers": "Volquetes",
+  "nav.typhonAllEquipment": "Todo el equipo",
+  "auto.footer.dumpers": "Volquetes"
 };
 
 const jp: TranslationDictionary = {
@@ -4833,7 +4865,7 @@ const jp: TranslationDictionary = {
   "auto.allproducts.33.3.hp": ">33.3馬力",
   "auto.allproducts.good.offer.dealer": "信頼性の高い機械と直接サポート",
   "auto.allproducts.22.2.hp": ">22.2馬力",
-  "auto.allproducts.77.7.hp": ">77.7 HP",
+  "auto.allproducts.77.7.hp": ">77.7HP",
   "auto.equipmentdiscovery.submit.search": "検索を送信",
   "auto.allproducts.66.6.hp": ">66.6馬力",
   "auto.equipmentdiscovery.2.ton.weight": "2トンの重量のアイコン",
@@ -4875,7 +4907,7 @@ const jp: TranslationDictionary = {
   "auto.equipmentdiscovery.44.4.hp": ">44.4馬力",
   "auto.equipmentdiscovery.66.6.hp": ">66.6馬力",
   "auto.equipmentdiscovery.55.5.hp": ">55.5馬力",
-  "auto.equipmentdiscovery.77.7.hp": ">77.7 HP",
+  "auto.equipmentdiscovery.77.7.hp": ">77.7HP",
   "auto.equipmentdiscovery.33.3.hp": ">33.3馬力",
   "auto.equipmentdiscovery.showing.1.20": "150 件中 1 ～ 20 件の結果を表示",
   "auto.productcategories.customer.portrait": "お客様のポートレート",
@@ -5511,7 +5543,7 @@ const jp: TranslationDictionary = {
   "auto.featuredproduct.kubota.25hp.diesel": "Kubota 25HP ディーゼル",
   "auto.contactcta.immediate.consultations": "即時相談",
   "auto.featuredproduct.high.productivity.zero": "高い生産性。妥協ゼロ。",
-  "auto.featuredproduct.3.000.psi": "3,000 PSI",
+  "auto.featuredproduct.3.000.psi": "3,000PSI",
   "auto.featuredproduct.950.lbs": "950ポンド",
   "auto.hero.explore.equipment": "装備を調べる",
   "auto.hero.stomp.v950": "STOMP V950",
@@ -5581,7 +5613,18 @@ const jp: TranslationDictionary = {
   "auto.supportkit.m5.12h14": "M5 12時14分",
   "auto.supportkit.m13.6l6.6": "M13 6l6 6-6 6",
   "auto.supportkit.m9.12h6": "M9 12h6",
-  "whychooseus.description": "過酷な現場にも耐えうる、頑丈でコンパクトな機械を製造しています。機械的な信頼性、直接的なサポート、一切の妥協のないコンポーネントに焦点を当てることで、現場の予期せぬダウンタイムを防ぎます。"
+  "whychooseus.description": "過酷な現場にも耐えうる、頑丈でコンパクトな機械を製造しています。機械的な信頼性、直接的なサポート、一切の妥協のないコンポーネントに焦点を当てることで、現場の予期せぬダウンタイムを防ぎます。",
+  "nav.typhonScissorLifts": "シザーリフト",
+  "nav.typhonForklifts": "フォークリフト",
+  "nav.typhonSkidSteerLoaders": "スキッドステアローダー",
+  "nav.typhonRoadRollers": "ロードローラー",
+  "nav.typhonWheelLoaders": "ホイールローダー",
+  "nav.typhonMiniExcavators": "ミニショベル",
+  "nav.dumpers": "ダンパー",
+  "nav.typhonMachinery": "Typhon 機械",
+  "nav.towableExcavators": "牽引式掘削機",
+  "nav.typhonAllEquipment": "すべての装備",
+  "auto.footer.dumpers": "ダンパー"
 };
 
 const kr: TranslationDictionary = {
@@ -6988,7 +7031,18 @@ const kr: TranslationDictionary = {
   "auto.supportkit.m14.3v4h4": "M14 3v4h4",
   "auto.supportkit.m12.5v14m5.12h14": "M12 5v14M5 12h14",
   "auto.supportkit.m13.6l6.6": "M13 6l6 6-6 6",
-  "whychooseus.description": "가장 가혹한 현장에서도 견딜 수 있는 튼튼하고 컴팩트한 장비를 제작합니다. 기계적 신뢰성, 직접적인 기술 지원 및 철저한 부품 검증에 집중하여 예상치 못한 작동 중단 없이 프로젝트가 원활하게 진행되도록 보장합니다."
+  "whychooseus.description": "가장 가혹한 현장에서도 견딜 수 있는 튼튼하고 컴팩트한 장비를 제작합니다. 기계적 신뢰성, 직접적인 기술 지원 및 철저한 부품 검증에 집중하여 예상치 못한 작동 중단 없이 프로젝트가 원활하게 진행되도록 보장합니다.",
+  "nav.typhonSkidSteerLoaders": "스키드 스티어 로더",
+  "nav.typhonMiniExcavators": "미니 굴삭기",
+  "nav.typhonWheelLoaders": "휠 로더",
+  "nav.typhonScissorLifts": "가위 리프트",
+  "nav.typhonForklifts": "지게차",
+  "nav.typhonMachinery": "Typhon 기계",
+  "nav.typhonRoadRollers": "로드 롤러",
+  "nav.dumpers": "덤퍼",
+  "nav.typhonAllEquipment": "모든 장비",
+  "nav.towableExcavators": "견인형 굴삭기",
+  "auto.footer.dumpers": "덤퍼"
 };
 
 const cn: TranslationDictionary = {
@@ -8395,7 +8449,18 @@ const cn: TranslationDictionary = {
   "auto.supportkit.m9.16h6": "M9 16小时6",
   "auto.supportkit.m9.12h6": "M9 12小时6",
   "auto.supportkit.m12.5v14m5.12h14": "M12 5v14M5 12h14",
-  "whychooseus.description": "我们制造坚固耐用、结构紧凑的机械，专为经受严苛作业现场的考验而设计。通过专注于机械可靠性、直接支持和高标准部件，我们确保您的项目顺利进行，避免意外停机。"
+  "whychooseus.description": "我们制造坚固耐用、结构紧凑的机械，专为经受严苛作业现场的考验而设计。通过专注于机械可靠性、直接支持和高标准部件，我们确保您的项目顺利进行，避免意外停机。",
+  "nav.dumpers": "自卸车",
+  "nav.typhonScissorLifts": "剪式举升机",
+  "nav.typhonRoadRollers": "压路机",
+  "nav.typhonForklifts": "叉车",
+  "nav.typhonAllEquipment": "所有设备",
+  "nav.typhonMiniExcavators": "小型挖掘机",
+  "nav.typhonWheelLoaders": "轮式装载机",
+  "nav.towableExcavators": "牵引式挖掘机",
+  "nav.typhonSkidSteerLoaders": "滑移装载机",
+  "nav.typhonMachinery": "Typhon 机械",
+  "auto.footer.dumpers": "自卸车"
 };
 
 const it: TranslationDictionary = {
@@ -9802,7 +9867,18 @@ const it: TranslationDictionary = {
   "auto.supportkit.m14.3v4h4": "M14 3v4h4",
   "auto.supportkit.m13.6l6.6": "M136l66-66",
   "auto.supportkit.m5.12h14": "M5 12:14",
-  "whychooseus.description": "Costruiamo macchinari compatti e resistenti, progettati per resistere ai cantieri più impegnativi. Concentrandoci sull'affidabilità meccanica e sul supporto diretto, garantiamo che i vostri progetti proseguano senza intoppi."
+  "whychooseus.description": "Costruiamo macchinari compatti e resistenti, progettati per resistere ai cantieri più impegnativi. Concentrandoci sull'affidabilità meccanica e sul supporto diretto, garantiamo che i vostri progetti proseguano senza intoppi.",
+  "nav.typhonForklifts": "Carrelli elevatori",
+  "nav.typhonScissorLifts": "Sollevatori a forbice",
+  "nav.towableExcavators": "Escavatori trainabili",
+  "nav.typhonSkidSteerLoaders": "Pale compatte",
+  "nav.dumpers": "Dumper",
+  "nav.typhonAllEquipment": "Tutta l'attrezzatura",
+  "nav.typhonMiniExcavators": "Miniescavatori",
+  "nav.typhonWheelLoaders": "Pale gommate",
+  "nav.typhonRoadRollers": "Rulli stradali",
+  "nav.typhonMachinery": "Typhon Macchinari",
+  "auto.footer.dumpers": "Dumper"
 };
 
 const de: TranslationDictionary = {
@@ -9820,7 +9896,7 @@ const de: TranslationDictionary = {
   "action.getAQuote": "Angebot anfordern",
   "action.getQuote": "Angebot",
   "action.quote": "Angebot",
-  "action.details": "Details",
+  "action.details": "Einzelheiten",
   "action.viewDetails": "Details ansehen",
   "action.learnMore": "Mehr erfahren",
   "action.exploreMore": "Mehr entdecken",
@@ -9905,7 +9981,7 @@ const de: TranslationDictionary = {
   "action.share": "Aktie",
   "category.towable-excavators": "Schleppbagger",
   "category.stand-on-loaders": "Standlader",
-  "category.dumpers": "Dumper",
+  "category.dumpers": "Kipper",
   "category.scissor-lifts": "Scherenhebebühnen",
   "category.forklifts": "Gabelstapler",
   "category.road-rollers": "Straßenwalzen",
@@ -11209,7 +11285,18 @@ const de: TranslationDictionary = {
   "auto.supportkit.m5.12l5.5": "M5 12l5 5 9-11",
   "auto.supportkit.m9.16h6": "M9 16h6",
   "auto.supportkit.m13.6l6.6": "M13 6l6 6-6 6",
-  "whychooseus.description": "Wir bauen robuste Kompaktmaschinen für härteste Baustellenbedingungen. Durch unseren Fokus auf mechanische Zuverlässigkeit, direkten Support und kompromisslose Komponenten sorgen wir für reibungslose Projektabläufe."
+  "whychooseus.description": "Wir bauen robuste Kompaktmaschinen für härteste Baustellenbedingungen. Durch unseren Fokus auf mechanische Zuverlässigkeit, direkten Support und kompromisslose Komponenten sorgen wir für reibungslose Projektabläufe.",
+  "nav.typhonForklifts": "Gabelstapler",
+  "nav.typhonWheelLoaders": "Radlader",
+  "nav.typhonMiniExcavators": "Minibagger",
+  "nav.typhonSkidSteerLoaders": "Kompaktlader",
+  "nav.typhonScissorLifts": "Scherenhebebühnen",
+  "nav.dumpers": "Dumper",
+  "nav.typhonMachinery": "Typhon Maschinen",
+  "nav.typhonAllEquipment": "Alle Geräte",
+  "nav.typhonRoadRollers": "Straßenwalzen",
+  "nav.towableExcavators": "Schleppbagger",
+  "auto.footer.dumpers": "Dumper"
 };
 
 const blogUiEn: TranslationDictionary = {

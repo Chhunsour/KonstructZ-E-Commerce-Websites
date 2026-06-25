@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useI18n } from "../../../../context/I18nContext";
 
 export const NavigationBarSection = (): JSX.Element => {
@@ -131,8 +132,8 @@ export const NavigationBarSection = (): JSX.Element => {
             EN
           </span>
         </button>
-        <button
-          type="button"
+        <Link
+          to="/contact"
           className="relative mt-[29px] ml-6 h-[61px] w-[204.87px] shrink-0"
           aria-label={t("auto.navigationbar.get.a.quote")}
         >
@@ -143,7 +144,7 @@ export const NavigationBarSection = (): JSX.Element => {
             aria-hidden="true"
           />
           <span className="absolute top-4 left-6 w-[156px] [font-family:'Clofie-Regular',Helvetica] text-[27px] font-normal leading-[normal] tracking-[0] text-neutral-100">{t("auto.navigationbar.get.a.quote")}</span>
-        </button>
+        </Link>
       </div>
     </header>
   );

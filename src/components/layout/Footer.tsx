@@ -2,6 +2,7 @@ import React, { FormEvent, useId, useState } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../../context/I18nContext";
 import { KonstructzLogo } from "./Navbar";
+import { blogPosts, getBlogPostHref } from "../../data/blogPosts";
 
 export const Footer: React.FC = () => {
   const { t } = useI18n();
@@ -84,26 +85,7 @@ export const Footer: React.FC = () => {
     },
   ];
 
-  const recentBlogs = [
-    {
-      date: t("auto.footer.12th.june.2026"),
-      title: t("auto.footer.on.the.other"),
-      imageSrc: "/img/footer/chatgpt-image-apr-28-2026-09-24-09-am-2.png",
-      href: "/media",
-    },
-    {
-      date: t("auto.footer.9th.june.2026"),
-      title: t("auto.footer.on.the.other"),
-      imageSrc: "/img/footer/chatgpt-image-apr-28-2026-09-26-28-am-3.png",
-      href: "/media",
-    },
-    {
-      date: t("auto.footer.9th.june.2026"),
-      title: t("auto.footer.on.the.other"),
-      imageSrc: "/img/footer/chatgpt-image-apr-28-2026-09-26-28-am-3.png",
-      href: "/media",
-    },
-  ];
+  const recentBlogs = blogPosts.slice(0, 3);
 
   return (
     <footer className="bg-[#1B1B1A] text-white relative mt-auto border-t border-white/5 pt-12 pb-8">
@@ -210,26 +192,32 @@ export const Footer: React.FC = () => {
             <h3 className="text-lg font-heading text-brand-sand border-b border-white/10 pb-2 mb-4 tracking-wider uppercase">
               {t("auto.footer.recent.blog")}
             </h3>
-            <div className="space-y-4">
-              {recentBlogs.map((blog, index) => (
-                <article key={`${blog.title}-${index}`} className="flex gap-3 items-start">
-                  <Link to={blog.href} className="shrink-0 w-20 h-11 overflow-hidden rounded bg-white/10">
-                    <img
-                      src={blog.imageSrc}
-                      alt=""
-                      loading="lazy"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </Link>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[10px] text-brand-sand font-glonimove">{blog.date}</p>
-                    <h4 className="mt-0.5 text-xs font-semibold text-neutral-200 hover:text-brand-sand transition-colors line-clamp-2 leading-snug">
-                      <Link to={blog.href}>{blog.title}</Link>
-                    </h4>
-                  </div>
-                </article>
-              ))}
-            </div>
+            {recentBlogs.length > 0 ? (
+              <div className="space-y-4">
+                {recentBlogs.map((blog, index) => (
+                  <article key={`${blog.title}-${index}`} className="flex gap-3 items-start">
+                    <Link to={getBlogPostHref(blog)} className="shrink-0 w-20 h-11 overflow-hidden rounded bg-white/10">
+                      <img
+                        src={blog.image || blog.detailImage}
+                        alt=""
+                        loading="lazy"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </Link>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] text-brand-sand font-glonimove">{blog.date}</p>
+                      <h4 className="mt-0.5 text-xs font-semibold text-neutral-200 hover:text-brand-sand transition-colors line-clamp-2 leading-snug">
+                        <Link to={getBlogPostHref(blog)}>{blog.title}</Link>
+                      </h4>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <p className="text-neutral-400 font-glonimove text-xs leading-relaxed">
+                {t("blog.comingSoonText", { fallback: "We’re preparing helpful equipment guides, product updates, and industry articles." })}
+              </p>
+            )}
           </div>
         </div>
 

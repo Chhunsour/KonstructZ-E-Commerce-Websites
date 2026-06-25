@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   blogCategories,
-  blogPosts,
-  getBlogPostHref,
-  latestBlogPosts,
-  type BlogPost,
+  blogPosts as staticBlogPosts,
 } from "../../data/blogPosts";
 import { useI18n } from "../../context/I18nContext";
 import { blogCategoryKey } from "../../i18n/keys";
+import {
+  listPublicPosts,
+  type PublicBlogSummary,
+} from "../../lib/blogStore";
+
+type BlogPost = PublicBlogSummary;
+const getBlogPostHref = (post: Pick<PublicBlogSummary, "slug">) => `/blog/${post.slug}`;
 
 /* ─────────────────────────────────────────────────────────────────────
    DATA
@@ -84,7 +88,11 @@ const SidebarBox: React.FC<{
   </section>
 );
 
-const CategoryItem: React.FC<{ label: string }> = ({ label }) => {
+const CategoryItem: React.FC<{
+  label: string;
+  checked: boolean;
+  onChange: () => void;
+}> = ({ label, checked, onChange }) => {
   const id = `cat-${label.replace(/\s+/g, "-").toLowerCase()}`;
   const { t } = useI18n();
   return (
@@ -92,6 +100,8 @@ const CategoryItem: React.FC<{ label: string }> = ({ label }) => {
       <input
         id={id}
         type="checkbox"
+        checked={checked}
+        onChange={onChange}
         className="w-[18px] h-[18px] accent-theme-accent border-2 border-theme-accent cursor-pointer transition-colors"
       />
       <label
@@ -129,18 +139,21 @@ const LatestBlogItem: React.FC<{
   );
 };
 
-const Pagination: React.FC<{ page: number; onChange: (p: number) => void }> = ({
-  page,
-  onChange,
-}) => {
+const Pagination: React.FC<{
+  page: number;
+  totalPages: number;
+  onChange: (p: number) => void;
+}> = ({ page, totalPages, onChange }) => {
   const { t } = useI18n();
+  if (totalPages <= 1) return null;
 
   return (
     <nav
       aria-label={t("blog.pagination")}
       className="mt-12 flex items-center justify-center gap-2 flex-wrap"
     >
-      {[1, 2, 3, 4, 5, 6].map((n) => {
+      {Array.from({ length: totalPages }).map((_, i) => {
+        const n = i + 1;
         const active = n === page;
         return (
           <button
@@ -159,15 +172,16 @@ const Pagination: React.FC<{ page: number; onChange: (p: number) => void }> = ({
           </button>
         );
       })}
-      <span aria-hidden="true" className="text-theme-text/60 px-2 text-xl transition-colors">…</span>
-      <button
-        type="button"
-        onClick={() => onChange(page + 1)}
-        aria-label={t("product.nextPage")}
-        className="w-12 h-12 lg:w-14 lg:h-14 bg-theme-accent hover:bg-brand-green text-theme-bg hover:text-white flex items-center justify-center transition-colors text-xl"
-      >
-        ›
-      </button>
+      {page < totalPages && (
+        <button
+          type="button"
+          onClick={() => onChange(page + 1)}
+          aria-label={t("product.nextPage")}
+          className="w-12 h-12 lg:w-14 lg:h-14 bg-theme-accent hover:bg-brand-green text-theme-bg hover:text-white flex items-center justify-center transition-colors text-xl"
+        >
+          ›
+        </button>
+      )}
     </nav>
   );
 };
@@ -215,7 +229,57 @@ const AppointmentCTA: React.FC = () => {
 
 export const BlogPage: React.FC = () => {
   const [page, setPage] = useState(1);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const { t } = useI18n();
+
+  // Hydrate with the static set for an instant first paint, then replace
+  // with Supabase data once it loads. The list endpoint excludes full
+  // content so payloads stay small.
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>(() =>
+    staticBlogPosts.map((p) => ({
+      id: String(p.id),
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      image: p.image,
+      author: p.author,
+      category: p.category,
+      date: p.date,
+      publishedAt: p.date,
+    }))
+  );
+
+  useEffect(() => {
+    let active = true;
+    listPublicPosts().then((rows) => {
+      if (active && rows.length > 0) setBlogPosts(rows);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const latestBlogPosts = blogPosts.slice(0, 3);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((c) => c !== category)
+        : [...prev, category]
+    );
+    setPage(1);
+  };
+
+  const filteredPosts = selectedCategories.length > 0
+    ? blogPosts.filter((post) => selectedCategories.includes(post.category))
+    : blogPosts;
+
+  const POSTS_PER_PAGE = 4;
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const paginatedPosts = filteredPosts.slice(
+    (page - 1) * POSTS_PER_PAGE,
+    page * POSTS_PER_PAGE
+  );
 
   const SOCIAL_LINKS = [
     {
@@ -329,69 +393,111 @@ export const BlogPage: React.FC = () => {
       </section>
 
       {/* ─── Main content ─── */}
-      <section
-        aria-label={t("blog.listing")}
-        className="bg-theme-bg py-12 lg:py-20 transition-colors duration-200"
-      >
-        <div className="max-w-[1620px] mx-auto px-5 sm:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] gap-10 lg:gap-12">
-          {/* Posts grid */}
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-              {blogPosts.map((post) => (
-                <BlogCard key={post.id} post={post} />
-              ))}
+      {blogPosts.length > 0 ? (
+        <section
+          aria-label={t("blog.listing")}
+          className="bg-theme-bg py-12 lg:py-20 transition-colors duration-200"
+        >
+          <div className="max-w-[1620px] mx-auto px-5 sm:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] gap-10 lg:gap-12">
+            {/* Posts grid */}
+            <div>
+              {paginatedPosts.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                  {paginatedPosts.map((post) => (
+                    <BlogCard key={post.id} post={post} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16 bg-theme-card border border-theme-border/10 rounded">
+                  <p className="font-glonimove text-theme-muted text-lg">
+                    {t("blog.noPostsFound", { fallback: "No blog posts found for the selected categories." })}
+                  </p>
+                </div>
+              )}
+
+              <Pagination page={page} totalPages={totalPages} onChange={setPage} />
             </div>
 
-            <Pagination page={page} onChange={setPage} />
-          </div>
+            {/* Sidebar */}
+            <aside className="flex flex-col gap-6 lg:gap-8">
+              <SidebarBox title={t("blog.categories")}>
+                <ul className="flex flex-col gap-3">
+                  {blogCategories.map((c) => (
+                    <CategoryItem
+                      key={c}
+                      label={c}
+                      checked={selectedCategories.includes(c)}
+                      onChange={() => handleCategoryChange(c)}
+                    />
+                  ))}
+                </ul>
+              </SidebarBox>
 
-          {/* Sidebar */}
-          <aside className="flex flex-col gap-6 lg:gap-8">
-            <SidebarBox title={t("blog.categories")}>
-              <ul className="flex flex-col gap-3">
-                {blogCategories.map((c) => (
-                  <CategoryItem key={c} label={c} />
-                ))}
-              </ul>
-            </SidebarBox>
+              <SidebarBox title={t("blog.latest")}>
+                <div className="flex flex-col gap-4">
+                  {latestBlogPosts.map((p) => (
+                    <LatestBlogItem key={p.id} post={p} />
+                  ))}
+                </div>
+              </SidebarBox>
 
-            <SidebarBox title={t("blog.latest")}>
-              <div className="flex flex-col gap-4">
-                {latestBlogPosts.map((p) => (
-                  <LatestBlogItem key={p.id} post={p} />
-                ))}
-              </div>
-            </SidebarBox>
-
-            <section
-              aria-labelledby="social-medias-heading"
-              className="flex flex-col items-center gap-4"
-            >
-              <h2
-                id="social-medias-heading"
-                className="font-clofieBold text-theme-heading text-2xl lg:text-3xl transition-colors"
+              <section
+                aria-labelledby="social-medias-heading"
+                className="flex flex-col items-center gap-4"
               >
-                {t("blog.social")}
-              </h2>
-              <ul className="flex items-center gap-3">
-                {SOCIAL_LINKS.map((s) => (
-                  <li key={s.name}>
-                    <a
-                      href={s.href}
-                      aria-label={s.name}
-                      className="w-10 h-10 lg:w-11 lg:h-11 rounded-full border-2 border-theme-accent text-theme-accent hover:bg-theme-accent hover:text-theme-bg flex items-center justify-center transition-colors"
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        {s.icon}
-                      </svg>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </aside>
-        </div>
-      </section>
+                <h2
+                  id="social-medias-heading"
+                  className="font-clofieBold text-theme-heading text-2xl lg:text-3xl transition-colors"
+                >
+                  {t("blog.social")}
+                </h2>
+                <ul className="flex items-center gap-3">
+                  {SOCIAL_LINKS.map((s) => (
+                    <li key={s.name}>
+                      <a
+                        href={s.href}
+                        aria-label={s.name}
+                        className="w-10 h-10 lg:w-11 lg:h-11 rounded-full border-2 border-theme-accent text-theme-accent hover:bg-theme-accent hover:text-theme-bg flex items-center justify-center transition-colors"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          {s.icon}
+                        </svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </aside>
+          </div>
+        </section>
+      ) : (
+        <section className="bg-theme-bg py-16 lg:py-24 transition-colors duration-200">
+          <div className="max-w-[800px] mx-auto px-5 text-center flex flex-col items-center gap-6">
+            <div className="w-20 h-20 bg-theme-sec border border-theme-border/20 rounded-full flex items-center justify-center text-theme-accent mb-2">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                <path d="M6 6h10" />
+                <path d="M6 10h10" />
+              </svg>
+            </div>
+            <h2 className="font-heading text-theme-heading text-4xl sm:text-5xl lg:text-6xl tracking-wide uppercase">
+              {t("blog.comingSoonTitle", { fallback: "Blog Coming Soon" })}
+            </h2>
+            <p className="font-glonimove text-theme-text/80 text-lg sm:text-xl max-w-[600px] leading-relaxed">
+              {t("blog.comingSoonText", { fallback: "We’re preparing helpful equipment guides, product updates, and industry articles." })}
+            </p>
+          </div>
+        </section>
+      )}
 
       <AppointmentCTA />
     </main>

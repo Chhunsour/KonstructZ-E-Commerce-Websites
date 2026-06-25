@@ -5,10 +5,58 @@ import { useI18n } from "../../context/I18nContext";
 import { type LanguageCode } from "../../i18n/dictionaries";
 import { FlagIcon } from "../ui/FlagIcons";
 
+// Real SVG asset files (public/icons/equipment) — filled machinery
+// silhouettes, one per category. Referenced by URL and rendered as <img>.
+const ICON = "/icons/equipment";
+
 const DESIGN_WIDTH = 1920;
 const NAV_HEIGHT = 76;
 const MOBILE_NAV_HEIGHT = 53;
 const MOBILE_BREAKPOINT = 1024;
+
+// Equipment is ONE catalog (Typhon Machinery). Konstructz machines are a
+// featured collection inside that catalog, not a separate brand. Labels are
+// static English so we never leak raw `nav.*` keys into the menu.
+type EquipmentLink = { label: string; href: string; icon: string };
+
+const equipmentMenu: {
+  allEquipment: { label: string; sub: string; href: string; icon: string };
+  featured: { heading: string; badge: string; viewAll: EquipmentLink; links: EquipmentLink[] };
+  categories: { heading: string; links: EquipmentLink[] };
+} = {
+  allEquipment: {
+    label: "All Equipment",
+    sub: "Typhon Machinery Catalog",
+    href: "/equipment",
+    icon: `${ICON}/all-equipment.svg`,
+  },
+  featured: {
+    heading: "Featured Konstructz Machines",
+    badge: "Konstructz",
+    viewAll: { label: "View All Featured Machines", href: "/product", icon: `${ICON}/view-all.svg` },
+    links: [
+      { label: "Backhoe Loaders", href: "/equipment/backhoe-loaders", icon: `${ICON}/backhoe-loader.svg` },
+      { label: "Dumpers", href: "/equipment/dumpers", icon: `${ICON}/dumper.svg` },
+      { label: "Mini Excavators", href: "/equipment/mini-excavators", icon: `${ICON}/mini-excavator.svg` },
+      { label: "Towable Excavators", href: "/equipment/towable-excavators", icon: `${ICON}/towable-excavator.svg` },
+      { label: "Stone Crushers", href: "/equipment/stone-crushers", icon: `${ICON}/stone-crusher.svg` },
+      { label: "Trenchers", href: "/equipment/trenchers", icon: `${ICON}/trencher.svg` },
+      { label: "Wheel Loaders", href: "/equipment/wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
+      { label: "Mini Skid Steers", href: "/equipment/mini-skid-steers", icon: `${ICON}/skid-steer.svg` },
+    ],
+  },
+  categories: {
+    heading: "Browse Equipment Categories",
+    links: [
+      { label: "Forklifts", href: "/equipment?category=forklifts", icon: `${ICON}/forklift.svg` },
+      { label: "Mini Excavators", href: "/equipment?category=mini-excavators", icon: `${ICON}/mini-excavator.svg` },
+      { label: "Road Rollers", href: "/equipment?category=road-rollers", icon: `${ICON}/road-roller.svg` },
+      { label: "Scissor Lifts", href: "/equipment?category=scissor-lifts", icon: `${ICON}/scissor-lift.svg` },
+      { label: "Skid Steer Loaders", href: "/equipment?category=skid-steer-loaders", icon: `${ICON}/skid-steer.svg` },
+      { label: "Wheel Loaders", href: "/equipment?category=wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
+    ],
+  },
+};
 
 const navItems = [
   { labelKey: "nav.home", href: "/" },
@@ -16,17 +64,7 @@ const navItems = [
     labelKey: "nav.equipment",
     href: "/equipment",
     hasDropdown: true,
-    dropdownItems: [
-      { labelKey: "nav.konstructzMachine", href: "/equipment/konstructz-machine" },
-      { labelKey: "nav.backhoeLoaders", href: "/equipment/backhoe-loaders" },
-      { labelKey: "nav.dumpers", href: "/equipment/dumpers" },
-      { labelKey: "nav.miniExcavators", href: "/equipment/mini-excavators" },
-      { labelKey: "nav.towableExcavators", href: "/equipment/towable-excavators" },
-      { labelKey: "nav.stoneCrushers", href: "/equipment/stone-crushers" },
-      { labelKey: "nav.trenchers", href: "/equipment/trenchers" },
-      { labelKey: "nav.wheelLoaders", href: "/equipment/wheel-loaders" },
-      { labelKey: "nav.miniSkidSteers", href: "/equipment/mini-skid-steers" },
-    ],
+    isMega: true,
   },
   // {
   //   labelKey: "nav.attachments",
@@ -124,6 +162,7 @@ export const KonstructzLogo: React.FC<KonstructzLogoProps> = ({ height, isDark }
     <div style={wrapperStyle} className="pointer-events-none">
       <img
         style={logoStyle}
+        className="k-wolf-breath"
         alt="KONSTRUCTZ wolf logo"
         src="/img/vector.png"
         draggable={false}
@@ -367,8 +406,138 @@ export const Navbar: React.FC = () => {
                     {item.hasDropdown && <DropdownArrow />}
                   </Link>
 
-                  {/* Desktop Dropdown */}
-                  {item.hasDropdown && item.dropdownItems && (
+                  {/* Desktop Equipment menu — compact dark icon-card menu */}
+                  {item.hasDropdown && (item as any).isMega && (
+                    <div
+                      className={`absolute top-full left-1/2 -translate-x-1/2 w-[900px] origin-top border border-white/10 bg-[#161616] p-3 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.85)] transition-all duration-300 z-50 ${
+                        isDropdownOpen
+                          ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+                          : "opacity-0 translate-y-2 scale-[0.98] pointer-events-none"
+                      }`}
+                    >
+                      {/* Top CTA — All Equipment (strongest card) */}
+                      <Link
+                        to={equipmentMenu.allEquipment.href}
+                        onClick={() => setActiveDropdown(null)}
+                        className="group/cta flex items-center gap-4 border border-[#d8c79a]/45 bg-[#d8c79a]/10 px-4 py-3.5 transition-colors hover:border-[#d8c79a] hover:bg-[#d8c79a]/[0.16]"
+                      >
+                        <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#d8c79a]/30 bg-[#0e0e0e]">
+                          <img src={equipmentMenu.allEquipment.icon} alt="" aria-hidden="true" className="h-7 w-7" />
+                        </span>
+                        <span className="flex-1">
+                          <span className="block font-clofieBold text-[16px] font-bold leading-none text-white">
+                            {equipmentMenu.allEquipment.label}
+                          </span>
+                          <span className="mt-1.5 block font-googleSans text-[11px] uppercase tracking-[0.16em] text-[#d8c79a]">
+                            {equipmentMenu.allEquipment.sub}
+                          </span>
+                        </span>
+                        <svg width="20" height="12" viewBox="0 0 22 14" fill="none" className="text-[#d8c79a] transition-transform group-hover/cta:translate-x-1">
+                          <path d="M1 7h19m0 0L14 1m6 6l-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </Link>
+
+                      {/* Body — two icon-grid sections */}
+                      <div className="mt-3 grid grid-cols-[1.5fr_1fr] gap-3">
+                        {/* Featured Konstructz Machines */}
+                        <div className="border border-white/10 bg-white/[0.02] p-3">
+                          <div className="mb-2.5 flex items-center gap-2 px-1">
+                            <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-white/80">
+                              {equipmentMenu.featured.heading}
+                            </p>
+                            <span className="border border-[#68825B]/55 bg-[#68825B]/15 px-2 py-0.5 font-googleSans text-[9px] font-bold uppercase tracking-[0.12em] text-[#a9c79a]">
+                              {equipmentMenu.featured.badge}
+                            </span>
+                          </div>
+
+                          {/* View all — full-width feature row */}
+                          <Link
+                            to={equipmentMenu.featured.viewAll.href}
+                            onClick={() => setActiveDropdown(null)}
+                            className="group/row mb-1.5 flex items-center gap-3 border border-[#d8c79a]/30 bg-[#d8c79a]/[0.08] px-2.5 py-2 transition-colors hover:border-[#d8c79a]/70 hover:bg-[#d8c79a]/[0.16]"
+                          >
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#d8c79a]/30 bg-[#0e0e0e]">
+                              <img src={equipmentMenu.featured.viewAll.icon} alt="" aria-hidden="true" className="h-6 w-6" />
+                            </span>
+                            <span className="font-googleSans text-[13px] font-bold text-[#d8c79a]">
+                              {equipmentMenu.featured.viewAll.label}
+                            </span>
+                          </Link>
+
+                          <div className="grid grid-cols-2 gap-1.5">
+                            {equipmentMenu.featured.links.map((link) => {
+                              const isSubActive =
+                                location.pathname === link.href ||
+                                (link.href.includes("?") &&
+                                  location.pathname + location.search === link.href);
+                              return (
+                                <Link
+                                  key={link.href}
+                                  to={link.href}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className={`group/row flex items-center gap-2.5 border px-2 py-2 transition-colors ${
+                                    isSubActive
+                                      ? "border-[#d8c79a]/50 bg-white/[0.06]"
+                                      : "border-transparent hover:border-[#d8c79a]/40 hover:bg-white/[0.05]"
+                                  }`}
+                                >
+                                  <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-[#0e0e0e] transition-colors group-hover/row:border-[#d8c79a]/40">
+                                    <img src={link.icon} alt="" aria-hidden="true" className="h-6 w-6" />
+                                  </span>
+                                  <span
+                                    className={`font-googleSans text-[13px] font-medium leading-tight transition-colors ${
+                                      isSubActive ? "text-white" : "text-white/85 group-hover/row:text-white"
+                                    }`}
+                                  >
+                                    {link.label}
+                                  </span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Browse Equipment Categories */}
+                        <div className="border border-white/10 bg-white/[0.02] p-3">
+                          <p className="mb-2.5 px-1 font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-white/80">
+                            {equipmentMenu.categories.heading}
+                          </p>
+                          <div className="flex flex-col gap-1.5">
+                            {equipmentMenu.categories.links.map((link) => {
+                              const isSubActive =
+                                location.pathname + location.search === link.href;
+                              return (
+                                <Link
+                                  key={link.href}
+                                  to={link.href}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className={`group/row flex items-center gap-2.5 border px-2 py-2 transition-colors ${
+                                    isSubActive
+                                      ? "border-[#d8c79a]/50 bg-white/[0.06]"
+                                      : "border-transparent hover:border-[#d8c79a]/40 hover:bg-white/[0.05]"
+                                  }`}
+                                >
+                                  <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-[#0e0e0e] transition-colors group-hover/row:border-[#d8c79a]/40">
+                                    <img src={link.icon} alt="" aria-hidden="true" className="h-6 w-6" />
+                                  </span>
+                                  <span
+                                    className={`font-googleSans text-[13px] font-medium leading-tight transition-colors ${
+                                      isSubActive ? "text-white" : "text-white/85 group-hover/row:text-white"
+                                    }`}
+                                  >
+                                    {link.label}
+                                  </span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Desktop Simple Dropdown — Support etc. */}
+                  {item.hasDropdown && !(item as any).isMega && (item as any).dropdownItems && (
                     <div
                       className={`absolute top-full left-0 bg-theme-bg/95 backdrop-blur-sm border border-theme-border shadow-2xl rounded py-1.5 transition-all duration-300 origin-top z-50 w-[233px] ${
                         isDropdownOpen
@@ -376,8 +545,19 @@ export const Navbar: React.FC = () => {
                           : "opacity-0 translate-y-2 scale-95 pointer-events-none"
                       }`}
                     >
-                      {item.dropdownItems.map((subItem) => {
-                        const isSubActive = location.pathname === subItem.href;
+                      {(item as any).dropdownItems.map((subItem: any) => {
+                        if (subItem.isSectionHeader) {
+                          return (
+                            <div
+                              key={subItem.labelKey}
+                              className="px-4 pt-3 pb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-theme-accent/80 border-t border-theme-border/20 mt-1 font-googleSans"
+                            >
+                              {t(subItem.labelKey)}
+                            </div>
+                          );
+                        }
+                        const isSubActive = location.pathname === subItem.href ||
+                          (subItem.href.includes("?") && location.pathname + location.search === subItem.href);
                         return (
                           <Link
                             key={subItem.labelKey}
@@ -584,34 +764,141 @@ export const Navbar: React.FC = () => {
                     {/* Mobile Dropdown Inline Accordion */}
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
-                        isExpanded ? "max-h-[400px] opacity-100 mt-2 pl-4" : "max-h-0 opacity-0"
+                        isExpanded ? "max-h-[1200px] opacity-100 mt-2 pl-4" : "max-h-0 opacity-0"
                       }`}
                     >
-                      <ul className="flex flex-col gap-3 border-l border-theme-border pl-4 py-1 text-base text-theme-muted">
-                        {/* Link to main landing page */}
-                        <li>
+                      {(item as any).isMega ? (
+                        <div className="flex flex-col gap-4 border-l border-theme-border pl-3 py-1">
+                          {/* 1 — All Equipment (Typhon catalog) */}
                           <Link
-                            to={item.href}
+                            to={equipmentMenu.allEquipment.href}
                             onClick={() => setIsOpen(false)}
-                            className="hover:text-theme-accent transition-colors block py-1"
+                            className="flex items-center gap-3 border border-theme-accent/45 bg-theme-accent/10 px-3 py-2.5 transition-colors hover:bg-theme-accent/15"
                           >
-                            {t("nav.allLabel", { values: { label: itemLabel } })}
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-accent/30 bg-[#0e0e0e]">
+                              <img src={equipmentMenu.allEquipment.icon} alt="" aria-hidden="true" className="h-7 w-7" />
+                            </span>
+                            <span className="flex-1">
+                              <span className="block font-googleSans text-[15px] font-bold leading-none text-theme-text">
+                                {equipmentMenu.allEquipment.label}
+                              </span>
+                              <span className="mt-1 block font-googleSans text-[10px] uppercase tracking-[0.14em] text-theme-accent">
+                                {equipmentMenu.allEquipment.sub}
+                              </span>
+                            </span>
                           </Link>
-                        </li>
-                        {item.dropdownItems?.map((subItem) => (
-                          <li key={subItem.labelKey}>
+
+                          {/* 2 — Featured Konstructz Machines */}
+                          <div className="pt-1">
+                            <div className="flex items-center gap-2 pb-2">
+                              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-theme-accent/80 font-googleSans">
+                                {equipmentMenu.featured.heading}
+                              </p>
+                              <span className="border border-theme-accent/40 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-theme-accent font-googleSans">
+                                {equipmentMenu.featured.badge}
+                              </span>
+                            </div>
+                            <div className="flex flex-col gap-1.5">
+                              <Link
+                                to={equipmentMenu.featured.viewAll.href}
+                                onClick={() => setIsOpen(false)}
+                                className="flex items-center gap-3 border border-theme-accent/30 bg-theme-accent/[0.08] px-2.5 py-2 transition-colors hover:bg-theme-accent/15"
+                              >
+                                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-accent/30 bg-[#0e0e0e]">
+                                  <img src={equipmentMenu.featured.viewAll.icon} alt="" aria-hidden="true" className="h-7 w-7" />
+                                </span>
+                                <span className="font-googleSans text-[14px] font-bold text-theme-accent">
+                                  {equipmentMenu.featured.viewAll.label}
+                                </span>
+                              </Link>
+                              {equipmentMenu.featured.links.map((link) => {
+                                const isSubActive = location.pathname === link.href;
+                                return (
+                                  <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className={`flex items-center gap-3 border px-2.5 py-2 transition-colors ${
+                                      isSubActive ? "border-theme-accent/50 bg-theme-accent/10" : "border-transparent hover:border-theme-accent/30 hover:bg-theme-border/15"
+                                    }`}
+                                  >
+                                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-border/40 bg-[#0e0e0e]">
+                                      <img src={link.icon} alt="" aria-hidden="true" className="h-7 w-7" />
+                                    </span>
+                                    <span className={`font-googleSans text-[15px] ${isSubActive ? "text-theme-accent" : "text-theme-text"}`}>
+                                      {link.label}
+                                    </span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+
+                          {/* 3 — Browse Equipment Categories */}
+                          <div className="pt-2 border-t border-theme-border/20">
+                            <p className="pb-2 pt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-theme-accent/80 font-googleSans">
+                              {equipmentMenu.categories.heading}
+                            </p>
+                            <div className="flex flex-col gap-1.5">
+                              {equipmentMenu.categories.links.map((link) => {
+                                const isSubActive = location.pathname + location.search === link.href;
+                                return (
+                                  <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className={`flex items-center gap-3 border px-2.5 py-2 transition-colors ${
+                                      isSubActive ? "border-theme-accent/50 bg-theme-accent/10" : "border-transparent hover:border-theme-accent/30 hover:bg-theme-border/15"
+                                    }`}
+                                  >
+                                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-border/40 bg-[#0e0e0e]">
+                                      <img src={link.icon} alt="" aria-hidden="true" className="h-7 w-7" />
+                                    </span>
+                                    <span className={`font-googleSans text-[15px] ${isSubActive ? "text-theme-accent" : "text-theme-text"}`}>
+                                      {link.label}
+                                    </span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <ul className="flex flex-col gap-3 border-l border-theme-border pl-4 py-1 text-base text-theme-muted">
+                          {/* Link to main landing page */}
+                          <li>
                             <Link
-                              to={subItem.href}
+                              to={item.href}
                               onClick={() => setIsOpen(false)}
-                              className={`hover:text-theme-accent transition-colors block py-1 ${
-                                location.pathname === subItem.href ? "text-theme-accent" : ""
-                              }`}
+                              className="hover:text-theme-accent transition-colors block py-1"
                             >
-                              {t(subItem.labelKey)}
+                              {t("nav.allLabel", { values: { label: itemLabel } })}
                             </Link>
                           </li>
-                        ))}
-                      </ul>
+                          {(item as any).dropdownItems?.map((subItem: any) => {
+                            if (subItem.isSectionHeader) {
+                              return (
+                                <li key={subItem.labelKey} className="pt-3 pb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-theme-accent/80 border-t border-theme-border/20 mt-1 font-googleSans">
+                                  {t(subItem.labelKey)}
+                                </li>
+                              );
+                            }
+                            return (
+                              <li key={subItem.labelKey}>
+                                <Link
+                                  to={subItem.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className={`hover:text-theme-accent transition-colors block py-1 ${
+                                    location.pathname === subItem.href ? "text-theme-accent" : ""
+                                  }`}
+                                >
+                                  {t(subItem.labelKey)}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
                     </div>
                   </>
                 ) : (

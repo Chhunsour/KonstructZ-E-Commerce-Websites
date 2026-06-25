@@ -38,9 +38,9 @@ export const MiniExcavatorAttachments: React.FC = () => {
       image: "https://c.animaapp.com/9h31joeZ/img/groundripper-png-4@2x.png",
       tagline: t("auto.miniexcavatorattachments.carving.concrete.pavement"),
       specs: [
-        { label: t("auto.miniexcavatorattachments.impact.rate"), value: "Varies by breaker class" },
-        { label: t("auto.miniexcavatorattachments.oil.flow.range"), value: "Match to machine hydraulics" },
-        { label: t("auto.miniexcavatorattachments.impact.energy"), value: "Depends on selected setup" },
+        { label: t("auto.miniexcavatorattachments.impact.rate"), value: "500 - 1,200 bpm" },
+        { label: t("auto.miniexcavatorattachments.oil.flow.range"), value: "25 - 50 L/min (6.6-13.2 gpm)" },
+        { label: t("auto.miniexcavatorattachments.impact.energy"), value: "450 Joules (330 ft-lbs)" },
       ],
     },
     {
@@ -51,8 +51,8 @@ export const MiniExcavatorAttachments: React.FC = () => {
       tagline: "High-torque planetary auger drives for clean, repeatable bore holes in soil, clay and root-bound ground.",
       specs: [
         { label: t("auto.miniexcavatorattachments.mount.type"), value: t("auto.miniexcavatorattachments.universal.quick.attach") },
-        { label: t("auto.miniexcavatorattachments.max.torque"), value: "Varies by drive model" },
-        { label: t("auto.miniexcavatorattachments.bits.supported"), value: "Depends on selected setup" },
+        { label: t("auto.miniexcavatorattachments.max.torque"), value: "2,800 Nm (2,065 ft-lbs)" },
+        { label: t("auto.miniexcavatorattachments.bits.supported"), value: "6\" to 30\" (150-750mm) Bits" },
       ],
     },
     {
@@ -62,8 +62,8 @@ export const MiniExcavatorAttachments: React.FC = () => {
       image: "https://c.animaapp.com/9h31joeZ/img/mini-excavator-png-4-1.png",
       tagline: t("auto.miniexcavatorattachments.sift.soil.and"),
       specs: [
-        { label: t("auto.miniexcavatorattachments.sieve.opening"), value: "Varies by bucket configuration" },
-        { label: t("auto.miniexcavatorattachments.bucket.width"), value: "Depends on selected width" },
+        { label: t("auto.miniexcavatorattachments.sieve.opening"), value: "3\" x 3\" (75mm) Grid" },
+        { label: t("auto.miniexcavatorattachments.bucket.width"), value: "36\" to 48\" (915-1220mm)" },
         { label: t("auto.miniexcavatorattachments.cutting.edge"), value: t("auto.miniexcavatorattachments.bolt.on.dual") },
       ],
     },

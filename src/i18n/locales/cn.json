@@ -1402,5 +1402,16 @@
   "auto.supportkit.m9.16h6": "M9 16小时6",
   "auto.supportkit.m9.12h6": "M9 12小时6",
   "auto.supportkit.m12.5v14m5.12h14": "M12 5v14M5 12h14",
-  "whychooseus.description": "我们制造坚固耐用、结构紧凑的机械，专为经受严苛作业现场的考验而设计。通过专注于机械可靠性、直接支持和高标准部件，我们确保您的项目顺利进行，避免意外停机。"
+  "whychooseus.description": "我们制造坚固耐用、结构紧凑的机械，专为经受严苛作业现场的考验而设计。通过专注于机械可靠性、直接支持和高标准部件，我们确保您的项目顺利进行，避免意外停机。",
+  "nav.dumpers": "自卸车",
+  "nav.typhonScissorLifts": "剪式举升机",
+  "nav.typhonRoadRollers": "压路机",
+  "nav.typhonForklifts": "叉车",
+  "nav.typhonAllEquipment": "所有设备",
+  "nav.typhonMiniExcavators": "小型挖掘机",
+  "nav.typhonWheelLoaders": "轮式装载机",
+  "nav.towableExcavators": "牵引式挖掘机",
+  "nav.typhonSkidSteerLoaders": "滑移装载机",
+  "nav.typhonMachinery": "Typhon 机械",
+  "auto.footer.dumpers": "自卸车"
 }

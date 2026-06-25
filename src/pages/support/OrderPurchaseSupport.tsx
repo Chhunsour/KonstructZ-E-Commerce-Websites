@@ -27,20 +27,20 @@ export const OrderPurchaseSupport: React.FC = () => {
     { q: t("auto.orderpurchase.do.you.issue"), a: t("auto.orderpurchase.absolutely.itemized.invoices") },
     { q: t("auto.orderpurchase.what.deposit.is"), a: t("auto.orderpurchase.most.orders.are") },
     { q: t("auto.orderpurchase.can.i.buy"), a: t("auto.orderpurchase.yes.fleet.and") },
-    { q: "How do I get an itemised quote?", a: "Send your shortlist of models, attachments, and shipping destination to our purchase team. We will prepare a written quotation that separates machine price, attachments, freight, and applicable taxes where possible." },
+    { q: "How do I get an itemized quote?", a: "Send your shortlist of models, attachments, and shipping destination to our purchase team. We will prepare a written quotation that separates machine price, attachments, freight, and applicable taxes where possible." },
     { q: "Can I request a custom build configuration?", a: "Yes — many machines accept optional auxiliary hydraulic kits, canopy upgrades, attachment plates, and lighting packages. Tell your specialist what the job site needs and they will confirm what is buildable and how it affects lead time." },
   ];
 
   const stats = [
     { value: "Direct", label: "Purchase Specialist", sub: "One team from quote to delivery" },
     { value: "Written", label: "Quote Details", sub: "Machine, attachments and freight separated" },
-    { value: "Clear", label: "Itemised Pricing", sub: "Line items shown before approval" },
+    { value: "Clear", label: "Clear Itemized Pricing", sub: "Line items shown before approval" },
     { value: "Confirmed", label: "Order Scope", sub: "Final setup reviewed before dispatch" },
   ];
 
   const buyingJourney = [
     { icon: Icons.search, title: "Tell us about the job", desc: "Share your duty cycle, soil type, lift capacity needs, and shipping destination. Our specialist sizes options around those parameters — not the other way around." },
-    { icon: Icons.doc, title: "Receive a written quote", desc: "An itemised quotation lists the machine, attachments, freight, and applicable charges separately so you can compare line by line." },
+    { icon: Icons.doc, title: "Receive a written quote", desc: "An itemized quotation lists the machine, attachments, freight, and applicable charges separately so you can compare line by line." },
     { icon: Icons.card, title: "Reserve the unit", desc: "Once you approve the quote, your specialist confirms the reservation terms, configuration, and expected preparation path." },
     { icon: Icons.shield, title: "Pre-delivery inspection", desc: "The selected unit is reviewed before dispatch. Any available handoff photos or configuration notes are shared before shipping." },
     { icon: Icons.truck, title: "Dispatch & tracking", desc: "Freight is booked after the balance and dispatch details are confirmed, then carrier tracking is shared when available." },
@@ -50,7 +50,7 @@ export const OrderPurchaseSupport: React.FC = () => {
   const trust = [
     { icon: Icons.shield, label: "No-Surprise Pricing", sub: "Freight and tax separated from machine price" },
     { icon: Icons.doc, label: "Clean Paperwork", sub: "Proforma, final invoice, and bill of sale included" },
-    { icon: Icons.bolt, label: "Specialist Backed", sub: "Real machinery experts, not call-centre scripts" },
+    { icon: Icons.bolt, label: "Specialist Backed", sub: "Real machinery experts, not call-center scripts" },
     { icon: Icons.clock, label: "Responsive Replies", sub: "Quote and order questions routed to the purchase team" },
   ];
 

@@ -1,4 +1,4 @@
-// Generated from product machine of typhon/selected-folder-images-2026-06-25-button-url-cleaned.csv.
+// Generated from Product update 26:06/selected-folder-images-2026-06-26 (2).csv.
 // Run `node scripts/build-typhon-products.cjs` after updating the CSV.
 
 export interface TyphonProductSpec {
@@ -43,25 +43,101 @@ export interface TyphonCategory {
 
 export const typhonProducts: TyphonProduct[] = [
   {
-    id: "typhon-terror-x-storm-mini-excavator-1-ton-trench-digger-with-canopy-hydraulic-thumb-clip-bucket",
-    name: "TYPHON Terror X Storm (0.7 Ton)",
+    id: "terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments",
+    name: "TERROR XI",
     productType: "equipment",
-    rawProductType: "attachment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "13.5HP",
+    sku: "TYPH-0121",
+    gtin: "5061030741375",
+    price: "$6 508.95",
+    currentPrice: "$6,508.95",
+    sourceUrl: "https://typhonmachinery.com/product/terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XI-STORM-Mini-Excavator-1-1-Ton-Trench-Digger-with-Boom-Swing-Hydraulic-Thumb-Clip-Bucket-USA/p/724239455",
+    importConfidence: "100",
+    series: "TERROR mini excavator series",
+    weight: "1.1 ton",
+    tagline: "TERROR XI Mini Excavator comes with a total of 13 attachments. Quick Coupler, 7.9 in Narrow Bucket, 19.7 in Plain Bucket, Rake, Ripper, Auger, Grapple, 23.6 in Screen Bucket, 23.6 in Tilting Bucket, Hydraulic Hammer, Pallet Fork, Hydraulic Thumb Clip, Normal 15.7 in Trenching Bucket",
+    description: "TYPHON TERROR XI STORM Mini Excavator GTIN: 5061030741016 The TYPHON TERROR XI STORM Mini Excavator is a compact 1.1-ton excavator engineered for contractors, landscapers, farmers, and property owners who require dependable performance in confined work environments. Powered by the reliable 13.5 HP Briggs & Stratton gasoline engine, this machine combines excellent digging capability, outstanding maneuverability, and rugged durability into one compact package. Designed with a boom swing system, hydraulic oil cooler, hydraulic thumb compatibility, and a 15.7 in digging bucket, the TERROR XI STORM delivers professional performance for trenching, landscaping, utility installation, excavation, and general earthmoving tasks. Its compact dimensions allow operators to access areas that larger excavators simply cannot reach, making it the ideal solution for residential, agricultural, and commercial projects. Ready Stock Available in California. Key Features Compact Design for Tight Work Areas The TERROR XI STORM is purpose-built for projects requiring maximum maneuverability in restricted spaces. Its compact footprint and boom swing capability provide excellent flexibility without sacrificing digging performance. Ideal Applications Residential construction Farms and ranches Orchards Gardens Parks Municipal maintenance Utility installation Landscaping Property maintenance Small commercial projects The integrated boom swing system allows operators to dig closer to walls, fences, and other obstacles while improving efficiency in confined spaces. Reliable Briggs & Stratton Engine The TYPHON TERROR XI STORM is powered by a dependable 13.5 HP Briggs & Stratton gasoline engine, providing smooth performance and simple maintenance for daily operation. Engine Highlights 13.5 HP Briggs & Stratton Engine Reliable gasoline-powered performance Fuel-efficient operation Easy maintenance Smooth power delivery Designed for demanding daily use Built to perform consistently, the engine provides dependable power across a wide range of excavation applications. Outstanding Digging Performance Despite its compact size, the TERROR XI STORM delivers excellent digging force and hydraulic performance for professional applications. Performance Highlights Bucket Digging Force: 7.2 kN Maximum Digging Depth: 64 in Bucket Capacity: 0.025 m³ Bucket Width: 15.7 in Whether digging trenches, preparing foundations, or landscaping, the TERROR XI STORM provides the strength needed to complete demanding jobs efficiently. Advanced Hydraulic System The excavator features several hydraulic upgrades that improve versatility, cooling efficiency, and attachment compatibility. Hydraulic Features Hydraulic oil cooler for improved operating temperatures Boom swing for increased flexibility Double-side throttle valve system Smooth hydraulic response Hydraulic thumb compatibility The double-side throttle valve allows hydraulic oil to flow freely in one direction while controlling flow in the opposite direction, improving operation when multiple hydraulic attachments are installed. Easy & Comfortable Operation The TERROR XI STORM is designed to be simple to operate while maintaining excellent control and stability. Operator Benefits Easy-to-use controls Excellent visibility Stable platform Smooth hydraulic operation Comfortable operating position Protective operator canopy Its user-friendly layout makes it suitable for both experienced operators and first-time users. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XI STORMGTIN5061030741016Operating Weight1.1 TonsEngineBriggs & Stratton Gasoline EngineMaximum Engine Output13.5 HPBucket Width15.7 inBucket Capacity0.025 m³Maximum Digging Depth64 inBucket Digging Force7.2 kNBoom SwingStandardHydraulic Oil CoolerStandardOperator StationHeavy-Duty Open Canopy Standard Equipment Included Every TYPHON TERROR XI STORM comes fully equipped with essential accessories to help you get to work immediately. Included with Your Excavator ✔ Standard 15.7 in digging bucket ✔ Hydraulic thumb clip ✔ Boom swing system ✔ Hydraulic oil cooler ✔ Heavy-duty toolbox ✔ Protective operator canopy ✔ Digital operator's manual Why Choose the TYPHON TERROR XI STORM? The TYPHON TERROR XI STORM combines compact dimensions, dependable Briggs & Stratton power, advanced hydraulic features, and professional digging performance into one durable mini excavator. Built for contractors, landscapers, farmers, and property owners, it delivers exceptional value while remaining easy to transport and maintain. Key Benefits ✔ Reliable 13.5 HP Briggs & Stratton engine ✔ Compact 1.1-ton design ✔ Powerful 7.2 kN bucket digging force ✔ Boom swing for greater flexibility ✔ Hydraulic oil cooler included ✔ Hydraulic thumb compatibility ✔ Easy operation for all experience levels ✔ Durable construction for long service life ✔ Ready stock available in California Ideal Applications The TYPHON TERROR XI STORM is built for a wide variety of industries and projects. Construction Utility trenching Foundation excavation Site preparation Residential projects Agriculture Irrigation installation Fence construction Farm maintenance Land improvement Landscaping Tree planting Pond excavation Retaining wall preparation Material handling Property Maintenance Drainage installation Ditch cleaning Land clearing Storm cleanup Compact Size. Professional Results. The TYPHON TERROR XI STORM Mini Excavator combines the dependable performance of a 13.5 HP Briggs & Stratton engine, a boom swing system, hydraulic oil cooling, and a durable compact design to deliver professional excavation performance in restricted work areas. Whether you're trenching, landscaping, excavating, or preparing construction sites, the TYPHON TERROR XI STORM provides the reliability, efficiency, and versatility needed to complete every project with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666343721-d73wl-2.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666343721-d73wl-2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781671769271-4wtzi-7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781671760996-c5nkv-6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666349120-7yoha-5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666347238-706sy-4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666345458-xa452-3.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$6,508.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0121"
+      },
+      {
+        label: "GTIN",
+        value: "5061030741375"
+      },
+      {
+        label: "Weight Class",
+        value: "1.1 ton"
+      },
+      {
+        label: "Engine Power",
+        value: "13.5 HP"
+      },
+      {
+        label: "Digging Depth",
+        value: "64 in Bucket Capacity: 0"
+      },
+      {
+        label: "Capacity",
+        value: ": 0"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-x-storm-mini-excavator-1-ton-trench-digger-with-canopy-hydraulic-thumb-clip-bucket",
+    name: "TYPHON Terror X Storm",
+    productType: "equipment",
+    rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "13.5HP B&S Engine",
     sku: "TYPH-0101G",
     gtin: "5061030741122",
-    price: "$ 7,873.95 Original price was: $7,873.95. $ 6,298.95 Current price is: $6,298.95.",
-    originalPrice: "$7,873.95",
+    price: "$6 298.95",
     currentPrice: "$6,298.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-x-storm-mini-excavator-1-ton-trench-digger-with-canopy-hydraulic-thumb-clip-bucket/",
-    buttonUrl: "/product/typhon-terror-x-storm-mini-excavator-1-ton-trench-digger-with-canopy-hydraulic-thumb-clip-bucket/",
+    buttonUrl: "/product#!/TYPHON-TERROR-X-STORM-Mini-Excavator-1-Ton-Trench-Digger-with-Canopy-Hydraulic-Thumb-Clip-Bucket-USA/p/751377521",
     importConfidence: "100",
     series: "TERROR mini excavator series",
-    weight: "0.7 ton",
+    weight: "1 ton",
     tagline: "Introducing the TYPHON TERROR X STORM Mini Excavator 1 ton trench digger with a cover and a large bucket, ideal for minor construction work. Engineers created this tiny powerhouse for simple movement and exceptional performance in a range of environments, including farms, gardens, public places, parks, orchards, and more.",
-    description: "Introducing the TYPHON TERROR X STORM Mini Excavator - a 1-ton trench digger equipped with a canopy and a wide bucket, designed for small construction projects. This compact powerhouse is engineered for easy maneuverability and superior performance in various settings, including farms, gardens, public spaces, parks, orchards, and more. Latest 2025 version. Comes with hydraulic oil cooler and hydraulic thumb clip. TYPHON TERROR X STORM Mini Excavator 1 Ton Key Features 1. Designed for Small Projects The TYPHON TERROR X STORM Mini Excavator is specifically designed for small construction projects, boasting a compact and reliable design. This design ensures easy maneuverability in tight spaces, making it ideal for various applications such as farms, gardens, public spaces, parks, and orchards, among others. 2. Wide Range of Uses Compact and user-friendly design for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes. 3. Compact but Tough It boasts a compact yet powerful engine that ensures smooth operation. It can withstand intensive construction projects without compromising its performance. Long-lasting use is ensured by its exceptional resistance and durability. 4. User-Friendly Design The micro digger is extremely easy to maneuver, even for first-time users. A 15 in-wide bucket and platform ground clearance allow easy operation for all excavation, drilling, or bulldozing jobs. 5. Included Accessories Comes with 1 x standard digging 15 in wide excavator bucket and 1X hydraulic thumb clip. Includes 1 x toolbox, 1 x canopy, and 1 x digital manual with comprehensive instructions.",
+    description: "TYPHON TERROR X STORM Mini Excavator (2025 Version) GTIN: 5061030741122 The TYPHON TERROR X STORM Mini Excavator (2025 Version) is a compact 1-ton excavator engineered to deliver reliable digging performance, exceptional maneuverability, and outstanding durability for contractors, landscapers, farmers, and property owners. Designed for confined work environments, this latest model combines a rugged compact design with enhanced hydraulic performance, making it ideal for excavation, trenching, landscaping, and general earthmoving applications. The 2025 model comes factory-equipped with a hydraulic oil cooler, hydraulic thumb clip, 15 in digging bucket, and a heavy-duty operator canopy, providing greater versatility, improved cooling performance, and increased productivity during demanding jobs. Whether you're preparing foundations, installing utilities, maintaining orchards, or completing landscaping projects, the TYPHON TERROR X STORM delivers dependable performance with the flexibility professionals expect from compact equipment. Key Features Latest 2025 Model The newest generation of the TERROR X STORM introduces upgraded hydraulic components designed to improve reliability and long-term operating performance. 2025 Upgrades Hydraulic oil cooler included Hydraulic thumb clip included Improved cooling performance Enhanced durability for extended operation Professional-ready equipment package These upgrades help maximize machine efficiency while extending hydraulic component life. Compact Design for Restricted Work Areas The TERROR X STORM is purpose-built for projects requiring exceptional maneuverability in confined locations where larger excavators cannot operate efficiently. Ideal Applications Residential construction Landscaping Farms and ranches Orchards Gardens Parks Utility installation Municipal maintenance Property maintenance Small commercial projects Its lightweight construction allows for simple transportation while minimizing ground disturbance on finished surfaces. Reliable High-Performance Engine The excavator is powered by a dependable, high-performance engine designed to provide smooth operation and reliable power for everyday excavation work. Engine Highlights High-performance gasoline engine Smooth and responsive operation Reliable daily productivity Fuel-efficient performance Easy maintenance Durable long-term operation The engine provides the power necessary for digging, grading, trenching, and operating hydraulic attachments with confidence. Advanced Hydraulic Performance The latest TERROR X STORM features an upgraded hydraulic system designed for smoother operation and improved reliability. Hydraulic Features Hydraulic oil cooler Hydraulic thumb clip included Smooth hydraulic controls Efficient oil circulation Improved heat management Better attachment performance The hydraulic oil cooler helps maintain optimal operating temperatures during extended work sessions, improving overall system reliability. Versatile Multi-Purpose Machine The compact design allows the TERROR X STORM to perform a wide range of excavation and material-handling applications. Perfect For Trenching Excavation Landscaping Foundation preparation Ditch cleaning Material handling Tree planting Land grading Property maintenance Agricultural work Utility installation General earthmoving Its versatility makes it an excellent choice for contractors and property owners who need one machine capable of handling multiple jobs. Easy & Comfortable Operation The TERROR X STORM is designed to be simple to operate while maintaining excellent control and stability. Operator Benefits Intuitive controls Excellent visibility Comfortable operating position Smooth hydraulic response Easy maintenance access Heavy-duty protective canopy Whether you're an experienced operator or new to compact excavators, the machine is designed to inspire confidence and improve productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR X STORM (2025 Version)GTIN5061030741122Operating Weight1 TonBucket Width15 inHydraulic Thumb ClipIncludedHydraulic Oil CoolerIncludedOperator StationHeavy-Duty Open CanopyBucket TypeStandard Digging Bucket Standard Equipment Included Every TYPHON TERROR X STORM (2025 Version) comes equipped with premium accessories to maximize productivity from day one. Included with Your Excavator ✔ Standard 15 in digging bucket ✔ Hydraulic thumb clip ✔ Hydraulic oil cooler ✔ Heavy-duty toolbox ✔ Protective operator canopy ✔ Digital operator's manual Why Choose the TYPHON TERROR X STORM? The TYPHON TERROR X STORM (2025 Version) combines compact maneuverability, dependable performance, upgraded hydraulic technology, and rugged construction into one highly capable mini excavator. Built for professionals and property owners alike, it offers exceptional versatility while remaining easy to transport, operate, and maintain. Key Benefits ✔ Latest 2025 upgraded model ✔ Compact 1-ton design ✔ Hydraulic oil cooler included ✔ Hydraulic thumb clip included ✔ Reliable high-performance engine ✔ 15 in digging bucket ✔ Heavy-duty protective canopy ✔ Easy operation for all experience levels ✔ Durable construction for long service life Ideal Applications The TYPHON TERROR X STORM is trusted across a wide variety of industries. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Irrigation installation Orchard maintenance Fence construction Farm improvements Landscaping Tree planting Pond excavation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing General excavation Built for Everyday Productivity The TYPHON TERROR X STORM Mini Excavator (2025 Version) combines compact maneuverability, dependable performance, upgraded hydraulic technology, and professional-grade durability into one versatile machine built for everyday work. Featuring a hydraulic oil cooler, hydraulic thumb clip, 15 in digging bucket, and a rugged compact design, it delivers the performance and reliability needed to complete excavation, landscaping, agricultural, and construction projects with confidence. Whether you're digging trenches, grading land, clearing property, or maintaining orchards, the TYPHON TERROR X STORM is ready to help you work faster, smarter, and more efficiently.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781677663831-355ir-18.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781677663831-355ir-18.webp",
@@ -91,7 +167,7 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Weight Class",
-        value: "0.7 ton"
+        value: "1 ton"
       },
       {
         label: "Engine Power",
@@ -100,73 +176,6 @@ export const typhonProducts: TyphonProduct[] = [
       {
         label: "Engine",
         value: "B&S Engine TYPHON Terror X"
-      }
-    ],
-    features: [
-      "Designed for Small Projects The TYPHON TERROR X STORM Mini Excavator is specifically designed for small construction projects, boasting a compact and reliable design.",
-      "Wide Range of Uses Compact and user-friendly design for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes.",
-      "Compact but Tough It boasts a compact yet powerful engine that ensures smooth operation.",
-      "User-Friendly Design The micro digger is extremely easy to maneuver, even for first-time users.",
-      "Included accessories Comes with 1 x standard digging 15 in wide excavator bucket and 1X hydraulic thumb clip.",
-      "Compact tracked platform"
-    ],
-    applications: [
-      "Drilling",
-      "Digging",
-      "Grabbing",
-      "Bull-dozing",
-      "Ditch-cleaning",
-      "Small Excavations",
-      "Rock-breaking",
-      "Landscaping"
-    ],
-    imageMatch: "CSV image fields"
-  },
-  {
-    id: "terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments",
-    name: "TERROR XI",
-    productType: "equipment",
-    rawProductType: "attachment",
-    category: "mini-excavators",
-    categoryLabel: "Mini Excavator",
-    rawCategory: "13.5HP",
-    sku: "",
-    gtin: "5061030741375",
-    price: "$ 10,998.00 Original price was: $10,998.00. $ 9,344.11 Current price is: $9,344.11.",
-    originalPrice: "$10,998.00",
-    currentPrice: "$9,344.11",
-    sourceUrl: "https://typhonmachinery.com/product/terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments/",
-    buttonUrl: "/product/terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments/",
-    importConfidence: "100",
-    series: "TERROR mini excavator series",
-    weight: "Mini Excavator",
-    tagline: "TERROR XI Mini Excavator comes with a total of 13 attachments. Quick Coupler, 7.9 in Narrow Bucket, 19.7 in Plain Bucket, Rake, Ripper, Auger, Grapple, 23.6 in Screen Bucket, 23.6 in Tilting Bucket, Hydraulic Hammer, Pallet Fork, Hydraulic Thumb Clip, Normal 15.7 in Trenching Bucket",
-    description: "TERROR XI Mini Excavator comes with a total of 13 attachments. Quick Coupler, 7.9 in Narrow Bucket, 19.7 in Plain Bucket, Rake, Ripper, Auger, Grapple, 23.6 in Screen Bucket, 23.6 in Tilting Bucket, Hydraulic Hammer, Pallet Fork, Hydraulic Thumb Clip, Normal 15.7 in Trenching Bucket",
-    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666343721-d73wl-2.webp",
-    gallery: [
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666343721-d73wl-2.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781671769271-4wtzi-7.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781671760996-c5nkv-6.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666349120-7yoha-5.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666347238-706sy-4.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666345458-xa452-3.webp"
-    ],
-    specs: [
-      {
-        label: "Category",
-        value: "Mini Excavator"
-      },
-      {
-        label: "Current Price",
-        value: "$9,344.11"
-      },
-      {
-        label: "GTIN",
-        value: "5061030741375"
-      },
-      {
-        label: "Engine Power",
-        value: "13.5 HP"
       }
     ],
     features: [
@@ -186,24 +195,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-xiii-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-13-5hp-bs-engine-usa",
-    name: "TYPHON Terror XIII (1.3 Ton) - B&S",
+    name: "TYPHON Terror XIII",
     productType: "equipment",
-    rawProductType: "attachment",
+    rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "Mini Excavators",
     sku: "TYPH-1301G",
     gtin: "5061030741061",
-    price: "$ 8,398.95 Original price was: $8,398.95. $ 7,034.99 Current price is: $7,034.99.",
-    originalPrice: "$8,398.95",
+    price: "$7 034.99",
     currentPrice: "$7,034.99",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xiii-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-13-5hp-bs-engine-usa/",
-    buttonUrl: "/product/typhon-terror-xiii-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-13-5hp-bs-engine-usa/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XIII-Mini-Excavator-1-3-Ton-Trench-Digger-with-Canopy-Hydraulic-Thumb-Clip-13-5hp-B&S-Engine-USA/p/738086396",
     importConfidence: "100",
     series: "TERROR mini excavator series",
     weight: "1.3 ton",
     tagline: "Introducing the TYPHON TERROR XIII STORM Mini Excavator - a 1.3-ton trench digger equipped with a canopy and a hydraulic thumb clip, designed for small construction projects.",
-    description: "Comes with Canopy, Hydraulic Thumb Clip, 13.5hp B&S Gas engine. Introducing the TYPHON TERROR XIII Mini Excavator-a 1.3-ton trench digger equipped with a canopy and a hydraulic thumb clip, designed for small construction projects. This compact powerhouse is engineered for easy maneuverability and superior performance in various settings, including farms, gardens, public spaces, parks, orchards, and more. TYPHON TERROR XIII STORM Mini Excavator Key Features 1. Designed for Small Projects Specially engineered for small construction projects with a compact and reliable design. Ensures easy maneuverability in tight spaces, making it ideal for farms, gardens, public spaces, parks, orchards, and more. Comes with a minimum radius of 60.2 in (5 ft) and a tail turning radius of 31.3 in. 2. Wide Range of Uses Compact and user-friendly design for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes. 3. Compact but Tough Features a small but high-performance 13.5hp Briggs & Stratton XR2100 engine for smooth functionality. Withstands intensive construction projects without sacrificing performance. Outstanding resistance and durability for long-lasting use. 4. User-Friendly Design The micro digger is extremely easy to maneuver, even for first-time users. Possesses a maximum machine height of 89.4 in (7.4 ft) and a maximum digging depth of 67.3 in (5.6 ft). A bucket with a capacity of 0.033 cu yd and a bulldozer blade digging depth of 10.6 in allow easy operation for all excavation, drilling, or bulldozing jobs. 5. Included Accessories Comes with 1 x standard digging 0.033 cu yd excavator bucket and 1X hydraulic thumb clip. Includes 1 x toolbox, 1 x canopy, and 1 x digital manual with comprehensive instructions.",
+    description: "TYPHON TERROR XIII STORM Mini Excavator GTIN: 5061030741061 The TYPHON TERROR XIII STORM Mini Excavator is a durable 1.3-ton compact excavator engineered for professional performance in tight working environments. Powered by the dependable 13.5 HP Briggs & Stratton XR2100 gasoline engine, this compact machine combines reliable digging power, exceptional maneuverability, and practical versatility for contractors, landscapers, farmers, property owners, and municipal maintenance crews. Equipped with a hydraulic thumb clip, heavy-duty protective canopy, and a compact short-tail design, the TERROR XIII STORM is ideal for trenching, landscaping, utility installation, material handling, and general excavation. Its lightweight construction makes transportation simple while providing the stability and durability needed for demanding everyday work. Whether you're working in residential backyards, farms, orchards, parks, or construction sites with limited access, the TYPHON TERROR XIII STORM is built to maximize productivity without sacrificing reliability. Key Features Compact Design for Confined Job Sites The TERROR XIII STORM is specifically designed to work efficiently in locations where larger excavators cannot operate. Its compact dimensions and short tail swing provide excellent maneuverability while maintaining outstanding digging performance. Compact Advantages Designed for small construction projects Easy maneuverability in confined work areas Minimum swing radius of 60.2 in Tail turning radius of 31.3 in Excellent stability during excavation Easy transportation between job sites Perfect for: Gardens Farms Orchards Parks Residential construction Utility projects Landscaping Public maintenance Reliable Briggs & Stratton XR2100 Engine The TYPHON TERROR XIII STORM is powered by the trusted Briggs & Stratton XR2100 gasoline engine, delivering dependable performance and straightforward maintenance for everyday excavation work. Engine Highlights 13.5 HP Briggs & Stratton XR2100 Reliable gasoline-powered engine Smooth power delivery Fuel-efficient operation Easy maintenance Long-lasting durability The XR2100 engine is built to provide dependable performance in a wide variety of working conditions. Versatile Performance Designed as a true multi-purpose excavator, the TERROR XIII STORM is capable of handling numerous excavation and earthmoving applications. Perfect For Utility trenching Foundation digging Landscaping Rock breaking Ditch cleaning Land grading Material handling Tree planting Farm maintenance Property development Small demolition General excavation Its compact footprint makes it ideal for projects where precision and accessibility are essential. Hydraulic Thumb Included The included hydraulic thumb clip expands the machine's capabilities by allowing operators to securely grab and transport irregular materials. Hydraulic Thumb Benefits Move rocks and boulders Handle logs and tree branches Lift construction debris Position landscaping materials Improve loading efficiency Reduce manual labor The hydraulic thumb transforms the excavator into a versatile material-handling machine. Easy & Comfortable Operation Designed for operators of all experience levels, the TERROR XIII STORM offers intuitive controls and excellent visibility. Operator Benefits Comfortable operating position Protective overhead canopy Smooth hydraulic controls Excellent visibility Easy machine maintenance Stable operating platform The simple control layout helps improve efficiency while reducing operator fatigue. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XIII STORMGTIN5061030741061Operating Weight1.3 TonsEngineBriggs & Stratton XR2100Maximum Engine Output13.5 HPBucket Capacity0.025 m³Maximum Digging Depth67.3 inMaximum Machine Height89.4 inMinimum Swing Radius60.2 inTail Turning Radius31.3 inBulldozer Blade Digging Depth10.6 inOperator StationHeavy-Duty Open Canopy Standard Equipment Included Every TYPHON TERROR XIII STORM is supplied with essential accessories to help you get to work immediately. Included with Your Excavator ✔ Standard 0.025 m³ digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Protective operator canopy ✔ Digital operator's manual Why Choose the TYPHON TERROR XIII STORM? The TYPHON TERROR XIII STORM is designed for operators who need dependable performance, compact dimensions, and excellent versatility. Its reliable Briggs & Stratton engine, hydraulic thumb, durable construction, and user-friendly controls make it an excellent choice for professional and residential excavation projects. Key Benefits ✔ Reliable 13.5 HP Briggs & Stratton XR2100 engine ✔ Compact 1.3-ton design for restricted work areas ✔ Hydraulic thumb clip included ✔ Excellent maneuverability with short tail swing ✔ Strong digging performance ✔ Heavy-duty protective canopy ✔ Easy operation and maintenance ✔ Durable construction for long service life ✔ Ideal for construction, landscaping, agriculture, and property maintenance Ideal Applications The TYPHON TERROR XIII STORM is suitable for a wide variety of projects. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Irrigation installation Fence construction Farm maintenance Land improvement Landscaping Tree planting Pond excavation Retaining wall preparation Material handling Property Maintenance Drainage installation Ditch cleaning Land clearing Storm cleanup Compact Size. Professional Performance. The TYPHON TERROR XIII STORM Mini Excavator combines compact maneuverability, dependable Briggs & Stratton power, hydraulic thumb versatility, and rugged construction into one highly capable machine. Built for professionals and property owners alike, it delivers reliable performance across construction, agriculture, landscaping, and maintenance applications. From precision trenching to everyday excavation and material handling, the TYPHON TERROR XIII STORM is ready to help you complete every project with confidence, efficiency, and long-lasting reliability.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781835069599-9t7q7-4848479415.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781835069599-9t7q7-4848479415.webp",
@@ -244,60 +252,58 @@ export const typhonProducts: TyphonProduct[] = [
         value: "13.5 HP"
       },
       {
-        label: "Engine",
-        value: "B&S Introducing the TYPHON TERROR"
-      },
-      {
         label: "Digging Depth",
         value: "67"
+      },
+      {
+        label: "Capacity",
+        value: "0"
       }
     ],
     features: [
-      "Designed for Small Projects Specially engineered for small construction projects with a compact and reliable design.",
-      "Wide Range of Uses Compact and user-friendly design for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes.",
-      "Compact but Tough Features a small but high-performance",
-      "User-Friendly Design The micro digger is extremely easy to maneuver, even for first-time users.",
-      "Included accessories Comes with 1 x standard digging",
-      "Compact tracked platform"
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
-      "Drilling",
-      "Digging",
-      "Grabbing",
-      "Bull-dozing",
-      "Ditch-cleaning",
-      "Small Excavations",
-      "Rock-breaking",
-      "Landscaping"
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
     ],
     imageMatch: "CSV image fields"
   },
   {
-    id: "typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa",
-    name: "TYPHON Terror XV (1.05 Ton)",
+    id: "typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-22-1hp-honda-engine-usa",
+    name: "TYPHON Terror XIII",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "Mini Excavators",
-    sku: "TYPH-1501G",
-    gtin: "5061030741078",
-    price: "$ 7,179.90",
-    currentPrice: "$7,179.90",
-    sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa/",
-    buttonUrl: "/product/typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa/",
+    sku: "TYPH-1301 PRO",
+    gtin: "wk6iejilbvyw9i1ie",
+    price: "$8 293.95",
+    currentPrice: "$8,293.95",
+    sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-22-1hp-honda-engine-usa/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XIII-PRO-Mini-Excavator-1-3-Ton-Trench-Digger-with-Canopy-Hydraulic-Thumb-Clip-22-1hp-Honda-Engine-USA/p/778128422",
     importConfidence: "100",
     series: "TERROR mini excavator series",
-    weight: "1.05 ton",
-    tagline: "The TYPHON TERROR XV STORM Mini Excavator - a 1.05 ton trench digger equipped with a canopy and a hydraulic thumb clip, designed for small construction projects.",
-    description: "The TYPHON TERROR XV STORM Mini Excavator - a 1.05 ton trench digger equipped with a canopy and a hydraulic thumb clip, designed for small construction projects. This compact powerhouse is engineered for easy maneuverability and superior performance in various settings, including farms, gardens, public spaces, parks, orchards, and more. TYPHON TERROR XV STORM Mini Excavator Key Features 1. Designed for Small Projects Specially engineered for small construction projects with a compact and reliable design. Ensures easy maneuverability in tight spaces, making it ideal for farms, gardens, public spaces, parks, orchards, and more. Comes with a 34.3 in tail turning radius and maximum digging depth of 68.3 in (5.7 ft). 2. Wide Range of Uses Compact and user-friendly design for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes. 3. Compact but Tough Features a small but high-performance 13.5hp Briggs & Stratton XR2100 engine for smooth functionality. Withstands intensive construction projects without sacrificing performance. Outstanding resistance and durability for long-lasting use. 4. User-Friendly Design Micro digger is extremely easy to maneuver, even for first-time users. Possesses a machine height of 86.2 in (7.2 ft) and width of 39.4 in. Bucket with a capacity of 0.039 cu yd and platform ground clearance of 15 in allow easy operation for all excavation, drilling, or bull-dozing jobs. 5. Included Accessories Comes with 1 x standard 0.039 cu yd digging excavator bucket, and 1X hydraulic thumb clip. Includes 1 x tool box, 1 x canopy, and 1 x digital manual with comprehensive instructions.",
-    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678654548-elzo6-4848479405.webp",
+    weight: "1.3 ton",
+    tagline: "The TYPHON TERROR XIII PRO STORM Mini Excavator is a 1.3-ton trench digger with a canopy and a hydraulic thumb clip. It's perfect for modest construction jobs. This little but powerful machine is designed to be easy to move around and work well in a variety of places, such as farms, gardens, public spaces, parks, orchards, and more.",
+    description: "TYPHON TERROR XIII PRO STORM Mini Excavator GTIN: 5061030741214 The TYPHON TERROR XIII PRO STORM Mini Excavator is a premium 1.3-ton compact excavator designed for professionals who need more power without sacrificing maneuverability. Equipped with the legendary 22.1 HP Honda GX690 V-Twin gasoline engine, this machine delivers exceptional reliability, smooth hydraulic performance, and outstanding durability for construction, landscaping, agriculture, utility installation, and property maintenance. Featuring a hydraulic thumb clip, heavy-duty operator canopy, and a reinforced steel frame, the TERROR XIII PRO STORM is engineered to perform demanding excavation and material-handling tasks while remaining compact enough to access tight job sites with ease. Whether you're digging foundations, trenching utilities, clearing land, or maintaining farms and orchards, the TYPHON TERROR XIII PRO STORM provides professional-grade performance in a compact package. Key Features Designed for Small & Confined Job Sites The TERROR XIII PRO STORM is purpose-built for projects where larger excavators cannot operate efficiently. Its compact footprint and short-tail design allow for excellent maneuverability while maintaining impressive digging capability. Compact Advantages Ideal for residential construction Easy operation in confined spaces Minimum swing radius of 60.2 in Tail turning radius of 31.3 in Stable design for uneven terrain Easy transportation between job sites Perfect for: Farms Gardens Orchards Parks Public spaces Residential developments Landscaping Utility installations Powerful Honda GX690 V-Twin Engine At the heart of the TERROR XIII PRO STORM is the highly respected Honda GX690, one of the industry's most reliable commercial gasoline engines. Engine Highlights 22.1 HP (22.1 HP) Honda GX690 688 cc V-Twin OHV gasoline engine Air-cooled 4-stroke design 35.6 lb-ft (48.3 Nm) torque @ 2,500 RPM Electric start system Digital CDI ignition Two-barrel carburetor Forced lubrication system Rated speed: 3,600 RPM The Honda GX690 is trusted worldwide for its durability, smooth operation, and low maintenance requirements, making it an excellent choice for demanding job-site applications. Versatile Multi-Purpose Performance Designed to handle a wide range of excavation and earthmoving tasks, the TERROR XIII PRO STORM is a true all-around compact excavator. Perfect For Utility trenching Foundation excavation Landscaping Ditch cleaning Material handling Land grading Rock breaking Tree planting Agricultural maintenance Site preparation Property development General excavation Its compact design allows operators to work comfortably in areas where larger equipment has limited access. Hydraulic Thumb Included The included hydraulic thumb clip greatly expands the machine's versatility by providing superior material-handling capability. Hydraulic Thumb Benefits Lift rocks and boulders Handle logs and tree branches Move demolition debris Position landscaping materials Improve loading efficiency Reduce manual labor The hydraulic thumb transforms the excavator into a highly productive multi-purpose machine. Comfortable & Easy Operation Designed for operators of all skill levels, the TERROR XIII PRO STORM combines intuitive controls with excellent visibility for greater confidence and productivity. Operator Benefits Heavy-duty protective canopy Comfortable control layout Smooth hydraulic operation Excellent all-around visibility Easy maintenance access Stable operating platform Its simple and ergonomic design helps reduce operator fatigue during long workdays. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XIII PRO STORMGTIN5061030741214Operating Weight1.3 TonsEngineHonda GX690Engine Type688 cc Air-Cooled V-Twin OHV GasolineMaximum Engine Output22.1 HP (22.1 HP)Rated Speed3,600 RPMMaximum Torque35.6 lb-ft (48.3 Nm) @ 2,500 RPMStarting SystemElectric StartIgnitionDigital CDIBucket Capacity0.025 m³Maximum Digging Depth67.3 inMaximum Machine Height89.4 inMinimum Swing Radius60.2 inTail Turning Radius31.3 inBulldozer Blade Digging Depth10.6 inOperator StationHeavy-Duty Open Canopy Standard Equipment Included Every TYPHON TERROR XIII PRO STORM comes equipped with essential accessories so you can begin working immediately. Included with Your Excavator ✔ Standard 0.025 m³ digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Protective operator canopy ✔ Digital operator's manual Why Choose the TYPHON TERROR XIII PRO STORM? The TYPHON TERROR XIII PRO STORM is built for operators who demand more horsepower, greater reliability, and professional-grade durability. Its commercial Honda engine, compact design, hydraulic thumb, and rugged construction make it an excellent investment for contractors and property owners who require dependable equipment every day. Key Benefits ✔ Powerful 22.1 HP Honda GX690 commercial engine ✔ Reliable electric-start gasoline power ✔ Hydraulic thumb clip included ✔ Compact 1.3-ton design for restricted work areas ✔ Excellent digging performance ✔ Heavy-duty protective canopy ✔ Easy maintenance and dependable operation ✔ Durable construction for long service life ✔ Ideal for construction, agriculture, landscaping, and property maintenance Ideal Applications The TYPHON TERROR XIII PRO STORM is designed to perform across a wide range of industries. Construction Foundation excavation Utility trenching Residential projects Site preparation Agriculture Irrigation installation Fence construction Farm maintenance Land improvement Landscaping Tree planting Pond excavation Retaining wall preparation Material handling Property Maintenance Drainage installation Ditch cleaning Land clearing Storm cleanup Professional Power in a Compact Package The TYPHON TERROR XIII PRO STORM Mini Excavator combines the trusted performance of the Honda GX690 engine, a durable hydraulic system, compact maneuverability, and professional-grade construction into one dependable machine. Designed for contractors, landscapers, farmers, and property owners, it delivers exceptional productivity while remaining easy to transport and operate. Whether you're trenching, digging, grading, or handling materials, the TYPHON TERROR XIII PRO STORM is engineered to help you complete every project with confidence, efficiency, and long-lasting reliability.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836000759-8d78k-bd6a7527-3634-4ad9-9b3a-65db39cf0237.webp",
     gallery: [
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678654548-elzo6-4848479405.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678652787-50477-4848492830.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678650976-44snt-4848492835.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678649345-ec2bv-4848492842.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678656883-ndg8a-4845679340.webp"
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836000759-8d78k-bd6a7527-3634-4ad9-9b3a-65db39cf0237.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781835789046-lay34-c71f8411-7556-4f96-b5ed-533996198f13.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678462181-q8738-typh-1301g_pro.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678458138-7f25t-typh-1301g_pro_13_.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678454601-uqirz-typh-1301g_pro_7_.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678452094-wkhrj-typh-1301g_pro_5_.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678449133-bjevm-typh-1301g_pro_3_2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678442088-sebfy-typh-1301g_pro_0_.webp"
     ],
     specs: [
       {
@@ -306,7 +312,86 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$7,179.90"
+        value: "$8,293.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1301 PRO"
+      },
+      {
+        label: "GTIN",
+        value: "wk6iejilbvyw9i1ie"
+      },
+      {
+        label: "Weight Class",
+        value: "1.3 ton"
+      },
+      {
+        label: "Engine Power",
+        value: "22.1 HP"
+      },
+      {
+        label: "Digging Depth",
+        value: "67"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa",
+    name: "TYPHON Terror XV",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "Mini Excavators",
+    sku: "TYPH-1501G",
+    gtin: "5061030741078",
+    price: "$7 180.74",
+    currentPrice: "$7,180.74",
+    sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XV-STORM-Mini-Excavator-1-05-Ton-Trench-Digger-13-5hp-B&S-EPA-Engine-USA/p/738084952",
+    importConfidence: "100",
+    series: "TERROR mini excavator series",
+    weight: "1.05 ton",
+    tagline: "The TYPHON TERROR XV STORM Mini Excavator - a 1.05 ton trench digger equipped with a canopy and a hydraulic thumb clip, designed for small construction projects.",
+    description: "TYPHON TERROR XV STORM Mini Excavator GTIN: 5061030741078 The TYPHON TERROR XV STORM Mini Excavator is a compact 1.05-ton mini excavator built to deliver reliable digging performance, excellent maneuverability, and outstanding versatility for small construction and landscaping projects. Powered by the dependable 13.5 HP Briggs & Stratton XR2100 engine, this machine combines a compact footprint with professional-grade capabilities, making it ideal for contractors, landscapers, farmers, property owners, and rental fleets. Equipped with a hydraulic thumb clip, protective canopy, and a durable hydraulic system, the TERROR XV STORM is designed to tackle trenching, excavation, grading, material handling, and land-clearing tasks with confidence. Its lightweight design allows for easy transportation while still providing the strength needed for demanding daily operations. Whether you're working in residential backyards, farms, orchards, parks, or confined construction sites, the TYPHON TERROR XV STORM delivers the power and precision needed to get the job done. Key Features Compact Design for Tight Workspaces The TERROR XV STORM is specifically engineered for projects where maneuverability is essential. Its compact dimensions and short tail swing allow operators to work comfortably in restricted areas where larger excavators cannot operate. Compact Advantages Designed for small construction projects Excellent maneuverability in confined spaces Short tail turning radius of 34.3 in Easy transportation between job sites Stable operation on uneven terrain Perfect for residential and commercial properties Ideal for: Gardens Farms Orchards Parks Sidewalks Public spaces Residential construction Landscaping projects Reliable Briggs & Stratton XR2100 Engine The TYPHON TERROR XV STORM is powered by the dependable Briggs & Stratton XR2100 gasoline engine, delivering smooth power, simple maintenance, and reliable performance for everyday excavation tasks. Engine Highlights 13.5 HP Briggs & Stratton XR2100 Reliable gasoline-powered engine Smooth operation Easy maintenance Fuel-efficient performance Built for demanding daily use The XR2100 engine provides dependable power while keeping ownership and maintenance straightforward. Versatile Multi-Purpose Performance Designed as a true all-around compact excavator, the TERROR XV STORM can perform a wide range of excavation and material-handling tasks. Perfect For Trenching Foundation digging Ditch cleaning Landscaping Material handling Drilling Grading Rock breaking Tree planting Land clearing Agricultural maintenance Property development Its compact size makes it especially effective in locations where larger machines have limited access. Hydraulic Thumb for Greater Productivity The included hydraulic thumb clip greatly expands the machine's capabilities by allowing operators to securely grip and move irregular materials. Hydraulic Thumb Benefits Lift rocks and boulders Move logs and tree branches Handle demolition debris Position landscaping materials Improve material handling efficiency Reduce manual labor This attachment transforms the excavator into a highly versatile job-site tool. Simple & Comfortable Operation Designed with user-friendly controls, the TERROR XV STORM is easy to operate for both experienced professionals and first-time operators. Operator Benefits Comfortable operator position Excellent visibility Smooth hydraulic controls Easy maintenance access Stable machine balance Protective overhead canopy The intuitive controls help reduce operator fatigue while improving productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XV STORMGTIN5061030741078Operating Weight1.05 TonsEngineBriggs & Stratton XR2100Maximum Engine Output13.5 HPBucket Capacity0.03 m³Maximum Digging Depth68.3 inTail Swing Radius34.3 inMachine Width39.4 inMachine Height86.2 inGround Clearance15 inOperator StationHeavy-Duty Open Canopy Standard Equipment Included Every TYPHON TERROR XV STORM comes ready for work with essential accessories and attachments. Included with Your Excavator ✔ Standard 0.03 m³ digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Protective operator canopy ✔ Digital operator's manual Why Choose the TYPHON TERROR XV STORM? The TYPHON TERROR XV STORM is built for professionals and property owners who need dependable performance in a compact package. Combining reliable Briggs & Stratton power, a hydraulic thumb, durable construction, and excellent maneuverability, it delivers outstanding value across a wide range of applications. Key Benefits ✔ Reliable 13.5 HP Briggs & Stratton XR2100 engine ✔ Compact 1.05-ton design for tight job sites ✔ Hydraulic thumb clip included ✔ Short tail swing for confined spaces ✔ Excellent digging depth and stability ✔ Easy operation for all experience levels ✔ Durable construction for long service life ✔ Low maintenance and dependable performance Ideal Applications The TYPHON TERROR XV STORM is trusted across multiple industries. Construction Utility trenching Foundation excavation Residential projects Site preparation Agriculture Fence installation Irrigation trenching Farm maintenance Land improvement Landscaping Tree planting Pond excavation Retaining wall preparation Material handling Property Maintenance Drainage installation Ditch cleaning Land clearing Storm cleanup Built for Everyday Performance The TYPHON TERROR XV STORM Mini Excavator combines compact dimensions, reliable Briggs & Stratton power, hydraulic thumb versatility, and professional-grade durability into one dependable machine. Designed for contractors, landscapers, farmers, and property owners, it provides the flexibility and performance needed to complete demanding projects efficiently. From trenching and excavation to landscaping and material handling, the TYPHON TERROR XV STORM is ready to deliver reliable results on every job site.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678654548-elzo6-4848479405.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678654548-elzo6-4848479405.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678652787-50477-4848492830.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678650976-44snt-4848492835.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678649345-ec2bv-4848492842.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678656883-ndg8a-4845679340.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442778315-b9m4z-pasted-image-20260626-095938-gqlyi.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442769599-wmuuq-pasted-image-20260626-095929-gora0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442787099-4s2lm-pasted-image-20260626-095946-v5o0w.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$7,180.74"
       },
       {
         label: "SKU",
@@ -330,131 +415,52 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Capacity",
-        value: "of 0"
+        value: "0"
       }
     ],
     features: [
-      "Designed for Small Projects Specially engineered for small construction projects with a compact and reliable design.",
-      "Wide Range of Uses Compact and user-friendly design for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes.",
-      "Compact but Tough Features a small but high-performance",
-      "User-Friendly Design Micro digger is extremely easy to maneuver, even for first-time users.",
-      "Included accessories Comes with 1 x standard",
-      "Compact tracked platform"
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
-      "Drilling",
-      "Digging",
-      "Grabbing",
-      "Bull-dozing",
-      "Ditch-cleaning",
-      "Small Excavations",
-      "Rock-breaking",
-      "Landscaping"
-    ],
-    imageMatch: "CSV image fields"
-  },
-  {
-    id: "typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-22-1hp-honda-engine-usa",
-    name: "TYPHON Terror XIII (1.3 Ton) - Honda",
-    productType: "equipment",
-    rawProductType: "attachment",
-    category: "mini-excavators",
-    categoryLabel: "Mini Excavator",
-    rawCategory: "Mini Excavators",
-    sku: "",
-    gtin: "wk6iejilbvyw9i1ie",
-    price: "$ 8,398.95 Original price was: $8,398.95. $ 8,293.95 Current price is: $8,293.95.",
-    originalPrice: "$8,398.95",
-    currentPrice: "$8,293.95",
-    sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-22-1hp-honda-engine-usa/",
-    buttonUrl: "/product/typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-22-1hp-honda-engine-usa/",
-    importConfidence: "100",
-    series: "TERROR mini excavator series",
-    weight: "1.3 ton",
-    tagline: "The TYPHON TERROR XIII PRO STORM Mini Excavator is a 1.3-ton trench digger with a canopy and a hydraulic thumb clip. It's perfect for modest construction jobs. This little but powerful machine is designed to be easy to move around and work well in a variety of places, such as farms, gardens, public spaces, parks, orchards, and more.",
-    description: "Comes with Canopy, Hydraulic Thumb Clip, 22.1hp HONDA GX690 Gas engine. The TYPHON TERROR XIII PRO STORM Mini Excavator is a 1.3 ton trench digger with a canopy and a hydraulic thumb clip. It's perfect for modest construction jobs. This little but powerful machine is designed to be easy to move around and work well in a variety of places, such as farms, gardens, public spaces, parks, orchards, and more. TYPHON TERROR XIII PRO STORM Mini Excavator Key Features 1. Designed for Small Projects Designed specifically for little construction jobs, this tool is tiny and dependable. It is great for farms, gardens, public places, parks, orchards, and more because it is easy to move around in confined locations. It has a minimum radius of 60.2 in (5 ft) and a tail turning radius of 31.3 in. 2. Wide Range of Uses The design is tiny and easy to use for drilling, excavating, grabbing, bull-dozing, cleaning ditches, small excavations, breaking rocks, landscaping, and building. 3. Compact but Tough Great resilience and durability for long-term use. It has a modest yet powerful 22.1hp HONDA GX690 gas engine that makes it run smoothly. The Honda GX690 is a 4-stroke, 688 cc V-twin OHV petrol engine that is cooled by air. It makes 22.1 HP (22.1 HP) at 3,600 rpm and 35.6 lb-ft (48.3 Nm) of net torque at 2,500 rpm. It has a forced lubrication system, digital CDI ignition, a 2-barrel carburetor, and an electric start. Can handle heavy construction work without losing performance. 4. User-Friendly Design Even people who have never used a mini digger before can easily move it around. It can be as high as 89.4 in (7.4 ft) and as deep as 67.3 in (5.6 ft) while digging. The bucket can hold 0.033 cu yd of material, and the bull dozer blade can dig down to 10.6 in, making it easy to use for any digging, drilling, or bull-dozing work. 5. Included Accessories It comes with one normal digging 0.033 cu yd excavator bucket and one hydraulic thumb clip. There is one tool box, one canopy, and one digital manual with full instructions.",
-    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836000759-8d78k-bd6a7527-3634-4ad9-9b3a-65db39cf0237.webp",
-    gallery: [
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836000759-8d78k-bd6a7527-3634-4ad9-9b3a-65db39cf0237.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781835789046-lay34-c71f8411-7556-4f96-b5ed-533996198f13.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678462181-q8738-typh-1301g_pro.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678458138-7f25t-typh-1301g_pro_13_.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678454601-uqirz-typh-1301g_pro_7_.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678452094-wkhrj-typh-1301g_pro_5_.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678449133-bjevm-typh-1301g_pro_3_2.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678442088-sebfy-typh-1301g_pro_0_.webp"
-    ],
-    specs: [
-      {
-        label: "Category",
-        value: "Mini Excavator"
-      },
-      {
-        label: "Current Price",
-        value: "$8,293.95"
-      },
-      {
-        label: "GTIN",
-        value: "wk6iejilbvyw9i1ie"
-      },
-      {
-        label: "Weight Class",
-        value: "1.3 ton"
-      },
-      {
-        label: "Engine Power",
-        value: "22.1 HP"
-      },
-      {
-        label: "Engine",
-        value: "Honda The TYPHON TERROR XIII"
-      }
-    ],
-    features: [
-      "Designed for Small Projects Designed specifically for little construction jobs, this tool is tiny and dependable.",
-      "Wide Range of Uses The design is tiny and easy to use for drilling, excavating, grabbing, bull-dozing, cleaning ditches, small excavations, breaking rocks, landscaping, and building.",
-      "Compact but Tough Great resilience and durability for long-term use.",
-      "User-Friendly Design Even people who have never used a mini digger before can easily move it around.",
-      "Included accessories It comes with one normal digging",
-      "Compact tracked platform"
-    ],
-    applications: [
-      "The Design Is Tiny",
-      "Easy To Use For Drilling",
-      "Excavating",
-      "Grabbing",
-      "Bull-dozing",
-      "Cleaning Ditches",
-      "Small Excavations",
-      "Breaking Rocks"
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa",
-    name: "TYPHON Terror XVIII (1.8 Ton) - Kubota D902",
+    name: "TYPHON Terror XVIII Capony",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "Mini Excavators",
-    sku: "",
+    sku: "TYPH-1801G",
     gtin: "5061030740279",
-    price: "$ 16,275.00 Original price was: $16,275.00. $ 13,648.95 Current price is: $13,648.95.",
-    originalPrice: "$16,275.00",
-    currentPrice: "$13,648.95",
+    price: "$12 482.40",
+    currentPrice: "$12,482.40",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa/",
-    buttonUrl: "/product/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa/",
+    buttonUrl: "/product#!/2025-4-000-lb-TYPHON-TERROR-XVIII-Mini-Excavator-Rubber-Track-with-Kubota-Diesel-Engine-USA/p/718564616",
     importConfidence: "",
     series: "TERROR mini excavator series",
-    weight: "1.8 ton",
-    tagline: "TYPHON Terror XVIII (1.8 Ton) - Kubota D902 — Typhon mini excavator for jobsite work.",
-    description: "TYPHON Terror XVIII (1.8 Ton) - Kubota D902 — Typhon mini excavator for jobsite work.",
+    weight: "4,000 lb",
+    tagline: "Introducing the TYPHON TERROR XVIII Rugged Mini Excavator, a pinnacle of luxury and efficiency in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a statement. With a focus on flexibility, ease of transport, and superior heat dissipation, the TYPHON XVIII Rugged is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards. Let's delve into the key features that make the TYPHON Rugged stand out.",
+    description: "TYPHON TERROR XVIII Rugged Mini Excavator GTIN: 5061030740927 The TYPHON TERROR XVIII Rugged Mini Excavator is a premium 4,000 lb compact excavator built for professionals who demand exceptional durability, reliable performance, and superior maneuverability. Part of TYPHON's Rugged Series, this excavator is engineered to tackle demanding construction, landscaping, agricultural, and property maintenance projects while maintaining the compact size needed to work efficiently in confined spaces. Powered by the proven EPA-certified Kubota D902 diesel engine, the TERROR XVIII Rugged delivers impressive digging power, excellent fuel efficiency, and long-term reliability. Equipped with a hydraulic thumb clip, 15.7 in digging bucket, steel mesh windshield, and protective canopy, it offers the versatility needed for excavation, trenching, grading, material handling, and orchard maintenance. Whether you're working on residential construction sites, farms, orchards, or commercial developments, the TYPHON TERROR XVIII Rugged provides dependable performance and professional results every day. Key Features Reliable EPA-Certified Kubota D902 Engine The TERROR XVIII Rugged is powered by the industry-proven Kubota D902 diesel engine, delivering outstanding reliability, fuel efficiency, and consistent power while meeting EPA emissions standards. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder diesel 20.4 HP @ 3,600 RPM 16 HP @ 2,200 RPM Fuel-efficient operation Smooth and dependable performance Easy maintenance The Kubota engine provides the power needed for demanding excavation work while keeping operating costs low. Rugged Series Construction The TERROR XVIII Rugged is designed for operators who need a machine capable of handling harsh job-site conditions without compromising reliability. Rugged Series Benefits Heavy-duty steel construction Reinforced structural components Built for demanding environments Long service life Durable professional finish Designed for daily commercial use Every component is engineered to maximize durability and reduce downtime. Compact Design with Outstanding Maneuverability The compact dimensions allow the TERROR XVIII Rugged to work efficiently in restricted areas where larger excavators cannot operate. Ideal Applications Residential construction Landscaping Farms Orchards Parks Municipal maintenance Utility installation Property maintenance Indoor renovation projects Commercial developments Its compact footprint also makes transportation between job sites simple and efficient. Efficient Cooling System Designed for continuous operation, the TERROR XVIII Rugged features an optimized cooling system that helps maintain stable operating temperatures during demanding workloads. Cooling Benefits Superior heat dissipation Stable hydraulic performance Longer component life Improved reliability Reduced operating temperatures during extended use This allows operators to work longer with greater confidence in challenging conditions. Versatile Multi-Purpose Performance The TERROR XVIII Rugged is built to perform a wide variety of excavation and material-handling tasks. Perfect For Excavation Trenching Landscaping Tree planting Orchard maintenance Irrigation installation Ditch cleaning Material handling Land grading Property maintenance Agricultural work General earthmoving Its compact design and hydraulic thumb allow operators to perform multiple jobs using a single machine. Easy & Comfortable Operation The excavator is designed to be simple to operate while maintaining excellent stability and control. Operator Benefits Smooth hydraulic controls Excellent visibility Comfortable operating position Protective overhead canopy Easy maintenance access Beginner-friendly operation Operators can work confidently throughout the day with reduced fatigue and improved productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVIII RuggedGTIN5061030740927Operating Weight4,000 lbsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselEngine Output20.4 HP @ 3,600 RPM / 16 HP @ 2,200 RPMFuel Tank Capacity7.3 LHydraulic Oil Capacity18.9 LBucket Width15.7 inHydraulic Thumb ClipIncludedOperator StationHeavy-Duty Canopy Standard Equipment Included Every TYPHON TERROR XVIII Rugged comes fully equipped with essential accessories so you can begin working immediately. Included with Your Excavator ✔ Standard 15.7 in digging bucket ✔ Hydraulic thumb clip ✔ Steel mesh windshield ✔ Heavy-duty operator canopy ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XVIII Rugged? The TERROR XVIII Rugged combines the trusted reliability of the Kubota D902 diesel engine with durable Rugged Series construction, efficient cooling, and outstanding versatility. Designed for professionals who require dependable performance in demanding environments, it offers the strength, durability, and flexibility needed to complete a wide range of excavation projects. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Rugged Series heavy-duty construction ✔ 4,000 lb operating weight ✔ Hydraulic thumb clip included ✔ Efficient cooling system ✔ 15.7 in digging bucket ✔ Steel mesh windshield ✔ Protective operator canopy ✔ Easy maintenance and dependable operation Ideal Applications The TYPHON TERROR XVIII Rugged is trusted across multiple industries. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Orchard maintenance Tree planting Irrigation installation Farm improvements Landscaping Pond excavation Retaining wall preparation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing General excavation Rugged Strength. Professional Results. The TYPHON TERROR XVIII Rugged Mini Excavator combines the dependable performance of the Kubota D902 diesel engine, reinforced Rugged Series construction, efficient cooling technology, and compact maneuverability into one professional-grade machine. Built for demanding construction, landscaping, agricultural, and property maintenance applications, it delivers the durability, efficiency, and reliability needed to tackle every project with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679306782-a11le-4716955522.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679306782-a11le-4716955522.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679310958-041nh-4716719247.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444549222-r32pt-pasted-image-20260626-102908-qwssd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444574448-kc382-pasted-image-20260626-102933-ktl6w.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444561387-rysz8-pasted-image-20260626-102920-xjcpv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444555122-9f85t-pasted-image-20260626-102915-g8v67.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679296304-ydrq4-4716719178.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679310958-041nh-4716719247.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679308193-q4fdl-4716827056.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679303957-asmay-4718844472.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679298383-pq2i4-4719020866.webp"
@@ -466,7 +472,11 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$13,648.95"
+        value: "$12,482.40"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1801G"
       },
       {
         label: "GTIN",
@@ -474,11 +484,15 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Weight Class",
-        value: "1.8 ton"
+        value: "4,000 lb"
       },
       {
-        label: "Engine",
-        value: "Kubota D902"
+        label: "Engine Power",
+        value: "20.4 HP"
+      },
+      {
+        label: "Capacity",
+        value: "7"
       }
     ],
     features: [
@@ -498,24 +512,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa-2",
-    name: "TYPHON Terror XVIII (2.0 Ton) - Kubota D902",
+    name: "TYPHON Terror XVIII Cabin",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "Mini Excavators",
-    sku: "",
+    sku: "TYPH-1802R",
     gtin: "5061030740262",
-    price: "$ 16,275.00 Original price was: $16,275.00. $ 13,648.95 Current price is: $13,648.95.",
-    originalPrice: "$16,275.00",
+    price: "$13 648.95",
     currentPrice: "$13,648.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa-2/",
-    buttonUrl: "/product/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa-2/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XVIII-Prestige-2-Ton-Mini-Excavator-KUBOTA-Diesel-Engine-USA/p/579692505",
     importConfidence: "100",
     series: "TERROR mini excavator series",
-    weight: "2.0 ton",
+    weight: "2 ton",
     tagline: "Introducing the TYPHON TERROR XVIII Prestige Mini Excavator, a two-ton trench digger that redefines luxury in small-scale construction projects. Engineered for elegance and efficiency, this mini excavator combines compact design with powerful performance to make it the ideal choice for garden, farms, parks, and roads.",
-    description: "Introducing the TYPHON TERROR XVIII Prestige Mini Excavator, a two-ton trench digger that redefines luxury in small-scale construction projects. Engineered for elegance and efficiency, this mini excavator combines compact design with powerful performance to make it the ideal choice for gardens, farms, parks, and roads. Let's delve into the exceptional features that set the TYPHON TERROR XVIII Prestige apart. TYPHON TERROR XVIII Prestige Mini Excavator Key Features 1. Compact and Powerful Specially engineered for small and medium projects, ensuring easy maneuverability in restricted spaces without compromising on power. 2. Versatile Applications Perfect for a wide range of tasks, including drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, and landscaping. 3. Kubota Engine Excellence Features a small yet high-performance Kubota D902 engine, a vertical, water-cooled, 3-cylinder, 4-cycle IDI diesel engine with a capacity of 20.4HP at 3600RPM and 15.8HP at 2200RPM, providing the reliability and power required for intensive construction projects. 4. User-Friendly Design Designed for ease of use, even for first-time operators, with a 15 in wide bucket, platform ground clearance, and a versatile boom swing, facilitating smooth operation in various excavation tasks. 5. Luxurious Aircon/Heater Cabin The TYPHON TERROR XVIII Prestige comes equipped with a cabin featuring air conditioning and heating, ensuring operator comfort in diverse weather conditions. 6. Comprehensive Package The mini excavator package includes 1 x standard digging excavator bucket, 1 x tool box, a cabin with aircon/heater, and a digital manual with detailed instructions for convenient operation. 7. FREE Hydraulic Thumb Clip As an added bonus, the TYPHON TERROR XVIII Prestige comes with a complimentary Hydraulic Thumb Clip, enhancing the excavator's versatility in grabbing and holding tasks. Successful Projects at A Mini Scale Our mini excavator is engineered to meet the demands of small and medium projects. With a 2-ton capacity, 0.039 cu yd wide bucket, and a versatile boom swing, the TYPHON TERROR XVIII excels in reliability and maneuverability. From gardens and farms to public spaces, it's your compact powerhouse for successful excavation endeavors. The TYPHON TERROR XVIII Prestige Mini Excavator isn't just a machine; it's a symbol of luxury and performance in small-scale excavation. Elevate your projects with the sophistication and power of TYPHON. Choose excellence, choose TYPHON TERROR XVIII Prestige for a new era in mini excavators. Unleash luxury in every excavation task.",
+    description: "TYPHON TERROR XVIII Prestige Mini Excavator GTIN: 5061030740262 The TYPHON TERROR XVIII Prestige Mini Excavator is a premium 2-ton compact excavator designed to deliver professional-grade power, precision, and operator comfort for contractors, landscapers, farmers, and property owners. Combining the trusted performance of the Kubota D902 diesel engine with a fully enclosed air-conditioned and heated cabin, this Prestige model is built to maximize productivity while keeping operators comfortable in every season. Designed for small to medium-sized construction projects, the TERROR XVIII Prestige features a compact chassis, boom swing, a 15 in digging bucket, and a FREE hydraulic thumb clip, making it an excellent choice for trenching, excavation, landscaping, utility installation, grading, and material handling. Whether you're preparing foundations, maintaining orchards, installing drainage systems, or completing residential construction projects, the TYPHON TERROR XVIII Prestige delivers dependable performance and exceptional versatility. Key Features Powerful Kubota D902 Diesel Engine The TERROR XVIII Prestige is equipped with the proven Kubota D902 diesel engine, offering outstanding reliability, smooth operation, and excellent fuel efficiency for demanding professional applications. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder, 4-cycle IDI diesel 20.4 HP @ 3,600 RPM 15.8 HP @ 2,200 RPM Smooth, fuel-efficient performance Easy maintenance Long service life The Kubota engine provides dependable power for excavation, trenching, grading, and material handling while maintaining low operating costs. Compact Yet Powerful Design Engineered specifically for small and medium-sized projects, the TERROR XVIII Prestige delivers impressive digging performance while remaining compact enough to access confined work areas. Ideal Applications Residential construction Commercial construction Landscaping Farms Orchards Parks Utility installation Municipal maintenance Property development General excavation Its compact footprint makes transportation easy while improving productivity in restricted spaces. Boom Swing for Greater Flexibility The integrated boom swing system provides additional digging flexibility by allowing operators to work closer to buildings, fences, and other obstacles. Boom Swing Benefits Dig alongside walls and structures Improved trenching accuracy Better confined-space operation Reduced machine repositioning Increased job-site productivity This feature helps complete projects faster while improving overall efficiency. Premium Enclosed Cabin with A/C & Heater The Prestige model includes a fully enclosed operator cabin designed to provide outstanding comfort in every working environment. Cabin Features Fully enclosed operator station Integrated air conditioning Built-in heating system Comfortable seating Excellent visibility Protection from weather, dust, and debris The climate-controlled cabin helps reduce operator fatigue during long workdays and allows year-round productivity. FREE Hydraulic Thumb Clip Included The included hydraulic thumb significantly expands the excavator's capabilities by improving material handling and demolition performance. Hydraulic Thumb Benefits Securely grab logs and branches Handle rocks and concrete Move demolition debris Load landscaping materials Increase job-site efficiency Reduce manual labor The hydraulic thumb transforms the excavator into a versatile material-handling machine. Versatile Multi-Purpose Performance Built to perform a wide range of applications, the TERROR XVIII Prestige is suitable for both professional contractors and property owners. Perfect For Excavation Foundation preparation Utility trenching Landscaping Ditch cleaning Tree planting Land grading Material handling Agricultural work Property maintenance Rock removal General earthmoving Its compact size and responsive hydraulics make it ideal for demanding daily operations. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVIII PrestigeGTIN5061030740262Operating Weight2 TonsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselEngine Output20.4 HP @ 3,600 RPM / 15.8 HP @ 2,200 RPMBucket Width15 inBucket Capacity0.03 m³Boom SwingYesHydraulic Thumb ClipIncluded (FREE)Operator StationEnclosed Cabin with A/C & Heater Standard Equipment Included Every TYPHON TERROR XVIII Prestige comes fully equipped with professional accessories to maximize productivity from day one. Included with Your Excavator ✔ Standard 15 in digging bucket ✔ FREE hydraulic thumb clip ✔ Fully enclosed A/C and heater cabin ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XVIII Prestige? The TERROR XVIII Prestige combines Kubota reliability, premium operator comfort, compact maneuverability, and professional-grade durability into one highly capable excavator. Designed for contractors and professionals who require dependable performance in confined work environments, it delivers exceptional value across construction, landscaping, agriculture, and utility applications. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Compact 2-ton operating weight ✔ Fully enclosed air-conditioned cabin ✔ Integrated heating system ✔ FREE hydraulic thumb clip included ✔ Boom swing for greater flexibility ✔ 15 in digging bucket ✔ Excellent maneuverability ✔ Durable heavy-duty construction Ideal Applications The TYPHON TERROR XVIII Prestige is trusted across a wide range of industries. Construction Foundation excavation Utility trenching Site preparation Residential and commercial projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Retaining wall preparation Property grading Property Maintenance Drainage installation Ditch cleaning Land clearing General excavation Luxury, Comfort & Professional Performance. The TYPHON TERROR XVIII Prestige Mini Excavator combines the trusted performance of the Kubota D902 diesel engine, compact maneuverability, a FREE hydraulic thumb clip, and the comfort of a fully enclosed air-conditioned and heated cabin into one professional-grade excavator. Built for demanding construction, landscaping, agricultural, and utility applications, it delivers the power, versatility, and reliability professionals need to complete every project with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836458619-f49ee-9a7d34aa-df27-465f-810d-c60b299eb3ba.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836458619-f49ee-9a7d34aa-df27-465f-810d-c60b299eb3ba.webp",
@@ -527,7 +540,13 @@ export const typhonProducts: TyphonProduct[] = [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678962901-wxult-m1_desktop.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678960189-9doru-m2_mobile.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678958634-66ydi-m3_mobile_3.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678954571-xxsen-3796118659.webp"
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678954571-xxsen-3796118659.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445837598-mh95b-pasted-image-20260626-105036-7iyxi.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445812404-526w8-pasted-image-20260626-105012-keif2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445817846-6f82m-pasted-image-20260626-105017-35nxa.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445822112-czky3-pasted-image-20260626-105021-eo5k6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445824828-tuav6-pasted-image-20260626-105024-bylnk.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445807107-pcpc6-pasted-image-20260626-105006-eolhy.webp"
     ],
     specs: [
       {
@@ -539,49 +558,118 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$13,648.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-1802R"
+      },
+      {
         label: "GTIN",
         value: "5061030740262"
       },
       {
         label: "Weight Class",
-        value: "2.0 ton"
+        value: "2 ton"
       },
       {
         label: "Engine Power",
         value: "20.4 HP"
       },
       {
-        label: "Engine",
-        value: "Kubota D902 Introducing the TYPHON"
-      },
-      {
         label: "Capacity",
-        value: "of 20"
+        value: "0"
       }
     ],
     features: [
-      "Compact and Powerful Specially engineered for small and medium projects, ensuring easy maneuverability in restricted spaces without compromising on power.",
-      "Versatile Applications Perfect for a wide range of tasks, including drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, and landscaping.",
-      "Kubota Engine Excellence Features a small yet high-performance Kubota D902 engine, a vertical, water-cooled, 3-cylinder, 4-cycle IDI diesel engine with a capacity of",
-      "User-Friendly Design Designed for ease of use, even for first-time operators, with a 15 in wide bucket, platform ground clearance, and a versatile boom swing, facilitating smooth operation in various excavation tasks.",
-      "Luxurious Aircon/Heater Cabin The TYPHON TERROR XVIII Prestige comes equipped with a cabin featuring air conditioning and heating, ensuring operator comfort in diverse weather conditions.",
-      "Comprehensive package The mini excavator package includes 1 x standard digging excavator bucket, 1 x tool box, a cabin with aircon/heater, and a digital manual with detailed instructions for convenient operation."
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
-      "Drilling",
-      "Digging",
-      "Grabbing",
-      "Bull-dozing",
-      "Ditch-cleaning",
-      "Small Excavations",
-      "Rock-breaking",
-      "And Landscaping"
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902",
+    name: "TYPHON Terror XX",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "Mini Excavators",
+    sku: "TYPH-XX01-G",
+    gtin: "5061030740941",
+    price: "$12 598.95",
+    currentPrice: "$12,598.95",
+    sourceUrl: "https://typhonmachinery.com/product/2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902/",
+    buttonUrl: "/product#!/2025-4-000-lb-TYPHON-TERROR-XX-Mini-Excavator-Rubber-Track-with-Kubota-D902-Diesel-Engine-USA/p/735026806",
+    importConfidence: "100",
+    series: "TERROR mini excavator series",
+    weight: "4,000 lb",
+    tagline: "Introducing the TYPHON TERROR XX Lux Mini Excavator, a pinnacle of luxury and efficiency in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a statement.",
+    description: "TYPHON TERROR XX Mini Excavator GTIN: 5061030741047 The TYPHON TERROR XX Mini Excavator is a premium 4,000 lb compact crawler excavator engineered to deliver exceptional digging power, outstanding maneuverability, and long-lasting durability for professional construction, landscaping, agriculture, and property maintenance applications. As part of TYPHON's Rugged Series, the TERROR XX combines rugged engineering with modern styling, creating a machine that performs as impressively as it looks. Powered by the dependable EPA-certified Kubota D902 diesel engine, this compact excavator is equipped with a 17.7 in heavy-duty digging bucket, hydraulic thumb clip, and an optimized hydraulic system designed to maximize efficiency during demanding excavation projects. Whether you're trenching, grading, clearing land, or maintaining orchards, the TERROR XX is built to deliver reliable performance day after day. Key Features Reliable EPA-Certified Kubota D902 Engine At the heart of the TERROR XX is the proven Kubota D902 diesel engine, recognized worldwide for its reliability, fuel efficiency, and long service life. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder diesel Smooth, dependable performance Excellent fuel efficiency Easy maintenance Designed for demanding professional use The engine provides consistent power for excavation, grading, lifting, and material handling while meeting EPA emissions standards. Premium Rugged Series Design The TERROR XX is part of TYPHON's premium Rugged Series, combining heavy-duty durability with a refined, modern appearance. Rugged Series Benefits Reinforced steel construction Premium green finish Built for demanding job sites Durable structural components Long service life Professional-grade engineering Designed to withstand daily commercial use, the Rugged Series delivers dependable performance in harsh working environments. Compact Design with Exceptional Maneuverability Despite its powerful performance, the TERROR XX maintains compact dimensions, allowing operators to work efficiently in confined spaces. Ideal Applications Residential construction Landscaping Farms Orchards Parks Utility installation Municipal maintenance Greenhouses Property maintenance Commercial developments Its compact crawler design provides excellent stability while minimizing ground disturbance. Efficient Hydraulic System The TERROR XX features a high-capacity hydraulic system engineered for smooth operation and dependable performance. Hydraulic Features Hydraulic thumb clip included 20.5 L hydraulic oil capacity Smooth hydraulic response Excellent attachment compatibility Stable hydraulic performance Optimized oil flow for improved efficiency The larger hydraulic oil capacity helps maintain consistent performance during extended operating periods. Outstanding Digging Capability Built for productivity, the TERROR XX comes equipped with a larger digging bucket to improve excavation efficiency. Bucket Specifications Bucket Width: 17.7 in Bucket Capacity: 0.045 m³ Hydraulic thumb clip included Excellent material handling capability Efficient digging performance The wider bucket allows operators to move more material with every pass, increasing overall job-site productivity. Built for Easy Operation The TERROR XX is designed to provide operators with simple controls, comfortable operation, and dependable reliability throughout the workday. Operator Benefits Smooth hydraulic controls Excellent visibility Comfortable operating position Easy maintenance access Stable crawler platform Beginner-friendly operation Its intuitive design allows both experienced operators and first-time users to work confidently and efficiently. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XXGTIN5061030741047Operating Weight4,000 lbsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselFuel Tank Capacity13.5 LHydraulic Oil Capacity20.5 LBucket Width17.7 inBucket Capacity0.045 m³Hydraulic Thumb ClipIncluded Standard Equipment Included Every TYPHON TERROR XX comes equipped with premium accessories so you can begin working immediately. Included with Your Excavator ✔ Standard 17.7 in digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XX? The TERROR XX combines Kubota reliability, Rugged Series durability, and compact maneuverability into one professional-grade excavator. Built for operators who need dependable performance in demanding environments, it delivers outstanding efficiency, versatility, and long-term value. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Rugged Series heavy-duty construction ✔ 4,000 lb operating weight ✔ 17.7 in heavy-duty digging bucket ✔ Hydraulic thumb clip included ✔ 20.5 L hydraulic oil capacity ✔ 13.5 L fuel tank ✔ Compact crawler design for restricted work areas ✔ Durable construction for professional daily use Ideal Applications The TYPHON TERROR XX is trusted across multiple industries. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing General earthmoving Rugged Performance. Professional Results. The TYPHON TERROR XX Mini Excavator combines the proven reliability of the Kubota D902 diesel engine, premium Rugged Series construction, a high-capacity hydraulic system, and a 17.7 in heavy-duty digging bucket into one compact machine built for demanding excavation work. Whether you're working on construction sites, agricultural projects, landscaping jobs, or property maintenance, the TYPHON TERROR XX delivers the power, durability, and versatility professionals depend on every day.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836964649-c7qop-image.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836964649-c7qop-image.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837582566-c68sh-pasted-image-20260619-095302-0m3az.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837031666-y8oth-image.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836928469-h9qz4-image.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679669396-gprgw-1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679666332-5puy4-2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679663270-5zlma-3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679661608-0mxc8-4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679659100-42ars-5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679657062-j2rx2-6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679653894-ne4ct-7.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$12,598.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-XX01-G"
+      },
+      {
+        label: "GTIN",
+        value: "5061030740941"
+      },
+      {
+        label: "Weight Class",
+        value: "4,000 lb"
+      },
+      {
+        label: "Capacity",
+        value: "hydraulic system engineered for smooth operation and dependable performance"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa",
-    name: "TYPHON XXV (2.5 Ton) - Kubota D1105",
+    name: "TYPHON Terror XXV Capony",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -589,16 +677,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "Mini Excavators",
     sku: "TYPH-XX51G",
     gtin: "5061030741153",
-    price: "$ 25,500.00 Original price was: $25,500.00. $ 20,998.95 Current price is: $20,998.95.",
-    originalPrice: "$25,500.00",
+    price: "$20 998.95",
     currentPrice: "$20,998.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa/",
-    buttonUrl: "/product/typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XXV-2-5-Ton-Mini-Excavator-KUBOTA-Diesel-Engine-USA/p/756194008",
     importConfidence: "100",
-    series: "Mini Excavator series",
+    series: "TERROR mini excavator series",
     weight: "2.5 ton",
     tagline: "TYPHON TERROR XXV Mini Excavator, a two-and-a-half-ton trench digger designed to bring luxury and efficiency to small and medium construction projects. With its compact yet robust design, this mini excavator is engineered for easy maneuverability in various settings, including farms, gardens, public spaces, parks, orchards, and more.",
-    description: "Introducing the TYPHON TERROR XXV Mini Excavator, a two-and-a-half-ton trench digger that combines luxury and efficiency for small and medium-sized construction jobs. This tiny excavator's compact yet durable design allows for simple movement in a variety of environments, including farms, gardens, public areas, parks, orchards, and more. Let's look at the amazing qualities that distinguish the TYPHON TERROR XXV. TYPHON TERROR XXV Mini Excavator Key Features 1. Compact and Versatile Design Specially engineered for small and medium projects, ensuring optimal performance in restricted spaces without compromising power. 2. Diverse Applications Perfect for a wide range of tasks, including drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, and landscaping. 3. High-Performance Kubota Engine Features a small yet powerful Kubota D1105, a vertical, water-cooled, four-cycle diesel engine with a capacity of 25.1HP at 3000 RPM and 19 HP at 2200 RPM. Lightweight, dependable, and versatile. At 2200 rpm, a Kubota D1105 engine produces a maximum torque of 71.4Nm (52.7lb-ft) 4. User-Friendly Operation Designed for easy maneuverability, even for first-time users, with a 450mmwide bucket, platform ground clearance, and a versatile boom swing for smooth operation in various excavation tasks. 5. Comprehensive Package The mini excavator package includes 1 x standard digging excavator bucket, 1x hydraulic thumb clip, 1 x toolbox, and a digital manual with detailed instructions for convenient operation. Successful Projects at A Mini Scale Our mini excavator is engineered to excel in small and medium projects. With a 2.5-ton operating weight, 0.092 cu yd bucket, and a versatile boom swing, the TYPHON TERROR XXV performs reliably and maneuverably in various conditions. From gardens and farms to public spaces, it stands as a compact powerhouse for successful excavation endeavors. Additional Features Digging Depth and Height: 80.5 in (6.7 ft) digging depth and 132.5 in (11 ft) digging height. Minimum Swing Radius: 77 in (6.4 ft). Engine Cooling: Outstanding resistance and durability with water-cooling for the engine. Easy Maneuverability: Boom swing for easy operation in confined spaces. The TYPHON TERROR XXV Mini Excavator isn't just a machine; it's a symbol of luxury and performance in small-scale excavation. Choose excellence; choose TYPHON TERROR XXV for a new era in mini excavators. Elevate your projects with the sophistication and power of TYPHON. Unleash luxury in every excavation task.",
+    description: "TYPHON TERROR XXV Mini Excavator GTIN: 5061030741153 The TYPHON TERROR XXV Mini Excavator is a powerful 2.5-ton compact excavator engineered for contractors, landscapers, farmers, and construction professionals who require greater digging power without sacrificing maneuverability. Designed for small to medium-sized projects, the TERROR XXV combines the proven reliability of the Kubota D1105 diesel engine with a compact chassis, responsive hydraulic system, and exceptional versatility. Equipped with a 17.7 in heavy-duty digging bucket, hydraulic thumb clip, and boom swing, this excavator delivers outstanding performance for excavation, trenching, grading, utility installation, landscaping, and material handling. Its compact dimensions make it ideal for confined workspaces while providing the strength and stability needed for demanding professional applications. Whether you're preparing building foundations, installing drainage systems, clearing land, or maintaining agricultural properties, the TYPHON TERROR XXV is built to maximize productivity and efficiency. Key Features Powerful Kubota D1105 Diesel Engine The TERROR XXV is powered by the dependable Kubota D1105, a water-cooled diesel engine designed to provide smooth power delivery, excellent fuel economy, and long service life. Engine Highlights Kubota D1105 Diesel Engine Vertical water-cooled 4-cycle diesel 25.1 HP @ 3,000 RPM 19 HP @ 2,200 RPM Maximum Torque: 71.4 Nm (52.7 lb-ft) @ 2,200 RPM Excellent fuel efficiency Low maintenance requirements Built for demanding commercial applications The Kubota engine provides reliable power for heavy excavation, grading, and material-handling tasks while maintaining smooth operation throughout the workday. Compact Design with Professional Capability Despite its powerful performance, the TERROR XXV remains compact enough to work efficiently in restricted areas where larger excavators cannot easily operate. Ideal Applications Residential construction Commercial construction Landscaping Farms Orchards Utility installation Municipal maintenance Property development Drainage projects General earthmoving Its compact footprint makes transportation between job sites simple while maintaining excellent stability during operation. Boom Swing for Greater Precision The integrated boom swing system improves flexibility and allows operators to work more efficiently around structures and obstacles. Boom Swing Benefits Dig alongside buildings Easier trenching near walls Improved confined-space operation Reduced machine repositioning Increased job-site productivity This feature is especially valuable for residential construction and utility work. Versatile Multi-Purpose Performance The TERROR XXV is engineered to perform a wide variety of excavation and earthmoving applications. Perfect For Foundation excavation Utility trenching Land grading Landscaping Tree planting Ditch cleaning Material handling Rock removal Agricultural maintenance Drainage installation Property development General construction The included hydraulic thumb clip further expands the machine's ability to handle logs, rocks, debris, and other irregular materials. Smooth & User-Friendly Operation Designed for maximum productivity, the TERROR XXV provides intuitive controls and excellent maneuverability for operators of all experience levels. Operator Benefits Smooth hydraulic controls Excellent visibility Comfortable operating position Stable compact chassis Easy maintenance access Beginner-friendly operation Its balanced design helps reduce operator fatigue while improving precision and efficiency. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XXVGTIN5061030741153Operating Weight2.5 TonsEngineKubota D1105 DieselEngine TypeWater-Cooled 4-Cycle DieselEngine Output25.1 HP @ 3,000 RPMRated Output19 HP @ 2,200 RPMMaximum Torque71.4 Nm (52.7 lb-ft) @ 2,200 RPMBucket Width17.7 inBucket Capacity0.07 m³Maximum Digging Depth80.5 inMaximum Digging Height132.5 inMinimum Swing Radius77 inBoom SwingYesHydraulic Thumb ClipIncluded Standard Equipment Included Every TYPHON TERROR XXV comes fully equipped with professional accessories so you can begin working immediately. Included with Your Excavator ✔ Standard 17.7 in digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XXV? The TYPHON TERROR XXV combines the dependable power of the Kubota D1105 engine with compact maneuverability, boom swing functionality, and rugged construction. Designed for professionals who require more digging power without moving to a full-size excavator, it delivers exceptional performance across construction, landscaping, agriculture, and utility applications. Key Benefits ✔ Powerful Kubota D1105 diesel engine ✔ 2.5-ton compact operating weight ✔ 25.1 HP professional diesel power ✔ Hydraulic thumb clip included ✔ Boom swing for confined-space digging ✔ 17.7 in heavy-duty digging bucket ✔ 0.07 m³ bucket capacity ✔ Excellent maneuverability ✔ Durable construction for long service life Ideal Applications The TYPHON TERROR XXV is trusted across a wide range of industries. Construction Foundation excavation Utility trenching Site preparation Residential and commercial projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Retaining wall preparation Property grading Property Maintenance Drainage installation Ditch cleaning Land clearing General earthmoving More Power. More Productivity. The TYPHON TERROR XXV Mini Excavator combines the proven performance of the Kubota D1105 diesel engine, a compact 2.5-ton chassis, boom swing capability, and a 17.7 in heavy-duty digging bucket into one professional-grade excavator. Built for demanding construction, landscaping, agricultural, and utility projects, it delivers the power, precision, and reliability professionals need to complete every job with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837721658-1swvx-pasted-image-20260619-095521-bref4.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837721658-1swvx-pasted-image-20260619-095521-bref4.webp",
@@ -644,21 +731,19 @@ export const typhonProducts: TyphonProduct[] = [
         value: "25.1 HP"
       },
       {
-        label: "Engine",
-        value: "Kubota D1105 TYPHON TERROR XXV"
-      },
-      {
         label: "Digging Depth",
         value: "80"
+      },
+      {
+        label: "Capacity",
+        value: "0"
       }
     ],
     features: [
-      "Compact and Versatile Design Specially engineered for small and medium projects, ensuring optimal performance in restricted spaces without compromising power.",
-      "Diverse Applications Perfect for a wide range of tasks, including drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, and landscaping.",
-      "High-Performance Kubota Engine Features a small yet powerful Kubota D1105, a vertical, water-cooled, four-cycle diesel engine with a capacity of",
-      "User-Friendly Operation Designed for easy maneuverability, even for first-time users, with a 450mmwide bucket, platform ground clearance, and a versatile boom swing for smooth operation in various excavation tasks.",
-      "Comprehensive package The mini excavator package includes 1 x standard digging excavator bucket, 1x hydraulic thumb clip, 1 x toolbox, and a digital manual with detailed instructions for convenient operation.",
-      "Compact tracked platform"
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
       "Trenching",
@@ -670,86 +755,8 @@ export const typhonProducts: TyphonProduct[] = [
     imageMatch: "CSV image fields"
   },
   {
-    id: "2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902",
-    name: "TYPHON Terror XX (1.8 Ton) - Kubota D902",
-    productType: "equipment",
-    rawProductType: "equipment",
-    category: "mini-excavators",
-    categoryLabel: "Mini Excavator",
-    rawCategory: "Mini Excavators",
-    sku: "TYPH-XX01Y",
-    gtin: "5061030740941",
-    price: "$ 15,225.00 Original price was: $15,225.00. $ 12,482.40 Current price is: $12,482.40.",
-    originalPrice: "$15,225.00",
-    currentPrice: "$12,482.40",
-    sourceUrl: "https://typhonmachinery.com/product/2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902/",
-    buttonUrl: "/product/2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902/",
-    importConfidence: "100",
-    series: "TERROR mini excavator series",
-    weight: "1.8 ton",
-    tagline: "Introducing the TYPHON TERROR XX Lux Mini Excavator, a pinnacle of luxury and efficiency in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a statement.",
-    description: "Introducing the TYPHON TERROR XX Lux Mini Excavator, a pinnacle of luxury and efficiency in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a statement. With a focus on flexibility, ease of transport, and superior heat dissipation, the TERROR XX compact crawler is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards. Let's delve into the key features that make the TYPHON TERROR XX Lux stand out. TYPHON TERROR XX 4,000 lb Mini Excavator Key Features 1. EPA Certified Kubota Engine Equipped with an EPA certified Kubota D902 engine, ensuring compliance with environmental standards while delivering powerful performance. Comes with a 20.5L hydraulic oil tank and a 13.5L diesel oil tank. 2. Luxury Series Design The TYPHON TERROR XX Luxury series belongs to a rugged series, combining toughness and luxury with functionality. It's designed for those who appreciate sophistication in machinery while overcoming the challenges of projects . 3. Flexibility and Easy Transport Small and flexible design allows operation in limited spaces and easy transport, making it ideal for various indoor applications, including elevator decoration. Free hydraulic thumb clip enhances the extra flexibility. 4. Favorable Heat Dissipation Engineered for favorable heat dissipation effects, ensuring optimal performance even during extended usage. 5. Versatile Applications Suitable for a range of tasks, from orchard work like planting and weeding to digging. Its versatility makes it a valuable asset for different scenarios. 6. Smart, Simple, Safe Designed with intelligence, simplicity, and safety in mind, providing an enhanced user experience. 7. Structural Durability Structural parts crafted from stainless steel or plastic, contributing to prolonged service life and durability. 8. Easy Operation and Transport User-friendly operation and convenient transport make it accessible for operators of various skill levels. 9. Lightweight with High Performance Despite its toughness, the TYPHON TERROR XX Lux remains light, ensuring high performance without compromising efficiency. Comes with a 17.7 in wide bucket (of 0.033 cu yd capacity) and a hydraulic thumb clip. The TERROR XX Lux 4,000 lb Mini Excavator is not just a machine; it's a symbol of luxury, efficiency, and innovation. Whether you are navigating limited spaces indoors, working in orchards, or engaging in various excavation tasks, the TYPHON TERROR XX stands ready. With smart design, structural durability, and versatile applications, this excavator is a game-changer. Choose the TERROR XX mini excavator for an unparalleled excavation experience. Smart, simple, safe - it's more than an excavator; it's a lifestyle.",
-    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836964649-c7qop-image.webp",
-    gallery: [
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836964649-c7qop-image.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837582566-c68sh-pasted-image-20260619-095302-0m3az.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837031666-y8oth-image.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836928469-h9qz4-image.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679669396-gprgw-1.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679666332-5puy4-2.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679663270-5zlma-3.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679661608-0mxc8-4.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679659100-42ars-5.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679657062-j2rx2-6.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679653894-ne4ct-7.webp"
-    ],
-    specs: [
-      {
-        label: "Category",
-        value: "Mini Excavator"
-      },
-      {
-        label: "Current Price",
-        value: "$12,482.40"
-      },
-      {
-        label: "SKU",
-        value: "TYPH-XX01Y"
-      },
-      {
-        label: "GTIN",
-        value: "5061030740941"
-      },
-      {
-        label: "Weight Class",
-        value: "1.8 ton"
-      },
-      {
-        label: "Engine",
-        value: "Kubota D902 Introducing the TYPHON"
-      },
-      {
-        label: "Capacity",
-        value: ") and a hydraulic thumb clip"
-      }
-    ],
-    features: [
-      "EPA Certified Kubota Engine Equipped with an EPA certified Kubota D902 engine, ensuring compliance with environmental standards while delivering powerful performance.",
-      "Luxury Series Design The TYPHON TERROR XX Luxury series belongs to a rugged series, combining toughness and luxury with functionality.",
-      "Flexibility and Easy Transport Small and flexible design allows operation in limited spaces and easy transport, making it ideal for various indoor applications, including elevator decoration.",
-      "Favorable Heat Dissipation Engineered for favorable heat dissipation effects, ensuring optimal performance even during extended usage.",
-      "Versatile Applications Suitable for a range of tasks, from orchard work like planting and weeding to digging.",
-      "Smart, Simple, Safe Designed with intelligence, simplicity, and safety in mind, providing an enhanced user experience."
-    ],
-    applications: [
-      "Suitable For A Range Of Tasks",
-      "From Orchard Work Like Planting"
-    ],
-    imageMatch: "CSV image fields"
-  },
-  {
     id: "typhon-kuvuo-4-0-four-ton-cabin-mini-excavator-w-kubota-d1703-diesel-engine-metal-tracks-boom-swing-ac-heater-hydraulic-control",
-    name: "TYPHON KUVU 04 (4.0 Ton) - Kubota D1703",
+    name: "TYPHON KUVUO 4.0",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -757,34 +764,33 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "25 HP Kubota D1703",
     sku: "TYPH-KUVUO",
     gtin: "5061030741702",
-    price: "$ 34,999.00 Original price was: $34,999.00. $ 31,498.95 Current price is: $31,498.95.",
-    originalPrice: "$34,999.00",
+    price: "$31 498.95",
     currentPrice: "$31,498.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-kuvuo-4-0-four-ton-cabin-mini-excavator-w-kubota-d1703-diesel-engine-metal-tracks-boom-swing-ac-heater-hydraulic-control/",
-    buttonUrl: "/product/typhon-kuvuo-4-0-four-ton-cabin-mini-excavator-w-kubota-d1703-diesel-engine-metal-tracks-boom-swing-ac-heater-hydraulic-control/",
+    buttonUrl: "/product#!/TYPHON-KUVUO-4-0-four-ton-cabin-mini-excavator-w-Kubota-D1703-Diesel-engine-Metal-Tracks-Boom-Swing-AC-Heater-Hydraulic-Control/p/801841001",
     importConfidence: "100",
     series: "KUVU excavator series",
-    weight: "4.0 ton",
+    weight: "4 ton",
     tagline: "TYPHON KUVUO 4.0 mini excavator is a versatile and reliable machine designed to work efficiently in tight spaces. Its compact size and system allow smooth maneuvering through narrow areas, making it ideal for construction sites, farms, and urban projects.",
-    description: "TYPHON KUVUO 4.0 four ton cabin mini excavator is a versatile and reliable machine designed to work efficiently in tight spaces. Its compact size and system allow smooth maneuvering through narrow areas, making it ideal for construction sites, farms, and urban projects. Built for strength and consistent performance, it handles digging, trenching, landscaping, and material handling with ease. The addition of a boom swing enhances flexibility, allowing operators to work close to walls, corners, and obstacles without repositioning the machine. The comfortable AC/heater cabin, equipped with LED lights and climate control, ensures operators can work safely and efficiently, completing tasks quickly while maintaining precision and control. TYPHON KUVUO 4.0 Key Features: 1. Ideal for Tight-Space Tasks: The TYPHON KUVUO 4.0 is designed to allow operators to confidently navigate narrow zones and busy job sites, ensuring maximum efficiency in constrained work spaces. With a total length of 198 in (16.5 ft), a width of only 67.7 in (5.6 ft), and a height of 101.6 in (8.5 ft) , it easily fits where larger equipment cannot. The 61.2 in (5.1 ft) upper width and 84.6 in (7.1 ft) track length provide balanced stability, while the 11.8 in standard track shoe and boom swing, offer dependable ground grip and flexible movement. Ideal for building sites, farms, and material handling in tight urban or residential areas. 2. One Machine, So Many Uses: This 4 Ton Mini excavator is designed for general-purpose tasks such as trenching and foundation preparation, as well as landscaping and material handling. With an 18.2 kN boom force and 30.4 kN bucket force, along with a digging depth of 122.3 in (10.2 ft), this mighty beast provides dependable power for tough jobs in construction sites, farms, and tight-space projects. Equipped with a Multi-Way Valve, it can also operate attachments like an auger, hydraulic thumb clip, and hydraulic breaker hammer, expanding its capabilities for drilling, grappling, or breaking tasks. (Attachments are compatible but not included.) 3. Strong but Compact Design: Powered by a reliable 25 HP Kubota D1703 engine running at 2200 RPM, this mini excavator delivers strong performance in a compact 4-ton operating weight. Its low speed of 2.4 km/h and high speed of 4.2 km/h provide smooth movement, while the hydraulic oil cooler enables the system to function effectively throughout extended works. With a 55 L hydraulic oil tank and a 50 L fuel tank, it allows you to work nonstop for hours. The piston pump and load-sensing system deliver rapid, efficient hydraulic power for demanding jobs. 4. Easy Control: The TYPHON KUVUO 4.0 is designed for smooth, easy operation, with a multi-way valve and modern hydraulic systems for accurate movement. Its fully hydraulic control, Pilot control, and clear control panel simplify every operation for the operator. LED lighting improves vision, and the AC/heater cabin provides year-round comfort. With a system flow of 79.2 L/min, it provides rapid, responsive performance on every job. 5. Gear Included: The TYPHON KUVUO 4.0 mini excavator machine includes 1 x regular digging excavator bucket, one toolbox, and a digital manual with complete instructions. Additional Features: Piston Pump-Ensures strong, consistent hydraulic pressure for smooth, reliable performance. Metal Tracks-Equipped to scale the toughest terrain Multi-Way Valve - Provides precise control of multiple functions for easier and more accurate operation. Advanced Hydraulic Systems - Delivers responsive, efficient power across all tasks and working conditions. Fully Hydraulic Control - Offers smooth, accurate movement for digging, lifting, and positioning. Boom Swing - Enhances maneuverability in tight spaces, allowing the operator to work closer to walls, corners, and obstacles with ease. Two-Speed Travel - Lets operators switch between low and high travel speeds for better efficiency on different terrains. Pilot Control - Provides light, effortless joystick control for more comfortable and accurate operation. AC/Heater Cabin - Ensures year-round operator comfort with climate control and improved visibility. Zero Tail Swing - Allows safe rotation in tight spaces without rear overhang, perfect for confined job sites.",
+    description: "TYPHON KUVUO 4.0 Mini Excavator GTIN: 5061030741702 The TYPHON KUVUO 4.0 is a professional-grade 4-ton compact mini excavator engineered for contractors, utility crews, landscapers, and agricultural professionals who require exceptional digging performance, advanced hydraulic technology, and outstanding maneuverability. Powered by the dependable 25 HP Kubota D1703 diesel engine, this excavator combines powerful breakout force, responsive pilot controls, and a premium air-conditioned and heated cabin to maximize productivity on every job site. Featuring Zero Tail Swing, Boom Swing, Pilot Controls, Load-Sensing Hydraulics, and a Piston Pump System, the KUVUO 4.0 delivers the strength of a larger excavator while maintaining the compact footprint needed for confined work environments. Key Features Powerful Kubota Diesel Performance The KUVUO 4.0 is powered by the proven Kubota D1703 diesel engine, delivering smooth, fuel-efficient performance with excellent durability for demanding construction projects. Engine Specifications Kubota D1703 Diesel Engine 25 HP @ 2200 RPM Water-Cooled Diesel Engine Excellent fuel economy Reliable all-day performance Designed for heavy-duty commercial use Compact Machine, Big Capability Designed specifically for confined work environments, the KUVUO 4.0 combines a compact footprint with impressive stability and digging performance. Perfect for: Residential construction Urban projects Landscaping Agriculture Utility installation Foundation work Road maintenance Material handling Property development Machine Dimensions SpecificationValueOverall Length5,029 mmOverall Width1,720 mmOverall Height2,580 mmUpper Structure Width1,554 mmTrack Length2,150 mmTrack Shoe Width11.8 in Powerful Digging Performance The KUVUO 4.0 delivers impressive breakout force and hydraulic performance, allowing operators to tackle demanding excavation projects with confidence. Performance Highlights Bucket Digging Force: 30.4 kN Boom Digging Force: 18.2 kN Maximum Digging Depth: 122.3 in (10.2 ft) Excellent lifting capability Smooth hydraulic response Precise grading performance Ideal for: Excavation Trenching Foundation preparation Utility installation Landscaping Drainage work Material handling Site preparation Advanced Hydraulic System The KUVUO 4.0 features a high-performance hydraulic system engineered for maximum efficiency and smooth operation. Hydraulic Features Piston Pump Load-Sensing Hydraulic System Multi-Way Valve Fully Hydraulic Control Pilot Joystick Controls Hydraulic Oil Cooler System Flow: 79.2 L/min These systems automatically optimize hydraulic pressure and flow, providing faster cycle times while reducing fuel consumption and operator fatigue. Multi-Attachment Compatibility Thanks to its advanced hydraulic system and multi-way valve, the KUVUO 4.0 is compatible with a wide range of hydraulic attachments. Compatible attachments include: Hydraulic Thumb Clip Hydraulic Breaker Earth Auger Grapple Compaction Plate Ripper Trenching Bucket Grading Bucket Attachments sold separately unless otherwise specified. Premium Operator Comfort The enclosed operator station is designed to keep operators comfortable and productive throughout long working days. Cabin Features Air Conditioning Heater Climate-Controlled Cabin LED Working Lights Pilot Controls Spacious Operator Station Excellent Visibility Ergonomic Control Layout Designed for Maximum Maneuverability The KUVUO 4.0 incorporates multiple features that improve efficiency in confined work areas. Standard Features Zero Tail Swing Boom Swing Two-Speed Travel Metal Tracks Pilot Controls Hydraulic Oil Cooler Fully Hydraulic Control Multi-Way Valve These features allow operators to work safely beside buildings, walls, fences, and obstacles while maintaining excellent digging precision. Specifications SpecificationValueGTIN5061030741702Operating Class4 Ton Mini ExcavatorEngineKubota D1703 DieselEngine Power25 HP @ 2200 RPMMaximum Digging Depth3,106 mmBucket Digging Force30.4 kNBoom Digging Force18.2 kNHydraulic Flow79.2 L/minHydraulic Tank Capacity55 LFuel Tank Capacity50 LOverall Width1,720 mmOverall Height2,580 mmTrack Shoe Width11.8 in Standard Equipment The TYPHON KUVUO 4.0 comes equipped with: ✅ Standard Digging Bucket ✅ Hydraulic Thumb Clip ✅ Air-Conditioned & Heated Cabin ✅ Pilot Control System ✅ Boom Swing ✅ Zero Tail Swing ✅ Two-Speed Travel ✅ Hydraulic Oil Cooler ✅ LED Work Lights ✅ Tool Box ✅ Digital Operator Manual Applications The KUVUO 4.0 is ideal for: Commercial construction Residential developments Utility trenching Landscaping Agriculture Road construction Foundation excavation Drainage systems Material handling Site preparation Municipal infrastructure Property maintenance Why Choose the TYPHON KUVUO 4.0? The TYPHON KUVUO 4.0 is built for professionals who need the perfect combination of power, precision, and operator comfort. Featuring a dependable Kubota D1703 diesel engine, advanced load-sensing hydraulics, pilot controls, Zero Tail Swing, Boom Swing, and a fully climate-controlled cabin, this compact excavator delivers exceptional productivity in demanding environments. Whether you're working on construction sites, utility installations, landscaping projects, or agricultural operations, the KUVUO 4.0 provides the performance, durability, and versatility needed to complete every job with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837956973-34bh9-pasted-image-20260619-095916-t4bet.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837956973-34bh9-pasted-image-20260619-095916-t4bet.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781838148700-ovl9z-pasted-image-20260619-100228-kgrmh.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448620806-h7bke-pasted-image-20260626-113700-tfp7x.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781838005070-fq2jr-pasted-image-20260619-100004-t7qp4.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837998361-ce0jy-pasted-image-20260619-095957-f1szf.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837990110-0cogc-pasted-image-20260619-095949-4erg8.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837981306-xj5ti-pasted-image-20260619-095940-db81l.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837971206-o6ufe-pasted-image-20260619-095930-avwa0.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837915827-h1dpz-pasted-image-20260619-095835-j67x7.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681015101-jt0n9-14.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681012135-0ckvj-13.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681010285-bd882-12.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681008642-elwlo-11.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681006904-l2gnl-10.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681005090-f0w48-9.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681003464-1vu71-8.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681001393-kd2im-7.webp"
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448618338-hbkq1-pasted-image-20260626-113658-ma0p8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448643040-rabxd-pasted-image-20260626-113722-bozpo.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448640127-gizsf-pasted-image-20260626-113719-jdkxq.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448623526-fo9s3-pasted-image-20260626-113703-gprnh.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448628043-o1wqv-pasted-image-20260626-113707-pjnkj.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448633788-7pfw5-pasted-image-20260626-113713-n9pw7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448631163-wf5wu-pasted-image-20260626-113710-wn5ld.webp"
     ],
     specs: [
       {
@@ -805,7 +811,7 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Weight Class",
-        value: "4.0 ton"
+        value: "4 ton"
       },
       {
         label: "Engine Power",
@@ -813,7 +819,7 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Engine",
-        value: "Kubota D1703 TYPHON KUVU 04"
+        value: "Kubota D1703 TYPHON KUVUO 4.0"
       },
       {
         label: "Digging Depth",
@@ -821,12 +827,10 @@ export const typhonProducts: TyphonProduct[] = [
       }
     ],
     features: [
-      "Ideal for Tight-Space Tasks: The TYPHON KUVUO",
-      "One Machine, So Many Uses: This 4 Ton Mini excavator is designed for general-purpose tasks such as trenching and foundation preparation, as well as landscaping and material handling.",
-      "Strong but Compact Design: Powered by a reliable 25 HP Kubota D1703 engine running at 2200 RPM, this mini excavator delivers strong performance in a compact 4-ton operating weight.",
-      "Easy Control: The TYPHON KUVUO",
-      "Gear Included: The TYPHON KUVUO",
-      "Compact tracked platform"
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
       "Trenching",
@@ -839,24 +843,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing",
-    name: "TYPHON LXV (6.6 Ton) - Kubota V2607",
+    name: "TYPHON Terror LXV",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "Equipment",
-    sku: "",
+    sku: "TYPH-LXV",
     gtin: "5061030741665",
-    price: "$ 59,999.00 Original price was: $59,999.00. $ 45,148.95 Current price is: $45,148.95.",
-    originalPrice: "$59,999.00",
+    price: "$45 148.95",
     currentPrice: "$45,148.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing/",
-    buttonUrl: "/product/typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing/",
+    buttonUrl: "",
     importConfidence: "100",
-    series: "Mini Excavator series",
+    series: "TERROR mini excavator series",
     weight: "6.6 ton",
     tagline: "TYPHON TERROR LXV 6.6-Ton Mini Excavator is built for high-performance construction, agriculture, land development, foundation work, and heavy material-handling tasks. Powered by the dependable Kubota V2607 diesel engine (56.9 HP / 57 HP), it delivers strong digging force, smooth hydraulic response, and consistent operation in demanding environments.",
-    description: "TYPHON TERROR LXV 6.6-Ton Mini Excavator is built for high-performance construction, agriculture, land development, foundation work, and heavy material-handling tasks. Powered by the dependable Kubota V2607 diesel engine (56.9 HP / 57 HP), it delivers strong digging force, smooth hydraulic response, and consistent operation in demanding environments. Designed with a Boom Swing system, 360° body rotation, an enclosed AC/Heater Cabin, and a reinforced steel undercarriage, the TERROR LXV provides comfort, power, and long-lasting reliability. Whether you're excavating, grading, trenching, clearing land, or lifting heavy materials, this machine ensures maximum productivity from start to finish. TYPHON TERROR LXV Key Feature: 1. Ideal for Tight-Space Tasks: Despite weighing 6.6 tons, the TYPHON TERROR LXV excels in tight spaces like gardens, sidewalks, fence lines, and construction rows. Its powerful Kubota engine ensures strong digging force, smooth hydraulics, and reliable performance for construction, agriculture, and material handling. Measuring 229.7 in (19.1 ft) long, 78.7 in (6.6 ft) wide, and 101.2 in (8.4 ft) high, with a boom-swing system, it combines agility, stability, and precision in confined areas. 2. One Machine, So Many Uses: This Mini excavator replaces multiple machines and adapts easily across industries Digging Deep Mini Excavation Trenching for utilities, cables, irrigation Grading Site Leveling Land Clearing & Ground Preparation Road Construction Repair Work Material Lifting, Loading Transport Municipal Projects City Maintenance Farm, Field Agricultural Work. 3. Strong but Compact Design: Powered by a Kubota V2607 56.9 HP 4-cylinder water-cooled diesel engine, the TYPHON TERROR LXV delivers reliable performance in a compact frame. It combines high-speed efficiency with low-speed idling (825-875 rpm) while meeting EPA Tier 4 emissions standards, ensuring power, efficiency, and eco-friendly operation. Featuring an 87 × 4.3 in bore and stroke, turbocharged options, 57 HP at 2700 rpm, a 30 L fuel tank, and hydraulic oil tank for smooth performance. 4. Easy Control: The TYPHON TERROR LXV has twin pilot joystick controls for easy, straightforward operation. High and low travel speeds enable operators to adapt to changing ground conditions and job demands. 360° body rotation sight for safe, precise digging and rotation. A fully integrated air AC/Heater ensures year-round comfort, while responsive hydraulics help prevent tiredness during lengthy shifts. 5. Gear Included: includes 1 x standard digging excavator bucket, 1 x tool box, Fire extinguisher, Breaking Windows & Cutting Seatbelts and a digital manual with detailed instructions for convenient operation. Additional Features 🔹 AC/Heater Enclosed Cabin 🔹 High-Low Travel Speed Control 🔹 360° Body Rotation 🔹 Boom Swing 🔹 Heavy Duty Steel Track System 🔹 Strong Hydraulic Output for Attachments",
+    description: "TYPHON TERROR LXV 6.6-Ton Mini Excavator GTIN: 5061030741665 The TYPHON TERROR LXV 6.6-Ton Mini Excavator is a professional-grade compact excavator engineered for contractors who demand power, precision, durability, and operator comfort. Built around the dependable Kubota V2607 Tier 4 diesel engine, this machine delivers exceptional digging performance, smooth hydraulic response, and outstanding productivity across construction, utility, agricultural, municipal, and land development projects. Designed with an advanced load-sensing hydraulic system, piston pump, boom swing, and 360° rotation, the TERROR LXV provides fast cycle times, precise multi-function operation, and outstanding fuel efficiency. Combined with its enclosed climate-controlled cabin and reinforced steel undercarriage, it offers operators the confidence to tackle demanding jobs in all weather conditions. Whether you're excavating foundations, installing utilities, grading roads, clearing land, or lifting heavy materials, the TYPHON TERROR LXV is built to perform day after day. Key Features Powerful Kubota V2607 Tier 4 Diesel Engine At the heart of the TERROR LXV is the highly respected Kubota V2607, a 4-cylinder, water-cooled diesel engine known worldwide for its reliability, fuel efficiency, and long service life. Engine Highlights 56.9 HP (57 HP) high-performance diesel engine EPA Tier 4 compliant 4-cylinder, water-cooled design Smooth low-speed idle (825-875 RPM) Excellent fuel economy Reliable cold and hot weather performance Designed for demanding commercial applications The engine provides consistent power while maintaining excellent efficiency for long working days. Advanced Load-Sensing Hydraulic System The TERROR LXV features a modern hydraulic system built around a high-performance piston pump and load-sensing technology. Unlike conventional hydraulic systems, load sensing automatically adjusts hydraulic pressure and oil flow according to workload demand, improving efficiency while reducing fuel consumption. Hydraulic Advantages Smooth, responsive controls Faster boom and bucket movement Simultaneous multi-function operation Reduced hydraulic energy loss Better fuel efficiency Increased attachment performance Greater operator precision Compact Machine with Heavy-Duty Capability Although classified as a 6.6-ton excavator, the TERROR LXV is designed to work comfortably in areas where larger equipment may struggle. Its compact dimensions and boom swing system make it ideal for working around: Buildings Fence lines Sidewalks Residential developments Urban construction sites Gardens Farms Utility corridors The combination of stability and maneuverability allows operators to complete precise work without sacrificing digging power. One Machine for Countless Applications The TYPHON TERROR LXV replaces multiple machines by handling a wide variety of excavation and earthmoving tasks. Perfect For Deep excavation Utility trenching Foundation digging Irrigation installation Electrical cable installation Road construction Site preparation Land grading Land clearing Material handling Loading and transporting Drainage projects Municipal maintenance Agricultural operations Commercial construction Its advanced hydraulic controls allow multiple functions to operate simultaneously, increasing job-site productivity. Operator Comfort & Easy Controls Long workdays require a machine designed with operator comfort in mind. The TERROR LXV includes a fully enclosed operator station equipped with modern controls and climate management for year-round productivity. Operator Features Twin pilot joystick controls Smooth hydraulic response High/Low travel speed selection Fully enclosed cabin Integrated air conditioning Cabin heater for cold weather Excellent all-around visibility Ergonomic control layout Reduced operator fatigue The intuitive control system makes the excavator suitable for both experienced operators and those transitioning to larger machines. Built for Heavy-Duty Performance Every component of the TERROR LXV is designed to withstand demanding job-site conditions. Heavy-Duty Features Reinforced steel undercarriage Heavy-duty steel track system Strong hydraulic output for attachments Durable boom and arm construction Stable operating platform Excellent lifting capability Reliable performance in harsh environments Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR LXVGTIN5061030741665Operating Weight6.6 TonsEngineKubota V2607 DieselEngine Type4-Cylinder Water-Cooled DieselMaximum Engine Output56.9 HP (57 HP)Emission StandardEPA Tier 4Rated Engine Speed2,700 RPMIdle Speed825-875 RPMBore × Stroke87 × 110 mmFuel Tank Capacity7.9 gal (30 L)Hydraulic Oil Tank Capacity10.8 gal (41 L)Hydraulic SystemLoad-Sensing Piston PumpBody Rotation360° Continuous RotationBoom SwingStandardTravel SpeedsHigh / Low Speed Standard Equipment Included Every TYPHON TERROR LXV includes the essential equipment needed to begin working immediately. Included with Your Excavator ✔ Standard digging bucket ✔ Heavy-duty toolbox ✔ Fire extinguisher ✔ Emergency window breaker / seatbelt cutter ✔ Digital operator's manual ✔ Fully enclosed AC & heater cabin Additional Features Designed for Maximum Productivity 🔹 Enclosed climate-controlled cabin 🔹 Air conditioning and cabin heater 🔹 Boom swing system 🔹 360° body rotation 🔹 High & low travel speeds 🔹 Heavy-duty steel tracks 🔹 Load-sensing hydraulic system 🔹 Piston hydraulic pump 🔹 Powerful auxiliary hydraulic output 🔹 Reinforced structural frame Why Choose the TYPHON TERROR LXV? The TYPHON TERROR LXV is built for professionals who need the performance of a larger excavator while maintaining the versatility of a compact machine. Its premium Kubota engine, advanced hydraulic technology, reinforced construction, and operator-focused design deliver exceptional productivity on every job site. Key Benefits ✔ Powerful 56.9 HP Kubota Tier 4 diesel engine ✔ Advanced load-sensing hydraulic system ✔ Smooth multi-function hydraulic operation ✔ Heavy-duty steel construction ✔ Comfortable enclosed AC & heater cabin ✔ High and low travel speed selection ✔ 360° rotation with boom swing ✔ Excellent performance for construction, agriculture, utilities, and municipal work ✔ Reliable parts support and responsive customer service Applications The TYPHON TERROR LXV is trusted for demanding work across multiple industries. Commercial Construction Residential Construction Utility Installation Foundation Excavation Land Development Road Construction Agriculture & Farming Forestry & Land Clearing Municipal Maintenance Material Handling Drainage Projects Landscaping Built to Perform. Built to Last. The TYPHON TERROR LXV 6.6-Ton Mini Excavator combines premium engineering, trusted Kubota power, advanced hydraulics, and operator-focused comfort into one dependable machine. Designed to maximize productivity while minimizing downtime, it is the ideal solution for professionals who need a compact excavator capable of handling demanding jobs with confidence. Whether you're breaking ground on a new construction project, maintaining agricultural land, or tackling heavy excavation work, the TYPHON TERROR LXV is ready to deliver the power, precision, and reliability your business depends on.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781838288646-kp8gl-pasted-image-20260619-100448-tg0ny.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781838288646-kp8gl-pasted-image-20260619-100448-tg0ny.webp",
@@ -886,6 +889,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$45,148.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-LXV"
+      },
+      {
         label: "GTIN",
         value: "5061030741665"
       },
@@ -899,16 +906,18 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Engine",
-        value: "Kubota V2607 TYPHON TERROR LXV"
+        value: "Kubota V2607 diesel engine"
+      },
+      {
+        label: "Capacity",
+        value: "7"
       }
     ],
     features: [
-      "Ideal for Tight-Space Tasks: Despite weighing",
-      "One Machine, So Many Uses: This Mini excavator replaces multiple machines and adapts easily across industries Digging Deep Mini Excavation Trenching for utilities, cables, irrigation Grading Site Leveling Land Clearing & Ground Preparation Road Construction Repair Work Material Lifting, Loading Transport Municipal Projects City Maintenance Farm, Field Agricultural Work.",
-      "Strong but Compact Design: Powered by a Kubota V2607",
-      "Easy Control: The TYPHON TERROR LXV has twin pilot joystick controls for easy, straightforward operation.",
-      "Gear Included: includes 1 x standard digging excavator bucket, 1 x tool box, Fire extinguisher, Breaking Windows & Cutting Seatbelts and a digital manual with detailed instructions for convenient operation.",
-      "Compact tracked platform"
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
       "Trenching",
@@ -923,29 +932,38 @@ export const typhonProducts: TyphonProduct[] = [
     id: "typhon-tyrant-x-1-ton-mini-excavator-with-13-5hp-briggs-stratton-engine-hydraulic-oil-cooler-thumb-clip",
     name: "TYPHON Tyrant X",
     productType: "equipment",
-    rawProductType: "attachment",
+    rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "13.5HP",
-    sku: "",
+    sku: "TYPH-0115",
     gtin: "5061030742105",
-    price: "$ 5,353.95",
+    price: "$5 353.95",
     currentPrice: "$5,353.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-tyrant-x-1-ton-mini-excavator-with-13-5hp-briggs-stratton-engine-hydraulic-oil-cooler-thumb-clip/",
-    buttonUrl: "/product/typhon-tyrant-x-1-ton-mini-excavator-with-13-5hp-briggs-stratton-engine-hydraulic-oil-cooler-thumb-clip/",
+    buttonUrl: "/product#!/Typhon-Tyrant-X-1-Ton-Mini-Excavator-with-13-5HP-Briggs-&-Stratton-Engine-Hydraulic-Oil-Cooler-&-Thumb-Clip/p/817588677",
     importConfidence: "100",
     series: "TERROR mini excavator series",
     weight: "1 ton",
     tagline: "The Typhon Tyrant X 1 Ton Mini Excavator is engineered for contractors, landscapers, farmers, and property owners who demand strong performance in tight spaces. Compact in size yet powerful in operation, this mini excavator is ideal for trenching, digging, landscaping, and light construction projects. Powered by a Briggs & Stratton 13.5HP gasoline engine, the Tyrant X delivers reliable starting, stable power output, and excellent fuel efficiency, making it a dependable machine for daily job site use.",
-    description: "The Typhon Tyrant X 1 Ton Mini Excavator is engineered for contractors, landscapers, farmers, and property owners who demand strong performance in tight spaces. Compact in size yet powerful in operation, this mini excavator is ideal for trenching, digging, landscaping, and light construction projects. Powered by a Briggs & Stratton 13.5HP gasoline engine, the Tyrant X delivers reliable starting, stable power output, and excellent fuel efficiency, making it a dependable machine for daily job site use. Typhon Tyrant X 1 Ton Mini Excavator Premium Features: Powerful 13.5HP Briggs & Stratton USA Engine Equipped with a trusted Briggs & Stratton gasoline engine, providing consistent and efficient power for digging, lifting, trenching, and material handling. Built-In Hydraulic Oil Cooler The integrated hydraulic oil cooler: Prevents overheating during extended operation Extends hydraulic system lifespan Maintains stable performance in hot climates Supports longer working hours This premium feature sets the Tyrant X apart from many standard 1 ton mini excavators on the market. Hydraulic Thumb Clip Included Comes standard with a hydraulic thumb clip, allowing you to securely grab rocks, logs, debris, and construction materials, increasing versatility and job site efficiency. Performance Specifications Engine: Briggs & Stratton Gasoline Power Output: 13.4 HP / 13.5HP Hydraulic Flow: 18 L/min Working Pressure: 16 MPa Travel Speed: 2 km/h Fuel Tank Capacity: 5L Hydraulic Oil Tank Capacity: 5L Bucket Capacity: 0.025 m³ Bucket Width: 15 in Maximum Digging Depth: 65 in (5.4 ft) Maximum Digging Height: 98.2 in (8.2 ft) Digging Force: 7 kN Ideal for Tight-Space Applications With compact dimensions of 2170 × 940 × 86.6 in (7.2 ft) (L × W × H) and excellent maneuverability, the Typhon Tyrant X compact excavator is ideal for: Backyard projects Narrow pathways Indoor demolition Farm and agricultural use Landscaping jobs Small construction sites Its 1 ton operating weight allows easy transport on small trailers without requiring special permits. Included Accessories Comes with 1 x standard digging 15 in wide excavator bucket, 1 x hydraulic oil cooler, and 1 x hydraulic thumb clip. Includes 1 x toolbox, 1 x canopy, and 1 x digital manual with comprehensive instructions.",
-    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676570811-1r1uu-12.webp",
+    description: "TYPHON TYRANT X 1-Ton Mini Excavator GTIN: 5061030742105 The TYPHON TYRANT X is a compact 1-ton mini excavator designed for contractors, landscapers, farmers, property owners, and small construction crews who need dependable digging power in tight spaces. Built with a reliable 13.5 HP Briggs & Stratton gasoline engine, hydraulic oil cooler, hydraulic thumb clip, canopy, and a standard digging bucket, this compact excavator delivers the versatility needed for trenching, digging, landscaping, material handling, and light construction work. With compact dimensions of 2170 × 940 × 86.6 in (7.2 ft), the TYRANT X is easy to maneuver through narrow pathways, backyards, gardens, farms, and confined work areas where larger machines cannot operate. Its 1-ton operating weight also makes it easier to transport on small trailers, giving operators a practical machine for daily job site use without the size and cost of larger excavators. Key Features 13.5 HP Briggs & Stratton Engine The TYRANT X is powered by a trusted Briggs & Stratton gasoline engine, providing stable power output, reliable starting, and efficient operation for small excavation projects. Engine Benefits 13.5 HP gasoline engine 13.4 HP power output Reliable starting Smooth power delivery Efficient fuel use Simple maintenance Built-In Hydraulic Oil Cooler The integrated hydraulic oil cooler helps maintain stable hydraulic system temperatures during extended operation. Cooling Benefits Helps prevent overheating Supports longer working hours Improves hydraulic system reliability Helps maintain consistent machine performance Extends hydraulic component service life This feature gives the TYRANT X an advantage for operators who need dependable performance during longer work sessions or in warmer climates. Hydraulic Thumb Clip Included The included hydraulic thumb clip improves material handling and makes the excavator more useful for cleanup, landscaping, and property maintenance tasks. Useful For Handling Rocks Logs Branches Debris Construction materials Landscaping material Small demolition waste Compact Size for Tight Spaces With a narrow 37 in machine width, the TYRANT X is ideal for areas where larger excavators cannot easily fit. Perfect For Backyards Narrow pathways Gardens Small farms Indoor demolition Residential construction Landscaping jobs Tight-access utility work Reliable Digging Performance The TYRANT X provides practical digging capability for small construction, landscaping, and agricultural work. Performance Highlights Maximum Digging Depth: 65 in (5.4 ft) Maximum Digging Height: 98.2 in (8.2 ft) Bucket Width: 15 in Bucket Capacity: 0.025 m³ Digging Force: 7 kN Hydraulic Flow: 18 L/min Working Pressure: 16 MPa Technical Specifications SpecificationDetailsProduct ModelTYPHON TYRANT XGTIN5061030742105Machine Type1-Ton Mini ExcavatorOperating Weight1 TonEngineBriggs & Stratton Gasoline EnginePower Output13.4 HP / 13.5 HPHydraulic Flow18 L/minWorking Pressure16 MPaTravel Speed2 km/hFuel Tank Capacity5 LHydraulic Oil Tank Capacity5 LBucket Capacity0.025 m³Bucket Width380 mmMaximum Digging Depth1650 mmMaximum Digging Height2495 mmDigging Force7 kNOverall Dimensions2170 × 940 × 86.6 in (7.2 ft) Standard Equipment Included The TYPHON TYRANT X comes ready for small excavation and property work. Included Equipment ✔ 15 in Standard Digging Bucket ✔ Hydraulic Thumb Clip ✔ Hydraulic Oil Cooler ✔ Protective Canopy ✔ Tool Box ✔ Digital Operator Manual Ideal Applications Residential Projects Backyard digging Small foundation work Garden excavation Fence line preparation Drainage work Landscaping Trenching Tree planting Soil removal Rock and debris handling Yard renovation Agriculture Farm maintenance Orchard work Small ditch cleaning Material handling Ground preparation Small Construction Light demolition Utility trenches Narrow-site digging Small excavation projects Indoor or tight-access work Why Choose the TYPHON TYRANT X? The TYPHON TYRANT X is built for users who need a compact, affordable, and capable excavator for everyday jobs. With its 13.5 HP Briggs & Stratton engine, hydraulic oil cooler, hydraulic thumb clip, compact body, and practical digging performance, it is a strong choice for small contractors, landscapers, farmers, and property owners who need reliable power without moving up to a larger machine. Key Benefits ✔ Compact 1-ton excavator design ✔ Reliable 13.5 HP Briggs & Stratton engine ✔ Hydraulic oil cooler included ✔ Hydraulic thumb clip included ✔ 15 in digging bucket included ✔ Easy to maneuver in narrow spaces ✔ Practical for landscaping, trenching, farming, and small construction ✔ Easy transport for small job sites Compact Power for Everyday Excavation The TYPHON TYRANT X 1-Ton Mini Excavator gives operators a compact, dependable machine for digging, trenching, lifting, cleanup, and property maintenance. Designed for tight spaces and small job sites, it combines reliable engine power, useful hydraulic features, and included accessories to help you complete more work with less manual labor.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455280990-vtsud-pasted-image-20260626-132800-pjspm.webp",
     gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455280990-vtsud-pasted-image-20260626-132800-pjspm.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455249051-awaip-pasted-image-20260626-132728-7wm2k.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455240050-gafqq-pasted-image-20260626-132719-532vq.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455237264-gxtjf-pasted-image-20260626-132717-vchpe.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455234220-j4vhk-pasted-image-20260626-132714-8zd2m.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455230996-3tkju-pasted-image-20260626-132710-f2zhj.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455227970-gpbzt-pasted-image-20260626-132707-n8f97.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455225137-rxsum-pasted-image-20260626-132704-ov9ad.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455221735-jwu1k-pasted-image-20260626-132701-xqz2a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455218412-njb1l-pasted-image-20260626-132658-zl3nf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455213846-1r3jf-pasted-image-20260626-132653-4xp2c.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676572713-li248-13.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676570811-1r1uu-12.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676575156-f7g8l-14.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676572713-li248-13.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676569033-g3chv-11.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676564307-ulkou-10.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676561143-i6yfx-9.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781676548040-h1kgn-8.webp"
     ],
     specs: [
@@ -956,6 +974,10 @@ export const typhonProducts: TyphonProduct[] = [
       {
         label: "Current Price",
         value: "$5,353.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0115"
       },
       {
         label: "GTIN",
@@ -976,10 +998,6 @@ export const typhonProducts: TyphonProduct[] = [
       {
         label: "Digging Depth",
         value: "65 in (5"
-      },
-      {
-        label: "Capacity",
-        value: ": 5L Hydraulic Oil Tank Capacity: 5L Bucket Capacity: 0"
       }
     ],
     features: [
@@ -999,7 +1017,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine",
-    name: "TYPHON Terror XVII",
+    name: "TYPHON Terror XVII Capony",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -1007,16 +1025,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "Mini Excavators",
     sku: "TYPH-1701B",
     gtin: "5061030740996",
-    price: "$ 14,175.00 Original price was: $14,175.00. $ 11,548.95 Current price is: $11,548.95.",
-    originalPrice: "$14,175.00",
+    price: "$11 548.95",
     currentPrice: "$11,548.95",
     sourceUrl: "https://typhonmachinery.com/product/2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine/",
-    buttonUrl: "/product/2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine/",
+    buttonUrl: "/product#!/2025-3-800-lb-TYPHON-TERROR-XVII-Mini-Excavator-Rubber-Track-with-Kubota-D902-Diesel-Engine-USA/p/724239426",
     importConfidence: "100",
     series: "TERROR mini excavator series",
-    weight: "3800 lb",
+    weight: "3,800 lb",
     tagline: "Introducing the TYPHON TERROR XVII Lux Mini Excavator, a pinnacle of sophistication and durability in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a fashion statement.",
-    description: "Introducing the TYPHON TERROR XVII Lux Mini Excavator, a pinnacle of sophistication and durability in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a fashion statement. With a focus on flexibility, ease of transport, and superior heat dissipation, the TYPHON TERROR XVII is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards. Let's delve into the key features that make the TERROR XVII stand out. TYPHON TERROR XVII Lux 3800 lb Mini Excavator Key Features 1. EPA Certified Kubota Engine Equipped with an EPA certified Kubota D902 engine, ensuring compliance with environmental standards while delivering powerful performance. 2. Elegant Blue Series Design The TYPHON TERROR XVII exudes elegance with functionality. It's designed for those who appreciate sophistication in machinery while overcoming the ruggedness of projects . 3. Flexibility and Easy Transport Small and flexible design allows operation in limited spaces and easy transport, making it ideal for various indoor applications, including elevator decoration. Free hydraulic thumb clip enhances the extra flexibility. Dual pump feature allow easy operability of hydraulic pilot controls. The double side throttle valve ensures that two symmetrically arranged throttle/check valves limit the hydraulic oil flow in one direction and allow free-flow of hydraulic oil in the opposite direction. This feature is especially useful when having the hydraulic thumb clip and another hydraulic attachment on the same machine. 4. Favorable Heat Dissipation Engineered for favorable heat dissipation effects, ensuring optimal performance even during extended usage. 5. Versatile Applications Suitable for a range of tasks, from orchard work like planting and weeding to digging. Coupled with its default 15.7 in wide bucket, its versatility makes it a valuable asset for different scenarios. 6. Smart, Simple, Safe Designed with intelligence, simplicity, and safety in mind, providing an enhanced user experience. 7. Structural Durability Structural parts crafted from stainless steel or plastic, contributing to prolonged service life and durability. 8. Easy Operation and Transport User-friendly operation and convenient transport make it accessible for operators of various skill levels. 9. Lightweight with High Performance Despite its toughness, the TYPHON TERROR XVII remains light, ensuring high performance without compromising efficiency. The TYPHON TERROR XVII 3,800 lb Mini Excavator is not just a machine; it's a symbol of toughness, efficiency, and innovation. Whether you are navigating limited spaces indoors, working in orchards, or engaging in various excavation tasks, the TERROR XVII stands ready. With smart design, structural durability, and versatile applications, this excavator is a game-changer. Choose the TYPHON TERROR XVII for an unparalleled excavation experience. Smart, simple, safe - it's more than an excavator; it's a lifestyle.",
+    description: "TYPHON TERROR XVII LUX Mini Excavator GTIN: 5061030740996 The TYPHON TERROR XVII LUX Mini Excavator is a premium 3,800 lb compact excavator that combines sophisticated styling with professional-grade performance. Designed for contractors, landscapers, farmers, orchard operators, and property owners, the TERROR XVII LUX delivers exceptional digging capability, smooth hydraulic control, and outstanding maneuverability in confined work environments. Powered by the proven EPA-certified Kubota D902 diesel engine, this excavator features hydraulic pilot controls, a dual hydraulic pump system, a hydraulic thumb clip, and a durable 15.7 in digging bucket, providing operators with the precision, reliability, and versatility needed for demanding excavation projects. Whether you're trenching, landscaping, preparing foundations, maintaining orchards, or handling materials, the TYPHON TERROR XVII LUX delivers premium performance while maintaining the compact dimensions needed to access restricted work areas. Key Features Reliable EPA-Certified Kubota D902 Engine At the heart of the TERROR XVII LUX is the trusted Kubota D902, one of the industry's most respected compact diesel engines. Designed for reliability, fuel efficiency, and long service life, it provides dependable performance across a wide variety of applications. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder diesel Excellent fuel efficiency Smooth, reliable power delivery Low maintenance requirements Long service life The Kubota engine is engineered to perform consistently in demanding job-site conditions while meeting strict emissions standards. Premium LUX Blue Series Design The TERROR XVII LUX belongs to TYPHON's premium Blue Series, combining rugged durability with a refined appearance. Design Features Exclusive Blue Series styling Modern premium appearance Heavy-duty steel construction Professional finish Designed for durability and long-term performance Its premium styling complements its professional-grade engineering, making it a standout machine on any job site. Compact & Highly Maneuverable Designed for projects where space is limited, the TERROR XVII LUX offers exceptional maneuverability without compromising performance. Perfect For Residential construction Landscaping Orchards Farms Greenhouses Public parks Municipal maintenance Indoor demolition Utility installation Property maintenance Its compact dimensions make transportation easy while allowing operators to work efficiently in confined spaces. Advanced Hydraulic System The TERROR XVII LUX features an advanced hydraulic system that improves precision, attachment compatibility, and overall machine performance. Hydraulic Features Hydraulic pilot controls Dual hydraulic pump system Hydraulic thumb clip included Double-side throttle valve Smooth hydraulic response Excellent attachment compatibility The double-side throttle valve regulates hydraulic oil flow in one direction while allowing unrestricted return flow, making it particularly effective when operating multiple hydraulic attachments simultaneously. Superior Cooling Performance The excavator is engineered with an efficient cooling system that helps maintain optimal operating temperatures during extended work periods. Benefits Improved heat dissipation Consistent hydraulic performance Increased component lifespan Better reliability during continuous operation Reduced thermal stress on major components Smart, Safe & Easy to Operate The TERROR XVII LUX is designed with operator comfort, safety, and ease of use in mind. Operator Benefits Smooth hydraulic pilot controls Comfortable operating position Easy maintenance access Excellent visibility Stable operation Beginner-friendly controls Whether you're an experienced operator or new to compact excavators, the machine provides intuitive and precise control. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVII LUXGTIN5061030740996Operating Weight3,800 lbsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselHydraulic SystemDual Hydraulic PumpControlsHydraulic Pilot ControlsBucket Width15.7 inHydraulic Thumb ClipIncludedCooling SystemEnhanced Heat Dissipation Standard Equipment Included Every TYPHON TERROR XVII LUX comes fully equipped for immediate productivity. Included with Your Excavator ✔ Standard 15.7 in digging bucket ✔ Hydraulic thumb clip ✔ Dual hydraulic pump system ✔ Hydraulic pilot controls ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XVII LUX? The TERROR XVII LUX combines premium styling with professional excavation performance. Its Kubota diesel engine, advanced hydraulic system, hydraulic thumb, and durable construction make it an ideal choice for professionals who require reliability, efficiency, and precision. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Premium Blue Series design ✔ Hydraulic pilot controls ✔ Dual hydraulic pump system ✔ Hydraulic thumb clip included ✔ Excellent cooling performance ✔ Compact design for restricted work areas ✔ Durable steel construction ✔ Easy maintenance and dependable operation Ideal Applications The TYPHON TERROR XVII LUX is built for a wide range of professional industries. Construction Foundation excavation Utility trenching Residential building projects Site preparation Agriculture Orchard maintenance Tree planting Irrigation installation Farm improvements Landscaping Pond excavation Retaining wall preparation Land grading Material handling Property Maintenance Drainage installation Ditch cleaning Land clearing General earthmoving Premium Engineering. Professional Performance. The TYPHON TERROR XVII LUX Mini Excavator combines the trusted reliability of the Kubota D902 diesel engine, advanced hydraulic technology, premium Blue Series styling, and compact maneuverability into one highly capable machine. Built for professionals who expect exceptional performance, it delivers the power, precision, and durability required for construction, landscaping, agriculture, and property maintenance. Whether you're excavating, trenching, grading, or maintaining orchards, the TYPHON TERROR XVII LUX is engineered to help you work more efficiently while delivering reliable performance for years to come.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681375517-ziha9-4757894710.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681375517-ziha9-4757894710.webp",
@@ -1046,26 +1063,27 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Weight Class",
-        value: "3800 lb"
+        value: "3,800 lb"
       }
     ],
     features: [
-      "EPA Certified Kubota Engine Equipped with an EPA certified Kubota D902 engine, ensuring compliance with environmental standards while delivering powerful performance.",
-      "Elegant Blue Series Design The TYPHON TERROR XVII exudes elegance with functionality.",
-      "Flexibility and Easy Transport Small and flexible design allows operation in limited spaces and easy transport, making it ideal for various indoor applications, including elevator decoration.",
-      "Favorable Heat Dissipation Engineered for favorable heat dissipation effects, ensuring optimal performance even during extended usage.",
-      "Versatile Applications Suitable for a range of tasks, from orchard work like planting and weeding to digging.",
-      "Smart, Simple, Safe Designed with intelligence, simplicity, and safety in mind, providing an enhanced user experience."
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
-      "Suitable For A Range Of Tasks",
-      "From Orchard Work Like Planting"
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "2025-4000-lb-typhon-terror-xvii-cabin-mini-excavator-rubber-track-with-kubota-d902-diesel-engine",
-    name: "TYPHON Terror XVII PRO",
+    name: "TYPHON Terror XVII Cabin",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -1073,16 +1091,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "Mini Excavators",
     sku: "TYPH-1702B",
     gtin: "5061030741009",
-    price: "$ 15,645.00 Original price was: $15,645.00. $ 13,648.95 Current price is: $13,648.95.",
-    originalPrice: "$15,645.00",
-    currentPrice: "$13,648.95",
+    price: "$13 248.95",
+    currentPrice: "$13,248.95",
     sourceUrl: "https://typhonmachinery.com/product/2025-4000-lb-typhon-terror-xvii-cabin-mini-excavator-rubber-track-with-kubota-d902-diesel-engine/",
-    buttonUrl: "/product/2025-4000-lb-typhon-terror-xvii-cabin-mini-excavator-rubber-track-with-kubota-d902-diesel-engine/",
+    buttonUrl: "/product#!/2025-4-000-lb-TYPHON-TERROR-XVII-Cabin-Mini-Excavator-Rubber-Track-with-Kubota-D902-Diesel-Engine-USA/p/724239435",
     importConfidence: "100",
     series: "TERROR mini excavator series",
     weight: "4000 lb",
     tagline: "Introducing the TYPHON TERROR XVII Prestige Mini Excavator, a 4000 lb pinnacle of sophistication and durability in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a fashion statement.",
-    description: "The TYPHON TERROR XVII Prestige Mini Excavator, weighing 4000 lb, represents the epitome of sophistication and durability in the field of excavation. Crafted by TYPHON, this excavator is not just a machine; it's a fashion statement. With a focus on flexibility, ease of transport, and superior heat dissipation, the TYPHON TERROR XVII is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards. Let's delve into the key features that make the TERROR XVII stand out. TYPHON XVII Cabin Mini Excavator Key Features 1. EPA Certified Kubota Engine Equipped with an EPA-certified Kubota D902 engine, ensuring compliance with environmental standards while delivering powerful performance. 2. Elegant Blue Series Design The TYPHON TERROR XVII Cabin Mini Excavator combines style and practicality. It is made for those who value advanced technology while tackling the challenges of projects. 3. Flexibility and Easy Transport A small and flexible design allows operation in limited spaces and easy transport, making it ideal for various indoor applications, including elevator decoration. The free hydraulic thumb clip enhances the extra flexibility. The dual pump feature allows easy operability of hydraulic pilot controls. The double-side throttle valve ensures that two symmetrically arranged throttle/check valves limit the hydraulic oil flow in one direction and allow free flow of hydraulic oil in the opposite direction. This feature is especially useful when having the hydraulic thumb clip and another hydraulic attachment on the same machine. 4. Favorable Heat Dissipation Engineered for favorable heat dissipation effects, ensuring optimal performance even during extended usage. 5. Versatile Applications Suitable for a range of tasks, from orchard work like planting and weeding to digging. Coupled with a default 15.7 in bucket, its versatility makes it a valuable asset for different scenarios. 6. Smart, Simple, Safe Designed with intelligence, simplicity, and safety in mind, providing an enhanced user experience. 7. Structural Durability Structural parts crafted from stainless steel or plastic, contributing to prolonged service life and durability. 8. Easy Operation and Transport User-friendly operation and convenient transport make it accessible for operators of various skill levels. 9. Lightweight with High Performance Despite its toughness, the TYPHON TERROR XVII Cabin Mini Excavator remains light, ensuring high performance without compromising efficiency. 10. Excavate in Comfort The TYPHON TERROR XVII Cabin Mini Excavator Prestige comes equipped with a cabin featuring air conditioning and heating, ensuring operator comfort in all weather conditions. The TYPHON TERROR XVII 4000 lb Mini Excavator is more than just an instrument of equipment; it is a representation of adaptability, efficiency, and creativity. Whether you are working in orchards, confined areas indoors, or different circumstances, the TERROR XVII is ready for any excavation operation. This excavator is revolutionary due to its clever design, long-lasting structure, and wide range of uses. Choose the TYPHON TERROR XVII for an unparalleled excavation experience. Smart, simple, safe-it's more than an excavator; it's a lifestyle.",
+    description: "TYPHON TERROR XVII Prestige Mini Excavator GTIN: 5061030741009 The TYPHON TERROR XVII Prestige Mini Excavator is a premium 4,000 lb compact excavator designed to deliver exceptional power, precision, and operator comfort in demanding work environments. Built for contractors, landscapers, municipalities, farmers, and property owners, the TERROR XVII Prestige combines the trusted performance of the EPA-certified Kubota D902 diesel engine with advanced hydraulic technology, a fully enclosed air-conditioned and heated cabin, and premium Blue Series styling. Engineered for superior maneuverability and professional performance, the TERROR XVII Prestige features hydraulic pilot controls, a dual hydraulic pump system, a hydraulic thumb clip, and a 15.7 in digging bucket, making it an ideal machine for excavation, trenching, landscaping, orchard maintenance, utility installation, and general earthmoving. Whether you're working in residential neighborhoods, commercial construction sites, orchards, or agricultural properties, the TYPHON TERROR XVII Prestige delivers the reliability, efficiency, and comfort professionals expect from premium equipment. Key Features Reliable EPA-Certified Kubota D902 Engine Powering the TERROR XVII Prestige is the proven Kubota D902, one of the industry's most dependable compact diesel engines. Designed for maximum reliability and fuel efficiency, it delivers smooth power while meeting EPA emissions standards. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder diesel Fuel-efficient operation Smooth, dependable performance Low maintenance requirements Long service life The Kubota D902 provides consistent power for demanding excavation projects while reducing operating costs. Premium Blue Series Design The TERROR XVII Prestige is part of TYPHON's premium Blue Series, combining elegant styling with heavy-duty engineering. Design Features Exclusive Blue Series finish Professional modern appearance Heavy-duty steel construction Premium-quality components Designed for durability and long-term reliability Built to perform while maintaining a refined appearance, the Prestige model stands out on every job site. Compact Size with Outstanding Flexibility Its compact footprint makes the TERROR XVII Prestige ideal for projects requiring precise operation in confined areas. Ideal Applications Residential construction Landscaping Orchards Farms Parks Utility installation Greenhouses Municipal maintenance Property development Indoor renovation and demolition The included hydraulic thumb clip and compact design allow operators to work efficiently in locations where larger excavators cannot access. Advanced Hydraulic System The TERROR XVII Prestige features an advanced hydraulic system engineered for smooth operation, precision control, and excellent attachment compatibility. Hydraulic Features Hydraulic pilot controls Dual hydraulic pump system Hydraulic thumb clip included Double-side throttle valve Smooth hydraulic response Excellent auxiliary attachment support The double-side throttle valve regulates hydraulic flow for improved efficiency when operating multiple hydraulic attachments simultaneously. Premium Enclosed Climate-Controlled Cabin Unlike standard compact excavators, the Prestige model includes a fully enclosed operator cabin equipped with both air conditioning and heating, allowing comfortable operation throughout every season. Cabin Features Fully enclosed operator cabin Air conditioning system Cabin heater Excellent visibility Reduced operator fatigue Improved productivity in all weather conditions The climate-controlled cabin creates a comfortable working environment during hot summers and cold winters. Optimized Cooling & Durability Designed for continuous professional operation, the TERROR XVII Prestige incorporates an efficient cooling system and durable structural components. Benefits Excellent heat dissipation Stable hydraulic performance Longer component life Stainless steel and reinforced structural components Reduced maintenance requirements Reliable operation under demanding workloads Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVII PrestigeGTIN5061030741009Operating Weight4,000 lbsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselHydraulic SystemDual Hydraulic PumpControlsHydraulic Pilot ControlsBucket Width15.7 inHydraulic Thumb ClipIncludedOperator CabinFully Enclosed with A/C & Heater Standard Equipment Included Every TYPHON TERROR XVII Prestige is equipped with premium features to maximize productivity from day one. Included with Your Excavator ✔ Standard 15.7 in digging bucket ✔ Hydraulic thumb clip ✔ Hydraulic pilot controls ✔ Dual hydraulic pump system ✔ Fully enclosed A/C and heater cabin ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XVII Prestige? The TERROR XVII Prestige combines premium comfort, advanced hydraulic technology, and proven Kubota reliability into one professional-grade compact excavator. Built for operators who demand superior performance, durability, and year-round comfort, it delivers exceptional value across construction, agriculture, landscaping, and municipal applications. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Premium Blue Series styling ✔ Fully enclosed cabin with air conditioning and heating ✔ Hydraulic pilot controls ✔ Dual hydraulic pump system ✔ Hydraulic thumb clip included ✔ Excellent cooling performance ✔ Compact design for confined work areas ✔ Heavy-duty construction for long service life Ideal Applications The TYPHON TERROR XVII Prestige is trusted across multiple industries. Construction Foundation excavation Utility trenching Site preparation Residential building projects Agriculture Orchard maintenance Tree planting Irrigation installation Farm improvements Landscaping Pond excavation Retaining wall preparation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing General earthmoving Premium Comfort. Professional Capability. The TYPHON TERROR XVII Prestige Mini Excavator combines the trusted performance of the Kubota D902 diesel engine, advanced hydraulic technology, a fully enclosed climate-controlled cabin, and premium Blue Series engineering into one compact machine built for professionals. Designed to maximize productivity while providing outstanding operator comfort, it delivers the reliability, versatility, and performance required to tackle demanding excavation projects in every season. Whether you're trenching, landscaping, excavating, or maintaining orchards and construction sites, the TYPHON TERROR XVII Prestige is built to help you work more efficiently, comfortably, and confidently every day.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681571784-6radb-4757969750.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681571784-6radb-4757969750.webp",
@@ -1090,7 +1107,17 @@ export const typhonProducts: TyphonProduct[] = [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681570320-f54p3-4757954804.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681568931-sfvh7-4757954797.webp",
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681567486-zrqls-4757954770.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681556789-5qjvx-4757911720.webp"
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681556789-5qjvx-4757911720.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443997563-egcpg-pasted-image-20260626-101957-uhrh6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444015794-hh5b2-pasted-image-20260626-102015-ifk2i.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444020414-5vywu-pasted-image-20260626-102020-6dxab.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444012414-c6234-pasted-image-20260626-102012-ariio.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444024021-2dvw2-pasted-image-20260626-102023-kefp2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444008035-apaku-pasted-image-20260626-102007-y7b4h.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444005116-ag8ft-pasted-image-20260626-102005-srkad.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443983576-ktasf-pasted-image-20260626-101943-z8lym.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443991010-q9kdq-pasted-image-20260626-101950-hfwoh.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444027380-9fgdh-pasted-image-20260626-102027-0byal.webp"
     ],
     specs: [
       {
@@ -1099,7 +1126,7 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$13,648.95"
+        value: "$13,248.95"
       },
       {
         label: "SKU",
@@ -1115,16 +1142,17 @@ export const typhonProducts: TyphonProduct[] = [
       }
     ],
     features: [
-      "EPA Certified Kubota Engine Equipped with an EPA-certified Kubota D902 engine, ensuring compliance with environmental standards while delivering powerful performance.",
-      "Elegant Blue Series Design The TYPHON TERROR XVII Cabin Mini Excavator combines style and practicality.",
-      "Flexibility and Easy Transport A small and flexible design allows operation in limited spaces and easy transport, making it ideal for various indoor applications, including elevator decoration.",
-      "Favorable Heat Dissipation Engineered for favorable heat dissipation effects, ensuring optimal performance even during extended usage.",
-      "Versatile Applications Suitable for a range of tasks, from orchard work like planting and weeding to digging.",
-      "Smart, Simple, Safe Designed with intelligence, simplicity, and safety in mind, providing an enhanced user experience."
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
-      "Suitable For A Range Of Tasks",
-      "From Orchard Work Like Planting"
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
     ],
     imageMatch: "CSV image fields"
   },
@@ -1136,12 +1164,12 @@ export const typhonProducts: TyphonProduct[] = [
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "Mini Excavators",
-    sku: "",
+    sku: "TYPH-1901 PRO",
     gtin: "5061030740286",
-    price: "$ 15,748.74",
-    currentPrice: "$15,748.74",
+    price: "$15 499.00",
+    currentPrice: "$15,499.00",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy/",
-    buttonUrl: "/product/typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XIX-STORM-Mini-Excavator-4000lbs-Trench-Digger-with-Boom-Swing-Canopy-Retractable-Tracks/p/657733569",
     importConfidence: "100",
     series: "TERROR mini excavator series",
     weight: "Mini Excavator",
@@ -1173,7 +1201,11 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$15,748.74"
+        value: "$15,499.00"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1901 PRO"
       },
       {
         label: "GTIN",
@@ -1213,16 +1245,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "Mini Excavators",
     sku: "TYPH-1902",
     gtin: "5061030741689",
-    price: "$ 16,999.00 Original price was: $16,999.00. $ 15,748.95 Current price is: $15,748.95.",
-    originalPrice: "$16,999.00",
-    currentPrice: "$15,748.95",
+    price: "$16 999.00",
+    currentPrice: "$16,999.00",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retractable-tracks/",
-    buttonUrl: "/product/typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retractable-tracks/",
+    buttonUrl: "/product#!/TYPHON-TERROR-XIX-Prestige-AC-Heater-Cabin-Mini-Excavator-4200lbs-20-4-HP-Kubota-D902-with-Boom-Swing-Retractable-Tracks/p/799468415",
     importConfidence: "100",
     series: "TERROR mini excavator series",
-    weight: "4200 lb",
+    weight: "4,200 lb",
     tagline: "The TYPHON TERROR XIX Prestige mini excavator machine includes one regular digging excavator Bucket, Hydraulic Thumb Clip, one toolbox, and a digital manual with complete instructions.",
-    description: "sites, orchards, gardens, farms, landscaping, and any job that requires consistent productivity, agility, and maneuverability in constrained spaces. TYPHON TERROR XIX Prestige Key Feature: 1. Ideal for Tight-Space Tasks: The TERROR XIX Prestige mini excavator is engineered for confined locations and precise operation. Its retractable tracks (1000-51.2 in (4.3 ft)), boom swing, and rotary motors allow smooth control in tight spaces. With a bulldozer blade for added versatility and a compact build (Overall length 86.6 in (7.2 ft), Overall Width 45.3 in, Overall height90.6 in (7.5 ft)), it excels in gardens, fence lines, walks, plantations, and small construction projects. 2. One Machine, So Many Uses: Mini excavator handles trenching, drilling, grabbing, ditch clearing, rock breaking, stump removal, grading, and landscaping with smooth, balanced power. Three-way stop valves allow rerouting of hydraulic flow to power attachments like augers or thumb clips. Combined with boom-swing capability and fully integrated hydraulic control, it delivers precise operation and supports a wide range of attachments, making it a versatile machine for any job site. 3. Strong but Compact Design: This 4200lbs mini excavator with powered by a Kubota D902 20.4HP water-cooled system 3-cylinder, 4-cycle IDI diesel engine with a capacity of 15.8 HP at 2300RPM and 20.4HP at 3600RPM, is designed to endure hard field work and long work. Hydraulic protection combined with reinforced structure provides durability without compromising mobility. 4. Easy Control: The TERROR XIX Prestige delivers precision, comfort, and versatility in a compact package. Pilot joystick controls, a Hydraulic pedal system, and hydraulic-driven travel provide smooth, accurate operation. Its 16.3 in Bucket handles digging, drilling, and Bulldozing, while 9.1 in tracks and Hydraulic thumb clip attachments enhance stability and material handling. The spacious cabin 60.2 in (5 ft) interior height and 41.3 in seat-to-roof clearance offers excellent comfort, with a Heater, an easy-open window and built-in heater for improved usability. 5. Gear Included: The TYPHON TERROR XIX Prestige mini excavator machine includes one regular digging excavator Bucket, Hydraulic Thumb Clip, 1 x tool box, 1 x Fire extinguisher, 1 x Breaking Windows or Cutting Seatbelts, 1 x digital manual with complete instructions. Additional Features Rotary motors have a two-way relief valve that acts as a brake and prevents excessive back pressure. Boom Swing. The machine's agility is enhanced by 45-degree deflection angles to the left and right. The Bulldozer controlling handle now has hydraulic control, providing more precise height adjustments while in motion. Upgraded triple hydraulic pump provides 15% faster hydraulic flow than conventional two-ton excavators. Increased hydraulic flow can boost operating speed and make processes more efficient. Three-way stop valves These valves reroute the flow of an existing hydraulic line to add a hydraulic function, such as an auger or thumb clip attachment. Hidden single-speed motors work with a sprocket-integrated final drive motor assembly. This style has a slimmer profile and can enable smoother ride. Single-speed variants are better suited for situations requiring continuous, regulated speed rather than fast action. has a plunger pump instead of the typical gear pump. Long service life, simple maintenance, and steady hydraulic flow and pressure are characteristics of plunger pumps.",
+    description: "TYPHON TERROR XIX Prestige Mini Excavator GTIN: 5061030741689 The TYPHON TERROR XIX Prestige Mini Excavator is a premium 4,200 lb compact excavator designed to deliver exceptional power, precision, and comfort in confined work environments. Powered by the trusted Kubota D902 diesel engine, this professional-grade machine combines advanced hydraulic technology, pilot joystick controls, a climate-controlled cabin, retractable tracks, and a reinforced steel structure to maximize productivity on every job site. Whether you're working on residential construction, utility trenching, landscaping, orchards, agriculture, or municipal maintenance, the TERROR XIX Prestige offers the perfect balance of compact dimensions and heavy-duty performance. Built to support a wide variety of hydraulic attachments, this excavator is engineered for professionals who demand versatility without compromising reliability. Key Features Built for Tight Spaces The TERROR XIX Prestige is specifically engineered to operate where larger excavators cannot. Its retractable undercarriage, boom swing, and compact dimensions allow operators to work efficiently in narrow passages, between buildings, alongside fence lines, and in residential or commercial properties. Compact Advantages Retractable track width: 39.4-51.2 in (1000-51.2 in (4.3 ft)) Compact overall width of 45.3 in Boom swing for working alongside walls and obstacles Excellent maneuverability in confined areas Hydraulic bulldozer blade for grading and stabilization Ideal for gardens, orchards, sidewalks, landscaping, and utility work Powerful Kubota D902 Diesel Engine The machine is powered by the proven Kubota D902, one of the industry's most trusted compact diesel engines. Engine Highlights 20.4 HP @ 3,600 RPM 15.8 HP @ 2,300 RPM Water-cooled 3-cylinder diesel engine EPA-compliant performance Fuel-efficient operation Long service life with low maintenance requirements The Kubota engine delivers dependable power while maintaining excellent fuel economy during demanding excavation work. Advanced Hydraulic System The TERROR XIX Prestige features a significantly upgraded hydraulic system designed for faster response, smoother operation, and greater attachment versatility. Hydraulic Advantages Triple hydraulic pump delivering up to 15% faster hydraulic flow High-performance plunger pump for stable pressure and long service life Three-way hydraulic stop valves for additional hydraulic functions Smooth pilot joystick operation Hydraulic pedal controls Strong auxiliary hydraulic output Supports simultaneous hydraulic functions This advanced hydraulic system allows operators to work faster while maintaining excellent control and precision. One Machine, Endless Possibilities Designed to replace multiple machines on the job site, the TERROR XIX Prestige handles a wide range of excavation and material-handling tasks with ease. Perfect For Foundation excavation Utility trenching Irrigation installation Cable and pipe installation Landscaping Rock breaking Stump removal Land grading Site preparation Material handling Ditch cleaning Agricultural maintenance Municipal projects Property development The integrated hydraulic system also supports attachments such as augers, hydraulic thumbs, and other auxiliary tools. Premium Operator Comfort Designed for long working days, the spacious enclosed cabin provides excellent visibility and year-round comfort while reducing operator fatigue. Cabin Features Fully enclosed AC & Heater Cabin Spacious interior with 60.2 in cabin height 41.3 in seat-to-roof clearance Easy-open front window Ergonomic pilot joystick controls Hydraulic travel pedals Comfortable operator seating Improved visibility around the machine Heavy-Duty Construction Every component of the TERROR XIX Prestige is engineered for durability under demanding working conditions. Built to Last Reinforced steel frame Heavy-duty hydraulic cylinders Hidden single-speed travel motors Integrated sprocket final drive assembly Hydraulic-controlled bulldozer blade Rotary motors with two-way relief valves Excellent stability during lifting and digging Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XIX PrestigeGTIN5061030741689Operating Weight4,200 lbsEngineKubota D902 DieselEngine TypeWater-Cooled 3-Cylinder 4-Cycle DieselMaximum Engine Output20.4 HP @ 3,600 RPMRated Power15.8 HP @ 2,300 RPMTrack Width (Retractable)39.4-51.2 in (1000-51.2 in (4.3 ft))Bucket Width16.3 inTrack Width9.1 inOverall Length86.6 inOverall Width45.3 inOverall Height90.6 inBody Rotation360° Continuous RotationBoom Swing45° Left / 45° RightHydraulic PumpTriple Hydraulic Plunger PumpCabinFully Enclosed with AC & Heater Standard Equipment Included Every TYPHON TERROR XIX Prestige comes equipped with premium accessories for maximum productivity. Included with Your Machine ✔ Standard digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Fire extinguisher ✔ Emergency window breaker / seatbelt cutter ✔ Digital operator's manual Premium Features Designed for Professional Performance 🔹 Fully enclosed AC & Heater cabin 🔹 Triple hydraulic pump 🔹 High-performance plunger hydraulic pump 🔹 Pilot joystick controls 🔹 Hydraulic travel pedals 🔹 Hydraulic bulldozer blade 🔹 Retractable tracks 🔹 Boom swing (45° left / right) 🔹 360° body rotation 🔹 Hidden travel motors 🔹 Rotary motor protection valves 🔹 Three-way hydraulic stop valves 🔹 Auxiliary hydraulic support for attachments Why Choose the TYPHON TERROR XIX Prestige? The TYPHON TERROR XIX Prestige combines premium engineering, advanced hydraulics, trusted Kubota power, and operator-focused comfort into one compact excavator. Designed for professionals who need versatility without sacrificing performance, it offers exceptional productivity across construction, landscaping, agriculture, utility installation, and municipal maintenance. Key Benefits ✔ Reliable Kubota D902 diesel engine ✔ Triple hydraulic pump for faster operation ✔ Premium enclosed AC & Heater cabin ✔ Retractable tracks for confined work areas ✔ Hydraulic thumb included ✔ Boom swing for precision excavation ✔ Pilot joystick controls ✔ Durable reinforced steel construction ✔ Supports a wide range of hydraulic attachments ✔ Trusted by contractors for professional-grade performance Ideal Applications The TYPHON TERROR XIX Prestige is engineered for demanding projects across multiple industries. Residential & Commercial Construction Utility & Pipeline Installation Agriculture & Farming Landscaping & Hardscaping Orchards & Vineyards Municipal Maintenance Road & Sidewalk Repairs Property Development Drainage & Irrigation Land Clearing Foundation Excavation Built for Professionals The TYPHON TERROR XIX Prestige Mini Excavator is more than a compact excavator-it's a complete productivity solution. Combining Kubota diesel power, advanced hydraulic technology, premium operator comfort, and exceptional versatility, it is built to help professionals complete more work with greater efficiency and confidence. From precision trenching to demanding excavation projects, the TYPHON TERROR XIX Prestige delivers the durability, control, and performance today's contractors expect from premium construction equipment.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781840115103-8jbhw-pasted-image-20260619-103514-fmkgh.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781840115103-8jbhw-pasted-image-20260619-103514-fmkgh.webp",
@@ -1249,7 +1280,7 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$15,748.95"
+        value: "$16,999.00"
       },
       {
         label: "SKU",
@@ -1261,24 +1292,96 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Weight Class",
-        value: "4200 lb"
+        value: "4,200 lb"
       },
       {
         label: "Engine Power",
         value: "20.4 HP"
-      },
-      {
-        label: "Capacity",
-        value: "of 15"
       }
     ],
     features: [
-      "Ideal for Tight-Space Tasks: The TERROR XIX Prestige mini excavator is engineered for confined locations and precise operation.",
-      "One Machine, So Many Uses: Mini excavator handles trenching, drilling, grabbing, ditch clearing, rock breaking, stump removal, grading, and landscaping with smooth, balanced power.",
-      "Strong but Compact Design: This 4200lbs mini excavator with powered by a Kubota D902",
-      "Easy Control: The TERROR XIX Prestige delivers precision, comfort, and versatility in a compact package.",
-      "Gear Included: The TYPHON TERROR XIX Prestige mini excavator machine includes one regular digging excavator Bucket, Hydraulic Thumb Clip, 1 x tool box, 1 x Fire extinguisher, 1 x Breaking Windows or Cutting Seatbelts, 1 x digital manual with complete instructions.",
-      "Compact tracked platform"
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2",
+    name: "TYPHON Flex 18 Pro",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "13.8HP Kubota D722 Engine",
+    sku: "TYPH-0702Pro",
+    gtin: "5061030741139",
+    price: "$15 223.95",
+    currentPrice: "$15,223.95",
+    sourceUrl: "https://typhonmachinery.com/product/typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2/",
+    buttonUrl: "/product#!/TYPHON-18-FLEX-PRO-1-8-Ton-Mini-Excavator-USA-with-12-attachments/p/745060809",
+    importConfidence: "100",
+    series: "TERROR mini excavator series",
+    weight: "Mini Excavator",
+    tagline: "Unleash the TYPHON 18 FLEX PRO Mini Excavator, a compact and nimble trench digger ideal for small to medium-sized jobs. This tiny excavator is your go-to choice for efficient and diverse excavation operations, thanks to its sturdy structure, retractable tracks, swing boom, and various 12 attachments.",
+    description: "TYPHON 18 FLEX PRO Mini Excavator GTIN: 5061030741139 The TYPHON 18 FLEX PRO Mini Excavator is a premium compact excavator engineered to deliver exceptional versatility, precision, and productivity for small to medium-sized construction projects. Powered by the reliable Kubota D722 diesel engine, this machine combines impressive digging performance with a swing boom, retractable tracks, hydraulic joystick controls, and an industry-leading package of 12 professional attachments, making it one of the most versatile mini excavators in its class. Designed for contractors, landscapers, farmers, municipalities, and property owners, the TYPHON 18 FLEX PRO excels in excavation, trenching, grading, demolition, material handling, and landscaping. Its compact footprint allows it to work efficiently in confined areas while providing the power and durability required for demanding job sites. Whether you're installing utilities, preparing foundations, maintaining farmland, or completing landscaping projects, the TYPHON 18 FLEX PRO is built to help you work smarter and accomplish more with a single machine. Key Features Designed for Small & Medium Projects The TYPHON 18 FLEX PRO is specifically engineered for projects where maneuverability is just as important as digging power. Its compact dimensions, retractable tracks, and swing boom make it easy to work around buildings, fences, gardens, sidewalks, orchards, and other confined spaces. Ideal Working Environments Residential construction Farms and agricultural properties Gardens and landscaping projects Parks and recreation areas Orchards and vineyards Municipal maintenance Utility installation Property development Its compact size allows operators to access areas that larger excavators simply cannot reach. Reliable Kubota D722 Diesel Engine Powering the FLEX PRO is the dependable Kubota D722, a water-cooled diesel engine known worldwide for its reliability, fuel efficiency, and low maintenance requirements. Engine Highlights Kubota D722 Diesel Engine 16.4 HP @ 3,600 RPM Water-cooled 3-cylinder diesel Excellent fuel economy Smooth and reliable performance Easy maintenance Long service life Built for demanding workdays, the Kubota engine delivers consistent power without sacrificing efficiency. Exceptional Versatility The TYPHON 18 FLEX PRO is designed to handle far more than traditional excavation. Its hydraulic system supports multiple attachments, allowing one machine to perform the work of several. Perfect For Trenching Foundation excavation Utility installation Rock breaking Drilling Grading Material handling Tree planting Ditch cleaning Demolition Landscaping Agricultural maintenance Site preparation The swing boom and retractable tracks further increase flexibility when working in tight spaces. Precision Hydraulic Controls Hydraulic joystick controls provide smooth, responsive operation, allowing operators to perform delicate excavation work with excellent precision. Hydraulic Features Hydraulic joystick controls Smooth boom movement Precise bucket operation Swing boom functionality Responsive auxiliary hydraulics Easy attachment operation These features improve operator confidence while increasing productivity throughout the workday. Compact but Tough Despite its compact footprint, the FLEX PRO is built with heavy-duty components designed for continuous professional use. Durability Highlights Reinforced steel frame Water-cooled engine Heavy-duty hydraulic system Stable undercarriage Retractable tracks Reliable construction for demanding job sites Its rugged design ensures dependable performance year after year. Technical Specifications SpecificationDetailsProduct ModelTYPHON 18 FLEX PROGTIN5061030741139EngineKubota D722 DieselEngine TypeWater-Cooled 3-Cylinder DieselMaximum Engine Output16.4 HP @ 3,600 RPMBucket Width16.3 inBucket Capacity0.04 m³Maximum Digging Depth82.7 inMaximum Digging Height121.3 inMinimum Swing Radius33.1 inBoom SwingStandardTracksRetractableCabinFully Enclosed Operator Cabin 12 Attachments Included One of the biggest advantages of the TYPHON 18 FLEX PRO is the comprehensive attachment package, allowing operators to complete a wide variety of jobs without purchasing additional equipment. Included Attachments AttachmentPurpose✔ Standard Digging BucketGeneral excavation✔ AugerDrilling post and foundation holes✔ Concrete BreakerDemolition and concrete removal✔ Quick HitchFast attachment changes✔ Hydraulic Thumb ClipMaterial handling✔ 7.9 in Trenching BucketNarrow trench excavation✔ 19.7 in Grading BucketSurface leveling and grading✔ RakeClearing roots and debris✔ GrapplerLifting logs and bulky materials✔ RipperBreaking compacted soil and roots✔ Screening BucketMaterial separation✔ 23.6 in Tilting BucketPrecision grading and slope work Standard Equipment Included Every TYPHON 18 FLEX PRO comes ready for work with essential accessories. Included with Your Machine ✔ Fully enclosed operator cabin ✔ Heavy-duty toolbox ✔ Digital operator's manual ✔ Complete 12-piece attachment package Why Choose the TYPHON 18 FLEX PRO? The TYPHON 18 FLEX PRO is designed for professionals who want maximum versatility from a compact excavator. With its premium Kubota engine, hydraulic joystick controls, retractable tracks, enclosed cabin, and comprehensive attachment package, it provides outstanding value while reducing the need for additional equipment. Key Benefits ✔ Reliable Kubota D722 diesel engine ✔ Complete 12-attachment package included ✔ Hydraulic joystick controls ✔ Swing boom for precision excavation ✔ Retractable tracks for narrow access ✔ Fully enclosed operator cabin ✔ Compact yet powerful design ✔ Ideal for construction, agriculture, landscaping, and municipal work ✔ Excellent digging depth and reach ✔ Low maintenance and long service life Ideal Applications The TYPHON 18 FLEX PRO is trusted across a wide range of industries. Residential Construction Commercial Construction Utility Installation Landscaping & Hardscaping Agriculture & Farming Orchard Maintenance Municipal Projects Foundation Excavation Drainage & Irrigation Property Development Land Clearing General Earthmoving One Machine. Twelve Attachments. Endless Possibilities. The TYPHON 18 FLEX PRO Mini Excavator is built to maximize productivity by combining Kubota reliability, advanced hydraulic performance, compact maneuverability, and a complete 12-piece attachment package into one powerful machine. Whether you're digging trenches, breaking concrete, grading landscapes, drilling holes, or handling materials, the FLEX PRO is equipped to take on virtually any task. From everyday maintenance to demanding construction projects, the TYPHON 18 FLEX PRO delivers the power, flexibility, and reliability professionals need to get more done with every job.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683766939-oe0cf-4882745625.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683766939-oe0cf-4882745625.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683776857-t3qky-4882745630.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683775690-9jgad-4882745635.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683774288-pyrue-4882745640.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683771970-6uo1f-4882747112.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683770210-adavg-4882747122.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683769082-z16c5-4887069287.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$15,223.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0702Pro"
+      },
+      {
+        label: "GTIN",
+        value: "5061030741139"
+      },
+      {
+        label: "Engine Power",
+        value: "13.8 HP"
+      },
+      {
+        label: "Engine",
+        value: "Kubota D722 Engine TYPHON Flex"
+      },
+      {
+        label: "Digging Depth",
+        value: "82"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
       "Trenching",
@@ -1291,7 +1394,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa",
-    name: "TYPHON Terror X2 (2.5 Ton) - Kubota V1505",
+    name: "TYPHON Terror X2 Capony",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -1299,15 +1402,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "25HP",
     sku: "TYPH-X201PRO",
     gtin: "5061030740163",
-    price: "$ 18,999.00",
+    price: "$18 999.00",
     currentPrice: "$18,999.00",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa/",
-    buttonUrl: "/product/typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa/",
+    buttonUrl: "/product#!/TYPHON-TERROR-X2-STORM-Mini-Excavator-2-5-Ton-Diesel-Kubota-V1505-Engine-USA/p/598182518",
     importConfidence: "100",
     series: "TERROR mini excavator series",
-    weight: "2.5 ton",
+    weight: "Mini Excavator",
     tagline: "We are introducing the TYPHON TERROR X2 STORM Mini Excavator, an extremely compact powerhouse perfect for minor construction jobs. The TYPHON TERROR X2 STORM is designed to excel in various activities, making it a perfect partner for work in gardens, farms, parks, roads, and more.",
-    description: "Introducing the TYPHON TERROR X2 STORM Mini Excavator, an extremely compact powerhouse ideal for minor construction jobs. The TYPHON TERROR X2 STORM is designed to excel in various activities, making it a great partner for work in gardens, farms, parks, roads, and more. TYPHON TERROR X2 STORM Mini Excavator Key Features 1. Compact Design for Small Projects The TYPHON TERROR X2 STORM Mini Excavator is specifically designed for small construction projects, which allows for easy maneuverability in areas such as farms, gardens, public spaces, and parks. 2. Versatile Applications Designed for drilling, digging, grabbing, bulldozing, ditch cleaning, small excavations, rock breaking, landscaping, and various construction purposes. 3. Powerful and Durable It is equipped with a small yet high-performance Kubota V1505 engine, ensuring smooth functionality and easy maintenance. The compact yet powerful design allows it to withstand intensive construction projects without sacrificing performance. 4. User-Friendly Design The design is extremely user-friendly, making it suitable for both experienced operators and first-time users. Features a 19.7 in wide bucket and platform ground clearance, enabling easy operation for all excavation, drilling, or bull-dozing jobs. 5. Comprehensive Package The TYPHON TERROR X2 STORM mini excavator machine comes complete with 1 x standard digging excavator bucket, 1 x tool box, 1 x canopy, and 1 x digital manual with all the necessary instructions. 6. Innovative Features for Optimal Performance Boom swing and retractable tracks for added flexibility. A minimum ground clearance of 7.9 in ensures stability and adaptability in a variety of terrains. The compact 360-degree swing radius ensures exceptional performance in confined areas. 7. Powerful Engine Specifications The Kubota V1505 engine is compact yet powerful. EPA Emissions Tier 4 Final, 4 cylinder, vertical water-cooled 4-cycle diesel engine. Rated output is 24.8hp/24.8 HP at 2300 rpm. Maximum torque of 92.6Nm (68.3lb-ft) at 1700 rpm. 8. Maximum Digging Capabilities The device can reach a maximum digging depth of 2.75m and a maximum digging radius of 172.8 in (14.4 ft). 9. Versatility in Action The machine exhibits exceptional resistance and durability, which guarantees its longevity. The boom deflects 45 degrees to the left and 55 degrees to the right, providing maximum agility. 10. Ideal for Various Environments The device is well-suited for a variety of environments, including public spaces, small construction sites, gardens, farms, orchards, municipal works, parks, roads, and landscaping. An excellent solution for drilling, ditch cleaning, trench digging, bulldozing, grabbing, rock breaking, and more. TYPHON TERROR X2 STORM in Action-Mini Scale, Maximum Success The TYPHON TERROR X2 STORM Mini Excavator is the epitome of success in small construction projects. With its powerful engine, versatile attachments, and user-friendly design, this mini excavator ensures that your construction projects are not just completed but are executed with precision and efficiency. For inquiries, assistance, or to experience the power of TYPHON, contact us today. Choose TYPHON for uncompromised performance in every project.",
+    description: "TYPHON TERROR X2 STORM Mini Excavator Brand: TYPHON GTIN: 5061030740163 The TYPHON TERROR X2 STORM Mini Excavator is a rugged and versatile compact excavator engineered for professionals who need maximum performance in confined work areas. Combining the trusted Kubota V1505 Tier 4 diesel engine, advanced hydraulic technology, retractable tracks, boom swing functionality, and a durable open-canopy design, the TERROR X2 STORM delivers exceptional productivity across construction, agriculture, landscaping, utility installation, and municipal maintenance. Built for operators who prefer the visibility and accessibility of an open operator station, the X2 STORM provides outstanding maneuverability while maintaining the digging power, durability, and reliability expected from professional TYPHON equipment. Whether you're trenching utilities, excavating foundations, clearing land, or performing farm maintenance, the TERROR X2 STORM is designed to help you work faster, smarter, and more efficiently. Key Features Compact Design for Tight Work Areas The TERROR X2 STORM is specifically engineered to operate where larger excavators cannot. Its compact dimensions, retractable tracks, and boom swing system allow precise excavation in narrow spaces while maintaining excellent machine stability. Compact Advantages Retractable tracks from 41.7-53.1 in (1060-53.1 in (4.4 ft)) Compact overall footprint Excellent maneuverability around buildings and fences Boom swing for precision digging beside walls Stable operation on uneven terrain Easy transportation between job sites Ideal for: Residential construction Gardens Farms Orchards Parks Sidewalks Municipal projects Utility installations Powerful Kubota V1505 Tier 4 Diesel Engine The TYPHON TERROR X2 STORM is powered by the dependable Kubota V1505, delivering outstanding reliability, fuel efficiency, and smooth power throughout demanding workdays. Engine Highlights 24.4-24.8 HP Kubota diesel engine 18.2-24.8 HP rated output EPA Tier 4 Final compliant Vertical water-cooled 4-cylinder diesel Maximum torque: 92.6 Nm (68.3 lb-ft) @ 1700 RPM Rated engine speed: 2300 RPM Fuel-efficient operation Low maintenance requirements This proven Kubota engine is built for long service life and dependable everyday performance. Versatile Multi-Purpose Performance The TERROR X2 STORM is designed to handle a wide variety of excavation and earthmoving applications while supporting multiple hydraulic attachments. Ideal Applications Foundation excavation Utility trenching Irrigation installation Rock breaking Landscaping Ditch cleaning Land grading Property development Farm maintenance Material handling Site preparation Tree planting Municipal maintenance Its flexibility makes it an excellent all-around machine for professionals working across multiple industries. Advanced Hydraulic Performance An efficient hydraulic system delivers responsive control and reliable power for digging, grading, and attachment operation. Hydraulic Advantages Double side throttle valve system Smooth hydraulic operation Improved auxiliary attachment control Stable hydraulic pressure Precise boom and bucket movement Enhanced hydraulic thumb compatibility The double throttle valve allows multiple hydraulic functions to operate efficiently while maintaining excellent control. Operator-Friendly Controls Designed for both experienced operators and first-time users, the TERROR X2 STORM offers intuitive controls and outstanding visibility. Operator Benefits Open heavy-duty protective canopy Comfortable control layout Excellent visibility Smooth hydraulic response Easy machine maintenance Simple operation for increased productivity The open-canopy design provides unrestricted visibility and easy access for operators working in warmer climates. Outstanding Digging Performance Despite its compact size, the TERROR X2 STORM delivers professional digging capability suitable for demanding excavation work. Performance Highlights Maximum digging depth: 9.0 ft (2.75 m) Maximum digging radius: 14.4 ft (172.8 in (14.4 ft)) Bucket digging force: 22 kN Boom swing: 45° left / 55° right Excellent lifting capability Smooth hydraulic cycle times Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR X2 STORMGTIN5061030740163EngineKubota V1505 DieselEngine TypeVertical Water-Cooled 4-Cylinder DieselMaximum Engine Output24.4-24.8 HPRated Power18.2-24.8 HP @ 2300 RPMMaximum Torque92.6 Nm (68.3 lb-ft)Emission StandardEPA Tier 4 FinalMaximum Digging Depth9.0 ft (2.75 m)Maximum Digging Radius14.4 ft (172.8 in (14.4 ft))Bucket Width19.7 inBucket Digging Force22 kNTrack Extension Range41.7-53.1 in (1060-53.1 in (4.4 ft))Minimum Ground Clearance7.9 inBody Rotation360° Continuous RotationBoom Swing45° Left / 55° RightOperator StationHeavy-Duty Open Canopy Standard Equipment Included Every TYPHON TERROR X2 STORM comes equipped with essential accessories to get you working immediately. Included with Your Excavator ✔ Standard digging bucket ✔ Heavy-duty toolbox ✔ Protective operator canopy ✔ Digital operator's manual Additional Features Professional Equipment 🔹 Heavy-duty protective canopy 🔹 Retractable tracks 🔹 Boom swing 🔹 360° body rotation 🔹 Double side throttle valve 🔹 Hydraulic attachment compatibility 🔹 High ground clearance 🔹 Reinforced steel frame 🔹 Compact transport-friendly design 🔹 Easy maintenance access Why Choose the TYPHON TERROR X2 STORM? The TYPHON TERROR X2 STORM combines Kubota reliability, compact maneuverability, advanced hydraulics, and heavy-duty durability into one highly capable mini excavator. Its open-canopy design offers maximum visibility while maintaining the performance professionals expect from premium construction equipment. Key Benefits ✔ Reliable Kubota V1505 Tier 4 diesel engine ✔ Powerful 24.8 HP performance ✔ Open-canopy design for excellent visibility ✔ Retractable tracks for narrow access ✔ Outstanding digging depth and breakout force ✔ Smooth hydraulic operation ✔ Supports multiple hydraulic attachments ✔ Durable construction for demanding job sites ✔ Perfect for construction, agriculture, landscaping, and municipal work Ideal Applications The TYPHON TERROR X2 STORM is designed for professionals working across a wide range of industries. Residential Construction Commercial Construction Utility Installation Agriculture & Farming Landscaping & Hardscaping Orchard Maintenance Municipal Projects Drainage & Irrigation Foundation Excavation Property Development Road Maintenance General Earthmoving Built for Productivity The TYPHON TERROR X2 STORM Mini Excavator delivers the perfect balance of power, precision, durability, and maneuverability. Equipped with the dependable Kubota V1505 engine, advanced hydraulic features, retractable tracks, and a rugged open-canopy design, it is ready to tackle demanding excavation projects with confidence. Whether you're working on construction sites, farms, landscaping projects, or municipal maintenance, the TYPHON TERROR X2 STORM is built to help you complete every job efficiently and reliably.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781841702237-x94m0-pasted-image-20260619-110142-uing2.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781841702237-x94m0-pasted-image-20260619-110142-uing2.webp",
@@ -1341,124 +1444,32 @@ export const typhonProducts: TyphonProduct[] = [
         value: "5061030740163"
       },
       {
-        label: "Weight Class",
-        value: "2.5 ton"
-      },
-      {
         label: "Engine Power",
         value: "25 HP"
       },
       {
-        label: "Engine",
-        value: "Kubota V1505 We are introducing"
-      }
-    ],
-    features: [
-      "Compact Design for Small Projects The TYPHON TERROR X2 STORM Mini Excavator is specifically designed for small construction projects, which allows for easy maneuverability in areas such as farms, gardens, public spaces, and parks.",
-      "Versatile Applications Designed for drilling, digging, grabbing, bulldozing, ditch cleaning, small excavations, rock breaking, landscaping, and various construction purposes.",
-      "Powerful and Durable It is equipped with a small yet high-performance Kubota V1505 engine, ensuring smooth functionality and easy maintenance.",
-      "User-Friendly Design The design is extremely user-friendly, making it suitable for both experienced operators and first-time users.",
-      "Comprehensive package The TYPHON TERROR X2 STORM mini excavator machine comes complete with 1 x standard digging excavator bucket, 1 x tool box, 1 x canopy, and 1 x digital manual with all the necessary instructions.",
-      "Innovative Features for Optimal Performance Boom swing and retractable tracks for added flexibility."
-    ],
-    applications: [
-      "Designed For Drilling",
-      "Digging",
-      "Grabbing",
-      "Bulldozing",
-      "Ditch Cleaning",
-      "Small Excavations",
-      "Rock Breaking",
-      "Landscaping"
-    ],
-    imageMatch: "CSV image fields"
-  },
-  {
-    id: "typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2",
-    name: "TYPHON Flex 18 - Kubota D722",
-    productType: "equipment",
-    rawProductType: "attachment",
-    category: "mini-excavators",
-    categoryLabel: "Mini Excavator",
-    rawCategory: "13.8HP Kubota D722 Engine",
-    sku: "TYPH-0702Pro",
-    gtin: "5061030741139",
-    price: "$ 17,848.95 Original price was: $17,848.95. $ 15,748.95 Current price is: $15,748.95.",
-    originalPrice: "$17,848.95",
-    currentPrice: "$15,748.95",
-    sourceUrl: "https://typhonmachinery.com/product/typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2/",
-    buttonUrl: "/product/typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2/",
-    importConfidence: "100",
-    series: "TERROR mini excavator series",
-    weight: "1.8 ton",
-    tagline: "Unleash the TYPHON 18 FLEX PRO Mini Excavator, a compact and nimble trench digger ideal for small to medium-sized jobs. This tiny excavator is your go-to choice for efficient and diverse excavation operations, thanks to its sturdy structure, retractable tracks, swing boom, and various 12 attachments.",
-    description: "Unleash the power of the TYPHON 18 FLEX PRO Mini Excavator, a compact and agile trench digger designed for small to medium-scale projects. With a robust build, retractable tracks, swing boom and a range of 12 different attachments, this mini excavator is your go-to solution for efficient and versatile excavation tasks. TYPHON 18 FLEX PRO 1.8 Ton Mini Excavator Key Features 1. Designed for Small and Medium Projects The TYPHON 18 FLEX PRO Mini Excavator is specifically designed for small construction projects. Compact design ensures easy maneuverability in various environments: farms, gardens, public spaces, parks, orchards, and more. 2. Wide Range of Uses This versatile tool is ideal for a variety of tasks such as drilling, digging, grabbing, bulldozing, ditch cleaning, small excavations, rock breaking, landscaping, and construction. Its core versatility makes it a multi-functional monster. Swing boom and retractable tracks add to the versatility of the TYPHON 18 FLEX. 3. Compact but Tough The TYPHON 18 FLEX is powered by a high-performance Kubota D722 engine. Withstands intensive construction projects without sacrificing performance. It is both reliable and easy to maintain. 4. User-Friendly Design The design is user-friendly, making it easy to maneuver, even for novice users. 16.3 in-wide bucket and platform ground clearance for hassle-free operation. Ideal for excavation, drilling, and bulldozing jobs. What's Included 12 attachments, such as Standard digging excavator bucket, Auger, Concrete breaker, Quick hitch, Hydraulic thumb clip, 7.9 in trenching bucket, 19.7 in grading bucket, Rake, grappler, Ripper, screening bucket and 23.6 in tilting bucket 1 x toolbox 1 x Enclosed cabin 1 x Digital manual with comprehensive instructions Enhanced Functionality 1. Enhanced Features Included The hydraulic joystick provides precise control. Boom swing for increased maneuverability. Enclosed cabin for operator comfort and safety. 2. Successful Projects at A Mini Scale This product is perfect for various applications such as public spaces, small construction sites, gardens, farms, orchards, municipal works, parks, roads, and landscaping. The standard digging bucket has a capacity of 0.052 cu yd, making it efficient for excavation. 3. Performance Specifications 82.7 in (6.9 ft) digging depth and 121.3 in (10.1 ft) digging height. The 33.1 in rotary radius allows for flexibility in confined spaces. Small but powerful Kubota D722 engine - 16.4HP at 3600 RPM. The engine's water-cooling system ensures exceptional resistance and durability. 4. Versatile Attachments The TYPHON 18 FLEX PRO Mini Excavator, equipped with 12 attachments, provides a comprehensive solution for tasks such as drilling, ditch-cleaning, trench digging, bulldozing, grabbing, rock-breaking, and more. The TYPHON 18 FLEX PRO 1.8 Ton Mini Excavator is your reliable partner for successful projects at a mini scale. Compact, powerful, and loaded with attachments, it brings efficiency and versatility to your excavation tasks. Invest in the TYPHON 18 FLEX PRO 1.8 Ton Mini Excavator and experience the ease of mini excavator operations tailored for your needs.",
-    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683766939-oe0cf-4882745625.webp",
-    gallery: [
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683766939-oe0cf-4882745625.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683776857-t3qky-4882745630.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683775690-9jgad-4882745635.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683774288-pyrue-4882745640.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683771970-6uo1f-4882747112.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683770210-adavg-4882747122.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683769082-z16c5-4887069287.webp"
-    ],
-    specs: [
-      {
-        label: "Category",
-        value: "Mini Excavator"
-      },
-      {
-        label: "Current Price",
-        value: "$15,748.95"
-      },
-      {
-        label: "SKU",
-        value: "TYPH-0702Pro"
-      },
-      {
-        label: "GTIN",
-        value: "5061030741139"
-      },
-      {
-        label: "Weight Class",
-        value: "1.8 ton"
-      },
-      {
-        label: "Engine Power",
-        value: "13.8 HP"
-      },
-      {
-        label: "Engine",
-        value: "Kubota D722 Engine TYPHON Flex"
-      },
-      {
         label: "Digging Depth",
-        value: "121"
+        value: "9"
       }
     ],
     features: [
-      "Designed for Small and Medium Projects The TYPHON 18 FLEX PRO Mini Excavator is specifically designed for small construction projects.",
-      "Wide Range of Uses This versatile tool is ideal for a variety of tasks such as drilling, digging, grabbing, bulldozing, ditch cleaning, small excavations, rock breaking, landscaping, and construction.",
-      "Compact but Tough The TYPHON 18 FLEX is powered by a high-performance Kubota D722 engine.",
-      "User-Friendly Design The design is user-friendly, making it easy to maneuver, even for novice users.",
-      "Enhanced Features Included The hydraulic joystick provides precise control.",
-      "Successful Projects at A Mini Scale This product is perfect for various applications such as public spaces, small construction sites, gardens, farms, orchards, municipal works, parks, roads, and landscaping."
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
-      "Digging",
-      "Grabbing",
-      "Bulldozing",
-      "Ditch Cleaning",
-      "Small Excavations",
-      "Rock Breaking",
-      "Landscaping"
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "typhon-terror-x2-mini-excavator-2-7-ton-epa-diesel-kubota-v1505-engine-usa",
-    name: "TYPHON Terror X2 (2.7 Ton) - Kubota V1505",
+    name: "TYPHON Terror X2 Prestige",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -1466,16 +1477,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "25HP Kubota",
     sku: "TYPH-X202 PRO",
     gtin: "5061030740156",
-    price: "$ 26,248.95 Original price was: $26,248.95. $ 22,048.95 Current price is: $22,048.95.",
-    originalPrice: "$26,248.95",
-    currentPrice: "$22,048.95",
+    price: "$23 999.99",
+    currentPrice: "$23,999.99",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-x2-mini-excavator-2-7-ton-epa-diesel-kubota-v1505-engine-usa/",
-    buttonUrl: "/product/typhon-terror-x2-mini-excavator-2-7-ton-epa-diesel-kubota-v1505-engine-usa/",
+    buttonUrl: "/product#!/TYPHON-TERROR-X2-Mini-Excavator-2-7-Ton-EPA-Diesel-Kubota-V1505-Engine-USA/p/598182503",
     importConfidence: "100",
     series: "TERROR mini excavator series",
-    weight: "2.7 ton",
+    weight: "Mini Excavator",
     tagline: "The TYPHON TERROR X2 Mini Excavator is a compact and powerful tool that is perfect for small-scale construction tasks. The TYPHON TERROR X2 is fitted with an AC/heater cabin and built to excel at numerous activities, making it a fantastic partner for projects in gardens, farms, parks, highways, and other areas.",
-    description: "Introducing the TYPHON TERROR X2 Mini Excavator-a compact powerhouse designed for small construction projects. With its robust features and versatile capabilities, the TYPHON TERROR X2 is equipped with an AC/heater cabin and engineered to excel in various tasks, making it an ideal companion for projects in gardens, farms, parks, roads, and more. TYPHON TERROR X2 Mini Excavator 2.7 Ton Key Features 1. Compact Design for Small Projects The TYPHON TERROR X2 Mini Excavator is specifically designed for small construction projects, which allows for easy maneuverability in areas such as farms, gardens, public spaces, and parks. 2. Versatile Applications Designed for drilling, digging, grabbing, bulldozing, ditch cleaning, small excavations, rock breaking, landscaping, and various construction purposes. 3. Powerful and Durable It is equipped with a small yet high-performance Kubota V1505 engine for smooth functionality and easy maintenance. It is compact yet powerful, capable of withstanding intensive construction projects without compromising performance. 4. User-Friendly Design The design is extremely user-friendly, making it suitable for both experienced operators and first-time users. Features a 19.7 in-wide bucket and platform ground clearance, enabling easy operation for all excavation, drilling, or bull-dozing jobs. 5. Comprehensive Package The TYPHON TERROR X2 mini excavator machine comes complete with 1 x standard digging excavator bucket, 1 x tool box, 1 x air-conditioned/heater cabin, and 1 x digital manual with all the necessary instructions. 6. Innovative Features for Optimal Performance Boom swing and retractable tracks for added flexibility. The extension range for the tracks is from 41.7 in to 53.1 in (4.4 ft). A minimum ground clearance of 7.9 in ensures stability and adaptability in a variety of terrains. The track boasts a compact 360-degree swing radius, ensuring exceptional performance even in confined areas. 7. Powerful Engine Specifications Small but powerful 24.4-24.8 HP Kubota V1505 engine. EPA Emissions Tier 4 Final, 4-cylinder, 4-stroke cycle indirect injection engine. Rated output is 24.4 HP-24.8 HP/24.4 HP-24.8 HP at 2300 rpm. Maximum torque of 92.6 Nm (68.3 lb-ft) at 1700 rpm. 8. Maximum Digging Capabilities The device can reach a maximum digging depth of 2.75m and a maximum digging distance of 172.8 in (14.4 ft). Packed with a digging bucket force of 22KN. 9. Versatility in Action It exhibits exceptional resistance and durability, which guarantees its longevity. The boom deflects 45 degrees to the left and 55 degrees to the right, providing maximum agility. 10. Ideal for Various Environments This device is well-suited for a variety of environments, including public spaces, small construction sites, gardens, farms, orchards, municipal works, parks, roads, and landscaping. An excellent solution for drilling, ditch-cleaning, trench digging, bulldozing, grabbing, rock-breaking, and more. Excavate in comfort in the AC/heater cabin. TYPHON TERROR X2 in Action-Mini Scale, Maximum Success The TYPHON TERROR X2 Mini Excavator is the epitome of success in small construction projects. With its powerful engine, versatile attachments, and user-friendly design, this mini excavator ensures that your construction projects are not just completed but are executed with precision and efficiency. For inquiries, assistance, or to experience the power of TYPHON, contact us today. Choose TYPHON for uncompromised performance in every project.",
+    description: "TYPHON TERROR X2 Mini Excavator Brand: TYPHON GTIN: 5061030740156 The TYPHON TERROR X2 Mini Excavator is a premium compact excavator designed to deliver exceptional power, precision, and versatility for small to medium-sized construction projects. Powered by the reliable Kubota V1505 Tier 4 diesel engine, this machine combines impressive digging performance with advanced hydraulic technology, retractable tracks, boom swing functionality, and a fully enclosed air-conditioned and heated cabin. Whether you're trenching utilities, preparing foundations, landscaping residential properties, maintaining farms, or working in confined urban environments, the TERROR X2 provides the strength of a larger excavator while maintaining the maneuverability of a compact machine. Built for contractors, landscapers, farmers, municipalities, and property owners, the TYPHON TERROR X2 delivers professional-grade performance with outstanding operator comfort and long-term durability. Key Features Compact Design for Maximum Productivity The TERROR X2 is engineered specifically for projects where space is limited. Its compact dimensions, retractable tracks, and boom swing system allow operators to work efficiently around buildings, sidewalks, fence lines, gardens, and other confined work areas. Compact Advantages Compact body for restricted job sites Retractable tracks from 41.7-53.1 in (1060-53.1 in (4.4 ft)) Excellent maneuverability in narrow spaces Boom swing for precision excavation beside obstacles Stable performance across uneven terrain Easy transportation between job sites Powerful Kubota V1505 Tier 4 Diesel Engine The TYPHON TERROR X2 is powered by the proven Kubota V1505, a high-performance 4-cylinder diesel engine built for reliability, fuel efficiency, and long service life. Engine Highlights 24.4-24.8 HP Kubota diesel engine 18.2-24.8 HP rated output EPA Tier 4 Final compliant Water-cooled 4-cylinder engine Maximum torque: 92.6 Nm (68.3 lb-ft) @ 1700 RPM Rated speed: 2300 RPM Excellent fuel efficiency Low maintenance requirements This premium engine provides dependable power for demanding excavation and material-handling applications. Versatile Multi-Purpose Machine The TERROR X2 is designed to handle a wide variety of construction, agricultural, and landscaping tasks without sacrificing performance. Perfect For Foundation excavation Utility trenching Irrigation installation Rock breaking Land grading Site preparation Ditch cleaning Landscaping Tree planting Material handling Demolition support Farm maintenance Municipal maintenance Property development Its hydraulic system supports multiple attachments, making it a versatile solution for countless job-site applications. Advanced Hydraulic Performance The excavator features an efficient hydraulic system that delivers smooth, responsive control while supporting auxiliary hydraulic attachments. Hydraulic Benefits Smooth pilot operation Double side throttle valve for improved hydraulic flow control Easy operation of hydraulic thumb clips and auxiliary attachments Stable hydraulic pressure Responsive boom and bucket movement Increased attachment versatility The dual throttle valve design allows multiple hydraulic accessories to operate efficiently while maintaining excellent control. Operator Comfort & Easy Control The TERROR X2 is designed to reduce operator fatigue while improving overall productivity. Operator Features Fully enclosed AC & Heater Cabin Comfortable ergonomic controls Excellent visibility Smooth hydraulic operation Easy-open cabin access User-friendly layout Suitable for beginners and experienced operators alike Working comfortably throughout every season helps operators remain productive on long workdays. Exceptional Digging Performance Despite its compact footprint, the TERROR X2 delivers impressive digging capability for demanding applications. Performance Highlights Maximum digging depth: 9.0 ft (2.75 m) Maximum digging reach: 14.4 ft (172.8 in (14.4 ft)) Bucket digging force: 22 kN Powerful breakout force Excellent lifting capability Smooth hydraulic cycle times The machine is designed to maximize productivity while maintaining excellent stability. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR X2GTIN5061030740156EngineKubota V1505 DieselEngine TypeWater-Cooled 4-Cylinder DieselMaximum Engine Output24.4-24.8 HPRated Power18.2-24.8 HP @ 2300 RPMMaximum Torque92.6 Nm (68.3 lb-ft)Emission StandardEPA Tier 4 FinalMaximum Digging Depth9.0 ft (2.75 m)Maximum Digging Reach14.4 ft (172.8 in (14.4 ft))Bucket Width19.7 inBucket Digging Force22 kNTrack Extension Range41.7-53.1 in (1060-53.1 in (4.4 ft))Minimum Ground Clearance7.9 inBody Rotation360° Continuous RotationBoom Swing45° Left / 55° RightCabinFully Enclosed with AC & Heater Standard Equipment Included Every TYPHON TERROR X2 comes equipped with essential tools and accessories to help you begin working immediately. Included with Your Excavator ✔ Standard digging bucket ✔ Heavy-duty toolbox ✔ Fully enclosed AC & Heater cabin ✔ Digital operator's manual Additional Features Professional Equipment 🔹 Fully enclosed climate-controlled cabin 🔹 Air conditioning & heating system 🔹 Retractable tracks 🔹 Boom swing 🔹 360° body rotation 🔹 Double side throttle valve 🔹 Hydraulic attachment compatibility 🔹 High ground clearance 🔹 Heavy-duty steel construction 🔹 Compact transport-friendly design Why Choose the TYPHON TERROR X2? The TYPHON TERROR X2 combines Kubota reliability, powerful hydraulic performance, compact maneuverability, and premium operator comfort into one professional-grade mini excavator. It is built for users who need a machine capable of handling demanding work while remaining efficient in confined spaces. Key Benefits ✔ Reliable Kubota V1505 Tier 4 diesel engine ✔ Powerful 24.8 HP performance ✔ Retractable tracks for narrow access ✔ Fully enclosed AC & Heater cabin ✔ Excellent digging depth and breakout force ✔ Smooth hydraulic controls ✔ Compatible with multiple hydraulic attachments ✔ Ideal for construction, agriculture, landscaping, and municipal work ✔ Durable design for long-term professional use Ideal Applications The TYPHON TERROR X2 is trusted by professionals across many industries. Residential Construction Commercial Construction Utility Installation Landscaping & Hardscaping Agriculture & Farming Orchard Maintenance Municipal Projects Road & Sidewalk Repairs Property Development Drainage & Irrigation Foundation Excavation General Earthmoving Built to Handle Every Job The TYPHON TERROR X2 Mini Excavator is engineered for professionals who need a compact excavator without compromising performance. Featuring Kubota diesel power, advanced hydraulic control, retractable tracks, and a premium enclosed AC & Heater cabin, it delivers the versatility, durability, and efficiency required for today's demanding job sites. From trenching and excavation to landscaping and material handling, the TYPHON TERROR X2 is ready to help you complete every project with confidence, precision, and professional results.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781684142148-f3gh7-4950517805.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781684142148-f3gh7-4950517805.webp",
@@ -1494,7 +1504,7 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$22,048.95"
+        value: "$23,999.99"
       },
       {
         label: "SKU",
@@ -1505,57 +1515,52 @@ export const typhonProducts: TyphonProduct[] = [
         value: "5061030740156"
       },
       {
-        label: "Weight Class",
-        value: "2.7 ton"
-      },
-      {
         label: "Engine Power",
         value: "25 HP"
       },
       {
         label: "Engine",
-        value: "Kubota TYPHON Terror X2"
+        value: "Kubota TYPHON Terror X2 Prestige"
+      },
+      {
+        label: "Digging Depth",
+        value: "9"
       }
     ],
     features: [
-      "Compact Design for Small Projects The TYPHON TERROR X2 Mini Excavator is specifically designed for small construction projects, which allows for easy maneuverability in areas such as farms, gardens, public spaces, and parks.",
-      "Versatile Applications Designed for drilling, digging, grabbing, bulldozing, ditch cleaning, small excavations, rock breaking, landscaping, and various construction purposes.",
-      "Powerful and Durable It is equipped with a small yet high-performance Kubota V1505 engine for smooth functionality and easy maintenance.",
-      "User-Friendly Design The design is extremely user-friendly, making it suitable for both experienced operators and first-time users.",
-      "Comprehensive package The TYPHON TERROR X2 mini excavator machine comes complete with 1 x standard digging excavator bucket, 1 x tool box, 1 x air-conditioned/heater cabin, and 1 x digital manual with all the necessary instructions.",
-      "Innovative Features for Optimal Performance Boom swing and retractable tracks for added flexibility."
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
     ],
     applications: [
-      "Designed For Drilling",
-      "Digging",
-      "Grabbing",
-      "Bulldozing",
-      "Ditch Cleaning",
-      "Small Excavations",
-      "Rock Breaking",
-      "Landscaping"
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "typhon-terror-x2-max-canopy-mini-excavator-powerful-2-5-ton-compact-machine-with-yanmar-engine-advanced-hydraulic-system",
-    name: "TYPHON TERROR X2 Max Canopy Mini Excavator: Powerful 2.5-Ton Yanmar Engine",
+    name: "TYPHON Terror X2 Max Canopy",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
     rawCategory: "Equipment",
-    sku: "",
+    sku: "TYPH-X201 MAX",
     gtin: "5061030742143",
     price: "$ 20,000.00",
     currentPrice: "$20,000.00",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-x2-max-canopy-mini-excavator-powerful-2-5-ton-compact-machine-with-yanmar-engine-advanced-hydraulic-system/",
-    buttonUrl: "/product/typhon-terror-x2-max-canopy-mini-excavator-powerful-2-5-ton-compact-machine-with-yanmar-engine-advanced-hydraulic-system/",
+    buttonUrl: "/product#!/TYPHON-TERROR-X2-Max-Canopy-Mini-Excavator-Powerful-2-5-Ton-Compact-Machine-with-Yanmar-Engine-Advanced-Hydraulic-System/p/825338031",
     importConfidence: "100",
     series: "TERROR mini excavator series",
     weight: "2.5 ton",
     tagline: "The TYPHON TERROR X2 MAX is a compact yet powerful mini excavator designed for versatility, efficiency, and reliable performance across construction, landscaping, and utility applications. Its compact size allows easy operation in confined spaces while maintaining strong digging power and stability. Equipped with advanced hydraulics, a durable engine, and operator-friendly controls, it ensures smooth handling and consistent productivity.",
-    description: "The TYPHON TERROR X2 Max Canopy Mini Excavator is a compact yet powerful mini excavator designed for versatility, efficiency, and reliable performance across construction, landscaping, and utility applications. Its compact size allows easy operation in confined spaces while maintaining strong digging power and stability. Equipped with advanced hydraulics, a durable engine, and operator-friendly controls, it ensures smooth handling and consistent productivity. The ergonomic design improves comfort during long working hours, while its robust construction delivers dependable performance for demanding job sites. Ideal for professionals seeking power, flexibility, and efficiency in one machine. TYPHON TERROR X2 MAX Key Feature: 1. Ideal for Tight-Space Tasks: Designed for tight-space operations, this compact machine combines power and precision with an operating weight of 2.5 Ton and dimensions of 4000 × 1350 × 89.8 in (7.5 ft). A Danfoss swing motor delivers smooth 360° rotation at 10 r/min, while a 79.8 in (6.7 ft) minimum swing radius ensures excellent maneuverability. The boom swings 55° left and 45° right for flexible operation, and the telescopic track range (1060-53.1 in (4.4 ft)) provides both stability and easy access in confined job sites. 2. One Machine, So Many Uses: The TYPHON TERROR X2 MAX delivers versatile performance for multiple job applications. Featuring a 0.07 m³ digging bucket capacity and 22 KN digging force, it handles excavation tasks efficiently. With a 882 lb boom lifting capacity, 114.8 in (9.6 ft) max digging depth, and 139 in (11.6 ft) max digging height, it ensures strong reach and productivity. Equipped with a hydraulic thumb clip, double-sided throttle valve, and 35° gradeability, it adapts easily to demanding worksites. 3. Strong but Compact Design: Built for durability and efficiency, this machine is powered by a reliable Yanmar 3TNV88F engine delivering 23.2 HP at 2200 rpm to 24.4 HP at 2400 rpm for consistent performance. An oil-cooled hydraulic system ensures stable operation during demanding tasks. With a 16 L fuel tank and 22 L hydraulic oil tank capacity, it supports extended working hours. Equipped with a Danfoss traveling motor, it reaches speeds up to 3.4 km/h. Optimized hydraulic performance includes 35 L/min pump displacement, 26 L/min main system flow, and 13 L/min pilot flow for smooth, responsive control. 4. Easy Control: Designed with operator comfort and simplicity in mind, this machine features ergonomic armrests and a comfortable seat for reduced fatigue during long working hours. A clear display panel provides essential operating information, while pilot controls ensure smooth and precise handling. LED work lights improve visibility in low-light conditions, and the durable 4-leg canopy offers added protection and safety on the job site. 5. Gear Included: Comes with 1 x standard bucket, 1 x hydraulic oil cooler, and 1 x hydraulic thumb clip. Includes 1 x toolbox and 1 x digital manual with comprehensive instructions. Key Performance Summary Powered by a reliable Yanmar 3TNV88F engine delivering 23.2 HP at 2200 rpm, this machine delivers strong digging force, smooth operation, and excellent fuel efficiency. Hydraulic Thumb Clip - Enhances material handling efficiency for logs, rocks, debris, and demolition tasks. Telescopic Undercarriage - Adjustable track width (1060-53.1 in (4.4 ft)) for improved stability during operation and easy access through narrow spaces. 360° Rotation - The Danfoss swing motor ensures precise, continuous rotation for faster cycle times. Boom swing provides enhanced working flexibility with an angle of 55° to the left and 45° to the right, allowing precise digging alongside walls, fences, and confined areas without repositioning the machine Oil-Cooled Hydraulic System - Maintains stable performance and prevents overheating during extended operation. Pilot Control System - Provides smooth, responsive, and accurate handling for maximum operator confidence. LED Work Lights - Improves visibility in low-light or nighttime job conditions. Operator Comfort Design - Ergonomic armrests, adjustable seat, and a user-friendly display panel reduce fatigue. Excellent Gradeability (35°) - Strong climbing capability for uneven and challenging terrain. Easy Maintenance Access - Simplified service points for reduced downtime and lower maintenance costs.",
+    description: "TYPHON TERROR X2 MAX Mini Excavator GTIN: 5061030742143 The TYPHON TERROR X2 MAX is a premium 2.5-ton mini excavator engineered for contractors, landscapers, farmers, utility crews, and construction professionals who need maximum performance in confined work areas. Combining powerful hydraulics, a reliable Yanmar 3TNV88F diesel engine, a telescopic undercarriage, and advanced pilot controls, the TERROR X2 MAX delivers exceptional digging power, smooth operation, and outstanding versatility on every job site. Built to perform in residential construction, landscaping, utility installation, trenching, demolition, and agricultural applications, the TERROR X2 MAX offers the perfect balance of compact dimensions, operator comfort, and professional-grade durability. TYPHON TERROR X2 MAX Key Features 1. Built for Tight Workspaces Designed to work where larger excavators cannot, the TERROR X2 MAX combines compact dimensions with impressive stability and maneuverability. Its telescopic undercarriage adjusts from 41.7 in to 53.1 in (4.4 ft), allowing operators to easily access narrow gateways while maintaining excellent stability during excavation. Additional features include: 2.5 Ton operating weight Machine dimensions: 4000 × 1350 × 89.8 in (7.5 ft) Danfoss swing motor with smooth 360° continuous rotation Minimum swing radius of 79.8 in (6.7 ft) Boom swing: 55° Left 45° Right This allows precise digging alongside walls, fences, buildings, and other confined areas without constantly repositioning the machine. 2. Versatile Performance for Every Job Whether you're digging trenches, landscaping, lifting materials, clearing sites, or handling demolition work, the TERROR X2 MAX is built to adapt. Performance includes: 0.07 m³ digging bucket 22 kN bucket digging force 882 lb boom lifting capacity Maximum digging depth: 114.8 in (9.6 ft) Maximum digging height: 139 in (11.6 ft) Hydraulic thumb clip included Double-sided throttle valve 35° climbing capability From construction projects to agricultural work, this machine delivers reliable productivity in every environment. 3. Powerful Yet Efficient At the heart of the TERROR X2 MAX is the dependable Yanmar 3TNV88F diesel engine, producing: 23.2 HP @ 2200 RPM 24.4 HP @ 2400 RPM The advanced oil-cooled hydraulic system maintains stable operating temperatures during extended use, ensuring consistent performance even on demanding job sites. Additional specifications include: Fuel tank: 16 L Hydraulic oil tank: 22 L Danfoss travel motors Maximum travel speed: 3.4 km/h Hydraulic pump displacement: 35 L/min Main hydraulic flow: 26 L/min Pilot hydraulic flow: 13 L/min The result is smooth, responsive operation with excellent fuel efficiency and dependable long-term reliability. 4. Comfortable Operator Environment The TERROR X2 MAX is designed to reduce operator fatigue and improve productivity throughout the working day. Features include: Pilot hydraulic control system Ergonomic armrests Comfortable adjustable operator seat Clear multifunction display LED work lights for low-light operation Heavy-duty four-leg protective canopy Every control is positioned for intuitive operation, allowing both experienced operators and first-time users to work confidently. 5. Included Equipment Your TERROR X2 MAX comes ready for work with: Standard digging bucket Hydraulic thumb clip Hydraulic oil cooler Toolbox Digital operator manual Performance Highlights Reliable Yanmar 3TNV88F diesel engine 2.5-ton operating weight 22 kN digging force Telescopic undercarriage (1060-53.1 in (4.4 ft)) Boom swing (55° left / 45° right) Danfoss 360° swing motor Oil-cooled hydraulic system Pilot hydraulic controls Hydraulic thumb clip included LED work lighting 35° gradeability Easy-access service points for simplified maintenance Ideal Applications The TYPHON TERROR X2 MAX is ideal for: Residential construction Utility installation Landscaping Trenching Foundation work Demolition Agricultural projects Property maintenance Material handling General excavation",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781842621914-zw7u3-pasted-image-20260619-111701-of3vk.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781842621914-zw7u3-pasted-image-20260619-111701-of3vk.webp",
@@ -1585,6 +1590,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$20,000.00"
       },
       {
+        label: "SKU",
+        value: "TYPH-X201 MAX"
+      },
+      {
         label: "GTIN",
         value: "5061030742143"
       },
@@ -1597,24 +1606,20 @@ export const typhonProducts: TyphonProduct[] = [
         value: "23.2 HP"
       },
       {
-        label: "Engine",
-        value: "Yanmar Engine The TYPHON TERROR"
-      },
-      {
         label: "Digging Depth",
-        value: "139 in (11"
+        value: "114"
       },
       {
         label: "Capacity",
-        value: "and 22 KN digging force, it handles excavation tasks efficiently"
+        value: "Maximum digging depth: 114"
       }
     ],
     features: [
-      "Ideal for Tight-Space Tasks: Designed for tight-space operations, this compact machine combines power and precision with an operating weight of",
-      "One Machine, So Many Uses: The TYPHON TERROR X2 MAX delivers versatile performance for multiple job applications.",
-      "Strong but Compact Design: Built for durability and efficiency, this machine is powered by a reliable Yanmar 3TNV88F engine delivering",
-      "Easy Control: Designed with operator comfort and simplicity in mind, this machine features ergonomic armrests and a comfortable seat for reduced fatigue during long working hours.",
-      "Gear Included: Comes with 1 x standard bucket, 1 x hydraulic oil cooler, and 1 x hydraulic thumb clip.",
+      "Built for Tight Workspaces Designed to work where larger excavators cannot, the TERROR X2 MAX combines compact dimensions with impressive stability and maneuverability.",
+      "Versatile Performance for Every Job Whether you're digging trenches, landscaping, lifting materials, clearing sites, or handling demolition work, the TERROR X2 MAX is built to adapt.",
+      "Powerful Yet Efficient At the heart of the TERROR X2 MAX is the dependable Yanmar 3TNV88F diesel engine, producing:",
+      "Comfortable Operator Environment The TERROR X2 MAX is designed to reduce operator fatigue and improve productivity throughout the working day.",
+      "Included Equipment Your TERROR X2 MAX comes ready for work with: Standard digging bucket Hydraulic thumb clip Hydraulic oil cooler Toolbox Digital operator manual Performance Highlights Reliable Yanmar 3TNV88F diesel engine",
       "Compact tracked platform"
     ],
     applications: [
@@ -1628,7 +1633,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-x2-max-2-7-ton-mini-excavator-powerful-yanmar-engine-cabin-with-a-c-heater-pilot-control-boom-swing",
-    name: "TYPHON TERROR X2 MAX 2.7-Ton Mini Excavator: Powerful Yanmar Engine",
+    name: "TYPHON Terror X2 MAX Cabin",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -1640,12 +1645,12 @@ export const typhonProducts: TyphonProduct[] = [
     originalPrice: "$25,999.00",
     currentPrice: "$23,098.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-terror-x2-max-2-7-ton-mini-excavator-powerful-yanmar-engine-cabin-with-a-c-heater-pilot-control-boom-swing/",
-    buttonUrl: "/product/typhon-terror-x2-max-2-7-ton-mini-excavator-powerful-yanmar-engine-cabin-with-a-c-heater-pilot-control-boom-swing/",
+    buttonUrl: "/product#!/TYPHON-TERROR-X2-MAX-2-7-Ton-Mini-Excavator-Powerful-Yanmar-Engine-Cabin-with-A-C-&-Heater-Pilot-Control-Boom-Swing/p/817604003",
     importConfidence: "100",
     series: "TERROR mini excavator series",
     weight: "2.7 ton",
-    tagline: "The TYPHON TERROR X2 MAX is a compact, versatile mini excavator designed for tight spaces and precision work in residential, landscaping, and small construction projects. With a 2.7 Ton operating weight and a slim 1,2.4 in body width, it delivers excellent stability and easy access to narrow job sites.",
-    description: "The TYPHON TERROR X2 MAX 2.7 Ton Mini Excavator is a compact, versatile mini excavator designed for tight spaces and precision work in residential, landscaping, and small construction projects. With a 2.7-ton operating weight and a slim 1,2.4 in body width, it delivers excellent stability and easy access to narrow job sites. It offers a maximum digging depth of 2,36 in, 360° body swing, and a 16.9 in bucket for efficient and accurate excavation. Equipped with a Danfoss traveling motor and a 0.07 m³ bucket capacity, it handles trenching, drainage, foundation work, and material handling with strong and reliable performance. Powered by a 23.2 HP Yanmar 3TNV88F diesel engine and supported by a 16 L fuel tank and 22 L hydraulic tank, the machine combines power, efficiency, and long-term durability. Operator-friendly features such as a safety lock, swing boom, track telescope switch, LED lighting, intuitive controls, and a 3.4 km/h travel speed ensure safe, precise, and efficient operation on any job site. TYPHON TERROR X2 MAX Key Features: 1. Ideal for Tight-Space Tasks: The TYPHON TERROR X2 MAX is engineered for precision work in confined environments, including residential sites, landscaping projects, utility trenches, and small construction zones. Its compact size and 1,2.4 in body width allow easy access through narrow pathways while maintaining excellent stability. Strong digging performance is provided by a 2,36 in maximum digging depth, 4,22.4 in digging radius, and 2,10.2 in maximum unloading height. The 16.9 in bucket width ensures controlled excavation with high accuracy. A full 360° body swing, tight swing radius, and boom swing angle of 55° left and 45° right allow smooth operation in restricted spaces. The durable undercarriage features 9.1 in wide tracks with a 1,25.6 in track length for reliable traction and balance. An integrated dozer blade improves grading and stability, offering a 11.7 in digging depth and 9.1 in lifting height. Overall dimensions of 4000 × 1350 × 89.8 in (7.5 ft) make transportation and storage simple and efficient. 2. One Machine, So Many Uses: Built to handle a wide range of tasks, the TYPHON TERROR X2 MAX delivers efficiency and reliability across different working conditions. The Danfoss traveling motor ensures smooth travel and precise control on varied terrain. With an excavator boom lifting force of 882 lb, a digging force of 22 kN, a main system flow of 26 L/min, and a travel speed of 3.4 km/h, the machine combines strength with agility. Its 0.07 m³ bucket capacity is well-suited for trenching, landscaping, drainage, foundation work, and material handling. The machine also supports multiple attachments, enabling digging, trenching, lifting, breaking, and site cleanup. This versatility allows one compact machine to complete multiple tasks efficiently, saving time, space, and operating costs. 3. Strong but Compact Design: The TYPHON TERROR X2 MAX combines compact dimensions with dependable power for demanding work in limited spaces. It is powered by the Yanmar 3TNV88F diesel engine, producing 23.2 HP (23.2 HP@ 2200rpm) of efficient, low-emission performance. Its 1.642-liter, 3-cylinder inline design provides smooth operation, strong torque, and excellent fuel economy through direct injection and natural aspiration. The hydraulic system features a 13 L/min pilot flow and a high-quality Danfoss swing motor, delivering smooth rotation at a 10 r/min swing speed. A 16-liter fuel tank and 22-liter hydraulic oil tank support long working hours with fewer refueling interruptions. The telescopic undercarriage with a track range of 1,060-1,13.8 in improves stability during operation while maintaining compact access when needed. Simplified maintenance and well-positioned lubrication points enhance durability and long-term productivity. 4. Easy Control: The TYPHON TERROR X2 MAX is designed for operator comfort, safety, and ease of use. Pilot and full hydraulic controls allow smooth, precise operation for digging, lifting, and positioning tasks. A built-in safety lock system enables immediate machine shutdown when engaged, reducing the risk of accidental operation. Switch buttons for the swing boom and track telescope functions allow quick adjustments without interrupting workflow. The AC/heater cabin with an openable front window ensures operator comfort in all weather conditions, while bright LED lights improve visibility in low-light environments. An intuitive control panel places all essential functions within easy reach, minimizing learning time and improving efficiency. With a 3.4 km/h travel speed, the TERROR X2 MAX moves smoothly around the job site, reducing repositioning time and keeping projects on schedule. 5. Gear Included: Comes with 1 x standard digging excavator bucket, 1 x hydraulic oil cooler, and 1 x hydraulic thumb clip. Includes 1 x toolbox, 1 x cabin (AC/heater), and 1 x digital manual with comprehensive instructions. Additional Features: ✔ Yanmar 3-Cylinder Diesel Engin ✔ Retractable Undercarriage (1,060-1,13.8 in) ✔ Cabin with A/C & Heater ✔ Pilot Control System ✔ Boom Swing Function ✔ 360° Full Rotation ✔ Fully Hydraulic System Control",
+    tagline: "The TYPHON TERROR X2 MAX is a compact, versatile mini excavator designed for tight spaces and precision work in residential, landscaping, and small construction projects. With a 2.7 Ton operating weight and a slim 41.7 in body width, it delivers excellent stability and easy access to narrow job sites.",
+    description: "The TYPHON TERROR X2 MAX 2.7 Ton Mini Excavator is a compact, versatile mini excavator designed for tight spaces and precision work in residential, landscaping, and small construction projects. With a 2.7-ton operating weight and a slim 41.7 in body width, it delivers excellent stability and easy access to narrow job sites. It offers a maximum digging depth of 114.8 in (9.6 ft), 360° body swing, and a 16.9 in bucket for efficient and accurate excavation. Equipped with a Danfoss traveling motor and a 0.07 m³ bucket capacity, it handles trenching, drainage, foundation work, and material handling with strong and reliable performance. Powered by a 23.2 HP Yanmar 3TNV88F diesel engine and supported by a 16 L fuel tank and 22 L hydraulic tank, the machine combines power, efficiency, and long-term durability. Operator-friendly features such as a safety lock, swing boom, track telescope switch, LED lighting, intuitive controls, and a 3.4 km/h travel speed ensure safe, precise, and efficient operation on any job site. TYPHON TERROR X2 MAX Key Features: 1. Ideal for Tight-Space Tasks: The TYPHON TERROR X2 MAX is engineered for precision work in confined environments, including residential sites, landscaping projects, utility trenches, and small construction zones. Its compact size and 41.7 in body width allow easy access through narrow pathways while maintaining excellent stability. Strong digging performance is provided by a 114.8 in (9.6 ft) maximum digging depth, 179.9 in (15 ft) digging radius, and 89 in (7.4 ft) maximum unloading height. The 16.9 in bucket width ensures controlled excavation with high accuracy. A full 360° body swing, tight swing radius, and boom swing angle of 55° left and 45° right allow smooth operation in restricted spaces. The durable undercarriage features 9.1 in wide tracks with a 65 in (5.4 ft) track length for reliable traction and balance. An integrated dozer blade improves grading and stability, offering a 11.7 in digging depth and 9.1 in lifting height. Overall dimensions of 4000 × 1350 × 89.8 in (7.5 ft) make transportation and storage simple and efficient. 2. One Machine, So Many Uses: Built to handle a wide range of tasks, the TYPHON TERROR X2 MAX delivers efficiency and reliability across different working conditions. The Danfoss traveling motor ensures smooth travel and precise control on varied terrain. With an excavator boom lifting force of 882 lb, a digging force of 22 kN, a main system flow of 26 L/min, and a travel speed of 3.4 km/h, the machine combines strength with agility. Its 0.07 m³ bucket capacity is well-suited for trenching, landscaping, drainage, foundation work, and material handling. The machine also supports multiple attachments, enabling digging, trenching, lifting, breaking, and site cleanup. This versatility allows one compact machine to complete multiple tasks efficiently, saving time, space, and operating costs. 3. Strong but Compact Design: The TYPHON TERROR X2 MAX combines compact dimensions with dependable power for demanding work in limited spaces. It is powered by the Yanmar 3TNV88F diesel engine, producing 23.2 HP (23.2 HP@ 2200rpm) of efficient, low-emission performance. Its 1.642-liter, 3-cylinder inline design provides smooth operation, strong torque, and excellent fuel economy through direct injection and natural aspiration. The hydraulic system features a 13 L/min pilot flow and a high-quality Danfoss swing motor, delivering smooth rotation at a 10 r/min swing speed. A 16-liter fuel tank and 22-liter hydraulic oil tank support long working hours with fewer refueling interruptions. The telescopic undercarriage with a track range of 1,060-53.1 in (4.4 ft) improves stability during operation while maintaining compact access when needed. Simplified maintenance and well-positioned lubrication points enhance durability and long-term productivity. 4. Easy Control: The TYPHON TERROR X2 MAX is designed for operator comfort, safety, and ease of use. Pilot and full hydraulic controls allow smooth, precise operation for digging, lifting, and positioning tasks. A built-in safety lock system enables immediate machine shutdown when engaged, reducing the risk of accidental operation. Switch buttons for the swing boom and track telescope functions allow quick adjustments without interrupting workflow. The AC/heater cabin with an openable front window ensures operator comfort in all weather conditions, while bright LED lights improve visibility in low-light environments. An intuitive control panel places all essential functions within easy reach, minimizing learning time and improving efficiency. With a 3.4 km/h travel speed, the TERROR X2 MAX moves smoothly around the job site, reducing repositioning time and keeping projects on schedule. 5. Gear Included: Comes with 1 x standard digging excavator bucket, 1 x hydraulic oil cooler, and 1 x hydraulic thumb clip. Includes 1 x toolbox, 1 x cabin (AC/heater), and 1 x digital manual with comprehensive instructions. Additional Features: ✔ Yanmar 3-Cylinder Diesel Engin ✔ Retractable Undercarriage (1,060-53.1 in (4.4 ft)) ✔ Cabin with A/C & Heater ✔ Pilot Control System ✔ Boom Swing Function ✔ 360° Full Rotation ✔ Fully Hydraulic System Control",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781843516949-otwrm-pasted-image-20260619-113156-6jgva.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781843516949-otwrm-pasted-image-20260619-113156-6jgva.webp",
@@ -1691,12 +1696,12 @@ export const typhonProducts: TyphonProduct[] = [
         value: "23.2 HP"
       },
       {
-        label: "Engine",
-        value: "Yanmar Engine The TYPHON TERROR"
+        label: "Digging Depth",
+        value: "114"
       },
       {
-        label: "Digging Depth",
-        value: "2,36 in, 360° body swing, and a 16"
+        label: "Capacity",
+        value: ", it handles trenching, drainage, foundation work, and material handling with strong and r"
       }
     ],
     features: [
@@ -1718,24 +1723,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "brand-new-typhon-stomp-1800lbs-mini-skid-steer-23hp-wheel-gas-epa-b-s-engine-usa",
-    name: "TYPHON 0501R - Briggs & Stratton 23.5HP (Track)",
+    name: "TYPHON 0501R",
     productType: "equipment",
     rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "Skid Steer Loader",
-    sku: "",
+    sku: "TYPH-501",
     gtin: "wk6iejilbvyw9i1ie",
-    price: "$ 9,658.95 Original price was: $9,658.95. $ 8,083.95 Current price is: $8,083.95.",
-    originalPrice: "$9,658.95",
+    price: "$8 083.95",
     currentPrice: "$8,083.95",
     sourceUrl: "https://typhonmachinery.com/product/brand-new-typhon-stomp-1800lbs-mini-skid-steer-23hp-wheel-gas-epa-b-s-engine-usa/",
-    buttonUrl: "/product/brand-new-typhon-stomp-1800lbs-mini-skid-steer-23hp-wheel-gas-epa-b-s-engine-usa/",
+    buttonUrl: "/product#!/Brand-New-TYPHON-STOMP-1-800lbs-Mini-Skid-Steer-23-5HP-Gas-EPA-Engine-USA/p/519543807",
     importConfidence: "100",
     series: "STOMP skid steer series",
-    weight: "1800 lb",
+    weight: "1,830 lb",
     tagline: "Unleash the compact power of the TYPHON STOMP Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency.",
-    description: "Unleash the compact power of the TYPHON STOMP 1800lbs Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency. From digging and drilling to bull-dozing and landscaping, the TYPHON STOMP delivers exceptional performance in a compact package. With an 11.4GPM flow-rate for the main hydraulic pump and 5.7GPM flow-rate for each of the two aux pumps, your STOMP will be able to utilise a wide variety of power-intensive attachments. TYPHON STOMP 1800lbs Mini Skid Steer Loader Key Features 1. Compact Design for Small Projects Specially engineered for small construction projects, ensuring easy maneuverability. Ideal for farms, gardens, public spaces, parks, orchards, and more. 2. Versatile Applications Perfect for drilling, digging, grabbing, bulldozing, ditch-cleaning, small excavations, rock-breaking, landscaping or construction purposes. 3. Compact Yet Tough Features a small but high-performance 23hp engine for smooth functionality. Withstands intensive construction projects without sacrificing performance. 4. User-Friendly Design Hydraulic four-wheel drive for easy maneuverability. Maximum torque of 50NM at 3000 rpm ensures efficient operation. 5. Included Accessories Comes with 1 x standard digging skid-steer bucket, 1 x tool box, and 1 x digital manual with instructions. TYPHON STOMP 1800lbs Mini Skid Steer Loader-Successful Mini Projects Our skid steer loader, the TYPHON STOMP, is engineered for small projects, offering easy maneuverability and superior performance. Weighing 1830lbs, equipped with hydraulic four-wheel drive, and boasting a maximum torque of 50NM at 3000 rpm, this mini loader excels in various conditions. Compact, tough, and efficient, the TYPHON STOMP is ideal for small construction projects, including digging, grabbing, or bull-dozing in parks, gardens, farms, or public spaces. Additional Features: Skid-steer loader tailored for small projects. Includes a standard digging bucket. Achieves speeds of up to 5.5kph. Lifting capacity exceeds 830lbs. Small yet powerful engine. Demonstrates outstanding resistance and durability. Ensures easy maneuverability. Suitable for public spaces, small construction sites, gardens, farms, orchards, municipal works, parks, roads, and landscaping. Provides an excellent solution for drilling, ditch-cleaning, trench digging, bull-dozing, grabbing, rock-breaking, and more. Your Construction Projects, Our Commitment Choose the TYPHON STOMP Skid-Steer Loader for successful construction projects. Our equipment, designed for reliability and performance, ensures your ventures are completed efficiently. Trust TYPHON Machinery, your dedicated supplier of heavy equipment and machinery based in the USA. With our extensive expertise, advanced manufacturing technologies, and reliable partnerships, we guarantee equipment that excels in toughness and reliability. If you encounter any concerns, our team is always ready to address them. Elevate your small-scale construction projects with the compact power of the TYPHON STOMP 1800lbs Mini Skid Steer Loader. Trust TYPHON Machinery to deliver toughness, reliability, and performance in every compact machine, ensuring your projects are a success.",
+    description: "TYPHON STOMP Mini Skid Steer Loader GTIN: 5061030740248 The TYPHON STOMP Mini Skid Steer Loader is a compact, high-performance machine engineered to deliver exceptional power, maneuverability, and versatility for demanding job sites. Designed for contractors, landscapers, farmers, municipalities, and property owners, the STOMP combines a 23 HP commercial-grade engine, hydraulic four-wheel drive, and a high-capacity three-pump hydraulic system to tackle a wide range of material handling and earthmoving tasks. Built to perform in confined workspaces where larger equipment cannot operate efficiently, the TYPHON STOMP is ideal for loading, grading, trenching, digging, landscaping, snow removal, and operating hydraulic attachments. With an operating weight of approximately 1,830 lb, a lifting capacity exceeding 830 lb, and travel speeds up to 3.4 MPH (5.5 km/h), this compact loader delivers professional performance while remaining easy to transport and operate. Whether you're maintaining farmland, preparing construction sites, or completing residential landscaping projects, the TYPHON STOMP is built to maximize productivity and minimize downtime. Key Features Compact Design for Confined Job Sites The STOMP is engineered specifically for environments where maneuverability is critical. Its compact dimensions allow operators to work comfortably in tight spaces without sacrificing lifting power or hydraulic performance. Ideal Applications Residential construction Landscaping projects Farms and ranches Orchards Greenhouses Parks Sidewalks Municipal maintenance Property maintenance Warehouse operations Its compact size makes transportation between job sites quick and convenient while reducing ground disturbance on finished surfaces. Powerful 23 HP Commercial Engine The TYPHON STOMP is powered by a dependable 23 HP gasoline engine designed to provide smooth power delivery and reliable performance throughout demanding workdays. Engine Highlights 23 HP Commercial Gasoline Engine Maximum torque: 50 Nm (36.9 lb-ft) @ 3,000 RPM Smooth and responsive operation Fuel-efficient performance Low maintenance requirements Designed for professional daily use The engine provides consistent power for lifting, grading, trenching, and operating hydraulic attachments. High-Flow Hydraulic System A powerful three-pump hydraulic system gives the STOMP the ability to operate demanding hydraulic attachments while maintaining smooth machine performance. Hydraulic Performance Hydraulic SystemOutputMain Hydraulic Pump11.4 GPMAuxiliary Pump #15.7 GPMAuxiliary Pump #25.7 GPM The generous hydraulic flow allows operators to maximize the performance of high-demand attachments without compromising productivity. Hydraulic Four-Wheel Drive The fully hydraulic drive system delivers outstanding traction and control across a wide range of terrain and working conditions. Benefits Excellent traction on dirt, gravel, and mud Stable operation under heavy loads Smooth steering response Improved climbing capability Increased operator confidence Reliable all-season performance Attachment Versatility The STOMP is designed to support a wide variety of hydraulic attachments, transforming one compact machine into a complete job-site solution. Compatible Attachments Standard Buckets Grapples Pallet Forks Augers Trenchers Hydraulic Breakers Sweepers Forestry Mulchers Brush Cutters Snow Blades Snow Blowers Tillers This flexibility allows operators to complete multiple types of work using a single machine. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP Mini Skid Steer LoaderGTIN5061030740248EngineCommercial Gasoline EngineMaximum Engine Output23 HPMaximum Torque50 Nm (36.9 lb-ft) @ 3,000 RPMDrive SystemHydraulic Four-Wheel DriveOperating Weight1,830 lbsRated Lifting Capacity830+ lbsMaximum Travel Speed3.4 MPH (5.5 km/h)Main Hydraulic Flow11.4 GPMAuxiliary Hydraulic Flow5.7 GPM × 2 Standard Equipment Included Every TYPHON STOMP Mini Skid Steer Loader includes the essential equipment needed to begin working immediately. Included with Your Loader ✔ Standard skid steer bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON STOMP? The TYPHON STOMP is engineered for operators who need professional performance in a compact machine. Its high-flow hydraulic system, hydraulic four-wheel drive, durable construction, and attachment versatility make it an excellent investment for construction, agriculture, landscaping, and property maintenance. Key Benefits ✔ Powerful 23 HP commercial engine ✔ Hydraulic four-wheel drive for maximum traction ✔ Three-pump high-flow hydraulic system ✔ Operates demanding hydraulic attachments ✔ Compact design for confined work areas ✔ Lifting capacity exceeding 830 lb ✔ Smooth and responsive controls ✔ Durable construction for long service life ✔ Easy maintenance and dependable operation Ideal Applications The TYPHON STOMP is trusted across a wide range of industries. Construction Material handling Site preparation Foundation support Job-site cleanup Landscaping Soil and gravel transport Tree planting Hardscape installation Brush removal Agriculture Feed handling Barn cleaning Fence installation Farm maintenance Property Maintenance Snow removal Debris cleanup Trenching General maintenance Municipal & Commercial Park maintenance Sidewalk cleaning Public works Facility management Compact Machine. Serious Performance. The TYPHON STOMP Mini Skid Steer Loader combines 23 HP of dependable power, hydraulic four-wheel drive, high-flow auxiliary hydraulics, and professional attachment compatibility into one compact machine built for demanding work environments. Whether you're lifting, grading, digging, trenching, sweeping, or operating specialized attachments, the STOMP delivers the productivity, durability, and reliability professionals expect from TYPHON Machinery. Designed to work hard every day, the TYPHON STOMP is the compact loader that helps you accomplish more with every project.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781844487549-buefx-pasted-image-20260619-114807-d3kgs.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781844487549-buefx-pasted-image-20260619-114807-d3kgs.webp",
@@ -1761,66 +1765,60 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$8,083.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-501"
+      },
+      {
         label: "GTIN",
         value: "wk6iejilbvyw9i1ie"
       },
       {
         label: "Weight Class",
-        value: "1800 lb"
+        value: "1,830 lb"
       },
       {
         label: "Engine Power",
-        value: "23.5 HP"
-      },
-      {
-        label: "Engine",
-        value: "Briggs & Stratton 23.5HP"
+        value: "23 HP"
       },
       {
         label: "Capacity",
-        value: "exceeds 830lbs"
+        value: "three-pump hydraulic system to tackle a wide range of material handling and earthmoving t"
       }
     ],
     features: [
-      "Compact Design for Small Projects Specially engineered for small construction projects, ensuring easy maneuverability.",
-      "Versatile Applications Perfect for drilling, digging, grabbing, bulldozing, ditch-cleaning, small excavations, rock-breaking, landscaping or construction purposes.",
-      "Compact Yet Tough Features a small but high-performance 23hp engine for smooth functionality.",
-      "User-Friendly Design Hydraulic four-wheel drive for easy maneuverability.",
-      "Included accessories Comes with 1 x standard digging skid-steer bucket, 1 x tool box, and 1 x digital manual with instructions.",
-      "Compact loader footprint"
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
     ],
     applications: [
-      "Perfect For Drilling",
-      "Digging",
-      "Grabbing",
-      "Bulldozing",
-      "Ditch-cleaning",
-      "Small Excavations",
-      "Rock-breaking",
-      "Landscaping Or Construction Purposes"
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "brand-new-typhon-stomp-2000lbs-mini-skid-steer-23hp-gas-epa-engine-usa",
-    name: "TYPHON 0501Y - Briggs & Stratton 23.5HP (Track)",
+    name: "TYPHON 0501Y",
     productType: "equipment",
     rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "Skid Steer Loader",
-    sku: "",
+    sku: "TYPH-0501Y",
     gtin: "5061030741177",
-    price: "$ 9,658.95 Original price was: $9,658.95. $ 8,083.95 Current price is: $8,083.95.",
-    originalPrice: "$9,658.95",
+    price: "$8 083.95",
     currentPrice: "$8,083.95",
     sourceUrl: "https://typhonmachinery.com/product/brand-new-typhon-stomp-2000lbs-mini-skid-steer-23hp-gas-epa-engine-usa/",
-    buttonUrl: "/product/brand-new-typhon-stomp-2000lbs-mini-skid-steer-23hp-gas-epa-engine-usa/",
+    buttonUrl: "/product#!/Brand-New-TYPHON-STOMP-2-000lbs-Mini-Skid-Steer-23-5HP-Gas-EPA-Engine-USA/p/657633264",
     importConfidence: "100",
     series: "STOMP skid steer series",
-    weight: "2000 lb",
+    weight: "2,000 lb",
     tagline: "Unleash the compact power of the TYPHON STOMP Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency.",
-    description: "Unleash the compact power of the TYPHON STOMP Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency. From digging and drilling to bull-dozing and landscaping, the TYPHON STOMP delivers exceptional performance in a compact package. With an 11.4GPM flow-rate for the main hydraulic pump and 5.7GPM flow-rate for each of the two aux pumps, your STOMP will be able to utilise a wide variety of power-intensive attachments. TYPHON STOMP Mini Skid Steer Loader Key Features 1. Compact Design for Small Projects Specially engineered for small construction projects, ensuring easy maneuverability. Ideal for farms, gardens, public spaces, parks, orchards, and more. 2. Versatile Applications Perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes. 3. Compact Yet Powerful Features a small but high-performance 23.5 HP Briggs & Stratton engine for smooth functionality. Withstands intensive construction projects without sacrificing performance. 4. User-Friendly Design Hydraulic four-wheel drive for easy maneuverability. Maximum torque of 50NM at 3000 rpm for efficient operation. 5. Included Accessories Comes with 1 x standard digging skid-steer bucket, 1 x tool box, and 1 x digital manual with instructions. TYPHON STOMP Skid-Steer Loader - Successful Mini Projects Our skid-steer loader, the TYPHON STOMP, is engineered for small-scale projects, offering superior performance and easy maneuverability. With a weight of 2000 lb, hydraulic four-wheel drive, and maximum torque of 50NM at 3000 rpm, this mini loader is reliable and efficient in various conditions. Compact, tough, and versatile, the TYPHON STOMP is your go-to solution for small construction projects, making light work of tasks in parks, gardens, farms, and public spaces. Additional Features: Skid-steer loader for small projects. Includes a standard digging bucket. Speed of up to 6 kph. Lifting capacity of more than 830lbs. Small but powerful 23.5hp B&S engine. Outstanding resistance and durability. Easy maneuverability. Ideal for public spaces, small construction sites, gardens, farms, orchards, municipal works, parks, roads, landscaping. Excellent solution for drilling, ditch-cleaning, trench digging, bull-dozing, grabbing, rock-breaking, and more. Your construction projects will achieve success with the TYPHON STOMP skid-steer loader! Trust TYPHON Machinery - Your Reliable Partner",
+    description: "TYPHON STOMP Mini Skid Steer Loader GTIN: 5061030741177 The TYPHON STOMP Mini Skid Steer Loader is a powerful and versatile compact loader built to deliver exceptional performance for construction, landscaping, agriculture, and property maintenance. Powered by a 23.5 HP Briggs & Stratton commercial engine, this professional-grade machine combines high-flow hydraulics, hydraulic four-wheel drive, and outstanding lifting capability into a compact design that excels in confined work environments. Engineered for contractors, landscapers, farmers, municipalities, and rental fleets, the TYPHON STOMP offers the flexibility to operate a wide variety of hydraulic attachments while maintaining excellent maneuverability and productivity. With an operating weight of approximately 2,000 lb, lifting capacity exceeding 830 lb, and travel speeds up to 3.7 MPH (6 km/h), this compact machine is built to tackle demanding projects with confidence. Whether you're moving materials, trenching, grading, clearing brush, or maintaining commercial properties, the TYPHON STOMP delivers dependable performance day after day. Key Features Compact Design for Confined Work Areas The TYPHON STOMP is designed to maximize productivity in locations where larger equipment cannot easily operate. Its compact footprint provides excellent maneuverability without compromising lifting power or stability. Ideal Applications Residential construction Landscaping projects Farms and ranches Orchards Greenhouses Parks Municipal maintenance Warehouses Property maintenance Commercial facilities Its compact design allows operators to access narrow pathways, gates, and tight workspaces with ease. Powerful Briggs & Stratton Commercial Engine The STOMP is equipped with a reliable 23.5 HP Briggs & Stratton gasoline engine, delivering smooth operation, dependable torque, and long-lasting durability for professional applications. Engine Highlights 23.5 HP Briggs & Stratton Engine Commercial-duty gasoline engine Smooth and consistent power delivery Fuel-efficient performance Easy maintenance Built for continuous daily operation The Briggs & Stratton engine provides reliable performance for lifting, grading, digging, and operating demanding hydraulic attachments. High-Flow Hydraulic System The STOMP features a professional three-pump hydraulic system capable of powering a wide range of hydraulic attachments with ease. Hydraulic Performance Hydraulic SystemOutputMain Hydraulic Pump11.4 GPMAuxiliary Pump #15.7 GPMAuxiliary Pump #25.7 GPM This high-flow system allows operators to maximize the performance of hydraulic attachments while maintaining smooth machine operation. Hydraulic Four-Wheel Drive The hydraulic four-wheel-drive system delivers excellent traction, stability, and control across a variety of terrain conditions. Benefits Outstanding traction on dirt, gravel, mud, and grass Smooth steering response Improved stability under load Excellent climbing capability Confident operation on uneven terrain Reliable year-round performance Multi-Attachment Capability The STOMP is engineered to become a complete job-site solution by supporting a broad range of hydraulic attachments. Compatible Attachments Standard Buckets Grapples Pallet Forks Augers Trenchers Hydraulic Breakers Sweepers Forestry Mulchers Brush Cutters Snow Blades Snow Blowers Tillers With exceptional hydraulic performance, one machine can perform the work of several specialized pieces of equipment. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP Mini Skid Steer LoaderGTIN5061030741177EngineBriggs & Stratton Commercial EngineMaximum Engine Output23.5 HPMaximum Torque50 Nm (36.9 lb-ft) @ 3,000 RPMDrive SystemHydraulic Four-Wheel DriveOperating Weight2,000 lbsRated Lifting Capacity830+ lbsMaximum Travel Speed3.7 MPH (6 km/h)Main Hydraulic Flow11.4 GPMAuxiliary Hydraulic Flow5.7 GPM × 2 Standard Equipment Included Every TYPHON STOMP Mini Skid Steer Loader comes equipped with everything needed to begin working immediately. Included with Your Loader ✔ Standard skid steer bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON STOMP? The TYPHON STOMP is engineered for professionals who demand dependable performance, excellent hydraulic capability, and compact maneuverability. Its Briggs & Stratton commercial engine, hydraulic four-wheel drive, and attachment versatility make it a reliable solution for demanding daily work. Key Benefits ✔ Powerful 23.5 HP Briggs & Stratton commercial engine ✔ Hydraulic four-wheel drive for superior traction ✔ High-flow three-pump hydraulic system ✔ Operates demanding hydraulic attachments ✔ Compact design for restricted work areas ✔ Lifting capacity exceeding 830 lb ✔ Travel speed up to 6 km/h ✔ Rugged construction for demanding environments ✔ Easy maintenance and dependable operation Ideal Applications The TYPHON STOMP is trusted across a wide variety of industries. Construction Material handling Site preparation Foundation support Job-site cleanup Landscaping Soil and gravel transport Tree planting Hardscape installation Brush removal Agriculture Feed handling Barn cleaning Fence installation Farm maintenance Property Maintenance Snow removal Debris cleanup Trenching General maintenance Municipal & Commercial Park maintenance Public works Sidewalk cleaning Facility maintenance Built to Work Hard Every Day The TYPHON STOMP Mini Skid Steer Loader combines the proven reliability of a 23.5 HP Briggs & Stratton engine, hydraulic four-wheel drive, high-flow auxiliary hydraulics, and exceptional attachment compatibility into one compact machine built for demanding work environments. Whether you're lifting heavy materials, trenching, grading, sweeping, clearing brush, or maintaining commercial properties, the TYPHON STOMP delivers the durability, efficiency, and professional performance needed to complete every project with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355344947-8nglb-pasted-image-20260625-094224-0x9ec.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355344947-8nglb-pasted-image-20260625-094224-0x9ec.webp",
@@ -1844,95 +1842,24 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$8,083.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-0501Y"
+      },
+      {
         label: "GTIN",
         value: "5061030741177"
       },
       {
         label: "Weight Class",
-        value: "2000 lb"
+        value: "2,000 lb"
       },
       {
         label: "Engine Power",
         value: "23.5 HP"
       },
       {
-        label: "Engine",
-        value: "Briggs & Stratton 23.5HP"
-      },
-      {
         label: "Capacity",
-        value: "of more than 830lbs"
-      }
-    ],
-    features: [
-      "Compact Design for Small Projects Specially engineered for small construction projects, ensuring easy maneuverability.",
-      "Versatile Applications Perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes.",
-      "Compact Yet Powerful Features a small but high-performance",
-      "User-Friendly Design Hydraulic four-wheel drive for easy maneuverability.",
-      "Included accessories Comes with 1 x standard digging skid-steer bucket, 1 x tool box, and 1 x digital manual with instructions.",
-      "Compact loader footprint"
-    ],
-    applications: [
-      "Perfect For Drilling",
-      "Digging",
-      "Grabbing",
-      "Bull-dozing",
-      "Ditch-cleaning",
-      "Small Excavations",
-      "Rock-breaking",
-      "Landscaping"
-    ],
-    imageMatch: "CSV image fields"
-  },
-  {
-    id: "typhon-0502g-honda-22-1hp-track",
-    name: "TYPHON 0502G - Honda 22.1HP (Track)",
-    productType: "equipment",
-    rawProductType: "",
-    category: "skid-steer-loaders",
-    categoryLabel: "Skid Steer Loader",
-    rawCategory: "",
-    sku: "",
-    gtin: "",
-    price: "",
-    sourceUrl: "",
-    buttonUrl: "",
-    importConfidence: "",
-    series: "STOMP skid steer series",
-    weight: "Skid Steer Loader",
-    tagline: "TYPHON 0502G - Honda 22.1HP (Track) — Typhon skid steer loader for jobsite work.",
-    description: "TYPHON 0502G - Honda 22.1HP (Track) — Typhon skid steer loader for jobsite work.",
-    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685013447-0w5se-4.webp",
-    gallery: [
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685013447-0w5se-4.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685026839-oij4l-9.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685050418-onu0u-21.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685020464-p0z6v-5.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685048178-5auby-20.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685046760-dcani-19.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685045052-7ztkm-18.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685043215-1i7g1-17.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685041007-884dg-16.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685039503-59z87-15.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685037959-iwq61-14.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685033323-p8nfw-13.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685031639-5ihy8-12.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685030196-xiwn3-11.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685028397-8wxv3-10.webp",
-      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685025159-7vndf-8.webp"
-    ],
-    specs: [
-      {
-        label: "Category",
-        value: "Skid Steer Loader"
-      },
-      {
-        label: "Engine Power",
-        value: "22.1 HP"
-      },
-      {
-        label: "Engine",
-        value: "Honda 22.1HP"
+        value: "exceeding 830 lb, and travel speeds up to 3"
       }
     ],
     features: [
@@ -1952,24 +1879,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-2",
-    name: "TYPHON 0502R - Honda 22.1HP (Track)",
+    name: "TYPHON 0502R",
     productType: "equipment",
     rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "Skid Steer Loader",
-    sku: "",
+    sku: "TYPH-0502",
     gtin: "5061030741092",
-    price: "$ 9,868.95 Original price was: $9,868.95. $ 8,083.95 Current price is: $8,083.95.",
-    originalPrice: "$9,868.95",
+    price: "$8 083.95",
     currentPrice: "$8,083.95",
     sourceUrl: "https://typhonmachinery.com/product/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-2/",
-    buttonUrl: "/product/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-2/",
+    buttonUrl: "/product#!/Skid-Steer-Loader-Tracked-22-1-HP-Honda-EPA-Gasoline-Engine-for-Gardens-Farming/p/584544525",
     importConfidence: "",
     series: "STOMP skid steer series",
-    weight: "Skid Steer Loader",
-    tagline: "TYPHON 0502R - Honda 22.1HP (Track) — Typhon skid steer loader for jobsite work.",
-    description: "TYPHON 0502R - Honda 22.1HP (Track) — Typhon skid steer loader for jobsite work.",
+    weight: "1,830 lb",
+    tagline: "The TYPHON STOMP Skid-Steer Loader is a robust and compact solution engineered for small construction projects, bringing exceptional performance and versatility to spaces like farms, gardens, public areas, parks, orchards, and more. Let's explore the features that make the TYPHON STOMP a powerhouse in a compact frame.",
+    description: "TYPHON STOMP Mini Skid Steer Loader GTIN: 5061030741191 The TYPHON STOMP Mini Skid Steer Loader is a compact yet exceptionally capable machine engineered to deliver professional performance across construction, landscaping, agriculture, property maintenance, and material-handling applications. Powered by the proven Honda GX690 V-Twin commercial engine, this mini skid steer combines impressive hydraulic performance, outstanding maneuverability, and exceptional attachment compatibility into one durable and efficient package. Designed for contractors, landscapers, municipalities, farmers, and rental fleets, the STOMP is built to work efficiently in confined spaces where larger equipment cannot operate. With an operating weight of approximately 1,830 lb, hydraulic four-wheel drive, a lifting capacity exceeding 830 lb, and a powerful three-pump hydraulic system, this compact loader delivers the productivity professionals demand every day. Whether you're trenching, grading, moving materials, clearing brush, or operating hydraulic attachments, the TYPHON STOMP is engineered to help you complete more work with greater efficiency. Key Features Compact Design for Restricted Work Areas The TYPHON STOMP is purpose-built for projects that require excellent maneuverability without sacrificing lifting performance or hydraulic capability. Perfect For Residential construction Landscaping projects Farms and ranches Orchards Parks Greenhouses Municipal maintenance Commercial properties Warehouses Property maintenance Its compact footprint allows operators to work comfortably in narrow access points, tight job sites, and confined spaces. Reliable Honda GX690 Commercial Engine The STOMP is powered by the trusted Honda GX690, a commercial-grade V-Twin gasoline engine recognized worldwide for its durability, smooth operation, and long service life. Engine Highlights Honda GX690 Commercial Engine Approximately 23.1 HP output 688 cc 90° V-Twin OHV gasoline engine Air-cooled commercial design Horizontal shaft configuration 48.3 Nm (35.6 lb-ft) maximum torque @ 2,500 RPM Electric start Fuel-efficient performance Low maintenance requirements Designed for continuous professional use, the Honda GX690 provides dependable power in demanding working environments. High-Performance Hydraulic System The STOMP features a three-pump hydraulic system capable of operating demanding hydraulic attachments while maintaining smooth machine performance. Hydraulic Performance Hydraulic SystemOutputMain Hydraulic Pump11.4 GPMAuxiliary Pump #15.7 GPMAuxiliary Pump #25.7 GPM The integrated three-hydraulic-valve system allows operators to maximize the performance of high-flow attachments while maintaining responsive machine control. Hydraulic Four-Wheel Drive The hydraulic drive system provides excellent traction, stability, and maneuverability across a variety of job-site conditions. Benefits Superior traction on dirt, gravel, mud, and grass Smooth steering response Stable operation under heavy loads Excellent climbing capability Reliable year-round performance Outstanding control in confined work areas Outstanding Attachment Compatibility The STOMP is designed to support a wide range of hydraulic attachments, transforming one compact machine into a complete work platform. Compatible Attachments Standard Buckets Grapples Pallet Forks Augers Trenchers Hydraulic Breakers Sweepers Forestry Mulchers Brush Cutters Snow Blades Snow Blowers Tillers Its powerful hydraulic system allows operators to quickly switch between attachments and perform multiple types of work with one machine. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP Mini Skid Steer LoaderGTIN5061030741191EngineHonda GX690Engine Type688 cc 90° V-Twin OHV GasolineMaximum Engine Output23.1 HPMaximum Torque48.3 Nm (35.6 lb-ft) @ 2,500 RPMDrive SystemHydraulic Four-Wheel DriveOperating Weight1,830 lbsRated Lifting Capacity830+ lbsMaximum Travel Speed3.4 MPH (5.5 km/h)Main Hydraulic Flow11.4 GPMAuxiliary Hydraulic Flow5.7 GPM × 2 Standard Equipment Included Every TYPHON STOMP Mini Skid Steer Loader comes equipped with essential accessories so you can begin working immediately. Included with Your Loader ✔ Standard skid steer bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON STOMP? The TYPHON STOMP combines the proven reliability of the Honda GX690 engine with hydraulic four-wheel drive, powerful auxiliary hydraulics, and exceptional attachment versatility. Built for professionals who demand dependable performance in compact spaces, it delivers the power, durability, and efficiency needed for demanding job-site applications. Key Benefits ✔ Commercial-grade Honda GX690 engine ✔ Approximately 23.1 HP of dependable power ✔ Hydraulic four-wheel drive ✔ Three-pump high-flow hydraulic system ✔ Supports demanding hydraulic attachments ✔ Compact design for restricted work areas ✔ Lifting capacity exceeding 830 lb ✔ Durable construction for professional use ✔ Easy maintenance and reliable daily operation Ideal Applications The TYPHON STOMP is trusted across a wide variety of industries. Construction Material handling Site preparation Foundation support Job-site cleanup Landscaping Soil and gravel transport Tree planting Hardscape installation Brush clearing Agriculture Feed handling Barn cleaning Fence installation Farm maintenance Property Maintenance Snow removal Debris cleanup Trenching General maintenance Municipal & Commercial Park maintenance Public works Sidewalk cleaning Facility maintenance Built for Everyday Productivity The TYPHON STOMP Mini Skid Steer Loader combines the trusted performance of the Honda GX690 commercial engine, hydraulic four-wheel drive, high-flow auxiliary hydraulics, and outstanding attachment compatibility into one compact machine built for serious work. Whether you're lifting heavy materials, trenching, grading, sweeping, clearing vegetation, or operating specialized hydraulic tools, the TYPHON STOMP delivers the reliability, versatility, and professional performance needed to keep every project moving forward.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355485890-mfw6m-pasted-image-20260625-094445-znb19.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355485890-mfw6m-pasted-image-20260625-094445-znb19.webp",
@@ -1999,16 +1925,103 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$8,083.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-0502"
+      },
+      {
         label: "GTIN",
         value: "5061030741092"
+      },
+      {
+        label: "Weight Class",
+        value: "1,830 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "23.1 HP"
+      },
+      {
+        label: "Capacity",
+        value: "exceeding 830 lb, and a powerful three-pump hydraulic system, this compact loader deliver"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-0502g",
+    name: "TYPHON 0502G",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-0502G",
+    gtin: "",
+    price: "$8 083.95",
+    currentPrice: "$8,083.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Skid-Steer-Loader-Tracked-22-1-HP-Honda-EPA-Gasoline-Engine-for-Gardens-Farming/p/746028013",
+    importConfidence: "",
+    series: "STOMP skid steer series",
+    weight: "1,960 lb",
+    tagline: "The TYPHON STOMP Skid-Steer Loader is a robust and compact solution engineered for small construction projects, bringing exceptional performance and versatility to spaces like farms, gardens, public areas, parks, orchards, and more. Let's explore the features that make the TYPHON STOMP a powerhouse in a compact frame.",
+    description: "TYPHON STOMP Mini Skid Steer Loader GTIN: 5061030741092 The TYPHON STOMP Mini Skid Steer Loader is a professional-grade compact loader designed to deliver outstanding power, maneuverability, and versatility for demanding construction, landscaping, agricultural, and property maintenance applications. Powered by the proven 22.1 HP Honda GX690 commercial V-Twin engine, this compact machine combines exceptional hydraulic performance, hydraulic four-wheel drive, and excellent attachment compatibility to maximize productivity on every job site. With an operating weight of approximately 1,960 lb, a rated lifting capacity of 830 lb, and a powerful three-pump hydraulic system, the TYPHON STOMP is built to handle material handling, grading, trenching, excavation, snow removal, landscaping, and countless other applications. Its compact footprint allows operators to work efficiently in narrow spaces while maintaining the strength and durability expected from professional equipment. Whether you're a contractor, landscaper, farmer, municipality, or property owner, the TYPHON STOMP is engineered to deliver dependable performance day after day. Key Features Compact Design for Maximum Maneuverability The TYPHON STOMP is specifically engineered to work in confined spaces where larger loaders cannot operate efficiently. Its compact dimensions provide excellent accessibility while maintaining impressive lifting capability and machine stability. Ideal Applications Residential construction Landscaping projects Farms and ranches Orchards Greenhouses Parks Public spaces Municipal maintenance Warehouses Commercial property maintenance Its compact design makes transportation simple while allowing operators to navigate tight work areas with ease. Reliable Honda GX690 Commercial Engine Powering the STOMP is the trusted Honda GX690, a commercial-grade gasoline engine renowned for its reliability, fuel efficiency, and long service life. Engine Highlights 22.1 HP Honda GX690 688 cc 90° V-Twin OHV gasoline engine Air-cooled commercial design Horizontal shaft configuration 48.3 Nm (35.6 lb-ft) maximum torque @ 2,500 RPM Electric start Smooth and responsive performance Low maintenance requirements Built for continuous professional use, the Honda GX690 delivers dependable power in demanding environments. High-Performance Hydraulic System The TYPHON STOMP features a high-capacity three-pump hydraulic system capable of operating demanding hydraulic attachments while maintaining smooth loader performance. Hydraulic Performance Hydraulic SystemOutputMain Hydraulic Pump11.4 GPMAuxiliary Pump #15.7 GPMAuxiliary Pump #25.7 GPM The integrated three-hydraulic-valve system provides consistent oil flow for professional attachments requiring substantial hydraulic power. Hydraulic Four-Wheel Drive The hydraulic drive system provides excellent traction, stability, and control across a wide range of terrain conditions. Benefits Superior traction on dirt, gravel, and mud Smooth steering response Stable operation under heavy loads Excellent climbing ability Reliable performance in all seasons Outstanding maneuverability in restricted spaces Compatible with Numerous Attachments The STOMP is designed to support a broad range of hydraulic attachments, allowing one compact machine to perform the work of several specialized machines. Compatible Attachments Standard Buckets Grapples Pallet Forks Augers Trenchers Hydraulic Breakers Sweepers Forestry Mulchers Brush Cutters Snow Blades Snow Blowers Tillers The powerful hydraulic system ensures smooth, reliable operation regardless of the attachment being used. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP Mini Skid Steer LoaderGTIN5061030741092EngineHonda GX690Engine Type688 cc 90° V-Twin OHV GasolineMaximum Engine Output22.1 HPMaximum Torque48.3 Nm (35.6 lb-ft) @ 2,500 RPMDrive SystemHydraulic Four-Wheel DriveOperating Weight1,960 lbsRated Lifting Capacity830 lbsMaximum Travel Speed3.4 MPH (5.5 km/h)Main Hydraulic Flow11.4 GPMAuxiliary Hydraulic Flow5.7 GPM × 2 Standard Equipment Included Every TYPHON STOMP Mini Skid Steer Loader comes equipped with essential accessories so you can begin working immediately. Included with Your Loader ✔ Standard skid steer bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON STOMP? The TYPHON STOMP combines the proven reliability of the Honda GX690 engine with hydraulic four-wheel drive, powerful auxiliary hydraulics, and outstanding attachment versatility. Built for professionals who need dependable performance in compact work environments, it delivers the strength, durability, and productivity required for demanding daily operations. Key Benefits ✔ Commercial-grade Honda GX690 engine ✔ Hydraulic four-wheel drive ✔ Three-pump high-flow hydraulic system ✔ Operates demanding hydraulic attachments ✔ Compact design for restricted work areas ✔ Rated lifting capacity of 830 lb ✔ Operating weight of 1,960 lb for greater stability ✔ Rugged construction for long service life ✔ Easy maintenance and dependable operation Ideal Applications The TYPHON STOMP is trusted across a wide variety of industries. Construction Material handling Site preparation Foundation support Job-site cleanup Landscaping Soil and gravel transport Tree planting Hardscape installation Brush clearing Agriculture Feed handling Barn cleaning Fence installation Farm maintenance Property Maintenance Snow removal Debris cleanup Trenching General maintenance Municipal & Commercial Park maintenance Public works Sidewalk cleaning Facility maintenance Professional Performance in a Compact Machine The TYPHON STOMP Mini Skid Steer Loader combines the trusted reliability of the Honda GX690 commercial engine, hydraulic four-wheel drive, high-flow auxiliary hydraulics, and exceptional attachment compatibility into one compact machine built for professional productivity. Whether you're grading, trenching, lifting, sweeping, clearing vegetation, or transporting materials, the TYPHON STOMP delivers the durability, versatility, and dependable performance needed to complete every project with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685013447-0w5se-4.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685013447-0w5se-4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685026839-oij4l-9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685050418-onu0u-21.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685020464-p0z6v-5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685048178-5auby-20.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685046760-dcani-19.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685045052-7ztkm-18.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685043215-1i7g1-17.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685041007-884dg-16.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685039503-59z87-15.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685037959-iwq61-14.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685033323-p8nfw-13.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685031639-5ihy8-12.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685030196-xiwn3-11.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685028397-8wxv3-10.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685025159-7vndf-8.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$8,083.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0502G"
+      },
+      {
+        label: "Weight Class",
+        value: "1,960 lb"
       },
       {
         label: "Engine Power",
         value: "22.1 HP"
       },
       {
-        label: "Engine",
-        value: "Honda 22.1HP"
+        label: "Capacity",
+        value: "of 830 lb, and a powerful three-pump hydraulic system, the TYPHON STOMP is built to handl"
       }
     ],
     features: [
@@ -2028,24 +2041,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming",
-    name: "TYPHON 0503R - Honda 22.1HP (Wheel)",
+    name: "TYPHON 0503R",
     productType: "equipment",
     rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "Skid Steer Loader",
-    sku: "",
+    sku: "TYPH-0503R",
     gtin: "5061030740378",
-    price: "$ 9,868.95 Original price was: $9,868.95. $ 8,083.95 Current price is: $8,083.95.",
-    originalPrice: "$9,868.95",
+    price: "$8 083.95",
     currentPrice: "$8,083.95",
     sourceUrl: "https://typhonmachinery.com/product/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming/",
-    buttonUrl: "/product/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming/",
+    buttonUrl: "/product#!/Mini-SkidSteer-Loader-Track-Wheel-Honda-EPA-Gas-22-1-HP-Engine-NEW/p/584670006",
     importConfidence: "100",
-    series: "SKOOP wheel loader series",
-    weight: "1830 lb",
+    series: "STOMP skid steer series",
+    weight: "1,830 lb",
     tagline: "The TYPHON STOMP Skid-Steer Loader is a robust and compact solution engineered for small construction projects, bringing exceptional performance and versatility to spaces like farms, gardens, public areas, parks, orchards, and more.",
-    description: "The TYPHON STOMP Skid Steer Loader is a robust and compact solution engineered for small construction projects, bringing exceptional performance and versatility to spaces like farms, gardens, public areas, parks, orchards, and more. Let's explore the features that make the TYPHON STOMP a powerhouse in a compact frame. TYPHON STOMP Skid Steer Loader Key Features 1. Compact Design for Small Projects Specifically designed for small construction projects, ensuring easy maneuverability in restricted spaces. 2. Versatility Unleashed The skid-steer loader is a multitasking marvel, perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and various construction purposes. 3. Compact and Powerful Features a small yet high-performance 21hp Honda GX630 engine, delivering smooth functionality, easy maintenance, and the power needed for intensive construction projects. 4. User-Friendly Operation Designed for ease of use, even for first-time operators, with a hydraulic drive and maximum torque of 48.3NM at 2500 rpm, ensuring effortless operation in excavation, drilling, or bull-dozing tasks. 5. Comprehensive Package The TYPHON STOMP Skid Steer Loader loader comes complete with 1 x standard digging skid-steer bucket, 1 x tool box, and 1 x digital manual, providing all the necessary instructions for optimal usage. Coupled with a superb 22.1hp 4 stroke OHV Honda petrol engine, 90 degrees V-twin design, horizontal shaft, this STOMP machine comes with three hydraulic valves that allow the machine to operate all the mini skid steer attachments. TYPHON STOMP in Action: Mini Scale, Maximum Impact Our skid-steer machine, the TYPHON STOMP Skid Steer Loader, stands tall as a 1830lbs mini loader with a hydraulic four-wheel drive. With a maximum torque of 50NM at 3000 rpm, this excavator exhibits reliability and maneuverability in diverse conditions. Its compact, robust, and efficient design makes it the ideal choice for small construction projects, offering exceptional performance in tasks like digging, grabbing, or bull-dozing within parks, gardens, farms, and public spaces. Additional Features: Speed and Lifting Capacity: Achieves a speed of up to 5.5kph. Boasts a lifting capacity of more than 830lbs. Durable Build: Equipped with a small but powerful engine for outstanding resistance and durability. Maneuverability: Features easy maneuverability, making it suitable for public spaces, small construction sites, gardens, farms, orchards, municipal works, parks, roads, landscaping, and more. Versatile Solutions: An excellent solution for drilling, ditch-cleaning, trench digging, bull-dozing, grabbing, rock-breaking, and various construction tasks. Your construction projects are destined for success with the TYPHON STOMP Skid Steer Loader. Choose power, choose reliability - choose TYPHON for construction excellence. If you have any concerns or inquiries, our dedicated team is always ready to assist.",
+    description: "TYPHON STOMP Mini Skid Steer Loader GTIN: 5061030740668 The TYPHON STOMP Mini Skid Steer Loader is a powerful, compact machine designed to maximize productivity in confined work environments. Built for contractors, landscapers, farmers, property owners, and rental fleets, the STOMP combines Honda commercial-grade reliability, hydraulic four-wheel drive, and a high-flow auxiliary hydraulic system to power a wide variety of professional attachments. Despite its compact size, the TYPHON STOMP delivers exceptional lifting power, excellent maneuverability, and impressive hydraulic performance, making it ideal for construction, landscaping, agriculture, material handling, snow removal, and property maintenance. With an operating weight of approximately 1,830 lb, a lifting capacity exceeding 830 lb, and three hydraulic valves supporting multiple attachments, the TYPHON STOMP is engineered to work harder while remaining easy to transport and operate. Key Features Compact Design Built for Tight Spaces The TYPHON STOMP is specifically designed to access locations where larger skid steers cannot operate efficiently. Its compact footprint allows operators to work comfortably in confined areas without sacrificing lifting power or stability. Perfect For Residential construction Landscaping projects Farms and ranches Orchards Greenhouses Parks Sidewalks Municipal maintenance Warehouses Property maintenance Its compact size makes transportation between job sites simple while improving productivity in restricted work environments. Commercial Honda GX630 Engine At the heart of the STOMP is the trusted Honda GX630 V-Twin commercial gasoline engine, known worldwide for outstanding reliability and long service life. Engine Highlights 22.1 HP Honda GX630 Commercial Engine 4-Stroke OHV V-Twin Design Horizontal shaft configuration Air-cooled engine Commercial-duty construction Smooth power delivery Easy maintenance Excellent fuel efficiency Designed for continuous professional use, the Honda GX630 provides dependable performance throughout demanding workdays. High-Performance Hydraulic System The TYPHON STOMP features one of the strongest hydraulic systems in its class, allowing operators to run demanding hydraulic attachments with confidence. Hydraulic Performance Hydraulic SystemOutputMain Hydraulic Pump11.4 GPMAuxiliary Pump #15.7 GPMAuxiliary Pump #25.7 GPM The three-valve hydraulic system provides excellent oil flow for power-intensive attachments while maintaining smooth machine operation. Hydraulic Four-Wheel Drive The fully hydraulic four-wheel-drive system delivers excellent traction across dirt, gravel, mud, grass, and uneven terrain. Benefits Superior traction Smooth steering Excellent stability Better climbing ability Improved control on rough terrain Increased productivity in challenging conditions Compatible with Numerous Attachments The STOMP is designed to become a true multi-purpose machine by supporting a large variety of hydraulic attachments. Common Attachments Buckets Augers Hydraulic breakers Trenchers Grapples Pallet forks Sweepers Forestry mulchers Tillers Snow blades Snow blowers Brush cutters One machine can easily perform the work of several specialized pieces of equipment. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP Mini Skid Steer LoaderGTIN5061030740668EngineHonda GX630Engine Type4-Stroke OHV V-Twin GasolineMaximum Engine Output22.1 HPMaximum Torque48.3 Nm (35.6 lb-ft) @ 2,500 RPMDrive SystemHydraulic Four-Wheel DriveOperating Weight1,830 lbsRated Lifting Capacity830+ lbsMaximum Travel Speed3.4 MPH (5.5 km/h)Main Hydraulic Flow11.4 GPMAuxiliary Hydraulic Flow5.7 GPM × 2 Standard Equipment Included Every TYPHON STOMP Mini Skid Steer Loader comes equipped with everything needed to begin working immediately. Included with Your Loader ✔ Standard skid steer bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON STOMP? The TYPHON STOMP is built for operators who need professional performance from a compact machine. Its commercial Honda engine, powerful hydraulic system, four-wheel drive, and outstanding attachment compatibility make it one of the most versatile mini skid steers available. Key Benefits ✔ Commercial-grade Honda GX630 engine ✔ Powerful 22.1 HP performance ✔ Hydraulic four-wheel drive ✔ High-flow auxiliary hydraulics ✔ Three hydraulic valve system ✔ Excellent attachment compatibility ✔ Compact design for confined spaces ✔ Lifting capacity exceeding 830 lb ✔ Easy transportation between job sites ✔ Durable construction for long service life Ideal Applications The TYPHON STOMP is trusted across a wide range of industries. Construction Material handling Site cleanup Foundation preparation Demolition support Landscaping Soil moving Tree planting Hardscape installation Mulch and gravel transport Agriculture Feed handling Barn cleaning Fence installation Farm maintenance Property Maintenance Snow removal Brush clearing Debris cleanup General maintenance Municipal & Commercial Sidewalk maintenance Park maintenance Public works Facility management Built for Professional Productivity The TYPHON STOMP Mini Skid Steer Loader combines commercial Honda power, high-flow hydraulics, hydraulic four-wheel drive, and exceptional attachment versatility into one compact, hard-working machine. Designed to increase productivity while reducing manual labor, it is the ideal solution for contractors, landscapers, farmers, municipalities, and property owners who demand dependable performance every day. Whether you're lifting, digging, trenching, sweeping, grading, or handling materials, the TYPHON STOMP delivers the power, durability, and versatility needed to complete every project with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355723471-uj2m0-pasted-image-20260625-094843-nmk8w.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355723471-uj2m0-pasted-image-20260625-094843-nmk8w.webp",
@@ -2074,33 +2086,31 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$8,083.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-0503R"
+      },
+      {
         label: "GTIN",
         value: "5061030740378"
       },
       {
         label: "Weight Class",
-        value: "1830 lb"
+        value: "1,830 lb"
       },
       {
         label: "Engine Power",
         value: "22.1 HP"
       },
       {
-        label: "Engine",
-        value: "Honda 22.1HP"
-      },
-      {
         label: "Capacity",
-        value: ": Achieves a speed of up to 5"
+        value: "exceeding 830 lb, and three hydraulic valves supporting multiple attachments, the TYPHON"
       }
     ],
     features: [
-      "Compact Design for Small Projects Specifically designed for small construction projects, ensuring easy maneuverability in restricted spaces.",
-      "Versatility Unleashed The skid-steer loader is a multitasking marvel, perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and various construction purposes.",
-      "Compact and Powerful Features a small yet high-performance 21hp Honda GX630 engine, delivering smooth functionality, easy maintenance, and the power needed for intensive construction projects.",
-      "User-Friendly Operation Designed for ease of use, even for first-time operators, with a hydraulic drive and maximum torque of",
-      "Comprehensive package The TYPHON STOMP Skid Steer Loader loader comes complete with 1 x standard digging skid-steer bucket, 1 x tool box, and 1 x digital manual, providing all the necessary instructions for optimal usage.",
-      "Compact loader footprint"
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
     ],
     applications: [
       "Loading",
@@ -2112,23 +2122,24 @@ export const typhonProducts: TyphonProduct[] = [
     imageMatch: "CSV image fields"
   },
   {
-    id: "typhon-0504r-briggs-and-stratton-23-5hp-wheel",
-    name: "TYPHON 0504R - Briggs & Stratton 23.5HP (Wheel)",
+    id: "typhon-0504r",
+    name: "TYPHON 0504R",
     productType: "equipment",
-    rawProductType: "",
+    rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "",
-    sku: "",
+    sku: "TYPH-0504",
     gtin: "",
-    price: "",
+    price: "$8 083.95",
+    currentPrice: "$8,083.95",
     sourceUrl: "",
-    buttonUrl: "",
+    buttonUrl: "/product#!/Brand-New-TYPHON-STOMP-1-800lbs-Mini-Skid-Steer-23-5HP-Wheel-Gas-EPA-B-&-S-Engine-USA/p/584670004",
     importConfidence: "",
-    series: "SKOOP wheel loader series",
-    weight: "Skid Steer Loader",
-    tagline: "TYPHON 0504R - Briggs & Stratton 23.5HP (Wheel) — Typhon skid steer loader for jobsite work.",
-    description: "TYPHON 0504R - Briggs & Stratton 23.5HP (Wheel) — Typhon skid steer loader for jobsite work.",
+    series: "STOMP skid steer series",
+    weight: "1,830 lb",
+    tagline: "Unleash the compact power of the TYPHON STOMP Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency. From digging and drilling to bull-dozing and landscaping, the TYPHON STOMP delivers exceptional performance in a compact package.",
+    description: "TYPHON STOMP Mini Skid Steer Loader GTIN: 5061030741160 The TYPHON STOMP Mini Skid Steer Loader is a compact, high-performance machine built to deliver outstanding power, maneuverability, and versatility for professional contractors, landscapers, farmers, and property owners. Equipped with a 23 HP commercial-grade engine, hydraulic four-wheel drive, and a high-flow hydraulic system, the STOMP is capable of operating a wide variety of demanding attachments while maintaining exceptional performance in confined work areas. With an operating weight of approximately 1,830 lb, a lifting capacity exceeding 830 lb, and a powerful three-pump hydraulic system, the TYPHON STOMP is engineered to handle excavation, grading, trenching, material handling, landscaping, snow removal, and many other tasks with ease. Whether you're working on construction sites, farms, parks, or residential properties, the STOMP delivers the compact power needed to complete more work in less time. Key Features Compact Design for Maximum Maneuverability The TYPHON STOMP is specifically designed for projects where larger loaders cannot operate efficiently. Its compact footprint allows operators to access narrow gates, tight pathways, and confined job sites without sacrificing lifting performance. Perfect For Residential construction Landscaping Farms and ranches Orchards Greenhouses Municipal maintenance Property maintenance Warehouses Parks and recreation areas Its compact design improves accessibility while reducing ground disturbance on sensitive surfaces. Powerful 23 HP Commercial Engine The STOMP is equipped with a reliable 23 HP gasoline engine that delivers dependable power, smooth operation, and long-lasting performance for demanding daily use. Engine Highlights 23 HP Commercial Gasoline Engine Smooth and reliable power delivery Excellent fuel efficiency Easy starting Low maintenance requirements Designed for continuous professional operation The high-performance engine provides the power required for lifting, digging, grading, and operating hydraulic attachments. High-Flow Hydraulic System One of the biggest strengths of the STOMP is its powerful hydraulic system, allowing operators to run demanding hydraulic attachments without sacrificing performance. Hydraulic Performance Hydraulic SystemOutputMain Hydraulic Pump11.4 GPMAuxiliary Pump #15.7 GPMAuxiliary Pump #25.7 GPM The three-pump configuration delivers excellent oil flow for professional attachments such as augers, trenchers, grapples, sweepers, breakers, and forestry mulchers. Hydraulic Four-Wheel Drive The fully hydraulic four-wheel-drive system provides exceptional traction and stability across a variety of job-site conditions. Benefits Excellent traction on dirt, gravel, and mud Smooth steering response Increased stability under load Better climbing ability Improved control on uneven terrain Reliable year-round performance Attachment Versatility The STOMP is engineered to become a true multi-purpose machine by supporting a wide variety of hydraulic attachments. Compatible Attachments Standard Buckets Grapples Pallet Forks Trenchers Augers Hydraulic Breakers Sweepers Forestry Mulchers Brush Cutters Snow Blades Snow Blowers Tillers This versatility allows one machine to replace multiple pieces of equipment on the job site. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP Mini Skid Steer LoaderGTIN5061030741160EngineCommercial Gasoline EngineMaximum Engine Output23 HPMaximum Torque50 Nm (36.9 lb-ft) @ 3,000 RPMDrive SystemHydraulic Four-Wheel DriveOperating Weight1,830 lbsRated Lifting Capacity830+ lbsMaximum Travel Speed3.4 MPH (5.5 km/h)Main Hydraulic Flow11.4 GPMAuxiliary Hydraulic Flow5.7 GPM × 2 Standard Equipment Included Every TYPHON STOMP Mini Skid Steer Loader comes equipped with everything needed to begin working immediately. Included with Your Loader ✔ Standard skid steer bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON STOMP? The TYPHON STOMP is designed to maximize productivity while minimizing operating costs. Its powerful engine, high-flow hydraulic system, hydraulic four-wheel drive, and outstanding attachment compatibility make it one of the most versatile compact loaders available. Key Benefits ✔ Powerful 23 HP commercial engine ✔ Hydraulic four-wheel drive ✔ Three-pump high-flow hydraulic system ✔ Operates demanding hydraulic attachments ✔ Compact design for confined work areas ✔ Lifting capacity exceeding 830 lb ✔ Excellent maneuverability ✔ Durable construction for demanding environments ✔ Easy maintenance and reliable operation Ideal Applications The TYPHON STOMP is trusted by professionals across many industries. Construction Material handling Site cleanup Foundation preparation Demolition support Landscaping Soil and gravel transport Tree planting Hardscape installation Brush removal Agriculture Feed handling Barn cleaning Fence installation Farm maintenance Property Maintenance Snow removal Debris cleanup Trenching General maintenance Municipal & Commercial Park maintenance Sidewalk cleaning Public works Facility maintenance Compact Size. Professional Capability. The TYPHON STOMP Mini Skid Steer Loader combines 23 HP of dependable power, hydraulic four-wheel drive, high-flow auxiliary hydraulics, and professional attachment compatibility into one compact machine designed to tackle demanding projects with confidence. From digging and grading to trenching, lifting, sweeping, and landscaping, the TYPHON STOMP delivers the durability, versatility, and performance professionals rely on every day.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355965381-j10mp-chatgpt_image_jun_25_2026_09_52_15_am.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355965381-j10mp-chatgpt_image_jun_25_2026_09_52_15_am.webp",
@@ -2146,12 +2157,24 @@ export const typhonProducts: TyphonProduct[] = [
         value: "Skid Steer Loader"
       },
       {
-        label: "Engine Power",
-        value: "23.5 HP"
+        label: "Current Price",
+        value: "$8,083.95"
       },
       {
-        label: "Engine",
-        value: "Briggs & Stratton 23.5HP"
+        label: "SKU",
+        value: "TYPH-0504"
+      },
+      {
+        label: "Weight Class",
+        value: "1,830 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "23 HP"
+      },
+      {
+        label: "Capacity",
+        value: "exceeding 830 lb, and a powerful three-pump hydraulic system, the TYPHON STOMP is enginee"
       }
     ],
     features: [
@@ -2171,24 +2194,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "brand-new-typhon-stomp-507-1760lbs-mini-skid-steer-13-5hp-gas-epa-engine-usa",
-    name: "TYPHON 0505 - Briggs & Stratton 13.5HP (Track)",
+    name: "TYPHON 0505",
     productType: "equipment",
     rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "13.5HP B&S Engine",
-    sku: "TYPH-0507",
+    sku: "TYPH-0505",
     gtin: "wk6iejilbvyw9i1ie",
-    price: "$ 7,348.95 Original price was: $7,348.95. $ 5,773.95 Current price is: $5,773.95.",
-    originalPrice: "$7,348.95",
-    currentPrice: "$5,773.95",
+    price: "$5 983.95",
+    currentPrice: "$5,983.95",
     sourceUrl: "https://typhonmachinery.com/product/brand-new-typhon-stomp-507-1760lbs-mini-skid-steer-13-5hp-gas-epa-engine-usa/",
-    buttonUrl: "/product/brand-new-typhon-stomp-507-1760lbs-mini-skid-steer-13-5hp-gas-epa-engine-usa/",
+    buttonUrl: "/product#!/Brand-New-TYPHON-STOMP-1-760lbs-Mini-Skid-Steer-13-5hp-Gas-EPA-Engine-USA/p/633203046",
     importConfidence: "100",
     series: "STOMP skid steer series",
     weight: "Skid Steer Loader",
     tagline: "Release the compact power of the dependable and flexible TYPHON STOMP 507 Mini Skid Steer Loader for small construction projects. Designed to manage several jobs effectively, this skid steer loader is engineered for simple movement in limited areas.",
-    description: "Unleash the compact power of the TYPHON STOMP 507 Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency. From digging and drilling to bull-dozing and landscaping, the TYPHON STOMP 13.5 delivers exceptional performance in a compact economical package. TYPHON STOMP Mini Skid Steer Loader Key Features 1. Compact Design for Small Projects Designed especially for small building jobs, they guarantee simple mobility. Perfect for parks, gardens, homes, businesses, orchards, and more. 2. Versatile Applications Perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, minor excavations, rock-breaking, landscaping, and building needs. 3. Compact Yet Powerful has a 13.5 HP engine, compact but high-performance yet cheap, enabling seamless operation. Withstands massive building projects without compromising performance. 4. Included Accessories Along with one x normal digging skid-steer bucket, one x tool box, and one x digital handbook with directions. * Note: As the STOMP 13.5 comes with two valves, there are many attachments it cannot use.",
+    description: "TYPHON STOMP 13.5 Mini Skid Steer Loader GTIN: 5061030740392 The TYPHON STOMP 13.5 Mini Skid Steer Loader is a compact, economical, and dependable machine designed for homeowners, landscapers, farmers, and contractors who need reliable performance without the cost or size of a full-sized skid steer. Built to operate efficiently in tight spaces, the STOMP 13.5 is ideal for light-duty construction, landscaping, agriculture, and property maintenance applications. Powered by an efficient 13.5 HP gasoline engine, this compact loader offers excellent maneuverability, straightforward operation, and dependable hydraulic performance for everyday tasks. Its small footprint allows it to pass through narrow gates, pathways, gardens, and confined work areas where larger equipment cannot operate. Whether you're moving soil, gravel, mulch, compost, or construction materials, the TYPHON STOMP 13.5 delivers practical performance and outstanding value for small-scale projects. Key Features Economical 13.5 HP Engine The STOMP 13.5 is equipped with a dependable 13.5 HP gasoline engine, providing reliable power while maintaining low operating and maintenance costs. Engine Benefits 13.5 HP gasoline engine Fuel-efficient operation Reliable starting performance Low maintenance requirements Ideal for light-duty applications Cost-effective ownership This engine provides dependable power for loading, transporting, and material-handling tasks around homes, farms, and construction sites. Compact Design for Tight Spaces The STOMP 13.5 is specifically designed for locations where larger loaders cannot easily operate. Ideal Applications Residential construction Landscaping Gardening Farms Greenhouses Property maintenance Small renovation projects Municipal maintenance Material transport General cleanup Its compact dimensions allow operators to work comfortably in narrow access areas while maintaining excellent maneuverability. Versatile Everyday Performance The STOMP 13.5 is built to handle a variety of light-duty material handling and landscaping jobs. Perfect For Moving soil Gravel transport Mulch installation Compost handling Garden preparation Site cleanup Property maintenance Material loading Light grading Landscaping projects Its versatility makes it an excellent all-around machine for homeowners and small contractors. Simple & Easy Operation Designed with user-friendly controls, the STOMP 13.5 is easy to operate for both experienced users and first-time operators. Operator Benefits Compact footprint Easy steering Responsive controls Excellent visibility Simple maintenance Comfortable operation The straightforward design helps reduce the learning curve while improving productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP 13.5GTIN5061030740392Engine Output13.5 HPEngine TypeGasolineMachine TypeMini Skid Steer LoaderPrimary UseLight-Duty Construction & Landscaping Standard Equipment Included Every TYPHON STOMP 13.5 comes equipped with the essentials needed to start working immediately. Included with Your Loader ✔ Standard digging bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Attachment Compatibility Notice ⚠️ Important: The STOMP 13.5 is equipped with a two-valve hydraulic system. Because of this configuration, some hydraulic attachments are not compatible with this model. Customers should verify attachment compatibility before purchasing additional accessories. Why Choose the TYPHON STOMP 13.5? The STOMP 13.5 offers an affordable and practical solution for users who need a compact loader for everyday jobs. Its economical engine, easy operation, and compact dimensions make it an excellent choice for landscaping, farming, property maintenance, and light construction projects. Key Benefits ✔ Reliable 13.5 HP engine ✔ Compact design for confined spaces ✔ Fuel-efficient operation ✔ Easy to operate and maintain ✔ Ideal for homeowners and contractors ✔ Excellent maneuverability ✔ Standard digging bucket included ✔ Outstanding value for light-duty applications Ideal Applications Construction Material transport Site cleanup Small excavation support Renovation projects Landscaping Soil movement Mulch spreading Garden preparation Property grading Agriculture Farm maintenance Feed and compost handling Greenhouse work General material transport Property Maintenance Debris removal Yard improvements Light earthmoving Seasonal cleanup Compact. Practical. Cost-Effective. The TYPHON STOMP 13.5 Mini Skid Steer Loader is built for users who need dependable performance in a compact, economical package. With its 13.5 HP engine, easy maneuverability, and reliable construction, it provides an efficient solution for landscaping, farming, light construction, and everyday property maintenance while delivering exceptional value and dependable performance.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685633959-poqfg-11.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685633959-poqfg-11.webp",
@@ -2210,11 +2232,11 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$5,773.95"
+        value: "$5,983.95"
       },
       {
         label: "SKU",
-        value: "TYPH-0507"
+        value: "TYPH-0505"
       },
       {
         label: "GTIN",
@@ -2226,47 +2248,43 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Engine",
-        value: "B&S Engine TYPHON 0505 -"
+        value: "B&S Engine TYPHON 0505 Release"
       }
     ],
     features: [
-      "Compact Design for Small Projects Designed especially for small building jobs, they guarantee simple mobility.",
-      "Versatile Applications Perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, minor excavations, rock-breaking, landscaping, and building needs.",
-      "Compact Yet Powerful has a",
-      "Included accessories Along with one x normal digging skid-steer bucket, one x tool box, and one x digital handbook with directions.",
       "Compact loader footprint",
-      "Attachment-ready front plate"
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
     ],
     applications: [
-      "Perfect For Drilling",
-      "Digging",
-      "Grabbing",
-      "Bull-dozing",
-      "Ditch-cleaning",
-      "Minor Excavations",
-      "Rock-breaking",
-      "Landscaping"
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
     ],
     imageMatch: "CSV image fields"
   },
   {
-    id: "typhon-0507-briggs-and-stratton-13-5hp-track",
-    name: "TYPHON 0507 - Briggs & Stratton 13.5HP (Track)",
+    id: "typhon-0507r",
+    name: "TYPHON 0507R",
     productType: "equipment",
-    rawProductType: "",
+    rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "",
-    sku: "",
+    sku: "TYPH-0507",
     gtin: "",
-    price: "",
+    price: "$5 773.95",
+    currentPrice: "$5,773.95",
     sourceUrl: "",
-    buttonUrl: "",
+    buttonUrl: "/product#!/Brand-New-TYPHON-STOMP-507-1-760lbs-Mini-Skid-Steer-13-5hp-Gas-EPA-Engine-USA/p/705420594",
     importConfidence: "",
     series: "STOMP skid steer series",
     weight: "Skid Steer Loader",
-    tagline: "TYPHON 0507 - Briggs & Stratton 13.5HP (Track) — Typhon skid steer loader for jobsite work.",
-    description: "TYPHON 0507 - Briggs & Stratton 13.5HP (Track) — Typhon skid steer loader for jobsite work.",
+    tagline: "Unleash the compact power of the TYPHON STOMP 507 Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency. From digging and drilling to bull-dozing and landscaping, the TYPHON STOMP 13.5 delivers exceptional performance in a compact economical package.",
+    description: "TYPHON STOMP 507 Mini Skid Steer Loader GTIN: 5061030741115 The TYPHON STOMP 507 Mini Skid Steer Loader is a compact, economical, and easy-to-operate machine designed for small construction, landscaping, farm, garden, and property maintenance work. Built for tight spaces and light-duty jobsite tasks, the STOMP 507 gives operators the ability to dig, move material, grade surfaces, clean up debris, and complete small projects with better speed and less manual labor. Powered by a reliable 13.5 HP gasoline engine, this mini skid steer is ideal for users who need a simple and practical compact loader without moving up to a larger, more expensive machine. Its small footprint makes it useful in backyards, orchards, parks, farms, narrow pathways, and residential work areas where larger skid steers cannot easily operate. The STOMP 507 comes with a standard skid steer bucket, toolbox, and digital manual, making it a practical choice for property owners, small contractors, landscapers, and agricultural users who need compact equipment for everyday jobs. Key Features Compact Design for Small Projects The STOMP 507 is built for smaller job sites where maneuverability matters. Its compact body allows operators to work in confined areas with better control and less ground disturbance. Ideal Work Areas Farms Gardens Orchards Public parks Residential yards Narrow pathways Small construction sites Landscaping areas Property maintenance zones Economical 13.5 HP Engine This mini skid steer is powered by a compact 13.5 HP gasoline engine, offering dependable performance for light-duty loading, digging, grading, and cleanup work. Engine Benefits 13.5 HP engine Simple operation Economical performance Easy maintenance Practical power for small projects Good choice for daily property work Versatile Everyday Performance The TYPHON STOMP 507 is designed to handle a wide range of basic compact loader tasks. Useful For Digging Loading Light grading Material moving Debris cleanup Soil handling Small excavation work Landscaping Farm maintenance Property improvement Easy to Operate The STOMP 507 is designed for straightforward use, making it suitable for operators who need a compact machine that is simple to learn and practical for everyday work. Operator Benefits Compact and easy to maneuver Good visibility Simple working layout Practical bucket control Easy transport and storage Suitable for first-time compact loader users Attachment Compatibility Note The STOMP 507 / STOMP 13.5 comes with a two-valve hydraulic system, which means it cannot operate many hydraulic attachments that require additional hydraulic functions or higher hydraulic capability. Important Buyer Note This machine is best suited for basic bucket work and compatible light-duty accessories. Before purchasing extra attachments, always confirm compatibility with the STOMP 507 hydraulic system and mounting setup. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP 507GTIN5061030741115Machine TypeMini Skid Steer LoaderEngine Power13.5 HPEngine TypeGasoline EngineHydraulic Valve SetupTwo-Valve SystemIncluded BucketStandard Skid Steer BucketBest UseLight-duty digging, loading, grading, and cleanup Standard Equipment Included The TYPHON STOMP 507 comes ready for basic compact loader work. Included Equipment ✔ Standard Skid Steer Bucket ✔ Tool Box ✔ Digital Operator Manual Ideal Applications Landscaping Moving soil Cleaning debris Light grading Yard preparation Garden work Farm and Orchard Work Moving loose material Maintaining paths Cleaning small work areas Light property maintenance Small agricultural tasks Residential Projects Backyard work Small digging jobs Driveway cleanup Soil and mulch moving Property improvement tasks Small Construction Site cleanup Light material handling Compact-area digging Small-scale grading General jobsite support Why Choose the TYPHON STOMP 507? The TYPHON STOMP 507 Mini Skid Steer Loader is a practical choice for users who need compact, economical equipment for smaller jobs. It provides the maneuverability needed for tight spaces, the power needed for basic loader work, and the simplicity needed for everyday operation. Key Benefits ✔ Compact mini skid steer design ✔ Economical 13.5 HP engine ✔ Easy to maneuver in tight spaces ✔ Ideal for farms, gardens, parks, orchards, and residential projects ✔ Standard bucket included ✔ Simple operation for small job sites ✔ Practical for digging, loading, grading, and cleanup ✔ Good entry-level compact loader option Compact Loader Power for Small Jobs The TYPHON STOMP 507 Mini Skid Steer Loader gives operators a simple, compact, and economical solution for small construction, landscaping, farm, and property maintenance tasks. With its 13.5 HP engine, standard bucket, and tight-space design, it is built to help complete everyday work faster and with less manual effort.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356317405-egj10-chatgpt_image_jun_25_2026_09_58_25_am.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356317405-egj10-chatgpt_image_jun_25_2026_09_58_25_am.webp",
@@ -2285,12 +2303,88 @@ export const typhonProducts: TyphonProduct[] = [
         value: "Skid Steer Loader"
       },
       {
-        label: "Engine Power",
-        value: "13.5 HP"
+        label: "Current Price",
+        value: "$5,773.95"
       },
       {
-        label: "Engine",
-        value: "Briggs & Stratton 13.5HP"
+        label: "SKU",
+        value: "TYPH-0507"
+      },
+      {
+        label: "Engine Power",
+        value: "13.5 HP"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-0508",
+    name: "TYPHON 0508",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-0508",
+    gtin: "",
+    price: "$11 549.79",
+    currentPrice: "$11,549.79",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Brand-New-TYPHON-STOMP-Mini-Skid-Steer-Gas-EPA-Engine-USA/p/734863512",
+    importConfidence: "",
+    series: "STOMP skid steer series",
+    weight: "2,976 lb",
+    tagline: "The TYPHON STOMP 508 is small in stature, but a giant in performance. This skid-steer loader is small enough to get in tight spots, yet strong enough to get any job done.",
+    description: "TYPHON STOMP 508 Mini Skid Steer Loader GTIN: 5061030741207 The TYPHON STOMP 508 Mini Skid Steer Loader is a compact yet powerful machine engineered to tackle demanding jobs in areas where larger equipment simply cannot operate. Combining impressive lifting performance with outstanding maneuverability, the STOMP 508 is the ideal solution for contractors, landscapers, farmers, property managers, and construction professionals working in confined spaces. Powered by a reliable EPA-approved RATO R999 OHV gasoline engine, producing 35 horsepower, the STOMP 508 delivers exceptional hydraulic performance and lifting capability while maintaining a compact footprint. Its narrow design allows it to easily pass through gates, narrow pathways, doorways, barns, warehouses, and indoor construction sites, making it one of the most versatile compact loaders in its class. Whether you're moving soil, gravel, mulch, pallets, construction materials, or using hydraulic attachments, the TYPHON STOMP 508 is built to maximize productivity while reducing manual labor. Key Features High-Performance 35 HP RATO Engine The STOMP 508 is powered by the dependable EPA-approved RATO R999 OHV gasoline engine, providing smooth, reliable performance for demanding daily workloads. Engine Highlights RATO R999 OHV Gasoline Engine EPA Approved 35 HP Output Smooth power delivery Reliable cold starting Fuel-efficient performance Easy maintenance The powerful engine provides the torque and hydraulic performance required to operate a wide range of heavy-duty attachments. Compact Size, Maximum Productivity Designed specifically for restricted work areas, the STOMP 508 offers exceptional maneuverability without sacrificing lifting performance. Ideal Applications Residential construction Landscaping Property maintenance Farms and ranches Warehouses Interior demolition Municipal maintenance Material handling Snow removal Agriculture Its compact design allows operators to work efficiently in areas inaccessible to conventional skid steer loaders. Excellent Attachment Compatibility The STOMP 508 is designed to work with a wide variety of hydraulic attachments, transforming one machine into a versatile job-site solution. Compatible Attachments General-purpose buckets Pallet forks Augers Grapple buckets Trenchers Sweepers Snow blades Brush cutters Soil cultivators Hydraulic breakers Attachment versatility allows operators to complete multiple tasks using a single compact machine. Outstanding Lifting Performance Despite its compact dimensions, the STOMP 508 delivers impressive lifting capability for demanding material-handling applications. Performance Benefits High radial lift design Excellent unloading height Stable lifting platform Smooth hydraulic operation Fast cycle times Increased productivity Its balanced chassis provides excellent stability when lifting and transporting heavy materials. Built for Tight Spaces The narrow body design makes the STOMP 508 one of the most maneuverable compact loaders available. Perfect For Working In Narrow gates Garden paths Residential backyards Warehouses Barns Greenhouses Indoor construction Hallways Commercial buildings Low-clearance work areas When larger machines cannot fit, the STOMP 508 continues working efficiently. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP 508GTIN5061030741207EngineRATO R999 OHV GasolineEngine Output35 HPEngine CertificationEPA ApprovedOperating Weight2,976 lb (1,772 lb)Rated Operating Capacity838 lb (838 lb)Bucket Width39.8 inMaximum Lift Height120.1 inHeight to Bucket Pin101.6 inMaximum Dump Height84.6 inDump Reach22 inGround Dump Angle33°Maximum Dump Angle45°Travel Speed6.2 mph (10 km/h)Machine Width41.9 inMachine Height76.4 in Standard Equipment Included Every TYPHON STOMP 508 is ready to work immediately with essential equipment included. Included with Your Loader ✔ Standard heavy-duty bucket ✔ Operator platform ✔ Heavy-duty hydraulic system ✔ Digital operator's manual Why Choose the TYPHON STOMP 508? The STOMP 508 combines the power of a 35 HP EPA-approved engine with the agility of a compact loader, making it an outstanding solution for contractors who need professional performance in confined spaces. Its strong lifting capacity, attachment versatility, and compact footprint allow operators to complete more work with greater efficiency. Key Benefits ✔ Powerful 35 HP EPA-approved RATO engine ✔ Compact design for restricted work areas ✔ 838 lb rated operating capacity ✔ Excellent attachment compatibility ✔ High radial lift performance ✔ 10 km/h travel speed ✔ Smooth hydraulic operation ✔ Professional-grade construction ✔ Easy transportation between job sites Ideal Applications The TYPHON STOMP 508 performs exceptionally well across a wide range of industries. Construction Material transport Site cleanup Interior demolition Concrete preparation Landscaping Soil movement Mulch installation Tree planting Property grading Agriculture Feed handling Barn cleaning Farm maintenance Material transport Property Maintenance Snow removal Brush clearing Debris cleanup General maintenance Compact Size. Serious Performance. The TYPHON STOMP 508 Mini Skid Steer Loader delivers the perfect combination of compact maneuverability, powerful lifting capability, and professional-grade reliability. Equipped with a 35 HP EPA-approved RATO engine, impressive lifting performance, and compatibility with a wide range of hydraulic attachments, it is built to help contractors, landscapers, farmers, and property owners complete demanding jobs faster, safer, and more efficiently.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685960993-gcj8s-4824099676.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685960993-gcj8s-4824099676.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685965902-j0xga-4824141302.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685964425-omm9t-4824141267.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685962952-r674i-4824141252.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685959236-xc61x-4824099636.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685957724-3cu98-4824098987.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685948310-bwoqp-4824098967.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685968801-5ef5g-4845595686.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685967271-776l3-4827530528.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$11,549.79"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0508"
+      },
+      {
+        label: "Weight Class",
+        value: "2,976 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "35 HP"
+      },
+      {
+        label: "Capacity",
+        value: "838 lb (838 lb)Bucket Width39"
       }
     ],
     features: [
@@ -2310,24 +2404,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa",
-    name: "TYPHON 0509 - Kubota D1105",
+    name: "TYPHON 0509",
     productType: "equipment",
     rawProductType: "equipment",
-    category: "wheel-loaders",
-    categoryLabel: "Wheel Loader",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
     rawCategory: "Skid Steer Loader",
-    sku: "",
+    sku: "TYPH-0509",
     gtin: "5061030741580",
-    price: "$ 16,798.95 Original price was: $16,798.95. $ 13,648.74 Current price is: $13,648.74.",
-    originalPrice: "$16,798.95",
-    currentPrice: "$13,648.74",
+    price: "$14 999.00",
+    currentPrice: "$14,999.00",
     sourceUrl: "https://typhonmachinery.com/product/brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa/",
-    buttonUrl: "/product/brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa/",
+    buttonUrl: "/product#!/TYPHON-STOMP-509-25HP-Kubota-D1105-1-4-Ton-EPA-Skid-Steer-Loader-Brand-New-USA/p/793571505",
     importConfidence: "100",
     series: "STOMP skid steer series",
     weight: "1.4 ton",
     tagline: "The TYPHON STOMP 509 is small in stature but a giant in performance. This 3100 lb skid-steer loader is small enough to get in tight spots, yet strong enough to get any job done.",
-    description: "The TYPHON STOMP 509 is small in stature, but a giant in performance. This 3100 lb skid-steer loader is small enough to get in tight spots, yet strong enough to get any job done. This agile little workhorse is the ideal size for scooting through narrow doorways, corridors, small paths and gates, and for working under low ceilings. It's the perfect loader whenever the job is too big for a shovel or the space is too small for a larger machine. Behind the controls, you'll effectively complete demanding work where other machines struggle or can't go. Sporting an EPA approved Kubota D1105 3-cylinder, indirect injection diesel engine packed with 25 HP of power, the TYPHON STOMP 509 is your ideal workhorse to get small projects done. The Kubota D1105 is vertical, water cooled 4-cycle diesel engine; it packs a power of 25 HP at 3000 RPM and 19 HP at 2200 RPM. The TYPHON STOMP 509 has an operational weight of 1.4 ton and a transport length of 101.2 in (8.4 ft) with bucket. The bucket width is 39.8 in, and the maximum unloading height is 84.6 in (7.1 ft). With a dump reach of 22 in and dump angle of 33 degrees on the ground and a dump angle of 45 degrees at the highest point, the skid steer sports a radial lift height of 120.1 in (10 ft) and a height to bucket pin of 101.6 in (8.5 ft). It has a travel speed of 9 km/h, with a transport width and height of 41.9 in and 76.4 in (6.4 ft) , respectively. The rated operating capacity of this construction machine is 840lbs at the highest point. STOMP 509 features Zero-turn capability. It pivots 360° within its own body length without any extra forward/reverse movement. This allows the STOMP to turn sharply around obstacles in confined spaces. With a bucket width of 40 inches (39.8 in), the STOMP 509 scoops, lifts, and transports materials on a job site using its large front-mounted bucket. This makes the STOMP essential for tasks like loading dump trucks, moving large quantities of sand, gravel, or debris, and performing site preparation and cleanup. With specialized attachments, the STOMP can perform tasks like digging, loading, grading, demolition, snow-blowing and landscaping. With a widened interior cabin width of 27.6 in, the STOMP 509 is able to accommodate a large operator comfortably. An improved pilot control system allows for sensitive control and quick responses when operating the STOMP. With wear-resistant and anti-slip tires , your STOMP 509 will be your reliable workhorse for the tasks on hand. Great for ： Construction engineering: waste cleaning, building materials handling, and adapting to narrow space operations. Road maintenance: road maintenance, line marking operations, and improving maintenance efficiency. Airport management: runway maintenance, equipment assistance, to ensure smooth airport operation. Landscaping: tree pruning, lawn maintenance, and creating beautiful landscapes. Key functions Maneuverability: Driven on wheels, making it different from tracked vehicles like bulldozers. Lifting arm and bucket: Uses a hydraulic arm to lift and lower a large bucket at the front to scoop up and carry materials. Material handling: Can load, carry, and dump a wide range of materials, such as soil, rock, sand, and demolition debris. Versatility: Different attachments can be hitched to a wheel loader, making it suitable for a variety of jobs.",
+    description: "TYPHON STOMP 509 Mini Skid Steer Loader GTIN: 5061030741580 The TYPHON STOMP 509 Mini Skid Steer Loader is a professional-grade 3,100 lb compact loader built to deliver exceptional power, maneuverability, and versatility in demanding work environments. Designed for contractors, landscapers, farmers, municipalities, and property owners, the STOMP 509 combines the legendary reliability of the Kubota D1105 diesel engine with a compact frame that easily navigates narrow access points and confined job sites. Despite its compact size, the STOMP 509 offers impressive lifting capability, responsive hydraulic controls, and true zero-turn steering, allowing operators to work efficiently where larger equipment simply cannot fit. From construction sites and agricultural operations to landscaping and snow removal, the STOMP 509 is built to handle demanding tasks with confidence. Compatible with a wide variety of hydraulic attachments, this machine quickly transforms from a loader into a multi-purpose tool carrier capable of digging, grading, trenching, sweeping, demolition, and material handling. Key Features Reliable Kubota D1105 Diesel Engine At the heart of the STOMP 509 is the dependable Kubota D1105, one of the industry's most trusted compact diesel engines. Engine Highlights Kubota D1105 Diesel Engine EPA Approved Water-cooled 3-cylinder, 4-cycle diesel 25 HP @ 3,000 RPM 19 HP @ 2,200 RPM Fuel-efficient operation Easy maintenance Proven long-term durability The Kubota engine delivers smooth power and dependable performance for demanding commercial applications. Compact Size with Big Capability The STOMP 509 is engineered to provide the power of a larger skid steer while maintaining exceptional maneuverability. Ideal Applications Construction Landscaping Agriculture Property maintenance Warehouses Barns Municipal maintenance Demolition Snow removal Material handling Its compact footprint allows operators to easily navigate gates, sidewalks, narrow pathways, and indoor work areas. Zero-Turn Steering The STOMP 509 features true 360° zero-turn capability, allowing the loader to pivot within its own footprint without additional forward or reverse movement. Zero-Turn Benefits Excellent maneuverability Faster operation in tight spaces Easier obstacle avoidance Reduced operator effort Increased productivity This makes the STOMP 509 ideal for confined construction sites and residential projects. Professional Hydraulic Performance The advanced hydraulic system delivers fast response times and smooth operation for loading materials and operating hydraulic attachments. Hydraulic Advantages Responsive pilot controls Smooth lifting and lowering Precise attachment operation Fast hydraulic response Reliable performance under load The upgraded pilot control system gives operators greater precision and confidence during demanding jobs. Comfortable Operator Station Designed for extended workdays, the STOMP 509 provides a spacious operator area with improved ergonomics. Operator Features 27.6 in widened operator area Improved pilot control system Comfortable operating position Excellent visibility Smooth steering response The wider platform allows operators of different sizes to work comfortably throughout the day. Heavy-Duty Bucket Performance The standard 40-inch (39.8 in) bucket is designed to efficiently move a wide range of materials. Ideal Materials Soil Gravel Sand Dirt Mulch Demolition debris Stone Compost Snow Construction materials The large-capacity bucket improves productivity while reducing loading time. Attachment Versatility The STOMP 509 is compatible with numerous hydraulic attachments, allowing one machine to perform multiple jobs. Compatible Attachments General-purpose bucket Pallet forks Augers Grapples Sweepers Trenchers Brush cutters Snow blowers Grading blades Hydraulic breakers This versatility reduces equipment costs while maximizing job-site efficiency. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP 509GTIN5061030741580EngineKubota D1105 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselEngine Output25 HP @ 3,000 RPMRated Output19 HP @ 2,200 RPMOperating Weight3,100 lb (1.4 tons)Bucket Width40 inMaximum Lift Height120.1 inHeight to Bucket Pin101.6 inMaximum Dump Height84.6 inDump Reach22 inGround Dump Angle33°Maximum Dump Angle45°Travel Speed5.6 mph (9 km/h)Machine Width41.9 inMachine Height76.4 inRated Operating Capacity840 lbsSteeringZero-Turn 360°Operator Area Width27.6 in Standard Equipment Included Every TYPHON STOMP 509 comes equipped with the essentials needed to get to work. Included with Your Loader ✔ Heavy-duty 40-inch bucket ✔ Zero-turn steering system ✔ Pilot control system ✔ Wear-resistant anti-slip tires ✔ Digital operator's manual Why Choose the TYPHON STOMP 509? The TYPHON STOMP 509 combines the trusted reliability of the Kubota D1105 diesel engine, professional hydraulic performance, zero-turn maneuverability, and exceptional attachment versatility into one compact machine. Built for demanding commercial applications, it delivers outstanding productivity in construction, landscaping, agriculture, municipal maintenance, and property management. Key Benefits ✔ Kubota D1105 EPA-certified diesel engine ✔ Compact 3,100 lb operating weight ✔ True 360° zero-turn steering ✔ Spacious 27.6 in operator area ✔ Responsive pilot control system ✔ 40-inch heavy-duty bucket ✔ 840 lb rated operating capacity ✔ Compatible with numerous hydraulic attachments ✔ Durable wear-resistant anti-slip tires Ideal Applications The STOMP 509 is designed to excel across a wide variety of industries. Construction Material handling Site cleanup Foundation preparation Demolition support Landscaping Soil movement Tree installation Grading Property maintenance Agriculture Feed handling Barn cleaning Farm maintenance Material transport Municipal & Commercial Road maintenance Airport maintenance Snow removal Facility maintenance Compact Machine. Professional Results. The TYPHON STOMP 509 Mini Skid Steer Loader delivers the perfect combination of compact dimensions, diesel-powered performance, zero-turn maneuverability, and attachment versatility. Powered by the dependable Kubota D1105 engine, it is built to help contractors, landscapers, farmers, and property managers complete demanding jobs faster, safer, and more efficiently while maintaining the durability and reliability expected from professional equipment.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356484167-h0e3y-chatgpt_image_jun_25_2026_10_01_17_am.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356484167-h0e3y-chatgpt_image_jun_25_2026_10_01_17_am.webp",
@@ -2348,11 +2441,15 @@ export const typhonProducts: TyphonProduct[] = [
     specs: [
       {
         label: "Category",
-        value: "Wheel Loader"
+        value: "Skid Steer Loader"
       },
       {
         label: "Current Price",
-        value: "$13,648.74"
+        value: "$14,999.00"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0509"
       },
       {
         label: "GTIN",
@@ -2367,31 +2464,28 @@ export const typhonProducts: TyphonProduct[] = [
         value: "25 HP"
       },
       {
-        label: "Engine",
-        value: "Kubota D1105 The TYPHON STOMP"
-      },
-      {
         label: "Capacity",
-        value: "of this construction machine is 840lbs at the highest point"
+        value: "bucket improves productivity while reducing loading time"
       }
     ],
     features: [
-      "Articulated loader format",
-      "Material bucket setup",
-      "Stable wheel base",
-      "Serviceable compact loader frame"
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
     ],
     applications: [
-      "Yard loading",
-      "Aggregate handling",
-      "Farm material movement",
-      "Snow and debris clearing"
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "typhon-stomp-v1000-24hp-kubota-d1105-water-cooled-diesel-skid-steer-pilot-control",
-    name: "TYPHON V1000 - Kubota D1105",
+    name: "TYPHON Stomp V1000",
     productType: "equipment",
     rawProductType: "equipment",
     category: "skid-steer-loaders",
@@ -2399,15 +2493,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "25 HP Kubota D1105 Engine",
     sku: "TYPH-V1000",
     gtin: "5061030741764",
-    price: "$ 14,173.95",
+    price: "$14 173.95",
     currentPrice: "$14,173.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-stomp-v1000-24hp-kubota-d1105-water-cooled-diesel-skid-steer-pilot-control/",
-    buttonUrl: "/product/typhon-stomp-v1000-24hp-kubota-d1105-water-cooled-diesel-skid-steer-pilot-control/",
+    buttonUrl: "/product#!/TYPHON-Stomp-V1000-24HP-Kubota-D1105-Water-Cooled-Diesel-Skid-Steer-Pilot-Control/p/804018191",
     importConfidence: "100",
     series: "STOMP skid steer series",
     weight: "1.5 ton",
     tagline: "The TYPHON STOMP V1000 is a compact yet powerful 1.5-ton skid steer loader designed for confined locations such as gardens, small building sites, farms, and urban projects. Its compact footprint allows it to operate effortlessly in areas where larger machines cannot, while its versatile attachment capability enables digging, lifting, drilling, leveling, breaking, and site cleanup with ease.",
-    description: "The TYPHON STOMP V1000 is a compact yet powerful 1.5-Ton skid steer loader designed for confined locations such as gardens, small building sites, farms, and urban projects. Its compact footprint allows it to operate effortlessly in areas where larger machines cannot, while its versatile attachment capability enables digging, lifting, drilling, leveling, breaking, and site cleanup with ease. Intuitive controls and a comfortable operator area make operation simple and efficient. Bright LED work lights ensure excellent visibility in all weather and lighting conditions, while quick attachment changes keep productivity high. The STOMP V1000 is well suited for landscaping, residential construction, agricultural work, material handling, and warehouse applications. TYPHON STOMP V1000 Skid Steer Key Features: 1. Built for Narrow Spaces The TYPHON Stomp V1000 is compact yet powerful, making it ideal for tight access areas such as gardens, orchards, greenhouses, tunnels, and small construction sites. With a 38.6 in chassis width, 39.4 in bucket width, 118.1 in (9.8 ft) overall length, and 60.2 in (5 ft) height, it can easily access locations where larger machines are restricted. A 0-69.3 in (5.8 ft) turning radius combined with 360° mobility allows smooth maneuvering in confined spaces. The low 24 kPa ground pressure, 3.1 in ground clearance, and 30° climbing ability provide stable operation on soft soil, farmland, muddy construction sites, slopes, and uneven terrain, helping prevent sinking or surface damage. The maximum lifting height of 112.3 in (9.4 ft) supports efficient material handling and loading tasks. 2. Get Jobs Done STOMP V1000 is engineered to handle real-world workloads with ease. It digs dirt, sand, and gravel, lifts and transports loads up to 1,720 lb (1,720 lb rated operating capacity), levels and clears ground; drills holes, breaks through hard surfaces, and efficiently loads or unloads trucks and containers. With quick-swap attachments and an auxiliary hydraulic flow of 33-48 L/min, the machine supports a wide range of hydraulic tools including augers, breakers, grapples, trenchers, and sweepers. Its load-sensing hydraulic system allows simultaneous operation of the boom and attachments, reducing cycle time and increasing job productivity by eliminating unnecessary interruptions. 3. Compact and Powerful Designed to deliver strong performance in a compact package, the STOMP V1000 is powered by a Kubota D1105-E4 diesel engine producing 24.4 HP (24.4 HP) at 3,000 rpm; this 3-cylinder, water-cooled, 4-cycle engine meets EU Stage V / EPA Tier 4 Final emissions standards, combining power, fuel efficiency, and proven long-term reliability, while its 4.5 km/h travel speed ensures smooth, efficient movement across job sites with excellent control and stability, making it ideal for both tight spaces and demanding work environments. With 18 MPa working pressure, and a load-sensing hydraulic system, the machine delivers stable, continuous power with minimal energy loss, even during heavy-load or long-duration operations. Its 1,1,102 lb operating weight and reinforced structure provide excellent stability and resistance to deformation during lifting, excavation, and loading tasks. A 20 L diesel fuel tank and 22 L hydraulic oil tank support extended workdays with reduced refueling downtime. 4. Comfortable Controls The TYPHON Stomp V1000 features full hydraulic pilot controls for precise digging, lifting, and maneuvering. Light control force improves accuracy while significantly reducing operator fatigue, allowing both experienced and new operators to work confidently and efficiently. The operator's standing platform is equipped with foam padding to reduce vibration and fatigue during extended working hours, improving overall comfort and control. A clear operator panel displays fuel level, oil temperature, voltage, and hour meter for easy monitoring of machine status. Bright LED work lights provide excellent visibility for safe operation in low-light or night conditions. 5. Superior Materials & High-Quality Components Kubota Diesel Engine - Proven reliability, strong torque, fuel efficiency, and low-emission compliance Full Hydraulic Pilot Control System - Smooth, precise operation with reduced operator fatigue TIMING load-sensing piston pump and Load-sensing control valve group - Efficient power delivery with fast response and minimal energy loss Simultaneous Boom & Attachment Operation - Enables uninterrupted lifting, digging, and loading for higher productivity Auxiliary Hydraulic Flow (33-48 L/min) - Compatible with augers, breakers, grapples, trenchers, sweepers, and more High-Strength Structural Frame - Reinforced construction for excellent load stability and long service life Quick-Swap Attachment Interface - Fast tool changes to minimize downtime and improve job efficiency Clear Instrument Panel - Displays fuel level, oil temperature, voltage, and hour meter for easy monitoring Heavy-Duty Electrical & Battery System - Reliable starting and stable performance in all working conditions Bright LED Work Lights - Ensures safe operation in low-light, night, or poor weather environmentsEasy Maintenance Design - Well-arranged service points reduce downtime and long-term operating costs Your construction projects will reach new heights with the TYPHON STOMP V1000 Mini Excavator. Compact, tough, and efficient, this trench digger machine is your ideal companion for successful projects at a mini scale. Trust TYPHON Machinery for reliability, toughness, and performance that surpass expectations. Elevate your construction game with the TYPHON STOMP V1000-the ultimate solution for all your excavation needs!",
+    description: "TYPHON STOMP V1000 Mini Skid Steer Loader GTIN: 5061030741764 The TYPHON STOMP V1000 is a high-performance 1.5-ton compact skid steer loader engineered for contractors, landscapers, farmers, property owners, and construction professionals who need exceptional power in confined working environments. Featuring a dependable Kubota D1105-E4 diesel engine, advanced load-sensing hydraulics, full pilot controls, and outstanding attachment versatility, the STOMP V1000 delivers professional-grade performance while maintaining a compact footprint that easily accesses areas larger machines cannot. Whether you're digging foundations, loading materials, drilling holes, grading land, clearing debris, or handling agricultural work, the STOMP V1000 is built to maximize productivity with precision, reliability, and operator comfort. Key Features Powerful Kubota Diesel Performance At the heart of the STOMP V1000 is the renowned Kubota D1105-E4 diesel engine, providing dependable power, excellent fuel efficiency, and long-term reliability. Engine Specifications Kubota D1105-E4 Diesel Engine 3-Cylinder Water-Cooled Diesel 24.4 HP (24.4 HP) @ 3,000 RPM EPA Tier 4 Final & EU Stage V Compliant Excellent fuel economy High torque output Designed for continuous heavy-duty operation Built for Tight Working Spaces The STOMP V1000 combines compact dimensions with impressive lifting performance, making it ideal for jobs where larger skid steers cannot operate. Perfect for: Residential construction Landscaping Farms Orchards Greenhouses Urban construction Warehouses Property maintenance Material handling Utility projects Machine Dimensions SpecificationValueOverall Length3,000 mmOverall Width980 mmOverall Height1,530 mmBucket Width1,000 mmMaximum Lift Height2,852 mmOperating Weight1,1,102 lb (1.5 Ton) Heavy-Duty Performance Despite its compact size, the STOMP V1000 delivers the lifting capacity and hydraulic performance required for demanding commercial applications. Performance Highlights Rated Operating Capacity: 1,720 lb (1,720 lb) Travel Speed: 4.5 km/h Working Pressure: 18 MPa Turning Radius: 0-69.3 in (5.8 ft) Gradeability: 30° Ground Pressure: 24 kPa Ground Clearance: 3.1 in Ideal for: Loading trucks Material transport Site cleanup Grading Excavation Backfilling Landscaping Agricultural work Advanced Load-Sensing Hydraulic System The STOMP V1000 features a premium hydraulic system designed for smooth, responsive operation and maximum efficiency. Hydraulic Features Load-Sensing Hydraulic System TIMING Piston Pump Load-Sensing Control Valve Group Full Hydraulic Pilot Controls Auxiliary Hydraulic Flow: 33-48 L/min Simultaneous Boom & Attachment Operation This advanced system automatically adjusts hydraulic flow based on demand, providing faster cycle times, smoother operation, and improved fuel efficiency. Wide Attachment Compatibility The quick-attach system allows operators to swap attachments in minutes, transforming one machine into a complete jobsite solution. Compatible attachments include: Standard Bucket Grapple Auger Hydraulic Breaker Trencher Sweeper Pallet Forks Snow Blade Soil Cultivator Landscape Rake Operator Comfort The STOMP V1000 is designed to keep operators productive throughout long working days. Comfort Features Full Hydraulic Pilot Controls Foam-Padded Operator Platform Reduced Vibration Ergonomic Standing Position Bright LED Work Lights Easy-to-Read Instrument Panel The display provides: Fuel Level Hydraulic Oil Temperature Battery Voltage Hour Meter Premium Components The STOMP V1000 is built using commercial-grade components for durability and long service life. Premium Equipment Kubota D1105-E4 Diesel Engine TIMING Load-Sensing Piston Pump Load-Sensing Hydraulic Valve Group Full Hydraulic Pilot Control System Heavy-Duty Structural Frame Quick Attachment Interface Heavy-Duty Electrical System LED Work Lights Industrial Hydraulic Components Specifications SpecificationValueGTIN5061030741764Machine TypeMini Skid Steer LoaderOperating Weight1,500 kgRated Operating Capacity1,720 lb (1,720 lb)EngineKubota D1105-E4 DieselEngine Power24.4 HPTravel Speed4.5 km/hHydraulic Pressure18 MPaAuxiliary Hydraulic Flow33-48 L/minFuel Tank Capacity20 LHydraulic Oil Capacity22 LBucket Width1,000 mmMaximum Lift Height2,852 mmChassis Width38.6 in Standard Equipment The TYPHON STOMP V1000 includes: ✅ Standard Bucket ✅ Full Hydraulic Pilot Controls ✅ Load-Sensing Hydraulic System ✅ Quick-Attach Coupler ✅ LED Work Lights ✅ Foam-Padded Operator Platform ✅ Digital Instrument Display ✅ Tool Kit ✅ Digital Operator Manual Ideal Applications The STOMP V1000 is built for: Residential construction Commercial construction Landscaping Agriculture Property maintenance Material handling Warehouse work Utility installation Demolition cleanup Snow removal Site preparation Ground leveling Why Choose the TYPHON STOMP V1000? The TYPHON STOMP V1000 combines commercial-grade lifting power, advanced load-sensing hydraulics, and premium Kubota diesel performance into one compact machine. With its narrow chassis, powerful auxiliary hydraulics, quick-attach compatibility, and intuitive pilot controls, it excels in jobs where productivity, maneuverability, and versatility matter most. Whether you're working on construction sites, farms, landscaping projects, or industrial facilities, the STOMP V1000 delivers reliable performance and professional results every day.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356638062-l3r4v-chatgpt_image_jun_25_2026_10_03_49_am.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356638062-l3r4v-chatgpt_image_jun_25_2026_10_03_49_am.webp",
@@ -2449,20 +2543,18 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Engine",
-        value: "Kubota D1105 Engine TYPHON V1000"
+        value: "Kubota D1105 Engine TYPHON Stomp"
       },
       {
-        label: "Lift Height",
-        value: "of 112"
+        label: "Capacity",
+        value: "and hydraulic performance required for demanding commercial applications"
       }
     ],
     features: [
-      "Built for Narrow Spaces The TYPHON Stomp V1000 is compact yet powerful, making it ideal for tight access areas such as gardens, orchards, greenhouses, tunnels, and small construction sites.",
-      "Get Jobs Done STOMP V1000 is engineered to handle real-world workloads with ease.",
-      "Compact and Powerful Designed to deliver strong performance in a compact package, the STOMP V1000 is powered by a Kubota D1105-E4 diesel engine producing",
-      "Comfortable Controls The TYPHON Stomp V1000 features full hydraulic pilot controls for precise digging, lifting, and maneuvering.",
-      "Superior Materials & High-Quality Components Kubota Diesel Engine - Proven reliability, strong torque, fuel efficiency, and low-emission compliance Full Hydraulic Pilot Control System - Smooth, precise operation with reduced operator fatigue TIMING load-sensing piston pump and Load-sensing control valve group - Efficient power delivery with fast response and minimal energy loss Simultaneous Boom & Attachment Operation - Enables uninterrupted lifting, digging, and loading for higher productivity Auxiliary Hydraulic Flow (33-48 L/min) - Compatible with augers, breakers, grapples, trenchers, sweepers, and more High-Strength Structural Frame - Reinforced construction for excellent load stability and long service life Quick-Swap Attachment Interface - Fast tool changes to minimize downtime and improve job efficiency Clear Instrument Panel - Displays fuel level, oil temperature, voltage, and hour meter for easy monitoring Heavy-Duty Electrical & Battery System - Reliable starting and stable performance in all working conditions Bright LED Work Lights - Ensures safe operation in low-light, night, or poor weather environmentsEasy Maintenance Design - Well-arranged service points reduce downtime and long-term operating costs Your construction projects will reach new heights with the TYPHON STOMP V1000 Mini Excavator.",
-      "Compact loader footprint"
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
     ],
     applications: [
       "Loading",
@@ -2475,24 +2567,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader",
-    name: "TYPHON X1300 - Kubota D1105",
+    name: "TYPHON Stomp X1300",
     productType: "equipment",
     rawProductType: "equipment",
     category: "skid-steer-loaders",
     categoryLabel: "Skid Steer Loader",
     rawCategory: "Skid Steer Loader",
-    sku: "",
+    sku: "TYPH-X1300",
     gtin: "5061030741115",
-    price: "$ 20,998.95 Original price was: $20,998.95. $ 16,499.00 Current price is: $16,499.00.",
-    originalPrice: "$20,998.95",
+    price: "$16 499.00",
     currentPrice: "$16,499.00",
     sourceUrl: "https://typhonmachinery.com/product/brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader/",
-    buttonUrl: "/product/brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader/",
+    buttonUrl: "/product#!/3040lbs-TYPHON-STOMP-X1300-25HP-Kubota-D1105-EPA-Diesel-Mini-Skid-Steer-Loader/p/793634801",
     importConfidence: "100",
     series: "STOMP skid steer series",
-    weight: "Skid Steer Loader",
+    weight: "3,040 lb",
     tagline: "The TYPHON STOMP X1300 Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency.",
-    description: "Unleash the compact power of the TYPHON STOMP X1300 Mini Skid Steer Loader, a versatile and reliable solution for small construction projects. Engineered for easy maneuverability in confined spaces, this skid steer loader is designed to handle various tasks with efficiency. From digging and drilling to bull-dozing and landscaping, the TYPHON STOMP X1300 delivers exceptional performance in a compact economical package. Explore the powerful and efficient TYPHON STOMP X1300 compact skid steer loader with advanced hydraulic systems and high-end Kubota D1105 engine for optimized performance. The TYPHON STOMP X1300 is a compact mini loader designed with ingenuity and powerful functionality, featuring a body width of only 35.4 in for agility in narrow spaces. Its boom features a Vertical Lift design, with high pin height 92.6 in (7.7 ft), enabling loading onto high-sided trucks. TYPHON STOMP Mini Skid Steer Loader Key Features 1. Compact Design for Small Projects Specially engineered for small construction projects, ensuring easy manoeuvrability. Ideal for farms, gardens, public spaces, parks, orchards, and more. 2. Versatile Applications Perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes. 3. Compact Yet Powerful Features an EPA certified Japanese Kubota D1105 (25HP). for smooth functionality.A vertical, water cooled 4-cycle diesel engine, Kubota D1105 packs a power of 25 HP at 3000 RPM and 19 HP at 2200 RPM. It is a 3-cylinder, indirect injection diesel engine with The hydraulic system adopts an Italian HANSA closed-loop system. Withstands intensive construction projects without sacrificing performance. 4. Premium Components Features premium components such as IMPRO motor, Taifeng plunger pump, and Lufthansa handle joystick system. Operation is carried out via a mixture of pilot control and mechanical control. Pilot Control on the left control handle is used for the overall movement of the machine while the mechanical control handle on the right is for operating the arm. 5. Operator Comfort The operator's position is equipped with Foam Padding for added comfort. The hood is fitted with Gas Spring Struts so that the machine is better suited to brace for impacts. The operator's position is equipped with Foam Padding for added comfort. The hood is fitted with Gas Spring Struts so that the machine is better suited to brace for impacts . 6. Ingenious Design The STOMP X1300 is is equipped with piston pump, which ensures an efficient hydraulic flow rate throughout the machine. Out of the three pumps, the two in front are used for controlling overall machine movement, while the one at the back is used for controlling actions (such as the arm and auxiliary equipment). Meanwhile, two of the three valves are for controlling the left and right side drive motors. The third valve is under the mechanical control lever, which controls the actions (of the arm, hydraulic cylinders, and auxiliary equipment). The hydraulic oil radiator is placed separate from the engine compartment, so the hydraulic oil temperature is not affected by the heat generated by the engine.",
+    description: "TYPHON STOMP X1300 Mini Skid Steer Loader GTIN: 5061030741733 The TYPHON STOMP X1300 is a premium 3,040 lb compact mini skid steer loader engineered for professionals who need maximum hydraulic performance, exceptional lifting capability, and superior maneuverability in confined work environments. Powered by the renowned EPA-certified Kubota D1105 diesel engine, the STOMP X1300 combines industry-leading hydraulic technology, premium international components, and a vertical lift boom design to deliver outstanding productivity across construction, landscaping, agriculture, property maintenance, and material handling applications. With its 35.4 in compact body width, advanced Italian HANSA closed-loop hydraulic system, and 92.6 in (7.7 ft) vertical lift height, the STOMP X1300 is built to reach places larger loaders cannot while maintaining the lifting performance needed for demanding commercial work. Key Features EPA-Certified Kubota Diesel Engine At the heart of the STOMP X1300 is the legendary Kubota D1105 diesel engine, known worldwide for its reliability, fuel efficiency, and long service life. Engine Specifications EPA Certified Kubota D1105 Diesel Engine 3-Cylinder, Indirect Injection Vertical Water-Cooled 4-Cycle Diesel 25 HP @ 3000 RPM 19 HP @ 2200 RPM Excellent fuel efficiency Low maintenance design Built for continuous commercial operation Compact Size, Professional Capability Despite weighing 3,040 lb, the STOMP X1300 maintains an incredibly compact footprint with a machine width of only 35.4 in, allowing operators to work comfortably in areas inaccessible to larger skid steers. Ideal for: Residential construction Landscaping Property maintenance Agriculture Tree farms Municipal projects Utility installation Warehouses Barns Greenhouses Vertical Lift Boom Design Unlike conventional radial-lift machines, the STOMP X1300 features a Vertical Lift Boom that provides greater lift height and improved load placement. Benefits 92.6 in (7.7 ft) High Pin Height Easier truck loading Better pallet handling Improved material stacking Greater forward reach at maximum lift Excellent stability throughout the lift cycle Advanced Italian Hydraulic System The STOMP X1300 utilizes a premium Italian HANSA Closed-Loop Hydraulic System, delivering responsive controls, smooth operation, and consistent hydraulic power under heavy workloads. Hydraulic Advantages Fast hydraulic response Smooth machine movement Reduced power loss Excellent attachment performance High hydraulic efficiency Designed for continuous commercial use Premium International Components Every major hydraulic component has been selected for durability and performance. Premium Equipment Includes Italian HANSA Closed-Loop Hydraulic System IMPRO Hydraulic Motor Taifeng Plunger Pump Lufthansa Joystick Control System Heavy-duty Piston Pump Independent Hydraulic Oil Radiator These components work together to maximize machine reliability while reducing downtime and maintenance costs. Intelligent Hydraulic Architecture The STOMP X1300 features a sophisticated three-pump hydraulic layout designed to maximize efficiency. Hydraulic System Layout Two hydraulic pumps power machine travel. One dedicated hydraulic pump operates the boom, lift arms, cylinders, and auxiliary hydraulics. Two hydraulic valves independently control the left and right drive motors. A dedicated third valve controls loader arm functions and hydraulic attachments. This intelligent design provides smooth machine operation while allowing attachments to perform at maximum efficiency. Operator Comfort Designed for long working days, the STOMP X1300 includes numerous features that improve comfort and reduce operator fatigue. Comfort Features Foam-padded operator station Ergonomic control layout Pilot-assisted controls Mechanical precision arm control Gas spring-assisted hood Easy service access Excellent operator visibility Pilot & Mechanical Control System The STOMP X1300 combines pilot controls with mechanical controls to provide precise machine handling. Control Configuration Left Control Handle Pilot-controlled machine travel Forward, reverse, steering, and maneuvering Right Control Handle Mechanical control of boom Loader arm operation Bucket movement Auxiliary hydraulic functions This combination delivers responsive travel performance while maintaining accurate attachment control. Efficient Cooling System Unlike many compact loaders, the STOMP X1300 features an independently mounted hydraulic oil radiator positioned away from the engine compartment. Benefits include: Lower hydraulic oil temperatures Improved system efficiency Longer hydraulic component life Consistent performance during extended operation Reduced heat transfer from the engine Applications The STOMP X1300 is designed for a wide variety of professional applications: Material handling Landscaping Excavation Demolition Site preparation Agriculture Snow removal Pallet transport Utility work Construction Property maintenance Forestry Ground grading Compatible with numerous hydraulic attachments including: Buckets Pallet Forks Grapples Hydraulic Hammers Trenchers Augers Sweepers Forestry Mulchers Brush Cutters Soil Tillers Specifications SpecificationValueGTIN5061030741733Machine Weight3,040 lbsEngineKubota D1105 DieselEngine Power25 HP @ 3000 RPMRated Power19 HP @ 2200 RPMEngine Type3-Cylinder Water-Cooled DieselMachine Width900 mmLift DesignVertical LiftMaximum Pin Height2,352 mmHydraulic SystemItalian HANSA Closed-LoopHydraulic PumpsTriple Pump SystemCooling SystemIndependent Hydraulic Oil Radiator Why Choose the TYPHON STOMP X1300? The TYPHON STOMP X1300 is engineered for professionals who demand more than a standard compact loader. Combining a proven Kubota D1105 diesel engine, premium European hydraulic technology, a vertical lift boom, intelligent triple-pump hydraulics, and high-quality international components, it delivers exceptional lifting power, smooth hydraulic performance, and outstanding durability. Whether you're loading trucks, operating hydraulic attachments, clearing land, or handling heavy materials, the STOMP X1300 offers the reliability, precision, and productivity needed to tackle demanding jobs with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356771118-f48sv-chatgpt_image_jun_25_2026_10_06_02_am.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356771118-f48sv-chatgpt_image_jun_25_2026_10_06_02_am.webp",
@@ -2521,57 +2612,56 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$16,499.00"
       },
       {
+        label: "SKU",
+        value: "TYPH-X1300"
+      },
+      {
         label: "GTIN",
         value: "5061030741115"
       },
       {
-        label: "Engine Power",
-        value: "25 HP"
+        label: "Weight Class",
+        value: "3,040 lb"
       },
       {
-        label: "Engine",
-        value: "Kubota D1105 The TYPHON STOMP"
+        label: "Engine Power",
+        value: "25 HP"
       }
     ],
     features: [
-      "Compact Design for Small Projects Specially engineered for small construction projects, ensuring easy manoeuvrability.",
-      "Versatile Applications Perfect for drilling, digging, grabbing, bull-dozing, ditch-cleaning, small excavations, rock-breaking, landscaping, and construction purposes.",
-      "Compact Yet Powerful Features an EPA certified Japanese Kubota D1105 (25HP).",
-      "Premium Components Features premium components such as IMPRO motor, Taifeng plunger pump, and Lufthansa handle joystick system.",
-      "Operator Comfort The operator's position is equipped with Foam Padding for added comfort.",
-      "Ingenious Design The STOMP X1300 is is equipped with piston pump, which ensures an efficient hydraulic flow rate throughout the machine."
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
     ],
     applications: [
-      "Perfect For Drilling",
-      "Digging",
-      "Grabbing",
-      "Bull-dozing",
-      "Ditch-cleaning",
-      "Small Excavations",
-      "Rock-breaking",
-      "Landscaping"
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
     ],
     imageMatch: "CSV image fields"
   },
   {
     id: "new-typhon-telescopic-wheel-loader-with-kubota-d1105-engine-25-hp-1-ton-load-usa",
-    name: "TYPHON SKOOP 01 WheelLoader",
+    name: "TYPHON SKOOP",
     productType: "equipment",
-    rawProductType: "attachment",
+    rawProductType: "equipment",
     category: "wheel-loaders",
     categoryLabel: "Wheel Loader",
     rawCategory: "Wheel Loaders",
-    sku: "",
+    sku: "TYPH-0801",
     gtin: "5061030740361",
-    price: "$ 17,848.95",
+    price: "$17 848.95",
     currentPrice: "$17,848.95",
     sourceUrl: "https://typhonmachinery.com/product/new-typhon-telescopic-wheel-loader-with-kubota-d1105-engine-25-hp-1-ton-load-usa/",
-    buttonUrl: "/product/new-typhon-telescopic-wheel-loader-with-kubota-d1105-engine-25-hp-1-ton-load-usa/",
+    buttonUrl: "/product#!/New-TYPHON-Telescopic-Wheel-Loader-with-Kubota-D1105-engine-25-hp-1-ton-Load-USA/p/527425186",
     importConfidence: "81",
     series: "SKOOP wheel loader series",
     weight: "4,600 lb",
     tagline: "Introducing the TYPHON SKOOP Wheel Loader, a robust workhorse designed to tackle heavy workloads with unparalleled efficiency. This wheel loader from TYPHON Machinery is your dependable partner for difficult tasks thanks to its Kubota D1105 water-cooled 18.2kw diesel engine.",
-    description: "Introducing the TYPHON SKOOP Wheel Loader, a robust workhorse designed to tackle heavy workloads with unparalleled efficiency. Powered by a Kubota D1105 water-cooled 18.2kw diesel engine, this wheel loader from TYPHON Machinery is your reliable partner for demanding tasks. TYPHON SKOOP Wheel Loader Key Specifications 1. Heavy-Duty Performance Weighing 4,600 lb, the SKOOP is built to handle substantial workloads. Powered by a Kubota D1105 water-cooled 18.2kw (25hp) diesel engine for robust performance. 2. Impressive Load Capacity Rated load of 1760 lb, making it capable of undertaking challenging tasks with ease. Using the main arm, its maximum load capacity is 2200lbs. Meanwhile, its extended auxiliary arm boasts a maximum load capacity of 1320lbs. Maximum breakout force of 15KN for enhanced lifting capabilities. 3. Versatile Functionality Equipped with a 0.392 cu yd bucket for efficient material handling. Digging depth of 4.7 in and a maximum gradeability of 30%. Comes with a minimum ground clearance of 9.5 in. Maximum dump heights of 87.2 in (7.3 ft) (arm retracted) and 111.2 in (9.3 ft) (arm extended) respectively.Telescopic reach adds 2 feet of extension. Experience the Marvel of TYPHON SKOOP",
+    description: "TYPHON SKOOP Wheel Loader GTIN: 5061030741597 The TYPHON SKOOP Wheel Loader is a compact yet powerful machine engineered to deliver exceptional lifting performance, material handling efficiency, and job-site versatility. Powered by the dependable Kubota D1105 diesel engine, the SKOOP combines impressive breakout force, telescopic lifting capability, and excellent maneuverability into one reliable machine built for construction, agriculture, landscaping, snow removal, and property maintenance. With an operating weight of 4,600 lb, a rated lifting capacity of 1,760 lb, and a telescopic boom that extends an additional 2 feet, the TYPHON SKOOP is capable of handling demanding material-moving tasks while remaining compact enough to work comfortably in confined spaces. Whether you're loading trucks, transporting pallets, moving gravel, handling feed, or clearing job sites, the SKOOP delivers the power, precision, and reliability professionals expect from TYPHON Machinery. Key Features Reliable Kubota D1105 Diesel Engine The TYPHON SKOOP is powered by the industry-proven Kubota D1105, delivering dependable performance, excellent fuel efficiency, and low operating costs. Engine Highlights Kubota D1105 Water-Cooled Diesel Engine 25 HP (24.4 HP) output EPA-compliant diesel engine Smooth, reliable operation Excellent fuel economy Easy maintenance Long service life Built to perform in demanding environments, the Kubota engine provides consistent power throughout the workday. Heavy-Duty Lifting Performance Despite its compact footprint, the SKOOP delivers impressive lifting capability for a wide range of material-handling applications. Lifting Capacity SpecificationCapacityRated Operating Load1,760 lbsMaximum Main Arm Capacity2,200 lbsExtended Auxiliary Arm Capacity1,320 lbsMaximum Breakout Force15 kN This combination of lifting power and breakout force makes the SKOOP ideal for loading, lifting, transporting, and stacking materials efficiently. Telescopic Boom for Extended Reach The integrated telescopic boom increases the loader's versatility by providing additional reach when loading trucks, stacking pallets, or working over obstacles. Benefits Additional 2 ft telescopic extension Easier truck loading Improved reach over retaining walls Better stacking height Greater versatility on construction sites The telescopic arm allows operators to perform jobs that standard compact loaders cannot easily accomplish. Compact Design with Outstanding Maneuverability Designed for work in restricted environments, the TYPHON SKOOP combines stability with excellent mobility. Ideal Working Areas Construction sites Farms Warehouses Landscaping projects Orchards Municipal maintenance Residential developments Commercial properties Its compact dimensions allow easy access through narrow gates and confined work areas while maintaining exceptional stability. Versatile Material Handling Equipped with a 0.3 m³ bucket, the SKOOP is designed to move a wide variety of materials efficiently. Perfect For Gravel Sand Soil Mulch Snow Feed Compost Construction debris Aggregate Landscaping materials The loader is also compatible with numerous optional attachments, making it a true multi-purpose machine. Technical Specifications SpecificationDetailsProduct ModelTYPHON SKOOP Wheel LoaderGTIN5061030741597Operating Weight4,600 lbsEngineKubota D1105 DieselEngine TypeWater-Cooled DieselMaximum Engine Output25 HP (24.4 HP)Bucket Capacity0.3 m³Rated Operating Load1,760 lbsMaximum Main Arm Capacity2,200 lbsMaximum Auxiliary Arm Capacity1,320 lbsMaximum Breakout Force15 kNMaximum Digging Depth4.7 inMaximum Gradeability30%Minimum Ground Clearance9.5 inMaximum Dump Height (Retracted)87.2 inMaximum Dump Height (Extended)111.2 inBoom TypeTelescopic (+2 ft Reach) Why Choose the TYPHON SKOOP? The TYPHON SKOOP is designed for operators who need the lifting power of a larger wheel loader while maintaining the flexibility of a compact machine. Its telescopic boom, dependable Kubota engine, impressive lifting capacity, and excellent maneuverability make it a valuable addition to virtually any fleet. Key Benefits ✔ Reliable Kubota D1105 diesel engine ✔ Compact yet powerful 4,600 lb machine ✔ Rated lifting capacity of 1,760 lb ✔ Maximum lifting capacity up to 2,200 lb ✔ Telescopic boom with additional 2 ft reach ✔ Excellent breakout force for demanding jobs ✔ Smooth material handling performance ✔ Fuel-efficient and easy to maintain ✔ Compatible with a wide range of attachments Ideal Applications The TYPHON SKOOP is built for professionals across multiple industries. Construction Load trucks and trailers Transport building materials Site preparation Material stockpiling Agriculture Move feed and hay Handle fertilizer and seed pallets Clean livestock facilities General farm maintenance Landscaping Transport soil, mulch, and gravel Load landscape materials Property development Hardscape installation Municipal & Property Maintenance Snow removal Park maintenance Roadside cleanup Material transport Public works projects Built for Productivity The TYPHON SKOOP Wheel Loader combines Kubota reliability, powerful lifting performance, telescopic reach, and compact maneuverability into one highly capable machine. Designed to maximize productivity while minimizing operating costs, it is the ideal solution for contractors, farmers, landscapers, municipalities, and property owners who need dependable performance every day. Whether you're loading, lifting, transporting, or moving materials across the job site, the TYPHON SKOOP is ready to deliver the strength, efficiency, and durability that professionals rely on.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356955882-5nat1-chatgpt_image_jun_25_2026_10_09_08_am.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356955882-5nat1-chatgpt_image_jun_25_2026_10_09_08_am.webp",
@@ -2596,6 +2686,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$17,848.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-0801"
+      },
+      {
         label: "GTIN",
         value: "5061030740361"
       },
@@ -2614,19 +2708,13 @@ export const typhonProducts: TyphonProduct[] = [
       {
         label: "Digging Depth",
         value: "4"
-      },
-      {
-        label: "Capacity",
-        value: "Rated load of 1760 lb, making it capable of undertaking challenging tasks with ease"
       }
     ],
     features: [
-      "Heavy-Duty Performance Weighing 4,600 lb, the SKOOP is built to handle substantial workloads.",
-      "Impressive Load Capacity Rated load of 1760 lb, making it capable of undertaking challenging tasks with ease.",
-      "Versatile Functionality Equipped with a",
       "Articulated loader format",
       "Material bucket setup",
-      "Stable wheel base"
+      "Stable wheel base",
+      "Serviceable compact loader frame"
     ],
     applications: [
       "Yard loading",
@@ -2638,23 +2726,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "new-2025-typhon-vigor-1-5-blue-electric-forklift-1-5-ton-lifter-lift-truck-jitney",
-    name: "TYPHON Electric Forklift (1.5 Ton)",
+    name: "TYPHON Forklift (1.5 Ton)",
     productType: "equipment",
     rawProductType: "equipment",
     category: "forklifts",
     categoryLabel: "Forklift",
     rawCategory: "Forklift",
-    sku: "",
+    sku: "TYPH-0611 Blue",
     gtin: "5061030740958",
-    price: "$ 10,498.95",
+    price: "$10 498.95",
     currentPrice: "$10,498.95",
     sourceUrl: "https://typhonmachinery.com/product/new-2025-typhon-vigor-1-5-blue-electric-forklift-1-5-ton-lifter-lift-truck-jitney/",
-    buttonUrl: "/product/new-2025-typhon-vigor-1-5-blue-electric-forklift-1-5-ton-lifter-lift-truck-jitney/",
+    buttonUrl: "/product#!/New-2025-TYPHON-VIGOR-1-5-Blue-Electric-Forklift-1-5-Ton-Lifter-Lift-Truck-Jitney-Hi-Lo/p/722911348",
     importConfidence: "100",
     series: "VIGOR forklift series",
     weight: "1.5 ton",
     tagline: "Discover the TYPHON VIGOR 1.5, a compact electric forklift meticulously designed for low-ceiling indoor use. TYPHON Machinery's forklift, with its impressive specifications and advanced features, is revolutionizing the material handling industry.",
-    description: "Discover the TYPHON VIGOR 1.5 Blue Electric Forklift 1.5 Ton Lifter Lift Truck Jitney, a compact electric forklift meticulously designed for low ceiling indoor use. TYPHON Machinery's forklift, with its impressive specifications and advanced features, is revolutionizing the material handling industry. TYPHON VIGOR 1.5 Compact Electric Forklift Key Specifications 1. Compact and Powerful Weighs 2,882 lb with a rated lifting weight of 1,1,102 lb. Twice the lifting capacity compared to many forklift machines on the market. 2. Precision Handling Load center distance of 19.7 in. Maximum lifting height of 177.2 in (14.8 ft), comes with a three-stage lifting height of 63 in (5.2 ft), 118.1 in (9.8 ft) and 177.2 in (14.8 ft) respectively. 62.2 in (5.2 ft) wheelbase for stability. Free lift of 55.1 in (4.6 ft) for low ceiling situations. 3. Maneuverability Minimum turning radius of 87 in (7.3 ft). Lateral movement capabilities for enhanced warehouse navigation. Truck body length (excluding fork) of 94.9 in (7.9 ft) and a width of 48 in (4 ft). 4. Efficient Power Source Powered by a 60V/260 Ah Lithium Battery. Charge 6 hours and get to use the VIGOR for 10 hours. Offers a smart charging solution - compatible with any 110V charging point. Comes with charger. 5. Operational Excellence Equipped with hydraulic steering for precise control. Solid rubber tires for durability and stability during operations.",
+    description: "TYPHON VIGOR 1.5 Compact Electric Forklift GTIN: 5061030740958 The TYPHON VIGOR 1.5 Compact Electric Forklift is a professional-grade material handling solution engineered for warehouses, distribution centers, manufacturing facilities, retail storage, and indoor logistics operations. Combining compact dimensions with impressive lifting performance, the VIGOR 1.5 is designed to maximize productivity while operating efficiently in narrow aisles and low-clearance environments. Powered by a high-capacity 60V 260Ah lithium battery, this electric forklift delivers quiet, emission-free operation without compromising power. With a 3,307 lb (1,1,102 lb) rated lifting capacity, a 14.8 ft (177.2 in (14.8 ft)) maximum lift height, and a 55.1 in (4.6 ft) free lift, the VIGOR 1.5 is ideal for stacking pallets, loading trucks, and handling materials safely in confined indoor spaces. Whether you're operating a warehouse, factory, logistics center, or commercial facility, the TYPHON VIGOR 1.5 provides dependable performance, lower operating costs, and exceptional maneuverability. Key Features Compact Electric Performance Designed specifically for indoor material handling, the VIGOR 1.5 combines compact dimensions with professional lifting capability. Performance Highlights Rated lifting capacity of 3,307 lb (1,1,102 lb) Compact design for narrow aisles Quiet, zero-emission operation Excellent stability during lifting Low operating costs Smooth acceleration and control Its compact footprint makes it ideal for warehouses and facilities with limited operating space. Three-Stage High-Reach Mast The advanced three-stage mast provides excellent stacking capability while maintaining visibility and stability. Lift Heights 5.2 ft (63 in (5.2 ft)) 9.8 ft (118.1 in (9.8 ft)) 14.8 ft (177.2 in (14.8 ft)) Additional Benefits 55.1 in free lift Perfect for low-ceiling environments Efficient pallet stacking Improved warehouse storage capacity The free-lift design allows loads to be raised without extending the mast, making it ideal for containers and indoor facilities with overhead restrictions. Long-Lasting Lithium Battery The VIGOR 1.5 is powered by a modern lithium battery system designed for extended operation and fast charging. Battery Specifications 60V / 260Ah Lithium Battery Approximately 6-hour charging time Up to 10 hours of operation (depending on workload) Includes battery charger Compatible with standard 110V outlets Lithium technology provides consistent performance, reduced maintenance, and faster charging than traditional lead-acid batteries. Smooth & Precise Handling Engineered for operator confidence, the VIGOR 1.5 features responsive controls and excellent maneuverability for busy work environments. Handling Features Hydraulic power steering Tight turning radius Smooth lifting operation Stable chassis design Side-shift capability for easier pallet positioning Excellent visibility The hydraulic steering system allows operators to work efficiently with minimal fatigue during long shifts. Built for Indoor Warehousing The compact chassis and durable construction make the VIGOR 1.5 an excellent choice for indoor logistics operations. Perfect For Warehouses Distribution centers Manufacturing facilities Retail storage Wholesale operations Cold storage Logistics centers Loading docks Its compact dimensions allow operators to move safely through narrow aisles while maintaining excellent lifting performance. Technical Specifications SpecificationDetailsProduct ModelTYPHON VIGOR 1.5GTIN5061030740958Machine TypeElectric ForkliftOperating Weight5,291 lb (2,882 lb)Rated Lifting Capacity3,307 lb (1,1,102 lb)Load Center19.7 inMaximum Lift Height14.8 ft (177.2 in (14.8 ft))Lift Stages63 in (5.2 ft) / 118.1 in (9.8 ft) / 4,500 mmFree Lift Height55.1 inWheelbase62.2 inMinimum Turning Radius87 inOverall Length (Without Forks)94.9 inOverall Width48 inBattery60V / 260Ah LithiumCharging TimeApproximately 6 HoursOperating TimeUp to 10 HoursCharging VoltageStandard 110VSteeringHydraulic Power SteeringTiresSolid Rubber Standard Equipment Included Every TYPHON VIGOR 1.5 comes ready for daily warehouse operations. Included with Your Forklift ✔ 60V / 260Ah lithium battery ✔ Battery charger ✔ Three-stage mast ✔ Hydraulic steering system ✔ Solid rubber tires ✔ Digital operator's manual Why Choose the TYPHON VIGOR 1.5? The TYPHON VIGOR 1.5 combines compact dimensions, impressive lifting capability, and efficient electric power into one dependable forklift. Designed for businesses that require reliable indoor material handling, it offers lower operating costs, quiet operation, and excellent productivity throughout the workday. Key Benefits ✔ 3,307 lb lifting capacity ✔ Three-stage 14.8 ft mast ✔ 60V 260Ah lithium battery ✔ Up to 10 hours of operating time ✔ Hydraulic power steering ✔ Side-shift capability ✔ Fast 6-hour charging ✔ Quiet, zero-emission operation ✔ Perfect for warehouses and indoor facilities Ideal Applications Warehousing Pallet storage Inventory management Rack loading Order fulfillment Manufacturing Production line support Material transport Finished goods handling Component movement Distribution & Logistics Loading and unloading trucks Freight handling Shipping operations Warehouse logistics Commercial Facilities Retail storage Wholesale operations Indoor material handling General warehouse maintenance Efficient. Quiet. Built for Productivity. The TYPHON VIGOR 1.5 Compact Electric Forklift combines a 3,307 lb lifting capacity, a 14.8 ft three-stage mast, and a long-lasting 60V lithium battery to deliver reliable, emission-free performance for professional indoor material handling. Designed for warehouses, logistics centers, and commercial facilities, it offers the efficiency, maneuverability, and dependability needed to keep your operation running smoothly every day.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828423754-zeesr-4754993577_1_.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828423754-zeesr-4754993577_1_.webp",
@@ -2673,6 +2761,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$10,498.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-0611 Blue"
+      },
+      {
         label: "GTIN",
         value: "5061030740958"
       },
@@ -2681,21 +2773,15 @@ export const typhonProducts: TyphonProduct[] = [
         value: "1.5 ton"
       },
       {
-        label: "Lift Height",
-        value: "of 177"
-      },
-      {
         label: "Capacity",
-        value: "compared to many forklift machines on the market"
+        value: "60V 260Ah lithium battery, this electric forklift delivers quiet, emission-free operation"
       }
     ],
     features: [
-      "Compact and Powerful Weighs 2,882 lb with a rated lifting weight of 1,1,102 lb.",
-      "Precision Handling Load center distance of 19.7 in.",
-      "Maneuverability Minimum turning radius of 87 in (7.3 ft).",
-      "Efficient Power Source Powered by a 60V/260 Ah Lithium Battery.",
-      "Operational Excellence Equipped with hydraulic steering for precise control.",
-      "Electric lift-truck platform"
+      "Electric lift-truck platform",
+      "Compact turning layout",
+      "Pallet handling mast",
+      "Indoor and yard material support"
     ],
     applications: [
       "Pallet handling",
@@ -2707,23 +2793,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-vigor-2-compact-electric-forklift-2025-model",
-    name: "TYPHON Electric Forklift (2.0 Ton)",
+    name: "TYPHON Forklift (2.0 Ton)",
     productType: "equipment",
     rawProductType: "equipment",
     category: "forklifts",
     categoryLabel: "Forklift",
     rawCategory: "Forklift",
-    sku: "",
+    sku: "TYPH-0612 Blue",
     gtin: "5061030740965",
-    price: "$ 11,548.74",
+    price: "$11 548.74",
     currentPrice: "$11,548.74",
     sourceUrl: "https://typhonmachinery.com/product/typhon-vigor-2-compact-electric-forklift-2025-model/",
-    buttonUrl: "/product/typhon-vigor-2-compact-electric-forklift-2025-model/",
+    buttonUrl: "/product#!/New-2025-TYPHON-VIGOR-2-Blue-Electric-Forklift-2-Ton-Lifter-Lift-Truck-Jitney-Hi-Lo/p/722911350",
     importConfidence: "100",
     series: "VIGOR forklift series",
     weight: "2.0 ton",
     tagline: "Discover the TYPHON VIGOR 2.0, a compact electric forklift meticulously designed for low-ceiling indoor use. TYPHON Machinery's forklift, with its impressive specifications and advanced features, is revolutionizing the material handling industry.",
-    description: "Learn about the TYPHON VIGOR 2, a small electric forklift that has been carefully engineered for interior operation with low ceilings. The forklift from TYPHON Machinery is transforming the material handling sector with its remarkable features and specifications. TYPHON VIGOR 2 Compact Electric Forklift Key Specifications 1. Compact and Powerful Weighs 6170 lb with a rated lifting weight of 4,400 lb.. Twice the lifting capacity compared to many forklift machines on the market. 2. Precision Handling Load center distance of 19.7 in. Maximum lifting height of 4.5 m comes with a three-stage lifting height of 63 in (5.2 ft), 118.1 in (9.8 ft) and 177.2 in (14.8 ft), respectively. 68.5 in (5.7 ft) wheelbase for stability. Free lift of 55.1 in (4.6 ft) for low ceiling situations. 3. Maneuverability Minimum turning radius of 90.9 in (7.6 ft). Lateral movement capabilities for enhanced warehouse navigation. Truck body length (excluding fork) of 102.4 in (8.5 ft) and a width of 48.4 in (4 ft). 4. Efficient Power Source Powered by a 60V/250 Ah lead-acid battery. Charge for 6 hours and use the VIGOR for up to 10 hours. Offers a smart charging solution-compatible with any 110V charging point. Comes with charger. 5. Operational Excellence Equipped with hydraulic steering for precise control. Solid rubber tires for durability and stability during operations.",
+    description: "TYPHON VIGOR 2.0 Compact Electric Forklift GTIN: 5061030740965 The TYPHON VIGOR 2.0 Compact Electric Forklift is a high-performance 4,400 lb capacity electric forklift engineered for warehouses, manufacturing facilities, logistics centers, retail storage, and indoor material handling operations. Combining powerful lifting capability with compact dimensions, the VIGOR 2.0 is designed to maximize productivity while operating efficiently in narrow aisles and low-clearance environments. Powered by a reliable 60V 250Ah lead-acid battery, the VIGOR 2.0 delivers smooth, quiet, and emission-free performance throughout the workday. Featuring a three-stage mast, 4.5 m (14.8 ft) maximum lift height, hydraulic power steering, and an integrated side-shift system, it provides operators with precise control and exceptional maneuverability when handling pallets and heavy materials. Whether you're loading trailers, stacking warehouse racks, or transporting inventory across a facility, the TYPHON VIGOR 2.0 delivers dependable performance, low operating costs, and professional-grade reliability. Key Features Powerful Electric Material Handling Built for demanding indoor applications, the VIGOR 2.0 combines impressive lifting power with efficient electric operation. Performance Highlights Rated lifting capacity of 4,400 lb Quiet, zero-emission operation Compact warehouse-friendly design Excellent lifting stability Smooth acceleration Low maintenance requirements Its powerful lifting capability makes it ideal for warehouses, distribution centers, and manufacturing facilities. Three-Stage High-Reach Mast The advanced three-stage mast allows operators to safely lift and stack materials at multiple working heights. Lift Heights 5.2 ft (63 in (5.2 ft)) 9.8 ft (118.1 in (9.8 ft)) 14.8 ft (177.2 in (14.8 ft)) Additional Benefits 55.1 in free lift Ideal for low-clearance warehouses Efficient pallet stacking Increased storage capacity The free-lift function allows the forks to rise before the mast extends, making it perfect for indoor applications with height restrictions. Integrated Side-Shift System The factory-installed side-shift attachment improves precision when positioning loads without moving the entire forklift. Side-Shift Benefits Faster pallet positioning Easier operation in narrow aisles Reduced pallet and product damage Improved warehouse efficiency Less operator fatigue Greater loading accuracy This feature significantly improves productivity during repetitive warehouse operations. Reliable Lead-Acid Battery System The VIGOR 2.0 is equipped with a durable lead-acid battery designed for dependable all-day performance. Battery Specifications 60V / 250Ah Lead-Acid Battery Approximately 6-hour charging time Up to 10 hours of operating time (depending on workload) Includes battery charger Compatible with standard 110V outlets The battery system provides reliable power throughout demanding warehouse shifts. Smooth & Precise Operation Designed for operator comfort and control, the VIGOR 2.0 offers responsive steering and excellent maneuverability. Operator Features Hydraulic power steering Responsive controls Tight turning radius Smooth lifting operation Excellent visibility Stable chassis design The ergonomic operating position helps reduce fatigue during extended work shifts. Technical Specifications SpecificationDetailsProduct ModelTYPHON VIGOR 2.0GTIN5061030740965Machine TypeElectric ForkliftOperating Weight6,170 lbsRated Lifting Capacity4,400 lbsLoad Center19.7 inMaximum Lift Height14.8 ft (177.2 in (14.8 ft))Lift Stages63 in (5.2 ft) / 118.1 in (9.8 ft) / 4,500 mmFree Lift Height55.1 inWheelbase68.5 inMinimum Turning Radius90.9 inOverall Length (Without Forks)102.4 inOverall Width48.4 inBattery60V / 250Ah Lead-AcidCharging TimeApproximately 6 HoursOperating TimeUp to 10 HoursCharging VoltageStandard 110VSteeringHydraulic Power SteeringSide ShiftStandardTiresSolid Rubber Standard Equipment Included Every TYPHON VIGOR 2.0 comes fully equipped for professional warehouse operations. Included with Your Forklift ✔ 60V / 250Ah lead-acid battery ✔ Battery charger ✔ Three-stage mast ✔ Hydraulic steering system ✔ Integrated side-shift ✔ Solid rubber tires ✔ Digital operator's manual Why Choose the TYPHON VIGOR 2.0? The TYPHON VIGOR 2.0 combines professional lifting power, advanced maneuverability, and dependable electric performance into one compact forklift. Designed for businesses that demand reliable indoor material handling, it delivers outstanding productivity while reducing operating costs and emissions. Key Benefits ✔ 4,400 lb lifting capacity ✔ Three-stage 14.8 ft mast ✔ Integrated side-shift system ✔ 60V 250Ah lead-acid battery ✔ Up to 10 hours of operating time ✔ Hydraulic power steering ✔ Fast 6-hour charging ✔ Quiet, zero-emission operation ✔ Perfect for warehouses and distribution centers Ideal Applications Warehousing Rack storage Inventory management Order fulfillment Pallet handling Manufacturing Material transport Production support Component movement Finished goods handling Distribution & Logistics Truck loading and unloading Freight movement Shipping operations Warehouse logistics Commercial Facilities Retail storage Wholesale operations Indoor material handling Facility maintenance Powerful Lifting. Precision Handling. The TYPHON VIGOR 2.0 Compact Electric Forklift combines a 4,400 lb lifting capacity, a 14.8 ft three-stage mast, an integrated side-shift system, and a dependable 60V lead-acid battery to deliver reliable, emission-free performance for demanding indoor material handling. Built for warehouses, manufacturing facilities, and logistics operations, it provides the strength, precision, and efficiency professionals rely on every day.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828643980-jt11a-4754993627.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828643980-jt11a-4754993627.webp",
@@ -2743,6 +2829,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$11,548.74"
       },
       {
+        label: "SKU",
+        value: "TYPH-0612 Blue"
+      },
+      {
         label: "GTIN",
         value: "5061030740965"
       },
@@ -2751,21 +2841,15 @@ export const typhonProducts: TyphonProduct[] = [
         value: "2.0 ton"
       },
       {
-        label: "Lift Height",
-        value: "of 4"
-      },
-      {
         label: "Capacity",
-        value: "compared to many forklift machines on the market"
+        value: "electric forklift engineered for warehouses, manufacturing facilities, logistics centers,"
       }
     ],
     features: [
-      "Compact and Powerful Weighs 6170 lb with a rated lifting weight of 4,400 lb..",
-      "Precision Handling Load center distance of 19.7 in.",
-      "Maneuverability Minimum turning radius of 90.9 in (7.6 ft).",
-      "Efficient Power Source Powered by a 60V/250 Ah lead-acid battery.",
-      "Operational Excellence Equipped with hydraulic steering for precise control.",
-      "Electric lift-truck platform"
+      "Electric lift-truck platform",
+      "Compact turning layout",
+      "Pallet handling mast",
+      "Indoor and yard material support"
     ],
     applications: [
       "Pallet handling",
@@ -2777,23 +2861,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "new-2025-typhon-vigor-2-5-blue-electric-forklift-2-5-ton-lifter-lift-truck",
-    name: "TYPHON Electric Forklift (2.5 Ton)",
+    name: "TYPHON Forklift (2.5 Ton)",
     productType: "equipment",
     rawProductType: "equipment",
     category: "forklifts",
     categoryLabel: "Forklift",
     rawCategory: "Forklift",
-    sku: "",
+    sku: "TYPH-0613B",
     gtin: "5061030740972",
-    price: "$ 12,598.95",
+    price: "$12 598.95",
     currentPrice: "$12,598.95",
     sourceUrl: "https://typhonmachinery.com/product/new-2025-typhon-vigor-2-5-blue-electric-forklift-2-5-ton-lifter-lift-truck/",
-    buttonUrl: "/product/new-2025-typhon-vigor-2-5-blue-electric-forklift-2-5-ton-lifter-lift-truck/",
+    buttonUrl: "/product#!/New-2025-TYPHON-VIGOR-2-5-Blue-Electric-Forklift-2-5-Ton-Lifter-Lift-Truck-Jitney-Hi-Lo/p/722902104",
     importConfidence: "100",
     series: "VIGOR forklift series",
     weight: "2.5 ton",
     tagline: "Discover the TYPHON VIGOR 2.5, a compact electric forklift meticulously designed for low ceiling indoor use. TYPHON Machinery's forklift, with its impressive specifications and advanced features, is revolutionizing the material handling industry.",
-    description: "Discover the TYPHON VIGOR 2.5 Blue Electric Forklift 2.5 Ton Lifter Lift Truck, a compact electric forklift meticulously designed for low-ceiling indoor use. TYPHON Machinery's forklift, with its impressive specifications and advanced features, is revolutionizing the material handling industry. TYPHON VIGOR 2.5 Compact Electric Forklift Key Specifications 1. Compact and Powerful Weighs 6613 lb with a rated lifting weight of 5511 lb.. Twice the lifting capacity compared to many forklift machines on the market. 2. Precision Handling Load center distance of 19.7 in. Maximum lifting height of 4.5m, comes with a three-stage lifting height of 63 in (5.2 ft), 118.1 in (9.8 ft) and 177.2 in (14.8 ft) respectively. 71.7 in (6 ft) wheelbase for stability. Free lift of 55.1 in (4.6 ft) for low ceiling situations. 3. Maneuverability Minimum turning radius of 92.5 in (7.7 ft). Lateral movement capabilities for enhanced warehouse navigation. Truck body length (excluding fork) of 106.3 in (8.9 ft) and a width of 47.2 in. 4. Efficient Power Source Powered by a 60V/250 Ah lead acid battery. Charge for 6 hours and use the VIGOR for up to 10 hours. Offers a smart charging solution - compatible with any 110V charging point. Comes with charger. 5. Operational Excellence Equipped with hydraulic steering for precise control. Solid rubber tires for durability and stability during operations.",
+    description: "TYPHON VIGOR 2.5 Compact Electric Forklift GTIN: 5061030740972 The TYPHON VIGOR 2.5 Compact Electric Forklift is a professional-grade 5,511 lb capacity electric forklift designed to maximize productivity in warehouses, manufacturing facilities, logistics centers, and commercial storage operations. Combining impressive lifting performance with compact dimensions, the VIGOR 2.5 delivers outstanding efficiency while operating smoothly in narrow aisles and low-clearance indoor environments. Powered by a dependable 60V 250Ah lead-acid battery, the VIGOR 2.5 provides quiet, zero-emission operation with long working hours and low operating costs. Featuring a three-stage mast, 4.5 m (14.8 ft) maximum lift height, hydraulic power steering, and excellent maneuverability, this forklift is built to handle demanding pallet handling and warehouse operations with precision. Whether you're loading trucks, stacking warehouse racks, or transporting heavy materials throughout a facility, the TYPHON VIGOR 2.5 delivers the reliability, lifting power, and efficiency professionals expect. Key Features Powerful Electric Material Handling The VIGOR 2.5 combines high lifting capacity with efficient electric performance, making it ideal for demanding indoor applications. Performance Highlights Rated lifting capacity of 5,511 lb Quiet, zero-emission operation Compact warehouse-friendly design Excellent lifting stability Smooth acceleration and lifting Low maintenance requirements Its balanced design provides excellent control while handling heavy loads in confined spaces. Three-Stage High-Reach Mast The advanced three-stage mast allows operators to maximize vertical warehouse storage while maintaining excellent visibility and stability. Lift Heights 5.2 ft (63 in (5.2 ft)) 9.8 ft (118.1 in (9.8 ft)) 14.8 ft (177.2 in (14.8 ft)) Additional Benefits 55.1 in free lift Ideal for low-clearance buildings Improved warehouse storage efficiency Smooth and stable lifting performance The free-lift feature allows pallets to be raised without extending the mast, making it ideal for indoor operations. Excellent Maneuverability Designed for busy warehouse environments, the VIGOR 2.5 offers precise steering and responsive handling for improved productivity. Handling Features Hydraulic power steering Tight turning radius Smooth hydraulic controls Stable chassis Excellent visibility Easy operation in narrow aisles Its compact dimensions allow operators to work efficiently in warehouses where space is limited. Reliable Lead-Acid Battery System The VIGOR 2.5 is powered by a dependable battery system designed to provide reliable performance throughout the workday. Battery Specifications 60V / 250Ah Lead-Acid Battery Approximately 6-hour charging time Up to 10 hours of operation (depending on workload) Includes battery charger Compatible with standard 110V outlets The efficient battery system helps reduce operating costs while delivering dependable daily performance. Built for Professional Indoor Operations The VIGOR 2.5 is engineered for demanding warehouse environments where precision, efficiency, and reliability are essential. Perfect For Warehouses Distribution centers Manufacturing facilities Retail storage Wholesale operations Logistics centers Indoor material handling Loading docks Its combination of lifting power and maneuverability makes it an excellent solution for professional material handling. Technical Specifications SpecificationDetailsProduct ModelTYPHON VIGOR 2.5GTIN5061030740972Machine TypeElectric ForkliftOperating Weight6,613 lbsRated Lifting Capacity5,511 lbsLoad Center19.7 inMaximum Lift Height14.8 ft (177.2 in (14.8 ft))Lift Stages63 in (5.2 ft) / 118.1 in (9.8 ft) / 4,500 mmFree Lift Height55.1 inWheelbase71.7 inMinimum Turning Radius92.5 inOverall Length (Without Forks)106.3 inOverall Width47.2 inBattery60V / 250Ah Lead-AcidCharging TimeApproximately 6 HoursOperating TimeUp to 10 HoursCharging VoltageStandard 110VSteeringHydraulic Power SteeringTiresSolid Rubber Standard Equipment Included Every TYPHON VIGOR 2.5 comes ready for professional warehouse operations. Included with Your Forklift ✔ 60V / 250Ah lead-acid battery ✔ Battery charger ✔ Three-stage mast ✔ Hydraulic steering system ✔ Solid rubber tires ✔ Digital operator's manual Why Choose the TYPHON VIGOR 2.5? The TYPHON VIGOR 2.5 delivers the ideal balance of lifting capacity, maneuverability, and dependable electric performance. Designed for businesses that require reliable indoor material handling, it offers professional productivity while reducing operating costs and emissions. Key Benefits ✔ 5,511 lb lifting capacity ✔ Three-stage 14.8 ft mast ✔ 60V 250Ah lead-acid battery ✔ Up to 10 hours of operating time ✔ Hydraulic power steering ✔ Fast 6-hour charging ✔ Quiet, zero-emission operation ✔ Compact design for narrow aisles ✔ Ideal for warehouses and logistics centers Ideal Applications Warehousing Rack storage Inventory management Pallet handling Order fulfillment Manufacturing Production line support Material transport Component handling Finished goods movement Distribution & Logistics Truck loading and unloading Freight movement Shipping operations Warehouse logistics Commercial Facilities Retail storage Wholesale operations Indoor material handling Facility maintenance Powerful Lifting. Reliable Performance. The TYPHON VIGOR 2.5 Compact Electric Forklift combines a 5,511 lb lifting capacity, a 14.8 ft three-stage mast, and a dependable 60V lead-acid battery to deliver efficient, emission-free performance for demanding indoor material handling. Built for warehouses, manufacturing facilities, and logistics operations, it provides the lifting power, maneuverability, and reliability professionals need to keep their operations running efficiently every day.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828828032-wh6u4-4754993642.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828828032-wh6u4-4754993642.webp",
@@ -2812,6 +2896,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$12,598.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-0613B"
+      },
+      {
         label: "GTIN",
         value: "5061030740972"
       },
@@ -2820,21 +2908,15 @@ export const typhonProducts: TyphonProduct[] = [
         value: "2.5 ton"
       },
       {
-        label: "Lift Height",
-        value: "of 4"
-      },
-      {
         label: "Capacity",
-        value: "compared to many forklift machines on the market"
+        value: "electric forklift designed to maximize productivity in warehouses, manufacturing faciliti"
       }
     ],
     features: [
-      "Compact and Powerful Weighs 6613 lb with a rated lifting weight of 5511 lb..",
-      "Precision Handling Load center distance of 19.7 in.",
-      "Maneuverability Minimum turning radius of 92.5 in (7.7 ft).",
-      "Efficient Power Source Powered by a 60V/250 Ah lead acid battery.",
-      "Operational Excellence Equipped with hydraulic steering for precise control.",
-      "Electric lift-truck platform"
+      "Electric lift-truck platform",
+      "Compact turning layout",
+      "Pallet handling mast",
+      "Indoor and yard material support"
     ],
     applications: [
       "Pallet handling",
@@ -2846,23 +2928,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "new-2025-typhon-vigor-3-0-blue-electric-forklift-3-ton-lifter-lift-truck",
-    name: "TYPHON Electric Forklift (3.0 Ton)",
+    name: "TYPHON Forklift (3.0 Ton)",
     productType: "equipment",
     rawProductType: "equipment",
     category: "forklifts",
     categoryLabel: "Forklift",
     rawCategory: "Forklift",
-    sku: "",
+    sku: "TYPH-0614B",
     gtin: "5061030740989",
-    price: "$ 13,648.95",
+    price: "$13 648.95",
     currentPrice: "$13,648.95",
     sourceUrl: "https://typhonmachinery.com/product/new-2025-typhon-vigor-3-0-blue-electric-forklift-3-ton-lifter-lift-truck/",
-    buttonUrl: "/product/new-2025-typhon-vigor-3-0-blue-electric-forklift-3-ton-lifter-lift-truck/",
+    buttonUrl: "/product#!/New-2025-TYPHON-VIGOR-3-0-Blue-Electric-Forklift-3-Ton-Lifter-Lift-Truck-Jitney-Hi-Lo/p/722911370",
     importConfidence: "100",
     series: "VIGOR forklift series",
     weight: "3.0 ton",
     tagline: "Discover the TYPHON VIGOR 3.0 Blue Electric Forklift 3 Ton Lifter Lift Truck, a compact electric forklift meticulously designed for low ceiling indoor use. This forklift from TYPHON Machinery, with its impressive specifications and advanced features, is revolutionizing the material handling industry.",
-    description: "Discover the TYPHON VIGOR 3.0 Blue Electric Forklift 3 Ton Lifter Lift Truck, a compact electric forklift meticulously designed for low ceiling indoor use. This forklift from TYPHON Machinery, with its impressive specifications and advanced features, is revolutionizing the material handling industry. TYPHON VIGOR 3.0 Blue Compact Electric Forklift Key Specifications 1. Compact and Powerful Weighs 7500 lb with a rated lifting weight of 6,600 lb. Twice the lifting capacity compared to many forklift machines on the market. 2. Precision Handling Load center distance of 19.7 in. Maximum lifting height of 4.5 m comes with a three-stage lifting height of 63 in (5.2 ft), 118.1 in (9.8 ft) and 177.2 in (14.8 ft), respectively. 76.8 in (6.4 ft) wheelbase for stability. Free lift of 55.1 in (4.6 ft) for low ceiling situations. 3. Maneuverability Minimum turning radius of 99.6 in (8.3 ft). Lateral movement capabilities for enhanced warehouse navigation. Truck body length (excluding fork) of 109.3 in (9.1 ft) and a width of 47.2 in. 4. Efficient Power Source Powered by a 60V/250 Ah lead-acid battery. Charge for 6 hours and use the VIGOR for up to 10 hours. Offers a smart charging solution-compatible with any 110V charging point. Comes with charger. 5. Operational Excellence Equipped with hydraulic steering for precise control. Solid rubber tires for durability and stability during operations.",
+    description: "TYPHON VIGOR 3.0 Blue Compact Electric Forklift GTIN: 5061030740989 The TYPHON VIGOR 3.0 Blue Compact Electric Forklift is a heavy-duty 6,600 lb capacity electric forklift engineered for warehouses, manufacturing facilities, logistics centers, wholesale operations, and commercial material handling. Combining impressive lifting power with a compact design, the VIGOR 3.0 delivers outstanding productivity while maintaining the maneuverability required for indoor environments and narrow warehouse aisles. Powered by a dependable 60V 250Ah lead-acid battery, the VIGOR 3.0 offers quiet, zero-emission operation with extended working time. Its three-stage mast, 4.5 m (14.8 ft) maximum lift height, hydraulic power steering, and integrated side-shift system allow operators to move heavy pallets safely and accurately while improving workflow efficiency. Whether you're loading freight, organizing warehouse inventory, or transporting heavy materials throughout a facility, the TYPHON VIGOR 3.0 provides the strength, precision, and reliability professionals depend on every day. Key Features Heavy-Duty Electric Performance Designed for demanding industrial environments, the VIGOR 3.0 delivers powerful lifting capacity while maintaining smooth, efficient electric operation. Performance Highlights Rated lifting capacity of 6,600 lb Quiet, zero-emission operation Compact warehouse-friendly design Excellent lifting stability Smooth acceleration Low maintenance requirements Its powerful lifting performance makes it an excellent choice for heavy pallet handling and industrial material transport. Three-Stage High-Reach Mast The professional three-stage mast allows operators to maximize warehouse storage while maintaining safe and efficient lifting performance. Lift Heights 5.2 ft (63 in (5.2 ft)) 9.8 ft (118.1 in (9.8 ft)) 14.8 ft (177.2 in (14.8 ft)) Additional Benefits 55.1 in free lift Ideal for low-ceiling warehouses Increased pallet stacking capability Improved warehouse storage efficiency The free-lift system allows the forks to rise before the mast extends, making it ideal for indoor operations with overhead clearance restrictions. Integrated Side-Shift System The built-in side-shift attachment enables precise pallet positioning without repositioning the entire forklift. Side-Shift Benefits Faster load placement Easier operation in narrow aisles Reduced pallet damage Improved warehouse productivity Greater operator efficiency Increased loading accuracy This feature significantly improves material handling efficiency in busy warehouse environments. Reliable Lead-Acid Battery System The VIGOR 3.0 is powered by a dependable battery system designed to provide consistent performance throughout the workday. Battery Specifications 60V / 250Ah Lead-Acid Battery Approximately 6-hour charging time Up to 10 hours of operating time (depending on workload) Includes battery charger Compatible with standard 110V outlets The battery system provides reliable, cost-effective power for everyday warehouse operations. Smooth & Comfortable Operation The VIGOR 3.0 is designed to reduce operator fatigue while maximizing productivity. Operator Features Hydraulic power steering Responsive controls Excellent visibility Tight turning radius Stable chassis Comfortable operating position Hydraulic steering allows precise maneuvering even when transporting heavy loads. Technical Specifications SpecificationDetailsProduct ModelTYPHON VIGOR 3.0 BlueGTIN5061030740989Machine TypeElectric ForkliftOperating Weight7,500 lbsRated Lifting Capacity6,600 lbsLoad Center19.7 inMaximum Lift Height14.8 ft (177.2 in (14.8 ft))Lift Stages63 in (5.2 ft) / 118.1 in (9.8 ft) / 4,500 mmFree Lift Height55.1 inWheelbase76.8 inMinimum Turning Radius99.6 inOverall Length (Without Forks)109.3 inOverall Width47.2 inBattery60V / 250Ah Lead-AcidCharging TimeApproximately 6 HoursOperating TimeUp to 10 HoursCharging VoltageStandard 110VSteeringHydraulic Power SteeringSide ShiftStandardTiresSolid Rubber Standard Equipment Included Every TYPHON VIGOR 3.0 comes fully equipped for professional warehouse operations. Included with Your Forklift ✔ 60V / 250Ah lead-acid battery ✔ Battery charger ✔ Three-stage mast ✔ Hydraulic steering system ✔ Integrated side-shift ✔ Solid rubber tires ✔ Digital operator's manual Why Choose the TYPHON VIGOR 3.0? The TYPHON VIGOR 3.0 combines heavy-duty lifting performance, compact maneuverability, and reliable electric power into one professional forklift. Designed for businesses handling larger loads, it delivers dependable productivity while reducing operating costs and emissions in indoor working environments. Key Benefits ✔ 6,600 lb lifting capacity ✔ Three-stage 14.8 ft mast ✔ Integrated side-shift system ✔ 60V 250Ah lead-acid battery ✔ Up to 10 hours of operating time ✔ Hydraulic power steering ✔ Fast 6-hour charging ✔ Quiet, zero-emission operation ✔ Ideal for warehouses, factories, and logistics centers Ideal Applications Warehousing High-bay pallet storage Inventory management Rack loading Order fulfillment Manufacturing Production support Heavy material transport Component movement Finished goods handling Distribution & Logistics Truck loading and unloading Freight handling Shipping operations Warehouse logistics Commercial & Industrial Facilities Wholesale operations Indoor material handling Distribution centers Industrial storage facilities Heavy-Duty Power. Precision Control. The TYPHON VIGOR 3.0 Blue Compact Electric Forklift combines a 6,600 lb lifting capacity, a 14.8 ft three-stage mast, an integrated side-shift system, and a dependable 60V lead-acid battery to deliver powerful, emission-free performance for professional indoor material handling. Built for warehouses, manufacturing facilities, and logistics operations, it provides the lifting strength, maneuverability, and reliability needed to maximize productivity every day.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828988267-2h8qh-4754993662.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828988267-2h8qh-4754993662.webp",
@@ -2881,6 +2963,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$13,648.95"
       },
       {
+        label: "SKU",
+        value: "TYPH-0614B"
+      },
+      {
         label: "GTIN",
         value: "5061030740989"
       },
@@ -2889,21 +2975,15 @@ export const typhonProducts: TyphonProduct[] = [
         value: "3.0 ton"
       },
       {
-        label: "Lift Height",
-        value: "of 4"
-      },
-      {
         label: "Capacity",
-        value: "compared to many forklift machines on the market"
+        value: "electric forklift engineered for warehouses, manufacturing facilities, logistics centers,"
       }
     ],
     features: [
-      "Compact and Powerful Weighs 7500 lb with a rated lifting weight of 6,600 lb.",
-      "Precision Handling Load center distance of 19.7 in.",
-      "Maneuverability Minimum turning radius of 99.6 in (8.3 ft).",
-      "Efficient Power Source Powered by a 60V/250 Ah lead-acid battery.",
-      "Operational Excellence Equipped with hydraulic steering for precise control.",
-      "Electric lift-truck platform"
+      "Electric lift-truck platform",
+      "Compact turning layout",
+      "Pallet handling mast",
+      "Indoor and yard material support"
     ],
     applications: [
       "Pallet handling",
@@ -2921,17 +3001,17 @@ export const typhonProducts: TyphonProduct[] = [
     category: "road-rollers",
     categoryLabel: "Road Roller",
     rawCategory: "MINI ROAD ROLLER",
-    sku: "TYPH-0901N",
+    sku: "TYPH-0901",
     gtin: "5061030741849",
-    price: "$ 6,613.95",
-    currentPrice: "$6,613.95",
+    price: "$8 818.74",
+    currentPrice: "$8,818.74",
     sourceUrl: "https://typhonmachinery.com/product/typhon-fury-10-mini-road-roller-1ton-hydraulic-oil-bs-13-5hp-gas-usa-air-cooled/",
-    buttonUrl: "/product/typhon-fury-10-mini-road-roller-1ton-hydraulic-oil-bs-13-5hp-gas-usa-air-cooled/",
+    buttonUrl: "/product#!/TYPHON-FURY-1-Ton-Vibratory-Compactor-Asphalt-Roller-USA/p/496604347",
     importConfidence: "100",
     series: "FURY road roller series",
     weight: "1.0 ton",
     tagline: "The TYPHON Fury 10 road roller delivers reliable and efficient compaction on asphalt, soil, and gravel. It features a 1-ton operating weight, providing the perfect balance of power and maneuverability for small-to-medium jobs. Designed for road construction, paving, and landscaping, its compact footprint allows smooth operation in confined spaces while maintaining excellent stability.",
-    description: "The TYPHON Fury 10 mini road roller delivers reliable and efficient compaction on asphalt, soil, and gravel. It features a 1-ton operating weight, providing the perfect balance of power and maneuverability for small-to-medium jobs, designed for road construction, paving, and landscaping, its compact footprint allows smooth operation in confined spaces while maintaining excellent stability. Powered by a strong hydraulic drive and advanced vibration system, it reduces required passes and boosts productivity. High climbing ability and articulated veer steering ensure safe, precise control on uneven terrain. User-friendly controls and an electronic pressure spray system complete this professional compaction solution. TYPHON Fury 10 Mini Road Roller Key Features: 1. Wide Applications: Designed for versatile compaction work, this machine is suitable for roads, highways, driveways, parking lots, and construction sites. Its compact size allows easy operation in tight areas while maintaining stable and efficient performance. With an overall length of 82.7 in (6.9 ft), width of 33.9 in, and height of 63 in (5.2 ft) (excluding impact beam), it is simple to transport and maneuver. The 27.6 in front and rear drum width and 20.9 in drum diameter ensure uniform compaction and smooth surface finishing. 2. Effective Compaction: Engineered for reliable performance, this machine delivers smooth and even compaction on asphalt, soil, and gravel. With a 30% climbing ability, it maintains strong traction on slopes and uneven terrain. The 0 in nominal amplitude, 75 Hz vibration frequency, and 35 kN excitation force work together to ensure deep, consistent compaction. A one-key vibration system with an electromagnetic clutch allows quick engagement and precise control, improving efficiency while reducing operator fatigue. 3. Refined Compact Strength: TYPHON Fury 10 mini road roller Featuring a 1-ton operating weight and powered by a Briggs & Stratton 13.5 HP gasoline engine, this air-cooled, four-stroke model delivers reliable performance with excellent fuel efficiency. It features an operating speed of 0-8 km/h for precise control and a tight 7.9 in turning radius for smooth operation in confined spaces. Equipped with a 5.5 L fuel tank and a fuel consumption rate of 300 g/kW·h, it supports extended working hours with minimal downtime. 4. User-Friendly Controls: Designed for safe, precise, and user-friendly operation, this machine features a fully hydraulically actuated drive system with dual-wheel drive on both front and rear wheels for stable traction and smooth control. Hydraulically actuated veer steering ensures accurate maneuvering in tight spaces, while the electronically controlled pressure spray water sprinkler system improves moisture control and compaction quality. One-key vibration with an electromagnetic clutch front drum vibration for uniform surface compaction, and the comfortable ergonomic operator chair reduces fatigue during long working hours. FURY 10 Mini Road Roller-Performance Highlights: Compaction & Force: Delivers a 35 kN excitation force and 75 Hz frequency via hydraulic vibration, featuring a 0 in amplitude for smooth results on asphalt, soil, and gravel. Power & Build: A 1-ton sturdy frame powered by a 13.5 HP Briggs & Stratton engine, offering 0-8 km/h speed range and an efficient 300 g/kWh fuel rate with a 5.5L tank. Precision Control: Equipped with hydraulic actuated and an electronically controlled pressure water spray system for accurate, safe, and intuitive operation. Gradability: Tackles inclines with a robust 30% climbing ability, making it suitable for sloped driveways and uneven construction sites. Frequency & Force: Operates at a high 75 Hz vibration frequency with a powerful 35 kN excitation force, ensuring deep and uniform material stabilization.",
+    description: "TYPHON Fury 1-Ton Vibratory Road Roller Compactor GTIN: 5061030740323 The TYPHON Fury 1-Ton Vibratory Compactor is a professional-grade fully hydraulic vibratory road roller engineered to deliver exceptional soil, gravel, and asphalt compaction for contractors, municipalities, landscapers, and construction professionals. Designed for road construction, driveways, parking lots, pathways, farms, and landscaping projects, the Fury combines powerful compaction performance with easy operation and outstanding reliability. Powered by a dependable EPA-certified 13.5 HP gasoline engine, this compact roller features a fully hydraulic drive system, mechanical vibrating drum, electric start, and a powerful 25 kN centrifugal force to deliver smooth, uniform compaction across a wide variety of surfaces. Whether you're compacting asphalt, crushed stone, gravel, soil, or sand, the TYPHON Fury 1-Ton Vibratory Compactor provides the performance and durability needed to complete professional-grade projects efficiently. Key Features Powerful 13.5 HP EPA-Certified Engine The Fury is equipped with a dependable 13.5 HP gasoline engine that delivers reliable performance for demanding compaction applications. Engine Highlights 13.5 HP gasoline engine EPA Certified Electric start system Fuel-efficient operation Reliable power delivery Easy maintenance The engine provides the power required to maintain consistent vibration and hydraulic performance throughout the workday. Fully Hydraulic Drive System The Fury features a professional fully hydraulic transmission system that provides smooth operation and excellent control across a variety of job site conditions. Hydraulic Benefits Fully hydraulic drive Hydraulic steering Smooth forward and reverse travel Precise machine control Reduced operator fatigue Reliable performance under heavy workloads The hydraulic system ensures consistent productivity while minimizing maintenance requirements. Professional Vibratory Compaction Designed for demanding construction projects, the Fury delivers powerful vibration and compaction force for outstanding surface density. Compaction Performance 25 kN centrifugal force Mechanical vibrating front drum Uniform compaction Excellent asphalt finishing Superior gravel consolidation Faster project completion The powerful vibration system helps achieve professional compaction results with fewer passes. Built for Multiple Applications The Fury is engineered to handle a wide variety of compaction projects across construction, landscaping, and municipal applications. Ideal Applications Asphalt paving Gravel roads Soil compaction Parking lots Driveways Sidewalks Walking trails Municipal maintenance Farms Landscaping projects Its compact size allows operators to work efficiently in confined areas while maintaining excellent compaction performance. Operator-Friendly Design Designed for productivity and ease of use, the Fury includes features that improve comfort and simplify daily operation. Operator Features Electric start system Hydraulic steering CVT variable speed control Comfortable controls Excellent visibility Easy maintenance access These features help reduce operator fatigue while increasing job-site efficiency. Technical Specifications SpecificationDetailsProduct ModelTYPHON Fury 1-Ton Vibratory CompactorGTIN5061030740323Machine TypeVibratory Road RollerOperating Weight2,205 lb (1,0 lb)Engine Output13.5 HPEngine TypeEPA-Certified GasolineStarting SystemElectric StartCompaction Force25 kNMaximum Gradeability30%Drive SystemFully HydraulicSpeed ControlCVT Variable SpeedFront DrumMechanical Vibrating DrumSteeringHydraulicDrum Width29.1-31.5 in (740-31.5 in)Drum Diameter21.3 inWater Tank Capacity60 LHydraulic Oil Capacity19 LClutch TypeElectromagnetic Standard Equipment Included Every TYPHON Fury 1-Ton Compactor comes equipped with professional-grade accessories for immediate operation. Included with Your Compactor ✔ Fully hydraulic drive system ✔ Mechanical vibrating drum ✔ Electric start ✔ 60 L water sprinkler tank ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON Fury? The TYPHON Fury combines powerful compaction force, professional hydraulic performance, and dependable construction into one versatile road roller. Built for contractors and construction professionals, it delivers outstanding results across asphalt, gravel, soil, and landscaping applications. Key Benefits ✔ 13.5 HP EPA-certified gasoline engine ✔ Fully hydraulic drive system ✔ Powerful 25 kN compaction force ✔ Electric start system ✔ CVT variable speed control ✔ Hydraulic steering ✔ 30% climbing capability ✔ Large 60 L water tank ✔ Professional-grade durability Ideal Applications Road Construction Asphalt compaction Road repairs Parking lots Driveways Landscaping Garden paths Decorative stone Walkways Residential projects Agriculture Farm roads Equipment yards Gravel lanes Property improvements Municipal Projects Parks Sidewalks Public pathways Community infrastructure Powerful Compaction. Professional Results. The TYPHON Fury 1-Ton Vibratory Compactor combines a 13.5 HP EPA-certified engine, fully hydraulic drive system, and a powerful 25 kN vibrating drum to deliver professional-grade compaction for asphalt, gravel, and soil. Built for contractors, municipalities, and construction professionals, it provides the durability, efficiency, and performance needed to achieve smooth, long-lasting surfaces on every project.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829165088-gk4cc-1.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829165088-gk4cc-1.webp",
@@ -2952,11 +3032,11 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Current Price",
-        value: "$6,613.95"
+        value: "$8,818.74"
       },
       {
         label: "SKU",
-        value: "TYPH-0901N"
+        value: "TYPH-0901"
       },
       {
         label: "GTIN",
@@ -2969,15 +3049,17 @@ export const typhonProducts: TyphonProduct[] = [
       {
         label: "Engine Power",
         value: "13.5 HP"
+      },
+      {
+        label: "Capacity",
+        value: "60 LHydraulic Oil Capacity19 LClutch TypeElectromagnetic Standard Equipment Included Every"
       }
     ],
     features: [
-      "Wide Applications: Designed for versatile compaction work, this machine is suitable for roads, highways, driveways, parking lots, and construction sites.",
-      "Effective Compaction: Engineered for reliable performance, this machine delivers smooth and even compaction on asphalt, soil, and gravel.",
-      "Refined Compact Strength: TYPHON Fury 10 mini road roller Featuring a 1-ton operating weight and powered by a Briggs & Stratton",
-      "User-Friendly Controls: Designed for safe, precise, and user-friendly operation, this machine features a fully hydraulically actuated drive system with dual-wheel drive on both front and rear wheels for stable traction and smooth control.",
       "Vibratory drum configuration",
-      "Compact compaction footprint"
+      "Compact compaction footprint",
+      "Hydraulic steering support",
+      "Small-site roadwork setup"
     ],
     applications: [
       "Soil compaction",
@@ -2997,15 +3079,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "MINI ROAD ROLLER",
     sku: "TYPH-0902N",
     gtin: "5061030741849",
-    price: "$ 8,398.95",
+    price: "$8 398.95",
     currentPrice: "$8,398.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-fury-15-mini-road-roller-1-5ton-13-5-hp-bs-gas-engine-hydraulic-steering/",
-    buttonUrl: "/product/typhon-fury-15-mini-road-roller-1-5ton-13-5-hp-bs-gas-engine-hydraulic-steering/",
+    buttonUrl: "/product#!/TYPHON-FURY-15-Mini-Road-Roller-1-5Ton-13-5-hp-B&S-Gas-Engine-Hydraulic-Steering/p/804841692",
     importConfidence: "100",
     series: "FURY road roller series",
     weight: "1.5 ton",
     tagline: "The TYPHON Fury 15 road roller provides consistent, efficient compaction for roads, highways, driveways, and construction sites. Its durable drums, hydraulic two-wheel drive, and vibration system ensure smooth, uniform compaction on asphalt, soil, and gravel.",
-    description: "The TYPHON Fury 15 mini road roller provides consistent, efficient compaction for roads, highways, driveways, and construction sites. Its durable drums, hydraulic two-wheel drive, and vibration system ensure smooth, uniform compaction on asphalt, soil, and gravel. Powered by a reliable engine, it delivers stable performance, precise control, and ease of operation. User-friendly controls, hydraulic steering, and water spray enhance safety and efficiency, making every project faster and more productive while delivering long-lasting, high-quality results. TYPHON Fury 15 Key Features: 1. Wide Applications: Designed for versatile compaction work, this compact roller is ideal for roads, highways, driveways, parking lots, and construction sites. With an 31.5 in front and rear drum width and a 20.9 in drum diameter, it delivers uniform, reliable compaction. Its compact dimensions, 2,7.9 in overall length, 36.2 in total width, and 1,24.4 in height (excluding impact beam), allow easy maneuvering in tight spaces, while a 2,3.9 in turning radius ensures smooth, efficient operation on any job site.2. Effective Compaction: This roller delivers smooth, consistent compaction on asphalt, soil, and gravel, ensuring a strong and durable surface finish. A hydraulic two-wheel-drive system provides stable traction and precise control, while front drum hydraulic vibration improves compaction efficiency. With 30% climbing ability, it performs confidently on slopes. The 0 in nominal amplitude, 75 Hz vibration frequency, and 35 kN excitation force work together to achieve deep, uniform compaction for reliable results on every job. 3. Refined Compact Strength: At the heart of this compact machine is a reliable Briggs & Stratton engine, delivering 13.5 HP of consistent power for any task. Its 1,838 lb weight ensures stability, while a 5.5 L fuel tank and efficient fuel consumption of just 300 g/kW·h allow for longer work cycles with fewer refuels. With a variable speed of 0-8 km/h, the engine drives with smooth, precise, and powerful operation on any terrain, making this machine a compact powerhouse for demanding jobs. 4. User-Friendly Controls: Take full control with simple, operate with confidence using simple, user-friendly controls designed to improve efficiency and comfort. Smooth hydraulic steering ensures precise handling, while the electronically regulated pressure water spray system delivers consistent performance. One-key vibration control with an electromagnetic clutch front drum vibration for uniform surface compaction, easy operation, and the comfortable ergonomic chair reduces fatigue during long working hours. Every feature is built to enhance safety, productivity, and ease of use on any job site. 5. FURY 15 - Performance Highlights: Compaction & Force: Delivers a 35 kn excitation force and 75 Hz frequency via hydraulic vibration, featuring a 0 in amplitude for smooth results on asphalt, soil, and gravel. Power & Build: A 1.5 Ton sturdy frame powered by a 13.5hp Briggs & Stratton engine, offering 0-8 km/h travel speed and an efficient 300 g/kWh fuel rate with a 5.5L tank. Precision Control: Equipped with hydraulic steering and an electronically controlled pressure water spray system for accurate, safe, and intuitive operation. Gradability: Tackles inclines with a robust 30% climbing ability, making it suitable for sloped driveways and uneven construction sites.",
+    description: "TYPHON Fury 15 Tandem Vibratory Road Roller GTIN: 5061030741849 The TYPHON Fury 15 Tandem Vibratory Road Roller is a professional 1.5-ton hydraulic compactor engineered to deliver consistent, high-quality compaction for asphalt, gravel, crushed stone, and soil. Designed for contractors, municipalities, landscapers, and construction professionals, the Fury 15 combines compact dimensions, powerful hydraulic performance, and advanced vibration technology to maximize productivity on every job site. Powered by a dependable 13.5 HP Briggs & Stratton gasoline engine, the Fury 15 features hydraulic two-wheel drive, 35 kN centrifugal force, 75 Hz vibration frequency, and precision hydraulic steering for smooth, uniform compaction with fewer passes. Its compact footprint makes it an excellent choice for road construction, driveways, parking lots, sidewalks, landscaping, and confined work areas where maneuverability is essential. Whether you're preparing foundations, repairing roads, compacting gravel, or finishing asphalt surfaces, the TYPHON Fury 15 delivers professional-grade results with outstanding reliability and ease of operation. Key Features Compact Design with Professional Performance Built for versatility, the Fury 15 delivers exceptional compaction performance while remaining compact enough for confined work environments. Ideal Applications Roads Highways Driveways Parking lots Sidewalks Construction sites Landscaping Municipal projects Its compact dimensions allow operators to work efficiently in narrow spaces without sacrificing compaction quality. Reliable 13.5 HP Briggs & Stratton Engine The Fury 15 is powered by a dependable Briggs & Stratton gasoline engine that delivers smooth, reliable performance throughout the workday. Engine Highlights 13.5 HP gasoline engine Reliable power delivery Fuel-efficient operation Low maintenance Designed for demanding construction work The engine provides consistent hydraulic power for travel, steering, and vibration functions. Professional Hydraulic Compaction System Designed for demanding job sites, the Fury 15 combines hydraulic drive with a high-performance vibration system to achieve uniform surface density. Compaction Performance 35 kN centrifugal force 75 Hz vibration frequency 0 in vibration amplitude Hydraulic front drum vibration Smooth, even compaction Reduced number of passes This advanced vibration system delivers excellent results on asphalt, gravel, and soil. Hydraulic Drive & Precision Steering The hydraulic drive system provides excellent traction, smooth travel, and precise machine control across varying terrain. Operator Benefits Hydraulic two-wheel drive Hydraulic steering Variable travel speed Excellent maneuverability Smooth handling Reduced operator fatigue The machine remains stable while maintaining excellent responsiveness in tight work areas. Comfortable & Easy Operation Every control is designed to improve productivity while keeping operators comfortable throughout long working days. Operator Features Ergonomic operator seat One-touch vibration activation Electromagnetic vibration clutch Electronic pressure water spray system Intuitive controls Excellent visibility These features improve comfort, efficiency, and overall job-site safety. Technical Specifications SpecificationDetailsProduct ModelTYPHON Fury 15GTIN5061030741849Machine TypeTandem Vibratory Road RollerOperating Weight1.5 Tons (1,838 lb)EngineBriggs & Stratton Gasoline EngineEngine Output13.5 HPDrive SystemHydraulic Two-Wheel DriveSteeringHydraulic SteeringTravel Speed0-8 km/hMaximum Gradeability30%Compaction Force35 kNVibration Frequency75 HzNominal Amplitude0.5 mmFront Drum Width800 mmRear Drum Width800 mmDrum Diameter530 mmOverall Length2,200 mmOverall Width920 mmOverall Height63.8 in (5.3 ft) (excluding impact beam)Turning Radius2,100 mmFuel Tank Capacity5.5 LFuel Consumption300 g/kWhWater Spray SystemElectronically Controlled Pressure SprayVibration ControlElectromagnetic Clutch Standard Equipment Included Every TYPHON Fury 15 comes equipped with professional features for immediate operation. Included with Your Roller ✔ 13.5 HP Briggs & Stratton engine ✔ Hydraulic two-wheel drive ✔ Hydraulic steering ✔ Tandem steel drums ✔ Front hydraulic vibration ✔ Electronic pressure water spray system ✔ Ergonomic operator seat ✔ Digital operator's manual Why Choose the TYPHON Fury 15? The TYPHON Fury 15 combines compact dimensions, dependable hydraulic performance, and professional-grade vibration technology into one efficient road roller. Built for contractors and construction professionals, it delivers consistent compaction while improving productivity and reducing operator fatigue. Key Benefits ✔ Powerful 13.5 HP Briggs & Stratton engine ✔ Professional 1.5-ton operating weight ✔ 35 kN centrifugal force ✔ Hydraulic two-wheel drive ✔ Hydraulic steering ✔ 75 Hz vibration frequency ✔ Electronic water spray system ✔ 30% climbing capability ✔ Compact design for confined work areas Ideal Applications Road Construction Asphalt paving Road maintenance Highway repairs Residential streets Commercial Construction Parking lots Industrial facilities Warehouse developments Site preparation Residential Projects Driveways Private roads Walkways Property improvements Landscaping & Municipal Work Parks Recreational paths Public infrastructure Landscape preparation Compact Size. Professional Results. The TYPHON Fury 15 Tandem Vibratory Road Roller combines a 13.5 HP Briggs & Stratton engine, 35 kN compaction force, hydraulic two-wheel drive, and a professional 75 Hz vibration system to deliver smooth, reliable compaction on asphalt, gravel, and soil. Built for contractors, municipalities, and construction professionals, it offers the perfect balance of power, maneuverability, and durability for projects where precision and productivity matter most.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829270687-tciou-1.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829270687-tciou-1.webp",
@@ -3043,15 +3125,17 @@ export const typhonProducts: TyphonProduct[] = [
       {
         label: "Engine Power",
         value: "13.5 HP"
+      },
+      {
+        label: "Capacity",
+        value: "5"
       }
     ],
     features: [
-      "Wide Applications: Designed for versatile compaction work, this compact roller is ideal for roads, highways, driveways, parking lots, and construction sites.",
-      "Refined Compact Strength: At the heart of this compact machine is a reliable Briggs & Stratton engine, delivering",
-      "User-Friendly Controls: Take full control with simple, operate with confidence using simple, user-friendly controls designed to improve efficiency and comfort.",
-      "FURY 15 - Performance Highlights: Compaction & Force: Delivers a 35 kn excitation force and 75 Hz frequency via hydraulic vibration, featuring a",
       "Vibratory drum configuration",
-      "Compact compaction footprint"
+      "Compact compaction footprint",
+      "Hydraulic steering support",
+      "Small-site roadwork setup"
     ],
     applications: [
       "Soil compaction",
@@ -3071,15 +3155,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "MINI ROAD ROLLER",
     sku: "TYPH-0903",
     gtin: "5061030741832",
-    price: "$ 12,598.95",
+    price: "$12 598.95",
     currentPrice: "$12,598.95",
     sourceUrl: "https://typhonmachinery.com/product/typhon-fury-20-mini-road-roller-2ton-hydraulic-oil-vibratory-bs-23hp-usa-engine/",
-    buttonUrl: "/product/typhon-fury-20-mini-road-roller-2ton-hydraulic-oil-vibratory-bs-23hp-usa-engine/",
+    buttonUrl: "/product#!/TYPHON-FURY-20-Mini-Road-Roller-2Ton-Hydraulic-Oil-Vibratory-B&S-23hp-USA-engine/p/805409009",
     importConfidence: "100",
     series: "FURY road roller series",
     weight: "2.0 ton",
     tagline: "The TYPHON FURY 20 Mini Road Roller 2 Ton, with a 23 HP B&S engine, delivers hydraulic vibratory compaction for asphalt, soil, and gravel with easy control.",
-    description: "The TYPHON Fury 20 Mini Road Roller delivers consistent, effective compaction across asphalt, soil, and gravel. Engineered for road building and landscaping, its sturdy design offers a small footprint for effortless maneuvering. This roller combines powerful hydraulic drive and advanced vibration technology to improve efficiency and reduce the number of passes required. With a high climbing ability and intuitive veer steering, it ensures safe, precise operation on any terrain. Complete with user-friendly controls and an electronic pressure spray system, it is the perfect tool for professional productivity. TYPHON Fury 20 Mini Road Roller Key Features: 1. Wide Applications: Engineered for versatility and reliable performance, this tandem roller is ideal for producing smooth, professional-grade surfaces. It is well-suited for highways, municipal roads, residential driveways, parking lots, and industrial construction sites. Featuring a 39.4 in drum width and 24 in drum diameter, along with compact dimensions of 90.6 in (7.5 ft) overall length, 44.1 in total width, and 65 in (5.4 ft) height (excluding impact beam), it delivers excellent maneuverability and strong compaction power, even in confined working areas. 2. Effective Compaction: Performance achieves smooth, even results on asphalt, soil, and gravel with this high-efficiency compactor. It combines a powerful hydraulic two-wheel drive with precision front drum hydraulic vibration to ensure maximum density on every pass. Engineered for versatility, it features 30% climbing capability on inclines, a 75 Hz vibration frequency, and a 0 in nominal amplitude. With a consistent 35 kN excitation force, it delivers the professional-grade power needed for demanding job sites. 3. Refined Compact Strength: This model features a sturdy, small-footprint design that delivers superior maneuverability without sacrificing power. It is powered by a 23 HP Briggs & Stratton engine, supporting a variable speed range of 0-12 km/h and an efficient fuel consumption rate of 240 g/kWh. With an operating weight of 2 Ton and a large 36L tank capacity, it provides the stability and endurance required for extended operations in tight or demanding job sites. 4. User-Friendly Controls: Engineered for safe and precise operation , this unit features an intuitive control layout with hydraulic steering for smooth, effortless maneuvering. The advanced electronically controlled pressure water spray system provides efficient, even drum sprinkling while minimizing water waste. One-key vibration activation with an electromagnetic clutch front drum vibration for uniform surface compaction, reliable compaction control, and the comfortable, ergonomic operator seat reduces fatigue during extended use, allowing full focus on achieving a flawless finish. 5. FURY 20 - Performance Highlights: Compaction & Force: Delivers a 35 kN excitation force and 75 Hz frequency via hydraulic vibration, featuring a 0 in amplitude for smooth results on asphalt, soil, and gravel. Power & Build: A 2-ton sturdy frame powered by a 23 HP Briggs & Stratton gasoline engine, offering 0-12 km/h travel speed and an efficient 240 g/kWh fuel rate with a 36L tank. Precision Control: Equipped with hydraulic steering and an electronically controlled pressure water spray system for accurate, safe, and intuitive operation. Gradability: Tackles inclines with a robust 30% climbing ability, making it suitable for sloped driveways and uneven construction sites.",
+    description: "TYPHON Fury 20 Tandem Vibratory Road Roller GTIN: 5061030741832 The TYPHON Fury 20 Tandem Vibratory Road Roller is a professional 2-ton hydraulic compactor engineered to deliver exceptional compaction performance for asphalt, gravel, crushed stone, and soil. Built for contractors, municipalities, road crews, and landscaping professionals, the Fury 20 combines powerful hydraulic drive, advanced vibration technology, and outstanding maneuverability to maximize productivity on every job site. Powered by a dependable 23 HP Briggs & Stratton gasoline engine, the Fury 20 features hydraulic two-wheel drive, 35 kN centrifugal force, 75 Hz vibration frequency, and a 39.4 in tandem drum system that produces smooth, uniform compaction with fewer passes. Its compact footprint allows operators to work efficiently in tight urban environments while still delivering the power required for commercial construction projects. Whether you're paving roads, compacting foundations, repairing parking lots, or preparing landscaping projects, the TYPHON Fury 20 delivers professional-grade results with exceptional reliability and ease of operation. Key Features Professional 2-Ton Compaction Performance Built for demanding construction environments, the Fury 20 delivers powerful vibration and consistent compaction across multiple surface types. Performance Highlights 2-ton operating weight Professional tandem drum design Hydraulic two-wheel drive Uniform compaction Excellent surface finishing High job-site productivity The optimized weight distribution ensures excellent compaction while maintaining outstanding maneuverability. Powerful 23 HP Briggs & Stratton Engine A reliable Briggs & Stratton gasoline engine provides dependable performance throughout demanding workdays. Engine Features 23 HP gasoline engine Fuel-efficient operation Reliable starting Smooth power delivery Low maintenance design Built for continuous commercial use The engine delivers consistent hydraulic performance for vibration, steering, and machine travel. Advanced Hydraulic Vibration System The Fury 20 uses a hydraulic vibration system that produces professional compaction results on asphalt, gravel, and soil. Compaction Performance 35 kN centrifugal force 75 Hz vibration frequency 0 in vibration amplitude Front drum hydraulic vibration Uniform surface density Faster project completion Its powerful vibration system reduces the number of compaction passes while improving finished surface quality. Hydraulic Drive & Precision Steering Designed for smooth, effortless operation, the Fury 20 provides excellent control on both flat and uneven terrain. Operator Benefits Hydraulic steering Hydraulic two-wheel drive Variable travel speed Excellent maneuverability Smooth handling Reduced operator fatigue The compact chassis allows operators to work comfortably in confined construction zones. Electronic Water Spray System An electronically controlled pressure water spray system helps prevent asphalt from sticking to the drums while improving compaction quality. Water System Advantages Even drum coverage Reduced water waste Cleaner drum surfaces Better asphalt finishing One-touch operation This system improves efficiency while extending drum performance during paving operations. Technical Specifications SpecificationDetailsProduct ModelTYPHON Fury 20GTIN5061030741832Machine TypeTandem Vibratory Road RollerOperating Weight2 TonsEngineBriggs & Stratton Gasoline EngineEngine Output23 HPDrive SystemHydraulic Two-Wheel DriveSteeringHydraulic SteeringTravel Speed0-12 km/hMaximum Gradeability30%Compaction Force35 kNVibration Frequency75 HzNominal Amplitude0.5 mmDrum Width1,000 mmDrum Diameter610 mmOverall Length2,300 mmOverall Width1,120 mmOverall Height65 in (5.4 ft) (excluding impact beam)Fuel Tank Capacity36 LFuel Consumption240 g/kWhWater Spray SystemElectronically Controlled Pressure SprayVibration ActivationElectromagnetic Clutch Standard Equipment Included Every TYPHON Fury 20 comes equipped with professional features for immediate operation. Included with Your Roller ✔ 23 HP Briggs & Stratton gasoline engine ✔ Hydraulic two-wheel drive ✔ Tandem steel drums ✔ Hydraulic vibration system ✔ Electronic pressure water spray system ✔ Hydraulic steering ✔ Ergonomic operator seat ✔ Digital operator's manual Why Choose the TYPHON Fury 20? The TYPHON Fury 20 combines powerful hydraulic performance, professional vibration technology, and excellent maneuverability into one dependable road roller. Built for contractors and construction professionals, it delivers smooth, consistent compaction while reducing project time and operator fatigue. Key Benefits ✔ Powerful 23 HP Briggs & Stratton engine ✔ 2-ton professional operating weight ✔ 35 kN centrifugal force ✔ Hydraulic two-wheel drive ✔ Hydraulic steering ✔ 75 Hz vibration frequency ✔ Electronic water spray system ✔ 30% climbing capability ✔ Compact design for confined work areas Ideal Applications Road Construction Highway paving Street resurfacing Asphalt patching Municipal road repairs Commercial Construction Parking lots Industrial facilities Warehouse developments Site preparation Residential Projects Driveways Private roads Community pathways Property improvements Landscaping & Infrastructure Parks Walking trails Recreational areas Public infrastructure Professional Compaction. Maximum Productivity. The TYPHON Fury 20 Tandem Vibratory Road Roller combines a 23 HP Briggs & Stratton engine, 35 kN compaction force, hydraulic two-wheel drive, and an advanced 75 Hz vibration system to deliver outstanding results on asphalt, gravel, and soil. Designed for contractors, municipalities, and construction professionals, it provides the power, precision, and durability needed to complete demanding compaction projects with confidence and efficiency.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829372613-u2p02-1.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829372613-u2p02-1.webp",
@@ -3124,16 +3208,14 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Capacity",
-        value: ", it provides the stability and endurance required for extended operations in tight or dem"
+        value: "36 LFuel Consumption240 g/kWhWater Spray SystemElectronically Controlled Pressure SprayVib"
       }
     ],
     features: [
-      "Wide Applications: Engineered for versatility and reliable performance, this tandem roller is ideal for producing smooth, professional-grade surfaces.",
-      "Effective Compaction: Performance achieves smooth, even results on asphalt, soil, and gravel with this high-efficiency compactor.",
-      "Refined Compact Strength: This model features a sturdy, small-footprint design that delivers superior maneuverability without sacrificing power.",
-      "User-Friendly Controls: Engineered for safe and precise operation , this unit features an intuitive control layout with hydraulic steering for smooth, effortless maneuvering.",
-      "FURY 20 - Performance Highlights: Compaction & Force: Delivers a 35 kN excitation force and 75 Hz frequency via hydraulic vibration, featuring a",
-      "Vibratory drum configuration"
+      "Vibratory drum configuration",
+      "Compact compaction footprint",
+      "Hydraulic steering support",
+      "Small-site roadwork setup"
     ],
     applications: [
       "Soil compaction",
@@ -3145,7 +3227,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-xflex-4068et-electric-rubber-track-scissor-lift-3-2-ton-with-5-4hp-hydraulic-pump-motor-drive-and-hydraulic-lifting-cylinder-40-ft-max-lifting-height",
-    name: "TYPHON xFlex 4068ET Electric Rubber Track Scissor Lift",
+    name: "TYPHON xFlex 4068ET",
     productType: "equipment",
     rawProductType: "equipment",
     category: "scissor-lifts",
@@ -3153,15 +3235,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "Equipment",
     sku: "xFlex-4068ET",
     gtin: "5061030742198",
-    price: "$ 23,511.46",
+    price: "$23 511.46",
     currentPrice: "$23,511.46",
     sourceUrl: "https://typhonmachinery.com/product/typhon-xflex-4068et-electric-rubber-track-scissor-lift-3-2-ton-with-5-4hp-hydraulic-pump-motor-drive-and-hydraulic-lifting-cylinder-40-ft-max-lifting-height/",
-    buttonUrl: "/product/typhon-xflex-4068et-electric-rubber-track-scissor-lift-3-2-ton-with-5-4hp-hydraulic-pump-motor-drive-and-hydraulic-lifting-cylinder-40-ft-max-lifting-height/",
+    buttonUrl: "/product#!/TYPHON-xFlex-4068ET-Electric-Rubber-Track-Scissor-Lift-3-2-Ton-with-5-4HP-Hydraulic-Pump-Motor-Drive-and-Hydraulic-Lifting-Cylinder-40-ft-Max-Lifting-Height/p/837444761",
     importConfidence: "100",
     series: "xFLEX lift series",
     weight: "3.2 ton",
     tagline: "The TYPHON xFlex-4068ET Scissor Lift is a high-reach, heavy-duty electric lifting solution designed for demanding industrial, construction, and facility maintenance operations.",
-    description: "The TYPHON xFlex 4068ET Electric Rubber Track Scissor Lift is a high-reach, heavy-duty electric lifting solution designed for demanding industrial, construction, and facility maintenance operations. With a powerful 3.2 tons structure and an impressive maximum platform height of 40 ft, this model delivers exceptional vertical access while maintaining stability, precision, and operator safety. Built for professionals who require maximum reach without compromise, the xFlex 4068ET ensures reliable performance in high-elevation environments. 1. Reach New Heights with Confidence This high-performance scissor lift is designed for demanding work at elevation. It features an overall height of 81-inch (fence not folded), a maximum platform elevation of 40 ft, and a maximum operating height of 45 ft 11-inch. With a safe working load of 705 lb, it easily supports operators and tools. The 35-inch platform extension enhances reach, while the powerful 5.4 HP (5.4 HP) lifting oil pump motor ensures smooth lifting. Built with a reinforced platform chassis using 8 thick steel plates for maximum strength and durability. 2. Superior Maneuverability Designed for strength and agility, this machine has a total weight of 3.2 tons, with an overall length of 117-inch and a width of 68-inch for balanced, compact handling. Built on durable 13-inch × 95-inch tracks, it provides excellent traction and stability across rough terrain. The spacious 91-inch × 46-inch platform is reinforced with a heavy-duty 0.31-inch steel plate chassis for enhanced durability and operator support. It delivers a maximum climbing capability of 30°, allowing confident operation on slopes, while a climb rate of 15 ft/min ensures efficient vertical performance. Built for stability, precision, and smooth movement in demanding jobsite conditions. 3. Premium Power and Lasting Performance Equipped with a walking-style hydraulic motor drive, this machine ensures smooth, stable, and efficient movement across various job sites. It provides a controlled speed of 0.5 mph for precise positioning and safe operation in tight spaces. Powered by a storage battery 6V/200Ah × 8 and a 48V/30A charger, it delivers reliable energy support. Charging time: 6-7 hours. Working time on full charge: 6-8 hours, ensuring long-lasting productivity and reduced downtime. 4. Safety Features The machine includes a safety maintenance support rod for secure servicing. The guardrail, bracket, and support leg system enhance platform safety during elevated work, while the robust scissor lift structure ensures stable lifting performance. A fault code battery display allows quick diagnostics, and a main power switch provides immediate system control. The integrated power plug ensures safe charging, while fully automatic tracked travel delivers stable and secure movement on various terrains. 5. Control Features Equipped with an intelligent control system, automatic leveling outriggers for smooth and precise operation, this unit ensures efficient performance in all conditions. The chassis control system enables stable ground maneuvering, while forward/backward and up/down controls provide accurate positioning and lifting. An emergency stop ensures immediate shutdown for safety. The turtle speed switch allows slow, controlled movement in tight spaces, and the platform expansion control device adds extra working reach when required.",
+    description: "TYPHON xFlex-4068ET Electric Rubber Track Scissor Lift GTIN: 5061030742198 The TYPHON xFlex-4068ET Electric Rubber Track Scissor Lift is a heavy-duty electric access machine designed for industrial work, construction sites, facility maintenance, warehouse operations, and elevated service tasks. Built with a strong 3.2-ton structure, rubber track travel system, automatic leveling outriggers, and a maximum platform height of 40 ft, this scissor lift delivers stable vertical access for demanding jobsite conditions. Designed for professionals who need height, stability, and reliable electric performance, the xFlex-4068ET provides a maximum operating height of 45 ft 11 in, a safe working load of 705 lb, and a spacious reinforced work platform. Its tracked drive system improves traction on rough or uneven ground, while the electric battery system supports quiet, low-emission operation for indoor and outdoor use. Whether used for construction, maintenance, installation, inspection, lighting work, warehouse service, or facility repair, the TYPHON xFlex-4068ET provides dependable lifting performance with operator-focused controls and built-in safety features. Key Features High-Reach Electric Lifting Performance The xFlex-4068ET is designed for demanding elevated work where reach, stability, and platform strength matter. Lift Performance Highlights Maximum Platform Height: 40 ft Maximum Operating Height: 45 ft 11 in Safe Working Load: 705 lb Platform Extension: 35 in Lift Pump Motor: 5.4 HP / 5.4 HP Climb Rate: 15 ft/min The lift system provides smooth vertical movement, helping operators work safely and efficiently at height. Heavy-Duty Reinforced Platform The work platform is built for strength and operator support, using a reinforced chassis and thick steel construction. Platform Features Spacious work platform Heavy-duty steel plate chassis Reinforced platform structure Platform extension for added reach Stable support for operators, tools, and materials The platform measures 91 in × 46 in, providing practical working space for elevated maintenance and construction tasks. Rubber Track Travel System Unlike standard wheeled scissor lifts, the xFlex-4068ET uses a rubber track system for improved traction and stability across challenging jobsite conditions. Track System Benefits Better traction on rough terrain Improved stability on uneven ground Reduced ground pressure compared to narrow wheels Smooth movement across job sites Useful for outdoor construction and maintenance areas The machine is equipped with durable 13 in × 95 in rubber tracks to support confident movement across varied surfaces. Electric Battery Power System The xFlex-4068ET uses an electric battery system designed for reliable operation with reduced noise and emissions. Power System Details Battery System: 6V / 200Ah × 8 Built-In Charger: 48V / 30A Charging Time: 6-7 hours Working Time Per Full Charge: 6-8 hours Travel Speed: 0.5 mph This makes the lift suitable for indoor work, facility maintenance, warehouse use, and outdoor jobs where quiet operation is useful. Automatic Leveling Outriggers The automatic leveling outrigger system helps stabilize the machine before elevated work, improving operator confidence and platform safety. Leveling Benefits Helps maintain platform stability Supports safer elevated operation Improves setup efficiency Useful on uneven surfaces Reduces manual adjustment time Operator-Focused Controls The intelligent control system is designed for smooth, precise movement during both ground travel and platform operation. Control Features Chassis control system Platform up/down control Forward and backward travel controls Turtle speed switch for slow movement Platform expansion control device Emergency stop Main power switch Fault code battery display These controls help operators position the machine accurately and work safely in tight or elevated environments. Safety Features The xFlex-4068ET includes practical safety features for operation, maintenance, and elevated work. Built-In Safety Equipment Safety maintenance support rod Guardrail system Bracket and support leg system Automatic leveling outriggers Emergency stop button Main power switch Fault code battery display Integrated power plug Fully automatic tracked travel system These features help support safe operation, easier diagnostics, and more reliable jobsite performance. Technical Specifications SpecificationDetailsProduct ModelTYPHON xFlex-4068ETGTIN5061030742198Machine TypeElectric Rubber Track Scissor LiftMachine Weight3.2 TonsMaximum Platform Height40 ftMaximum Operating Height45 ft 11 inSafe Working Load705 lbsOverall Length117 inOverall Width68 inOverall Height81 inPlatform Size91 in × 46 inPlatform Extension35 inTrack Size13 in × 95 inMaximum Climbing Capability30°Climb Rate15 ft/minTravel Speed0.5 mphLift Pump Motor5.4 HP / 5.4 HPBattery System6V / 200Ah × 8Charger48V / 30A Built-In ChargerCharging Time6-7 HoursWorking Time6-8 Hours Per Full ChargeDrive SystemWalking-Style Hydraulic Motor DriveLeveling SystemAutomatic Leveling Outriggers Standard Equipment Included The TYPHON xFlex-4068ET comes equipped with the features needed for professional elevated access work. Included Equipment ✔ Electric scissor lift system ✔ Rubber track travel system ✔ Automatic leveling outriggers ✔ Platform extension ✔ Guardrail system ✔ Safety maintenance support rod ✔ Chassis control system ✔ Platform control system ✔ Emergency stop ✔ Main power switch ✔ Fault code battery display ✔ Built-in charger ✔ Integrated power plug Ideal Applications Construction Work Elevated installation Structural access Ceiling work Wall finishing Jobsite inspection Facility Maintenance Lighting maintenance HVAC access Electrical service Building repairs Warehouse maintenance Industrial Operations Equipment inspection Factory maintenance Elevated repairs Plant operations Indoor and outdoor access work Commercial Property Service Signage installation Exterior maintenance Roofline access Parking facility work General elevated repairs Why Choose the TYPHON xFlex-4068ET? The TYPHON xFlex-4068ET Electric Rubber Track Scissor Lift is built for professionals who need high reach, stable movement, and reliable electric performance. With a 40 ft platform height, 45 ft 11 in working height, 705 lb safe working load, rubber track drive system, and automatic leveling outriggers, it provides the strength and confidence needed for demanding elevated tasks. Key Benefits ✔ 40 ft maximum platform height ✔ 45 ft 11 in maximum operating height ✔ 705 lb safe working load ✔ Heavy-duty 3.2-ton structure ✔ Rubber track travel system for improved traction ✔ Automatic leveling outriggers ✔ Electric battery-powered operation ✔ 6-8 hours working time per charge ✔ Platform extension for added reach ✔ Intelligent controls with emergency stop ✔ Ideal for construction, industrial, warehouse, and facility maintenance use Built for Stable High-Reach Work The TYPHON xFlex-4068ET Electric Rubber Track Scissor Lift delivers the reach, stability, and control needed for professional elevated work. With its tracked drive system, strong platform structure, electric power system, automatic leveling outriggers, and operator-focused controls, it is a dependable solution for construction crews, maintenance teams, warehouses, industrial sites, and property service professionals.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829547530-1func-1.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829547530-1func-1.webp",
@@ -3202,16 +3284,14 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Lift Height",
-        value: "of 40 ft, this model delivers exceptional vertical access while maintaining stability, pr"
+        value: "of 40 ft, this scissor lift delivers stable vertical access for demanding jobsite conditi"
       }
     ],
     features: [
-      "Reach New Heights with Confidence This high-performance scissor lift is designed for demanding work at elevation.",
-      "Superior Maneuverability Designed for strength and agility, this machine has a total weight of",
-      "Premium Power and Lasting Performance Equipped with a walking-style hydraulic motor drive, this machine ensures smooth, stable, and efficient movement across various job sites.",
-      "Safety Features The machine includes a safety maintenance support rod for secure servicing.",
-      "Control Features Equipped with an intelligent control system, automatic leveling outriggers for smooth and precise operation, this unit ensures efficient performance in all conditions.",
-      "Electric lift platform"
+      "Electric lift platform",
+      "Compact access footprint",
+      "Guarded work platform",
+      "Vertical maintenance support"
     ],
     applications: [
       "Elevated maintenance",
@@ -3223,7 +3303,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-xflex-4065w-walk-behind-scissor-lift-2-7-ton-with-assisted-walking-manual-outriggers-of-40-ft-lifting-height-110v-electric",
-    name: "TYPHON xFlex 4065W Walk Behind Scissor Lift",
+    name: "TYPHON xFlex 4065W",
     productType: "equipment",
     rawProductType: "equipment",
     category: "scissor-lifts",
@@ -3231,15 +3311,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "Equipment",
     sku: "xFlex-4065W",
     gtin: "5061030742150",
-    price: "$ 9,403.96",
+    price: "$9 403.96",
     currentPrice: "$9,403.96",
     sourceUrl: "https://typhonmachinery.com/product/typhon-xflex-4065w-walk-behind-scissor-lift-2-7-ton-with-assisted-walking-manual-outriggers-of-40-ft-lifting-height-110v-electric/",
-    buttonUrl: "/product/typhon-xflex-4065w-walk-behind-scissor-lift-2-7-ton-with-assisted-walking-manual-outriggers-of-40-ft-lifting-height-110v-electric/",
+    buttonUrl: "/product#!/TYPHON-xFlex-4065W-Walk-Behind-Scissor-Lift-2-7-Ton-with-Assisted-Walking-Manual-outriggers-of-40-ft-lifting-Height-&-110V-Electric/p/837469759",
     importConfidence: "100",
     series: "xFLEX lift series",
     weight: "2.71 ton",
     tagline: "Boost workplace safety and efficiency with the TYPHON xFlex 4065W Scissor Lift. Designed for maintenance, installation, and light construction, this machine provides a secure and stable platform for working at height.",
-    description: "Boost workplace safety and efficiency with the TYPHON xFlex 4065W Walk Behind Scissor Lift. Designed for maintenance, installation, and light construction, this machine provides a secure and stable platform for working at height. Its durable steel structure ensures long-lasting reliability, while the compact design allows easy movement in tight spaces. Smooth operation and simple controls make it easy for your team to use. Combining strength, stability, and maneuverability, the xFlex 4065W is a dependable solution for daily job site tasks. 1. Engineered for Maximum Productivity Spacious, High-Capacity Platform: The large 100 in x 60 in platform provides ample room for multiple workers and their tools, supporting a strong 1102 lb load capacity. Designed for efficiency and safety, it allows your team to work comfortably at height. For added flexibility, helping you position precisely where needed for maintenance, installation, and other elevated tasks. Impressive Reach: Access elevated work areas with ease thanks to a maximum lifted height of 40 ft, giving your team the elevation needed for maintenance, installation, and other high-access tasks. Traceless Mobility: Move smoothly across finished indoor floors without leaving marks or damage. The traceless tires help protect surfaces, while the walk-behind design allows easy manual positioning before elevating. With a compact overall size of 89-inch x 67-inch x 50-inch and a sturdy 2.71 Ton build, this lift is easy to store, transport, and maneuver in tight spaces, making it a practical choice for indoor maintenance and installation work. 2. Uncompromising Safety and Control We prioritize your safety above all else. The TYPHON xFlex 4065W Walk Behind Scissor Lift features a comprehensive suite of protective measures so you can focus entirely on the job at hand: Secure Enclosures: The platform is fully surrounded by safety guardrails and integrated kickboards, providing added protection for operators working at height. This design helps reduce the risk of falls while preventing tools and materials from slipping off, ensuring a safer and more controlled work environment. Total Stability: Deploy the sturdy outriggers and support legs before lifting to create a secure, balanced base. This added stability helps improve safety, supports smooth operation, and gives operators greater confidence when working at height on different job sites. Fail-Safe Operations: Emergency stop buttons are conveniently positioned on both the ground base and the elevated platform, allowing immediate shutdown when needed. This dual-control safety system helps ensure fast response in case of emergencies, enhancing overall operator protection and job site safety. Intuitive Controls: The straightforward up/down control system is easy to learn, allowing operators to use the lift safely and efficiently with minimal training. The integrated drawbar also provides smooth maneuvering and convenient transport across job sites, improving overall productivity and ease of use.",
+    description: "TYPHON xFlex-4065W Walk-Behind Scissor Lift GTIN: 5061030742150 The TYPHON xFlex-4065W Walk-Behind Scissor Lift is a heavy-duty elevated access solution designed for maintenance, installation, facility service, warehouse work, and light construction tasks. Built with a durable steel structure, spacious work platform, traceless tires, outriggers, and easy walk-behind mobility, this lift gives operators a stable and practical way to work at height. With a maximum lifted height of 40 ft, a strong platform capacity of 1,102 lb, and a large 100 in × 60 in work platform, the xFlex-4065W is built for teams that need more room, more reach, and more confidence during elevated work. Its walk-behind design allows easy manual positioning before lifting, while the support legs and outriggers provide a secure base for stable operation. Designed for finished indoor floors, commercial facilities, warehouses, and job sites, the xFlex-4065W combines reach, stability, and simple controls into one dependable access machine. Key Features 40 ft Maximum Lifted Height The xFlex-4065W provides strong vertical reach for maintenance, installation, inspection, and light construction work. Lift Performance Highlights Maximum Lifted Height: 40 ft Platform Capacity: 1,102 lb Spacious Work Platform: 100 in × 60 in Supports operators, tools, and light materials Ideal for high-access maintenance and installation tasks This height makes the machine suitable for jobs that require secure access to ceilings, lights, walls, structures, warehouse areas, and facility systems. Large High-Capacity Platform The wide work platform gives operators more room to work comfortably while supporting a strong working load. Platform Benefits Large working area 1,102 lb load capacity Room for multiple workers and tools More comfortable elevated working space Better productivity during installation and maintenance tasks The platform is fully surrounded by safety guardrails and kickboards to help protect operators and reduce the risk of tools or materials falling from height. Walk-Behind Mobility The walk-behind design allows the lift to be manually positioned before elevation, making it practical for indoor maintenance, facility work, and jobsite movement. Mobility Benefits Easy manual positioning Simple movement across job sites Integrated drawbar for convenient transport Compact storage and transport profile Useful in warehouses, commercial spaces, and maintenance areas Machine Dimensions SpecificationDetailsMachine Weight2.71 TonsOverall Length89 inOverall Width67 inOverall Height50 in Traceless Tires for Finished Floors The xFlex-4065W is equipped with traceless tires designed to move across finished indoor floors without leaving scuffs or marks. Best For Warehouses Retail spaces Factories Schools Offices Commercial buildings Facility maintenance areas Indoor installation projects Stable Outrigger Support Before lifting, operators can deploy the support legs and outriggers to create a balanced and secure working base. Stability Benefits Improves elevated platform stability Supports safer operation at height Reduces movement during lifting Gives operators more confidence Useful for maintenance, installation, and inspection work Safety Features The xFlex-4065W is built with practical safety systems designed to support secure elevated operation. Built-In Safety Equipment Full platform guardrails Integrated kickboards Support legs Stable outriggers Emergency stop on ground base Emergency stop on platform Simple up/down control system Integrated drawbar for safer movement These features help operators focus on the job while maintaining a safer working environment. Control Features The xFlex-4065W uses a simple and intuitive control layout, making operation easier for trained users. Operator Controls Up/down platform controls Ground control station Platform control station Emergency stop buttons Integrated drawbar for movement Manual walk-behind positioning The straightforward control system helps reduce training complexity while supporting smooth, controlled operation. Technical Specifications SpecificationDetailsProduct ModelTYPHON xFlex-4065WGTIN5061030742150Machine TypeWalk-Behind Scissor LiftMachine Weight2.71 TonsMaximum Lifted Height40 ftPlatform Capacity1,102 lbsPlatform Size100 in × 60 inOverall Dimensions89 × 67 × 50 inMobility TypeWalk-Behind / Manual PositioningTiresTraceless TiresSafety SupportOutriggers and Support LegsControlsUp / Down Control SystemEmergency StopGround Base and Platform Standard Equipment Included The TYPHON xFlex-4065W comes equipped for professional elevated access work. Included Equipment ✔ Walk-behind scissor lift system ✔ Large high-capacity work platform ✔ Full safety guardrails ✔ Integrated kickboards ✔ Traceless tires ✔ Outriggers ✔ Support legs ✔ Ground emergency stop ✔ Platform emergency stop ✔ Integrated drawbar ✔ Simple up/down controls Ideal Applications Facility Maintenance Lighting replacement HVAC access Ceiling repairs Building inspections Electrical service General maintenance tasks Warehouse Operations Rack access Inventory support Indoor repairs Equipment inspection Facility upkeep Commercial Buildings Retail maintenance Office repairs School facility work Signage installation Indoor service projects Light Construction Interior finishing Elevated installation Painting support Electrical work Inspection tasks Why Choose the TYPHON xFlex-4065W? The TYPHON xFlex-4065W Walk-Behind Scissor Lift is designed for teams that need strong lifting height, platform space, and stable elevated access. With its 40 ft maximum lifted height, 1,102 lb platform capacity, large work platform, traceless tires, outriggers, and easy walk-behind positioning, it is a practical solution for warehouses, facility maintenance, commercial buildings, and light construction work. Key Benefits ✔ 40 ft maximum lifted height ✔ Heavy-duty 1,102 lb platform capacity ✔ Spacious 100 in × 60 in work platform ✔ Durable 2.71-ton steel structure ✔ Walk-behind design for easy positioning ✔ Traceless tires for finished indoor floors ✔ Outriggers and support legs for stability ✔ Emergency stop controls on base and platform ✔ Simple up/down operation ✔ Ideal for facility maintenance, warehouses, installation, and light construction Heavy-Duty Elevated Access Made Simple The TYPHON xFlex-4065W Walk-Behind Scissor Lift gives operators a stable, spacious, and reliable platform for working at height. Built for maintenance, installation, warehouse work, and light construction, it combines strong lifting capability, easy mobility, and practical safety features to help teams complete elevated tasks with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830241070-qeckd-1.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830241070-qeckd-1.webp",
@@ -3274,13 +3354,15 @@ export const typhonProducts: TyphonProduct[] = [
         value: "2.71 ton"
       },
       {
+        label: "Lift Height",
+        value: ", platform space, and stable elevated access"
+      },
+      {
         label: "Capacity",
-        value: "Platform: The large 100 in x 60 in platform provides ample room for multiple workers and"
+        value: "of 1,102 lb, and a large 100 in × 60 in work platform, the xFlex-4065W is built for teams"
       }
     ],
     features: [
-      "Engineered for Maximum Productivity Spacious, High-Capacity Platform: The large 100 in x 60 in platform provides ample room for multiple workers and their tools, supporting a strong 1102 lb load capacity.",
-      "Uncompromising Safety and Control We prioritize your safety above all else.",
       "Electric lift platform",
       "Compact access footprint",
       "Guarded work platform",
@@ -3296,23 +3378,23 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-xflex-4046ew-electric-wheel-scissor-lift-2-6-ton-operating-weight-and-40ft-platform-height-with-705lbs-load-capacity",
-    name: "TYPHON xFlex-4046EW Electric Wheel Scissor Lift",
+    name: "TYPHON xFlex-4046EW",
     productType: "equipment",
     rawProductType: "equipment",
     category: "scissor-lifts",
     categoryLabel: "Scissor Lift",
     rawCategory: "Equipment",
-    sku: "",
+    sku: "xFlex-4046EW",
     gtin: "5061030742181",
-    price: "$ 12,329.96",
+    price: "$12 329.96",
     currentPrice: "$12,329.96",
     sourceUrl: "https://typhonmachinery.com/product/typhon-xflex-4046ew-electric-wheel-scissor-lift-2-6-ton-operating-weight-and-40ft-platform-height-with-705lbs-load-capacity/",
-    buttonUrl: "/product/typhon-xflex-4046ew-electric-wheel-scissor-lift-2-6-ton-operating-weight-and-40ft-platform-height-with-705lbs-load-capacity/",
+    buttonUrl: "/product#!/TYPHON-xFlex-4046EW-Electric-Wheel-Scissor-Lift-2-6-Ton-operating-weight-and-40ft-platform-height-with-705lbs-Load-Capacity/p/837444764",
     importConfidence: "100",
     series: "xFLEX lift series",
     weight: "2.6 ton",
     tagline: "Take your elevated operations to the next level with the TYPHON xFlex-4046EW Electric Wheel Scissor Lift, a powerful, high-reach electric lift engineered for demanding industrial and commercial environments.",
-    description: "Take your elevated operations to the next level with the TYPHON xFlex 4046EW Electric Wheel Scissor Lift , a powerful, high-reach electric lift engineered for demanding industrial and commercial environments. With a durable 2.6 Ton operating weight and an impressive 40 ft platform height, this model is built for tasks that require extended vertical access without compromising stability or safety. Ideal for warehouses, construction sites, and facility maintenance, the xFlex 4046EW delivers dependable performance, smooth operation, and efficient mobility to keep your team productive at height. 1. Reach New Heights with Confidence Engineered for superior elevation and precision, this scissor lift offers a maximum platform height of 40 ft with a safe working load of 705.48 lb, supporting up to 2 employees with tools and equipment. The 35.4-inch platform extension, rated at 249.12 lb, improves access to hard-to-reach areas while maintaining stability and safety. It features an 80-90 second rising/falling cycle for smooth and efficient operation. Overall height is 76.4-inch with the fence folded, and 104-inch unfolded, ensuring flexible transport, convenient storage, and reliable working performance on demanding job sites. 2. Superior Maneuverability in Tight Spaces Making it the perfect solution for tight indoor and outdoor work environments. With a work platform size of just 91-inch (L) × 46-inch (W), this lift easily navigates narrow aisles and congested job sites. A 79-inch wheelbase improves stability and handling, while the 4-inch maximum ground clearance in the folded state helps tackle uneven terrain. During lifting operations, the platform maintains a 0.8-inch ground clearance for safe performance. Its zero inner turning radius enables precise maneuvering in confined spaces, while the 94.49-inch outer turning radius provides smooth directional control. Built for real-world conditions, it features 25% gradeability for ramps and slopes, plus a max working angle of 1.5° / 3° (X/Y) for enhanced stability and operator confidence. 3. Premium Power and Lasting Performance Built to keep your operations running smoothly all day. Equipped with a 24V / 6 HP lifting and drive motor, it delivers consistent, energy-efficient performance across demanding tasks. The lift travels at 0.37 mph when retracted and 0.37 mph when elevated, ensuring both speed and safety on the job. Its robust battery system, featuring 4 × 6V / 200Ah units, provides reliable endurance, while the 24V / 30A charger supports efficient recharging with minimal downtime. Charging time is approximately 6-7 hours, delivering a working time of 6-8 hours on a full charge. Engineered for durability and productivity, this machine is ready to perform whenever you are. 4. Safety Features: Built for reliable protection and safe operation, this machine is equipped with a safety maintenance support rod for secure servicing. Solid tires with integrated brakes provide stability and controlled stopping power. A fault code battery display enables quick system diagnostics and monitoring. The main power switch allows immediate control of the electrical system, while the integrated power plug ensures safe and efficient charging. 5. Control Features: Designed for precise and efficient operation, the intelligent control system ensures smooth handling in all working conditions. The chassis control system provides stable ground maneuvering, while forward/backward and up/down controls allow accurate positioning and lifting. An emergency stop offers immediate shutdown for enhanced safety. The turtle speed switch enables slow, controlled movement in confined spaces, and the platform expansion control device adds extra reach when required.",
+    description: "TYPHON xFlex-4046EW Electric Wheel Scissor Lift GTIN: 5061030742181 The TYPHON xFlex-4046EW Electric Wheel Scissor Lift is a high-reach electric access machine designed for warehouses, construction sites, facility maintenance, commercial buildings, industrial operations, and elevated service work. Built with a durable 2.6-ton operating weight, a maximum platform height of 40 ft, and a safe working load of 705.48 lb, this scissor lift gives operators the height, stability, and electric performance needed for demanding indoor and outdoor tasks. Designed for professional crews, the xFlex-4046EW combines smooth electric lifting, precise wheel maneuverability, solid tires with braking support, platform extension reach, and intelligent controls. Its compact body, zero inner turning radius, and efficient battery system make it especially useful in tight workspaces, narrow aisles, crowded facilities, and active job sites. Whether used for lighting, HVAC, electrical work, warehouse maintenance, construction access, inspections, or building repairs, the TYPHON xFlex-4046EW provides stable, efficient, and reliable elevated access. Key Features 40 ft Platform Height The xFlex-4046EW is designed for jobs that require extended vertical access while maintaining platform stability and operator safety. Lift Performance Highlights Maximum Platform Height: 40 ft Safe Working Load: 705.48 lb Platform Extension: 35.4 in Platform Extension Load Capacity: 249.12 lb Rising / Falling Cycle: 80-90 seconds Supports up to 2 workers with tools and equipment This makes it suitable for elevated installation, maintenance, inspection, and repair tasks. Compact Wheel Design for Tight Spaces The electric wheel drive layout allows smooth movement in narrow aisles, indoor facilities, and busy job sites. Maneuverability Benefits Zero inner turning radius Smooth directional control Compact platform footprint Easy positioning in tight areas Suitable for warehouses and commercial buildings Efficient movement through narrow spaces Key Dimensions SpecificationDetailsWork Platform Size91 in × 46 inWheelbase79 inOuter Turning Radius94.49 inGround Clearance, Folded4 inGround Clearance, Elevated0.8 inHeight, Fence Folded76.4 inHeight, Fence Unfolded104 in Electric Power for Quiet, Efficient Operation The xFlex-4046EW is powered by a reliable electric battery system designed for long work sessions and reduced downtime. Power System Details Lifting / Drive Motor: 24V / 6 HP Battery System: 4 × 6V / 200Ah Charger: 24V / 30A Charging Time: 6-7 hours Working Time: 6-8 hours per full charge Electric operation helps reduce noise and emissions, making this lift suitable for warehouses, indoor maintenance, commercial buildings, and controlled work environments. Controlled Travel Speeds The travel system is designed to balance movement speed and jobsite safety. Travel Speed ModeSpeedRetracted Travel Speed0.37 mphElevated Travel Speed1.12 mph This allows safer positioning during elevated work while still providing efficient ground movement when the platform is lowered. Stable Performance on Job Sites Built for real-world working conditions, this scissor lift offers stable movement and reliable platform control. Stability Features 25% gradeability Maximum working angle: 1.5° / 3° (X/Y) Solid tires with integrated brakes Durable wheelbase design Controlled electric drive Low elevated ground clearance for safer operation These features help operators work with better confidence in warehouses, industrial spaces, and construction environments. Safety Features The xFlex-4046EW includes practical safety systems for operation, movement, diagnostics, and maintenance. Built-In Safety Equipment Safety maintenance support rod Solid tires with brakes Emergency stop Fault code battery display Main power switch Integrated power plug Intelligent control system Stable chassis control system These features help improve safe operation, simplify troubleshooting, and support reliable daily use. Control Features The intelligent control system is designed for smooth handling and accurate platform positioning. Operator Controls Chassis control system Forward / backward travel control Platform up / down control Emergency stop Turtle speed switch Platform expansion control device Battery and fault code display These controls allow operators to maneuver carefully in tight spaces and position the platform with better accuracy. Technical Specifications SpecificationDetailsProduct ModelTYPHON xFlex-4046EWGTIN5061030742181Machine TypeElectric Wheel Scissor LiftOperating Weight2.6 TonsMaximum Platform Height40 ftSafe Working Load705.48 lbsPlatform Extension35.4 inPlatform Extension Capacity249.12 lbsWork Platform Size91 in × 46 inHeight, Fence Folded76.4 inHeight, Fence Unfolded104 inRise / Fall Cycle80-90 secondsWheelbase79 inOuter Turning Radius94.49 inInner Turning Radius0 inGround Clearance, Folded4 inGround Clearance, Elevated0.8 inGradeability25%Maximum Working Angle1.5° / 3° (X/Y)Lifting / Drive Motor24V / 4.5 kWTravel Speed, Retracted0.37 mphTravel Speed, Elevated1.12 mphBattery System4 × 6V / 200AhCharger24V / 30ACharging Time6-7 HoursWorking Time6-8 Hours Per Full ChargeTiresSolid Tires with Brakes Standard Equipment Included The TYPHON xFlex-4046EW comes equipped for professional elevated access work. Included Equipment ✔ Electric wheel scissor lift system ✔ Platform extension ✔ Intelligent control system ✔ Chassis control system ✔ Solid tires with brakes ✔ Safety maintenance support rod ✔ Emergency stop ✔ Turtle speed switch ✔ Fault code battery display ✔ Main power switch ✔ Integrated power plug ✔ 24V / 30A charger Ideal Applications Warehouse Operations Inventory access Rack maintenance Lighting work Indoor inspection Facility repairs Construction Sites Elevated installation Ceiling and wall work Structural access Electrical service Site inspection Facility Maintenance HVAC access Lighting replacement Building repairs Commercial maintenance Indoor and outdoor service work Industrial & Commercial Use Factory maintenance Equipment inspection Signage installation Plant operations High-access cleaning and repair Why Choose the TYPHON xFlex-4046EW? The TYPHON xFlex-4046EW Electric Wheel Scissor Lift is built for professionals who need reliable height, compact maneuverability, and efficient electric operation. With a 40 ft platform height, 705.48 lb safe working load, platform extension, intelligent controls, solid tire braking system, and long-lasting battery performance, this lift is designed to keep crews productive and safe at elevation. Key Benefits ✔ 40 ft maximum platform height ✔ 705.48 lb safe working load ✔ 2.6-ton heavy-duty structure ✔ Electric wheel drive system ✔ Compact design for tight indoor and outdoor areas ✔ Zero inner turning radius ✔ Platform extension for improved reach ✔ Solid tires with brakes ✔ 6-8 hours working time per charge ✔ Ideal for warehouses, construction sites, and facility maintenance Electric Access Built for Professional Work The TYPHON xFlex-4046EW Electric Wheel Scissor Lift delivers the reach, control, and dependable electric performance needed for elevated tasks in warehouses, construction sites, industrial facilities, and commercial properties. Built for safe high-reach access and smooth maneuverability, it helps operators complete work at height with confidence, efficiency, and stability.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830366842-9vxns-1.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830366842-9vxns-1.webp",
@@ -3336,6 +3418,10 @@ export const typhonProducts: TyphonProduct[] = [
         value: "$12,329.96"
       },
       {
+        label: "SKU",
+        value: "xFlex-4046EW"
+      },
+      {
         label: "GTIN",
         value: "5061030742181"
       },
@@ -3349,16 +3435,18 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Lift Height",
-        value: ", this model is built for tasks that require extended vertical access without compromising"
+        value: "of 40 ft, and a safe working load of 705"
+      },
+      {
+        label: "Capacity",
+        value: ": 249"
       }
     ],
     features: [
-      "Reach New Heights with Confidence Engineered for superior elevation and precision, this scissor lift offers a maximum platform height of 40 ft with a safe working load of",
-      "Superior Maneuverability in Tight Spaces Making it the perfect solution for tight indoor and outdoor work environments.",
-      "Premium Power and Lasting Performance Built to keep your operations running smoothly all day.",
-      "Safety Features: Built for reliable protection and safe operation, this machine is equipped with a safety maintenance support rod for secure servicing.",
-      "Control Features: Designed for precise and efficient operation, the intelligent control system ensures smooth handling in all working conditions.",
-      "Electric lift platform"
+      "Electric lift platform",
+      "Compact access footprint",
+      "Guarded work platform",
+      "Vertical maintenance support"
     ],
     applications: [
       "Elevated maintenance",
@@ -3370,7 +3458,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-xflex-2031em-1-2-ton-electric-mini-scissor-lift-with-20ft-max-platform-height-and-19-7-platform-extend",
-    name: "TYPHON xFLEX-2031EM Electric Mini Scissor Lift",
+    name: "TYPHON xFLEX-2031EM",
     productType: "equipment",
     rawProductType: "equipment",
     category: "scissor-lifts",
@@ -3378,15 +3466,15 @@ export const typhonProducts: TyphonProduct[] = [
     rawCategory: "Equipment",
     sku: "xFLEX-2031EM",
     gtin: "5061030742174",
-    price: "$ 11,493.96",
+    price: "$11 493.96",
     currentPrice: "$11,493.96",
     sourceUrl: "https://typhonmachinery.com/product/typhon-xflex-2031em-1-2-ton-electric-mini-scissor-lift-with-20ft-max-platform-height-and-19-7-platform-extend/",
-    buttonUrl: "/product/typhon-xflex-2031em-1-2-ton-electric-mini-scissor-lift-with-20ft-max-platform-height-and-19-7-platform-extend/",
+    buttonUrl: "/product#!/TYPHON-xFLEX-2031EM-1-2-Ton-Electric-Mini-Scissor-Lift-with-20ft-Max-Platform-Height-and-19-7-Platform-Extend/p/837464013",
     importConfidence: "100",
     series: "xFLEX lift series",
-    weight: "1.2 ton",
+    weight: "2646 lb",
     tagline: "Elevate your operational efficiency with the TYPHON xFlex-2031EM Electric Scissor Lift, with a weight of 2646 lb. Engineered for demanding professional environments, this mini electric propulsion lift delivers uncompromising stability, robust power, and seamless mobility.",
-    description: "Elevate your operational efficiency with the TYPHON xFLEX 2031EM 1.2 Ton Electric Mini Scissor Lift, with a weight of 2646 lb. Engineered for demanding professional environments, this mini electric propulsion lift delivers uncompromising stability, robust power, and seamless mobility. Whether you manage a high-volume warehouse, oversee commercial construction, or maintain large-scale facilities, the xFlex-2031EM provides the secure, reliable access you need to keep your projects on track and your workforce safe. We designed this machine to tackle your most challenging vertical tasks, minimizing downtime and maximizing daily productivity. Reach New Heights with Confidence The xFlex-2031EM features a maximum platform height of 20 ft and supports a safe working load of 705.48 lb, easily accommodating up to two employees along with their essential tools. For tasks requiring a bit more reach over obstacles, the 19.7-inch platform extension supports a safety workload of 249.12 lb. The machine rises and falls smoothly with an 80-90 second cycle time, ensuring steady and secure positioning. It delivers a maximum working height of 26.25 ft, with an overall height of 68.9-inch (folded fence) and 80.7-inch (unfolded fence), providing flexibility for transport, storage, and safe operation. Superior Maneuverability in Tight Spaces Navigating congested factory floors and narrow warehouse aisles requires precision. We built the xFlex-2031EM with a compact overall footprint of 74.8-inch in length and 31.5-inch in width, paired with a 54.3-inch wheelbase. It boasts an inner minimum turning radius of 0 and an outer turning radius of 66.9-inch, allowing you to pivot flawlessly in confined areas. Furthermore, its impressive 25% Maximum gradeability and a maximum allowable working angle of 2º/3º (x/y) mean uneven surfaces and ramps will not slow down your progress. Premium Power and Lasting Performance Powered by a robust 24V / 4 HP lifting and drive motor, this scissor lift guarantees consistent performance throughout the workday. The reliable 12V/120Ah dual-battery system, paired with a 24V/25A charger, ensures sustained energy for long shifts, with a charging time of 6-7 hours and a working time of 6-8 hours on a full charge. You can move efficiently between job sites with a retracted travel speed of 2.2 mph, while the lifted travel speed of 0.5 mph allows for careful, precise adjustments while elevated. Advanced Safety Built for dependable protection, this machine features a safety maintenance support rod for secure servicing. Solid tires with integrated brakes provide stability and reliable stopping power. A fault code battery display enables quick diagnostics and system monitoring. The main power switch allows immediate control of the electrical system, while the integrated power plug ensures safe and efficient charging. Control Features Designed for precise and efficient operation, the intelligent control system ensures smooth handling in all conditions. The chassis control system allows stable ground maneuvering, while forward/backward and up/down controls provide accurate positioning and lifting. An emergency stop enhances operator safety with instant shutdown capability. The turtle speed switch enables slow, controlled movement in confined spaces, and the platform expansion control device increases working reach when required.",
+    description: "TYPHON xFlex-2031EM Electric Mini Scissor Lift GTIN: 5061030742174 The TYPHON xFlex-2031EM Electric Mini Scissor Lift is a compact electric access machine designed for warehouses, commercial buildings, facility maintenance, construction sites, and industrial workspaces where safe elevated access and tight-space maneuverability are essential. With a machine weight of 2,646 lb, a maximum platform height of 20 ft, and a maximum working height of 26.25 ft, this lift provides stable vertical reach while remaining compact enough for narrow aisles and congested work areas. Powered by a 24V / 4 HP lifting and drive motor, the xFlex-2031EM delivers smooth electric operation, dependable battery performance, and precise control for everyday professional use. Its compact footprint, zero inner turning radius, platform extension, solid tires with brakes, and intelligent control system make it a practical solution for maintenance crews, warehouse teams, installers, and contractors who need reliable access at height without using oversized equipment. Key Features 20 ft Platform Height The xFlex-2031EM provides dependable vertical access for elevated work in indoor and light-duty outdoor environments. Lift Performance Highlights Maximum Platform Height: 20 ft Maximum Working Height: 26.25 ft Safe Working Load: 705.48 lb Platform Extension: 19.7 in Platform Extension Load Capacity: 249.12 lb Rise / Fall Cycle Time: 80-90 seconds Supports up to 2 workers with tools This makes it suitable for maintenance, installation, inspection, warehouse access, and facility service tasks. Compact Design for Narrow Spaces Designed for tight work environments, the xFlex-2031EM features a compact body that allows operators to move through narrow aisles and crowded job sites with confidence. Maneuverability Benefits Zero inner turning radius Compact 31.5 in machine width Smooth directional control Easy positioning in narrow work areas Practical for warehouses and commercial buildings Good control in congested job sites Key Dimensions SpecificationDetailsOverall Length74.8 inOverall Width31.5 inWheelbase54.3 inOuter Turning Radius66.9 inInner Turning Radius0 inHeight, Fence Folded68.9 inHeight, Fence Unfolded80.7 in Electric Power and Long Working Time The electric drive system provides quiet, efficient performance for indoor and professional maintenance environments. Power System Details Lifting / Drive Motor: 24V / 4 HP Battery System: 2 × 12V / 120Ah Charger: 24V / 25A Charging Time: 6-7 hours Working Time: 6-8 hours per full charge This battery system helps reduce downtime while supporting productive daily use. Smooth Travel and Precise Positioning The xFlex-2031EM is designed with two travel speeds for safe and controlled movement. Travel Speed ModeSpeedRetracted Travel Speed2.2 mphElevated Travel Speed0.5 mph The slower elevated travel speed allows careful positioning while working at height, while the faster retracted speed helps operators move efficiently between work areas. Stable Performance on Ramps and Uneven Surfaces Built for real-world workspaces, this lift includes stable driving and positioning features to support safer operation. Stability Features Maximum Gradeability: 25% Maximum Working Angle: 2° / 3° (X/Y) Solid tires with integrated brakes Stable wheelbase Low-maintenance electric drive Controlled movement in tight spaces Safety Features The xFlex-2031EM includes practical safety systems for operation, charging, movement, and maintenance. Built-In Safety Equipment Safety maintenance support rod Solid tires with brakes Emergency stop Fault code battery display Main power switch Integrated power plug Intelligent control system Chassis control system These features help support safe operation, easy diagnostics, and reliable daily use. Control Features The intelligent control system is designed to help operators position the lift accurately and work efficiently. Operator Controls Chassis control system Forward / backward travel control Platform up / down control Emergency stop Turtle speed switch Platform expansion control device Battery and fault code display This control layout supports smooth ground maneuvering, accurate lifting, and careful movement in tight spaces. Technical Specifications SpecificationDetailsProduct ModelTYPHON xFlex-2031EMGTIN5061030742174Machine TypeElectric Mini Scissor LiftMachine Weight2,646 lbsMaximum Platform Height20 ftMaximum Working Height26.25 ftSafe Working Load705.48 lbsPlatform Extension19.7 inPlatform Extension Capacity249.12 lbsOverall Length74.8 inOverall Width31.5 inHeight, Fence Folded68.9 inHeight, Fence Unfolded80.7 inWheelbase54.3 inInner Turning Radius0 inOuter Turning Radius66.9 inRise / Fall Cycle80-90 secondsMaximum Gradeability25%Maximum Working Angle2° / 3° (X/Y)Lifting / Drive Motor24V / 3.0 kWBattery System2 × 12V / 120AhCharger24V / 25ACharging Time6-7 HoursWorking Time6-8 Hours Per Full ChargeRetracted Travel Speed2.2 mphElevated Travel Speed0.5 mphTiresSolid Tires with Brakes Standard Equipment Included The TYPHON xFlex-2031EM comes equipped for professional elevated access work. Included Equipment ✔ Electric scissor lift system ✔ Platform extension ✔ Intelligent control system ✔ Chassis control system ✔ Solid tires with brakes ✔ Safety maintenance support rod ✔ Emergency stop ✔ Turtle speed switch ✔ Fault code battery display ✔ Main power switch ✔ Integrated power plug ✔ 24V / 25A charger Ideal Applications Warehouse Operations Rack access Inventory work Lighting maintenance Facility inspection Indoor repair tasks Commercial Maintenance Ceiling work Electrical service HVAC access Signage work Building repairs Construction Sites Interior finishing Elevated installation Inspection tasks Light construction access Mechanical and electrical work Industrial Facilities Equipment inspection Plant maintenance Factory repairs Indoor access work General service operations Why Choose the TYPHON xFlex-2031EM? The TYPHON xFlex-2031EM Electric Mini Scissor Lift is built for professionals who need compact size, stable lifting, and reliable electric performance. With a 20 ft platform height, 26.25 ft working height, 705.48 lb safe working load, zero inner turning radius, solid tires with brakes, and a 6-8 hour working time per charge, this lift is a practical access solution for warehouses, facilities, construction projects, and commercial maintenance work. Key Benefits ✔ 20 ft maximum platform height ✔ 26.25 ft maximum working height ✔ 705.48 lb safe working load ✔ Compact 31.5 in machine width ✔ Zero inner turning radius ✔ 19.7 in platform extension ✔ Electric drive and lifting system ✔ 6-8 hours working time per charge ✔ Solid tires with integrated brakes ✔ Ideal for warehouses, facilities, construction, and maintenance teams Compact Electric Access for Professional Work The TYPHON xFlex-2031EM Electric Mini Scissor Lift provides safe, stable, and efficient elevated access in compact work environments. Designed for warehouses, commercial buildings, industrial facilities, and construction sites, it gives operators the reach, control, and reliability needed to complete elevated tasks with confidence.",
     image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830465046-o0ft9-1.webp",
     gallery: [
       "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830465046-o0ft9-1.webp",
@@ -3420,7 +3508,7 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Weight Class",
-        value: "1.2 ton"
+        value: "2646 lb"
       },
       {
         label: "Engine Power",
@@ -3428,7 +3516,11 @@ export const typhonProducts: TyphonProduct[] = [
       },
       {
         label: "Lift Height",
-        value: "of 20 ft and supports a safe working load of 705"
+        value: "of 20 ft, and a maximum working height of 26"
+      },
+      {
+        label: "Capacity",
+        value: ": 249"
       }
     ],
     features: [
@@ -3444,6 +3536,2515 @@ export const typhonProducts: TyphonProduct[] = [
       "Jobsite vertical access"
     ],
     imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-xflex-2037w",
+    name: "TYPHON xFlex-2037W",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "scissor-lifts",
+    categoryLabel: "Scissor Lift",
+    rawCategory: "",
+    sku: "xFlex-2037W",
+    gtin: "",
+    price: "$4 910.46",
+    currentPrice: "$4,910.46",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-xFlex-2037W-Walk-Behind-Scissor-Lift-comes-with-20ft-Working-Height-and-Manual-outriggers-1102-lbs-load-capacity-110V-Electric/p/837469757",
+    importConfidence: "",
+    series: "xFLEX lift series",
+    weight: "1,102 lb",
+    tagline: "Elevate your operational efficiency and workplace safety with the TYPHON xFlex-2037W Scissor Lift. We engineered this robust machine to give you absolute confidence when tackling maintenance, installation, and light construction tasks. Built with a stable steel structure and designed for precision, the xFlex-2037W ensures your team can work securely at height while navigating tight spaces with ease.",
+    description: "TYPHON xFlex-2037W Walk-Behind Scissor Lift GTIN: 5061030742167 The TYPHON xFlex-2037W Walk-Behind Scissor Lift is a stable, compact, and easy-to-maneuver lifting solution designed for facility maintenance, warehouse work, installation jobs, commercial service, and light construction tasks. Built with a durable steel structure, spacious work platform, safety guardrails, support outriggers, and simple up/down controls, this lift helps operators work at height with confidence and efficiency. With a maximum lifted height of 20 ft, a heavy-duty platform capacity of 1,102 lb, and a compact walk-behind design, the xFlex-2037W provides dependable elevated access while remaining easy to position, store, and transport around indoor job sites. Its traceless tires help protect finished floors, making it especially useful for warehouses, factories, retail spaces, schools, offices, and commercial facilities. Key Features 20 ft Elevated Working Reach The xFlex-2037W is designed to provide safe and stable access for elevated work tasks. Lift Performance Highlights Maximum Lifted Height: 20 ft Platform Capacity: 1,102 lb Platform Size: 83 in × 33 in Supports operators, tools, and light materials Ideal for maintenance, installation, and inspection work The high-capacity platform gives crews more space and load support for productive elevated work. Spacious High-Capacity Platform The large platform provides room for operators and essential tools while maintaining a strong working capacity. Platform Benefits Spacious working area Strong 1,102 lb load capacity Room for tools and materials Full guardrail protection Kickboards to help prevent dropped tools Stable working surface for elevated tasks Walk-Behind Mobility The walk-behind design allows operators to manually position the lift before elevating, making it simple to move around work areas. Mobility Benefits Easy manual positioning Simple movement through indoor spaces Integrated drawbar for easier handling Compact storage footprint Practical for warehouses and facility maintenance Machine Dimensions SpecificationDetailsMachine Weight1,764 lbsOverall Length89 inOverall Width37.4 inOverall Height47.2 in Traceless Tires for Finished Floors The xFlex-2037W is equipped with traceless tires designed to reduce marks and scuffs on finished indoor surfaces. Best For Warehouse floors Retail spaces Schools Offices Factories Commercial buildings Indoor maintenance areas Stable Outrigger Support Before lifting, operators can deploy the support legs and outriggers to improve machine stability during elevated work. Stability Benefits Stronger platform support Safer elevated operation Better balance during lifting Increased operator confidence Useful for maintenance and installation tasks Safety Features The xFlex-2037W includes practical safety systems designed to protect operators and support stable elevated work. Built-In Safety Equipment Full platform guardrails Kickboards around the platform Support legs Stable outriggers Emergency stop on the ground base Emergency stop on the platform Simple up/down control system Integrated drawbar for safe movement These safety features help operators work securely while keeping machine operation simple and easy to understand. Technical Specifications SpecificationDetailsProduct ModelTYPHON xFlex-2037WGTIN5061030742167Machine TypeWalk-Behind Scissor LiftMachine Weight1,764 lbsMaximum Lifted Height20 ftPlatform Capacity1,102 lbsPlatform Size83 in × 33 inOverall Dimensions89 × 37.4 × 47.2 inMobility TypeWalk-Behind / Manual PositioningTiresTraceless TiresSafety SupportOutriggers and Support LegsControlsUp / Down Control SystemEmergency StopGround Base and Platform Standard Equipment Included The TYPHON xFlex-2037W comes equipped for practical elevated access work. Included Equipment ✔ Walk-behind scissor lift system ✔ Spacious work platform ✔ Full safety guardrails ✔ Kickboards ✔ Traceless tires ✔ Outriggers ✔ Support legs ✔ Ground emergency stop ✔ Platform emergency stop ✔ Integrated drawbar ✔ Simple up/down controls Ideal Applications Facility Maintenance Lighting replacement HVAC access Ceiling repairs Building inspections General maintenance tasks Warehouse Operations Rack access Inventory work Indoor repairs Equipment inspection Facility cleanup support Commercial Buildings Retail maintenance Office repairs School facility work Signage installation Indoor service tasks Light Construction Interior finishing Elevated installation Painting support Electrical work Inspection tasks Why Choose the TYPHON xFlex-2037W? The TYPHON xFlex-2037W Walk-Behind Scissor Lift is built for teams that need a simple, stable, and high-capacity elevated access solution. With its 20 ft lifted height, 1,102 lb platform capacity, spacious work platform, traceless tires, outriggers, and easy walk-behind positioning, it provides dependable performance for indoor maintenance, warehouse work, facility service, and light construction tasks. Key Benefits ✔ 20 ft maximum lifted height ✔ Heavy-duty 1,102 lb platform capacity ✔ Spacious 83 in × 33 in platform ✔ Compact walk-behind design ✔ Traceless tires for finished indoor floors ✔ Outriggers and support legs for stability ✔ Emergency stop controls on base and platform ✔ Simple up/down operation ✔ Ideal for warehouses, facilities, commercial buildings, and light construction Stable Elevated Access Made Simple The TYPHON xFlex-2037W Walk-Behind Scissor Lift gives operators a practical way to work safely and efficiently at height. Built with a strong platform, stable support system, easy controls, and floor-friendly mobility, it is a reliable choice for maintenance crews, warehouse teams, installers, and contractors who need dependable elevated access in compact work areas.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830572731-46hdp-1.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830572731-46hdp-1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830591061-9f65z-10.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830589984-mf74t-9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830588962-irhl3-8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830588017-c4udk-7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830586863-ci160-6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830585351-48gcr-5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830584206-x52xk-4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830583207-jqwf4-3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830582308-mix75-2.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Scissor Lift"
+      },
+      {
+        label: "Current Price",
+        value: "$4,910.46"
+      },
+      {
+        label: "SKU",
+        value: "xFlex-2037W"
+      },
+      {
+        label: "Weight Class",
+        value: "1,102 lb"
+      },
+      {
+        label: "Capacity",
+        value: "of 1,102 lb, and a compact walk-behind design, the xFlex-2037W provides dependable elevat"
+      }
+    ],
+    features: [
+      "Electric lift platform",
+      "Compact access footprint",
+      "Guarded work platform",
+      "Vertical maintenance support"
+    ],
+    applications: [
+      "Elevated maintenance",
+      "Warehouse access",
+      "Indoor installation",
+      "Jobsite vertical access"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-xxv-cabin",
+    name: "TYPHON XXV Cabin",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-XX52G",
+    gtin: "",
+    price: "$23 098.95",
+    currentPrice: "$23,098.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-XXV-Diesel-Mini-Excavator-2-7-Ton-25-1-hp-Kubota-D1105-RetractableTracks-AC-Cabin/p/798578262",
+    importConfidence: "",
+    series: "Mini Excavator series",
+    weight: "2.7 ton",
+    tagline: "The brand new Terror XXV Prestige 2.7 Ton cabin mini excavator is built for today's small and average project construction, with a focus on speed and efficiency. Compact yet powerful, it provides impeccable performance and has a unique multi-functional design that allows it to operate almost anywhere. Whether you're working in confined spaces or on strenuous construction projects, this machine provides efficiency and flexibility in every situation. Its innovative features make it a reliable, Even if you are a first-time user, it is easy to use. An AC /heater cabin allows you to excavate in comfort.",
+    description: "TYPHON TERROR XXV Prestige 2.7-Ton Cabin Mini Excavator GTIN: 5061030741658 The TYPHON TERROR XXV Prestige is a powerful 2.7-ton cabin mini excavator built for small to mid-size construction projects, landscaping work, agriculture, utility jobs, and property development. Designed for speed, efficiency, and operator comfort, this compact excavator combines strong Kubota diesel performance, smooth pilot controls, retractable tracks, boom swing, and a fully enclosed AC/heated cabin for dependable operation in different jobsite conditions. With a compact overall width of 55.1 in (4.6 ft) and a total height of 99.6 in (8.3 ft), the TERROR XXV Prestige is engineered to work in areas where larger machines cannot easily fit. It delivers reliable digging power, precise control, and flexible maneuverability for trenching, grading, lifting, breaking, and general excavation work. Powered by a Kubota D1105 diesel engine, this machine provides the strength and durability needed for demanding work while remaining compact enough for narrow access areas, residential sites, and tight construction zones. Key Features Compact Design for Tight Spaces The TERROR XXV Prestige is built for jobs where space is limited but performance still matters. Best For Tight-Space Work Residential construction Narrow job sites Utility trenching Landscaping projects Indoor construction zones Agriculture Property maintenance Foundation preparation Compact Machine Profile SpecificationDetailsOverall Width1400 mmOverall Height2530 mmMinimum Swing Radius1955 mmGround Clearance5.7 in Its compact size helps operators move confidently through restricted areas while still maintaining the stability needed for productive excavation. Powerful Kubota D1105 Diesel Engine The TERROR XXV Prestige is powered by a dependable Kubota D1105 vertical, water-cooled, 4-cycle diesel engine. Known for reliability and efficient performance, this engine gives the excavator the power needed for digging, trenching, grading, and attachment work. Engine Highlights Kubota D1105 diesel engine Vertical, water-cooled, 4-cycle design 25.1 HP @ 3000 RPM 19 HP @ 2200 RPM Maximum torque: 71.4 Nm / 52.7 lb-ft @ 2200 RPM Strong fuel efficiency Reliable long-term performance Water-cooled durability for extended work Smooth Pilot Control System The hydraulic pilot control system gives operators smoother, lighter, and more accurate machine control. Control Benefits Easier operation Better digging precision Reduced operator fatigue Smooth boom and bucket movement More accurate grading and trenching Better confidence for newer operators This makes the TERROR XXV Prestige practical for both experienced operators and users who are still building machine experience. AC and Heated Cabin for All-Weather Comfort The enclosed cabin helps operators stay comfortable in different weather conditions, making long working hours easier and more productive. Cabin Features Air conditioning Heater Enclosed operator space Comfortable working environment Improved protection from weather Better comfort during long shifts Cabin Dimensions SpecificationDetailsCabin Interior Width900 mmCabin Interior Height63 in (5.2 ft) Boom Swing for Confined Work Areas The boom swing function allows the excavator to dig close to walls, fences, foundations, and obstacles without constantly repositioning the machine. Boom Swing Range 45° Left 45° Right This improves productivity in tight work zones and makes the machine more flexible for utility, residential, and landscaping jobs. Retractable Tracks for Better Access and Stability The retractable track system gives operators flexibility when moving through narrow spaces or working on uneven ground. Track Benefits Easier access through tight areas Improved maneuverability on narrow paths Better stability when expanded Useful for residential and compact job sites Helps adapt to different terrain conditions Strong Digging Performance The TERROR XXV Prestige delivers practical digging depth and reach for a wide range of excavation tasks. Digging Performance SpecificationDetailsMaximum Digging Depth2045 mmMaximum Digging Height3365 mmBucket Width450 mmMinimum Swing Radius77 in (6.4 ft) This makes it suitable for trenching, drainage work, foundation preparation, grading, and general site development. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XXV PrestigeGTIN5061030741658Machine TypeCabin Mini ExcavatorOperating Class2.7 TonEngineKubota D1105 DieselEngine TypeVertical, Water-Cooled, 4-Cycle DieselEngine Power25.1 HP @ 3000 RPM / 19 HP @ 2200 RPMMaximum Torque71.4 Nm / 52.7 lb-ft @ 2200 RPMOverall Width1400 mmOverall Height2530 mmCabin Interior Width900 mmCabin Interior Height1600 mmMaximum Digging Depth2045 mmMaximum Digging Height3365 mmMinimum Swing Radius1955 mmGround Clearance145 mmBucket Width450 mmBoom Swing45° Left / 45° RightTrack SystemRetractable TracksCabinAC / Heated Cabin Standard Equipment Included The TYPHON TERROR XXV Prestige comes equipped with essential tools and features for everyday jobsite use. Included Equipment ✔ Standard digging bucket ✔ Hydraulic thumb clip ✔ AC/heated cabin ✔ Hydraulic pilot controls ✔ Retractable tracks ✔ Boom swing ✔ Tool box ✔ Digital operator manual Ideal Applications Construction Trenching Foundation digging Utility installation Light demolition support Site preparation Material handling Landscaping Drainage work Tree planting Yard renovation Grading Soil removal Rock and debris handling Agriculture Farm maintenance Orchard work Small ditch cleaning Fence line preparation Land improvement Residential and Property Work Backyard excavation Narrow access digging Driveway projects Drainage installation General property maintenance Why Choose the TYPHON TERROR XXV Prestige? The TYPHON TERROR XXV Prestige is built for operators who need a compact excavator with more comfort, better control, and dependable diesel power. Its Kubota D1105 engine, pilot controls, retractable tracks, boom swing, hydraulic thumb clip, and AC/heated cabin make it a strong choice for both professional contractors and demanding property owners. Key Benefits ✔ 2.7-ton compact excavator design ✔ Reliable Kubota D1105 diesel engine ✔ AC/heated cabin for all-weather comfort ✔ Smooth hydraulic pilot controls ✔ Retractable tracks for tight access and stability ✔ Boom swing for working close to walls and obstacles ✔ Hydraulic thumb clip included ✔ 17.7 in standard bucket included ✔ Strong digging depth and height for daily work ✔ Ideal for construction, landscaping, agriculture, and property maintenance Compact Size, Cabin Comfort, Professional Performance The TYPHON TERROR XXV Prestige 2.7-Ton Cabin Mini Excavator combines compact maneuverability with strong Kubota diesel performance and all-weather operator comfort. Built for trenching, grading, digging, lifting, and utility work, it gives operators the strength, precision, and flexibility needed to complete demanding jobs in tight spaces with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782459868373-i3kn3-pasted-image-20260626-144428-h2lb8.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782459868373-i3kn3-pasted-image-20260626-144428-h2lb8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680772167-ktiha-1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680785625-on32h-4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680798941-0d66s-12.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680796840-fvcpy-11.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680795121-wj53k-10.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680793529-qxvao-9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680791976-cz7qp-8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680790508-o2fxm-7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680788942-kwdoa-6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680787394-lh46o-5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680783861-36f5l-3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680782177-f0iky-2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781680800663-mk1oz-13.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$23,098.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-XX52G"
+      },
+      {
+        label: "Weight Class",
+        value: "2.7 ton"
+      },
+      {
+        label: "Engine Power",
+        value: "25.1 HP"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-pallet-fork-attachment",
+    name: "Hydraulic Pallet Fork Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "wheel-loaders",
+    categoryLabel: "Wheel Loader",
+    rawCategory: "",
+    sku: "TYPH-8005",
+    gtin: "",
+    price: "$3 465.00",
+    currentPrice: "$3,465.00",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-Skoop-Hydraulic-Pallet-Fork-Attachment-for-Wheel-Loader-43-Inch-11-1-GPM/p/843665003",
+    importConfidence: "",
+    series: "Wheel Loader series",
+    weight: "Wheel Loader",
+    tagline: "Maximize the versatility of your Typhon Skoop Wheel Loader with our purpose-built Hydraulic Pallet Fork Attachment. Designed to seamlessly integrate with your machine, this attachment instantly turns your Skoop into a highly maneuverable, powerful lift. Whether you are moving standard pallets on a job site, organizing inventory in a warehouse, or handling bulky building materials, these forks deliver the precision, power, and reliability you need to get the job done efficiently.",
+    description: "Technical Specifications The pallet fork attachment is engineered to deliver dependable lifting performance while maintaining excellent stability and durability. Built specifically for the TYPHON SKOOP Wheel Loader, it provides an efficient solution for handling palletized materials across construction sites, farms, warehouses, and landscaping projects. SpecificationDetailsOverall Dimensions (L × W × H)45.87 × 56.30 × 35.39 in (1165 × 1430 × 35.4 in)Fork Length43.3 inFork Width3.1 inFork Adjustment RangeUp to 26.8 inRequired Hydraulic Flow Rate11.10 GPM (42 L/min)Net Weight396.83 lb (397 lb)Gross Weight485.02 lb (485 lb)Machine CompatibilityDesigned exclusively for the TYPHON SKOOP Wheel Loader Key Features Heavy-Duty Construction Built from durable, high-strength steel, this pallet fork attachment is designed to withstand demanding daily operations while maintaining excellent structural integrity under heavy loads. Adjustable Fork Spacing The adjustable fork width allows operators to safely handle different pallet sizes, crates, bulk materials, and equipment, providing greater flexibility across a wide range of applications. Fast Hydraulic Operation Designed to operate with a 42 L/min (11.10 GPM) hydraulic flow rate, the attachment delivers smooth, responsive performance for improved productivity and efficient material handling. Optimized for the TYPHON SKOOP Engineered specifically for the TYPHON SKOOP Wheel Loader, this attachment offers seamless compatibility, reliable performance, and secure operation without additional modifications. Ideal Applications Whether you're moving building materials or organizing inventory, this pallet fork attachment helps increase productivity across multiple industries. Warehousing & Logistics Load and unload delivery trucks efficiently. Organize palletized inventory inside warehouses. Transport goods between storage locations. Improve material handling efficiency. Construction Sites Move brick bundles, concrete blocks, and lumber. Transport drywall, steel components, and equipment. Handle construction materials quickly and safely. Reduce manual lifting on busy job sites. Agriculture & Farming Transport seed bags, fertilizer totes, and feed pallets. Move farming supplies around barns and storage areas. Handle palletized agricultural products with ease. Improve efficiency during planting and harvest seasons. Landscaping & Property Maintenance Carry pavers, sod rolls, mulch bins, and landscape materials. Transport bulk supplies across residential and commercial properties. Assist with outdoor renovation and hardscaping projects. Simplify loading and unloading of heavy materials. Why Choose This Pallet Fork Attachment? The TYPHON SKOOP Pallet Fork Attachment combines strength, precision, and versatility into one reliable attachment. Its heavy-duty construction, adjustable fork system, and purpose-built compatibility make it an excellent addition for operators who regularly handle palletized materials and heavy loads. Benefits include: ✔ Heavy-duty steel construction for long service life ✔ Adjustable forks for multiple pallet sizes ✔ Smooth hydraulic operation ✔ Easy handling of heavy materials ✔ Designed specifically for the TYPHON SKOOP Wheel Loader ✔ Ideal for construction, agriculture, logistics, and landscaping Important Safety Notice Always ensure that the combined weight of the pallet fork attachment and the material being lifted does not exceed the rated operating capacity of your TYPHON SKOOP Wheel Loader. Load capacity may vary depending on lift height, operating conditions, and machine configuration. Always follow the manufacturer's operating guidelines and safe lifting practices.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437686411-obkhi-pasted-image-20260626-083446-gu20w.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437686411-obkhi-pasted-image-20260626-083446-gu20w.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437791607-s3zpp-pasted-image-20260626-083631-kqvqz.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437786172-sgz8e-pasted-image-20260626-083626-9fy3n.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437780186-m1e5j-pasted-image-20260626-083619-mob7k.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437774497-sewz4-pasted-image-20260626-083614-r7ynl.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437754773-gh27h-pasted-image-20260626-083554-k7cge.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437759350-y1em4-pasted-image-20260626-083559-jr6jx.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Wheel Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$3,465.00"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-8005"
+      },
+      {
+        label: "Capacity",
+        value: "of your TYPHON SKOOP Wheel Loader"
+      }
+    ],
+    features: [
+      "Articulated loader format",
+      "Material bucket setup",
+      "Stable wheel base",
+      "Serviceable compact loader frame"
+    ],
+    applications: [
+      "Yard loading",
+      "Aggregate handling",
+      "Farm material movement",
+      "Snow and debris clearing"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-4wd",
+    name: "TYPHON Terror 4WD",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-0398",
+    gtin: "",
+    price: "$30 534.00",
+    currentPrice: "$30,534.00",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Brand-New-TYPHON-TERROR-4WD-Backhoe-Loader-USA/p/503688744",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "2.5 ton",
+    tagline: "Introducing the TYPHON TERROR Backhoe Loader, featuring a NEW Kohler 4-stroke EPA engine. This 2.5-ton powerhouse is meticulously designed for small projects, gardens, farmlands, municipal works, playgrounds, and public parks, offering reliability, versatility, and ease of use in a single, robust machine.",
+    description: "TYPHON TERROR Backhoe Loader The TYPHON TERROR Backhoe Loader is built for users who need a compact, dependable, and easy-to-operate machine for everyday digging, loading, trenching, land clearing, and small construction work. Designed with a practical structure and a user-friendly layout, this backhoe loader is suitable for jobs where a full-size machine may be too large, expensive, or difficult to maneuver. Whether you are working on a farm, maintaining a property, preparing a garden area, cleaning ditches, or handling light construction tasks, the TYPHON TERROR gives you the flexibility to complete different types of work with one machine. Key Features 1. New Kohler 4-Stroke EPA Engine The TYPHON TERROR is powered by a new Kohler 4-stroke EPA engine, giving the machine reliable performance for daily job-site use. Engine benefits include: EPA-compliant engine designed to meet environmental standards. Stable power output for digging, loading, grading, and trenching tasks. Reliable performance for small construction, farm, and property maintenance work. Practical engine design that helps make servicing and maintenance easier. This engine gives operators a strong balance of power, efficiency, and dependability, making the machine a good choice for users who need performance without unnecessary complexity. 2. Built for Multiple Work Environments The TYPHON TERROR Backhoe Loader is designed to work in a wide range of locations. Its compact size makes it useful for areas where larger machines may be difficult to operate. Work AreaHow the TYPHON TERROR HelpsSmall Construction SitesHelps with digging, trenching, grading, and material handling.Farms and FarmlandUseful for land preparation, ditch cleaning, and general maintenance.Gardens and LandscapingWorks well in tighter spaces for soil moving and ground preparation.Municipal WorkSuitable for public maintenance, drainage work, and small repair jobs.Playgrounds and ParksHelps with earth-moving, leveling, and site preparation.Private PropertiesGreat for owners who need one machine for many outdoor tasks. 3. Versatile Job-Site Capability One of the biggest advantages of the TYPHON TERROR is its ability to handle different types of work. Instead of using several machines for small projects, this backhoe loader gives you a flexible all-in-one solution. It can be used for: Digging for trenches, foundations, drainage, and soil removal. Grabbing and moving materials around the work area. Drilling support for certain ground preparation tasks. Bulldozing and pushing soil for leveling or clearing. Ditch cleaning for farms, roadsides, parks, and properties. Rock-breaking work for tougher ground conditions and cleanup jobs. This makes the machine a strong choice for operators who need a practical backhoe loader that can move from one task to another without slowing the project down. 4. Compact and Easy to Operate The TYPHON TERROR is designed with a compact frame and simple operating style. This makes it easier to use in smaller areas and more comfortable for different levels of operators. Operator-friendly advantages: Compact body for better movement in tighter job sites. Simple machine layout that is easier to understand. Easy maintenance access compared to more complicated equipment. Practical design for both new and experienced operators. Reliable structure made for everyday working conditions. For users who want a machine that is strong but not overly complicated, the TYPHON TERROR offers a clean and practical solution. Why Choose the TYPHON TERROR Backhoe Loader? The TYPHON TERROR is built for customers who need a machine that is tough, useful, and easy to manage. It is especially suitable for small businesses, property owners, farmers, contractors, and maintenance teams that need reliable equipment for regular outdoor work. Main Advantages Compact size for small and medium job sites. Kohler 4-stroke EPA engine for dependable performance. Multi-purpose functionality for digging, loading, drilling, ditch cleaning, and more. Simple maintenance design to help reduce downtime. User-friendly operation for different operator skill levels. Strong value for users who need one machine for many types of work. Customer Assurance When choosing TYPHON Machinery, customers get more than just equipment. They get a machine designed with toughness, reliability, and practical performance in mind. What you can expect: Dependable equipment built for real work conditions. Reliable performance for construction, farming, landscaping, and maintenance jobs. Support when you need it if you experience issues with your order. A practical machine solution for users who need power, flexibility, and ease of use. Take Your Projects Further The TYPHON TERROR Backhoe Loader is a smart choice for operators who need a compact machine with serious working ability. From digging and ditch cleaning to grading, bulldozing, and material handling, this backhoe loader is made to support a wide range of jobs. If you need a machine that is powerful, versatile, easy to operate, and built for everyday use, the TYPHON TERROR Backhoe Loader is ready to help you get the job done.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437998493-b0szp-pasted-image-20260626-083958-0qabn.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437998493-b0szp-pasted-image-20260626-083958-0qabn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782438005961-9p5va-pasted-image-20260626-084005-hkci1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782438003711-o5597-pasted-image-20260626-084003-02pff.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782438001608-efcpw-pasted-image-20260626-084001-gff6o.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$30,534.00"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0398"
+      },
+      {
+        label: "Weight Class",
+        value: "2.5 ton"
+      }
+    ],
+    features: [
+      "New Kohler 4-Stroke EPA Engine The TYPHON TERROR is powered by a new Kohler 4-stroke EPA engine, giving the machine reliable performance for daily job-site use.",
+      "Built for Multiple Work Environments The TYPHON TERROR Backhoe Loader is designed to work in a wide range of locations.",
+      "Versatile Job-Site Capability One of the biggest advantages of the TYPHON TERROR is its ability to handle different types of work.",
+      "Compact and Easy to Operate The TYPHON TERROR is designed with a compact frame and simple operating style.",
+      "Compact tracked platform",
+      "Hydraulic digging system"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "forestry-mulcher-attachment",
+    name: "Forestry Mulcher Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5126",
+    gtin: "",
+    price: "$3 244.49",
+    currentPrice: "$3,244.49",
+    sourceUrl: "",
+    buttonUrl: "/product#!/New-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steer-Forestry-Mulcher-Attachment/p/811419553",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Engineered for demanding environments, this attachment delivers stable performance across uneven and rough terrain. Its multi-tooth cutting system provides fast, consistent cutting for property maintenance, firebreak creation, and site preparation.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Forestry Mulcher Attachment GTIN: 05061030741887 Take on demanding land clearing projects with confidence using the TYPHON STOMP X1300 & STOMP 509 Forestry Mulcher Attachment. Engineered for powerful vegetation management, this heavy-duty attachment is designed to efficiently cut, shred, and mulch dense brush, tall grass, vines, weeds, saplings, and small trees into fine mulch for a clean and professional finish. Built for contractors, landscapers, farmers, property owners, and municipal maintenance crews, this forestry mulcher transforms your mini skid steer loader into a highly productive land-clearing machine. Whether you're preparing construction sites, maintaining trails, creating firebreaks, or reclaiming overgrown land, this attachment delivers reliable performance even in challenging working conditions. Designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders, it offers dependable compatibility, excellent durability, and efficient operation for demanding jobs. Key Features Heavy-Duty Land Clearing Performance Built to tackle thick vegetation, brush, and small trees with ease, allowing operators to clear land faster while producing a cleaner finished surface. 28-Tooth High-Performance Rotor Equipped with a durable 28-blade cutting rotor, the mulcher delivers consistent cutting performance while efficiently reducing vegetation into fine mulch for easier cleanup and natural ground coverage. Smooth Operation on Rough Terrain Designed to perform in uneven, rocky, and challenging environments while maintaining stable cutting performance across a variety of landscapes. Efficient Material Processing The optimized rotor design helps process vegetation quickly, improving productivity and reducing the number of passes required to complete a job. Purpose-Built Compatibility Engineered specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders for dependable installation and reliable operation. Ideal Applications This forestry mulcher attachment is suitable for a wide variety of professional land management applications. Land Clearing Remove dense brush and overgrown vegetation. Prepare land for construction or development. Reclaim neglected properties and fields. Property Maintenance Control weeds and invasive vegetation. Maintain fence lines and property boundaries. Keep roadsides and utility areas clear. Agriculture & Farming Clear pasture edges and field borders. Remove unwanted shrubs and saplings. Improve usable farmland with efficient vegetation management. Forestry & Trail Maintenance Create and maintain walking trails. Build firebreaks for wildfire prevention. Manage woodland undergrowth safely and efficiently. Technical Specifications SpecificationDetailsProduct TypeForestry Mulcher AttachmentCompatible MachinesTYPHON STOMP X1300 & STOMP 509 Mini Skid Steer LoadersGTIN05061030741887Net Weight458.6 lb (459 lb)Number of Blades28Spindle Speed1,200 RPMMinimum Hydraulic Flow3.7 GPM (14 L/min)Overall Dimensions (L × W × H)48.0 × 47.2 × 32.3 in (1220 × 1200 × 32.3 in) Why Choose the TYPHON Forestry Mulcher? The TYPHON Forestry Mulcher Attachment is built for operators who need dependable performance in demanding environments. Combining a durable cutting system, heavy-duty construction, and efficient vegetation processing, it helps reduce manual labor while increasing productivity on every job site. Advantages include: ✔ Heavy-duty construction for demanding work ✔ Powerful 28-tooth cutting rotor ✔ Smooth operation across uneven terrain ✔ Efficient mulching for faster site cleanup ✔ Excellent for construction, agriculture, forestry, and landscaping ✔ Purpose-built for the TYPHON STOMP X1300 & STOMP 509 Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The dimensions provided refer only to the attachment's quick-mounting plate. It is the buyer's responsibility to verify that the mounting plate dimensions are compatible with their machine before purchase. Machines using different mounting systems or quick-attach designs may require additional adapters or may not be compatible.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440813510-ke7xs-pasted-image-20260626-092652-q5vac.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440813510-ke7xs-pasted-image-20260626-092652-q5vac.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440819418-vnpzf-pasted-image-20260626-092659-bn3m9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440834702-bsro0-pasted-image-20260626-092714-v4r8q.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440829843-t10or-pasted-image-20260626-092709-ex5zn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440824769-qfnsx-pasted-image-20260626-092704-imclb.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440840926-ak3m0-pasted-image-20260626-092720-xhloj.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440847510-f7g5w-pasted-image-20260626-092727-pc637.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$3,244.49"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5126"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-wood-grabber-attachment",
+    name: "Hydraulic Wood Grabber Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5107",
+    gtin: "",
+    price: "$2 158.80",
+    currentPrice: "$2,158.80",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Hydraulic-Wood-Grabber-Attachment-Mini-Skid-Steer-TYPHON-STOMP-X1300-&-STOMP-509/p/811419549",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "The Hydraulic Wood Grabber Attachment for TYPHON STOMP X1300 and TYPHON STOMP 509 is built for efficient handling of logs, brush, and debris. Featuring powerful hydraulic clamping force and heavy-duty jaws, this attachment provides secure control when moving irregular or bulky materials.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Hydraulic Wood Grabber Attachment GTIN: 5061030741931 The TYPHON Hydraulic Wood Grabber Attachment is designed to make lifting, grabbing, and transporting logs, branches, brush, and bulky debris faster, safer, and more efficient. Built specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders, this heavy-duty attachment combines powerful hydraulic clamping force with a reinforced steel frame to tackle demanding forestry, landscaping, agricultural, and construction applications. Whether you're clearing fallen trees after a storm, handling timber on a job site, cleaning up brush, or transporting irregular materials that are difficult to move with standard buckets, the hydraulic wood grabber provides the secure grip and precise control needed to improve productivity while reducing manual labor. Designed for professional performance, the quick-attach mounting system allows operators to switch attachments quickly, minimizing downtime and keeping projects moving efficiently. Key Features Powerful Hydraulic Clamping Force The hydraulic grabber delivers a strong and reliable grip, allowing operators to securely lift logs, tree limbs, brush piles, rocks, and bulky debris with greater control and stability. Heavy-Duty Reinforced Steel Construction Manufactured from high-strength steel, this attachment is built to withstand demanding working conditions while providing long-lasting durability and dependable performance. Wide Opening Capacity With a maximum opening distance of 48.7 in (4.1 ft) (48.7 inches), the grabber can easily handle larger logs, brush bundles, and irregularly shaped materials without sacrificing stability. Five-Grabber Jaw Design Featuring a durable 5-jaw grabbing system, the attachment distributes gripping force evenly across materials, helping reduce slippage while improving handling precision. Quick-Attach Installation Designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509, the quick-attach mounting system allows for fast installation and quick attachment changes to maximize productivity on the job site. Ideal Applications The Hydraulic Wood Grabber is an excellent attachment for professionals and property owners who regularly handle heavy, bulky, or irregular materials. Forestry Operations Move logs and timber efficiently. Remove fallen trees and branches. Clear woodland trails and work areas. Assist with logging and land management. Land Clearing Collect brush piles and tree debris. Remove shrubs and overgrown vegetation. Prepare land for construction or agriculture. Speed up site cleanup after mulching or excavation. Construction Sites Lift heavy construction debris. Handle large rocks and irregular materials. Transport bulky waste for disposal. Improve job-site material handling efficiency. Agriculture & Property Maintenance Move fence posts, logs, and firewood. Handle storm cleanup. Organize timber storage. Transport brush and landscaping materials. Technical Specifications SpecificationDetailsProduct TypeHydraulic Wood Grabber AttachmentGTIN5061030741931Compatible MachinesTYPHON STOMP X1300 & STOMP 509 Mini Skid Steer LoadersNet Weight211.6 lb (212 lb)Number of Grabber Jaws5Maximum Opening Distance48.7 inOverall Dimensions (L × W × H)37.4 × 30.7 × 25.6 in (950 × 780 × 25.6 in) Why Choose the TYPHON Hydraulic Wood Grabber? The TYPHON Hydraulic Wood Grabber Attachment is built for operators who require dependable lifting power, excellent control, and long-lasting durability. Its hydraulic gripping system, reinforced steel construction, and wide opening capacity make it an ideal solution for moving difficult materials quickly and safely. Key Benefits ✔ Powerful hydraulic clamping system for secure lifting ✔ Reinforced steel construction for maximum durability ✔ Wide 48.7-inch opening for handling larger materials ✔ Five-jaw gripping design for improved stability ✔ Quick-attach mounting system for fast installation ✔ Perfect for forestry, construction, landscaping, agriculture, and property maintenance Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The dimensions provided refer only to the attachment's quick-mounting plate. It is the buyer's responsibility to verify that the mounting plate dimensions are compatible with their machine before purchase. Machines using different mounting systems or quick-attach designs may require additional adapters or may not be compatible.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441152253-ksdaa-pasted-image-20260626-093231-37pk0.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441152253-ksdaa-pasted-image-20260626-093231-37pk0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441112634-3akiv-pasted-image-20260626-093152-mht67.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441146238-0k25u-pasted-image-20260626-093225-ale93.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441142977-j9846-pasted-image-20260626-093222-vw1ec.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441138797-6xfeo-pasted-image-20260626-093218-s9rmc.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441124059-8ovf3-pasted-image-20260626-093203-gts8d.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441122069-67097-pasted-image-20260626-093201-l2xq8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441115381-685rt-pasted-image-20260626-093154-d2n92.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441110203-nvnr8-pasted-image-20260626-093149-ofdau.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441103618-qyjz9-pasted-image-20260626-093143-0s6pg.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,158.80"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5107"
+      },
+      {
+        label: "Capacity",
+        value: "With a maximum opening distance of 48"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-pickup-sweeper-broom-attachment",
+    name: "Hydraulic Pickup Sweeper Broom Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5112",
+    gtin: "",
+    price: "$2 872.79",
+    currentPrice: "$2,872.79",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Hydraulic-Pickup-Sweeper-Broom-Attachment-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816139781",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Designed for rugged, professional use, this hydraulic pickup broom allows operators to sweep and collect debris in a single pass. It efficiently removes dirt, gravel, sand, leaves, and light snow, making it ideal for construction sites, warehouses, farms, parking areas, and property maintenance.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Hydraulic Pickup Sweeper Broom Attachment GTIN: 5061030742044 Keep construction sites, warehouses, farms, and commercial properties clean with the TYPHON Hydraulic Pickup Sweeper Broom Attachment. Specifically engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders, this heavy-duty hydraulic sweeper combines powerful sweeping performance with an integrated debris collection system, allowing operators to sweep and collect waste in a single pass. Designed for demanding professional applications, this attachment easily removes dirt, gravel, sand, leaves, wood chips, dust, and light snow while reducing manual cleanup time. Its compact profile provides outstanding maneuverability, making it ideal for narrow pathways, sidewalks, parking lots, warehouses, and other confined work areas where larger sweepers cannot operate efficiently. Whether you're maintaining a construction site, preparing a commercial property, or cleaning agricultural facilities, the TYPHON Pickup Sweeper delivers fast, efficient, and professional cleaning performance. Key Features Sweep and Collect in One Pass The integrated pickup system allows operators to sweep loose debris while simultaneously collecting it, reducing cleanup time and improving overall productivity. Hydraulic-Powered Rotating Brush A high-performance hydraulic drive system powers the rotating brush, delivering consistent sweeping action for efficient removal of dirt, gravel, leaves, dust, and other debris. Compact Design for Tight Spaces Its compact dimensions allow the attachment to easily navigate sidewalks, narrow access roads, warehouse aisles, parking lots, and confined work areas that larger cleaning equipment cannot reach. Heavy-Duty Construction Built from durable materials for everyday professional use, the attachment is designed to withstand demanding job site conditions while maintaining reliable sweeping performance. Purpose-Built Compatibility Designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders, ensuring dependable installation and efficient hydraulic operation. Ideal Applications The Hydraulic Pickup Sweeper is suitable for a wide range of commercial, industrial, and agricultural cleaning tasks. Construction Sites Remove dirt, gravel, concrete dust, and construction debris. Clean roads and access areas after excavation. Prepare finished surfaces before project completion. Maintain safe and organized work environments. Warehouses & Industrial Facilities Sweep loading docks and warehouse floors. Remove dust, packaging materials, and loose debris. Improve workplace cleanliness and safety. Reduce manual sweeping time. Agriculture & Farming Clean barns, storage facilities, and equipment yards. Remove feed residue, dirt, and loose materials. Maintain clean working environments around livestock and machinery. Property & Municipal Maintenance Sweep sidewalks, parking lots, driveways, and pathways. Remove leaves, sand, and seasonal debris. Clear light snowfall during winter maintenance. Keep commercial and residential properties looking professional. Technical Specifications SpecificationDetailsProduct TypeHydraulic Pickup Sweeper Broom AttachmentGTIN5061030742044Compatible MachinesTYPHON STOMP X1300 & STOMP 509 Mini Skid Steer LoadersAttachment Weight366.0 lb (366 lb)Working Width39.4 inBrush Diameter19.7 inRequired Hydraulic Flow2.6-6.1 GPM (10-23 L/min)Overall Dimensions (L × W × H)51.2 × 47.2 × 23.6 in (1300 × 1200 × 23.6 in) Why Choose the TYPHON Hydraulic Pickup Sweeper? The TYPHON Hydraulic Pickup Sweeper Attachment helps operators complete cleanup tasks faster while reducing labor costs and improving efficiency. By combining sweeping and debris collection into one operation, it minimizes the number of passes required and leaves surfaces cleaner with less effort. Key Benefits ✔ Sweeps and collects debris simultaneously ✔ Hydraulic-powered rotating brush for consistent cleaning ✔ Excellent maneuverability in confined spaces ✔ Heavy-duty construction for demanding job sites ✔ Removes dirt, gravel, sand, leaves, dust, and light snow ✔ Perfect for construction, warehouses, agriculture, municipalities, and commercial property maintenance ✔ Designed specifically for the TYPHON STOMP X1300 & STOMP 509 Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The dimensions provided refer only to the attachment's quick-mounting plate. It is the buyer's responsibility to verify that the mounting plate dimensions are compatible with their machine before purchase. Machines using different mounting systems or quick-attach designs may require additional adapters or may not be compatible.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441699098-7q2yp-pasted-image-20260626-094138-bksfa.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441699098-7q2yp-pasted-image-20260626-094138-bksfa.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441714120-b3pep-pasted-image-20260626-094153-y4wc8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441711375-9m9b6-pasted-image-20260626-094151-ozi9k.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441708900-cokck-pasted-image-20260626-094148-c7dep.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441704200-8nil7-pasted-image-20260626-094143-k5jue.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,872.79"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5112"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "skid-steer-loader-mulcher",
+    name: "Skid Steer Loader Mulcher",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5026",
+    gtin: "",
+    price: "$4 202.10",
+    currentPrice: "$4,202.10",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Skid-Steer-Loader-Mulcher/p/795290803",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "The TYPHON Mini Skid Steer Mulcher Attachment is engineered for powerful vegetation control in agriculture, construction, and forestry applications. Designed to cut and mulch trees, brush, and dense overgrowth, this attachment turns unwanted vegetation into fine wood chips quickly and efficiently.",
+    description: "TYPHON Heavy-Duty Mini Skid Steer Mulcher Attachment GTIN: 5061030741641 Take on demanding land-clearing projects with confidence using the TYPHON Heavy-Duty Mini Skid Steer Mulcher Attachment. Designed for professional vegetation management, this high-performance attachment quickly cuts, shreds, and mulches brush, dense undergrowth, vines, saplings, and small trees into fine wood chips, leaving behind a clean and manageable work area. Whether you're reclaiming overgrown land, preparing construction sites, maintaining trails, or managing agricultural property, this mulcher delivers exceptional cutting power and reliable performance. Its aggressive 19-tooth cutting system, combined with a high-speed rotor and heavy-duty construction, provides the strength needed to tackle demanding environments while maintaining smooth, efficient operation. Built for contractors, landscapers, farmers, forestry professionals, and property maintenance crews, this attachment transforms your mini skid steer into a powerful land-clearing machine capable of handling challenging vegetation with ease. Key Features Aggressive 19-Tooth Cutting System Equipped with 19 high-strength mulching teeth, the rotor aggressively cuts through brush, vines, saplings, and dense vegetation while producing finely shredded mulch for faster site cleanup. High-Speed Rotor Performance Operating at 2,200-3,000 RPM, the high-speed rotor delivers smooth, efficient cutting performance with excellent material processing and consistent mulching results. Wide Working Coverage The 32.9 in (32.9-inch) working width allows operators to clear more ground in fewer passes, increasing productivity and reducing operating time on large projects. Heavy-Duty Construction Manufactured from reinforced, heavy-duty steel, this mulcher is built to withstand demanding work environments including forestry operations, construction sites, and agricultural land management. Powerful Hydraulic Performance Designed to operate with hydraulic flow rates between 40-130 L/min, the attachment provides strong cutting force and dependable performance across a wide range of working conditions. Ideal Applications The TYPHON Mini Skid Steer Mulcher is an excellent solution for professional vegetation control across multiple industries. Forestry Operations Clear underbrush and woodland trails. Remove saplings and overgrown vegetation. Create firebreaks for wildfire prevention. Improve access roads and forest maintenance. Land Clearing Prepare land for residential or commercial construction. Remove dense brush and unwanted vegetation. Reclaim abandoned or overgrown properties. Speed up site preparation before excavation. Agriculture & Farming Maintain fence lines and field boundaries. Control invasive vegetation. Clear pasture edges and drainage areas. Improve land usability for farming operations. Property & Landscape Maintenance Maintain parks, trails, and recreational areas. Remove storm debris and brush. Clear roadside vegetation. Manage large residential and commercial properties. Technical Specifications SpecificationDetailsProduct TypeHeavy-Duty Mini Skid Steer Mulcher AttachmentGTIN5061030741641Number of Teeth19Working Width32.9 inRotor Speed2,200-3,000 RPMOperating Pressure1,450-4,351 PSI (10-30 MPa)Required Hydraulic Flow10.6-34.3 GPM (40-130 L/min)Maximum Torque156 Nm (115 lb-ft)Attachment Weight723 lb (723 lb) Why Choose the TYPHON Mini Skid Steer Mulcher? Designed for professionals who demand power, durability, and productivity, the TYPHON Mini Skid Steer Mulcher Attachment delivers reliable vegetation management in even the toughest environments. Its aggressive cutting system, wide working width, and high-speed rotor make it an excellent investment for anyone performing frequent land clearing or forestry work. Key Benefits ✔ Aggressive 19-tooth cutting system for fast vegetation removal ✔ Wide 32.9-inch working width for increased productivity ✔ High-speed rotor for smooth, efficient mulching ✔ Heavy-duty steel construction for long service life ✔ Powerful hydraulic performance for demanding applications ✔ Ideal for forestry, agriculture, construction, landscaping, and property maintenance Common Applications This attachment is ideal for handling: Dense brush and heavy vegetation Small trees and saplings Thick grass and invasive plants Woodland trail maintenance Construction site preparation Property reclamation projects Agricultural land management Municipal vegetation control Safety Notice Always verify that your mini skid steer meets the required hydraulic flow, operating pressure, and lifting capacity before installing this attachment. Follow all manufacturer operating instructions and ensure the attachment is securely mounted before operation. Proper safety equipment and responsible operating practices are essential when performing land-clearing and mulching tasks.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441825266-nh2v8-pasted-image-20260626-094345-zo4ph.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441825266-nh2v8-pasted-image-20260626-094345-zo4ph.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441804595-p4nyr-pasted-image-20260626-094324-7d1w6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441832611-t7jdb-pasted-image-20260626-094352-k5b4j.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441820135-p71wd-pasted-image-20260626-094339-0ocrv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441815604-h1r5x-pasted-image-20260626-094335-5vdjx.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441811482-dxzlz-pasted-image-20260626-094331-ephkb.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$4,202.10"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5026"
+      },
+      {
+        label: "Capacity",
+        value: "before installing this attachment"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xviii-capony",
+    name: "TYPHON Terror XVIII Capony",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-1801Y",
+    gtin: "",
+    price: "$12 482.40",
+    currentPrice: "$12,482.40",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-XVIII-Mini-Excavator-4000lbs-Digger-with-0-035-cbm-Bucket-USA/p/571428016",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "4,000 lb",
+    tagline: "Introducing the TYPHON TERROR XVIII Mini Excavator, a 4,000 lb trench digger designed for small and medium construction projects. With its compact yet robust design, this mini excavator is engineered for easy maneuverability in various settings, including farms, gardens, public spaces, parks, orchards, and more. Let's delve into the outstanding features that make the TYPHON TERROR XVIII stand out.",
+    description: "TYPHON TERROR XVIII Mini Excavator GTIN: 5061030740286 The TYPHON TERROR XVIII Mini Excavator is a compact yet powerful 4,000 lb mini excavator built to handle demanding excavation work while remaining agile enough for confined job sites. Combining the trusted performance of a Kubota D902 diesel engine, a durable hydraulic system, and an operator-friendly design, the TERROR XVIII is the ideal solution for contractors, landscapers, farmers, property owners, and utility crews. Whether you're digging foundations, trenching for utilities, landscaping residential properties, clearing land, or maintaining agricultural areas, this machine delivers the power, precision, and reliability needed to complete every project efficiently. Designed for both experienced operators and first-time users, the TYPHON TERROR XVIII offers exceptional maneuverability, low operating costs, and dependable performance, making it one of the most versatile compact excavators in its class. Key Features Powerful Kubota D902 Diesel Engine At the heart of the TERROR XVIII is the legendary Kubota D902, a water-cooled, 3-cylinder, 4-cycle diesel engine renowned for its durability, fuel efficiency, and dependable performance. Engine Highlights 20.4 HP @ 3,600 RPM 15.8 HP @ 2,200 RPM EPA-compliant diesel engine Water-cooled design for improved reliability Excellent fuel economy and long service life The Kubota engine delivers smooth, consistent power while maintaining excellent reliability in demanding working environments. Compact Size with Outstanding Performance Don't let its compact footprint fool you. The TYPHON TERROR XVIII is engineered to provide excellent digging performance while remaining easy to transport and operate in areas where larger excavators simply cannot fit. Its compact dimensions make it perfect for: Residential construction Backyard excavation Garden and landscape projects Farm maintenance Utility trenching Property development Municipal maintenance Orchard and vineyard operations Versatile Multi-Purpose Operation Designed as a true all-around excavator, the TERROR XVIII easily adapts to a wide variety of tasks. Common Applications Digging trenches Foundation excavation Landscaping Ditch cleaning Material handling Rock breaking Light demolition Grading and leveling Tree planting Utility installation Agricultural maintenance Its flexible boom design and excellent hydraulic performance make switching between jobs fast and efficient. Operator-Friendly Design Built with operator comfort and ease of use in mind, the TERROR XVIII features intuitive controls and excellent visibility, making it suitable for operators of all experience levels. Operator Benefits Smooth hydraulic controls Excellent visibility around the machine Compact body for tight work areas Stable operating platform Easy access for routine maintenance Simple controls for faster learning Heavy-Duty Hydraulic Performance The advanced hydraulic system provides responsive operation and precise control for smooth digging, lifting, grading, and attachment operation. Performance Advantages Responsive boom and arm movement Smooth bucket control Consistent lifting performance Reliable hydraulic efficiency Excellent control for precision work Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVIIIGTIN5061030740286Operating Weight4,000 lbsEngineKubota D902 Water-Cooled DieselEngine TypeVertical, 3-Cylinder, 4-Cycle IDI DieselMaximum Engine Power20.4 HP @ 3,600 RPMRated Power15.8 HP @ 2,200 RPMBucket Width15 inBucket Capacity0.035 m³Maximum Digging Depth80.7 inMaximum Digging Height109.6 inMinimum Swing Radius65.2 inFuel Tank Capacity1.93 gal (7.3 L)Hydraulic Oil Tank Capacity5.0 gal (18.9 L) Standard Equipment Included Every TYPHON TERROR XVIII comes equipped with essential accessories to help you start working immediately. Included in the Package ✔ Standard digging bucket (15 in) ✔ Steel mesh windshield ✔ Protective canopy ✔ Integrated toolbox ✔ Digital operator's manual Ideal Applications The TYPHON TERROR XVIII is designed for professionals and property owners who require a compact machine with exceptional versatility. Construction Foundation excavation Utility trenching Site preparation Small demolition projects Agriculture Fence installation Drainage work Irrigation trenching Farm maintenance Landscaping Tree planting Pond excavation Garden preparation Retaining wall construction Municipal & Property Maintenance Park maintenance Sidewalk repairs Drainage improvements Public utility installations Why Choose the TYPHON TERROR XVIII? The TYPHON TERROR XVIII combines compact dimensions, dependable Kubota power, excellent hydraulic performance, and versatile functionality into one professional-grade machine. It is built for operators who need maximum productivity without the size and cost of a larger excavator. Key Benefits ✔ Reliable Kubota D902 diesel engine ✔ Powerful 4,000 lb operating weight ✔ Compact design for confined job sites ✔ Excellent digging depth and lifting capability ✔ Smooth hydraulic performance ✔ Fuel-efficient water-cooled engine ✔ Easy operation for beginners and professionals ✔ Perfect for construction, agriculture, landscaping, and municipal work Built for Productivity From residential construction projects to agricultural maintenance and commercial landscaping, the TYPHON TERROR XVIII Mini Excavator delivers the performance, reliability, and versatility professionals expect. With premium engineering, trusted Kubota power, and a compact footprint, it's the ideal machine for operators who demand efficiency without sacrificing capability. Invest in the TYPHON TERROR XVIII and experience a compact excavator designed to tackle demanding jobs with confidence, precision, and long-lasting durability.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442159697-wmqw7-pasted-image-20260626-094919-7h69k.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442159697-wmqw7-pasted-image-20260626-094919-7h69k.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442156237-vufug-pasted-image-20260626-094915-b07hv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442150387-7gccj-pasted-image-20260626-094909-gl5j3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442146273-bdv88-pasted-image-20260626-094905-7di7b.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442139988-grt0s-pasted-image-20260626-094859-e5c07.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442136043-znh71-pasted-image-20260626-094855-st0sy.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$12,482.40"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1801Y"
+      },
+      {
+        label: "Weight Class",
+        value: "4,000 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "20.4 HP"
+      },
+      {
+        label: "Digging Depth",
+        value: "80"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-0503g",
+    name: "TYPHON 0503G",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-0503G",
+    gtin: "",
+    price: "$8 083.95",
+    currentPrice: "$8,083.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Skid-Steer-Loader-Wheeled-22-1-HP-Honda-EPA-Gasoline-Engine-for-Gardens-Farming/p/746035014",
+    importConfidence: "",
+    series: "STOMP skid steer series",
+    weight: "1,960 lb",
+    tagline: "The TYPHON STOMP Skid-Steer Loader is a robust and compact solution engineered for small construction projects, bringing exceptional performance and versatility to spaces like farms, gardens, public areas, parks, orchards, and more. Let's explore the features that make the TYPHON STOMP a powerhouse in a compact frame.",
+    description: "TYPHON STOMP Mini Skid Steer Loader GTIN: 5061030741108 The TYPHON STOMP Mini Skid Steer Loader is a professional-grade compact loader designed to deliver exceptional performance, reliability, and versatility for demanding construction, landscaping, agricultural, and property maintenance applications. Powered by the renowned 22.1 HP Honda GX690 V-Twin commercial engine, the STOMP combines outstanding hydraulic performance, hydraulic four-wheel drive, and superior attachment compatibility into one compact machine built for productivity. Weighing approximately 1,960 lb, the TYPHON STOMP offers impressive lifting capability, excellent maneuverability, and the power to operate a wide variety of hydraulic attachments. Whether you're loading materials, trenching, grading, clearing brush, or maintaining commercial properties, the STOMP delivers dependable performance in spaces where larger equipment simply cannot operate efficiently. Built for contractors, landscapers, municipalities, farmers, and rental fleets, the TYPHON STOMP is engineered to maximize efficiency while minimizing operating costs. Key Features Compact Design for Tight Workspaces The TYPHON STOMP is specifically engineered for confined job sites, providing exceptional maneuverability without sacrificing lifting performance or stability. Ideal Applications Residential construction Landscaping projects Farms and ranches Orchards Parks Public spaces Municipal maintenance Warehouses Property maintenance Commercial facilities Its compact footprint allows operators to access narrow gates, pathways, and restricted work areas with ease. Commercial Honda GX690 V-Twin Engine The STOMP is powered by the trusted Honda GX690, one of the industry's most respected commercial gasoline engines, delivering smooth power and long-lasting durability. Engine Highlights 22.1 HP Honda GX690 688 cc 90° V-Twin OHV gasoline engine Horizontal shaft configuration Air-cooled commercial design 48.3 Nm (35.6 lb-ft) maximum torque @ 2,500 RPM Electric start Excellent fuel efficiency Low maintenance requirements Designed for continuous professional operation, the GX690 provides dependable power in demanding environments. High-Flow Hydraulic System The STOMP features a powerful three-pump hydraulic system capable of operating demanding hydraulic attachments with ease. Hydraulic Performance Hydraulic SystemOutputMain Hydraulic Pump11.4 GPMAuxiliary Pump #15.7 GPMAuxiliary Pump #25.7 GPM The three-hydraulic-valve configuration provides outstanding oil flow, allowing the machine to operate a broad range of power-intensive attachments. Hydraulic Four-Wheel Drive The hydraulic drive system provides exceptional traction, control, and stability across various job-site conditions. Benefits Superior traction on dirt, gravel, and mud Smooth steering response Stable operation under heavy loads Improved climbing ability Reliable all-season performance Excellent maneuverability in confined spaces Outstanding Attachment Compatibility The TYPHON STOMP is designed to become a true multi-purpose machine capable of performing dozens of different tasks. Compatible Attachments Standard Buckets Grapples Pallet Forks Augers Trenchers Hydraulic Breakers Sweepers Forestry Mulchers Brush Cutters Snow Blades Snow Blowers Tillers Its powerful hydraulic system ensures consistent performance across a wide range of professional attachments. Technical Specifications SpecificationDetailsProduct ModelTYPHON STOMP Mini Skid Steer LoaderGTIN5061030741108EngineHonda GX690Engine Type688 cc 90° V-Twin OHV GasolineMaximum Engine Output22.1 HPMaximum Torque48.3 Nm (35.6 lb-ft) @ 2,500 RPMDrive SystemHydraulic Four-Wheel DriveOperating Weight1,960 lbsRated Lifting Capacity830 lbsMaximum Travel Speed3.4 MPH (5.5 km/h)Main Hydraulic Flow11.4 GPMAuxiliary Hydraulic Flow5.7 GPM × 2 Standard Equipment Included Every TYPHON STOMP Mini Skid Steer Loader comes equipped with everything needed to begin working immediately. Included with Your Loader ✔ Standard skid steer bucket ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON STOMP? The TYPHON STOMP combines Honda commercial reliability, high-flow hydraulics, hydraulic four-wheel drive, and exceptional attachment versatility into one compact loader designed for demanding professional applications. It delivers the performance, durability, and efficiency needed to complete more work with a single machine. Key Benefits ✔ Proven Honda GX690 commercial engine ✔ Hydraulic four-wheel drive ✔ Three-pump high-flow hydraulic system ✔ Operates demanding hydraulic attachments ✔ Compact design for restricted work areas ✔ Rated lifting capacity of 830 lb ✔ Operating weight of 1,960 lb for improved stability ✔ Durable construction for professional use ✔ Easy maintenance and dependable operation Ideal Applications The TYPHON STOMP is trusted across a wide range of industries. Construction Material handling Site preparation Foundation support Job-site cleanup Landscaping Soil and gravel transport Tree planting Hardscape installation Brush removal Agriculture Feed handling Barn cleaning Fence installation Farm maintenance Property Maintenance Snow removal Debris cleanup Trenching General maintenance Municipal & Commercial Park maintenance Public works Sidewalk cleaning Facility maintenance Compact Size. Commercial-Grade Performance. The TYPHON STOMP Mini Skid Steer Loader combines the proven reliability of the Honda GX690 commercial engine, hydraulic four-wheel drive, high-flow auxiliary hydraulics, and outstanding attachment compatibility into one compact machine built for professional productivity. Whether you're lifting heavy materials, trenching, grading, sweeping, clearing vegetation, or operating specialized hydraulic attachments, the TYPHON STOMP delivers the power, durability, and versatility professionals depend on every day.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443442367-jogz7-pasted-image-20260626-101042-hfaom.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443442367-jogz7-pasted-image-20260626-101042-hfaom.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443449182-dcg94-pasted-image-20260626-101049-9q2rp.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443444980-399zq-pasted-image-20260626-101044-s7shu.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443439466-7nf4p-pasted-image-20260626-101039-w690w.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443483783-1oswn-pasted-image-20260626-101123-yb8dz.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443476093-vvu8p-pasted-image-20260626-101116-w3zli.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443463493-nfz1n-pasted-image-20260626-101103-7nxu9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443455416-vwou1-pasted-image-20260626-101055-xfdsq.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443452600-24zyn-pasted-image-20260626-101052-dgwq1.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$8,083.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0503G"
+      },
+      {
+        label: "Weight Class",
+        value: "1,960 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "22.1 HP"
+      },
+      {
+        label: "Capacity",
+        value: "830 lbsMaximum Travel Speed3"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-x",
+    name: "TYPHON Terror X",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-0101",
+    gtin: "",
+    price: "$6 298.95",
+    currentPrice: "$6,298.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-X-STORM-Mini-Excavator-1-Ton-Trench-Digger-with-Canopy-Hydraulic-Thumb-Clip-Bucket-USA/p/496422643",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "1 ton",
+    tagline: "Introducing the TYPHON TERROR X STORM Mini Excavator - a 1-ton trench digger equipped with a canopy and a wide bucket, designed for small construction projects. This compact powerhouse is engineered for easy maneuverability and superior performance in various settings, including farms, gardens, public spaces, parks, orchards, and more.",
+    description: "TYPHON TERROR X STORM Mini Excavator GTIN: 5061030740354 The TYPHON TERROR X STORM Mini Excavator is a compact 1-ton excavator designed to deliver reliable performance, excellent maneuverability, and professional-grade versatility for small construction, landscaping, agricultural, and property maintenance projects. Built for contractors, farmers, landscapers, and homeowners, the TERROR X STORM combines a durable compact design with smooth hydraulic performance, making it the ideal machine for working in confined spaces. Equipped with a 15 in digging bucket, hydraulic thumb clip, and a heavy-duty operator canopy, this compact excavator is engineered to handle trenching, digging, grading, material handling, landscaping, and utility installation with confidence. Its lightweight construction allows for easy transportation while maintaining the durability required for demanding daily operation. Whether you're preparing foundations, installing drainage systems, clearing land, or maintaining orchards and farms, the TYPHON TERROR X STORM provides dependable performance with outstanding value. Key Features Compact Design for Tight Workspaces The TERROR X STORM is engineered specifically for projects that require maximum maneuverability in restricted areas. Its compact dimensions allow operators to work efficiently where larger excavators cannot access. Ideal Applications Residential construction Landscaping Farms and ranches Orchards Gardens Parks Utility installation Municipal maintenance Property maintenance Small commercial projects Its compact footprint makes transportation between job sites quick and convenient while minimizing ground disturbance. Reliable High-Performance Engine The TERROR X STORM is equipped with a dependable, high-performance engine that provides smooth operation, reliable power delivery, and excellent durability for everyday excavation work. Engine Highlights High-performance gasoline engine Smooth and responsive operation Fuel-efficient performance Reliable daily productivity Easy maintenance Built for demanding job-site conditions The engine delivers the power required for digging, grading, trenching, and material handling while maintaining dependable long-term performance. Versatile Multi-Purpose Performance Designed as an all-around compact excavator, the TERROR X STORM is capable of handling a wide range of applications. Perfect For Trenching Excavation Foundation preparation Ditch cleaning Landscaping Material handling Tree planting Land grading Rock breaking Property development Agricultural maintenance General earthmoving Its compact size and responsive controls make it especially effective in confined work environments. Hydraulic Thumb for Improved Productivity The included hydraulic thumb clip greatly expands the machine's capabilities by allowing operators to securely grip and move irregular materials. Hydraulic Thumb Benefits Move logs and branches Lift rocks and boulders Handle demolition debris Position landscaping materials Improve material handling efficiency Reduce manual labor The hydraulic thumb transforms the excavator into a versatile lifting and handling machine. Simple & Comfortable Operation Designed with operator convenience in mind, the TERROR X STORM is easy to operate for both experienced professionals and first-time users. Operator Benefits Comfortable operating position Excellent visibility Smooth hydraulic controls Easy maintenance access Stable operating platform Protective overhead canopy The intuitive control layout helps improve productivity while reducing operator fatigue during long workdays. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR X STORMGTIN5061030740354Operating Weight1 TonBucket Width15 inHydraulic Thumb ClipIncludedOperator StationHeavy-Duty Open CanopyBucket TypeStandard Digging Bucket Standard Equipment Included Every TYPHON TERROR X STORM comes equipped with essential accessories to help you get to work immediately. Included with Your Excavator ✔ Standard 15 in digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Protective operator canopy ✔ Digital operator's manual Why Choose the TYPHON TERROR X STORM? The TYPHON TERROR X STORM is built for operators who need dependable excavation performance in a compact, easy-to-transport machine. Its durable construction, hydraulic thumb, user-friendly controls, and versatile design make it an excellent choice for construction, landscaping, agriculture, and property maintenance. Key Benefits ✔ Compact 1-ton design for confined work areas ✔ Reliable high-performance engine ✔ Hydraulic thumb clip included ✔ 15 in digging bucket ✔ Smooth hydraulic performance ✔ Heavy-duty protective canopy ✔ Easy operation for all experience levels ✔ Durable construction for long service life ✔ Low maintenance and dependable operation Ideal Applications The TYPHON TERROR X STORM is trusted across a wide range of industries. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Irrigation installation Fence construction Farm maintenance Orchard management Landscaping Tree planting Pond excavation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing Storm cleanup Compact Machine. Reliable Performance. The TYPHON TERROR X STORM Mini Excavator combines dependable power, compact maneuverability, durable construction, and practical versatility into one professional-grade machine built for everyday excavation work. Whether you're trenching, digging, landscaping, or handling materials, the TYPHON TERROR X STORM delivers the reliability, efficiency, and ease of operation needed to complete every project with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444104341-wxqay-pasted-image-20260626-102144-jdmo8.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444104341-wxqay-pasted-image-20260626-102144-jdmo8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444157928-uj0v0-pasted-image-20260626-102237-zd6cu.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444113720-0d7aq-pasted-image-20260626-102153-kfru9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444165995-6x5he-pasted-image-20260626-102245-b972h.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444145698-ibkcd-pasted-image-20260626-102225-px1qv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444141723-8jlpp-pasted-image-20260626-102221-79tt4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444138650-536vf-pasted-image-20260626-102217-kr6v8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444134102-rkwx6-pasted-image-20260626-102213-bq2as.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444130250-fv2o7-pasted-image-20260626-102209-87qrt.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444123280-3ijbj-pasted-image-20260626-102202-62pc3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444120402-1ong6-pasted-image-20260626-102159-jaod6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444117265-4two8-pasted-image-20260626-102156-ovc46.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444110974-lgbf9-pasted-image-20260626-102150-szoxu.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$6,298.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0101"
+      },
+      {
+        label: "Weight Class",
+        value: "1 ton"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xx",
+    name: "TYPHON Terror XX",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-XX01R",
+    gtin: "",
+    price: "$12 598.95",
+    currentPrice: "$12,598.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/2025-4-000-lb-TYPHON-TERROR-XX-Mini-Excavator-Rubber-Track-with-Kubota-D902-Diesel-Engine-USA/p/721514918",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "4,000 lb",
+    tagline: "Introducing the TYPHON TERROR XX Lux Mini Excavator, a pinnacle of luxury and efficiency in excavation. Crafted by TYPHON, this red excavator is not just a machine; it's a statement. With a focus on flexibility, ease of transport, and superior heat dissipation, the TERROR XX compact crawler is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards. Let's delve into the key features that make the TYPHON TERROR XX Lux stand out.",
+    description: "TYPHON TERROR XX LUX Mini Excavator GTIN: 5061030740934 The TYPHON TERROR XX LUX Mini Excavator is a premium 4,000 lb compact crawler excavator designed for professionals who demand exceptional performance, refined styling, and long-lasting reliability. As part of TYPHON's exclusive Luxury Series, this model combines the rugged durability required for demanding job sites with a premium red finish and advanced engineering that stands out in both appearance and capability. Powered by the trusted EPA-certified Kubota D902 diesel engine, the TERROR XX LUX delivers smooth hydraulic performance, impressive digging power, and excellent fuel efficiency. Equipped with a 17.7 in heavy-duty digging bucket, hydraulic thumb clip, and a high-capacity hydraulic system, this excavator is built for construction, landscaping, agriculture, property maintenance, and utility installation. Whether you're excavating foundations, preparing land, maintaining orchards, or handling materials, the TYPHON TERROR XX LUX provides the professional performance and reliability needed to maximize productivity. Key Features Reliable EPA-Certified Kubota D902 Engine At the core of the TERROR XX LUX is the proven Kubota D902 diesel engine, delivering dependable power, outstanding fuel economy, and reliable operation for demanding professional applications. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder diesel Smooth and responsive performance Excellent fuel efficiency Easy maintenance Built for long service life Designed to perform consistently under heavy workloads, the Kubota engine provides dependable power while meeting EPA emissions standards. Premium Luxury Series Design The TERROR XX LUX belongs to TYPHON's Luxury Series, combining premium styling with heavy-duty construction for operators who value both performance and appearance. Luxury Series Benefits Premium red finish Rugged heavy-duty steel construction Modern professional styling Durable structural components Long-lasting corrosion resistance Designed for demanding commercial applications The Luxury Series delivers the strength needed for challenging job sites while offering a refined appearance that reflects professional quality. Compact Design with Superior Maneuverability Built to perform in confined spaces, the TERROR XX LUX offers excellent stability and maneuverability without sacrificing digging capability. Ideal Applications Residential construction Landscaping Farms Orchards Parks Utility installation Municipal maintenance Property development Greenhouses Commercial projects Its compact crawler design allows operators to work efficiently in locations where larger excavators cannot access. High-Capacity Hydraulic System The advanced hydraulic system provides smooth control, excellent attachment performance, and dependable operation throughout long workdays. Hydraulic Features Hydraulic thumb clip included 20.5 L hydraulic oil capacity Smooth hydraulic response Excellent auxiliary attachment compatibility Stable hydraulic performance Efficient oil circulation for demanding applications The larger hydraulic reservoir supports consistent hydraulic performance during continuous operation. Efficient Digging Performance Equipped with a larger heavy-duty digging bucket, the TERROR XX LUX is designed to improve productivity across a wide range of excavation tasks. Bucket Specifications Bucket Width: 17.7 in Bucket Capacity: 0.045 m³ Hydraulic thumb clip included Excellent material handling capability Increased digging efficiency The combination of the larger bucket and hydraulic thumb allows operators to move more material while improving handling of rocks, logs, and debris. Comfortable & Easy Operation The TERROR XX LUX is engineered to provide simple operation and excellent operator confidence throughout the workday. Operator Benefits Smooth hydraulic controls Comfortable operating position Excellent visibility Stable crawler platform Easy maintenance access Beginner-friendly controls The intuitive design reduces operator fatigue while improving precision and productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XX LUXGTIN5061030740934Operating Weight4,000 lbsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselFuel Tank Capacity13.5 LHydraulic Oil Capacity20.5 LBucket Width17.7 inBucket Capacity0.045 m³Hydraulic Thumb ClipIncluded Standard Equipment Included Every TYPHON TERROR XX LUX comes fully equipped with professional accessories to maximize productivity from day one. Included with Your Excavator ✔ Standard 17.7 in digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XX LUX? The TERROR XX LUX combines the proven reliability of the Kubota D902 diesel engine with premium Luxury Series styling, a high-capacity hydraulic system, and compact maneuverability. Designed for professionals who expect exceptional performance and long-term durability, it provides outstanding value across construction, landscaping, agriculture, and property maintenance. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Premium Luxury Series design ✔ Rugged heavy-duty construction ✔ 4,000 lb operating weight ✔ Hydraulic thumb clip included ✔ 17.7 in heavy-duty digging bucket ✔ 20.5 L hydraulic oil capacity ✔ 13.5 L fuel tank ✔ Compact crawler design for restricted work areas Ideal Applications The TYPHON TERROR XX LUX is trusted across a wide variety of industries. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing General earthmoving Luxury Design. Professional Performance. The TYPHON TERROR XX LUX Mini Excavator combines the proven performance of the Kubota D902 diesel engine, premium Luxury Series styling, a high-capacity hydraulic system, and exceptional compact maneuverability into one professional-grade excavator. Built for contractors, landscapers, farmers, and property owners, it delivers the power, durability, and versatility required to tackle demanding excavation projects while maintaining the premium appearance expected from TYPHON's Luxury Series.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444710521-5trnn-pasted-image-20260626-103150-qft1a.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444710521-5trnn-pasted-image-20260626-103150-qft1a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444714028-bt08w-pasted-image-20260626-103153-b2pu7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444717083-dc9o9-pasted-image-20260626-103156-lnqon.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444720042-6if7g-pasted-image-20260626-103159-37705.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444725381-gzh67-pasted-image-20260626-103205-y7ds7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444768618-yyyfs-pasted-image-20260626-103248-7j1dx.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444752185-zqw8l-pasted-image-20260626-103232-fvsyn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444738582-fq5ra-pasted-image-20260626-103218-e2qma.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444730665-7w7kv-pasted-image-20260626-103210-vm74d.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444728258-2y57z-pasted-image-20260626-103208-pg6uk.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444723643-eei49-pasted-image-20260626-103202-40z5f.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$12,598.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-XX01R"
+      },
+      {
+        label: "Weight Class",
+        value: "4,000 lb"
+      },
+      {
+        label: "Capacity",
+        value: "hydraulic system, this excavator is built for construction, landscaping, agriculture, pro"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xx-2",
+    name: "TYPHON Terror XX",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-XX01Y",
+    gtin: "",
+    price: "$12 482.40",
+    currentPrice: "$12,482.40",
+    sourceUrl: "",
+    buttonUrl: "/product#!/2025-4-000-lb-TYPHON-TERROR-XX-Mini-Excavator-Rubber-Track-with-Kubota-D902-Diesel-Engine-USA/p/721514937",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "4,000 lb",
+    tagline: "Introducing the TYPHON TERROR XX Lux Mini Excavator, a pinnacle of luxury and efficiency in excavation. Crafted by TYPHON, this excavator is not just a machine; it's a statement. With a focus on flexibility, ease of transport, and superior heat dissipation, the TERROR XX compact crawler is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards. Let's delve into the key features that make the TYPHON TERROR XX Lux stand out.",
+    description: "TYPHON TERROR XX LUX Mini Excavator GTIN: 5061030740941 The TYPHON TERROR XX LUX Mini Excavator is a premium 4,000 lb compact crawler excavator designed to deliver exceptional performance, precision, and reliability for professional contractors, landscapers, farmers, and property owners. As a flagship model in TYPHON's Luxury Series, the TERROR XX LUX combines rugged durability with refined styling, making it an excellent choice for demanding construction, agricultural, and landscaping applications. Powered by the trusted EPA-certified Kubota D902 diesel engine, this excavator offers outstanding fuel efficiency, smooth hydraulic performance, and dependable power for excavation, trenching, grading, and material handling. Equipped with a 17.7 in heavy-duty digging bucket, hydraulic thumb clip, and a high-capacity hydraulic system, the TERROR XX LUX is built to maximize productivity while maintaining excellent maneuverability in confined work areas. Whether you're preparing foundations, installing utilities, maintaining orchards, or completing landscaping projects, the TYPHON TERROR XX LUX is engineered to deliver professional results with long-lasting reliability. Key Features EPA-Certified Kubota D902 Diesel Engine The TERROR XX LUX is powered by the industry-proven Kubota D902 diesel engine, known worldwide for its durability, fuel efficiency, and dependable performance. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder diesel Smooth and reliable power delivery Excellent fuel efficiency Easy maintenance Built for long service life Designed for demanding job sites, the Kubota engine provides consistent performance while meeting strict EPA emissions standards. Premium Luxury Series Construction The TERROR XX LUX belongs to TYPHON's Luxury Series, combining heavy-duty construction with premium styling for operators who expect both performance and appearance. Luxury Series Benefits Premium professional finish Rugged reinforced steel construction Modern Luxury Series styling Corrosion-resistant structural components Long service life Built for commercial applications Every component is engineered for maximum durability while maintaining a refined appearance. Compact Design for Maximum Flexibility Its compact crawler design allows operators to work efficiently in narrow and confined workspaces where larger excavators cannot operate. Ideal Applications Residential construction Landscaping Farms Orchards Parks Greenhouses Utility installation Municipal maintenance Property development Commercial projects The compact design also allows for easier transportation between job sites. High-Performance Hydraulic System The TERROR XX LUX is equipped with a robust hydraulic system engineered for smooth operation and reliable attachment performance. Hydraulic Features Hydraulic thumb clip included 20.5 L hydraulic oil capacity Smooth hydraulic response Excellent attachment compatibility Stable hydraulic performance Efficient hydraulic cooling The generous hydraulic oil capacity helps maintain consistent operating temperatures during extended work periods. Large-Capacity Digging Bucket Built for increased productivity, the TERROR XX LUX comes equipped with a wider heavy-duty bucket for improved excavation efficiency. Bucket Specifications Bucket Width: 17.7 in Bucket Capacity: 0.045 m³ Hydraulic thumb clip included Excellent material handling capability Improved digging productivity The larger bucket enables operators to move more material with every digging cycle while maintaining excellent control. Easy & Comfortable Operation The TERROR XX LUX is engineered to provide operators with smooth controls, excellent visibility, and reliable performance throughout the workday. Operator Benefits Smooth hydraulic controls Comfortable operating position Excellent visibility Stable crawler platform Easy maintenance access Beginner-friendly operation Its intuitive control layout helps reduce operator fatigue while improving overall productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XX LUXGTIN5061030740941Operating Weight4,000 lbsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselFuel Tank Capacity13.5 LHydraulic Oil Capacity20.5 LBucket Width17.7 inBucket Capacity0.045 m³Hydraulic Thumb ClipIncluded Standard Equipment Included Every TYPHON TERROR XX LUX comes fully equipped with essential accessories so you can begin working immediately. Included with Your Excavator ✔ Standard 17.7 in digging bucket ✔ Hydraulic thumb clip ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XX LUX? The TERROR XX LUX combines Kubota reliability, Luxury Series styling, and rugged engineering into one professional-grade excavator. Built for operators who demand dependable performance, excellent maneuverability, and long-term durability, it delivers exceptional value across construction, landscaping, agriculture, and property maintenance. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Premium Luxury Series design ✔ Rugged heavy-duty construction ✔ 4,000 lb operating weight ✔ Hydraulic thumb clip included ✔ 17.7 in heavy-duty digging bucket ✔ 20.5 L hydraulic oil capacity ✔ 13.5 L fuel tank ✔ Compact crawler design for confined work areas Ideal Applications The TYPHON TERROR XX LUX is trusted across a wide range of industries. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing General earthmoving Premium Design. Proven Performance. The TYPHON TERROR XX LUX Mini Excavator combines the trusted reliability of the Kubota D902 diesel engine, premium Luxury Series styling, a high-capacity hydraulic system, and exceptional compact maneuverability into one professional-grade machine. Built to handle demanding construction, landscaping, agricultural, and property maintenance projects, it delivers the power, durability, and efficiency professionals rely on every day.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444931761-7jxys-pasted-image-20260626-103531-ljd2c.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444931761-7jxys-pasted-image-20260626-103531-ljd2c.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444893484-zdgeu-pasted-image-20260626-103453-chzfl.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444896109-gc8tv-pasted-image-20260626-103455-tn3m7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444890748-d2t3m-pasted-image-20260626-103450-18oc1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444927444-5ckxa-pasted-image-20260626-103527-1m97y.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444887775-chw8c-pasted-image-20260626-103447-t8iou.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444924647-x5fkv-pasted-image-20260626-103524-2b23h.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444921178-lk49j-pasted-image-20260626-103521-qo8cn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444918233-72mmt-pasted-image-20260626-103518-vws11.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444915306-5vcs3-pasted-image-20260626-103515-ckr1h.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444913025-ypdgy-pasted-image-20260626-103512-u2xos.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444910227-ivcbt-pasted-image-20260626-103509-n05xq.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444906322-4mucl-pasted-image-20260626-103506-shk9y.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444902979-yfhec-pasted-image-20260626-103502-3hoq4.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$12,482.40"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-XX01Y"
+      },
+      {
+        label: "Weight Class",
+        value: "4,000 lb"
+      },
+      {
+        label: "Capacity",
+        value: "hydraulic system, the TERROR XX LUX is built to maximize productivity while maintaining e"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xviii-capony-2",
+    name: "TYPHON Terror XVIII Capony",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-1801R",
+    gtin: "",
+    price: "$12 482.40",
+    currentPrice: "$12,482.40",
+    sourceUrl: "",
+    buttonUrl: "/product#!/New-4-000-lb-TYPHON-Lux-Mini-Excavator-Rubber-Track-with-Kubota-Diesel-Engine-USA/p/527539357",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "4,000 lb",
+    tagline: "Introducing the TYPHON LUX Mini Excavator, a pinnacle of luxury and efficiency in excavation. Crafted by USA Excavator, this excavator is not just a machine; it's a statement. With a focus on flexibility, ease of transport, and superior heat dissipation, the TYPHON LUX is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards. Let's delve into the key features that make the TYPHON LUX stand out.",
+    description: "TYPHON LUX Mini Excavator GTIN: 5061030740149 The TYPHON LUX Mini Excavator is a premium 4,000 lb compact excavator engineered to deliver exceptional digging performance, outstanding maneuverability, and refined styling for professionals who demand both performance and reliability. As a flagship model in the TYPHON Luxury Series, this excavator combines advanced engineering, durable construction, and operator-friendly features into one highly capable machine. Powered by the proven EPA-certified Kubota D902 diesel engine, the TYPHON LUX is designed for contractors, landscapers, farmers, municipalities, and property owners who require dependable equipment for construction, agriculture, landscaping, and utility work. Equipped with a hydraulic thumb clip, steel mesh windshield, protective canopy, and a standard digging bucket, this compact excavator is built to handle demanding jobs while remaining easy to transport and operate. Whether you're trenching, grading, planting, digging, or maintaining orchards, the TYPHON LUX delivers professional performance in a compact package. Key Features EPA-Certified Kubota D902 Diesel Engine The TYPHON LUX is powered by the highly respected Kubota D902 diesel engine, delivering dependable power, outstanding fuel economy, and reliable performance in demanding working conditions. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder diesel Smooth and responsive power delivery Excellent fuel efficiency Easy maintenance Built for long service life The Kubota engine provides consistent power for excavation, trenching, grading, and material handling while meeting EPA emissions standards. Premium Luxury Series Design The TYPHON LUX is part of TYPHON's Luxury Series, combining sophisticated styling with heavy-duty engineering to create a machine that looks as impressive as it performs. Luxury Series Benefits Premium exterior finish Rugged heavy-duty construction Modern professional styling Corrosion-resistant structural components Long-lasting durability Built for demanding commercial applications Every component is engineered to withstand daily use while maintaining a refined appearance. Compact Design with Exceptional Flexibility Its compact dimensions allow operators to work efficiently in confined spaces where larger excavators cannot easily access. Ideal Applications Residential construction Landscaping Farms Orchards Parks Utility installation Municipal maintenance Property development Indoor renovation projects Commercial construction Its compact size also makes transportation between job sites simple and cost-effective. Efficient Cooling System The TYPHON LUX is engineered with an optimized cooling system that helps maintain stable operating temperatures during extended work periods. Cooling Benefits Excellent heat dissipation Stable hydraulic performance Longer component lifespan Reduced operating temperatures Improved reliability under heavy workloads The efficient cooling design helps maximize machine performance while reducing wear on critical components. Versatile Multi-Purpose Performance Designed for a wide range of applications, the TYPHON LUX is a highly versatile compact excavator capable of handling demanding tasks across multiple industries. Perfect For Excavation Trenching Landscaping Tree planting Orchard maintenance Irrigation installation Ditch cleaning Material handling Land grading Property maintenance Agricultural work General earthmoving The included hydraulic thumb clip further expands the machine's material-handling capabilities. Simple, Safe & Comfortable Operation The TYPHON LUX is designed to provide operators with intuitive controls, excellent visibility, and dependable performance throughout the workday. Operator Benefits Smooth hydraulic controls Comfortable operating position Excellent visibility Easy maintenance access Stable operating platform Beginner-friendly operation Its user-friendly design helps reduce operator fatigue while improving precision and productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON LUX Mini ExcavatorGTIN5061030740149Operating Weight4,000 lbsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselFuel Tank Capacity7.3 LHydraulic Oil Capacity18.9 LHydraulic Thumb ClipIncludedOperator StationHeavy-Duty Open CanopyWindshieldSteel Mesh Protective Screen Standard Equipment Included Every TYPHON LUX Mini Excavator comes fully equipped with premium accessories to maximize productivity from day one. Included with Your Excavator ✔ Standard digging bucket ✔ Hydraulic thumb clip ✔ Steel mesh windshield ✔ Heavy-duty operator canopy ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON LUX? The TYPHON LUX combines Kubota reliability, Luxury Series styling, compact maneuverability, and professional-grade durability into one versatile excavator. Designed for operators who demand exceptional performance without compromising comfort or efficiency, it is an excellent choice for construction, landscaping, agriculture, and property maintenance. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Premium Luxury Series construction ✔ 4,000 lb operating weight ✔ Hydraulic thumb clip included ✔ Steel mesh windshield ✔ Efficient cooling system ✔ 7.3 L fuel tank ✔ 18.9 L hydraulic oil capacity ✔ Compact design for restricted work areas Ideal Applications The TYPHON LUX is trusted across a wide range of industries. Construction Foundation excavation Utility trenching Site preparation Residential projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Material handling Land grading Property Maintenance Drainage installation Ditch cleaning Land clearing General excavation Luxury Meets Professional Performance. The TYPHON LUX Mini Excavator combines the trusted reliability of the Kubota D902 diesel engine, premium Luxury Series styling, efficient cooling technology, and durable construction into one compact machine built for professional productivity. Whether you're excavating, trenching, landscaping, or maintaining agricultural properties, the TYPHON LUX delivers the performance, versatility, and reliability needed to complete every project with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445120286-rbmaa-pasted-image-20260626-103839-mjn1d.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445120286-rbmaa-pasted-image-20260626-103839-mjn1d.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445130457-0xxqd-pasted-image-20260626-103850-31jnz.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445136465-eikq6-pasted-image-20260626-103856-ph436.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445124401-lseqv-pasted-image-20260626-103844-j8wno.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445126861-t914e-pasted-image-20260626-103846-pqrpn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445139992-cjag4-pasted-image-20260626-103859-cqwdv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445143373-t9cia-pasted-image-20260626-103903-wab5i.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445163829-0gekb-pasted-image-20260626-103922-3d5ab.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445159102-k6dou-pasted-image-20260626-103918-9d2o0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445154750-15t9z-pasted-image-20260626-103914-ntgm2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445151465-jtdl0-pasted-image-20260626-103911-vklh1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445147435-fhls3-pasted-image-20260626-103907-cokpm.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$12,482.40"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1801R"
+      },
+      {
+        label: "Weight Class",
+        value: "4,000 lb"
+      },
+      {
+        label: "Capacity",
+        value: "7"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xviii-cabin",
+    name: "TYPHON Terror XVIII Cabin",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-1802G",
+    gtin: "",
+    price: "$13 648.95",
+    currentPrice: "$13,648.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-XVIII-Prestige-2-Ton-Mini-Excavator-KUBOTA-Diesel-Engine-USA/p/753665847",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "2 ton",
+    tagline: "Introducing the TYPHON TERROR XVIII Prestige Mini Excavator, a two-ton trench digger designed to bring luxury and efficiency to small and medium construction projects. With its compact yet robust design, this mini excavator is engineered for easy maneuverability in various settings, including farms, gardens, public spaces, parks, orchards, and more. Let's explore the outstanding features that make the TYPHON TERROR XVIII Prestige stand out.",
+    description: "TYPHON TERROR XVIII Prestige Mini Excavator GTIN: 5061030741146 The TYPHON TERROR XVIII Prestige Mini Excavator is a premium 2-ton compact excavator designed to deliver powerful digging performance, exceptional maneuverability, and superior operator comfort. Built for contractors, landscapers, farmers, and property owners, this Prestige model combines the proven reliability of the Kubota D902 diesel engine with a fully enclosed air-conditioned and heated cabin, making it an ideal solution for year-round operation. Engineered for small to medium-sized construction projects, the TERROR XVIII Prestige offers the perfect balance of compact dimensions and professional-grade performance. Its boom swing, 15 in digging bucket, and responsive hydraulic system allow operators to work efficiently in confined spaces while maintaining excellent digging power and precision. Whether you're excavating foundations, installing utilities, landscaping properties, or maintaining agricultural land, the TYPHON TERROR XVIII Prestige delivers dependable productivity and outstanding comfort throughout the workday. Key Features Powerful EPA-Certified Kubota D902 Engine The TERROR XVIII Prestige is powered by the highly regarded Kubota D902 diesel engine, providing dependable power, excellent fuel economy, and proven long-term reliability. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder, 4-cycle IDI diesel 20.4 HP @ 3,600 RPM 15.8 HP @ 2,200 RPM Smooth, fuel-efficient operation Easy maintenance Designed for demanding professional applications The Kubota engine delivers the consistent performance required for excavation, trenching, grading, and material handling while meeting EPA emissions standards. Compact Design for Professional Performance Purpose-built for small and medium-sized projects, the TERROR XVIII Prestige provides outstanding maneuverability without sacrificing power or stability. Ideal Applications Residential construction Landscaping Farms Orchards Parks Utility installation Municipal maintenance Property development Drainage projects Commercial construction Its compact footprint allows operators to work efficiently in restricted spaces where larger excavators cannot operate. Boom Swing for Greater Flexibility The integrated boom swing system allows operators to dig alongside buildings, fences, and other obstacles without constantly repositioning the machine. Boom Swing Benefits Easier trenching along walls Improved efficiency in confined areas Better digging precision Reduced repositioning time Increased job-site productivity This feature makes the machine especially valuable for utility work and residential construction. Premium Enclosed Cabin with Air Conditioning & Heating The Prestige model is equipped with a fully enclosed operator cabin designed to maximize comfort in every season. Cabin Features Fully enclosed operator station Integrated air conditioning Built-in heating system Excellent visibility Comfortable seating position Protection from dust and weather The climate-controlled cabin allows operators to remain comfortable and productive during both hot summers and cold winters. Versatile Multi-Purpose Performance The TERROR XVIII Prestige is designed to handle a wide variety of excavation and earthmoving applications. Perfect For Excavation Trenching Landscaping Foundation preparation Ditch cleaning Utility installation Tree planting Material handling Land grading Rock removal Agricultural maintenance General earthmoving Its versatility makes it an excellent investment for contractors who need one machine capable of handling multiple tasks. Smooth & User-Friendly Operation Designed with both experienced professionals and first-time operators in mind, the TERROR XVIII Prestige offers intuitive controls and excellent maneuverability. Operator Benefits Smooth hydraulic controls Excellent visibility Comfortable enclosed cabin Easy maintenance access Stable compact chassis Beginner-friendly operation The combination of responsive controls and ergonomic design helps reduce operator fatigue during long workdays. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVIII PrestigeGTIN5061030741146Operating Weight2 TonsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselEngine Output20.4 HP @ 3,600 RPM / 15.8 HP @ 2,200 RPMBucket Width15 inBucket Capacity0.03 m³Maximum Digging Depth81.1 inMaximum Digging Height101.6 inMinimum Swing Radius67.4 inBoom SwingYesOperator StationEnclosed Cabin with A/C & Heater Standard Equipment Included Every TYPHON TERROR XVIII Prestige comes fully equipped with professional accessories so you can get to work immediately. Included with Your Excavator ✔ Standard digging bucket ✔ Fully enclosed A/C and heater cabin ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XVIII Prestige? The TERROR XVIII Prestige combines Kubota reliability, professional digging performance, and premium operator comfort into one compact excavator. Designed for contractors and professionals who expect dependable performance and year-round comfort, it delivers exceptional value across construction, agriculture, landscaping, and property maintenance. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Compact 2-ton design ✔ Fully enclosed air-conditioned cabin ✔ Integrated heating system ✔ Boom swing for confined-space digging ✔ 15 in digging bucket ✔ Excellent maneuverability ✔ Durable construction for long service life ✔ Easy operation and maintenance Ideal Applications The TYPHON TERROR XVIII Prestige is trusted across multiple industries. Construction Foundation excavation Utility trenching Site preparation Residential building projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Retaining wall preparation Property grading Property Maintenance Drainage installation Ditch cleaning Land clearing General excavation Premium Comfort. Professional Performance. The TYPHON TERROR XVIII Prestige Mini Excavator combines the proven reliability of the Kubota D902 diesel engine, exceptional compact maneuverability, and the comfort of a fully enclosed air-conditioned and heated cabin into one professional-grade machine. Built for demanding construction, landscaping, agricultural, and property maintenance applications, it delivers the power, precision, and operator comfort needed to complete every project with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445417926-4sxzr-pasted-image-20260626-104337-4m4cy.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445417926-4sxzr-pasted-image-20260626-104337-4m4cy.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445437656-skdhi-pasted-image-20260626-104357-8y0sr.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445433646-gj98n-pasted-image-20260626-104353-9u29u.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445428335-u2dw4-pasted-image-20260626-104348-th0sn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445425025-kp2hv-pasted-image-20260626-104344-affrf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445421301-ofolc-pasted-image-20260626-104341-snjj0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445414905-1seut-pasted-image-20260626-104334-6vnwd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445409778-jfvee-pasted-image-20260626-104329-4evsy.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445402790-t6pc2-pasted-image-20260626-104322-dm6of.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$13,648.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1802G"
+      },
+      {
+        label: "Weight Class",
+        value: "2 ton"
+      },
+      {
+        label: "Engine Power",
+        value: "20.4 HP"
+      },
+      {
+        label: "Digging Depth",
+        value: "81"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xviii-cabin-2",
+    name: "TYPHON Terror XVIII Cabin",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-1802Y",
+    gtin: "",
+    price: "$13 648.95",
+    currentPrice: "$13,648.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-XVIII-Prestige-2-Ton-Mini-Excavator-KUBOTA-Diesel-Engine-USA/p/579692506",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "2 ton",
+    tagline: "Introducing the TYPHON TERROR XVIII Prestige Mini Excavator, a two-ton trench digger designed to bring luxury and efficiency to small and medium construction projects. With its compact yet robust design, this mini excavator is engineered for easy maneuverability in various settings, including farms, gardens, public spaces, parks, orchards, and more. Let's explore the outstanding features that make the TYPHON TERROR XVIII Prestige stand out.",
+    description: "TYPHON TERROR XVIII Prestige Mini Excavator GTIN: 5061030740279 The TYPHON TERROR XVIII Prestige Mini Excavator is a premium 2-ton compact excavator engineered to deliver exceptional digging performance, precision, and operator comfort for contractors, landscapers, farmers, and property owners. Built for small to medium-sized construction projects, this Prestige model combines the proven reliability of the Kubota D902 diesel engine with a spacious air-conditioned and heated enclosed cabin, giving operators the confidence to work comfortably in every season. Designed with boom swing capability, a 15 in digging bucket, and a compact yet stable chassis, the TERROR XVIII Prestige excels in confined work areas where larger excavators cannot operate efficiently. Whether you're trenching, grading, landscaping, excavating foundations, or maintaining agricultural land, this machine delivers dependable performance and professional results. Key Features Powerful Kubota D902 Diesel Engine The TERROR XVIII Prestige is powered by the industry-proven Kubota D902, providing excellent fuel efficiency, smooth hydraulic performance, and dependable reliability for demanding job sites. Engine Highlights Kubota D902 Diesel Engine EPA Certified Water-cooled 3-cylinder, 4-cycle IDI diesel 20.4 HP @ 3,600 RPM 15.8 HP @ 2,200 RPM Fuel-efficient operation Easy maintenance Long service life The Kubota engine delivers consistent power for excavation, grading, trenching, and material handling while maintaining low operating costs. Compact Design for Maximum Productivity Purpose-built for restricted workspaces, the TERROR XVIII Prestige provides the perfect balance between compact dimensions and professional-grade digging performance. Ideal Applications Residential construction Commercial construction Landscaping Farms Orchards Utility installation Municipal maintenance Property development Drainage systems General excavation Its compact footprint makes transportation easy while allowing operators to work efficiently in tight spaces. Boom Swing for Greater Flexibility The integrated boom swing system increases versatility and allows operators to dig closer to structures without constantly repositioning the machine. Boom Swing Benefits Easier trenching beside walls Improved confined-space digging Faster operation Better digging accuracy Increased productivity This feature is especially valuable for utility work, landscaping, and residential construction. Premium Air-Conditioned & Heated Cabin The Prestige model features a fully enclosed operator cabin designed to maximize comfort and productivity throughout the year. Cabin Features Fully enclosed cabin Air conditioning Integrated heating system Comfortable operator station Excellent visibility Protection from weather and dust The climate-controlled cabin allows operators to remain productive regardless of outdoor conditions. Versatile Multi-Purpose Performance Designed for professionals who require one machine for multiple tasks, the TERROR XVIII Prestige performs exceptionally across numerous industries. Perfect For Excavation Foundation preparation Utility trenching Landscaping Ditch cleaning Tree planting Land grading Material handling Agricultural work Property maintenance Rock removal General earthmoving Its compact design and responsive hydraulics make it ideal for demanding everyday work. Smooth & Easy Operation The TERROR XVIII Prestige is designed to provide comfortable operation for both experienced operators and first-time users. Operator Benefits Smooth hydraulic controls Stable compact chassis Comfortable enclosed cabin Excellent visibility Easy maintenance access Beginner-friendly operation The ergonomic layout helps reduce operator fatigue while improving overall productivity. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVIII PrestigeGTIN5061030740279Operating Weight2 TonsEngineKubota D902 DieselEngine TypeEPA-Certified Water-Cooled 3-Cylinder DieselEngine Output20.4 HP @ 3,600 RPM / 15.8 HP @ 2,200 RPMBucket Width15 inBucket Capacity0.03 m³Maximum Digging Depth81.1 inMaximum Digging Height101.6 inMinimum Swing Radius67.4 inBoom SwingYesOperator StationEnclosed Cabin with A/C & Heater Standard Equipment Included Every TYPHON TERROR XVIII Prestige comes ready for work with professional-grade accessories. Included with Your Excavator ✔ Standard digging bucket ✔ Fully enclosed A/C and heater cabin ✔ Heavy-duty toolbox ✔ Digital operator's manual Why Choose the TYPHON TERROR XVIII Prestige? The TERROR XVIII Prestige combines the trusted reliability of the Kubota D902 engine with premium operator comfort, compact maneuverability, and durable construction. Designed for professionals who require dependable performance in confined work environments, it delivers exceptional value across construction, landscaping, agriculture, and property maintenance. Key Benefits ✔ EPA-certified Kubota D902 diesel engine ✔ Compact 2-ton operating weight ✔ Fully enclosed air-conditioned cabin ✔ Integrated heating system ✔ Boom swing for greater flexibility ✔ 15 in digging bucket ✔ Excellent maneuverability ✔ Durable heavy-duty construction ✔ Easy maintenance and reliable operation Ideal Applications The TYPHON TERROR XVIII Prestige is trusted by professionals across multiple industries. Construction Foundation excavation Utility trenching Site preparation Residential and commercial projects Agriculture Orchard maintenance Irrigation installation Farm improvements Land preparation Landscaping Tree planting Pond excavation Retaining wall preparation Property grading Property Maintenance Drainage installation Ditch cleaning Land clearing General excavation Premium Comfort. Reliable Performance. The TYPHON TERROR XVIII Prestige Mini Excavator combines the dependable performance of the Kubota D902 diesel engine, compact maneuverability, boom swing functionality, and the comfort of a fully enclosed air-conditioned and heated cabin into one professional-grade machine. Built for demanding construction, landscaping, agricultural, and utility applications, it delivers the power, precision, and reliability needed to complete every project with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445703852-ujxoa-pasted-image-20260626-104823-kc9h0.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445703852-ujxoa-pasted-image-20260626-104823-kc9h0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445687814-kk0ct-pasted-image-20260626-104807-piznl.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445684936-gc182-pasted-image-20260626-104804-cu1f0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445690423-p6v67-pasted-image-20260626-104810-b6xex.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445723098-1i6yg-pasted-image-20260626-104843-akf86.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445716707-9mqja-pasted-image-20260626-104836-sfu23.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445714500-v4dxl-pasted-image-20260626-104834-kfgtd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445711225-brfr4-pasted-image-20260626-104831-bykdb.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445708883-4yzsj-pasted-image-20260626-104828-t3e2x.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445706424-pzxms-pasted-image-20260626-104826-6hw1a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445700315-lp2sj-pasted-image-20260626-104820-a6fy5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445697898-6av5p-pasted-image-20260626-104817-ki3ex.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445695523-gmxac-pasted-image-20260626-104815-9hrs4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445692913-vq3ot-pasted-image-20260626-104812-hftgs.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445680041-8lkus-pasted-image-20260626-104800-npoy0.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$13,648.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1802Y"
+      },
+      {
+        label: "Weight Class",
+        value: "2 ton"
+      },
+      {
+        label: "Engine Power",
+        value: "20.4 HP"
+      },
+      {
+        label: "Digging Depth",
+        value: "81"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-fury-walk-behind",
+    name: "TYPHON Fury Walk Behind",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "road-rollers",
+    categoryLabel: "Road Roller",
+    rawCategory: "",
+    sku: "TYPH-0906",
+    gtin: "",
+    price: "$5 248.95",
+    currentPrice: "$5,248.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-10hp-EPA-B&S-FURY-Walk-behind-Vibratory-Roller-Compactor-USA/p/601207310",
+    importConfidence: "",
+    series: "FURY road roller series",
+    weight: "1,213 lb",
+    tagline: "Introducing the TYPHON FURY Walk-Behind Vibratory Roller, a compact yet powerful machine designed to tackle big challenges in various applications. This exceptionally versatile equipment offers excellent performance on small to medium compacting jobs, whether on granular materials, soils, or asphalt.",
+    description: "TYPHON FURY Walk-Behind Vibratory Roller GTIN: 5061030740187 The TYPHON FURY Walk-Behind Vibratory Roller is a compact, professional-grade compaction machine designed to deliver outstanding performance on asphalt, gravel, crushed stone, and soil. Built for contractors, landscapers, municipalities, and property maintenance professionals, this walk-behind roller combines powerful vibration, hydraulic drive, and exceptional maneuverability to handle jobs where larger rollers simply cannot operate. Powered by a reliable 10 HP Briggs & Stratton XR306CC EPA-certified gasoline engine, the TYPHON FURY produces 20 kN of centrifugal force and a 70 Hz vibration frequency, allowing operators to achieve smooth, uniform compaction quickly and efficiently. Its compact footprint makes it ideal for sidewalks, bike paths, driveways, landscaping projects, road repairs, and confined work areas. Whether you're compacting asphalt after patching, preparing foundations, or finishing landscaping projects, the TYPHON FURY Walk-Behind Vibratory Roller delivers professional results with reliable performance. Key Features Compact Design for Tight Work Areas The TYPHON FURY is engineered to work efficiently where larger ride-on rollers cannot reach. Perfect For Sidewalks Driveways Bike paths Residential construction Utility trench repairs Landscaping projects Parks Confined construction sites Its compact design provides excellent maneuverability without sacrificing compaction performance. Powerful Briggs & Stratton Engine At the heart of the machine is a dependable 10 HP Briggs & Stratton XR306CC gasoline engine built for demanding construction environments. Engine Highlights 10 HP output EPA-certified gasoline engine Briggs & Stratton XR306CC Reliable starting Fuel-efficient operation Easy maintenance The engine delivers consistent power for extended operation on demanding job sites. Professional Vibratory Performance The FURY generates strong vibration to compact a variety of construction materials quickly and evenly. Compaction Performance 20 kN centrifugal force 70 Hz vibration frequency Uniform surface density Smooth asphalt finishing Excellent gravel compaction Improved project efficiency Its high-frequency vibration minimizes the number of passes required while delivering professional-quality results. Hydraulic Drive System The hydraulic drive system provides smooth machine control and dependable performance on uneven terrain. Hydraulic Features Hydraulic drive station Smooth forward and reverse movement Automatic clutch vibration control Excellent traction Reduced operator fatigue Consistent power delivery This system allows operators to maintain better control while working on challenging surfaces. Built for Everyday Job Sites Designed with contractors in mind, the TYPHON FURY is suitable for a wide range of commercial and residential applications. Ideal Applications Road repairs Asphalt patching Parking lots Sidewalk construction Sports fields Bike paths Farm roads Forest access roads Landscaping Foundation preparation Its versatility makes it an excellent addition to any construction or maintenance fleet. Technical Specifications SpecificationDetailsProduct ModelTYPHON FURY Walk-Behind Vibratory RollerGTIN5061030740187Machine TypeWalk-Behind Vibratory RollerEngineBriggs & Stratton XR306CC Gasoline Engine (EPA Certified)Engine Output10 HPStarting SystemHand StartOperating Weight1,213 lb (1,213 lb)Travel Speed0-4 km/hMaximum Gradeability30%Drive SystemHydraulic Drive StationVibration ControlAutomatic ClutchStatic Linear Load53 N/cmVibration Frequency70 HzCentrifugal Force20 kNWater Tank Capacity20 LHydraulic Oil Capacity21 LSteel Drum SizeØ425 × 23.6 in (Dual Drums)Machine Dimensions (L × W × H)1250 × 795 × 1550 mmHydraulic Pump BrandSDHHydraulic Motor BrandLIKE Standard Equipment Included Every TYPHON FURY Walk-Behind Vibratory Roller comes equipped for immediate operation. Included with Your Roller ✔ Briggs & Stratton XR306CC 10 HP engine ✔ Dual steel vibrating drums ✔ Hydraulic drive system ✔ Automatic vibration clutch ✔ 20 L water tank ✔ Digital operator's manual Why Choose the TYPHON FURY? The TYPHON FURY combines compact dimensions, professional-grade vibration, and dependable hydraulic performance into one versatile compaction machine. Built for contractors and maintenance professionals, it delivers reliable results across asphalt, gravel, soil, and landscaping applications. Key Benefits ✔ 10 HP Briggs & Stratton engine ✔ EPA-certified gasoline engine ✔ Powerful 20 kN compaction force ✔ Hydraulic drive system ✔ Automatic vibration clutch ✔ Dual steel drums ✔ 70 Hz vibration frequency ✔ Compact size for confined work areas ✔ Professional-grade durability Ideal Applications Construction Asphalt patching Foundation preparation Utility trench repairs Small road projects Landscaping Garden paths Decorative stone Residential landscaping Outdoor hardscaping Municipal Maintenance Sidewalk repairs Bike paths Parks Public walkways Agriculture & Rural Roads Farm lanes Gravel roads Forest access roads Property maintenance Compact Size. Professional Compaction. The TYPHON FURY Walk-Behind Vibratory Roller delivers professional compaction performance in a compact, easy-to-operate package. Featuring a 10 HP Briggs & Stratton EPA-certified engine, 20 kN centrifugal force, hydraulic drive, and 70 Hz vibration frequency, it provides the power, control, and reliability needed for asphalt, soil, gravel, and landscaping projects. Whether you're working on commercial construction or residential improvements, the TYPHON FURY is built to help you achieve smooth, durable, and professional results every time.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446782353-kj7pw-pasted-image-20260626-110622-wlc51.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446782353-kj7pw-pasted-image-20260626-110622-wlc51.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446788086-s2s4o-pasted-image-20260626-110628-ppxdc.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446785596-do5mb-pasted-image-20260626-110625-2ztrb.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446779615-46bld-pasted-image-20260626-110619-d425f.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446776189-k9xhc-pasted-image-20260626-110616-65d3p.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446773487-qn7mc-pasted-image-20260626-110613-lsx3z.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446769627-sl4mn-pasted-image-20260626-110609-goejn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446766008-s1c2n-pasted-image-20260626-110605-evbck.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446763453-7uy5a-pasted-image-20260626-110603-el994.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446753309-n1emr-pasted-image-20260626-110553-yv37e.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Road Roller"
+      },
+      {
+        label: "Current Price",
+        value: "$5,248.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0906"
+      },
+      {
+        label: "Weight Class",
+        value: "1,213 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "10 HP"
+      },
+      {
+        label: "Capacity",
+        value: "20 LHydraulic Oil Capacity21 LSteel Drum SizeØ425 × 23"
+      }
+    ],
+    features: [
+      "Vibratory drum configuration",
+      "Compact compaction footprint",
+      "Hydraulic steering support",
+      "Small-site roadwork setup"
+    ],
+    applications: [
+      "Soil compaction",
+      "Asphalt repair",
+      "Driveway work",
+      "Landscape base prep"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "all-in-one-12-pcs-attachment",
+    name: "All-in-One 12 PCS Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "forklifts",
+    categoryLabel: "Forklift",
+    rawCategory: "",
+    sku: "TYPH-PA03",
+    gtin: "",
+    price: "$6 298.95",
+    currentPrice: "$6,298.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/All-in-One-12-PCS-Attachment-Set-Tool-Fits-2-3-ton-Mini-Excavator-Terror-XXV/p/781178089",
+    importConfidence: "",
+    series: "Forklift series",
+    weight: "3 ton",
+    tagline: "12-in-1 Mini Excavator Attachment Combo",
+    description: "TYPHON 12-in-1 Mini Excavator Attachment Combo GTIN: 5061030741245 Turn your mini excavator into a true multi-purpose work machine with the TYPHON 12-in-1 Mini Excavator Attachment Combo. Designed for 2-3 ton mini excavators, this complete attachment package gives contractors, landscapers, farmers, property owners, and construction professionals everything they need to tackle a wide variety of jobs without investing in multiple machines. From trenching and grading to demolition, material handling, tree planting, and vegetation maintenance, this premium attachment kit allows you to quickly switch between specialized tools using the included quick coupler, helping reduce downtime and increase productivity on every project. Built from heavy-duty, high-strength steel, every attachment is engineered for durability, dependable performance, and long service life in demanding job site conditions. What's Included This complete package includes 12 professional attachments designed to maximize the capabilities of your mini excavator. Included Attachments ✔ Quick Coupler ✔ 11.8 in Trenching Bucket ✔ 39.4 in Grading (Plain) Bucket ✔ Landscape Rake ✔ Ripper Tooth ✔ Hydraulic Grapple ✔ Earth Auger ✔ 31.5 in Tilting Bucket ✔ Pallet Fork ✔ Hydraulic Breaker (Hammer) ✔ Tree Digging Blade ✔ Hedge Trimmer With one complete attachment package, your excavator can perform dozens of different tasks across construction, landscaping, agriculture, and property maintenance. Key Features One Machine. Twelve Professional Tools. Expand the capabilities of your excavator without purchasing additional equipment. Complete Job Site Solution Dig trenches Grade surfaces Break concrete Lift pallets Remove roots Plant trees Trim hedges Drill post holes Handle logs and debris Clear brush Prepare foundations Landscape efficiently This complete package helps eliminate the need for multiple dedicated machines. Heavy-Duty Construction Every attachment is manufactured using durable materials designed for demanding professional use. Built For Commercial construction Heavy landscaping Agriculture Forestry Utility work Property maintenance Heavy-duty construction ensures long service life and dependable performance under tough working conditions. Quick Coupler for Faster Attachment Changes The included quick coupler allows operators to switch between attachments quickly, reducing downtime and improving productivity. Benefits Faster attachment installation Less downtime Increased efficiency Improved workflow Easier operation More productive workdays Changing tools takes only minutes, allowing operators to complete multiple tasks without unnecessary delays. Versatile Applications Whether you're working on construction sites, farms, or landscaping projects, this attachment kit provides a tool for nearly every job. Perfect For Excavation Trenching Demolition Land clearing Tree planting Material handling Landscaping Utility installation Fence construction Drainage work Property maintenance Agricultural projects This combination transforms your excavator into a complete job-site solution. Compatible Excavators The TYPHON 12-in-1 Attachment Combo is designed for: TYPHON TERROR XXV Mini Excavator Most 2-3 Ton Mini Excavators that meet the following mounting specifications. Mounting Dimensions SpecificationMeasurementPin Diameter30 mmPin Center to Center130 mmSpan Width4.8 in Important: Always verify your excavator's mounting dimensions before purchasing to ensure proper compatibility. Attachment Overview AttachmentPrimary UseQuick CouplerFast attachment changes11.8 in Trenching BucketNarrow trench excavation39.4 in Grading BucketLeveling and gradingLandscape RakeClearing rocks, roots, and debrisRipper ToothBreaking compacted groundGrappleHandling logs, rocks, and debrisEarth AugerDrilling post and foundation holes31.5 in Tilting BucketPrecision grading and ditch shapingPallet ForkLifting pallets and materialsHydraulic HammerConcrete and rock demolitionTree Digging BladeTree planting and transplantingHedge TrimmerVegetation and hedge maintenance Why Choose the TYPHON 12-in-1 Combo? Instead of purchasing multiple specialized machines, this attachment package allows one excavator to perform a wide range of professional tasks. It increases equipment utilization, reduces operating costs, and improves overall productivity on every job site. Key Benefits ✔ Complete 12-piece attachment package ✔ Heavy-duty steel construction ✔ Quick coupler included ✔ Professional-grade durability ✔ Designed for 2-3 ton mini excavators ✔ Ideal for construction, landscaping, agriculture, and forestry ✔ Saves time by reducing attachment changeovers ✔ Maximizes excavator versatility Get More From Every Job. The TYPHON 12-in-1 Mini Excavator Attachment Combo is the ultimate productivity upgrade for contractors and equipment owners. With 12 professional attachments, a quick coupler, and compatibility with the TYPHON TERROR XXV and other compatible 2-3 ton mini excavators, this all-in-one package gives you the flexibility to dig, lift, break, drill, grade, trim, and clear with a single machine-helping you complete more work in less time while maximizing your equipment investment.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447390258-7e37v-pasted-image-20260626-111630-fsvm0.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447390258-7e37v-pasted-image-20260626-111630-fsvm0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447393574-thc20-pasted-image-20260626-111633-eb1rf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447398206-3rd6j-pasted-image-20260626-111638-ldbze.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447401300-ctdks-pasted-image-20260626-111641-4rroy.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447404359-woiwu-pasted-image-20260626-111644-12nqz.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447407601-lvz8m-pasted-image-20260626-111647-bbw2p.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447411534-8bu9m-pasted-image-20260626-111651-yqslm.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447414200-p1ffq-pasted-image-20260626-111654-zbhla.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447416952-wj0iy-pasted-image-20260626-111656-hciw4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447436199-d6vbo-pasted-image-20260626-111716-bksc1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447431367-fk03f-pasted-image-20260626-111711-19ws8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447427837-zyg1g-pasted-image-20260626-111707-do4gs.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447423862-j2tsi-pasted-image-20260626-111703-iff8y.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Forklift"
+      },
+      {
+        label: "Current Price",
+        value: "$6,298.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-PA03"
+      },
+      {
+        label: "Weight Class",
+        value: "3 ton"
+      }
+    ],
+    features: [
+      "Electric lift-truck platform",
+      "Compact turning layout",
+      "Pallet handling mast",
+      "Indoor and yard material support"
+    ],
+    applications: [
+      "Farms",
+      "Or Landscaping Projects",
+      "000 Mm Grading Bucketleveling",
+      "Gradinglandscape Rakeclearing Rocks",
+      "Roots",
+      "Rocks",
+      "And Debrisearth Augerdrilling Post",
+      "Ditch Shapingpallet Forklifting Pallets"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-tyrant-17",
+    name: "TYPHON Tyrant 17",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-0701R FLEX",
+    gtin: "",
+    price: "$14 698.95",
+    currentPrice: "$14,698.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/3800lbs-TYRANT-17-Diesel-Mini-Excavator-Kubota-D902-Engine-Side-Swing-w-12-attachments/p/785150703",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "3,800 lb",
+    tagline: "With a focus on flexibility, ease of transport, and superior heat dissipation, the TYPHON TYRANT 17 is your go-to solution for a wide range of applications, including planting, digging, applying fertilizer, and weeding in orchards.",
+    description: "TYPHON TYRANT 17 Mini Excavator with 12 Attachment Bundle The TYPHON TYRANT 17 is a professional-grade 3,800 lb compact mini excavator engineered for contractors, landscapers, farmers, utility crews, and property owners who need exceptional versatility in confined working environments. Powered by an EPA-certified Kubota D902 diesel engine, this machine combines reliable digging performance, precise hydraulic controls, and an industry-leading 12-attachment package to tackle a wide range of jobs with one machine. Designed with Zero Tail Swing (ZTS) technology, hydraulic pilot controls, and a reinforced wide undercarriage, the TYRANT 17 delivers outstanding stability, maneuverability, and operator comfort while maintaining excellent productivity on demanding job sites. Included 12-Attachment Package The TYRANT 17 comes equipped with everything needed to start working immediately. Included Attachments Hydraulic Thumb (pre-installed) Standard 16.3 in Bucket (pre-installed) Quick Coupler 7.9 in Trenching Bucket 19.7 in Grading Bucket Rake Ripper Earth Auger Grapple 23.6 in Screening Bucket 23.6 in Tilting Bucket Hydraulic Breaker This complete attachment package allows one excavator to perform excavation, grading, trenching, demolition, drilling, landscaping, material handling, and site preparation without additional equipment. Key Features EPA-Certified Kubota Diesel Performance Powered by the dependable Kubota D902 3-cylinder diesel engine, the TYRANT 17 delivers reliable power, fuel efficiency, and low emissions while meeting EPA requirements. Engine Specifications Kubota D902 Diesel Engine EPA Certified 16 HP (15.8 HP) Diesel Fuel System Built for long service life Zero Tail Swing Design The limited Zero Tail Swing design allows the machine to rotate with minimal rear overhang, making it ideal for operating close to walls, buildings, fences, and other obstacles. Perfect for: Residential construction Landscaping Utility work Indoor demolition Property maintenance Orchard operations Hydraulic Pilot Controls Pilot-operated hydraulic joysticks provide smooth, responsive machine control while reducing operator effort during long working hours. Benefits include: Precise digging control Reduced operator fatigue Smoother operation Faster productivity Built for Stability The 43.3 in wide undercarriage combined with 9.1 in tracks provides excellent balance and traction across uneven terrain while reducing ground pressure. Suitable for: Dirt Gravel Clay Soft ground Construction sites Farms Landscapes Advanced Cooling System A split hydraulic oil cooling system separates engine and hydraulic cooling, improving heat dissipation and allowing the excavator to maintain performance during extended operation. Wide Range of Applications The TYRANT 17 is designed for: Excavation Trenching Landscaping Tree planting Utility installation Drainage work Agriculture Orchard maintenance Demolition Material handling Foundation preparation Property maintenance Specifications SpecificationValueGTIN05061030741405Operating Weight3,800 lbsEngineKubota D902 DieselPower16 HP (15.8 HP)Maximum Digging Height3,080 mmMaximum Digging Depth2,000 mmTurning Radius840 mmTrack Width230 mmUndercarriage Width1,100 mmTravel Speed0-3 km/hFuel Tank10 LHydraulic Tank15 LBoom SwingLeft 45° / Right 45°Rotation360° Standard Equipment Hydraulic Pilot Operating System Zero Tail Swing Design Hydraulic Thumb 16.3 in Bucket Quick Coupler Split Hydraulic Oil Cooler Hydraulic Valve Protection Comfortable Operator Seat with Headrest Reinforced Roof Oil Tank Protective Cover 360° Rotation Boom Swing Why Choose the TYRANT 17? The TYRANT 17 combines the reliability of a Kubota diesel engine, hydraulic pilot controls, Zero Tail Swing maneuverability, and an extensive 12-attachment package into one highly capable compact excavator. Whether you're digging trenches, clearing land, handling materials, or maintaining property, it delivers the versatility, precision, and durability professionals expect while remaining compact enough for confined work areas.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447820916-6ywtj-pasted-image-20260626-112340-yvnu1.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447820916-6ywtj-pasted-image-20260626-112340-yvnu1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447824900-4e5t3-pasted-image-20260626-112344-f3vdc.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447828369-2u7zs-pasted-image-20260626-112348-4goya.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447839278-zhrpd-pasted-image-20260626-112359-mvjpi.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447843856-rr4yr-pasted-image-20260626-112403-1fbvy.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447841527-lszop-pasted-image-20260626-112401-r7lna.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447846709-8tp7w-pasted-image-20260626-112406-g08ne.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447837075-8h5ou-pasted-image-20260626-112356-7ljtd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447849184-c266m-pasted-image-20260626-112409-6aar4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447851727-unyzc-pasted-image-20260626-112411-1q2p7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447871167-xim1r-pasted-image-20260626-112431-2yxf2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447867719-3zgnp-pasted-image-20260626-112427-99a0x.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447865347-3fq30-pasted-image-20260626-112425-hx8ui.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447861681-8aole-pasted-image-20260626-112421-txoi2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447859189-ltmk6-pasted-image-20260626-112419-r30md.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447856834-9s5nh-pasted-image-20260626-112416-0g8l3.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$14,698.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0701R FLEX"
+      },
+      {
+        label: "Weight Class",
+        value: "3,800 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "16 HP"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-one",
+    name: "TYPHON Terror ONE",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-0113",
+    gtin: "",
+    price: "$5 248.95",
+    currentPrice: "$5,248.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-ONE-STORM-1-Ton-Mini-Excavator-Trench-Digger-with-Hydraulic-Oil-Cooler-Canopy-&-Wide-Bucket-Ideal-for-Garden-Farm-Park-&-Road-Work-Digging-Drilling-Bull-Dozing/p/793075010",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "1 ton",
+    tagline: "Introducing the TYPHON TERROR ONE STORM Mini Excavator - a 1-ton trench digger equipped with a canopy and a hydraulic thumb clip, designed for small construction projects. This compact powerhouse is engineered for easy maneuverability and superior performance in various settings, including farms, gardens, public spaces, parks, orchards, and more.",
+    description: "TYPHON TERROR ONE STORM Mini Excavator GTIN: 5061030741573 The TYPHON TERROR ONE STORM is a compact 1-ton mini excavator engineered for contractors, landscapers, farmers, utility crews, and property owners who need dependable performance in confined work areas. Equipped with a reliable 13.5 HP Briggs & Stratton XR2100 gasoline engine, hydraulic thumb clip, hydraulic oil cooler, and an open protective canopy, this excavator delivers exceptional versatility for a wide variety of digging and material handling applications. Designed to maximize productivity while remaining easy to transport and operate, the TERROR ONE STORM offers impressive digging performance, excellent maneuverability, and operator-friendly controls, making it an ideal solution for residential construction, landscaping, trenching, agriculture, and property maintenance. Key Features Powerful Briggs & Stratton Engine The TERROR ONE STORM is powered by a dependable 13.5 HP Briggs & Stratton XR2100 gasoline engine, providing smooth, reliable performance for demanding excavation jobs while remaining easy to maintain. Engine Highlights 13.5 HP Briggs & Stratton XR2100 Engine Reliable gasoline-powered performance Easy starting and simple maintenance Designed for long working hours Excellent fuel efficiency Built for Small Job Sites Its compact footprint allows operators to work confidently in areas where larger excavators simply cannot fit. Perfect for: Residential construction Landscaping Gardens Farms Orchards Public parks Municipal maintenance Fence lines Utility trenches Property improvements Compact Dimensions FeatureSpecificationPlatform Turning Radius733 mmMinimum Rotation Radius61 in (5.1 ft) Strong Digging Performance Despite its compact size, the TERROR ONE STORM delivers impressive breakout force for demanding excavation work. Performance Highlights Bucket Digging Force: 11.5 kN Hydraulic System Pressure: 16 MPa Smooth hydraulic operation Stable lifting capability Excellent control during trenching and grading Ideal for: Digging Trenching Landscaping Foundation preparation Utility installation Drainage work Tree planting Material handling Site cleanup Rock removal Hydraulic Oil Cooler The integrated hydraulic oil cooling system helps maintain consistent hydraulic temperatures during extended operation, improving reliability and extending component life. Benefits include: Improved cooling efficiency Longer hydraulic component lifespan Reduced heat buildup More consistent machine performance Increased durability during demanding workloads Hydraulic Thumb Clip Included Every TERROR ONE STORM comes equipped with a hydraulic thumb clip, allowing operators to securely grab, lift, and position irregular materials with ease. Perfect for handling: Rocks Logs Branches Concrete debris Landscaping materials Construction waste Easy to Operate Designed for operators of all experience levels, the TERROR ONE STORM provides intuitive controls and excellent visibility for confident operation. Operator Benefits Smooth hydraulic controls Stable platform Comfortable seating position Excellent visibility Easy maintenance access Beginner-friendly operation Specifications SpecificationValueGTIN5061030741573Operating Class1-Ton Mini ExcavatorEngineBriggs & Stratton XR2100Engine Power13.5 HPHydraulic Pressure16 MPaBucket Digging Force11.5 kNMaximum Digging Height2,600 mmMaximum Digging Depth1,700 mmBucket Width400 mmBucket Capacity0.025 m³Platform Ground Clearance380 mmPlatform Turning Radius733 mmMinimum Rotation Radius61 in (5.1 ft) Standard Equipment The TERROR ONE STORM comes ready to work with: ✅ 15.7 in Standard Excavator Bucket ✅ Hydraulic Thumb Clip ✅ Hydraulic Oil Cooler ✅ Protective Canopy ✅ Tool Box ✅ Digital Operator Manual Applications The TERROR ONE STORM is suitable for a wide variety of professional and residential applications, including: Residential construction Landscaping Trenching Drainage installation Agriculture Orchard maintenance Fence installation Utility work Garden excavation Site preparation Property maintenance Municipal projects Why Choose the TYPHON TERROR ONE STORM? Combining a dependable 13.5 HP Briggs & Stratton engine, hydraulic oil cooling system, hydraulic thumb clip, compact dimensions, and impressive digging performance, the TYPHON TERROR ONE STORM delivers outstanding value for professionals who need a reliable excavator for confined job sites. Whether you're digging trenches, clearing land, landscaping, or handling materials, this machine offers the durability, versatility, and efficiency needed to complete every project with confidence.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448009646-32mlh-pasted-image-20260626-112649-tacvw.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448009646-32mlh-pasted-image-20260626-112649-tacvw.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448013159-7mwrg-pasted-image-20260626-112653-1xfki.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448015273-z5363-pasted-image-20260626-112655-5yg7v.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448018795-202w4-pasted-image-20260626-112658-n7ubk.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448021348-zbwtw-pasted-image-20260626-112701-udexn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448023665-i0n95-pasted-image-20260626-112703-ilr3q.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448025884-jq6hv-pasted-image-20260626-112705-47wi8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448027982-i33zk-pasted-image-20260626-112707-x7w3a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448030090-xva2j-pasted-image-20260626-112710-d6t72.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448032746-hujfv-pasted-image-20260626-112712-0h597.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448055221-m584p-pasted-image-20260626-112735-7jpp7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448038130-5pmv7-pasted-image-20260626-112718-szh95.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448051805-jlqxe-pasted-image-20260626-112731-ezdp8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448048501-d1oxy-pasted-image-20260626-112728-2ewmf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448045376-wp9go-pasted-image-20260626-112725-y2u01.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448042598-20ju5-pasted-image-20260626-112722-qqz9o.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$5,248.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-0113"
+      },
+      {
+        label: "Weight Class",
+        value: "1 ton"
+      },
+      {
+        label: "Engine Power",
+        value: "13.5 HP"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xxv-cabin",
+    name: "TYPHON Terror XXV Cabin",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-XX52G",
+    gtin: "",
+    price: "$23 098.95",
+    currentPrice: "$23,098.95",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-XXV-Diesel-Mini-Excavator-2-7-Ton-25-1-hp-Kubota-D1105-RetractableTracks-AC-Cabin/p/798578262",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "2.7 ton",
+    tagline: "The brand new Terror XXV Prestige 2.7 Ton cabin mini excavator is built for today's small and average project construction, with a focus on speed and efficiency. Designed for maximum productivity, the TERROR XXV Prestige offers impressive digging performance, operator comfort, and quick attachment compatibility,",
+    description: "TYPHON TERROR XXV Prestige Mini Excavator GTIN: 5061030741658 The TYPHON TERROR XXV Prestige is a premium 2.7-ton compact mini excavator engineered for contractors, construction professionals, landscapers, utility crews, and agricultural operators who demand exceptional performance, comfort, and versatility. Powered by the proven Kubota D1105 diesel engine, this machine combines powerful hydraulics, smooth pilot controls, an enclosed air-conditioned and heated cabin, and a compact design that excels in both confined work areas and demanding construction environments. Designed for maximum productivity, the TERROR XXV Prestige offers impressive digging performance, operator comfort, and quick attachment compatibility, making it the ideal machine for excavation, trenching, grading, landscaping, material handling, and utility installation. Key Features Powerful Kubota Diesel Engine At the heart of the TERROR XXV Prestige is the dependable Kubota D1105 engine, delivering outstanding performance, fuel efficiency, and reliability for demanding job sites. Engine Specifications Kubota D1105 Diesel Engine Vertical Water-Cooled 4-Cycle Diesel 3-Cylinder Engine 25.1 HP @ 3000 RPM 19 HP @ 2200 RPM Maximum Torque: 71.4 Nm (52.7 lb-ft) @ 2200 RPM Excellent fuel economy Reliable cold starting Low maintenance requirements Built for Tight Working Areas Although capable of handling demanding excavation work, the TERROR XXV Prestige maintains compact dimensions that allow it to work where larger excavators cannot. Ideal for: Residential construction Utility installation Landscaping Agriculture Orchard maintenance Property development Roadside work Foundation excavation Indoor demolition Municipal projects Compact Dimensions FeatureSpecificationOverall Width1,400 mmOverall Height2,530 mmMinimum Swing Radius77 in (6.4 ft) One Machine, Endless Possibilities The TERROR XXV Prestige is designed as a true multi-purpose excavator. Its quick-attach compatibility and powerful hydraulic system allow operators to switch attachments quickly, increasing productivity across a wide range of applications. Perfect for: Trenching Digging Grading Land clearing Material lifting Utility installation Foundation work Concrete removal Landscaping Agricultural projects Site preparation Smooth Hydraulic Performance A responsive hydraulic system combined with pilot joystick controls provides exceptional precision and smooth machine operation, helping operators work faster while reducing fatigue. Hydraulic Benefits Smooth pilot controls Fast hydraulic response Precise boom operation Excellent attachment performance Consistent digging power Stable lifting capability Premium Operator Comfort The fully enclosed air-conditioned and heated cabin allows operators to work comfortably throughout the year, regardless of weather conditions. Cabin Features Air Conditioning Heater Spacious enclosed cabin Comfortable operator seat Excellent visibility Reduced operator fatigue Low-noise working environment Cabin Dimensions FeatureSpecificationInterior Width900 mmInterior Height63 in (5.2 ft) Designed for Maximum Versatility The TERROR XXV Prestige includes features that improve productivity on every job site. Standard Features Boom Swing (45° Left / Right) Retractable Tracks Hydraulic Thumb Clip 17.7 in Digging Bucket Pilot Controls Hydraulic System Water-Cooled Engine Compact Counterweight Design These features allow the machine to operate efficiently in narrow pathways, residential areas, and challenging terrain while maintaining excellent stability and precision. Performance Specifications SpecificationValueGTIN5061030741658Operating Class2.7 Ton Mini ExcavatorEngineKubota D1105 DieselEngine Power25.1 HP @ 3000 RPMRated Power19 HP @ 2200 RPMMaximum Torque71.4 NmMaximum Digging Depth2,045 mmMaximum Digging Height3,365 mmMinimum Swing Radius1,955 mmOverall Width1,400 mmOverall Height2,530 mmGround Clearance145 mmBucket Width450 mmBoom Swing45° Left / Right Standard Equipment The TERROR XXV Prestige comes ready for work with: ✅ 17.7 in Standard Digging Bucket ✅ Hydraulic Thumb Clip ✅ Retractable Tracks ✅ Boom Swing ✅ Pilot Control System ✅ Air-Conditioned & Heated Cabin ✅ Tool Box ✅ Digital Operator Manual Applications The TERROR XXV Prestige is ideal for: Construction Residential developments Utility trenching Landscaping Agriculture Orchard maintenance Drainage installation Foundation excavation Site preparation Material handling Property maintenance Municipal infrastructure projects Why Choose the TYPHON TERROR XXV Prestige? The TYPHON TERROR XXV Prestige combines the trusted performance of the Kubota D1105 diesel engine, responsive pilot-operated hydraulics, retractable tracks, boom swing, and a premium climate-controlled cabin into one highly capable compact excavator. Designed for both professional contractors and demanding property owners, it delivers outstanding digging power, exceptional maneuverability, and all-day operator comfort, making it the perfect solution for projects where productivity, precision, and reliability matter most.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448243977-uv7dl-pasted-image-20260626-113043-ig3ct.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448243977-uv7dl-pasted-image-20260626-113043-ig3ct.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448247569-g6f35-pasted-image-20260626-113047-2h08c.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448250352-4w7zk-pasted-image-20260626-113050-vlalp.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448252786-djlb0-pasted-image-20260626-113052-nkc18.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448255337-ox1g7-pasted-image-20260626-113055-ykigr.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448257849-ec8b7-pasted-image-20260626-113057-llup0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448260210-xk2kb-pasted-image-20260626-113100-n0yfv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448262705-q1hxl-pasted-image-20260626-113102-fzwgd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448264969-aki3o-pasted-image-20260626-113104-k3ubg.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448267320-safxk-pasted-image-20260626-113107-svmww.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448269636-zhucq-pasted-image-20260626-113109-266ev.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448276178-pglhi-pasted-image-20260626-113116-hloou.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448294005-ppr0s-pasted-image-20260626-113133-6376l.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448299045-84m8n-pasted-image-20260626-113138-b1k5n.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448301426-s40wk-pasted-image-20260626-113141-f1d5h.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448296653-u7309-pasted-image-20260626-113136-dua75.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$23,098.95"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-XX52G"
+      },
+      {
+        label: "Weight Class",
+        value: "2.7 ton"
+      },
+      {
+        label: "Engine Power",
+        value: "25.1 HP"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "1000mm-pallet-fork-and-hay-frame-attachment",
+    name: "1000mm Pallet Fork & Hay Frame Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5105",
+    gtin: "",
+    price: "$1 751.00",
+    currentPrice: "$1,751.00",
+    sourceUrl: "",
+    buttonUrl: "/product#!/1000mm-Pallet-Fork-&-Hay-Frame-Attachment-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816139780",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Enhance the versatility of your mini skid steer with this 39.4 in Pallet Fork & Hay Frame Attachment, designed specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 39.4 in Pallet Fork & Hay Frame Attachment GTIN: 5061030742051 Enhance the material-handling capability of your compatible mini skid steer with the TYPHON 39.4 in Pallet Fork & Hay Frame Attachment, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Designed as a dual-purpose attachment, this frame combines pallet fork functionality with hay bale handling capability, making it a practical tool for farms, construction sites, warehouses, landscaping work, and property maintenance. The slotted carriage bar is designed to accommodate Class 2 pallet fork blades, while the integrated Conus 2 sleeves allow installation of hay bale spears and stabilizers. This makes the attachment useful for lifting pallets, moving supplies, handling materials, and supporting agricultural tasks with one compact loader attachment. Built with heavy-duty open-frame construction, this attachment provides strength while maintaining clear operator visibility for more accurate load placement. The reinforced see-through headache rack improves durability and helps support safer, more controlled lifting. Key Features Dual-Purpose Pallet Fork and Hay Frame Design This attachment is built to handle both palletized material and agricultural bale-handling tasks. Best For Pallet handling Hay bale movement Farm material transport Construction supplies Warehouse loading Property maintenance Landscaping materials Class 2 Fork Compatibility The slotted carriage bar is designed for Class 2 pallet fork blades, giving operators dependable lifting capability for common material-handling jobs. Fork Benefits Supports palletized loads Useful for construction materials Practical for warehouse and farm work Helps reduce manual lifting Improves compact loader versatility Conus 2 Sleeves for Hay Bale Handling Integrated Conus 2 sleeves allow for the installation of hay bale spears and stabilizers, expanding the attachment's agricultural usefulness. Agricultural Uses Moving hay bales Handling farm supplies Transporting feed materials Barn and field maintenance General farm cleanup Open-Frame Visibility The heavy-duty open-frame design provides strength while helping the operator maintain a clearer view of the load. Visibility Benefits Easier load positioning Better fork alignment Improved operator control More accurate placement Better visibility around pallets and bales Reinforced See-Through Headache Rack The reinforced headache rack adds durability and helps improve load stability during lifting and transport. Rack Benefits Supports safer material handling Adds structural strength Helps stabilize loads Maintains rear visibility through the frame Built for demanding daily use Technical Specifications SpecificationDetailsProduct TypePallet Fork & Hay Frame AttachmentGTIN5061030742051Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight201 lb (201 lb)Fork Length39.4 inDimensions (L × W × H)49.2 × 33.5 × 9.1 in (1250 × 850 × 9.1 in)Fork CompatibilityClass 2 Pallet Fork BladesHay Spear Sleeve TypeConus 2 SleevesMounting StyleQuick-Mount Ideal Applications Agriculture Moving hay bales Handling feed and supplies Farm material transport Barn maintenance Field support work Construction Moving building materials Transporting palletized supplies Jobsite organization Loading and unloading materials General compact loader support Warehouse and Storage Pallet movement Inventory handling Material transport Loading support Compact-space lifting Property Maintenance Moving equipment Handling landscape supplies Transporting materials General cleanup and organization Why Choose This Pallet Fork & Hay Frame? The TYPHON 39.4 in Pallet Fork & Hay Frame Attachment gives compatible mini skid steer loaders a practical solution for both pallet handling and farm work. Its dual-purpose design, Class 2 fork compatibility, Conus 2 sleeves, open-frame visibility, and reinforced headache rack make it useful across agriculture, construction, warehouse, and property maintenance applications. Key Benefits ✔ Dual-purpose pallet fork and hay frame design ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Compatible with Class 2 pallet fork blades ✔ Conus 2 sleeves for hay spears and stabilizers ✔ Heavy-duty open-frame construction ✔ Reinforced see-through headache rack ✔ Clear visibility for accurate load placement ✔ Practical for farms, construction sites, warehouses, and property maintenance Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Move Pallets, Hay, and Materials With Compact Power The TYPHON 39.4 in Pallet Fork & Hay Frame Attachment turns your compatible mini skid steer into a more capable material-handling machine. Built for lifting pallets, moving farm materials, handling hay bales, and supporting daily jobsite work, it delivers the strength, visibility, and flexibility needed to improve productivity with compact equipment.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448886297-snl8o-pasted-image-20260626-114126-oxee1.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448886297-snl8o-pasted-image-20260626-114126-oxee1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448928028-lsaan-pasted-image-20260626-114207-q9e5c.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448924313-x2ucz-pasted-image-20260626-114204-hjgpz.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448921761-dont5-pasted-image-20260626-114201-uff0x.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448919246-2usc1-pasted-image-20260626-114159-33dgb.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448916699-7ffxq-pasted-image-20260626-114156-f8qfa.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448912183-t5j44-pasted-image-20260626-114151-isiqj.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448909518-vg1ry-pasted-image-20260626-114149-6fw3f.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448906881-fw0i5-pasted-image-20260626-114146-d97x2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448904115-qo8cc-pasted-image-20260626-114143-5alof.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448901534-h3t0f-pasted-image-20260626-114141-qutvc.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448898315-megdu-pasted-image-20260626-114138-rq30c.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448889329-aw0mn-pasted-image-20260626-114129-7s3zl.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$1,751.00"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5105"
+      }
+    ],
+    features: [
+      "Designed as a dual-purpose attachment, this frame combines pallet fork functionality with hay bale handling capability, making it a practical tool for farms, construction sites, warehouses, landscaping work, and property maintenance.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "grapple-bucket-attachment",
+    name: "Grapple Bucket Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5111",
+    gtin: "",
+    price: "$2 029.64",
+    currentPrice: "$2,029.64",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Heavy-Duty-Solid-Bottom-Grapple-Bucket-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816141036",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Upgrade your material handling capability with this Heavy-Duty Solid Bottom Grapple Grabber Bucket, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Heavy-Duty Solid Bottom Grapple Grabber Bucket GTIN: 5061030742020 Upgrade your mini skid steer with the TYPHON Heavy-Duty Solid Bottom Grapple Grabber Bucket, a powerful material-handling attachment engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Built for demanding job sites, this attachment combines the carrying ability of a bucket with the secure clamping force of hydraulic grapple arms, giving operators better control when moving bulky, uneven, or loose materials. The solid bottom bucket design helps retain smaller debris, soil, mulch, gravel, and cleanup material while the reinforced grapple arms securely hold larger objects such as logs, rocks, brush, branches, construction debris, and demolition waste. This makes it an ideal attachment for contractors, landscapers, farmers, property maintenance crews, and anyone who needs a compact machine to handle tough cleanup and loading work efficiently. With reinforced steel construction, strong hydraulic gripping performance, and a quick-attach mounting system, this grapple bucket turns your mini skid steer into a highly productive material-handling and site-cleanup machine. Key Features Solid Bottom Bucket Design The solid bottom design improves material retention compared to open-style grapple attachments. It allows operators to carry smaller debris and loose materials while still using the grapple arms to secure larger loads. Best For Handling Dirt Mulch Gravel Brush Branches Logs Rocks Construction debris Demolition waste Property cleanup material Heavy-Duty Hydraulic Grapple Arms Powerful hydraulic grapple arms provide strong clamping force, helping operators secure irregular or bulky materials during lifting, loading, and transport. Grapple Benefits Securely grips logs, rocks, and debris Reduces material loss while moving loads Improves control when handling uneven objects Increases cleanup efficiency Reduces manual labor on the job site Reinforced Steel Construction Built for demanding professional use, this attachment features a heavy-duty steel frame designed to withstand tough working conditions in construction, landscaping, agriculture, and property maintenance. Built For Job site cleanup Land clearing Brush removal Debris handling Material transport Demolition cleanup Farm and property work Quick-Attach Mounting System The quick-attach mounting system allows fast installation and secure connection to compatible mini skid steer loaders, reducing downtime when switching attachments. Compatible Machines TYPHON STOMP X1300 TYPHON STOMP 509 Technical Specifications SpecificationDetailsProduct TypeSolid Bottom Grapple Grabber BucketGTIN5061030742020Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight207 lb (207 lb)Volume Capacity0.5 m³Dimensions (L × W × H)44.1 × 28.7 × 24.4 in (1120 × 730 × 24.4 in)Mounting StyleQuick-Attach Ideal Applications Construction Move construction debris Load demolition waste Carry rocks and broken materials Clean up job sites faster Landscaping Handle mulch, soil, branches, and brush Move rocks and landscape materials Clear overgrown areas Transport loose and bulky materials Agriculture Move branches, logs, brush, and farm debris Clean barns, yards, and fence lines Handle mixed materials around the property Property Maintenance Storm cleanup Brush removal General debris handling Land clearing and site cleanup Why Choose This Grapple Bucket? The TYPHON Solid Bottom Grapple Grabber Bucket is designed for operators who need more control, better material retention, and stronger grabbing performance from their mini skid steer. Its solid bucket base helps contain loose debris, while the hydraulic grapple arms keep larger materials secure during transport. Key Benefits ✔ Solid bottom design helps retain loose debris ✔ Hydraulic grapple arms provide strong clamping force ✔ Reinforced steel construction for demanding job sites ✔ Ideal for logs, rocks, brush, debris, and demolition waste ✔ Quick-attach mounting system for fast installation ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Excellent for construction, landscaping, agriculture, and cleanup work Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Strong Grip. Cleaner Loads. Better Productivity. The TYPHON Heavy-Duty Solid Bottom Grapple Grabber Bucket gives your mini skid steer the ability to grab, carry, clamp, and contain materials more efficiently. From construction debris and brush piles to logs, rocks, soil, mulch, and demolition waste, this attachment provides the control and durability needed to complete cleanup and material-handling jobs faster with less manual effort.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449277392-32qav-pasted-image-20260626-114757-ebdhf.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449277392-32qav-pasted-image-20260626-114757-ebdhf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449302780-yuq22-pasted-image-20260626-114822-zptp9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449299993-rak3s-pasted-image-20260626-114819-64txf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449296394-d51ar-pasted-image-20260626-114816-7sxg5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449291948-nshep-pasted-image-20260626-114811-u37mi.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449288992-qaltd-pasted-image-20260626-114808-osh32.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449286185-nafvn-pasted-image-20260626-114805-xvy7q.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449283169-n3se9-pasted-image-20260626-114802-7woja.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449280207-ydvs6-pasted-image-20260626-114759-a7grv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449274770-xboyw-pasted-image-20260626-114754-78ctx.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449271830-fhudq-pasted-image-20260626-114751-i9md4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449269063-ccykz-pasted-image-20260626-114748-1tdup.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449266505-cin4o-pasted-image-20260626-114746-wljop.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449263689-6dq57-pasted-image-20260626-114743-c2dtt.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449259835-ewm0z-pasted-image-20260626-114739-j8vis.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449307992-6auvk-pasted-image-20260626-114827-go3g1.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,029.64"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5111"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Built for demanding job sites, this attachment combines the carrying ability of a bucket with the secure clamping force of hydraulic grapple arms, giving operators better control when moving bulky, uneven, or loose materials.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-rock-and-concrete-breaker-hammer-attachment",
+    name: "Hydraulic Rock & Concrete Breaker Hammer Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5113",
+    gtin: "",
+    price: "$2 757.29",
+    currentPrice: "$2,757.29",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Hydraulic-Rock-&-Concrete-Breaker-Hammer-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steer-Loader/p/816141038",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Transform your mini skid steer into a compact demolition powerhouse with this Hydraulic Rock & Concrete Breaker Attachment, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Hydraulic Rock & Concrete Breaker Attachment GTIN: 5061030742037 Transform your compatible mini skid steer into a compact demolition machine with the TYPHON Hydraulic Rock & Concrete Breaker Attachment, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Designed for high-impact breaking performance, this hydraulic breaker is built to handle concrete, asphalt, rock, pavement, foundations, and other hard materials in tight or demanding job site conditions. With an impact force of 80-100 Joules, a 1.4 in drill rod diameter, and a compact attachment profile, this breaker delivers controlled demolition power while maintaining the maneuverability needed for confined spaces. It is ideal for contractors, construction crews, renovation teams, utility workers, and property maintenance professionals who need reliable breaking performance from a compact loader platform. Built with a durable steel housing and a secure mounting system, this attachment provides the balance of power, control, and long-term durability needed for tough demolition work. Key Features Heavy-Duty Hydraulic Breaking Power This hydraulic breaker delivers strong, consistent impact force for breaking hard surfaces and tough materials. Best For Breaking Concrete Asphalt Rock Pavement Slabs Foundations Hard-packed surfaces Construction debris Compact Design for Tight Job Sites The compact profile allows operators to work in areas where larger demolition equipment cannot easily access. Ideal Tight-Space Uses Residential renovation Sidewalk repair Driveway demolition Utility access work Small construction sites Indoor or restricted demolition zones Reliable Impact Performance With an impact force rating of 80-100 Joules, this breaker provides controlled striking power for precise demolition work. Performance Benefits Breaks hard material efficiently Reduces manual demolition labor Improves job site productivity Provides better control than oversized equipment Works well in compact or narrow spaces Durable Steel Housing The reinforced steel housing is built for long service life in demanding construction and demolition environments. Built For Road work Concrete removal Foundation demolition Utility trench access Renovation projects General job site breaking Secure Mounting System The quick-mount design provides a stable connection to compatible mini skid steer loaders, helping maintain control during high-impact operation. Compatible Machines TYPHON STOMP X1300 TYPHON STOMP 509 Technical Specifications SpecificationDetailsProduct TypeHydraulic Rock & Concrete Breaker AttachmentGTIN5061030742037Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight185 lb (185 lb)Impact Force80-100 JoulesDrill Rod Diameter35 mmRequired Hydraulic Flow13-30 L/minDimensions (L × W × H)43.3 × 26.0 × 11.8 in (1100 × 660 × 11.8 in)Mounting StyleQuick-Mount Ideal Applications Concrete Demolition Break concrete slabs Remove small foundations Demolish sidewalks Break curbs and pads Road & Pavement Work Break asphalt Open pavement for repair Assist with road maintenance Prepare surfaces for removal Utility & Trenching Work Open hard surfaces for utility access Break compacted material around trenches Support pipe, cable, and drainage projects Construction & Renovation Remove hard materials Assist with structural dismantling Handle compact demolition tasks Reduce manual breaking work Why Choose This Hydraulic Breaker? The TYPHON Hydraulic Rock & Concrete Breaker Attachment gives compatible mini skid steer loaders the ability to perform focused demolition work without relying on larger machines. It delivers strong breaking force, precise control, and compact maneuverability, making it a practical tool for contractors who need efficient demolition performance in limited spaces. Key Benefits ✔ Heavy-duty hydraulic breaker for compact loaders ✔ Designed for concrete, asphalt, rock, and pavement ✔ 80-100 Joules impact force ✔ Compact profile for tight-access work areas ✔ Durable steel housing for long service life ✔ Secure mounting system for stable operation ✔ Compatible with TYPHON STOMP X1300 and STOMP 509 ✔ Ideal for construction, renovation, utility, and demolition work Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Compact Demolition Power for Tough Jobs The TYPHON Hydraulic Rock & Concrete Breaker Attachment adds controlled demolition capability to your mini skid steer, allowing you to break concrete, asphalt, rock, pavement, and compacted materials with confidence. Built for compact job sites and demanding work, it provides the power, durability, and precision needed to complete demolition tasks faster and with less manual effort.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449420715-pswjq-pasted-image-20260626-115020-uy54d.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449420715-pswjq-pasted-image-20260626-115020-uy54d.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449433085-9arbg-pasted-image-20260626-115032-okcy2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449424905-vhzxj-pasted-image-20260626-115024-hro0l.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449427740-84hf0-pasted-image-20260626-115027-swz62.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449438356-c2wv9-pasted-image-20260626-115038-f7rkf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449470603-z33e1-pasted-image-20260626-115110-fzjm6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449468124-9n729-pasted-image-20260626-115107-vwkdz.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449464833-btz1i-pasted-image-20260626-115104-wy5td.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449462334-zn8ti-pasted-image-20260626-115102-x8nt8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449460087-gw42a-pasted-image-20260626-115059-e3kol.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449457169-w009y-pasted-image-20260626-115056-mfyx0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449451652-xh5tl-pasted-image-20260626-115051-yu522.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449445835-h3aiq-pasted-image-20260626-115045-zkvt6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449442791-dwey6-pasted-image-20260626-115042-mg6eh.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449430574-io55o-pasted-image-20260626-115030-lfy4m.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,757.29"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5113"
+      }
+    ],
+    features: [
+      "Designed for high-impact breaking performance, this hydraulic breaker is built to handle concrete, asphalt, rock, pavement, foundations, and other hard materials in tight or demanding job site conditions.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-snow-blower-attachment",
+    name: "Hydraulic Snow Blower Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5116",
+    gtin: "",
+    price: "$3 082.79",
+    currentPrice: "$3,082.79",
+    sourceUrl: "",
+    buttonUrl: "/product#!/1100mm-Hydraulic-Snow-Blower-Attachment-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816141039",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Turn your mini skid steer into a high-performance winter machine with this Hydraulic Snow Blower Attachment, engineered for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Hydraulic Snow Blower Attachment GTIN: 5061030742099 Turn your compatible mini skid steer into a powerful winter cleanup machine with the TYPHON Hydraulic Snow Blower Attachment, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Designed for efficient snow removal in tight spaces, this attachment helps operators clear driveways, sidewalks, pathways, parking areas, and job sites with speed, control, and professional results. Powered by your machine's hydraulic system, the snow blower uses a hydraulic-driven auger and fan system to collect and discharge snow efficiently. The adjustable discharge chute allows operators to direct snow placement with better accuracy, making it easier to keep working areas clean, safe, and accessible during winter conditions. Built with durable construction and compact maneuverability, this attachment is ideal for property owners, contractors, landscapers, and maintenance crews who need dependable snow-clearing performance from compact equipment. Key Features Hydraulic-Powered Snow Removal This attachment uses hydraulic power from the mini skid steer to drive the auger and fan system, delivering strong snow-clearing performance without needing a separate engine. Benefits Efficient snow intake Fast snow discharge Reliable hydraulic operation Reduced manual snow removal Better productivity in winter conditions Efficient Auger and Fan System The hydraulic-driven auger and fan system is designed to move snow quickly and consistently, helping operators clear surfaces faster than with manual tools or basic snow blades. Ideal For Clearing Driveways Sidewalks Walkways Pathways Parking areas Residential properties Commercial properties Small job sites Adjustable Discharge Chute The adjustable discharge chute gives operators better control over where snow is thrown, helping create cleaner paths and safer working areas. Chute Benefits Direct snow away from cleared areas Improve snow placement accuracy Reduce the need for repeated passes Keep walkways and driveways cleaner Improve safety around buildings and vehicles Compact Design for Tight Spaces Designed for compact loaders, this snow blower attachment is ideal for areas where larger snow removal equipment may be difficult to operate. Perfect For Narrow driveways Sidewalks Residential properties Tight commercial spaces Small parking areas Confined winter work zones Durable Winter-Ready Construction Built for cold-weather use, the attachment features a strong frame and heavy-duty construction to handle repeated winter snow-clearing tasks. Built For Winter property maintenance Snow removal contractors Landscaping businesses Residential snow clearing Commercial maintenance Farm and estate upkeep Technical Specifications SpecificationDetailsProduct TypeHydraulic Snow Blower AttachmentGTIN5061030742099Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight249 lb (249 lb)Clearing Width43.3 inMinimum Hydraulic Flow Requirement14 L/minDimensions (L × W × H)33.5 × 43.3 × 39.4 in (850 × 1100 × 39.4 in)Mounting StyleQuick-Mount Ideal Applications Residential Snow Removal Driveways Sidewalks Walkways Private roads Home entrances Commercial Maintenance Storefront paths Small parking areas Loading zones Business walkways Service entrances Contractor & Landscaping Use Winter maintenance contracts Property cleanup Snow clearing for clients Seasonal service work Farm & Property Maintenance Barn access paths Farm lanes Equipment areas Estate roads Worksite access routes Why Choose This Hydraulic Snow Blower? The TYPHON Hydraulic Snow Blower Attachment gives compatible mini skid steer loaders the ability to clear snow efficiently while maintaining excellent maneuverability in confined spaces. With its hydraulic-powered auger and fan system, adjustable discharge chute, and durable winter-ready build, it provides a practical snow removal solution for both residential and commercial use. Key Benefits ✔ Hydraulic-powered snow blower for compact loaders ✔ Efficient auger and fan system for fast snow clearing ✔ Adjustable chute for controlled snow placement ✔ 43.3 in clearing width ✔ Compact design for sidewalks, driveways, and tight spaces ✔ Durable construction for winter conditions ✔ Compatible with TYPHON STOMP X1300 and STOMP 509 ✔ Ideal for contractors, landscapers, property owners, and maintenance crews Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Clear Snow Faster With Compact Equipment The TYPHON Hydraulic Snow Blower Attachment transforms your mini skid steer into a capable winter maintenance machine. Designed for fast snow removal, controlled discharge, and reliable operation in confined areas, it helps clear driveways, sidewalks, pathways, and job sites with less manual effort and better professional results throughout the winter season.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449573469-wwliq-pasted-image-20260626-115253-ql970.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449573469-wwliq-pasted-image-20260626-115253-ql970.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449590776-rff4n-pasted-image-20260626-115310-eo704.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449588397-ylqzz-pasted-image-20260626-115307-od8dn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449586111-eo4pb-pasted-image-20260626-115305-l16xg.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449584051-54a9r-pasted-image-20260626-115303-u3w97.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449581601-vb9cq-pasted-image-20260626-115301-80qbk.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449578993-d0wg4-pasted-image-20260626-115258-kvsqd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449576403-1lqn9-pasted-image-20260626-115256-9yyxs.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449570751-ss6kg-pasted-image-20260626-115250-ekhrw.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449565710-t5352-pasted-image-20260626-115245-rrrzv.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$3,082.79"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5116"
+      }
+    ],
+    features: [
+      "Designed for efficient snow removal in tight spaces, this attachment helps operators clear driveways, sidewalks, pathways, parking areas, and job sites with speed, control, and professional results.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-chain-trencher-attachment",
+    name: "Hydraulic Chain Trencher Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5117",
+    gtin: "",
+    price: "$2 879.09",
+    currentPrice: "$2,879.09",
+    sourceUrl: "",
+    buttonUrl: "/product#!/800mm-Hydraulic-Chain-Trencher-Attachment-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816141040",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Convert your mini skid steer into a powerful, precision trenching machine with this Hydraulic Chain Trencher Attachment, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Hydraulic Chain Trencher Attachment GTIN: 5061030742068 Convert your compatible mini skid steer into a compact trenching machine with the TYPHON Hydraulic Chain Trencher Attachment, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Designed for clean, accurate trenching in tight-access areas, this attachment is ideal for contractors, landscapers, utility installers, irrigation crews, and property maintenance professionals who need dependable trenching performance from compact equipment. Built with a high-torque hydraulic drive system and a durable 29-tooth digging chain, this trencher cuts through soil efficiently while producing a narrow, consistent trench. With a 4.7 in trenching width and a maximum working depth of up to 31.5 in, it is well suited for installing water lines, gas pipes, electrical cables, irrigation systems, drainage lines, and landscape utilities. Its compact frame allows operators to work confidently in residential areas, narrow pathways, small job sites, and spaces where larger trenchers may be difficult to operate. Key Features Hydraulic Chain Trenching Power This trencher uses hydraulic power from the mini skid steer to drive the digging chain, delivering steady cutting performance across different soil conditions. Best For Utility installation Irrigation systems Drainage lines Electrical cable trenches Water line installation Gas pipe preparation Landscaping projects Residential trenching Clean 4.7 in Trench Width The narrow trenching profile helps create clean, precise trenches while reducing unnecessary ground disturbance. Benefits Cleaner trench lines Less backfill work Reduced soil removal Better accuracy in tight areas Lower material waste Faster job completion Up to 31.5 in Working Depth With a maximum working depth of up to 31.5 in, this attachment provides the depth needed for many common utility, irrigation, and drainage applications. Ideal For Installing Water lines Irrigation pipes Low-voltage cable Drainage systems Landscape utility lines Small underground service runs Durable 29-Tooth Digging Chain The heavy-duty digging chain is built with 29 trencher teeth to maintain consistent soil penetration and reliable cutting performance. Chain Benefits Strong soil cutting ability Stable trenching performance Designed for repeated job site use Helps maintain trench accuracy Improves productivity in compact spaces Compact Design for Tight Job Sites The compact attachment frame allows operators to work in narrow and residential areas where larger trenchers may not fit. Perfect For Backyards Side yards Residential developments Farms Gardens Small construction sites Landscaped areas Confined utility work zones Technical Specifications SpecificationDetailsProduct TypeHydraulic Chain Trencher AttachmentGTIN5061030742068Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight441 lb (441 lb)Trenching Width4.7 inMaximum Working DepthUp to 31.5 in (≤ 31.5 in)Trencher Teeth29 pcsRequired Hydraulic Flow13-45 L/minDimensions (L × W × H)72.8 × 39.4 × 29.5 in (1850 × 1000 × 29.5 in)Mounting StyleQuick-Mount Ideal Applications Utility Installation Water lines Gas pipe preparation Electrical cable trenches Communication cable paths Underground service lines Irrigation & Drainage Sprinkler systems Farm irrigation lines Landscape drainage French drains Water management systems Landscaping Garden utility lines Pathway drainage Outdoor lighting cable trenches Residential property upgrades Landscape renovation work Construction & Property Maintenance Site preparation Small trenching jobs Foundation utility access Residential construction support Farm and estate maintenance Why Choose This Hydraulic Trencher? The TYPHON Hydraulic Chain Trencher Attachment gives compatible mini skid steer loaders the ability to perform accurate trenching without needing a larger dedicated trencher. Its hydraulic drive system, narrow cutting profile, 29-tooth digging chain, and compact frame make it a practical solution for jobs that demand precision, control, and efficient operation in tight spaces. Key Benefits ✔ Heavy-duty hydraulic chain trencher for compact loaders ✔ Designed for utility, irrigation, drainage, and landscaping work ✔ Clean 4.7 in trench width ✔ Up to 31.5 in working depth ✔ Durable 29-tooth digging chain ✔ Compact design for residential and confined areas ✔ Compatible with TYPHON STOMP X1300 and STOMP 509 ✔ Helps reduce backfill time and soil disturbance Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Precise Trenching With Compact Equipment The TYPHON Hydraulic Chain Trencher Attachment turns your compatible mini skid steer into a focused trenching solution for utility installation, irrigation, drainage, landscaping, and residential construction work. With a narrow trenching profile, durable 29-tooth digging chain, and up to 31.5 in working depth, it delivers the accuracy and efficiency professionals need while keeping your equipment compact, maneuverable, and productive.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449675244-yftck-pasted-image-20260626-115435-cgt2f.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449675244-yftck-pasted-image-20260626-115435-cgt2f.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449707432-hoie4-pasted-image-20260626-115507-1svaa.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449704599-sfhiy-pasted-image-20260626-115504-qt770.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449701161-vxoo1-pasted-image-20260626-115500-2aj1j.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449698160-1jpf4-pasted-image-20260626-115457-q5l7n.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449695514-wam5t-pasted-image-20260626-115455-4r0uo.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449692948-cgo6y-pasted-image-20260626-115452-zslti.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449689960-levz0-pasted-image-20260626-115449-d4xx7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449686807-wbxd0-pasted-image-20260626-115446-spdc3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449683993-ncdhi-pasted-image-20260626-115443-t8ppb.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449681183-0e0l0-pasted-image-20260626-115440-qbbr5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449678061-n6xzj-pasted-image-20260626-115437-2jqx8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449671971-8oz9b-pasted-image-20260626-115431-xcueu.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449668408-abnkk-pasted-image-20260626-115428-ciscm.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449661962-aawff-pasted-image-20260626-115421-de7k7.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,879.09"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5117"
+      }
+    ],
+    features: [
+      "Designed for clean, accurate trenching in tight-access areas, this attachment is ideal for contractors, landscapers, utility installers, irrigation crews, and property maintenance professionals who need dependable trenching performance from compact equipment.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "360-hydraulic-rotary-wood-grabber-attachment",
+    name: "360° Hydraulic Rotary Wood Grabber Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5120",
+    gtin: "",
+    price: "$3 236.09",
+    currentPrice: "$3,236.09",
+    sourceUrl: "",
+    buttonUrl: "/product#!/360deg-Hydraulic-Rotary-Wood-Grabber-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816141041",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Upgrade your material handling capabilities with this 360° Hydraulic Rotary Wood Grabber Attachment, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 360° Hydraulic Rotary Wood Grabber Attachment GTIN: 5061030742082 Upgrade your compatible mini skid steer with the TYPHON 360° Hydraulic Rotary Wood Grabber Attachment, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Designed for forestry, land clearing, landscaping, tree care, and property maintenance, this attachment gives operators the ability to grab, lift, rotate, and precisely place logs, brush, rocks, branches, and debris with greater control and less manual labor. The full 360° hydraulic rotation system allows smooth positioning from multiple angles, making it easier to work in confined areas, around obstacles, and in uneven job site conditions. With strong clamping arms, heavy-duty steel construction, and a maximum grip capacity of 661 lb, this rotary wood grabber is built for demanding material-handling tasks where precision and durability matter. Whether you're clearing land, managing storm debris, moving logs, or organizing job site materials, this attachment adds powerful grabbing performance and flexible control to your compact equipment. Key Features 360° Hydraulic Rotation The full hydraulic rotation system allows the grabber to rotate smoothly for more accurate material positioning. Rotation Benefits Place logs and debris with better accuracy Work from multiple angles Reduce repositioning of the machine Improve efficiency in tight spaces Handle irregular materials with more control Strong Clamping Performance The heavy-duty grabber arms provide secure gripping force for logs, brush, rocks, and uneven debris. Best For Handling Logs Branches Brush piles Rocks Tree limbs Storm debris Landscaping debris Light demolition waste Property cleanup material Heavy-Duty Steel Construction Built from reinforced steel, this attachment is designed for repeated professional use in forestry, landscaping, agriculture, and land-clearing work. Built For Forestry cleanup Tree care Land clearing Brush removal Farm maintenance Storm cleanup Landscaping projects Property maintenance Precise Material Placement The rotary design gives operators better control when placing materials in trucks, piles, trailers, or designated cleanup areas. Productivity Benefits Reduces manual handling Improves load control Saves time during cleanup Increases operator accuracy Helps reduce job site labor Compact Equipment Advantage Designed for compact loaders, this attachment allows operators to perform serious grabbing and placement work in areas where larger machines may not fit. Ideal For Narrow access areas Residential properties Wooded lots Farms Orchards Landscaping sites Construction cleanup zones Tight material handling areas Technical Specifications SpecificationDetailsProduct Type360° Hydraulic Rotary Wood Grabber AttachmentGTIN5061030742082Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight238 lb (238 lb)Maximum Grip Capacity661 lb (661 lb)Maximum Opening Size35.4 inDimensions (L × W × H)43.3 × 27.6 × 24.4 in (1100 × 700 × 24.4 in)Rotation360° Hydraulic RotationMounting StyleQuick-Mount Ideal Applications Forestry & Tree Care Move logs Handle cut branches Clear tree limbs Load brush piles Support tree removal jobs Land Clearing Remove brush Move rocks and debris Handle uneven materials Clean up wooded lots Organize cleared material Landscaping Place rocks and logs Clear branches Move natural materials Handle garden and yard debris Support outdoor renovation work Property Maintenance Storm cleanup Farm cleanup Estate maintenance Trail clearing General debris handling Why Choose This Rotary Wood Grabber? The TYPHON 360° Hydraulic Rotary Wood Grabber Attachment gives compatible mini skid steer loaders the ability to grab, rotate, lift, and place materials with greater precision. Compared to a fixed grabber, the rotary design provides better control, less repositioning, and more efficient material handling in confined spaces. Key Benefits ✔ Full 360° hydraulic rotation ✔ Strong clamping force for logs, brush, rocks, and debris ✔ Heavy-duty steel construction ✔ Maximum grip capacity of 661 lb ✔ 35.4 in maximum opening size ✔ Improves job site efficiency ✔ Reduces manual labor ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Ideal for forestry, landscaping, land clearing, and property maintenance Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Grab, Rotate, Lift, and Place With Control The TYPHON 360° Hydraulic Rotary Wood Grabber Attachment adds powerful material-handling capability to your mini skid steer. With full hydraulic rotation, strong clamping arms, and a compact heavy-duty frame, it helps operators move logs, brush, rocks, and debris more efficiently while maintaining precise control in tight or demanding work environments.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449804452-vr1s8-pasted-image-20260626-115644-p4rz2.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449804452-vr1s8-pasted-image-20260626-115644-p4rz2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449808195-wensy-pasted-image-20260626-115648-igxzl.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449813816-gpu8z-pasted-image-20260626-115653-9g4cs.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449810661-zasjv-pasted-image-20260626-115650-096oy.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449816875-zxfmu-pasted-image-20260626-115656-38v5s.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449819760-844y5-pasted-image-20260626-115659-83pxo.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449843932-apqoh-pasted-image-20260626-115723-49e0l.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449826447-vpchb-pasted-image-20260626-115706-swcut.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449840913-zq2rd-pasted-image-20260626-115720-cc2up.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449838359-nbc64-pasted-image-20260626-115717-dgl7x.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449835034-gvbc5-pasted-image-20260626-115714-8dydd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449831352-qbcmg-pasted-image-20260626-115711-kk32a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449828915-7g3a4-pasted-image-20260626-115708-496va.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449823419-qjhw5-pasted-image-20260626-115703-8hid8.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$3,236.09"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5120"
+      },
+      {
+        label: "Capacity",
+        value: "of 661 lb, this rotary wood grabber is built for demanding material-handling tasks where"
+      }
+    ],
+    features: [
+      "Designed for forestry, land clearing, landscaping, tree care, and property maintenance, this attachment gives operators the ability to grab, lift, rotate, and precisely place logs, brush, rocks, branches, and debris with greater control and less manual labor.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "landscaping-skeleton-rock-bucket-attachment",
+    name: "Landscaping Skeleton Rock Bucket Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5121",
+    gtin: "",
+    price: "$1 841.69",
+    currentPrice: "$1,841.69",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Landscaping-Skeleton-Rock-Bucket-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816139782",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Improve your land clearing and material separation efficiency with this Heavy-Duty Landscaping Skeleton Bucket, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Heavy-Duty Landscaping Skeleton Bucket GTIN: 5061030742075 Improve land clearing, soil preparation, and material separation with the TYPHON Heavy-Duty Landscaping Skeleton Bucket, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Designed for professional landscaping, construction cleanup, agriculture, forestry, and property maintenance, this attachment helps operators separate rocks, roots, brush, and larger debris from soil with speed and control. The open-tine skeleton structure allows dirt and smaller material to fall through while retaining larger objects, making it ideal for rock sifting, jobsite cleanup, ground preparation, and landscape renovation. Built from reinforced heavy-duty steel, this bucket is designed to handle demanding work while keeping your compact loader maneuverable in tight-access areas. Whether you are preparing a yard, clearing rocky ground, cleaning construction debris, or separating usable soil from unwanted material, this skeleton bucket adds practical sorting power to your mini skid steer. Key Features Open-Tine Skeleton Design The skeleton-style bucket allows soil, sand, and small debris to pass through while keeping larger material inside the bucket. Best For Separating Rocks Roots Brush Large debris Construction waste Landscaping material Soil clumps Field debris Efficient Rock and Soil Sifting The open spacing helps operators clean and prepare soil faster without needing extra manual sorting. Sifting Benefits Separates rocks from soil Reduces manual labor Speeds up ground preparation Helps clean job sites faster Improves landscaping efficiency Reduces unwanted debris in finished areas Reinforced Heavy-Steel Construction Built for tough working conditions, this bucket uses reinforced heavy-duty steel construction for durability and long service life. Built For Landscaping Land clearing Agriculture Forestry cleanup Construction sites Property maintenance Rock removal Soil preparation Compact Design for Tight Job Sites The compact profile allows operators to work in narrow or restricted areas where larger loaders and attachments may not fit. Ideal For Residential yards Farms Orchards Gardens Small construction sites Tight landscape areas Narrow access routes Property cleanup zones Designed for Compatible STOMP Loaders This attachment is engineered for direct use with compatible TYPHON mini skid steer loaders. Compatible Machines TYPHON STOMP X1300 TYPHON STOMP 509 Technical Specifications SpecificationDetailsProduct TypeLandscaping Skeleton BucketGTIN5061030742075Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight157 lb (157 lb)Dimensions (L × W × H)45.3 × 31.5 × 16.5 in (1150 × 800 × 16.5 in)Teeth Spacing46 mmTooth Pitch50 mmBucket Capacity0.3 m³Mounting StyleQuick-Mount Ideal Applications Landscaping Soil preparation Rock removal Yard renovation Garden cleanup Brush separation Landscape grading support Construction Cleanup Jobsite debris removal Separating rocks and rubble Cleaning loose soil Handling mixed material Preparing ground before finishing work Agriculture Field cleanup Farm road maintenance Removing stones from soil Clearing roots and brush Preparing planting areas Forestry & Property Maintenance Trail cleanup Brush clearing Storm debris handling Land clearing Root and rock separation Why Choose This Skeleton Bucket? The TYPHON Heavy-Duty Landscaping Skeleton Bucket gives compatible mini skid steer loaders a practical solution for sorting, sifting, and cleaning material on demanding job sites. Its open-tine structure helps keep larger debris contained while allowing smaller material to fall through, reducing manual cleanup and making land preparation faster. Key Benefits ✔ Open-tine design for efficient soil and rock sifting ✔ Helps separate fine material from larger debris ✔ Reinforced heavy-steel construction ✔ Compact profile for tight job sites ✔ 0.3 m³ bucket capacity ✔ Ideal for landscaping, agriculture, forestry, and construction cleanup ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Reduces manual sorting and improves productivity Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Sort, Sift, and Clear With Better Efficiency The TYPHON Heavy-Duty Landscaping Skeleton Bucket helps turn your compatible mini skid steer into a faster and cleaner land-preparation machine. Built for rock sifting, soil separation, debris cleanup, and landscape work, it gives operators the durability, visibility, and control needed to prepare job sites with less manual effort and better results.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449954735-9629p-pasted-image-20260626-115914-w7j0m.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449954735-9629p-pasted-image-20260626-115914-w7j0m.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449975957-rdjch-pasted-image-20260626-115935-tk7jd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449973130-mtzhq-pasted-image-20260626-115932-ty77t.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449970519-iitv4-pasted-image-20260626-115930-prks2.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449962434-wg4xu-pasted-image-20260626-115922-rr51c.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449958546-p1c1u-pasted-image-20260626-115918-84dbl.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$1,841.69"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5121"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Designed for professional landscaping, construction cleanup, agriculture, forestry, and property maintenance, this attachment helps operators separate rocks, roots, brush, and larger debris from soil with speed and control.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "landscaping-skeleton-rock-bucket-attachment-2",
+    name: "Landscaping Skeleton Rock Bucket Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5121",
+    gtin: "",
+    price: "$1 841.69",
+    currentPrice: "$1,841.69",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Landscaping-Skeleton-Rock-Bucket-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816139782",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Improve your land clearing and material separation efficiency with this Heavy-Duty Landscaping Skeleton Bucket, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Heavy-Duty Landscaping Skeleton Bucket GTIN: 5061030742075 Improve land clearing, soil preparation, and jobsite cleanup with the TYPHON Heavy-Duty Landscaping Skeleton Bucket, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509 mini skid steers. Designed for rock sifting, debris separation, and ground preparation, this attachment helps operators clean and sort material faster while reducing manual labor. The open-tine skeleton structure allows dirt, loose soil, and smaller debris to fall through while retaining rocks, roots, brush, and larger materials. This makes it a practical attachment for landscaping, agriculture, forestry, construction cleanup, and property maintenance. Built from reinforced heavy-duty steel, this skeleton bucket is designed to handle demanding jobsite conditions while maintaining a compact profile for tight-access work areas. Key Features Open-Tine Skeleton Design The open-tine structure allows fine material to pass through while holding larger debris inside the bucket. Best For Separating Rocks Roots Brush Large debris Soil clumps Construction waste Landscaping material Field debris Efficient Rock and Soil Sifting This bucket is built to make ground preparation faster and cleaner by helping separate usable soil from unwanted material. Sifting Benefits Separates rocks from soil Reduces manual cleanup Speeds up land preparation Helps create cleaner finished areas Improves landscaping efficiency Reduces unnecessary material handling Heavy-Duty Steel Construction The reinforced steel frame is built for tough working environments where durability matters. Built For Landscaping Agriculture Forestry cleanup Construction sites Property maintenance Rock removal Soil preparation Land clearing Compact Profile for Tight Spaces Designed for compact loaders, this skeleton bucket provides excellent maneuverability in narrow or restricted areas. Ideal Work Areas Residential yards Farms Orchards Gardens Small construction sites Tight landscape zones Narrow access routes Cleanup areas Technical Specifications SpecificationDetailsProduct TypeHeavy-Duty Landscaping Skeleton BucketGTIN5061030742075Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight157 lb (157 lb)Dimensions (L × W × H)45.3 × 31.5 × 16.5 in (1150 × 800 × 16.5 in)Teeth Spacing46 mmTooth Pitch50 mmBucket Capacity0.3 m³Mounting StyleQuick-Mount Ideal Applications Landscaping Soil preparation Rock removal Yard renovation Brush cleanup Garden preparation Landscape material sorting Construction Cleanup Jobsite debris removal Separating rocks and rubble Cleaning loose soil Handling mixed materials Preparing ground before finishing work Agriculture Field cleanup Removing stones from soil Clearing roots and brush Preparing planting areas Farm road maintenance Forestry & Property Maintenance Trail cleanup Brush clearing Storm debris handling Root and rock separation General land clearing Why Choose This Skeleton Bucket? The TYPHON Heavy-Duty Landscaping Skeleton Bucket gives compatible mini skid steers a practical solution for sorting, sifting, and cleanup work. Its open-tine design allows smaller material to fall through while holding larger debris, helping operators prepare land faster and more efficiently. Key Benefits ✔ Open-tine design for efficient rock and soil sifting ✔ Separates fine material while retaining larger debris ✔ Reinforced heavy-steel construction ✔ Compact profile for tight job sites ✔ 0.3 m³ bucket capacity ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Ideal for landscaping, agriculture, forestry, and construction cleanup ✔ Reduces manual sorting and improves productivity Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Sort, Sift, and Clear With Better Efficiency The TYPHON Heavy-Duty Landscaping Skeleton Bucket helps turn your compatible mini skid steer into a more efficient land-preparation and cleanup machine. Built for rock sifting, soil separation, brush handling, and debris cleanup, it gives operators the strength, control, and visibility needed to complete demanding outdoor work with less manual effort.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454372520-u9rse-pasted-image-20260626-131252-qh4ak.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454372520-u9rse-pasted-image-20260626-131252-qh4ak.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454383013-ht5u1-pasted-image-20260626-131302-2iu5x.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454419821-mznox-pasted-image-20260626-131339-hnsw7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454357577-ysp4r-pasted-image-20260626-131237-25yly.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454375832-a67bf-pasted-image-20260626-131255-3vxjz.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454415774-tqoqo-pasted-image-20260626-131335-1ihhq.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454387189-ok9kx-pasted-image-20260626-131306-gdrg4.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454410442-f4er4-pasted-image-20260626-131330-v082j.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454406315-hkka8-pasted-image-20260626-131325-qlz7x.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454402849-dnbcr-pasted-image-20260626-131322-qdwh9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454399532-i9b8l-pasted-image-20260626-131319-t9tdh.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454395541-b0idb-pasted-image-20260626-131315-8y1zv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454390753-bqn8y-pasted-image-20260626-131310-irclg.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454379224-0yoxe-pasted-image-20260626-131258-9qku0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454368632-701mt-pasted-image-20260626-131248-t73ye.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$1,841.69"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5121"
+      },
+      {
+        label: "Capacity",
+        value: "0"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-swing-stump-grinder-attachment",
+    name: "Hydraulic Swing Stump Grinder Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5122",
+    gtin: "",
+    price: "$3 830.39",
+    currentPrice: "$3,830.39",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Hydraulic-Swing-Stump-Grinder-Attachment-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816141042",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Turn your mini skid steer into a precise and powerful stump removal machine with this Hydraulic Swing Stump Grinder, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Hydraulic Swing Stump Grinder Attachment GTIN: 5061030742013 Turn your compatible mini skid steer into a precise stump removal machine with the TYPHON Hydraulic Swing Stump Grinder Attachment, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Designed for professional landscaping, tree care, property maintenance, and land clearing, this attachment allows operators to grind stumps efficiently while maintaining excellent control in tight or landscaped areas. The side-to-side swing-arm design allows the cutting head to move across the stump while the loader stays stationary. This improves control, reduces unnecessary machine movement, minimizes turf damage, and helps operators work more safely in confined spaces. Powered by a hydraulic-driven cutter and equipped with 16 heavy-duty replaceable carbide teeth, this stump grinder delivers aggressive, consistent cutting performance for removing stumps below ground level with compact equipment. Key Features Swing-Arm Grinding Design The swing-arm mechanism allows the cutting head to sweep side to side across the stump while the loader remains in place. Swing Design Benefits More controlled stump grinding Less loader repositioning Reduced turf damage Better precision in landscaped areas Improved safety and visibility Easier operation in confined spaces Hydraulic-Driven Cutting Power This attachment uses hydraulic power from the mini skid steer to deliver strong, consistent grinding performance. Performance Benefits Smooth cutting action Reliable hydraulic operation Consistent grinding power Efficient stump removal Reduced manual labor 16 Replaceable Carbide Teeth The cutting wheel is equipped with 16 heavy-duty carbide teeth designed for durability and aggressive cutting performance. Tooth Benefits Strong cutting performance Replaceable wear parts Designed for professional use Handles repeated stump grinding jobs Maintains efficient cutting over time Built for Landscaped and Tight-Access Areas This stump grinder is ideal for properties where ground disturbance needs to be minimized. Perfect For Residential yards Landscaped properties Parks Farms Orchards Golf course maintenance Tree care jobs Narrow access areas Designed for Compatible STOMP Loaders This attachment is engineered for direct use with compatible TYPHON mini skid steer loaders. Compatible Machines TYPHON STOMP X1300 TYPHON STOMP 509 Technical Specifications SpecificationDetailsProduct TypeHydraulic Swing Stump Grinder AttachmentGTIN5061030742013Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight320 lb (320 lb)Number of Teeth16 pcsMinimum Hydraulic Flow Requirement14 L/minDimensions (L × W × H)37.4 × 27.6 × 23.6 in (950 × 700 × 23.6 in)Mounting StyleQuick-Mount Ideal Applications Tree Care Stump removal Root crown grinding Tree service cleanup Post-removal site finishing Landscaping Yard restoration Garden renovation Lawn preparation Landscape cleanup Ground leveling after tree removal Property Maintenance Farm cleanup Estate maintenance Park maintenance Trail clearing Storm cleanup Construction & Land Clearing Site preparation Removing leftover stumps Clearing small lots Preparing areas for grading or planting Why Choose This Hydraulic Swing Stump Grinder? The TYPHON Hydraulic Swing Stump Grinder Attachment gives compatible mini skid steer loaders the ability to remove stumps efficiently without relying on larger dedicated equipment. Its swing-arm design improves control, reduces ground disturbance, and allows operators to grind stumps with precision while keeping the machine stable. Key Benefits ✔ Swing-arm design for controlled stump grinding ✔ Hydraulic-driven cutter for consistent performance ✔ 16 replaceable carbide teeth ✔ Helps reduce turf damage ✔ Improves visibility and operator control ✔ Compact design for tight-access job sites ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Ideal for contractors, arborists, landscapers, and property owners Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Precise Stump Removal With Compact Equipment The TYPHON Hydraulic Swing Stump Grinder Attachment transforms your compatible mini skid steer into a compact stump removal solution. With hydraulic cutting power, a controlled swing-arm design, and 16 replaceable carbide teeth, it gives operators the performance and precision needed to remove stumps cleanly, efficiently, and with less ground disturbance.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454648563-u943d-pasted-image-20260626-131728-4sf0a.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454648563-u943d-pasted-image-20260626-131728-4sf0a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454672286-7fbyh-pasted-image-20260626-131751-1kcxt.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454669026-ghxrs-pasted-image-20260626-131748-6q8i0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454664608-zco10-pasted-image-20260626-131744-app9i.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454661184-ydeyp-pasted-image-20260626-131740-izrsg.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454658368-u00r0-pasted-image-20260626-131737-8fpkn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454655421-xhbui-pasted-image-20260626-131735-j38x9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454652923-bn4as-pasted-image-20260626-131732-0edfk.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454650397-mm06m-pasted-image-20260626-131729-er9m3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454645709-rxjri-pasted-image-20260626-131725-z5mqd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454642551-2e54a-pasted-image-20260626-131722-wxuc1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454638769-w9f2p-pasted-image-20260626-131718-ynue1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454635684-g6441-pasted-image-20260626-131715-9o8zr.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454632475-1ysad-pasted-image-20260626-131712-z34o9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454627121-6zv1z-pasted-image-20260626-131706-y38ug.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454623826-uuj44-pasted-image-20260626-131703-t9eu0.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$3,830.39"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5122"
+      }
+    ],
+    features: [
+      "Designed for professional landscaping, tree care, property maintenance, and land clearing, this attachment allows operators to grind stumps efficiently while maintaining excellent control in tight or landscaped areas.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "heavy-duty-3-blade-hydraulic-brush-mower-attachment",
+    name: "Heavy-Duty 3-Blade Hydraulic Brush Mower Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5123",
+    gtin: "",
+    price: "$2 619.75",
+    currentPrice: "$2,619.75",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Heavy-Duty-3-Blade-Hydraulic-Brush-Mower-Attachment-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers/p/816141043",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Upgrade your mini skid steer into a powerful vegetation-clearing machine with the Heavy-Duty 3-Blade Hydraulic Brush Mower Attachment, engineered specifically for TYPHON STOMP X1300 and TYPHON STOMP 509 models.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Heavy-Duty 3-Blade Hydraulic Brush Mower Attachment GTIN: 5061030741993 Upgrade your compatible mini skid steer into a powerful vegetation-clearing machine with the TYPHON Heavy-Duty 3-Blade Hydraulic Brush Mower Attachment, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Built for demanding land-clearing applications, this attachment helps operators cut thick grass, dense brush, weeds, overgrowth, and small saplings with speed and control. Powered by a high-torque hydraulic motor and equipped with a rugged 3-blade rotary cutting system, this brush mower delivers aggressive cutting performance while maintaining the compact maneuverability needed for tight-access areas. The reinforced steel deck provides added protection when working across rough terrain, uneven ground, fence lines, fields, trails, and property boundaries. Ideal for landscapers, contractors, farmers, landowners, and property maintenance crews, this mower attachment turns compact equipment into a productive vegetation-control solution. Key Features Hydraulic-Driven Rotary Cutting Power This brush mower uses hydraulic power from the mini skid steer to drive the rotary cutting system, delivering consistent performance across overgrown and uneven areas. Best For Cutting Thick grass Dense brush Tall weeds Overgrown fields Light saplings Fence-line vegetation Roadside growth Trail overgrowth 3 Heavy-Duty Steel Blades The mower features 3 heavy-duty steel blades designed for aggressive cutting performance in demanding outdoor conditions. Blade Benefits Strong cutting action Efficient vegetation control Handles thick growth Reduces manual clearing work Built for repeated professional use Reinforced Steel Deck The heavy-duty mower deck is built to protect the cutting system while operating through rough terrain, brush, and debris-heavy areas. Built For Land clearing Field maintenance Farm work Trail cleanup Roadside maintenance Property boundary clearing Landscaping projects Compact Design for Tight-Access Areas Designed for compact loaders, this brush mower can operate in areas where larger tractors or mowing equipment may not fit. Ideal Work Areas Narrow trails Small lots Residential properties Farms Orchards Fence lines Tight landscape areas Uneven job sites Designed for Compatible STOMP Loaders This attachment is engineered for direct use with compatible TYPHON mini skid steer loaders. Compatible Machines TYPHON STOMP X1300 TYPHON STOMP 509 Technical Specifications SpecificationDetailsProduct TypeHeavy-Duty Hydraulic Brush Mower AttachmentGTIN5061030741993Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight229 lb (229 lb)Number of Blades3 pcsCutter Heads1Spindle Speed800-1700 rpmMinimum Hydraulic Flow Requirement14 L/minDimensions (L × W × H)49.2 × 46.5 × 17.7 in (1250 × 1180 × 17.7 in)Mounting StyleQuick-Mount Ideal Applications Land Clearing Clear overgrown lots Cut brush and weeds Maintain vacant properties Prepare land for improvement Farm & Property Maintenance Maintain field edges Clear fence lines Control orchard growth Manage farm paths and access routes Trail & Roadside Work Clear walking trails Maintain roadside edges Remove overgrowth near paths Improve access in narrow areas Landscaping Clean rough outdoor areas Prepare sites for grading Remove unwanted vegetation Maintain large residential or commercial properties Why Choose This Brush Mower? The TYPHON Heavy-Duty 3-Blade Hydraulic Brush Mower Attachment gives compatible mini skid steer loaders the ability to perform fast, controlled vegetation clearing without relying on larger mowing equipment. Its hydraulic motor, reinforced steel deck, and 3-blade rotary system provide the cutting power needed for thick grass, brush, and light saplings. Key Benefits ✔ Hydraulic-driven high-torque rotary cutter ✔ 3 heavy-duty steel blades for aggressive cutting ✔ Handles thick grass, brush, weeds, and small saplings ✔ Reinforced steel deck for rugged job site use ✔ Compact design for tight-access areas ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Ideal for landscaping, agriculture, trail work, and land clearing ✔ Helps reduce manual brush removal and cleanup time Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Clear More Ground With Compact Power The TYPHON Heavy-Duty 3-Blade Hydraulic Brush Mower Attachment turns your compatible mini skid steer into a practical vegetation-clearing machine. Built for thick grass, brush, light saplings, fence lines, trails, and overgrown properties, it delivers the cutting strength, durability, and maneuverability needed to complete tough outdoor work faster and with less manual effort.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454793293-63jk0-pasted-image-20260626-131953-vyfdo.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454793293-63jk0-pasted-image-20260626-131953-vyfdo.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454862401-cxj1r-pasted-image-20260626-132102-8ylyv.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454847050-r0npp-pasted-image-20260626-132046-ipdvn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454825153-tc2gg-pasted-image-20260626-132024-yx78k.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454800984-9aada-pasted-image-20260626-132000-pd38g.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454797001-5cioz-pasted-image-20260626-131956-za8wh.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454784526-kkqz2-pasted-image-20260626-131944-vzdin.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,619.75"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5123"
+      }
+    ],
+    features: [
+      "Built for demanding land-clearing applications, this attachment helps operators cut thick grass, dense brush, weeds, overgrowth, and small saplings with speed and control.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "hydraulic-angle-dozer-blade-30-attachment",
+    name: "Hydraulic Angle Dozer Blade 30° Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5124",
+    gtin: "",
+    price: "$2 286.89",
+    currentPrice: "$2,286.89",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Hydraulic-Angle-Dozer-Blade-30deg-for-TYPHON-STOMP-X1300-&-STOMP-509-Mini-Skid-Steers-Heavy-Duty-Grading-&-Snow-Attachment/p/816141046",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Maximize the versatility of your mini skid steer with this Heavy-Duty Hydraulic Angle Dozer Blade, precision-built for TYPHON STOMP X1300 and TYPHON STOMP 509 models.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Heavy-Duty Hydraulic Angle Dozer Blade GTIN: 5061030742006 Maximize the year-round versatility of your compatible mini skid steer with the TYPHON Heavy-Duty Hydraulic Angle Dozer Blade, engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509. Built for grading, leveling, trench backfilling, material pushing, and snow removal, this attachment gives compact equipment the ability to handle ground work and winter maintenance with better control and efficiency. The blade features hydraulic angle adjustment up to 30°, allowing operators to push material straight ahead or direct it to either side. For snow work, the full trip blade design helps absorb impact when the blade contacts hidden obstacles. For dirt, gravel, and fill material, the trip lockout function provides firm blade control for more consistent pushing performance. Compact, durable, and practical, this dozer blade is ideal for contractors, landscapers, property managers, farms, and maintenance crews who need reliable all-season performance from a mini skid steer. Key Features Hydraulic Angle Adjustment The hydraulic angle system allows operators to adjust the blade up to 30°, making it easier to control where material is pushed. Angle Blade Benefits Push material straight or to the side Improve grading control Clear snow more efficiently Reduce repeated passes Work faster in tight areas Improve operator precision Built for Grading and Backfilling This dozer blade is designed for practical ground work across construction, landscaping, and property maintenance tasks. Best For Light grading Soil leveling Trench backfilling Gravel spreading Driveway maintenance Landscape preparation Site cleanup Fill material pushing Trip Blade Protection for Snow Work The full trip blade design helps protect the machine and attachment during snow clearing by allowing the blade to absorb impact from hidden obstacles. Snow Work Benefits Helps protect the loader during snow removal Reduces shock from hidden curbs or uneven surfaces Improves safety during winter operation Helps maintain smoother snow-clearing performance Trip Lockout for Firm Material Pushing When working with dirt, gravel, or fill material, the trip lockout function provides a more rigid blade position for controlled pushing. Lockout Benefits Better control when pushing soil More consistent grading Improved gravel movement Stronger backfilling performance Less unwanted blade movement Compact Heavy-Duty Construction Designed for compact loaders, this blade provides the strength needed for demanding work while remaining maneuverable in tight spaces. Ideal Work Areas Residential properties Small construction sites Driveways Farms Walkways Landscaping areas Confined job sites Winter maintenance zones Technical Specifications SpecificationDetailsProduct TypeHydraulic Angle Dozer Blade AttachmentGTIN5061030742006Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight229 lb (229 lb)Blade Width39.4 inHydraulic Angle Adjustment30°Dimensions (L × W × H)39.4 × 33.5 × 22.4 in (1000 × 850 × 22.4 in)Configuration OptionsManual or Hydraulic AngleMounting StyleQuick-Mount Ideal Applications Construction Trench backfilling Light grading Site cleanup Soil leveling Fill material pushing Landscaping Yard preparation Gravel spreading Pathway shaping Surface leveling Garden and property maintenance Winter Snow Removal Driveway clearing Sidewalk clearing Small parking areas Pathway cleanup Residential and commercial snow work Farm & Property Maintenance Farm lane maintenance Barnyard cleanup Gravel movement Soil pushing General land upkeep Why Choose This Hydraulic Angle Dozer Blade? The TYPHON Heavy-Duty Hydraulic Angle Dozer Blade gives compatible mini skid steer loaders a practical solution for both ground work and snow clearing. With hydraulic angle adjustment, trip blade protection, trip lockout functionality, and compact heavy-duty construction, it delivers reliable performance across all seasons. Key Benefits ✔ Hydraulic angle adjustment up to 30° ✔ Ideal for grading, leveling, backfilling, and snow clearing ✔ Trip blade protection for winter work ✔ Trip lockout for dirt, gravel, and fill material ✔ Compact design for tight-access areas ✔ Heavy-duty construction for demanding job sites ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Available in manual or hydraulic angle configurations Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Grade, Backfill, Push, and Clear Snow With One Attachment The TYPHON Heavy-Duty Hydraulic Angle Dozer Blade turns your compatible mini skid steer into a more capable all-season work machine. From construction backfilling and landscape grading to driveway maintenance and winter snow removal, this attachment provides the strength, control, and versatility needed to complete demanding jobs with compact equipment.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454951660-parh8-pasted-image-20260626-132231-qsno7.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454951660-parh8-pasted-image-20260626-132231-qsno7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455005649-nagdi-pasted-image-20260626-132325-0lkkl.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455002734-q46tj-pasted-image-20260626-132322-69n0n.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454997563-wujbz-pasted-image-20260626-132317-pzzdf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454960260-hw8hg-pasted-image-20260626-132240-w0a2a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454956997-mx5yk-pasted-image-20260626-132236-djmm0.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,286.89"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5124"
+      }
+    ],
+    features: [
+      "Built for grading, leveling, trench backfilling, material pushing, and snow removal, this attachment gives compact equipment the ability to handle ground work and winter maintenance with better control and efficiency.",
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "angle-snow-sweeper-attachment",
+    name: "Angle Snow Sweeper Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5114",
+    gtin: "",
+    price: "$2 700.00",
+    currentPrice: "$2,700.00",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Angle-Snow-Sweeper-Attachment-Compatible-with-X1300-&-STOMP-509/p/822902258",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "The Snow Angle Sweeper for X1300 and STOMP 509 is a high-performance attachment designed for efficient snow removal and surface cleaning.",
+    description: "TYPHON STOMP X1300 & STOMP 509 Snow Angle Sweeper Attachment GTIN: 5061030742129 The TYPHON Snow Angle Sweeper Attachment is a high-performance cleanup and snow removal attachment engineered for the TYPHON STOMP X1300 and TYPHON STOMP 509 mini skid steers. Designed for winter maintenance and year-round surface cleaning, this attachment uses dense rotating bristles to quickly remove snow, dirt, gravel, dust, leaves, and loose debris from roads, driveways, sidewalks, parking lots, farms, warehouses, industrial yards, and construction sites. With its angled sweeping design, the sweeper directs material to the side as it works, helping operators clear surfaces faster and reduce repeated passes. Its compact frame makes it ideal for tight spaces, while the durable steel construction provides the strength needed for daily maintenance and demanding outdoor conditions. Whether you are clearing light snow from a driveway, cleaning debris from a job site, maintaining a farmyard, or sweeping a parking area, this snow angle sweeper helps turn your compatible mini skid steer into a practical all-season maintenance machine. Key Features High-Efficiency Sweeping Performance The dense rotating brush is designed to remove snow and loose debris quickly, helping keep work areas cleaner and safer. Best For Clearing Snow Dirt Gravel Dust Leaves Loose debris Light jobsite material Parking lot buildup Angled Sweeping Design The angled sweeping layout directs snow and debris to the side, improving clearing speed and reducing the need for repeated passes. Angle Sweeping Benefits Pushes material away from the cleared path Improves cleanup efficiency Helps create cleaner driving and walking surfaces Reduces operator workload Works well for roads, driveways, and open surfaces Durable Steel Construction Built with a strong steel frame, this sweeper is designed for reliable use in winter conditions, industrial areas, and daily maintenance work. Built For Snow removal Road maintenance Parking lot cleanup Farmyard cleaning Warehouse sweeping Construction site cleanup Industrial yard maintenance Compact and Easy to Maneuver Designed for compact loaders, this sweeper works well in spaces where larger sweeping equipment may be difficult to use. Ideal Work Areas Sidewalks Driveways Small parking lots Farm lanes Warehouse entrances Narrow access roads Construction access areas Designed for Compatible STOMP Loaders This attachment is made for convenient use with compatible TYPHON mini skid steer loaders. Compatible Machines TYPHON STOMP X1300 TYPHON STOMP 509 Technical Specifications SpecificationDetailsProduct TypeSnow Angle Sweeper AttachmentGTIN5061030742129Compatible MachinesTYPHON STOMP X1300 & STOMP 509Attachment Weight317 lb (317 lb)Dimensions (L × W × H)51.2 × 47.2 × 24.8 in (1300 × 1200 × 24.8 in)Sweeping DesignAngled SweepingFrame MaterialHeavy-Duty SteelMounting StyleQuick-Mount Ideal Applications Winter Snow Removal Driveways Sidewalks Parking lots Access paths Farm roads Work areas Municipal & Property Maintenance Road edges Public walkways Small streets Outdoor maintenance areas Facility entrances Farm & Warehouse Use Farmyards Barn entrances Warehouse floors Loading areas Industrial yards Construction Site Cleanup Remove dirt and debris Clean access roads Maintain work zones Clear loose gravel Improve site safety Why Choose This Snow Angle Sweeper? The TYPHON Snow Angle Sweeper Attachment gives compatible mini skid steer loaders a practical solution for winter clearing and everyday surface cleanup. Its dense rotating brush, angled sweeping design, compact frame, and durable construction make it useful for both seasonal snow removal and year-round maintenance. Key Benefits ✔ Dense rotating brush for efficient sweeping ✔ Angled design directs snow and debris to the side ✔ Suitable for snow, dirt, gravel, leaves, and loose debris ✔ Durable steel frame for long-term reliability ✔ Compact design for tight-access work areas ✔ Designed for TYPHON STOMP X1300 and STOMP 509 ✔ Ideal for roads, driveways, sidewalks, farms, warehouses, and job sites ✔ Helps improve productivity during winter and daily maintenance tasks Compatibility Notice This attachment is designed specifically for the TYPHON STOMP X1300 and TYPHON STOMP 509 Mini Skid Steer Loaders. Buyers are responsible for confirming that their machine's mounting system matches the attachment before purchase. Fitment cannot be guaranteed on machines with different mount designs. Sweep Snow, Dirt, and Debris With Compact Power The TYPHON Snow Angle Sweeper Attachment helps operators clear surfaces faster and maintain cleaner work areas with compact equipment. Built for snow removal, parking lot cleanup, road maintenance, farm work, and jobsite sweeping, it delivers strong, reliable performance for both winter conditions and daily cleanup tasks.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455452136-uo3pv-pasted-image-20260626-133051-zpizj.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455452136-uo3pv-pasted-image-20260626-133051-zpizj.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455428654-eg9z0-pasted-image-20260626-133028-8qso3.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455438525-wudwq-pasted-image-20260626-133038-3pbm9.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455446892-r0equ-pasted-image-20260626-133046-evvhf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455469455-fcmnl-pasted-image-20260626-133109-okl5g.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455444329-boz1v-pasted-image-20260626-133043-km9n8.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455466963-ycw8i-pasted-image-20260626-133106-f18qi.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455464472-7u5tr-pasted-image-20260626-133103-6xo8m.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455455030-ilelk-pasted-image-20260626-133054-3bgo5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455461547-vfv18-pasted-image-20260626-133101-5jfq6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455457564-7jton-pasted-image-20260626-133057-nl0nq.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455449809-hifwz-pasted-image-20260626-133049-tt76p.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$2,700.00"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5114"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "heavy-duty-lever-attachment",
+    name: "Heavy Duty Lever Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "skid-steer-loaders",
+    categoryLabel: "Skid Steer Loader",
+    rawCategory: "",
+    sku: "TYPH-5110",
+    gtin: "",
+    price: "$1 999.99",
+    currentPrice: "$1,999.99",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Heavy-Duty-Lever-Attachment-for-TYPHON-X1300-&-Stomp-509-1200mm-Working-Width-84kg-Industrial-Tool/p/823564821",
+    importConfidence: "",
+    series: "Skid Steer Loader series",
+    weight: "Skid Steer Loader",
+    tagline: "Upgrade your equipment performance with this heavy-duty Lever attachment, engineered for durability, precision, and efficient operation across a wide range of applications.",
+    description: "Heavy-Duty Lever Attachment GTIN: 5061030742136 Upgrade your compact equipment with the Heavy-Duty Lever Attachment, built for reliable performance across construction, landscaping, agriculture, ground work, and general material handling applications. Designed with a strong structure and practical working width, this attachment helps operators complete pushing, leveling, positioning, and ground-preparation tasks more efficiently with compatible machinery. With a solid 185 lb attachment weight, 47.2 in working width, and compact dimensions of 1050 × 800 × 15.7 in, this lever attachment provides a useful balance of strength, coverage, and maneuverability. Its heavy-duty construction is designed for demanding jobsite environments while remaining compact enough for transport, storage, and tight-access work areas. Whether used on construction sites, farms, landscaping projects, or industrial work areas, this attachment offers a durable and practical solution for operators who need dependable performance from compact equipment. Key Features Strong and Durable Build Built with heavy-duty materials, this lever attachment is designed for long-term use in demanding environments. Built For Construction work Landscaping projects Agriculture Industrial applications Ground preparation Site maintenance General equipment support Wide 47.2 in Working Coverage The 47.2 in working width helps improve productivity by covering more surface area during operation. Benefits Covers more ground per pass Helps improve job efficiency Suitable for wider work areas Reduces unnecessary repositioning Practical for ground and site work Compact and Practical Design With dimensions of 1050 × 800 × 15.7 in, this attachment is compact enough for easier transport and storage while still offering strong working performance. Practical Advantages Easy to transport Easier to store Suitable for compact equipment Useful in confined work areas Simple jobsite handling Versatile Jobsite Use This lever attachment is designed for multiple work environments, making it useful for operators who need one practical attachment for different daily tasks. Ideal For Construction projects Farm work Landscaping Ground work Industrial applications Property maintenance Site cleanup support Technical Specifications SpecificationDetailsProduct TypeLever AttachmentGTIN5061030742136Attachment Weight185 lb (185 lb)Working Width47.2 inDimensions (L × W × H)41.3 × 31.5 × 15.7 in (1050 × 800 × 15.7 in)Application TypeConstruction, Landscaping, Agriculture, Industrial UseMounting StyleQuick-Mount / Compatible Machine Mount Ideal Applications Construction Jobsite support Ground work Material positioning Site preparation General compact equipment use Agriculture Farm maintenance Field work support Property upkeep Ground preparation Landscaping Yard preparation Soil and surface work Landscape maintenance Outdoor project support Industrial Use Work area maintenance Material handling support Equipment-assisted positioning General facility tasks Why Choose This Lever Attachment? The Heavy-Duty Lever Attachment is a practical solution for operators who need a durable, compact, and easy-to-use attachment for a variety of work environments. With strong construction, a wide working width, and compact dimensions, it provides dependable performance for construction, agriculture, landscaping, and industrial applications. Key Benefits ✔ Heavy-duty construction for demanding environments ✔ 185 lb attachment weight for strong, stable use ✔ 47.2 in working width for efficient coverage ✔ Compact design for easier transport and storage ✔ Suitable for construction, farms, landscaping, and industrial work ✔ Designed for compatible machinery ✔ Practical attachment for everyday jobsite support Compatibility Notice The listed measurements and diagram apply only to the attachment's quick-mounting plate. Buyers are responsible for confirming that these dimensions match their machine's mounting system before purchase. Fitment cannot be guaranteed on machines with different mount designs. Durable Support for Everyday Equipment Work The Heavy-Duty Lever Attachment gives compatible machinery a strong and practical tool for construction, landscaping, agriculture, ground work, and industrial applications. Built for durability and ease of use, it helps operators complete jobsite tasks with better efficiency, control, and reliability.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455607300-tk4tu-pasted-image-20260626-133327-0tkyd.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455607300-tk4tu-pasted-image-20260626-133327-0tkyd.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455590588-5fh0f-pasted-image-20260626-133310-t2cuc.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455619937-af0pz-pasted-image-20260626-133339-gbxqu.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455612048-y91rw-pasted-image-20260626-133331-mjsq1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455609443-w9kv7-pasted-image-20260626-133329-j847b.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455604998-zdluq-pasted-image-20260626-133324-5298r.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455602904-n4aaj-pasted-image-20260626-133322-0nf6j.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455600641-fyijt-pasted-image-20260626-133320-rovw5.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455597901-y1tqs-pasted-image-20260626-133317-4jbq7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455594918-jxztp-pasted-image-20260626-133314-ltc5s.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455617430-259d4-pasted-image-20260626-133337-cn4en.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Skid Steer Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$1,999.99"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-5110"
+      }
+    ],
+    features: [
+      "Compact loader footprint",
+      "Attachment-ready front plate",
+      "Responsive hydraulic controls",
+      "Jobsite material handling layout"
+    ],
+    applications: [
+      "Loading",
+      "Grading",
+      "Material handling",
+      "Site cleanup",
+      "Landscape work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "ultimate-10-in-1-attachment",
+    name: "Ultimate 10 in 1 Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-PA-X2TEN Bundle",
+    gtin: "",
+    price: "$6 257.96",
+    currentPrice: "$6,257.96",
+    sourceUrl: "",
+    buttonUrl: "/product#!/Ultimate-10-in-1-Attachment-for-TYPHON-TERROR-X2-Pro-&-X2-Max-Mini-Excavator/p/842967507",
+    importConfidence: "",
+    series: "Mini Excavator series",
+    weight: "Mini Excavator",
+    tagline: "Equip your TYPHON TERROR X2 Pro or X2 Max mini excavator to handle virtually any task with the Ultimate 10-in-1 Attachment Bundle. Designed for demanding construction and landscaping jobs, this all-in-one solution eliminates the need for multiple machines by expanding the versatility and performance of your excavator. Each attachment is forged from high-strength steel, delivering exceptional durability for heavy-duty digging, precise grading, and tough demolition work.",
+    description: "TYPHON TERROR X2 Pro & X2 Max Ultimate 10-in-1 Mini Excavator Attachment Bundle GTIN: 5061030742204 Expand the capability of your compatible mini excavator with the TYPHON Ultimate 10-in-1 Attachment Bundle, designed specifically for the TYPHON TERROR X2 Pro and TYPHON TERROR X2 Max. This complete attachment package gives contractors, landscapers, utility crews, property owners, and construction professionals the flexibility to dig, grade, trench, rake, rip, drill, grab, tilt, and break with one machine. Built for demanding construction and landscaping work, each attachment is made from high-strength steel for long-term durability and reliable performance. The included heavy-duty quick coupler allows operators to change attachments faster, reducing downtime and helping crews move from one task to another with better efficiency. From utility trenching and grading to demolition, material handling, soil preparation, post-hole drilling, and debris cleanup, this 10-in-1 bundle transforms your TYPHON mini excavator into a powerful multi-purpose jobsite machine. Included Attachments This bundle includes 10 essential excavator attachments for a wide range of professional applications. AttachmentPrimary UseQuick Coupler / Quick HitchFast attachment changes9.8 in Narrow BucketTrenching and narrow digging39.4 in Rock BucketRock handling, debris sorting, tough digging31.5 in Plain Bucket / Toothless BucketGrading, leveling, and clean finishing22 in RakeClearing brush, roots, rocks, and debrisSingle Shank RipperBreaking hard soil, compacted ground, and hardpanGrappleGrabbing logs, scrap, rocks, and irregular materials8 in Hydraulic AugerDrilling holes for posts, trees, and foundations39.4 in Tilting BucketPrecision grading, ditch shaping, and slope workHydraulic Hammer / Break HammerBreaking concrete, asphalt, rock, and hard material Key Features Complete 10-in-1 Excavator Upgrade This attachment bundle gives your excavator the ability to perform multiple jobsite tasks without needing separate machines. Best For Digging Trenching Grading Raking Ripping Drilling Material handling Demolition Debris cleanup Landscape preparation Utility installation Heavy-Duty Quick Coupler Included The included quick coupler helps operators switch between attachments faster, improving workflow and reducing downtime. Quick Coupler Benefits Faster attachment changes Less downtime between tasks Better jobsite efficiency More flexible machine use Improved productivity for multi-step projects Built From High-Strength Steel Each attachment is built with durable steel construction for demanding jobsite conditions. Built For Construction sites Landscaping projects Utility work Property maintenance Farm use Demolition cleanup Ground preparation Heavy-duty excavation tasks Precision Digging and Grading With multiple bucket options, operators can choose the right attachment for trenching, grading, leveling, rock handling, or finish work. Bucket Advantages 9.8 in narrow bucket for clean trenching 31.5 in plain bucket for smooth grading 39.4 in rock bucket for rougher material 39.4 in tilting bucket for slope and angle work This gives the excavator better control across different soil and jobsite conditions. Demolition and Ground Breaking Capability The ripper and hydraulic hammer expand the machine's ability to handle hard material. Useful For Breaking compacted soil Loosening hardpan Removing asphalt Breaking concrete Demolition support Preparing difficult ground before digging Better Material Handling The grapple, rake, and rock bucket help operators clean job sites, handle irregular materials, and separate debris more efficiently. Material Handling Uses Logs Brush Roots Rocks Scrap material Construction debris Landscaping waste Compatibility This attachment bundle is designed specifically for: TYPHON TERROR X2 Pro TYPHON TERROR X2 Max Connection Dimensions SpecificationMeasurementPin Diameter30 mmPin Center Spacing120 mmSpan Width4.1 in These dimensions are designed to provide a precise, secure fit for the listed TYPHON excavator models. Technical Specifications SpecificationDetailsProduct Type10-in-1 Mini Excavator Attachment BundleGTIN5061030742204Compatible MachinesTYPHON TERROR X2 Pro & TYPHON TERROR X2 MaxIncluded Attachments10 pcsPin Diameter30 mmPin Center Spacing120 mmSpan Width105 mmIncluded Quick CouplerYesConstructionHigh-strength steel Ideal Applications Construction Utility trenching Foundation preparation Concrete breaking Site cleanup Ground leveling Material handling Landscaping Grading Tree planting Rock removal Soil preparation Brush clearing Slope shaping Agriculture and Property Maintenance Fence post holes Drainage work Ditch cleaning Farm cleanup Small road maintenance Debris removal Demolition and Renovation Breaking concrete Removing asphalt Handling debris Ripping compacted ground Preparing job sites for rebuilding Why Choose This 10-in-1 Attachment Bundle? The TYPHON Ultimate 10-in-1 Attachment Bundle gives your TERROR X2 Pro or TERROR X2 Max the flexibility to complete more jobs with fewer machines. Instead of switching between different equipment, operators can use one excavator with specialized attachments for digging, grading, breaking, drilling, handling, and cleanup work. Key Benefits ✔ Complete 10-piece attachment package ✔ Designed for TYPHON TERROR X2 Pro and X2 Max ✔ Heavy-duty quick coupler included ✔ High-strength steel construction ✔ Improves excavator versatility ✔ Supports trenching, grading, demolition, drilling, and material handling ✔ Reduces downtime with faster attachment changes ✔ Ideal for contractors, landscapers, utility crews, and property owners Compatibility Notice This attachment bundle is designed specifically for the TYPHON TERROR X2 Pro and TYPHON TERROR X2 Max. The listed connection dimensions are 1.2 in pin diameter, 4.7 in pin-center spacing, and 4.1 in span width. Buyers should always verify their machine's mounting dimensions before purchase to ensure proper fitment. Turn One Excavator Into a Multi-Function Jobsite Machine The TYPHON TERROR X2 Pro & X2 Max Ultimate 10-in-1 Attachment Bundle gives operators the tools needed to dig, trench, grade, rip, rake, drill, grab, tilt, and break with confidence. Built for durability and productivity, this bundle helps maximize the value of your excavator while giving you the flexibility to handle a wide range of construction, landscaping, utility, and property maintenance tasks.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456394327-79fvv-pasted-image-20260626-134634-vkm2l.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456394327-79fvv-pasted-image-20260626-134634-vkm2l.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456408542-iolj2-pasted-image-20260626-134648-9k1du.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456405965-sj3ah-pasted-image-20260626-134645-2mmk1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456403193-3feos-pasted-image-20260626-134643-iqd8h.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456400770-4uumc-pasted-image-20260626-134640-2bd9i.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456398127-wxabk-pasted-image-20260626-134638-ce4wr.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$6,257.96"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-PA-X2TEN Bundle"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "heavy-duty-wheel-loader-log-grapple-attachment",
+    name: "Heavy Duty Wheel Loader Log Grapple Attachment",
+    productType: "attachment",
+    rawProductType: "attachment",
+    category: "wheel-loaders",
+    categoryLabel: "Wheel Loader",
+    rawCategory: "",
+    sku: "TYPH-8007",
+    gtin: "",
+    price: "$3 255.00",
+    currentPrice: "$3,255.00",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-Skoop-Heavy-Duty-Wheel-Loader-Log-Grapple-295-lbs-Robust-Log-&-Brush-Handler-with-6-4-Tine-Grip/p/843668254",
+    importConfidence: "",
+    series: "SKOOP wheel loader series",
+    weight: "Wheel Loader",
+    tagline: "The TYPHON Skoop Wheel Loader Log Grapple is a heavy-duty attachment built for powerful, efficient handling of logs, brush, and other bulky materials. Designed for durability and maximum gripping strength, whether you are loading, moving, or stacking, this robust grapple delivers the control, toughness, and performance needed for demanding jobs.",
+    description: "TYPHON SKOOP Wheel Loader Log Grapple Attachment GTIN: 5061030742211 The TYPHON SKOOP Wheel Loader Log Grapple is a heavy-duty attachment designed for powerful, controlled handling of logs, brush, branches, timber, storm debris, and other bulky materials. Built specifically for the TYPHON SKOOP Wheel Loader, this grapple gives operators the strength and gripping control needed for forestry, land clearing, agriculture, property maintenance, and demanding outdoor work. With a reinforced tine structure, strong open-frame design, and wide gripping layout, this attachment allows operators to securely grab, lift, move, load, and stack irregular materials more efficiently than with a standard bucket. Whether you are clearing land, moving timber, handling firewood, cleaning storm debris, or managing farm and property materials, the TYPHON SKOOP Log Grapple adds serious material-handling capability to your wheel loader. Key Features Heavy-Duty Log and Brush Handling This grapple is built for handling bulky, uneven, and hard-to-manage materials with better grip and control. Best For Handling Logs Timber Large branches Brush piles Fallen trees Firewood Storm debris Demolition material Large recyclable materials Farm and fencing materials Strong Upper and Lower Tine Design The grapple uses a durable tine layout to help secure uneven loads during lifting and transport. Tine Configuration Upper Tines: 3 Sets / 6 Tines Total Lower Tines: 4 Tines Total Upper Tine Spacing: 11.8 in Lower Center Tine Spacing: 11.8 in Lower Side Tine Spacing: 9.8 in This structure helps improve gripping performance when handling logs, brush, and irregular materials. Built for the TYPHON SKOOP Wheel Loader This attachment is engineered for direct compatibility with the TYPHON SKOOP Wheel Loader, giving operators a practical attachment for material handling and cleanup work. Compatible Machine TYPHON SKOOP Wheel Loader Durable Construction for Demanding Jobs The heavy-duty frame is built for regular use in tough outdoor conditions. Built For Forestry Logging support Land clearing Property cleanup Farm maintenance Storm cleanup Construction debris handling Demolition sorting Firewood handling Improves Productivity and Load Control Compared to using a standard bucket, a grapple provides better clamping control when moving long, round, or uneven materials. Productivity Benefits Reduces manual handling Helps secure irregular loads Speeds up cleanup work Improves loading and stacking control Makes brush and log handling more efficient Helps operators work safer and faster Technical Specifications SpecificationDetailsProduct TypeWheel Loader Log Grapple AttachmentGTIN5061030742211Compatible MachineTYPHON SKOOP Wheel LoaderOverall Dimensions (L × W × H)47.24 × 30.71 × 19.88 in (1200 × 780 × 19.9 in)Upper Tine Configuration3 Sets / 6 Tines TotalUpper Tine Spacing11.8 inLower Tine Configuration4 Tines TotalLower Tine Spacing11.8 in Center / 9.8 in Both SidesNet Weight295.42 lb (295 lb)Gross Weight374.79 lb (375 lb) Ideal Applications Forestry and Logging Move logs and timber Load large branches Stack firewood Handle cut trees Support clearing work Land Clearing Clear brush piles Move felled trees Remove large debris Clean construction sites Prepare lots for development Property Maintenance Handle storm debris Move fallen trees Maintain large acreage Clean wooded areas Manage firewood and brush Agriculture and Farming Move fencing materials Clear field edges Handle large bales when suitable Maintain farm roads and work areas Clean up brush and branches Demolition and Recycling Sort bulky debris Move large recyclable materials Handle uneven demolition waste Clean job sites efficiently Why Choose the TYPHON SKOOP Log Grapple? The TYPHON SKOOP Wheel Loader Log Grapple gives your wheel loader the ability to handle bulky, uneven, and heavy materials with better grip and control. Its upper and lower tine design helps secure logs, brush, and debris during transport, making it a practical attachment for forestry, agriculture, construction, and property maintenance work. Key Benefits ✔ Designed for the TYPHON SKOOP Wheel Loader ✔ Strong grapple design for logs, brush, and bulky debris ✔ Upper tine system with 3 sets / 6 total tines ✔ Lower tine system with 4 total tines ✔ Heavy-duty construction for demanding outdoor use ✔ Improves loading, stacking, and material control ✔ Ideal for forestry, land clearing, farming, and property maintenance ✔ Helps reduce manual labor and cleanup time Operating Safety Note Always confirm that the combined weight of the attachment and intended load does not exceed the machine's rated operating capacity at the specific lift height being used. Operators should also follow proper lifting practices and avoid carrying unstable or oversized loads beyond the machine's safe working limits. Stronger Grip for Tough Material Handling The TYPHON SKOOP Wheel Loader Log Grapple is built to help operators grab, lift, move, and stack logs, brush, debris, and bulky materials with better control. Designed for demanding outdoor work, it gives your TYPHON SKOOP Wheel Loader the added strength and versatility needed for forestry, land clearing, agriculture, and property maintenance jobs.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456565084-jjw0h-pasted-image-20260626-134924-e4zqg.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456565084-jjw0h-pasted-image-20260626-134924-e4zqg.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456571834-fdei9-pasted-image-20260626-134931-cyqrt.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456574511-8koxm-pasted-image-20260626-134934-pj29a.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456576874-sd0xj-pasted-image-20260626-134936-kmjly.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456579324-i0of4-pasted-image-20260626-134939-opxuf.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456581807-c2d25-pasted-image-20260626-134941-jrblt.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456584328-d4y04-pasted-image-20260626-134944-zi4w0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456586925-4uj7k-pasted-image-20260626-134946-68t98.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456611854-b37bz-pasted-image-20260626-135011-fckdc.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456602606-od5yb-pasted-image-20260626-135002-td3mc.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Wheel Loader"
+      },
+      {
+        label: "Current Price",
+        value: "$3,255.00"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-8007"
+      },
+      {
+        label: "Capacity",
+        value: "at the specific lift height being used"
+      }
+    ],
+    features: [
+      "Articulated loader format",
+      "Material bucket setup",
+      "Stable wheel base",
+      "Serviceable compact loader frame"
+    ],
+    applications: [
+      "Yard loading",
+      "Aggregate handling",
+      "Farm material movement",
+      "Snow and debris clearing"
+    ],
+    imageMatch: "CSV image fields"
+  },
+  {
+    id: "typhon-terror-xvii-pro",
+    name: "TYPHON Terror XVII PRO",
+    productType: "equipment",
+    rawProductType: "equipment",
+    category: "mini-excavators",
+    categoryLabel: "Mini Excavator",
+    rawCategory: "",
+    sku: "TYPH-1701R Pro",
+    gtin: "",
+    price: "$10 884.50",
+    currentPrice: "$10,884.50",
+    sourceUrl: "",
+    buttonUrl: "/product#!/TYPHON-TERROR-XVII-PRO-3800-lbs-Mini-Excavator-Kubota-Diesel-Hydraulic-Thumb-Dozer-Blade-&-Boom-Swing/p/843988760",
+    importConfidence: "",
+    series: "TERROR mini excavator series",
+    weight: "3,800 lb",
+    tagline: "Meet the New TYPHON TERROR XVII PRO with an operating weight of 3,800 lb, this mini excavator delivers the stability, power, and durability required for demanding jobs. Featuring upgraded protection, refined hydraulics, and enhanced operator comfort, this machine is engineered to tackle tough conditions with confidence.",
+    description: "TYPHON TERROR XVII PRO Mini Excavator GTIN: 5061030742235 The TYPHON TERROR XVII PRO is a professional-grade 3,800 lb mini excavator engineered for contractors, landscapers, utility crews, farmers, and property owners who need reliable digging power, refined hydraulics, and strong protection in demanding work environments. Built with an EPA-certified Kubota D902 diesel engine, advanced hydraulic control, wide rubber tracks, boom swing, hydraulic thumb clip, dozer blade, and upgraded operator comfort, this compact excavator is designed to work efficiently in tight spaces while delivering serious jobsite performance. With a rugged modern design, reinforced hydraulic protection, a hydraulic oil cooler, and a practical all-in-one work package, the TERROR XVII PRO is ready for trenching, grading, digging, material handling, cleanup, and construction support. It combines compact maneuverability with the stability and strength needed for daily professional use. Key Features EPA-Certified Kubota Diesel Engine The TERROR XVII PRO is powered by the proven Kubota D902 diesel engine, a compact 3-cylinder, 4-cycle diesel engine known for durability, fuel efficiency, and smooth power delivery. Engine Highlights EPA-certified Kubota D902 diesel engine 3-cylinder, 4-cycle diesel design 15.8 HP @ 2200 RPM Up to 20.4 HP @ 3600 RPM Reliable Japanese-built performance Smooth power delivery Strong fuel efficiency Built for long service life Extended Runtime Capacity Designed for longer work sessions, the TERROR XVII PRO includes practical fluid capacities to help reduce downtime during demanding jobs. Tank Capacities Hydraulic Oil Reservoir: 4.76 gal Fuel Tank: 3.17 gal This setup supports productive operation while keeping refueling and servicing more convenient. Advanced Hydraulic System The high-pressure hydraulic system delivers strong, consistent power for digging, grading, lifting, and attachment operation. Hydraulic Performance Hydraulic Pressure: 18 MPa / 2,610.68 PSI Main Hydraulic Flow: 6.07 GPM Pilot Flow: 1.82 GPM Integrated Hydraulic Oil Cooler Precision Pilot Controls Dual Auxiliary Hydraulic Circuits Double-Side Auxiliary Throttle Valves The dual auxiliary hydraulic setup allows powered attachments and the hydraulic thumb to operate efficiently, helping reduce setup changes and improve workflow. Hydraulic Oil Cooler for Long Working Hours The integrated hydraulic oil cooler helps manage system temperature during extended operation. Cooling Benefits Helps prevent hydraulic overheating Maintains consistent hydraulic performance Supports longer work sessions Improves system reliability in hot climates Helps extend hydraulic component life Superior Mobility and Reach The TERROR XVII PRO is built for flexible operation in tight or difficult jobsite conditions. Mobility Features Full 360° upper structure rotation Offset boom swing: 45° Left 55° Right Travel Speed: Up to 1.30 MPH Wide Rubber Tracks: 9.06 in Stable undercarriage for uneven terrain The offset boom allows operators to dig close to walls, foundations, fences, and other obstacles with less repositioning. Powerful Digging Performance With strong digging force and practical bucket capacity, the TERROR XVII PRO is built for trenching, excavation, grading, and cleanup work. Digging Performance Digging Force: 14 kN Bucket Width: 16.54 in Bucket Capacity: 0.04 m³ Maximum Digging Depth: 86.50 in Standard Dozer Blade Hydraulic Thumb Clip This combination allows the machine to dig, grade, grab, lift, and clean up efficiently on a wide range of job sites. Reinforced Protection for Demanding Work The TERROR XVII PRO includes upgraded protection features designed to improve durability and reduce downtime. Protection Features Armored hydraulic hoses Protected hydraulic valves Shielded hydraulic components Reinforced working structure Centralized service access Hydraulic oil cooler These features help reduce the risk of damage from abrasion, impacts, and harsh jobsite conditions. Premium Operator Comfort The operator station is designed to reduce fatigue and improve control during long workdays. Comfort Features Ergonomic operator seat Premium headrest Armrests Spacious operator station Clear control layout Pilot hydraulic controls Operator Station Dimensions SpecificationDetailsInterior Height41.34 inInterior Width20.08 in The refined operator station helps improve comfort, control, and productivity throughout extended work sessions. Technical Specifications SpecificationDetailsProduct ModelTYPHON TERROR XVII PROGTIN5061030742235Machine TypeMini ExcavatorOperating Weight3,800 lbsEngineKubota D902 DieselEngine CertificationEPA CertifiedEngine Power15.8 HP @ 2200 RPM / 20.4 HP @ 3600 RPMHydraulic Pressure18 MPa / 2,610.68 PSIMain Hydraulic Flow6.07 GPMPilot Flow1.82 GPMHydraulic Oil Reservoir4.76 galFuel Tank Capacity3.17 galTravel SpeedUp to 1.30 MPHTrack Width9.06 inBoom Swing45° Left / 55° RightUpper Structure Rotation360°Digging Force14 kNBucket Width16.54 inBucket Capacity0.04 m³Maximum Digging Depth86.50 inOperator Station Interior Height41.34 inOperator Station Interior Width20.08 in Standard Equipment Included The TYPHON TERROR XVII PRO comes equipped with practical jobsite-ready features. Included Equipment ✔ Kubota D902 diesel engine ✔ Standard 16.54 in digging bucket ✔ Hydraulic thumb clip ✔ Standard dozer blade ✔ Hydraulic oil cooler ✔ Dual auxiliary hydraulic circuits ✔ Double-side auxiliary throttle valves ✔ Pilot hydraulic controls ✔ Wide rubber tracks ✔ Armored hydraulic hoses ✔ Protected hydraulic valves ✔ Ergonomic operator seat with headrest and armrests ✔ Digital operator manual Ideal Applications Construction Trenching Foundation preparation Site cleanup Utility work Small excavation projects Material handling Landscaping Tree planting Drainage installation Yard renovation Soil removal Rock and debris handling Grading and shaping Agriculture Farm maintenance Orchard work Ditch cleaning Fence line preparation Small land-clearing jobs Property Maintenance Storm cleanup Driveway repair Backyard digging General excavation Light demolition support Why Choose the TYPHON TERROR XVII PRO? The TYPHON TERROR XVII PRO is designed for operators who need a compact excavator with stronger protection, smoother control, and dependable Kubota diesel power. Its hydraulic system, hydraulic thumb clip, boom swing, dozer blade, wide rubber tracks, and reinforced hydraulic protection make it a reliable machine for both precision work and demanding daily use. Key Benefits ✔ 3,800 lb compact excavator design ✔ EPA-certified Kubota D902 diesel engine ✔ Up to 20.4 HP engine output ✔ Advanced hydraulic system with 18 MPa pressure ✔ Dual auxiliary hydraulic circuits ✔ Hydraulic oil cooler included ✔ Hydraulic thumb clip included ✔ Standard dozer blade included ✔ Offset boom swing for tight-space digging ✔ Wide rubber tracks for better traction and stability ✔ Armored hoses and protected valves for added durability ✔ Comfortable operator station with headrest and armrests Compact Power With Professional Protection The TYPHON TERROR XVII PRO Mini Excavator brings together trusted Kubota power, smooth pilot controls, strong hydraulic performance, and reinforced protection in one compact machine. Built for trenching, grading, digging, material handling, and jobsite cleanup, it delivers the stability, durability, and versatility professionals need to work confidently in tight spaces and demanding conditions.",
+    image: "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456774859-u2o57-pasted-image-20260626-135254-a3nzk.webp",
+    gallery: [
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456774859-u2o57-pasted-image-20260626-135254-a3nzk.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456727682-zm5zt-pasted-image-20260626-135207-5k2u6.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456730905-z3s9a-pasted-image-20260626-135210-8oqfi.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456733187-lr95l-pasted-image-20260626-135212-vx81m.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456735838-8bdro-pasted-image-20260626-135215-nmcjn.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456738378-jmfgh-pasted-image-20260626-135218-hfyn1.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456744810-u5ldu-pasted-image-20260626-135224-wigk0.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456747865-en3lk-pasted-image-20260626-135227-w49w7.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456750685-tq4y8-pasted-image-20260626-135230-3uh9i.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456753615-v1a8h-pasted-image-20260626-135233-evb30.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456757349-2w8fi-pasted-image-20260626-135237-hm1gy.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456759869-fkltx-pasted-image-20260626-135239-v6746.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456765660-j8clt-pasted-image-20260626-135245-2lyum.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456769570-punx8-pasted-image-20260626-135249-c0t91.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456772260-bmthv-pasted-image-20260626-135251-fnvxs.webp",
+      "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456777892-t56t4-pasted-image-20260626-135257-nn8gd.webp"
+    ],
+    specs: [
+      {
+        label: "Category",
+        value: "Mini Excavator"
+      },
+      {
+        label: "Current Price",
+        value: "$10,884.50"
+      },
+      {
+        label: "SKU",
+        value: "TYPH-1701R Pro"
+      },
+      {
+        label: "Weight Class",
+        value: "3,800 lb"
+      },
+      {
+        label: "Engine Power",
+        value: "15.8 HP"
+      },
+      {
+        label: "Digging Depth",
+        value: "86"
+      },
+      {
+        label: "Capacity",
+        value: "Designed for longer work sessions, the TERROR XVII PRO includes practical fluid capacitie"
+      }
+    ],
+    features: [
+      "Compact tracked platform",
+      "Hydraulic digging system",
+      "Jobsite maneuverability",
+      "Attachment-ready excavation setup"
+    ],
+    applications: [
+      "Trenching",
+      "Drainage",
+      "Landscaping",
+      "Small construction",
+      "Farm and property work"
+    ],
+    imageMatch: "CSV image fields"
   }
 ];
 
@@ -3451,37 +6052,37 @@ export const typhonCategories: TyphonCategory[] = [
   {
     id: "forklifts",
     label: "Forklift",
-    count: 4,
+    count: 5,
     image: "/img/new-project-18-1.png"
   },
   {
     id: "mini-excavators",
     label: "Mini Excavator",
-    count: 21,
+    count: 34,
     image: "/img/kuvuo 2.5.png"
   },
   {
     id: "road-rollers",
     label: "Road Roller",
-    count: 3,
+    count: 4,
     image: "/img/ground ripper grx.png"
   },
   {
     id: "scissor-lifts",
     label: "Scissor Lift",
-    count: 4,
+    count: 5,
     image: "/img/new-project-16-2.png"
   },
   {
     id: "skid-steer-loaders",
     label: "Skid Steer Loader",
-    count: 10,
+    count: 31,
     image: "/img/STOMP V980 v1.png"
   },
   {
     id: "wheel-loaders",
     label: "Wheel Loader",
-    count: 2,
+    count: 3,
     image: "/img/skoop ii v2.png"
   }
 ];

@@ -1,12 +1,35 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const CSV_PATH = path.join(
-  process.cwd(),
-  "product machine of typhon",
-  "selected-folder-images-2026-06-25-button-url-cleaned.csv",
-);
 const OUT_PATH = path.join(process.cwd(), "src", "data", "typhonProducts.ts");
+const CSV_SEARCH_DIRS = [
+  path.join(process.cwd(), "Product update 26:06"),
+  path.join(process.cwd(), "product machine of typhon"),
+];
+
+function findLatestTyphonCsv() {
+  for (const dir of CSV_SEARCH_DIRS) {
+    if (!fs.existsSync(dir)) continue;
+
+    const candidates = [];
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (!entry.isFile() || !entry.name.toLowerCase().endsWith(".csv")) continue;
+
+      const fullPath = path.join(dir, entry.name);
+      const stats = fs.statSync(fullPath);
+      candidates.push({ path: fullPath, mtimeMs: stats.mtimeMs });
+    }
+
+    if (candidates.length > 0) {
+      candidates.sort((a, b) => b.mtimeMs - a.mtimeMs);
+      return candidates[0].path;
+    }
+  }
+
+  throw new Error(`No Typhon CSV found in: ${CSV_SEARCH_DIRS.join(", ")}`);
+}
+
+const CSV_PATH = findLatestTyphonCsv();
 
 const categoryDefaults = {
   "mini-excavators": {
@@ -106,6 +129,7 @@ function parseCsv(input) {
 
 function normalizeText(value) {
   return String(value || "")
+    .replace(/\uFEFF/g, "")
     .replace(/\u00a0/g, " ")
     .replace(/[“”]/g, '"')
     .replace(/[‘’]/g, "'")
@@ -131,9 +155,10 @@ function slugify(value) {
     .replace(/^-+|-+$/g, "");
 }
 
-function slugFromButtonUrl(buttonUrl, name, index) {
-  const match = normalizeText(buttonUrl).match(/\/product\/([^/]+)/);
-  const base = match?.[1] || slugify(name);
+function slugFromUrls(buttonUrl, sourceUrl, name, index) {
+  const buttonMatch = normalizeText(buttonUrl).match(/\/product\/([^/]+)/);
+  const sourceMatch = normalizeText(sourceUrl).match(/\/product\/([^/]+)/);
+  const base = buttonMatch?.[1] || sourceMatch?.[1] || slugify(name);
   return base || `typhon-product-${index + 1}`;
 }
 
@@ -156,12 +181,19 @@ function formatNumber(value, digits = 1) {
 function convertVisibleUnits(value) {
   let output = normalizeText(value);
 
+  // If the source already provides a US inch value plus a metric value in
+  // parentheses, keep the US value and drop the duplicate metric parenthetical.
+  output = output.replace(
+    /(\d+(?:\.\d+)?)\s*in\s*\(\s*[\d,]+(?:\.\d+)?\s*mm\s*\)/gi,
+    (_, inches) => `${formatNumber(inches, 1)} in`,
+  );
+
   output = output.replace(/(\d+(?:\.\d+)?)\s*-?\s*inch\s*x\s*(\d+(?:\.\d+)?)\s*-?\s*inch\s*mm\b/gi, (_, width, height) => {
     return `${formatNumber(width, 1)} in x ${formatNumber(height, 1)} in`;
   });
 
-  output = output.replace(/(\d+(?:\.\d+)?)\s*mm\b/gi, (_, raw) => {
-    const inches = Number(raw) / 25.4;
+  output = output.replace(/(\d[\d,]*(?:\.\d+)?)\s*mm\b/gi, (_, raw) => {
+    const inches = Number(String(raw).replace(/,/g, "")) / 25.4;
     if (inches >= 48) {
       return `${formatNumber(inches, 1)} in (${formatNumber(inches / 12, 1)} ft)`;
     }
@@ -253,11 +285,12 @@ function inferCategory(record) {
   return "equipment";
 }
 
-function inferProductType(record, category) {
+function inferProductType(record) {
+  // The CSV "Product Type" column is authoritative. Attachments are mapped into
+  // a machine category (their *fitment*, e.g. skid-steer-loaders) by
+  // inferCategory, so we must NOT infer the type from the category — otherwise
+  // every attachment looks like equipment. Trust the source column instead.
   const rawType = normalizeText(record["Product Type"]).toLowerCase();
-  const haystack = normalizeText(`${record.Name} ${record.Category} ${record["Button URL"]}`).toLowerCase();
-  if (category !== "attachments") return "equipment";
-  if (/excavator|loader|forklift|roller|scissor|digger|machine/.test(haystack)) return "equipment";
   return rawType === "attachment" ? "attachment" : "equipment";
 }
 
@@ -274,12 +307,19 @@ function inferSeries(record, category) {
 }
 
 function extractPrices(value) {
-  const prices = normalizeText(value).match(/\$\s*[\d,]+(?:\.\d{2})?/g) || [];
+  const prices =
+    normalizeText(value)
+      .match(/\$\s*\d[\d,\s]*(?:\.\d{2})?/g)
+      ?.map((price) =>
+        price
+          .replace(/\$\s*/, "$")
+          .replace(/\s+/g, ",")
+      ) || [];
   if (!prices.length) return {};
-  if (prices.length === 1) return { currentPrice: prices[0].replace(/\$\s*/, "$") };
+  if (prices.length === 1) return { currentPrice: prices[0] };
   return {
-    originalPrice: prices[0].replace(/\$\s*/, "$"),
-    currentPrice: prices[prices.length - 1].replace(/\$\s*/, "$"),
+    originalPrice: prices[0],
+    currentPrice: prices[prices.length - 1],
   };
 }
 
@@ -417,7 +457,12 @@ function productFromRecord(record, index, usedIds) {
   const category = inferCategory(record);
   const defaults = categoryDefaults[category] || categoryDefaults.equipment;
   const categoryLabel = defaults.label;
-  const idBase = slugFromButtonUrl(record["Button URL"], record.Name, index);
+  const idBase = slugFromUrls(
+    record["Button URL"],
+    record["Source URL"],
+    record.Name,
+    index,
+  );
   let id = idBase;
   let duplicateIndex = 2;
   while (usedIds.has(id)) {
@@ -487,15 +532,17 @@ function toTs(value) {
 
 const csv = fs.readFileSync(CSV_PATH, "utf8");
 const rows = parseCsv(csv);
-const [headers, ...body] = rows;
+const [rawHeaders, ...body] = rows;
+const headers = rawHeaders.map((header) => normalizeText(header));
 const records = body
   .filter((row) => row.some((cell) => normalizeText(cell)))
   .map((row) => Object.fromEntries(headers.map((header, index) => [header, row[index] || ""])));
 const usedIds = new Set();
 const products = records.map((record, index) => productFromRecord(record, index, usedIds));
 const categories = buildCategoryList(products);
+const csvLabel = path.relative(process.cwd(), CSV_PATH).replace(/\\/g, "/");
 
-const output = `// Generated from product machine of typhon/selected-folder-images-2026-06-25-button-url-cleaned.csv.
+const output = `// Generated from ${csvLabel}.
 // Run \`node scripts/build-typhon-products.cjs\` after updating the CSV.
 
 export interface TyphonProductSpec {

@@ -1,7 +1,6 @@
 import React, { useId, useState, useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import BlogContent from "../../components/blog/BlogContent";
 import {
   blogCategories,
   blogPosts as staticBlogPosts,
@@ -129,6 +128,7 @@ export const SingleBlog = (): JSX.Element => {
           seoTitle: null,
           seoDescription: s.excerpt,
           keywords: null,
+          tags: [],
           detailImage: s.detailImage,
           contentImages: s.contentImages,
           isMarkdown: false,
@@ -193,6 +193,43 @@ export const SingleBlog = (): JSX.Element => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [blogSlug]);
+
+  // Apply per-post SEO to the document head, restoring the previous values
+  // when the visitor navigates away.
+  useEffect(() => {
+    if (!post) return;
+    const prevTitle = document.title;
+    document.title = post.seoTitle?.trim() || `${post.title} — Konstructz`;
+
+    const setMeta = (name: string, content: string | null) => {
+      if (!content) return () => {};
+      let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+      const created = !tag;
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+      const prev = tag.getAttribute("content");
+      tag.setAttribute("content", content);
+      return () => {
+        if (created) tag?.remove();
+        else if (prev !== null) tag?.setAttribute("content", prev);
+      };
+    };
+
+    const restoreDesc = setMeta(
+      "description",
+      post.seoDescription?.trim() || post.excerpt || null
+    );
+    const restoreKeywords = setMeta("keywords", post.keywords?.trim() || null);
+
+    return () => {
+      document.title = prevTitle;
+      restoreDesc();
+      restoreKeywords();
+    };
+  }, [post?.slug, post?.seoTitle, post?.seoDescription, post?.keywords, post?.title, post?.excerpt]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -408,11 +445,7 @@ export const SingleBlog = (): JSX.Element => {
               </div>
 
               {post.isMarkdown ? (
-                <div className="font-glonimove text-theme-text text-base md:text-lg leading-relaxed space-y-4 [&_h1]:font-clofieBold [&_h1]:text-3xl [&_h1]:text-theme-heading [&_h1]:mt-8 [&_h1]:mb-3 [&_h2]:font-clofieBold [&_h2]:text-2xl [&_h2]:text-theme-heading [&_h2]:mt-7 [&_h2]:mb-3 [&_h3]:font-clofieBold [&_h3]:text-xl [&_h3]:text-theme-heading [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:leading-relaxed [&_a]:text-theme-accent [&_a]:underline hover:[&_a]:text-brand-green [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:my-1 [&_blockquote]:border-l-4 [&_blockquote]:border-theme-accent/60 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-theme-muted [&_code]:bg-theme-sec [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-theme-accent [&_pre]:bg-theme-sec [&_pre]:p-4 [&_pre]:rounded [&_pre]:overflow-x-auto [&_img]:rounded [&_img]:my-4 [&_table]:w-full [&_table]:my-4 [&_th]:text-left [&_th]:border-b [&_th]:border-theme-border/30 [&_th]:p-2 [&_td]:border-b [&_td]:border-theme-border/20 [&_td]:p-2">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {post.content}
-                  </ReactMarkdown>
-                </div>
+                <BlogContent content={post.content} />
               ) : (
                 <div className="font-glonimove text-theme-text text-base md:text-lg leading-relaxed whitespace-pre-line space-y-4">
                   {post.content}

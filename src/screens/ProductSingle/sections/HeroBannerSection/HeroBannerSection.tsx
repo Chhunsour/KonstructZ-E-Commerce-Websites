@@ -149,29 +149,10 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
 
       {/* Action Buttons Section */}
       <div className="absolute top-[864px] left-[91px] h-[111px] w-[519px]">
-        {/* Fit Check Button */}
-        <Link
-          to={`/contact?product=${product.id}&topic=fit-check`}
-          className="absolute top-0 left-0 w-[220px] h-[50px] flex items-center justify-center border-[3px] border-solid border-[#d8c79a] hover:border-white transition-colors cursor-pointer bg-transparent"
-          aria-label={`Request a fit check for ${product.name}`}
-        >
-          <span className="flex items-center gap-2">
-            <span className="[font-family:'Google_Sans_Flex',Helvetica] font-bold text-neutral-100 text-xl tracking-[-0.24px] leading-none">
-              Fit Check
-            </span>
-            <img
-              className="w-6 h-6 object-contain"
-              alt=""
-              aria-hidden="true"
-              src="/img/search.svg"
-            />
-          </span>
-        </Link>
-
         {/* Get a Quote Button */}
         <Link
           to={`/contact?product=${product.id}`}
-          className="absolute top-0 left-[236px] w-[220px] h-[50px] flex items-center justify-center bg-[#d8c79a] hover:bg-[#c9b788] transition-colors border-0"
+          className="absolute top-0 left-0 w-[220px] h-[50px] flex items-center justify-center bg-[#d8c79a] hover:bg-[#c9b788] transition-colors border-0"
           aria-label={t("action.getAQuote")}
         >
           <span className="flex items-center gap-2">

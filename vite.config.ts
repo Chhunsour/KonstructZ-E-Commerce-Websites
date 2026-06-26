@@ -7,7 +7,9 @@ import { defineConfig } from "vite";
 export default defineConfig(({ mode }) => ({
   plugins: [react(), mode === "development" && screenGraphPlugin()],
   publicDir: "./static",
-  base: "./",
+  // Absolute base so hashed JS/CSS load correctly from any route depth under
+  // BrowserRouter (e.g. /product/mini-excavators), not just the site root.
+  base: "/",
   css: {
     postcss: {
       plugins: [tailwind()],

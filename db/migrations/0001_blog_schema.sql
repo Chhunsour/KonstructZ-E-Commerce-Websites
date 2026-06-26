@@ -10,7 +10,7 @@
 --    2. Authentication → Users → "Add user" — create your admin account.
 --       (Your account email must match a row in `public.admins` to be allowed
 --        to write posts.)
---    3. Storage → Create bucket → name: blog-images, public: YES.
+--    3. Run 0003_blog_storage_bucket.sql to create the blog-images bucket.
 -- ────────────────────────────────────────────────────────────────────────────
 
 create extension if not exists "pgcrypto";
@@ -113,8 +113,9 @@ drop policy if exists "Admin: manage admins" on public.admins;
 create policy "Admin: manage admins"
   on public.admins for all using ( public.is_admin() ) with check ( public.is_admin() );
 
--- ── storage policies (run AFTER you create the `blog-images` bucket) ───────
+-- ── storage policies for the `blog-images` bucket ──────────────────────────
 -- Public read for the bucket happens automatically when the bucket is "public".
+-- Run 0003_blog_storage_bucket.sql to create the bucket itself.
 -- These policies add admin-only write/delete:
 drop policy if exists "Admin: upload blog images"  on storage.objects;
 create policy "Admin: upload blog images"

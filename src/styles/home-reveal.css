@@ -337,3 +337,120 @@
   animation: k-wolf-breath 3.8s ease-in-out infinite;
   will-change: transform;
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Equipment mega menu — icon tile pop on hover                              */
+/* -------------------------------------------------------------------------- */
+
+/* Icon tile lifts + glows when its row is hovered. Pure transform/filter,
+   no layout shift. Uses Tailwind's compiled `group/row` class. */
+.group\/row:hover > span:first-child {
+  transform: translateY(-2px) scale(1.06);
+  filter: drop-shadow(0 4px 12px rgba(216, 199, 154, 0.35));
+}
+
+.group\/row > span:first-child {
+  transition:
+    transform 280ms var(--k-ease-spring),
+    filter 280ms var(--k-ease-out),
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+
+.group\/row:hover > span:first-child > img {
+  transform: rotate(-3deg) scale(1.08);
+}
+
+.group\/row > span:first-child > img {
+  transition: transform 320ms var(--k-ease-spring);
+}
+
+/* Label nudges right when its row is hovered. */
+.group\/row:hover > span:last-child {
+  transform: translateX(2px);
+}
+
+.group\/row > span:last-child {
+  transition: transform 240ms var(--k-ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group\/row:hover > span:first-child,
+  .group\/row:hover > span:first-child > img,
+  .group\/row:hover > span:last-child {
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Reveal animation when the mega menu opens                                 */
+/* -------------------------------------------------------------------------- */
+
+@keyframes k-mega-rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger each row when the menu opens. The mega menu container animates
+   its own opacity already, so we just stagger children inside the link
+   grids by their position. */
+.group\/row {
+  animation: k-mega-rise 360ms var(--k-ease-out) backwards;
+}
+
+.group\/row:nth-child(1) { animation-delay: 30ms; }
+.group\/row:nth-child(2) { animation-delay: 60ms; }
+.group\/row:nth-child(3) { animation-delay: 90ms; }
+.group\/row:nth-child(4) { animation-delay: 120ms; }
+.group\/row:nth-child(5) { animation-delay: 150ms; }
+.group\/row:nth-child(6) { animation-delay: 180ms; }
+.group\/row:nth-child(7) { animation-delay: 210ms; }
+.group\/row:nth-child(8) { animation-delay: 240ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .group\/row { animation: none !important; }
+}
+
+/* ── Chat assistant: thinking dots ── */
+@keyframes kz-dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+.kz-dot {
+  animation: kz-dot-bounce 1.1s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kz-dot { animation: none !important; }
+}
+
+/* ── Chat assistant: entrance rise (welcome cards, messages) ── */
+@keyframes kz-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.kz-rise { animation: kz-rise 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .kz-rise { animation: none !important; }
+}
+
+/* Rich text editor empty-state placeholder (admin only) */
+.rte-surface:empty::before {
+  content: attr(data-placeholder);
+  color: var(--rte-placeholder, #9ca3af);
+  pointer-events: none;
+}
+
+/* Slim themed scrollbar for the chat assistant panel */
+.kz-chat-scroll {
+  scrollbar-width: thin;                       /* Firefox */
+  scrollbar-color: rgba(216, 199, 154, 0.45) transparent;
+}
+.kz-chat-scroll::-webkit-scrollbar { width: 6px; }
+.kz-chat-scroll::-webkit-scrollbar-track { background: transparent; }
+.kz-chat-scroll::-webkit-scrollbar-thumb {
+  background: rgba(216, 199, 154, 0.35);
+  border-radius: 9999px;
+}
+.kz-chat-scroll:hover::-webkit-scrollbar-thumb { background: rgba(216, 199, 154, 0.55); }
+.kz-chat-scroll::-webkit-scrollbar-thumb:hover { background: rgba(216, 199, 154, 0.75); }

@@ -32,7 +32,7 @@ export const supabase: SupabaseClient | null = supabaseConfigured
 
 /* ── Domain types — mirror the SQL schema ─────────────────────────────── */
 
-export type PostStatus = "draft" | "published";
+export type PostStatus = "draft" | "scheduled" | "published";
 
 export interface BlogCategory {
   id: string;
@@ -52,12 +52,14 @@ export interface BlogPostSummary {
   category_id: string | null;
   category?: BlogCategory | null;
   status: PostStatus;
+  tags: string[] | null;
   seo_title: string | null;
   seo_description: string | null;
   keywords: string | null;
   created_at: string;
   updated_at: string;
   published_at: string | null;
+  scheduled_at: string | null;
 }
 
 /** Full row including body content — used in the editor and on detail pages. */
@@ -65,9 +67,35 @@ export interface BlogPost extends BlogPostSummary {
   content: string;
 }
 
+export const BLOG_POST_BASE_SELECT =
+  "id,slug,title,excerpt,featured_image,author,category_id,status,seo_title,seo_description,keywords,created_at,updated_at,published_at";
+
+export const BLOG_POST_ENHANCED_SELECT = `${BLOG_POST_BASE_SELECT},tags,scheduled_at`;
+
+export const BLOG_ENHANCEMENT_MIGRATION = "db/migrations/0002_blog_enhancements.sql";
+export const BLOG_STORAGE_MIGRATION = "db/migrations/0003_blog_storage_bucket.sql";
+
+export const isMissingBlogEnhancementColumn = (message = ""): boolean =>
+  /blog_posts\.(tags|scheduled_at).*does not exist/i.test(message) ||
+  /column .*?(tags|scheduled_at).*?does not exist/i.test(message) ||
+  /Could not find .*?(tags|scheduled_at).*?blog_posts/i.test(message);
+
+export const withBlogPostDefaults = <T extends Partial<BlogPostSummary>>(
+  post: T
+): T & Pick<BlogPostSummary, "tags" | "scheduled_at"> => ({
+  ...post,
+  tags: Array.isArray(post.tags) ? post.tags : [],
+  scheduled_at: post.scheduled_at ?? null,
+});
+
 /* ── Storage helpers ─────────────────────────────────────────────────── */
 
 export const BLOG_IMAGE_BUCKET = "blog-images";
+
+export const isMissingBlogImageBucket = (message = ""): boolean =>
+  /bucket not found/i.test(message) ||
+  /storage bucket.*not found/i.test(message) ||
+  /not found.*bucket/i.test(message);
 
 /** Returns the public CDN URL for a path inside the blog-images bucket. */
 export const blogImagePublicUrl = (path: string | null | undefined): string | null => {

@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Product } from "../../data/products";
+import { Product, products } from "../../data/products";
 import { useI18n } from "../../context/I18nContext";
+import {
+  MachineComparison,
+  ComparableMachine,
+} from "../../components/product/MachineComparison";
+import { ImageLightbox } from "../../components/product/ImageLightbox";
 import { AppointmentCalloutSection } from "./sections/AppointmentCalloutSection";
 import { HeroBannerSection } from "./sections/HeroBannerSection";
 import { ProductDescriptionSection } from "./sections/ProductDescriptionSection";
@@ -19,10 +24,34 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
       ? product.gallery
       : [product.image];
   const [activeImgIdx, setActiveImgIdx] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
     setActiveImgIdx(0);
+    setLightboxOpen(false);
   }, [product.id]);
+
+  const toComparable = (item: Product): ComparableMachine => ({
+    id: item.id,
+    name: item.name,
+    categoryLabel: item.categoryLabel,
+    image: item.image,
+    specs: item.specs,
+    weightLabel: item.weight || undefined,
+    features: item.features,
+    // No buyUrl: Konstructz machines keep their existing links/buttons untouched.
+  });
+
+  // Comparison candidates: ONLY machines from the same category. Never
+  // cross-category (skid steers vs skid steers, mini excavators vs mini
+  // excavators, etc.). Konstructz buttons/links are left untouched.
+  const comparisonCandidates = useMemo<ComparableMachine[]>(
+    () =>
+      products
+        .filter((p) => p.id !== product.id && p.category === product.category)
+        .map(toComparable),
+    [product]
+  );
 
   const thumbs = [0, 1, 2, 3].map((i) => gallery[i] ?? gallery[gallery.length - 1] ?? product.image);
 
@@ -97,10 +126,23 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
           <div className="absolute top-0 left-40 w-[630px] h-[630px] bg-theme-sec border border-theme-border/20 overflow-hidden">
             <img
               key={activeImgIdx}
-              className="w-full h-full object-contain p-4 animate-gallery-swap"
+              className="w-full h-full object-contain p-4 animate-gallery-swap cursor-zoom-in"
               alt={t("product.mainImage", { values: { name: product.name } })}
               src={gallery[activeImgIdx] ?? product.image}
+              onClick={() => setLightboxOpen(true)}
             />
+            {/* View full image */}
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(true)}
+              aria-label={t("product.viewFullImage", { fallback: "View full image" })}
+              title={t("product.viewFullImage", { fallback: "View full image" })}
+              className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center bg-theme-bg/70 text-theme-text hover:bg-theme-accent hover:text-theme-bg transition-colors"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+              </svg>
+            </button>
           </div>
         </section>
         <section
@@ -114,28 +156,10 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
             {t("product.overviewText")}
           </p>
           <div className="relative mt-10 w-[519px] h-[111px]">
-            <Link
-              to={`/contact?product=${product.id}&topic=fit-check`}
-              className="absolute top-0 left-0 w-[220px] h-[50px] flex items-center justify-center border-[3px] border-solid border-theme-border/40 hover:border-theme-accent transition-colors duration-200"
-              aria-label={`Request a fit check for ${product.name}`}
-            >
-              <span className="flex items-center gap-2">
-                <span className="[font-family:'Google_Sans_Flex',Helvetica] font-bold text-theme-text text-xl tracking-[-0.24px] leading-none">
-                  Fit Check
-                </span>
-                <img
-                  className="w-6 h-6 dark:invert-0 invert object-contain"
-                  alt=""
-                  src="/img/search.svg"
-                  aria-hidden="true"
-                />
-              </span>
-            </Link>
-
             {/* Get a Quote */}
             <Link
               to={`/contact?product=${product.id}`}
-              className="absolute top-0 left-[236px] w-[220px] h-[50px] flex items-center justify-center bg-theme-accent hover:bg-brand-green transition-all"
+              className="absolute top-0 left-0 w-[220px] h-[50px] flex items-center justify-center bg-theme-accent hover:bg-brand-green transition-all"
               aria-label={t("action.getAQuote")}
             >
               <span className="flex items-center gap-2">
@@ -189,8 +213,23 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
 
       {/* Dynamic flowing sections */}
       <ProductDescriptionSection product={product} />
+      <MachineComparison
+        current={toComparable(product)}
+        candidates={comparisonCandidates}
+        categoryLabel={product.categoryLabel}
+        variant="konstructz"
+      />
       <RelatedMachinesSection product={product} />
       <AppointmentCalloutSection />
+
+      <ImageLightbox
+        images={gallery}
+        index={activeImgIdx}
+        open={lightboxOpen}
+        alt={product.name}
+        onClose={() => setLightboxOpen(false)}
+        onIndexChange={setActiveImgIdx}
+      />
     </main>
   );
 };

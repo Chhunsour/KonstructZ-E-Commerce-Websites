@@ -59,7 +59,7 @@ export const products: Product[] = [
     name: "KUVUO 2.5",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
-    weight: "2.75 Tons",
+    weight: "2.5 Tons",
     tagline: "Agile Compact Excavator",
     description: "KUVUO 2.5 is a compact mini excavator delivering precise digging power for tight job sites, utility trenching, and residential landscaping.",
     image: "/img/kuvuo 2.5.png",
@@ -70,7 +70,7 @@ export const products: Product[] = [
       "/img/kuvuo-2-5-poster-3.png"
     ],
     specs: [
-      { label: "Operating Weight", value: "2.75 Tons" },
+      { label: "Operating Weight", value: "2.5 Tons" },
       { label: "Digging Depth", value: "8.2 ft" },
       { label: "Engine", value: "Yanmar 3TNV76 Diesel (18.4 HP)" },
       { label: "Bucket Breakout Force", value: "5,060 lbf" }
@@ -227,7 +227,7 @@ export const products: Product[] = [
     name: "KUVUO 2.7",
     category: "mini-excavators",
     categoryLabel: "Mini Excavator",
-    weight: "3.0 Tons",
+    weight: "2.7 Tons",
     tagline: "High-Performance Compact Excavator",
     description: "The KUVUO 2.7 is an upgraded compact excavator with extended digging depth and enhanced breakout force. Designed for heavy utility trenching and foundation work.",
     image: "/img/kuvuo 2.7.png",
@@ -239,7 +239,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Digging Depth", value: "9.3 ft" },
-      { label: "Operating Weight", value: "3.0 Tons" },
+      { label: "Operating Weight", value: "2.7 Tons" },
       { label: "Engine", value: "Yanmar 3TNV80F Diesel (24.4 HP)" },
       { label: "Bucket Breakout Force", value: "5,620 lbf" }
     ],

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { I18nProvider } from "./context/I18nContext";
 import "./styles/home-reveal.css";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
+import { ChatAssistant } from "./components/chat/ChatAssistant";
 import { SeoManager } from "./components/SeoManager";
 import { Home } from "./pages/Home";
 import { AllProducts } from "./pages/AllProductsPage";
@@ -16,6 +17,9 @@ import { SingleBlog } from "./pages/SingleBlogPage";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { ProductDetail } from "./pages/ProductDetail";
+import { ProductOverview } from "./pages/ProductOverview";
+import { Product } from "./pages/Product";
+import { ProductCategoryPage } from "./pages/ProductCategoryPage";
 import { TyphonCatalog } from "./pages/TyphonCatalog";
 import { TyphonProductDetail } from "./pages/TyphonProductDetail";
 import { QualityEquipment } from "./pages/brand/QualityEquipment";
@@ -83,7 +87,13 @@ const AppLayout: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/equipment" element={<AllEquipment />} />
-          <Route path="/product" element={<KonstructzMachine />} />
+          {/* New main equipment overview — premium 8-category landing */}
+          <Route path="/categories" element={<ProductOverview />} />
+          {/* Ecwid storefront embed (header + footer only) */}
+          <Route path="/product" element={<Product />} />
+          {/* New WooCommerce-style category landing (preferred URL) */}
+          <Route path="/product/:slug" element={<ProductCategoryPage />} />
+          {/* Legacy /equipment/<slug> URLs render the same new landing */}
           <Route path="/equipment/konstructz-machine" element={<KonstructzMachine />} />
           <Route path="/equipment/mini-excavators" element={<MiniExcavators />} />
           <Route path="/equipment/mini-skid-steers" element={<MiniSkidSteers />} />
@@ -93,6 +103,7 @@ const AppLayout: React.FC = () => {
           <Route path="/equipment/backhoe-loaders" element={<BackhoeLoaders />} />
           <Route path="/equipment/dumpers" element={<Dumpers />} />
           <Route path="/equipment/towable-excavators" element={<TowableExcavators />} />
+          {/* Product detail pages stay at /equipment/<product-id> */}
           <Route path="/equipment/:productId" element={<ProductDetail />} />
           <Route path="/typhon-machinery" element={<TyphonCatalog />} />
           <Route path="/typhon-machinery/:productId" element={<TyphonProductDetail />} />
@@ -134,6 +145,7 @@ const AppLayout: React.FC = () => {
         </Routes>
       </main>
       {!hideAppFooter && <Footer />}
+      {!isAdminRoute && <ChatAssistant />}
     </div>
   );
 };

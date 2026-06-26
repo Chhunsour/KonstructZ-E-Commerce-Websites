@@ -4,6 +4,7 @@ import { useTheme } from "../../context/ThemeContext";
 import { useI18n } from "../../context/I18nContext";
 import { type LanguageCode } from "../../i18n/dictionaries";
 import { FlagIcon } from "../ui/FlagIcons";
+import { CartButton } from "../cart/CartButton";
 
 // Real SVG asset files (public/icons/equipment) — filled machinery
 // silhouettes, one per category. Referenced by URL and rendered as <img>.
@@ -25,29 +26,31 @@ const equipmentMenu: {
   categories: { heading: string; links: EquipmentLink[] };
 } = {
   allEquipment: {
-    label: "All Equipment",
-    sub: "Typhon Machinery Catalog",
-    href: "/equipment",
+    label: "All Equipment Categories",
+    sub: "Konstructz Depot Overview",
+    href: "/categories",
     icon: `${ICON}/all-equipment.svg`,
   },
   featured: {
     heading: "Featured Konstructz Machines",
     badge: "Konstructz",
-    viewAll: { label: "View All Featured Machines", href: "/product", icon: `${ICON}/view-all.svg` },
+    viewAll: { label: "View All Categories", href: "/categories", icon: `${ICON}/view-all.svg` },
     links: [
-      { label: "Backhoe Loaders", href: "/equipment/backhoe-loaders", icon: `${ICON}/backhoe-loader.svg` },
-      { label: "Dumpers", href: "/equipment/dumpers", icon: `${ICON}/dumper.svg` },
-      { label: "Mini Excavators", href: "/equipment/mini-excavators", icon: `${ICON}/mini-excavator.svg` },
-      { label: "Towable Excavators", href: "/equipment/towable-excavators", icon: `${ICON}/towable-excavator.svg` },
-      { label: "Stone Crushers", href: "/equipment/stone-crushers", icon: `${ICON}/stone-crusher.svg` },
-      { label: "Trenchers", href: "/equipment/trenchers", icon: `${ICON}/trencher.svg` },
-      { label: "Wheel Loaders", href: "/equipment/wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
-      { label: "Mini Skid Steers", href: "/equipment/mini-skid-steers", icon: `${ICON}/skid-steer.svg` },
+      { label: "Backhoe Loaders", href: "/product/backhoe-loaders", icon: `${ICON}/backhoe-loader.svg` },
+      { label: "Dumpers", href: "/product/dumpers", icon: `${ICON}/dumper.svg` },
+      { label: "Mini Excavators", href: "/product/mini-excavators", icon: `${ICON}/mini-excavator.svg` },
+      { label: "Towable Excavators", href: "/product/towable-excavators", icon: `${ICON}/towable-excavator.svg` },
+      { label: "Stone Crushers", href: "/product/stone-crushers", icon: `${ICON}/stone-crusher.svg` },
+      { label: "Trenchers", href: "/product/trenchers", icon: `${ICON}/trencher.svg` },
+      { label: "Wheel Loaders", href: "/product/wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
+      { label: "Mini Skid Steers", href: "/product/mini-skid-steers", icon: `${ICON}/skid-steer.svg` },
     ],
   },
   categories: {
-    heading: "Browse Equipment Categories",
+    heading: "Typhon Machinery Catalog",
     links: [
+      { label: "All Typhon Equipment", href: "/equipment", icon: `${ICON}/all-equipment.svg` },
+      { label: "Typhon Attachments", href: "/equipment?type=attachments", icon: `${ICON}/all-equipment.svg` },
       { label: "Forklifts", href: "/equipment?category=forklifts", icon: `${ICON}/forklift.svg` },
       { label: "Mini Excavators", href: "/equipment?category=mini-excavators", icon: `${ICON}/mini-excavator.svg` },
       { label: "Road Rollers", href: "/equipment?category=road-rollers", icon: `${ICON}/road-roller.svg` },
@@ -62,7 +65,7 @@ const navItems = [
   { labelKey: "nav.home", href: "/" },
   {
     labelKey: "nav.equipment",
-    href: "/equipment",
+    href: "/categories",
     hasDropdown: true,
     isMega: true,
   },
@@ -231,6 +234,8 @@ export const Navbar: React.FC = () => {
   const isDarkHeroPage =
     location.pathname === "/" ||
     location.pathname === "/about" ||
+    location.pathname === "/categories" ||
+    location.pathname.startsWith("/product/") ||
     (location.pathname.startsWith("/equipment/") &&
       location.pathname !== "/equipment" &&
       location.pathname !== "/equipment/konstructz-machine");
@@ -369,7 +374,9 @@ export const Navbar: React.FC = () => {
             {navItems.map((item) => {
               const isActive =
                 location.pathname === item.href ||
-                (item.href !== "/" && location.pathname.startsWith(item.href));
+                (item.href !== "/" && location.pathname.startsWith(item.href)) ||
+                // Equipment section also covers the /product/<slug> category pages.
+                (item.href === "/categories" && location.pathname.startsWith("/product/"));
               const itemLabel = t(item.labelKey);
               const isDropdownOpen = activeDropdown === item.labelKey;
 
@@ -651,6 +658,10 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
+            <CartButton
+              className={getActionButtonClass("w-[32px] cursor-pointer rounded-[3px]")}
+            />
+
             <Link
               to="/contact"
               className={`flex h-[32px] min-w-[98px] items-center justify-center border rounded-[3px] px-[15px] cursor-pointer bg-transparent transition-all duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B] ${
@@ -706,6 +717,8 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
+          <CartButton className="flex h-8 w-8 items-center justify-center transition-colors hover:text-theme-accent" />
+
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -747,7 +760,10 @@ export const Navbar: React.FC = () => {
                     <button
                       onClick={() => setMobileExpanded(isExpanded ? null : item.labelKey)}
                       className={`flex items-center justify-between w-full hover:text-theme-accent transition-colors py-1 ${
-                        location.pathname.startsWith(item.href) ? "text-theme-accent" : ""
+                        location.pathname.startsWith(item.href) ||
+                        (item.href === "/categories" && location.pathname.startsWith("/product/"))
+                          ? "text-theme-accent"
+                          : ""
                       }`}
                     >
                       <span>{itemLabel}</span>

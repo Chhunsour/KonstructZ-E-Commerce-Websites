@@ -287,7 +287,7 @@ const BrandStrip: React.FC = () => {
   return <MachineLogoSlider className="bg-theme-sec" />;
 };
 
-const BeforeAfterSection: React.FC = () => {
+export const BeforeAfterSection: React.FC = () => {
   const { t } = useI18n();
   const [pos, setPos] = useState(50);
   const titleLines = t("allProducts.beforeAfterTitle").split("\n");
@@ -630,7 +630,7 @@ interface EquipmentSectionProps {
   setSelectedCategory: (cat: string | null) => void;
 }
 
-const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCategory, setSelectedCategory }) => {
+export const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCategory, setSelectedCategory }) => {
   const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);

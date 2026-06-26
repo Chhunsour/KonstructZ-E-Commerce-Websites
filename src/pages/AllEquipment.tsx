@@ -2,13 +2,34 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   typhonProducts,
-  typhonCategories,
   type TyphonProduct,
 } from "../data/typhonProducts";
 import { TyphonProductCard } from "../components/ui/TyphonProductCard";
 import { useI18n } from "../context/I18nContext";
 
 const PAGE_SIZE = 12;
+
+type ProductKind = "equipment" | "attachment";
+
+const parseKind = (search: string): ProductKind => {
+  const t = new URLSearchParams(search).get("type")?.toLowerCase();
+  return t === "attachment" || t === "attachments" ? "attachment" : "equipment";
+};
+
+/** Category tabs (id/label/count) derived from a product subset. */
+const categoriesFor = (items: TyphonProduct[]) => {
+  const map = new Map<string, { id: string; label: string; count: number }>();
+  for (const p of items) {
+    const e = map.get(p.category) ?? {
+      id: p.category,
+      label: p.categoryLabel || p.category,
+      count: 0,
+    };
+    e.count += 1;
+    map.set(p.category, e);
+  }
+  return [...map.values()].sort((a, b) => b.count - a.count);
+};
 
 /**
  * All Equipment — Typhon Machinery listing page.
@@ -19,26 +40,51 @@ export const AllEquipment: React.FC = () => {
   const { t } = useI18n();
   const location = useLocation();
   const selectedCategory = new URLSearchParams(location.search).get("category");
+  const selectedKind = parseKind(location.search);
 
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    document.title = "All Equipment | Typhon Machinery";
-  }, []);
+    document.title =
+      selectedKind === "attachment"
+        ? "Attachments | Typhon Machinery"
+        : "All Equipment | Typhon Machinery";
+  }, [selectedKind]);
 
   // Reset page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, query]);
+  }, [selectedKind, selectedCategory, query]);
+
+  // Everything of the selected kind — category tabs and the grid derive from
+  // this so machines and attachments never mix.
+  const base = useMemo(
+    () => typhonProducts.filter((p) => p.productType === selectedKind),
+    [selectedKind]
+  );
+  const categories = useMemo(() => categoriesFor(base), [base]);
+  const typeCounts = useMemo(
+    () => ({
+      equipment: typhonProducts.filter((p) => p.productType === "equipment").length,
+      attachment: typhonProducts.filter((p) => p.productType === "attachment").length,
+    }),
+    []
+  );
+
+  // Build hrefs that preserve the active kind.
+  const kindQuery = selectedKind === "attachment" ? "type=attachments" : "";
+  const allHref = kindQuery ? `/equipment?${kindQuery}` : "/equipment";
+  const categoryHref = (id: string) =>
+    `/equipment?${[kindQuery, `category=${id}`].filter(Boolean).join("&")}`;
 
   const filteredProducts: TyphonProduct[] = useMemo(() => {
-    return typhonProducts
+    return base
       .filter((p) => !selectedCategory || p.category === selectedCategory)
       .filter(
         (p) => !query || p.name.toLowerCase().includes(query.toLowerCase())
       );
-  }, [selectedCategory, query]);
+  }, [base, selectedCategory, query]);
 
   const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE);
   const paginatedProducts = filteredProducts.slice(
@@ -61,13 +107,37 @@ export const AllEquipment: React.FC = () => {
             Typhon Machinery
           </p>
           <h1 className="mt-4 font-clofieBold text-4xl sm:text-5xl lg:text-6xl font-bold leading-none text-white">
-            All Equipment
+            {selectedKind === "attachment" ? "Attachments" : "All Equipment"}
           </h1>
           <p className="mt-5 max-w-2xl font-glonimove text-base sm:text-lg leading-relaxed text-white/65">
-            Browse our full Typhon Machinery catalog. Heavy-duty mini
-            excavators, skid steer loaders, forklifts, road rollers, scissor
-            lifts, and wheel loaders — built for the job site.
+            {selectedKind === "attachment"
+              ? "Typhon attachments, grouped by the machine they fit — skid steer, mini excavator, wheel loader and forklift attachments."
+              : "Browse our full Typhon Machinery catalog. Heavy-duty mini excavators, skid steer loaders, forklifts, road rollers, scissor lifts, and wheel loaders — built for the job site."}
           </p>
+
+          {/* Machines vs Attachments */}
+          <div className="mt-8 inline-flex border border-white/15 bg-[#232323] p-1">
+            {([
+              ["equipment", "Machines", typeCounts.equipment, "/equipment"],
+              ["attachment", "Attachments", typeCounts.attachment, "/equipment?type=attachments"],
+            ] as const).map(([value, label, count, href]) => {
+              const active = selectedKind === value;
+              return (
+                <Link
+                  key={value}
+                  to={href}
+                  className={`px-5 py-2.5 font-googleSans text-sm font-bold uppercase tracking-wide transition ${
+                    active ? "bg-[#d8c79a] text-[#153d28]" : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {label}
+                  <span className={`ml-2 text-xs ${active ? "text-[#153d28]/70" : "text-white/40"}`}>
+                    {count}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -77,19 +147,19 @@ export const AllEquipment: React.FC = () => {
           {/* Category tabs */}
           <div className="flex flex-wrap gap-2 sm:gap-3">
             <Link
-              to="/equipment"
+              to={allHref}
               className={`border px-4 py-2 font-googleSans text-sm font-bold transition-colors ${
                 !selectedCategory
                   ? "border-[#d8c79a] bg-[#d8c79a] text-[#153d28]"
                   : "border-theme-border/40 text-theme-muted hover:border-[#d8c79a] hover:text-theme-text"
               }`}
             >
-              All ({typhonProducts.length})
+              All ({base.length})
             </Link>
-            {typhonCategories.map((cat) => (
+            {categories.map((cat) => (
               <Link
                 key={cat.id}
-                to={`/equipment?category=${cat.id}`}
+                to={categoryHref(cat.id)}
                 className={`border px-4 py-2 font-googleSans text-sm font-bold transition-colors ${
                   selectedCategory === cat.id
                     ? "border-[#d8c79a] bg-[#d8c79a] text-[#153d28]"
@@ -156,9 +226,9 @@ export const AllEquipment: React.FC = () => {
                 </p>
               </div>
             ) : (
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,293px))] justify-center gap-5 sm:gap-6">
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,293px))] items-start justify-center gap-5 sm:gap-6">
                 {paginatedProducts.map((product) => (
-                  <div key={product.id} className="animate-fade-up">
+                  <div key={product.id} className="animate-fade-up self-start">
                     <TyphonProductCard product={product} />
                   </div>
                 ))}

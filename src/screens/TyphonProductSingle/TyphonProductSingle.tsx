@@ -143,7 +143,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
             than the original full-width layout; info column expands to fill. */}
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.69fr)_minmax(420px,1fr)] lg:items-start">
           <section aria-label="Product image gallery" className="min-w-0">
-            <div className="relative aspect-square w-full bg-neutral-100">
+            <div className="relative aspect-[4/3] w-full bg-neutral-100 sm:aspect-square">
               <img
                 src={gallery[activeImage] ?? product.image}
                 alt={product.name}
@@ -311,7 +311,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
       </section>
 
       <section className="mx-auto grid max-w-[1480px] gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:px-10 lg:py-20">
-        <article>
+        <article className="min-w-0">
           <h2 className="font-clofieBold text-4xl font-bold text-white">Product Description</h2>
           <div className="mt-6 h-1.5 w-full bg-[#d9d9d9]" />
 

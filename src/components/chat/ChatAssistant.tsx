@@ -7,7 +7,7 @@ import { kb, CONTACT, type ProductRef } from "./knowledge";
 import {
   getReply,
   emptyMemory,
-  WELCOME,
+  getWelcomeText,
   type Answer,
   type ChatMemory,
 } from "./engine";
@@ -46,7 +46,7 @@ function loadState(): { open: boolean; messages: ChatMessage[]; memory: ChatMemo
   }
 }
 
-const welcomeMessage = (): ChatMessage => ({ id: "welcome", role: "bot", text: WELCOME, instant: true });
+const welcomeMessage = (): ChatMessage => ({ id: "welcome", role: "bot", text: getWelcomeText(), instant: true });
 
 /* ─────────────────────────── Brand avatar ──────────────────────────── */
 

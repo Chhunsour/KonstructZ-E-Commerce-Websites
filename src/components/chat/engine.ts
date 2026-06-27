@@ -525,18 +525,26 @@ function extractSlots(text: string): Partial<ChatMemory["slots"]> {
   else if (/\b(large|commercial|big|heavy duty|high volume|industrial)\b/.test(text)) s.projectSize = "large";
   const att = text.match(/\b(auger|breaker|hammer|grapple|thumb|ripper|pallet fork|fork|trenching bucket|bucket)\b/);
   if (att) s.attachments = att[1];
-  const job = text.match(/\b(dig|digging|trench|load|loading|haul|grade|grading|lift|compact|crush|excavat|landscap|clear|clearing|demolition)\w*/);
+  const job = text.match(/\b(dig|digging|trench|load|loading|haul|grade|grading|lift|compact|crush|excavat|landscap|clear|clearing|demolition|construction|building|project)\w*/);
   if (job) s.job = job[1];
   return s;
 }
 
 /* ─────────────────────── Scored intent detection ───────────────────── */
 
-type Intent =
-  | "greeting" | "thanks" | "identity" | "capabilities" | "contact"
-  | "warranty" | "returns" | "shipping" | "financing" | "parts" | "safety"
-  | "attachments" | "compare" | "troubleshoot" | "recommend"
-  | "product_lookup" | "category" | "specs" | "education" | "offtopic" | "fallback";
+export type DetectedIntent =
+  | "Greeting"
+  | "General question"
+  | "Machine education"
+  | "Product question"
+  | "Typhon Machinery question"
+  | "Konstructz question"
+  | "Warranty/free shipping"
+  | "Attachment compatibility"
+  | "Machine comparison"
+  | "Product recommendation"
+  | "Support request"
+  | "Unknown question";
 
 // Job/project verbs & tasks that signal a recommendation request. Carefully
 // excludes machine NOUNS (excavator, loader, dumper…) via word boundaries so a
@@ -544,73 +552,123 @@ type Intent =
 const JOB_SIGNAL =
   /\b(dig(ging)?|trench(ing|es)?|load(ing)?|haul(ing)?|grad(e|ing)|level(ling|ing)?|compact(ing|ion)?|crush(ing)?|clear(ing)?)\b|\b(backfill\w*|demolition|landscap\w*|drainage|ditch\w*|foundation|footing|utilit\w*|irrigation|pallets?|warehouses?|stockpiles?|snow|brush|stumps?|earthwork|spoil|material handling|move (soil|dirt|material|gravel|earth|rock|spoil|debris))\b/;
 
-function classify(m: string, memory: ChatMemory): Intent {
-  if (memory.awaiting === "recommend") return "recommend";
+function isGeneralQuestion(m: string): boolean {
+  if (/\b(diesel|gasoline|\bgas\b|fuel type|petrol)\b/.test(m)) return true;
+  if (/\bwhat (is|does) warranty\b/.test(m)) return true;
+  if (/\bwhat does free shipping mean\b/.test(m)) return true;
+  if (/\bwhat is free shipping\b/.test(m)) return true;
+  if (/\b(at home|home use|backyard|diy|residential use|residential yards?|my house|my property)\b/.test(m)) return true;
+  if (/\b(weather|recipe|movie|stock|football|capital of|translate|poem|joke|who won|president|calculate)\b/.test(m)) return true;
+  return false;
+}
+
+function isMachineEducation(m: string): boolean {
+  const cats = detectCategories(m);
+  const attachments = /\b(auger|breaker|hammer|grapple|thumb|ripper|pallet fork|fork|bucket|hydraulic attachment)\b/.test(m);
+  if ((cats.length > 0 || attachments) && /\b(what (is|are|does|can)|how|explain|hard to use|easy to use|difficult|learn to)\b/.test(m)) {
+    return true;
+  }
+  return false;
+}
+
+export function detectIntent(raw: string, memory: ChatMemory): DetectedIntent {
+  const m = raw.toLowerCase().trim();
+  if (!m) return "Unknown question";
+  if (memory.awaiting === "recommend") return "Product recommendation";
+
   if (
-    /^(h(i+|ey+|ello+)|hiya|heya|yo+|howdy|sup|wassup|greetings|g'?day|good (morning|afternoon|evening|day)|morning|afternoon|evening|what'?s up|whats up)\b/.test(
-      m
-    ) &&
+    /^(h(i+|ey+|ello+)|hiya|heya|yo+|howdy|sup|wassup|greetings|g'?day|good (morning|afternoon|evening|day)|morning|afternoon|evening|what'?s up|whats up)\b/.test(m) &&
     m.length < 32
-  )
-    return "greeting";
-  if (/\b(thanks|thank you|appreciate|cheers)\b/.test(m) && m.length < 30) return "thanks";
-  if (/\b(who are you|what are you|are you (a )?(human|bot|ai|robot)|your name)\b/.test(m)) return "identity";
-  if (/\b(what can you (do|help)|how can you help|what do you do)\b/.test(m)) return "capabilities";
+  ) {
+    return "Greeting";
+  }
+
+  if (/\b(thanks|thank you|appreciate|cheers)\b/.test(m) && m.length < 30) {
+    return "Greeting";
+  }
+
+  if (/\b(typhon( machinery)?)\b/.test(m)) {
+    return "Typhon Machinery question";
+  }
+
+  if (/\b(konstructz)\b/.test(m)) {
+    return "Konstructz question";
+  }
 
   const cats = detectCategories(m);
   const named = findNamed(m);
-  const score: Partial<Record<Intent, number>> = {};
-  const add = (i: Intent, n: number) => (score[i] = (score[i] || 0) + n);
 
-  if (/\b(compare|comparison|versus|\bvs\b|difference|differ|which is better|better than|pros and cons)\b/.test(m)) add("compare", 4);
-  if (cats.length >= 2 && /\b(or|vs|versus|compare|better|difference)\b/.test(m)) add("compare", 4);
-  if (/\b(recommend|suggest|which machine|right for|best (machine|for)|help me (choose|pick|find)|what should i (get|buy|use)|need (a|something|the right)|looking for|for my (job|project|site)|good for|i'?m (doing|clearing|building|working))\b/.test(m)) add("recommend", 4);
-  if (/\b(attach|work tool|fit.*(machine|excavator|loader)|compatible|coupler|bucket|auger|breaker|grapple|thumb|ripper|pallet ?fork|forks?)/.test(m)) add("attachments", 4);
-  if (/\b(returns?|refund|send (it|this|the machine)? ?back|money back|cancel( my)? order|exchange it)/.test(m)) add("returns", 5);
-  if (/\b(warrant|guarantee|coverage|covered|defect|claim)/.test(m)) add("warranty", 5);
-  if (/\b(ship|shipping|deliver|delivery|freight|tracking|customs|international|liftgate)/.test(m)) add("shipping", 5);
-  if (/\b(financ|payment|installment|monthly|lease|pay over time|paramount|price|pricing|cost|cheap|how much|quote)/.test(m)) add("financing", 4);
-  if (/\b(spare ?parts?|parts?|filters?|\boil\b|fluid|service interval|maintenance|maintain|grease|service schedule)/.test(m)) add("parts", 4);
-  if (/\b(safe|safety|operate safely|operating tips)/.test(m)) add("safety", 4);
-  if (/\b(won'?t start|not (start|working|moving)|overheat|leak|error|problem|trouble|fault|stuck|smok|warning light|won'?t move)/.test(m)) add("troubleshoot", 5);
-  if (/\b(spec|specification|weight|engine|horsepower|\bhp\b|capacity|dimensions?|hydraulic|flow|gpm|digging depth|dig depth|reach|lift(ing)? (height|capacity)|fuel|travel speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(m)) add("specs", 3);
-  // A spec attribute asked about a NAMED model must beat generic "how much".
-  if (named.length && SPEC_QUERY.some((s) => s.re.test(m))) add("specs", 5);
-  // Capability phrasing ("how much can it lift", "how deep", "how heavy") is a
-  // spec question, not pricing — even as a follow-up with no model named.
-  if (/\bhow (much|many)\b.{0,18}\b(lift|carry|dig|weigh|hold|haul|move|reach)\b|\bhow (deep|heavy|tall|high|wide|fast)\b/.test(m)) add("specs", 5);
-  // Generic "what is / explain" is only education when NO specific model is
-  // named — a model mention should surface that machine, not a generic blurb.
-  if (!named.length && /\b(what (is|are)|whats? a|explain|how does (a|an)|tell me about|difference between)\b/.test(m)) add("education", 3);
-  if (/\b(contact|human|agent|talk to|speak to|call|phone|sales team|customer service|reach you)\b/.test(m)) add("contact", 4);
-  if (/\b(categor|what (do you|machines do you|products do you) (sell|have|offer|carry)|product range|catalog|lineup|types of (machine|equipment))\b/.test(m)) add("category", 4);
+  if (
+    /\b(compare|comparison|versus|\bvs\b|difference|differ|which is better|better than|pros and cons)\b/.test(m) ||
+    (cats.length >= 2 && /\b(or|vs|versus|compare|better|difference)\b/.test(m))
+  ) {
+    return "Machine comparison";
+  }
 
-  if (named.length) add("product_lookup", 2 + named.length);
-  if (cats.length === 1) add("recommend", 1);
+  if (/\b(attach|work tool|fit.*(machine|excavator|loader)|compatible|coupler|bucket|auger|breaker|grapple|thumb|ripper|pallet ?fork|forks?)/.test(m)) {
+    if (/\b(what is|explain)\b/.test(m) && /\b(breaker|hammer|auger|thumb|ripper|pallet fork)\b/.test(m)) {
+      return "Machine education";
+    }
+    return "Attachment compatibility";
+  }
 
-  // A pure job/project description (dig, load, haul, clear, compact, pallets…)
-  // is a recommendation request even without the word "recommend" — but only
-  // when no stronger specific intent fired and it isn't a spec question.
-  const strong = Object.values(score).some((v) => (v ?? 0) >= 4);
-  if (!strong && !score.specs && (JOB_SIGNAL.test(m) || /\b(buy|buying|purchase|in the market)\b/.test(m))) add("recommend", 4);
+  if (
+    /\b(recommend|suggest|which machine|right for|best (machine|for)|help me (choose|pick|find)|what should i (get|buy|use)|need (a|something|the right)|looking for|for my (job|project|site)|good for|i'?m (doing|clearing|building|working))\b/.test(m) ||
+    (JOB_SIGNAL.test(m) && !/\b(what is|what are|explain|how do|how does)\b/.test(m)) ||
+    /\b(buy|buying|purchase|in the market)\b/.test(m)
+  ) {
+    return "Product recommendation";
+  }
 
-  // Deterministic resolve: highest score wins; ties broken by this priority so
-  // a model + "specs" → specs, a model + "attachments" → attachments, and a
-  // bare model name → product_lookup (never a generic education blurb).
-  const PRIORITY: Intent[] = [
-    "compare", "recommend", "attachments", "returns", "warranty", "shipping",
-    "financing", "parts", "safety", "troubleshoot", "specs", "contact",
-    "category", "product_lookup", "education",
-  ];
-  const ranked = (Object.entries(score) as [Intent, number][]).sort(
-    (a, b) => b[1] - a[1] || PRIORITY.indexOf(a[0]) - PRIORITY.indexOf(b[0])
-  );
-  if (ranked.length && ranked[0][1] >= 3) return ranked[0][0];
-  if (named.length) return "product_lookup";
-  if (cats.length) return "education";
-  if (/\b(weather|recipe|movie|stock|football|capital of|translate|poem|joke|who won|president|calculate|\d+\s*[+\-*/]\s*\d+)\b/.test(m)) return "offtopic";
-  if (kb.search(m, 1).length) return "education";
-  return "fallback";
+  if (named.length > 0) {
+    return "Product question";
+  }
+
+  if (/\b(spec|specification|weight|engine|horsepower|\bhp\b|capacity|dimensions?|hydraulic|flow|gpm|digging depth|dig depth|reach|lift(ing)? (height|capacity)|fuel|travel speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(m)) {
+    return "Product question";
+  }
+
+  if (
+    /\bwhat (is|are) (a\s+)?warrant(y|ies)?\b/.test(m) ||
+    /\bwhat does free shipping mean\b/.test(m) ||
+    /\bwhat is free shipping\b/.test(m)
+  ) {
+    return "General question";
+  }
+
+  if (
+    /\b(returns?|refund|send (it|this|the machine)? ?back|money back|cancel( my)? order|exchange it)\b/.test(m) ||
+    /\b(warrant|guarantee|coverage|covered|defect|claim)\b/.test(m) ||
+    /\b(ship|shipping|deliver|delivery|freight|tracking|customs|international|liftgate)\b/.test(m) ||
+    /\b(financ|payment|installment|monthly|lease|pay over time|paramount)\b/.test(m)
+  ) {
+    return "Warranty/free shipping";
+  }
+
+  if (
+    /\b(spare ?parts?|parts?|filters?|\boil\b|fluid|service interval|maintenance|maintain|grease|service schedule)\b/.test(m) ||
+    /\b(safe|safety|operate safely|operating tips)\b/.test(m) ||
+    /\b(won'?t start|not (start|working|moving)|overheat|leak|error|problem|trouble|fault|stuck|smok|warning light|won'?t move)\b/.test(m) ||
+    /\b(contact|human|agent|talk to|speak to|call|phone|sales team|customer service|reach you)\b/.test(m) ||
+    /\b(categor|what (do you|machines do you|products do you) (sell|have|offer|carry)|product range|catalog|lineup|types of (machine|equipment))\b/.test(m) ||
+    /\b(support|help|manual)\b/.test(m)
+  ) {
+    return "Support request";
+  }
+
+  if (isMachineEducation(m)) {
+    return "Machine education";
+  }
+
+  if (isGeneralQuestion(m)) {
+    return "General question";
+  }
+
+  if (kb.search(m, 1).length) {
+    return "Machine education";
+  }
+
+  return "Unknown question";
 }
 
 /* ───────────────────────────── Helpers ─────────────────────────────── */
@@ -640,9 +698,323 @@ function relatedBlog(query: string): { label: string; href: string }[] {
 
 const NA = "_Not published — I'd confirm with support rather than guess._";
 
-// Default company facts to weave in naturally on buying/delivery/recommend.
-const PURCHASE_NOTE =
-  "Every Konstructz machine includes a **1-Year Warranty**, and eligible machines ship with **Free Shipping** to the continental U.S.";
+export function getWelcomeText(): string {
+  return pick([
+    "Hi — I'm the **Konstructz assistant**. Think of me as your machinery advisor: I can help you find the right machine for your job, compare models, look up attachments, and answer warranty, shipping, or support questions.\n\nWhat are you working on today? Let me know, or choose a prompt below.",
+    "Hello! I'm the **Konstructz assistant**, ready to help you with anything related to our equipment. Ask me to recommend a machine for your site, compare specifications, check attachment fitment, or walk through our 1-Year Warranty and Free Shipping.\n\nWhere would you like to start?",
+    "Welcome to Konstructz! I'm your AI product and support consultant. Whether you're trenching, loading, or grading, I can help you choose the best machine, compare models, or explain our support and parts coverage.\n\nTell me a bit about your project or select a topic to begin."
+  ]);
+}
+
+export function getPurchaseNote(): string {
+  return pick([
+    "Every machine includes a **1-Year Warranty** and **Free Shipping** where eligible (continental U.S.).",
+    "Keep in mind that all machines include a **1-Year Warranty** and qualify for **Free Shipping** to the lower 48 states.",
+    "For peace of mind, purchases are backed by a **1-Year Warranty** and eligible models ship with **Free Shipping**."
+  ]);
+}
+
+function shuffle<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function rewordFollowup(text: string): string {
+  const synonyms: Record<string, string[]> = {
+    "Which machine is best for this job?": [
+      "Which machine is best for this job?",
+      "Recommend a machine for my project",
+      "Which model fits my job?",
+      "Find the right machine for my work"
+    ],
+    "Show me related machines": [
+      "Show me related machines",
+      "Browse similar models",
+      "See related equipment",
+      "View similar options"
+    ],
+    "Compare excavator vs skid steer": [
+      "Compare excavator vs skid steer",
+      "Excavator vs skid steer comparison",
+      "Compare mini excavator & skid steer",
+      "Excavator or skid steer?"
+    ],
+    "Show machine specs": [
+      "Show machine specs",
+      "View equipment specs",
+      "Let me see specifications",
+      "Show technical specs"
+    ],
+    "Compare similar models": [
+      "Compare similar models",
+      "Compare other models",
+      "Put similar machines head-to-head",
+      "Compare specs with other models"
+    ],
+    "Check warranty and shipping": [
+      "Check warranty and shipping",
+      "Warranty & shipping details",
+      "Show warranty & delivery info",
+      "What are the warranty & shipping terms?"
+    ],
+    "Find compatible attachments": [
+      "Find compatible attachments",
+      "Show compatible attachments",
+      "What attachments can I use?",
+      "Browse matching attachments"
+    ],
+    "Request a quote": [
+      "Request a quote",
+      "Get a custom quote",
+      "Quote this machine",
+      "Ask for pricing/quote"
+    ],
+    "What attachments fit a mini excavator?": [
+      "What attachments fit a mini excavator?",
+      "Mini excavator attachment options",
+      "Show mini excavator attachments"
+    ],
+    "What does the warranty cover?": [
+      "What does the warranty cover?",
+      "Details on warranty coverage",
+      "Explain the machine warranty"
+    ]
+  };
+
+  const options = synonyms[text];
+  return options ? pick(options) : text;
+}
+
+function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMemory): string[] {
+  const followups: string[] = [];
+  
+  if (intent === "Greeting" || intent === "Unknown question") {
+    followups.push("Which machine is right for my job?");
+    followups.push("Compare excavator vs skid steer");
+    followups.push("What attachments fit a mini excavator?");
+    followups.push("What does the warranty cover?");
+  } else if (intent === "General question" || intent === "Machine education") {
+    followups.push("Which machine is best for this job?");
+    followups.push("Show me related machines");
+    followups.push("Compare excavator vs skid steer");
+  } else if (intent === "Typhon Machinery question" || intent === "Konstructz question" || intent === "Product question") {
+    followups.push("Show machine specs");
+    followups.push("Compare similar models");
+    followups.push("Check warranty and shipping");
+    followups.push("Find compatible attachments");
+    followups.push("Request a quote");
+  } else if (intent === "Machine comparison") {
+    followups.push("Which is better for my job?");
+    followups.push("Compare similar models");
+    followups.push("Check warranty and shipping");
+    followups.push("Request a quote");
+  } else if (intent === "Product recommendation") {
+    followups.push("Compare excavator vs skid steer");
+    followups.push("Find compatible attachments");
+    followups.push("Check warranty and shipping");
+    followups.push("Request a quote");
+  } else if (intent === "Attachment compatibility") {
+    followups.push("Find compatible attachments");
+    followups.push("Check warranty and shipping");
+    followups.push("Request a quote");
+  } else if (intent === "Warranty/free shipping" || intent === "Support request") {
+    followups.push("Check warranty and shipping");
+    followups.push("Compare similar models");
+    followups.push("Request a quote");
+  } else {
+    followups.push("Which machine is best for this job?");
+    followups.push("Check warranty and shipping");
+    followups.push("Compare excavator vs skid steer");
+  }
+
+  const shuffled = shuffle(followups).slice(0, 3);
+  return shuffled.map(rewordFollowup);
+}
+
+function getGeneralAnswer(m: string): { markdown: string; followups: string[] } | null {
+  const q = m.toLowerCase();
+  
+  if (/\b(japan|tokyo)\b/.test(q)) {
+    return {
+      markdown: "The capital of Japan is Tokyo. If you need help with Konstructz or Typhon machines, attachments, warranty, shipping, or support, I can help with that too.",
+      followups: ["Recommend a machine", "Compare excavator vs skid steer", "Check warranty and shipping"]
+    };
+  }
+
+  if (/\btyphon\b/.test(q) && /\b(what is|who is|about)\b/.test(q)) {
+    return {
+      markdown: "## Typhon Machinery\n\nTyphon Machinery is an important machinery brand specializing in heavy-duty material handling, access platforms, and compaction equipment. Their lineup adds critical utility to our store, including:\n\n- **Rough-Terrain Forklifts** (1.5 to 3.0 Tons)\n- **Road Rollers / Compactors** (1.0 to 2.0 Tons)\n- **Scissor Lifts** (xFlex electric and rough-terrain series)\n- **Specialty Mini Excavators** (e.g. Terror series ranging from 0.8 ton to larger cab models)\n\nAll Typhon equipment sold through our website qualifies for our standard **1-Year Warranty** (including parts support) and **Free Shipping** to the continental U.S. (lower 48 states).",
+      followups: ["Show machine specs", "Compare similar models", "Check warranty and shipping"]
+    };
+  }
+
+  if (/\bkonstructz\b/.test(q) && /\b(what is|who is|about)\b/.test(q)) {
+    return {
+      markdown: "## Konstructz Machinery\n\nKonstructz is our primary brand specializing in compact construction equipment designed for contractors, landscapers, farmers, and residential landowners. Our machinery range is built for high reliability, ease of operation, and structural durability, including:\n\n- **Mini & Towable Excavators** (like the zero-tail-swing KUVUO 2.5 and 2.7)\n- **Skid Steer Loaders** (like the STOMP V980 and V950)\n- **Wheel Loaders** (like the heavy-duty SKOOP II)\n- **Backhoe Loaders** (like the SCOOPYDIG)\n- **Site Dumpers** (like the THUNDERDUMP series)\n- **Trenchers & Stone Crushers** for specialty tasks\n\nEvery Konstructz machine includes a **1-Year Warranty** and eligible models qualify for **Free Shipping** directly to your door or nearest freight terminal in the continental U.S.",
+      followups: ["Recommend a machine for my job", "Compare excavator vs skid steer", "Check warranty and shipping"]
+    };
+  }
+
+  if (/\b(difference between a mini excavator and skid steer|difference between mini excavator and skid steer|difference between excavator and skid steer|excavator vs skid steer|skid steer vs excavator)\b/.test(q)) {
+    return {
+      markdown: "## Mini Excavator vs. Skid Steer Loader\n\nComparing these two machine types comes down to their design and primary application on the job site:\n\n- **Mini Excavators** (e.g., Konstructz KUVUO series) are engineered for **precision digging, trenching, and stationary operations**. They feature a 360-degree rotating cab, boom swing, and a tracked undercarriage, allowing them to work close to walls, dig trenches up to 8+ feet deep, and operate on wet or uneven ground.\n- **Skid Steer Loaders** (e.g., Konstructz STOMP series) are built for **mobility, loading, grading, and material transport**. They turn using zero-radius skid steering and feature front-mounted lift arms that accommodate rapid attachment swaps (pallet forks, sweepers, grading buckets).\n\n**Which is right?** Choose an excavator if your primary task is digging below grade. Choose a skid steer if you need to push dirt, level land, or load material into trucks. Many professional crews run both to handle complete jobsite cycles.",
+      followups: ["Which machine is best for landscaping?", "Find compatible attachments", "Check warranty and shipping"]
+    };
+  }
+
+  if (/\b(difference between gas and diesel|difference between diesel and gas|gas vs diesel|diesel vs gas)\b/.test(q)) {
+    return {
+      markdown: "## Gasoline vs. Diesel Engines in Machinery\n\nGasoline and diesel engines differ in how they ignite fuel and deliver power, which influences how heavy equipment is built:\n\n- **Gasoline Engines**: Ignite fuel using spark plugs, run at higher RPMs, and are typically lighter and cheaper. They are great for passenger cars and light utility tools (such as lawnmowers and small towable diggers).\n- **Diesel Engines**: Compress air to generate heat that ignites the fuel (no spark plugs needed). They operate at lower RPMs but produce significantly higher **torque** (digging/pulling power) and offer superior fuel efficiency under heavy loads. Because of their structural density, diesel engines last much longer under heavy daily production cycles.\n\nAll primary Konstructz and Typhon excavators and loaders utilize genuine diesel engines (like Kubota or Yanmar) to ensure high torque and long-term durability on the job.",
+      followups: ["Which machine is best for this job?", "Compare excavator vs skid steer", "Show me related machines"]
+    };
+  }
+
+  if (/\b(diesel|petrol)\b/.test(q)) {
+    return {
+      markdown: "Diesel is a highly efficient fuel used in heavy-duty machinery. It has a higher energy density than gasoline and uses compression-ignition, which provides the low-end torque and durability needed for heavy tasks like excavation and earthmoving.",
+      followups: ["What is the difference between gas and diesel?", "Which machine is best for this job?", "Show me related machines"]
+    };
+  }
+  
+  if (/\b(warranty|guarantee)\b/.test(q)) {
+    return {
+      markdown: "## Warranty & Parts Support\n\nAll new Konstructz and Typhon machines sold through our site are backed by a **1-Year Warranty**. Here are the key details:\n\n- **Coverage**: Covers structural, powertrain (engine), and hydraulic system defects under normal operating conditions.\n- **Parts Support**: We ship genuine replacement parts directly to you to minimize jobsite downtime. Our dedicated parts support team is based in the U.S. to ensure fast shipping.\n- **Exclusions**: Normal wear-and-tear items (such as tracks, bucket teeth, filters, oil, seals, and hydraulic attachments) are owner-maintained and excluded from the standard warranty.\n\nFor exact component details or to submit a warranty claim, please contact our support team with your model and order number.",
+      followups: ["Check warranty and shipping", "Find compatible attachments", "Request a quote"]
+    };
+  }
+
+  if (/\b(free shipping|shipping free|is shipping free|shipping mean)\b/.test(q)) {
+    return {
+      markdown: "## Shipping & Delivery Logistics\n\nYes! We include **Free Ground Shipping** on eligible machines to the continental United States (lower 48 states). Here is what you need to know about delivery:\n\n- **Freight Carriage**: Heavy machinery ships via commercial freight truck lines. The carrier will contact you in advance to schedule a delivery appointment window.\n- **Unloading Requirements**: Standard delivery does **not** include a forklift or liftgate. The customer is responsible for having a loading dock, a forklift, or a tractor with forks to safely unload the machine. Alternatively, you can request pickup at the nearest carrier terminal.\n- **Processing & Delivery**: Orders are processed within ~3 business days. Transit time takes between 5 to 14 business days depending on your distance from our warehouse.\n- **Logistics Notes**: Address changes after dispatch or missed delivery appointments can incur carrier fees (like a redelivery fee). Make sure to inspect the machine on arrival and report transit damage within 48 hours.",
+      followups: ["Check warranty and shipping", "Request a quote", "Find compatible attachments"]
+    };
+  }
+
+  if (/\b(home|house|diy|backyard|residential|property)\b/.test(q)) {
+    return {
+      markdown: "## Residential & Home Property Use\n\nYes, many of our compact machines are highly popular with residential property owners, hobby farmers, and DIY enthusiasts. Models like the **SPIDER ONE** (towable excavator) or the **KUVUO 2.5** mini excavator are perfect for:\n\n- Grading driveways and spreading gravel/mulch\n- Trenching for home drainage, retaining walls, or utility lines\n- Clearing brush, stumps, and rocks from pastures\n- Digging footings for decks, fences, and outbuildings\n\n**Property Care Tip**: Tracked compact machines use rubber tracks which spread the machine's weight, keeping ground pressure extremely low to minimize damage to lawns and turf. \n\n*Important Safety Note: Always call 811 to locate underground utility lines before digging on your property!*",
+      followups: ["Which machine is best for landscaping?", "Compare excavator vs skid steer", "Show me related machines"]
+    };
+  }
+
+  if (/\b(beginner|first[- ]?time|easy to use|hard to use|difficult|learn to operate)\b/.test(q)) {
+    return {
+      markdown: "## Operating Machinery as a Beginner\n\nYes! Modern compact machinery is designed to be highly intuitive and user-friendly, even for first-time operators:\n\n- **Controls**: Most machines use dual-joystick pilot controls. The left joystick controls the cab swing and boom arm, while the right controls the boom height and bucket curl. Travel pedals control track movement.\n- **Standard Patterns**: Equipment uses standard ISO or SAE control patterns, which are easy to learn. Basic movements can be learned in a few hours of slow, focused practice.\n- **Safety First**: Beginners must always operate at low engine throttle to reduce speed, read the operator manual thoroughly, wear the seatbelt, keep bystanders clear of the 360-degree swing radius, and operate on level, stable ground. All our machines include operator safety guidance to help you get started safely.",
+      followups: ["Which machine is best for this job?", "Compare excavator vs skid steer", "Show me related machines"]
+    };
+  }
+
+  if (/\b(maintain|maintenance|upkeep|service|filters?)\b/.test(q)) {
+    return {
+      markdown: "## Routine Maintenance & Upkeep\n\nKeeping your compact machine properly maintained is key to longevity. Standard maintenance guidelines include:\n\n- **Daily Pre-Start Checks**: Inspect engine oil, coolant, and hydraulic fluid levels. Check for active leaks, check track tension, and grease the main pivot pins and loader arm connections.\n- **Greasing**: Pivot pins should be greased every 10 operating hours to prevent friction wear.\n- **50-Hour Break-In Service**: Change engine oil, engine filter, and replace the initial hydraulic system filters to flush out manufacturing particles.\n- **Every 250 Hours**: Change engine oil & filter, replace air and fuel filters, and check battery connections.\n- **Every 1000 Hours**: Perform a full hydraulic fluid flush and track alignment inspection.\n\nGenuine replacement parts and filters are stocked in our parts warehouse and can be ordered directly from our support team.",
+      followups: ["How do I request support?", "What is the warranty?", "Show machine specs"]
+    };
+  }
+
+  if (/\b(support|contact|reach|phone|email|help|agent|human|sales)\b/.test(q)) {
+    return {
+      markdown: "## Contacting Support & Sales\n\nWe provide direct, expert support based in the U.S. Here is how you can reach our team:\n\n- **Phone**: Call us at **+1 213-214-2203** (available Monday to Friday, 9 AM to 5 PM).\n- **Email**: Send inquiries to **support@konstructz.com** (typical response within 24-48 hours).\n- **WhatsApp**: Click the WhatsApp link in the widget to chat directly.\n- **Online Form**: Submit a message through our Contact page for sales quotes, financing approval, or parts ordering.\n\nOur support team can help with troubleshooting, parts orders, warranty claims, and financing details.",
+      followups: ["Check warranty and shipping", "Compare similar models", "Request a quote"]
+    };
+  }
+
+  if (/\b(who are you|what are you|are you (a )?(human|bot|ai|robot)|your name)\b/.test(q)) {
+    return {
+      markdown: "I'm the **Konstructz assistant** — an AI product and support consultant for Konstructz and Typhon machinery. I'm here to help you pick the right machine, compare options, and check warranty or shipping details.",
+      followups: ["What can you help with?", "Recommend a machine"]
+    };
+  }
+
+  if (/\b(what can you (do|help)|how can you help|what do you do)\b/.test(q)) {
+    return {
+      markdown: "## What I can do\n\n- **Recommend** the right machine for your job, site, and budget — with the reasoning\n- **Compare** machines properly (purpose, specs, pros/cons, terrain, a final call)\n- **Attachments & fitment** guidance\n- **Warranty, shipping, financing, parts, maintenance, safety**\n- **Quotes** and a hand-off to sales/support\n\nWhere would you like to start?",
+      followups: STARTERS.slice(0, 4)
+    };
+  }
+
+  if (/\b(weather|recipe|movie|stock|football|capital of|translate|poem|joke|who won|president|calculate)\b/.test(q)) {
+    return {
+      markdown: `That's a bit outside my lane, but I'll do my best: I'm an AI assistant focused on machinery. If you have any questions about Konstructz or Typhon mini excavators, loaders, attachments, warranty, or shipping, I'd be happy to answer them! What kind of project are you planning?`,
+      followups: ["Which machine is best for this job?", "Compare excavator vs skid steer", "Show me related machines"]
+    };
+  }
+
+  return null;
+}
+
+function getMachineEducation(m: string): { markdown: string; followups: string[]; products?: ProductRef[] } | null {
+  const q = m.toLowerCase();
+
+  if (/\b(skid steer|skidsteer)\b/.test(q)) {
+    const inCat = refsInCategory("Skid Steer Loader").slice(0, 3);
+    return {
+      markdown: "## Skid Steer Loaders\n\nA skid steer loader is a compact, highly versatile engine-powered machine with lift arms. It gets its name because it turns by skidding its wheels or tracks (zero-radius turning), making it incredibly agile in tight quarters. Unlike excavators, skid steers are designed to work above grade for pushing, loading, lifting, and carrying bulk materials. It is considered the ultimate jobsite utility tool because you can quickly swap attachments like pallet forks, sweepers, grading buckets, and snow blowers. \n\nIn our catalog, models like the **Konstructz STOMP V980** (3.5 Tons) offer massive torque and hydraulic flow for heavy grading, while the **Typhon Stomp V1000** provides premium material handling.",
+      products: inCat,
+      followups: ["Which machine is best for this job?", "Compare excavator vs skid steer", "Find compatible attachments"]
+    };
+  }
+
+  if (/\b(mini excavator|excavator|digger|dig)\b/.test(q)) {
+    const inCat = refsInCategory("Mini Excavator").slice(0, 3);
+    return {
+      markdown: "## Mini Excavators\n\nA mini excavator (compact excavator) is a tracked machine designed primarily for stationary digging, trenching, and utility excavation. It consists of a rotating cab (often zero-tail-swing to operate safely near walls), rubber tracks (for low ground pressure), a boom, an arm, and a bucket. They typically weigh under 6 metric tons. Unlike loader machines, they dig below grade with high precision and breakout force. They can be equipped with hydraulic augers, breakers, grapples, or thumbs.\n\nPopular models include the **Konstructz KUVUO 2.5** (2.5 Tons, Yanmar Diesel engine) and the **Typhon Terror XI** (0.8 Ton) for narrow gates and tight backyards.",
+      products: inCat,
+      followups: ["Which machine is best for this job?", "Compare excavator vs skid steer", "Find compatible attachments"]
+    };
+  }
+
+  if (/\b(breaker|hydraulic hammer|hammer attachment)\b/.test(q)) {
+    return {
+      markdown: "## Hydraulic Breakers\n\nA hydraulic breaker (or hammer) is an attachment designed to demolish concrete, brick, stone, asphalt, or frozen ground. It uses the machine's auxiliary hydraulic pressure to strike a piston against a chisel tool. It is commonly paired with mini excavators (like the KUVUO series) for foundation demolition or trenching through rock. Correct fitment requires matching the attachment's operating weight and hydraulic flow (GPM/PSI) to the host machine's specifications.",
+      followups: ["Which machine is best for this job?", "Find compatible attachments", "Check warranty and shipping"]
+    };
+  }
+
+  if (/\b(landscap|gardening|lawn|sod)\b/.test(q)) {
+    const refs = [
+      PRODUCT_REFS.find(r => r.name === "KUVUO 2.5"),
+      PRODUCT_REFS.find(r => r.name === "STOMP V980"),
+      PRODUCT_REFS.find(r => r.name === "THUNDERDUMP")
+    ].filter(Boolean) as ProductRef[];
+    return {
+      markdown: "## Landscaping Machine Recommendations\n\nLandscaping projects often require a machine that is compact, highly versatile, and gentle on turf. The ideal choice depends on your primary task:\n\n- **Grading, Leveling, Spreading Sod/Mulch**: A **Skid Steer Loader** (like the **STOMP V980**) is unmatched for moving dirt quickly and leveling terrain. Equipped with rubber tracks (Compact Track Loader configuration), it distributes weight to avoid tearing up lawns.\n- **Trenching, Digging Ponds, Planting Trees**: A **Mini Excavator** (like the **KUVUO 2.5**) is best for below-grade excavation and working close to fences or garden walls using boom-swing.\n- **Hauling Aggregate/Soil**: A compact **Site Dumper** (like the **THUNDERDUMP**) is far more efficient than a bucket loader for hauling bulk material across lawns without tearing turf.\n\nAll our compact landscaping machines include a **1-Year Warranty** and qualify for **Free Shipping** to the continental U.S.",
+      products: refs,
+      followups: ["What attachments do I need?", "Compare excavator vs skid steer", "Check warranty and shipping"]
+    };
+  }
+
+  if (/\b(lift|lifting|carrying|forks)\b/.test(q)) {
+    const refs = [
+      PRODUCT_REFS.find(r => r.name === "STOMP V980"),
+      PRODUCT_REFS.find(r => r.name.includes("Forklift")),
+      PRODUCT_REFS.find(r => r.name.includes("Roller"))
+    ].filter(Boolean) as ProductRef[];
+    return {
+      markdown: "## Machines for Lifting and Carrying Material\n\nIf your primary work involves lifting, stacking, or moving materials across a yard or jobsite, choose based on the material type:\n\n- **Palletized Material & Sod**: A **Skid Steer Loader** equipped with pallet forks is highly versatile. Alternatively, the **Typhon Forklift** series is the professional choice for warehouse and yard pallet handling.\n- **Bulk Soil, Gravel, stockpiles**: A **Wheel Loader** (like the **SKOOP II**) or **Skid Steer Loader** with a general-purpose bucket will move the highest volume per cycle.\n- **Personnel & Tools**: A **Scissor Lift** (Typhon xFlex series) raises workers safely to elevated heights.\n- **Excavated Material**: While mini excavators can lift (using grapples or thumbs), their lifting capacity is lower compared to front loaders.",
+      products: refs,
+      followups: ["Which machine is best for this job?", "Compare similar models", "Check warranty and shipping"]
+    };
+  }
+
+  if (/\b(construction|small construction|utility|contractor)\b/.test(q)) {
+    const refs = [
+      PRODUCT_REFS.find(r => r.name === "KUVUO 2.5"),
+      PRODUCT_REFS.find(r => r.name === "SCOOPYDIG"),
+      PRODUCT_REFS.find(r => r.name === "STOMP V980")
+    ].filter(Boolean) as ProductRef[];
+    return {
+      markdown: "## Machines for Small Construction & Utilities\n\nSmall construction sites demand versatility, transportability, and high power-to-size ratios. The standard choices include:\n\n- **Mini Excavators** (like the **KUVUO 2.5**): Essential for digging foundations, footings, plumbing/electrical utility trenches, and concrete demolition.\n- **Skid Steer Loaders** (like the **STOMP V980**): Ideal for site clearing, spreading base rock, loading dump trucks, and cleanup.\n- **Backhoe Loaders** (like the **SCOOPYDIG**): The ultimate multi-tool, combining a front loader bucket and a rear-mounted digging backhoe arm. This allows a single operator to perform both excavation and loading operations on site.\n- **Compaction**: For road base and paving base compaction, a **Typhon Road Roller** is highly effective.\n\nAll our commercial-grade compact construction machines are backed by a **1-Year Warranty** and include **Free Shipping** to eligible jobsites.",
+      products: refs,
+      followups: ["What attachments do I need?", "Compare excavator vs skid steer", "Check warranty and shipping"]
+    };
+  }
+
+  return null;
+}
 
 // A spec the user is likely asking about → which spec labels answer it.
 const SPEC_QUERY: { re: RegExp; labels: RegExp; word: string }[] = [
@@ -771,7 +1143,7 @@ function composeRecommend(refs: ProductRef[], note: string, slots: ChatMemory["s
     md += `**Worth considering:** a **${alt.categoryLabel}** such as the **${alt.name}**${altProf ? ` if you'll do more ${altProf.bestFor[0].toLowerCase()}` : ""}.\n\n`;
   }
 
-  md += `Here are the closest options — open any for full specs and a quote. ${PURCHASE_NOTE}`;
+  md += `Here are the closest options — open any for full specs and a quote. ${getPurchaseNote()}`;
 
   return {
     markdown: md,
@@ -788,7 +1160,7 @@ function composeRecommend(refs: ProductRef[], note: string, slots: ChatMemory["s
 
 /* ───────────────────────── Support composers ───────────────────────── */
 
-function supportAnswer(intent: Intent): Answer {
+function supportAnswer(intent: string): Answer {
   const map: Record<string, { href: string; topic: string; followups: string[]; handoff?: boolean }> = {
     warranty: { href: "/support/warranty-returns", topic: "Warranty & Returns", followups: ["Can I return a machine?", "How do I make a claim?", "Talk to support"] },
     returns: { href: "/support/warranty-returns", topic: "Warranty & Returns", followups: ["What's the warranty?", "What can't be returned?", "Talk to support"] },
@@ -822,7 +1194,7 @@ function formatSupportDoc(intent: Intent): string {
   }
 }
 
-function composeAttachments(machine?: ProductRef): Answer {
+function composeAttachments(machine?: ProductRef, memorySlots?: ChatMemory["slots"]): Answer {
   if (machine) {
     const prof = profileFor(machine.categoryLabel);
     return {
@@ -833,8 +1205,27 @@ function composeAttachments(machine?: ProductRef): Answer {
       handoff: true,
     };
   }
+
+  // If no machine is selected, but a job context is in memory:
+  if (memorySlots) {
+    if (memorySlots.job === "landscap") {
+      return {
+        markdown: `## Attachments for Landscaping\n\nSince you are working on **landscaping**, here are the work tools and attachments that make the most sense for your project:\n\n- **Augers** for drilling post holes (fences, decks) and tree plantings.\n- **Tilting & Grading Buckets** for leveling soil, backfilling, and landscape contouring.\n- **Thumbs & Grapples** for picking up heavy stones, clearing logs, stumps, and brush.\n- **Rippers** for cutting through thick tree roots and pulling hard ground.\n- **Pallet Forks** (for skid steers) to transport heavy sod, nursery stock, and brick pallets.\n\nFitment and auxiliary hydraulic flow (GPM/PSI) must match your specific machine. We recommend completing a quick **fitment check** with our support team before purchasing tools.`,
+        links: [{ label: "Attachments support", href: "/support/attachments-support" }, { label: "Ask a fitment check", href: "/contact" }],
+        followups: ["Recommend a landscaping machine", "Check warranty and shipping", "Request a fitment check"]
+      };
+    }
+    if (memorySlots.job === "construction" || memorySlots.job === "dig" || memorySlots.job === "trench") {
+      return {
+        markdown: `## Attachments for Construction & Excavation\n\nFor **construction, digging, and utility jobs**, the following attachments are highly recommended:\n\n- **Trenching Buckets** (narrow width) for laying utility conduits, water lines, or pipes.\n- **Hydraulic Breakers / Hammers** to smash concrete, rocks, and hard ground.\n- **Rippers** to break tough, compacted soil or frost before digging.\n- **Augers** for excavating structural footers and pier holes.\n- **Grapples** for demolition debris handling and loading.\n\nTo ensure compatibility, we check coupler types, pin dimensions, and hydraulic flows. Let us help you verify with a quick **fitment check**!`,
+        links: [{ label: "Attachments support", href: "/support/attachments-support" }, { label: "Ask a fitment check", href: "/contact" }],
+        followups: ["Recommend a machine first", "Check warranty and shipping", "Request a fitment check"]
+      };
+    }
+  }
+
   return {
-    markdown: `## Attachments & fitment\n\nMany Konstructz machines are **attachment-ready** — mini excavators and skid steers especially. Common tools:\n\n- **Buckets** (digging, trenching, tilting, screening)\n- **Augers** for drilling\n- **Breakers / hydraulic hammers** for rock and concrete\n- **Grapples**, **rippers**, **pallet forks**, **hydraulic thumbs**\n\nFitment depends on the model's coupler and hydraulic flow, so I'd confirm with a quick **fitment check** rather than assume. Which machine do you have (or are considering)? I'll tailor the suggestions.`,
+    markdown: `## Attachments & fitment\n\nMany Konstructz and Typhon machines are **attachment-ready** — mini excavators and skid steers especially. Common tools:\n\n- **Buckets** (digging, trenching, tilting, screening)\n- **Augers** for drilling\n- **Breakers / hydraulic hammers** for rock and concrete\n- **Grapples**, **rippers**, **pallet forks**, **hydraulic thumbs**\n\nFitment depends on the model's coupler and hydraulic flow, so I'd confirm with a quick **fitment check** rather than assume. Which machine do you have (or are considering)? I'll tailor the suggestions.`,
     links: [{ label: "Attachments support", href: "/support/attachments-support" }, { label: "Browse equipment", href: "/equipment" }],
     followups: ["I have a mini excavator", "Recommend a machine first", "Request a fitment check"],
   };
@@ -864,7 +1255,7 @@ function composeSpecs(machine: ProductRef | undefined, query: string): Answer {
 
   let md = lead + `| Spec | Value |\n|---|---|\n`;
   for (const s of d.specs.slice(0, 8)) md += `| ${s.label} | ${s.value} |\n`;
-  md += `\nOpen the machine page for the full sheet and gallery. ${PURCHASE_NOTE}`;
+  md += `\nOpen the machine page for the full sheet and gallery. ${getPurchaseNote()}`;
   return {
     markdown: md,
     products: [machine],
@@ -898,7 +1289,7 @@ function composeProfile(machine: ProductRef): Answer {
   if (apps) md += `**Common applications:** ${apps}.\n\n`;
   const att = attachmentHint(d.categoryLabel);
   if (att) md += `**Compatible attachments:** ${att} _(fitment confirmed per unit)._\n\n`;
-  md += PURCHASE_NOTE;
+  md += getPurchaseNote();
 
   return {
     markdown: md,
@@ -997,98 +1388,179 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
 
   if (!m) return finish({ markdown: "Ask me anything about Konstructz machines, attachments, or support." });
 
-  const intent = classify(m, memory);
+  const detectedIntent = detectIntent(m, memory);
 
   // Context-bound follow-ups: "what attachments should I buy?" with an active
   // machine → relate to that machine without the user repeating it.
   const isFollowupRef = /\b(it|this|that|them|these|those|the machine|the one)\b/.test(m) || namedNow.length === 0;
 
-  switch (intent) {
-    case "greeting": {
+  switch (detectedIntent) {
+    case "Greeting": {
+      const isThanks = /\b(thanks|thank you|appreciate|cheers)\b/.test(m);
+      if (isThanks) {
+        const text = pick([
+          "Anytime! Want me to recommend a machine, compare a couple, or get you a quote?",
+          "Glad to help. I can compare options, suggest attachments, or connect you with the team whenever you're ready.",
+          "You're very welcome! Let me know if you need help looking up specs, comparing models, or checking shipping.",
+          "No problem at all! Let me know if you have any other questions about our machinery."
+        ]);
+        const followups = generateFollowups("Greeting", m, memory);
+        return finish({ markdown: text, followups }, { lastIntent: "Greeting" });
+      }
       const g = composeGreeting(m, memory);
-      return finish(g.answer, g.patch);
+      const followups = generateFollowups("Greeting", m, memory);
+      return finish({ ...g.answer, followups }, { lastIntent: "Greeting", greeted: true });
     }
-    case "thanks":
-      return finish({ markdown: pick(["Anytime! Want me to recommend a machine, compare a couple, or get you a quote?", "Glad to help. I can compare options, suggest attachments, or connect you with the team whenever you're ready."]), followups: ["Recommend a machine", "Compare machines", "Get a quote"] }, { lastIntent: "thanks" });
-    case "identity":
-      return finish({ markdown: "I'm the **Konstructz assistant** — a product and support consultant for Konstructz and Typhon machinery. I'm not a person, but I can reason through options with you and bring in the team whenever it helps.", followups: ["What can you help with?", "Recommend a machine"] }, { lastIntent: "identity" });
-    case "capabilities":
-      return finish({ markdown: "## What I can do\n\n- **Recommend** the right machine for your job, site, and budget — with the reasoning\n- **Compare** machines properly (purpose, specs, pros/cons, terrain, a final call)\n- **Attachments & fitment** guidance\n- **Warranty, shipping, financing, parts, maintenance, safety**\n- **Quotes** and a hand-off to sales/support\n\nWhere would you like to start?", followups: STARTERS.slice(0, 4) }, { lastIntent: "capabilities" });
-    case "contact":
-      return finish(composeContact(), { lastIntent: "contact" });
-    case "warranty": return finish(supportAnswer("warranty"), { lastIntent: "warranty" });
-    case "returns": return finish(supportAnswer("returns"), { lastIntent: "returns" });
-    case "shipping": return finish(supportAnswer("shipping"), { lastIntent: "shipping" });
-    case "financing": return finish(supportAnswer("financing"), { lastIntent: "financing" });
-    case "parts": return finish(supportAnswer("parts"), { lastIntent: "parts" });
-    case "safety": return finish(supportAnswer("safety"), { lastIntent: "safety" });
 
-    case "attachments": {
+    case "General question": {
+      const ans = getGeneralAnswer(m);
+      if (ans) {
+        return finish({
+          markdown: ans.markdown,
+          followups: ans.followups
+        }, { lastIntent: "General question" });
+      }
+      const fallbackAns = {
+        markdown: "I can help answer general questions, but my main focus is machinery, attachments, and support. If you need help finding the right mini excavator, loader, or checking warranty coverage (1-Year) and free shipping options, just let me know!",
+        followups: ["Which machine is best for this job?", "Compare excavator vs skid steer", "Check warranty and shipping"]
+      };
+      return finish({
+        markdown: fallbackAns.markdown,
+        followups: fallbackAns.followups.map(rewordFollowup)
+      }, { lastIntent: "General question" });
+    }
+
+    case "Machine education": {
+      const ans = getMachineEducation(m);
+      if (ans) {
+        return finish({
+          markdown: ans.markdown,
+          products: ans.products,
+          followups: ans.followups
+        }, { lastIntent: "Machine education" });
+      }
+      const ed = composeEducation(m);
+      const followups = generateFollowups("Machine education", m, memory);
+      return finish({ ...ed, followups }, { lastIntent: "Machine education" });
+    }
+
+    case "Product question": {
       const machine = namedNow[0] || (isFollowupRef ? memory.activeMachine : undefined);
-      return finish(composeAttachments(machine), { lastIntent: "attachments" });
+      const hasSpecKeywords = /\b(spec|specification|weight|engine|horsepower|\bhp\b|capacity|dimensions?|hydraulic|flow|gpm|digging depth|dig depth|reach|lift(ing)? (height|capacity)|fuel|travel speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(m);
+      
+      let ans: Answer;
+      if (hasSpecKeywords || SPEC_QUERY.some((s) => s.re.test(m))) {
+        ans = composeSpecs(machine, m);
+      } else if (machine) {
+        ans = composeProfile(machine);
+      } else {
+        ans = {
+          markdown: "Happy to pull up specs or machine details — which machine do you mean? Tell me the model (e.g. *KUVUO 2.5*) or let me recommend one for your job.",
+          followups: ["Recommend a machine", "Compare machines"],
+        };
+      }
+      const followups = generateFollowups("Product question", m, memory);
+      return finish({ ...ans, followups }, { lastIntent: "Product question" });
     }
 
-    case "specs": {
-      const machine = namedNow[0] || (isFollowupRef ? memory.activeMachine : undefined);
-      return finish(composeSpecs(machine, m), { lastIntent: "specs" });
+    case "Typhon Machinery question": {
+      const typhonRefs = PRODUCT_REFS.filter(r => r.brand === "Typhon").slice(0, 3);
+      const ans: Answer = {
+        markdown: `## Typhon Machinery\n\nTyphon Machinery is an important source of heavy-duty and specialized material handling and access equipment for our catalog. Their lineup includes forklifts, road rollers, scissor lifts, and compact excavators.\n\nAll Typhon machines in our store feature a **1-Year Warranty** and **Free Shipping** where eligible (continental U.S.), with full parts and service support.\n\nWould you like to browse Typhon equipment, compare specs, or check compatibility with attachments?`,
+        products: typhonRefs,
+        links: [{ label: "Typhon Equipment", href: "/equipment" }],
+        followups: generateFollowups("Typhon Machinery question", m, memory)
+      };
+      return finish(ans, { lastIntent: "Typhon Machinery question" });
     }
 
-    case "compare": {
+    case "Konstructz question": {
+      const konstructzRefs = PRODUCT_REFS.filter(r => r.brand === "Konstructz").slice(0, 3);
+      const ans: Answer = {
+        markdown: `## Konstructz Machines\n\nKonstructz specializes in professional, jobsite-ready compact construction machinery. Our catalog features:\n\n- **Mini & Towable Excavators** for digging and trenching\n- **Skid Steer & Wheel Loaders** for loading and grading\n- **Backhoe Loaders** for mixed applications\n- **Dumpers & Trenchers** for logistics and utilities\n- **Stone Crushers** for on-site aggregate\n\nEvery Konstructz machine comes standard with a **1-Year Warranty** and **Free Shipping** where eligible (lower 48 states). How can I help you pick or configure the right model today?`,
+        products: konstructzRefs,
+        links: [{ label: "Konstructz Equipment", href: "/equipment" }],
+        followups: generateFollowups("Konstructz question", m, memory)
+      };
+      return finish(ans, { lastIntent: "Konstructz question" });
+    }
+
+    case "Warranty/free shipping": {
+      let supportIntent: "warranty" | "returns" | "shipping" | "financing" = "warranty";
+      if (/\b(returns?|refund|send (it|this|the machine)? ?back|money back|cancel( my)? order|exchange it)\b/.test(m)) supportIntent = "returns";
+      else if (/\b(ship|shipping|deliver|delivery|freight|tracking|customs|international|liftgate)\b/.test(m)) supportIntent = "shipping";
+      else if (/\b(financ|payment|installment|monthly|lease|pay over time|paramount)\b/.test(m)) supportIntent = "financing";
+      
+      const ans = supportAnswer(supportIntent);
+      const followups = generateFollowups("Warranty/free shipping", m, memory);
+      return finish({ ...ans, followups }, { lastIntent: "Warranty/free shipping" });
+    }
+
+    case "Support request": {
+      let supportIntent: "parts" | "safety" | "contact" | "troubleshoot" = "contact";
+      if (/\b(spare ?parts?|parts?|filters?|\boil\b|fluid|service interval|maintenance|maintain|grease|service schedule)\b/.test(m)) supportIntent = "parts";
+      else if (/\b(safe|safety|operate safely|operating tips)\b/.test(m)) supportIntent = "safety";
+      else if (/\b(won'?t start|not (start|working|moving)|overheat|leak|error|problem|trouble|fault|stuck|smok|warning light|won'?t move)\b/.test(m)) supportIntent = "troubleshoot";
+      
+      let ans: Answer;
+      if (supportIntent === "contact") ans = composeContact();
+      else if (supportIntent === "troubleshoot") ans = composeTroubleshoot();
+      else ans = supportAnswer(supportIntent);
+
+      const followups = generateFollowups("Support request", m, memory);
+      return finish({ ...ans, followups }, { lastIntent: "Support request" });
+    }
+
+    case "Machine comparison": {
       const targets = comparisonTargets(m, memory);
-      if (targets && targets.length >= 2) return finish(composeComparison(targets), { lastIntent: "compare" });
-      return finish({
+      if (targets && targets.length >= 2) {
+        const cmp = composeComparison(targets);
+        const followups = generateFollowups("Machine comparison", m, memory);
+        return finish({ ...cmp, followups }, { lastIntent: "Machine comparison" });
+      }
+      const ans = {
         markdown: "I'd be glad to compare — and I'll make sure I compare the right machines. Tell me the **two machines or two categories** (for example *“mini excavator vs skid steer”* or *“STOMP V980 vs KUVUO 2.5”*), or describe the job and I'll put two suitable options head-to-head.",
-        followups: ["Mini excavator vs skid steer", "Wheel loader vs skid steer", "Recommend machines to compare"],
+        followups: generateFollowups("Machine comparison", m, memory),
         links: [{ label: "Browse equipment", href: "/equipment" }],
-      }, { lastIntent: "compare" });
+      };
+      return finish(ans, { lastIntent: "Machine comparison" });
     }
 
-    case "troubleshoot":
-      return finish(composeTroubleshoot(), { lastIntent: "troubleshoot" });
-
-    case "category":
-      return finish({
-        markdown: "## The Konstructz range\n\n- **Mini & towable excavators** — digging, trenching, tight sites\n- **Skid steer & wheel loaders** — loading, grading, material handling\n- **Backhoe loaders** — dig and load in one\n- **Dumpers** — hauling and bulk transport\n- **Trenchers** — fast utility runs\n- **Stone crushers** — on-site aggregate\n- Plus the **Typhon** catalog: **forklifts, road rollers, scissor lifts**\n\nTell me the kind of work you're doing and I'll narrow it to a couple of strong options.",
-        links: [{ label: "All equipment", href: "/equipment" }, { label: "Featured machines", href: "/categories" }],
-        followups: ["Recommend a machine for my job", "Compare two machine types"],
-      }, { lastIntent: "category" });
-
-    case "recommend": {
+    case "Product recommendation": {
       const rec = recommend(m);
       const hasSignal = !!(memory.slots.job || memory.slots.terrain || rec.cats.length);
       if (rec.refs.length && (hasSignal || memory.awaiting === "recommend")) {
-        // The lead option becomes the active machine so follow-ups like
-        // "what attachments should I buy?" relate to it without repeating.
-        return finish(composeRecommend(rec.refs, rec.note, memory.slots), {
-          lastIntent: "recommend",
+        const recAns = composeRecommend(rec.refs, rec.note, memory.slots);
+        const followups = generateFollowups("Product recommendation", m, memory);
+        return finish({
+          ...recAns,
+          followups
+        }, {
+          lastIntent: "Product recommendation",
           awaiting: null,
           activeCategory: rec.refs[0].categoryLabel,
           activeMachine: rec.refs[0],
         });
       }
-      return finish({
+      const ans = {
         markdown: `${pick(["Let's get you the right machine — a few quick things and I'll narrow it down properly:", "Happy to help you choose. To avoid guessing, tell me:"])}\n\n1. **What's the main job?** (digging, trenching, loading, grading, hauling, lifting, compaction…)\n2. **How big is the project, and what's the site like?** (residential/commercial, tight or open, ground type)\n3. **Will you be moving/lifting much**, and any **budget range**?\n\nEven a sentence about the project is enough to start.`,
-        followups: ["Clearing trees on a small farm", "Loading gravel in a tight yard", "Trenching for utilities"],
-      }, { lastIntent: "recommend", awaiting: "recommend" });
+        followups: ["Clearing trees on a small farm", "Loading gravel in a tight yard", "Trenching for utilities"].map(rewordFollowup),
+      };
+      return finish(ans, { lastIntent: "Product recommendation", awaiting: "recommend" });
     }
 
-    case "product_lookup": {
-      const named = namedNow;
-      if (named.length === 1) return finish(composeProfile(named[0]), { lastIntent: "product_lookup" });
-      return finish({
-        markdown: "Here are the machines you mentioned — open any for full specs, or ask me to compare them:",
-        products: named.slice(0, 3),
-        followups: ["Compare these machines", "Which is better for my job?", "What attachments fit them?"],
-      }, { lastIntent: "product_lookup" });
+    case "Attachment compatibility": {
+      const machine = namedNow[0] || (isFollowupRef ? memory.activeMachine : undefined);
+      const att = composeAttachments(machine, memory.slots);
+      const followups = generateFollowups("Attachment compatibility", m, memory);
+      return finish({ ...att, followups }, { lastIntent: "Attachment compatibility" });
     }
 
-    case "education":
-      return finish(composeEducation(m), { lastIntent: "education" });
-
-    case "offtopic":
-      return finish({ markdown: pick(["That's a bit outside my lane — I'm built around **Konstructz machinery and services**. But I'm genuinely useful for choosing a machine, comparing options, attachments, or support. What are you building?", "I'll be honest — general questions like that aren't my thing. Where I shine is machinery: picking the right one, comparing models, attachments, warranty, and shipping. Want a hand with any of that?"]), followups: STARTERS.slice(0, 3) }, { lastIntent: "offtopic" });
-
-    default:
-      return finish(composeFallback(), { lastIntent: "fallback" });
+    case "Unknown question":
+    default: {
+      const fb = composeFallback();
+      const followups = generateFollowups("Unknown question", m, memory);
+      return finish({ ...fb, followups }, { lastIntent: "Unknown question" });
+    }
   }
 }

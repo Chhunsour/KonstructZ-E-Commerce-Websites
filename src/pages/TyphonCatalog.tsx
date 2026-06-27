@@ -427,7 +427,7 @@ export const TyphonCatalog: React.FC = () => {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <nav aria-label="Pagination" className="mt-10 flex items-center justify-center gap-2">
+              <nav aria-label="Pagination" className="mt-10 flex flex-wrap items-center justify-center gap-2">
                 <button
                   type="button"
                   disabled={page === 1}

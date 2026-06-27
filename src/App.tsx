@@ -16,6 +16,7 @@ import { BlogPage } from "./pages/BlogPage";
 import { SingleBlog } from "./pages/SingleBlogPage";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
+import { LegalPage } from "./pages/LegalPage";
 import { ProductDetail } from "./pages/ProductDetail";
 import { ProductOverview } from "./pages/ProductOverview";
 import { Product } from "./pages/Product";
@@ -120,6 +121,8 @@ const AppLayout: React.FC = () => {
           <Route path="/long-term-value" element={<LongTermValue />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<LegalPage kind="privacy" />} />
+          <Route path="/policy" element={<LegalPage kind="policy" />} />
           <Route path="/support" element={<Support />} />
           <Route path="/support/order-purchase-support" element={<OrderPurchaseSupport />} />
           <Route path="/support/shipping-delivery" element={<ShippingDelivery />} />

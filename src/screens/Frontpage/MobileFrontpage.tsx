@@ -268,35 +268,6 @@ export const MobileFrontpage = (): JSX.Element => {
             >{t("auto.mobilefrontpage.get.a.quote")}</Link>
           </div>
         </div>
-
-        {/* Mobile Model Switcher */}
-        <div
-          className="absolute bottom-[110px] flex items-center gap-1.5 p-1 bg-black/45 backdrop-blur-md border border-white/10 z-20"
-          style={{ left: "50%", transform: "translateX(-50%)" }}
-        >
-          <button
-            type="button"
-            onClick={() => setActiveModel("v950")}
-            className={`px-4 py-1.5 text-[10px] font-bold font-googleSans uppercase tracking-wider transition-all duration-300 ${
-              activeModel === "v950"
-                ? "bg-[#d8c79a] text-[#153d28]"
-                : "text-white/70 hover:text-white"
-            }`}
-          >
-            STOMP V950
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveModel("v980")}
-            className={`px-4 py-1.5 text-[10px] font-bold font-googleSans uppercase tracking-wider transition-all duration-300 ${
-              activeModel === "v980"
-                ? "bg-[#d8c79a] text-[#153d28]"
-                : "text-white/70 hover:text-white"
-            }`}
-          >
-            STOMP V980
-          </button>
-        </div>
       </section>
 
       {/* Partner brands */}

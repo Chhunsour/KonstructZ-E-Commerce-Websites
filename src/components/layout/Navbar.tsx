@@ -24,39 +24,33 @@ type EquipmentDropdownLink = {
   context?: string;
 };
 
-type EquipmentDropdownSection = {
-  title: string;
-  links: EquipmentDropdownLink[];
+const allProductsLink: EquipmentDropdownLink = {
+  label: "All Products",
+  context: "Konstructz",
+  href: "/categories",
+  icon: `${ICON}/all-equipment.svg`,
 };
 
-const equipmentDropdownSections: EquipmentDropdownSection[] = [
-  {
-    title: "Konstructz",
-    links: [
-      { label: "All Products", context: "Konstructz", href: "/categories", icon: `${ICON}/all-equipment.svg` },
-      { label: "Mini Skid Steer", href: "/product/mini-skid-steers", icon: `${ICON}/skid-steer.svg` },
-      { label: "Mini Excavator", href: "/product/mini-excavators", icon: `${ICON}/mini-excavator.svg` },
-      { label: "Backhoe Loader", href: "/product/backhoe-loaders", icon: `${ICON}/backhoe-loader.svg` },
-      { label: "Wheel Loader", href: "/product/wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
-      { label: "Dumper", href: "/product/dumpers", icon: `${ICON}/dumper.svg` },
-      { label: "Trencher", href: "/product/trenchers", icon: `${ICON}/trencher.svg` },
-      { label: "Towable Excavator", href: "/product/towable-excavators", icon: `${ICON}/towable-excavator.svg` },
-      { label: "Stone Crusher", href: "/product/stone-crushers", icon: `${ICON}/stone-crusher.svg` },
-    ],
-  },
-  {
-    title: "Typhon Machinery",
-    links: [
-      { label: "All Typhon Equipment", href: "/equipment", icon: `${ICON}/all-equipment.svg` },
-      { label: "Typhon Attachments", href: "/equipment?type=attachments", icon: `${ICON}/attachment.svg` },
-      { label: "Forklifts", href: "/equipment?category=forklifts", icon: `${ICON}/forklift.svg` },
-      { label: "Mini Excavators", href: "/equipment?category=mini-excavators", icon: `${ICON}/mini-excavator.svg` },
-      { label: "Road Rollers", href: "/equipment?category=road-rollers", icon: `${ICON}/road-roller.svg` },
-      { label: "Scissor Lifts", href: "/equipment?category=scissor-lifts", icon: `${ICON}/scissor-lift.svg` },
-      { label: "Skid Steer Loaders", href: "/equipment?category=skid-steer-loaders", icon: `${ICON}/skid-steer.svg` },
-      { label: "Wheel Loaders", href: "/equipment?category=wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
-    ],
-  },
+const konstructzProductLinks: EquipmentDropdownLink[] = [
+  { label: "Mini Skid Steer", href: "/product/mini-skid-steers", icon: `${ICON}/skid-steer.svg` },
+  { label: "Mini Excavator", href: "/product/mini-excavators", icon: `${ICON}/mini-excavator.svg` },
+  { label: "Backhoe Loader", href: "/product/backhoe-loaders", icon: `${ICON}/backhoe-loader.svg` },
+  { label: "Wheel Loader", href: "/product/wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
+  { label: "Dumper", href: "/product/dumpers", icon: `${ICON}/dumper.svg` },
+  { label: "Trencher", href: "/product/trenchers", icon: `${ICON}/trencher.svg` },
+  { label: "Towable Excavator", href: "/product/towable-excavators", icon: `${ICON}/towable-excavator.svg` },
+  { label: "Stone Crusher", href: "/product/stone-crushers", icon: `${ICON}/stone-crusher.svg` },
+];
+
+const typhonMachineryLinks: EquipmentDropdownLink[] = [
+  { label: "All Typhon Equipment", href: "/equipment", icon: `${ICON}/all-equipment.svg` },
+  { label: "Typhon Attachments", href: "/equipment?type=attachments", icon: `${ICON}/attachment.svg` },
+  { label: "Forklifts", href: "/equipment?category=forklifts", icon: `${ICON}/forklift.svg` },
+  { label: "Mini Excavators", href: "/equipment?category=mini-excavators", icon: `${ICON}/mini-excavator.svg` },
+  { label: "Road Rollers", href: "/equipment?category=road-rollers", icon: `${ICON}/road-roller.svg` },
+  { label: "Scissor Lifts", href: "/equipment?category=scissor-lifts", icon: `${ICON}/scissor-lift.svg` },
+  { label: "Skid Steer Loaders", href: "/equipment?category=skid-steer-loaders", icon: `${ICON}/skid-steer.svg` },
+  { label: "Wheel Loaders", href: "/equipment?category=wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
 ];
 
 const navItems = [
@@ -240,6 +234,7 @@ export const Navbar: React.FC = () => {
   );
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [mobileTyphonOpen, setMobileTyphonOpen] = useState(false);
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
   // First-load entrance: header starts above the screen, drops in after 2.1s.
   // `reduceMotion` skips the animation entirely for users who request it.
@@ -291,6 +286,7 @@ export const Navbar: React.FC = () => {
         setActiveDropdown(null);
         setIsOpen(false);
         setMobileExpanded(null);
+        setMobileTyphonOpen(false);
         setMobileLangOpen(false);
       }
     };
@@ -299,6 +295,7 @@ export const Navbar: React.FC = () => {
         setActiveDropdown(null);
         setIsOpen(false);
         setMobileExpanded(null);
+        setMobileTyphonOpen(false);
         setMobileLangOpen(false);
       }
     };
@@ -330,6 +327,7 @@ export const Navbar: React.FC = () => {
     setIsOpen(false);
     setActiveDropdown(null);
     setMobileExpanded(null);
+    setMobileTyphonOpen(false);
   }, [location]);
 
   // Premium front-page entrance — runs once after mount, never on scroll.
@@ -448,59 +446,88 @@ export const Navbar: React.FC = () => {
                           : "opacity-0 translate-y-1 scale-[0.99] pointer-events-none"
                       }`}
                     >
-                      <div className="max-h-[calc(100vh-110px)] overflow-y-auto px-2">
-                        {equipmentDropdownSections.map((section, sectionIndex) => (
-                          <div
-                            key={section.title}
-                            className={sectionIndex === 0 ? "" : "mt-2 border-t border-white/10 pt-2"}
+                      <div className="px-2">
+                        <div className="group/flyout relative">
+                          <Link
+                            to={allProductsLink.href}
+                            onClick={() => setActiveDropdown(null)}
+                            className={`flex min-h-[48px] items-center gap-3 px-3 py-2 transition-colors ${
+                              isEquipmentLinkActive(allProductsLink.href)
+                                ? "bg-[#d8c79a] text-[#153d28]"
+                                : "text-white/86 hover:bg-white/[0.06] hover:text-white"
+                            }`}
                           >
-                            <p className="px-3 py-1.5 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">
-                              {section.title}
+                            <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#0e0e0e]">
+                              <img src={allProductsLink.icon} alt="" aria-hidden="true" className="h-5 w-5" />
+                            </span>
+                            <span className="block min-w-0 flex-1 truncate font-googleSans text-[13px] font-bold leading-tight">
+                              {allProductsLink.label}
+                            </span>
+                            <span className="font-googleSans text-[17px] leading-none text-[#d8c79a]/70">
+                              ›
+                            </span>
+                          </Link>
+
+                          <div className="absolute left-full top-0 ml-2 w-[300px] border border-white/10 bg-[#161616] py-2 opacity-0 shadow-[0_10px_28px_rgba(0,0,0,0.45)] transition-opacity duration-150 pointer-events-none group-hover/flyout:opacity-100 group-hover/flyout:pointer-events-auto group-focus-within/flyout:opacity-100 group-focus-within/flyout:pointer-events-auto">
+                            <p className="px-5 pb-2 pt-1 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">
+                              Typhon Machinery
                             </p>
-                            <div className="flex flex-col">
-                              {section.links.map((link) => {
+                            <div className="flex flex-col px-2">
+                              {typhonMachineryLinks.map((link) => {
                                 const isSubActive = isEquipmentLinkActive(link.href);
                                 return (
                                   <Link
                                     key={link.href}
                                     to={link.href}
                                     onClick={() => setActiveDropdown(null)}
-                                    className={`group/row flex min-h-[48px] items-center gap-3 px-3 py-2 transition-colors ${
+                                    className={`flex min-h-[44px] items-center gap-3 px-3 py-2 transition-colors ${
                                       isSubActive
                                         ? "bg-[#d8c79a] text-[#153d28]"
                                         : "text-white/86 hover:bg-white/[0.06] hover:text-white"
                                     }`}
                                   >
-                                    <span
-                                      className={`flex h-8 w-8 shrink-0 items-center justify-center ${
-                                        isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"
-                                      }`}
-                                    >
+                                    <span className={`flex h-8 w-8 shrink-0 items-center justify-center ${isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
                                       <img src={link.icon} alt="" aria-hidden="true" className="h-5 w-5" />
                                     </span>
-                                    <span className="min-w-0 flex-1">
-                                      <span className="block truncate font-googleSans text-[13px] font-bold leading-tight">
-                                        {link.label}
-                                      </span>
-                                      {link.context && (
-                                        <span
-                                          className={`mt-0.5 block truncate font-googleSans text-[9px] font-bold uppercase tracking-[0.13em] ${
-                                            isSubActive ? "text-[#153d28]/65" : "text-[#d8c79a]/80"
-                                          }`}
-                                        >
-                                          {link.context}
-                                        </span>
-                                      )}
-                                    </span>
-                                    <span className={`font-googleSans text-[17px] leading-none ${isSubActive ? "text-[#153d28]/65" : "text-[#d8c79a]/70"}`}>
-                                      ›
+                                    <span className="block min-w-0 flex-1 truncate font-googleSans text-[13px] font-bold leading-tight">
+                                      {link.label}
                                     </span>
                                   </Link>
                                 );
                               })}
                             </div>
                           </div>
-                        ))}
+                        </div>
+
+                        <div className="mt-2 border-t border-white/10 pt-2">
+                          <p className="px-3 py-1.5 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">
+                            Konstructz
+                          </p>
+                          <div className="flex flex-col">
+                            {konstructzProductLinks.map((link) => {
+                              const isSubActive = isEquipmentLinkActive(link.href);
+                              return (
+                                <Link
+                                  key={link.href}
+                                  to={link.href}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className={`flex min-h-[48px] items-center gap-3 px-3 py-2 transition-colors ${
+                                    isSubActive
+                                      ? "bg-[#d8c79a] text-[#153d28]"
+                                      : "text-white/86 hover:bg-white/[0.06] hover:text-white"
+                                  }`}
+                                >
+                                  <span className={`flex h-8 w-8 shrink-0 items-center justify-center ${isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
+                                    <img src={link.icon} alt="" aria-hidden="true" className="h-5 w-5" />
+                                  </span>
+                                  <span className="block min-w-0 flex-1 truncate font-googleSans text-[13px] font-bold leading-tight">
+                                    {link.label}
+                                  </span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -747,45 +774,109 @@ export const Navbar: React.FC = () => {
                     >
                       {(item as any).isMega ? (
                         <div className="flex flex-col border-l border-white/12 pl-3 py-1">
-                          {equipmentDropdownSections.map((section, sectionIndex) => (
-                            <div
-                              key={section.title}
-                              className={sectionIndex === 0 ? "" : "mt-3 border-t border-white/12 pt-3"}
+                          {(() => {
+                            const isSubActive = isEquipmentLinkActive(allProductsLink.href);
+                            return (
+                              <Link
+                                to={allProductsLink.href}
+                                onClick={() => setIsOpen(false)}
+                                className={`flex min-h-[48px] items-center gap-3 px-2.5 py-2 transition-colors ${
+                                  isSubActive ? "bg-[#d8c79a] text-[#153d28]" : "text-white hover:bg-white/[0.06]"
+                                }`}
+                              >
+                                <span className={`flex h-9 w-9 shrink-0 items-center justify-center ${isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
+                                  <img src={allProductsLink.icon} alt="" aria-hidden="true" className="h-5 w-5" />
+                                </span>
+                                <span className="block min-w-0 flex-1 truncate font-googleSans text-[15px] font-bold leading-tight">
+                                  {allProductsLink.label}
+                                </span>
+                              </Link>
+                            );
+                          })()}
+
+                          <button
+                            type="button"
+                            onClick={() => setMobileTyphonOpen((open) => !open)}
+                            className={`mt-1 flex min-h-[48px] items-center gap-3 px-2.5 py-2 text-left transition-colors ${
+                              location.pathname === "/equipment"
+                                ? "bg-[#d8c79a] text-[#153d28]"
+                                : "text-white hover:bg-white/[0.06]"
+                            }`}
+                            aria-expanded={mobileTyphonOpen}
+                          >
+                            <span className={`flex h-9 w-9 shrink-0 items-center justify-center ${location.pathname === "/equipment" ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
+                              <img src={`${ICON}/all-equipment.svg`} alt="" aria-hidden="true" className="h-5 w-5" />
+                            </span>
+                            <span className="block min-w-0 flex-1 truncate font-googleSans text-[15px] font-bold leading-tight">
+                              Typhon Machinery
+                            </span>
+                            <svg
+                              width="12"
+                              height="8"
+                              viewBox="0 0 10 7"
+                              fill="none"
+                              className={`shrink-0 transition-transform duration-200 ${mobileTyphonOpen ? "rotate-180" : ""}`}
                             >
-                              <p className="px-2 pb-2 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-[#d8c79a]/75">
-                                {section.title}
-                              </p>
-                              <div className="flex flex-col gap-1.5">
-                                {section.links.map((link) => {
-                                  const isSubActive = isEquipmentLinkActive(link.href);
-                                  return (
-                                    <Link
-                                      key={link.href}
-                                      to={link.href}
-                                      onClick={() => setIsOpen(false)}
-                                      className={`flex min-h-[48px] items-center gap-3 px-2.5 py-2 transition-colors ${
-                                        isSubActive ? "bg-[#d8c79a] text-[#153d28]" : "text-white hover:bg-white/[0.06]"
-                                      }`}
-                                    >
-                                      <span className={`flex h-9 w-9 shrink-0 items-center justify-center ${isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
-                                        <img src={link.icon} alt="" aria-hidden="true" className="h-5 w-5" />
-                                      </span>
-                                      <span className="min-w-0 flex-1">
-                                        <span className="block truncate font-googleSans text-[15px] font-bold leading-tight">
-                                          {link.label}
-                                        </span>
-                                        {link.context && (
-                                          <span className={`mt-0.5 block truncate font-googleSans text-[9px] font-bold uppercase tracking-[0.13em] ${isSubActive ? "text-[#153d28]/65" : "text-[#d8c79a]"}`}>
-                                            {link.context}
-                                          </span>
-                                        )}
-                                      </span>
-                                    </Link>
-                                  );
-                                })}
-                              </div>
+                              <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" />
+                            </svg>
+                          </button>
+
+                          <div
+                            className={`overflow-hidden transition-all duration-300 ${
+                              mobileTyphonOpen ? "mt-1 max-h-[560px] opacity-100" : "max-h-0 opacity-0"
+                            }`}
+                          >
+                            <div className="flex flex-col gap-1.5 pl-3">
+                              {typhonMachineryLinks.map((link) => {
+                                const isSubActive = isEquipmentLinkActive(link.href);
+                                return (
+                                  <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className={`flex min-h-[44px] items-center gap-3 px-2.5 py-2 transition-colors ${
+                                      isSubActive ? "bg-[#d8c79a] text-[#153d28]" : "text-white/88 hover:bg-white/[0.06] hover:text-white"
+                                    }`}
+                                  >
+                                    <span className={`flex h-8 w-8 shrink-0 items-center justify-center ${isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
+                                      <img src={link.icon} alt="" aria-hidden="true" className="h-5 w-5" />
+                                    </span>
+                                    <span className="block min-w-0 flex-1 truncate font-googleSans text-[14px] font-bold leading-tight">
+                                      {link.label}
+                                    </span>
+                                  </Link>
+                                );
+                              })}
                             </div>
-                          ))}
+                          </div>
+
+                          <div className="mt-3 border-t border-white/12 pt-3">
+                            <p className="px-2 pb-2 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-[#d8c79a]/75">
+                              Konstructz
+                            </p>
+                            <div className="flex flex-col gap-1.5">
+                              {konstructzProductLinks.map((link) => {
+                                const isSubActive = isEquipmentLinkActive(link.href);
+                                return (
+                                  <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className={`flex min-h-[48px] items-center gap-3 px-2.5 py-2 transition-colors ${
+                                      isSubActive ? "bg-[#d8c79a] text-[#153d28]" : "text-white hover:bg-white/[0.06]"
+                                    }`}
+                                  >
+                                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center ${isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
+                                      <img src={link.icon} alt="" aria-hidden="true" className="h-5 w-5" />
+                                    </span>
+                                    <span className="block min-w-0 flex-1 truncate font-googleSans text-[15px] font-bold leading-tight">
+                                      {link.label}
+                                    </span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
                         </div>
                       ) : (
                         <ul className="flex flex-col gap-3 border-l border-white/12 pl-4 py-1 text-base text-white/70">

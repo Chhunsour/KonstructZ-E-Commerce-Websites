@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { products } from "../data/products";
 import { ProductSingle } from "../screens/ProductSingle/ProductSingle";
+import { MobileProductSingle } from "../screens/ProductSingle/MobileProductSingle";
 import { AnimaScaler } from "../components/layout/AnimaScaler";
 import { Button } from "../components/ui/Button";
 import { useI18n } from "../context/I18nContext";
@@ -35,7 +36,7 @@ export const ProductDetail: React.FC = () => {
   }
 
   return (
-    <AnimaScaler bgColor="var(--theme-bg)">
+    <AnimaScaler bgColor="var(--theme-bg)" mobile={<MobileProductSingle product={product} />}>
       <ProductSingle product={product} />
     </AnimaScaler>
   );

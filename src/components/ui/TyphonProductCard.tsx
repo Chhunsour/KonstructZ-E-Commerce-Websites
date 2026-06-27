@@ -36,7 +36,9 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
   const { t } = useI18n();
   const detailHref = getTyphonProductHref(product);
   const quoteHref = `/contact?product=${product.id}`;
-  const cardImage = product.thumbnailImage || product.image;
+  const cardImage = product.originalImageSource || product.thumbnailImage || product.image;
+  const fallbackImage =
+    cardImage === product.image ? product.originalImageSource : product.image || product.thumbnailImage;
 
   const quickSpecs = QUICK_SPECS.map((spec) => {
     const match = product.specs?.find(
@@ -63,7 +65,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
             src={cardImage}
             alt={product.name}
             loading="lazy"
-            onError={(event) => useFallbackImage(event, product.originalImageSource)}
+            onError={(event) => useFallbackImage(event, fallbackImage)}
             className="h-full w-full object-contain scale-[1.08] transition-transform duration-300 group-hover:scale-[1.12]"
             // Neutralize the cream/beige backdrop baked into some source photos —
             // slight brightness lifts near-white pixels to pure white, mild

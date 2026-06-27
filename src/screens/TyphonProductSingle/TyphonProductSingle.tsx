@@ -81,9 +81,11 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
   // When this product is backed by a published DB row, render its rich
   // (Markdown) description; otherwise fall back to the parsed static blocks.
   const richDescription = getDbProduct("typhon", product.id)?.full_description?.trim();
-  const gallery = product.gallery.length > 0 ? product.gallery : [product.image];
-  const fallbackGallery =
+  const localGallery = product.gallery.length > 0 ? product.gallery : [product.image];
+  const originalGallery =
     product.originalGallerySources?.length ? product.originalGallerySources : [product.originalImageSource || ""];
+  const gallery = originalGallery.some(Boolean) ? originalGallery : localGallery;
+  const fallbackGallery = localGallery;
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   // Thumbnails stay on a single row of 4; the 4th tile shows a "+N" overlay for

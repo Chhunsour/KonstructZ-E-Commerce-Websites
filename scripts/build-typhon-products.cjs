@@ -475,14 +475,14 @@ async function productImages(record, category, productSlug, imageImportContext) 
     },
   });
 
-  const gallery = imported.map((item) => item.localPath || item.sourceUrl).filter(Boolean);
+  const localGallery = imported.map((item) => item.localPath || item.sourceUrl).filter(Boolean);
   const warnings = imported
     .filter((item) => item.warning)
     .map((item) => item.warning);
   return {
-    image: gallery[0] || fallback,
-    thumbnailImage: imported[0]?.thumbnailPath || gallery[0] || fallback,
-    gallery: gallery.slice(0, 16),
+    image: sourceImages[0] || localGallery[0] || fallback,
+    thumbnailImage: sourceImages[0] || imported[0]?.thumbnailPath || localGallery[0] || fallback,
+    gallery: sourceImages.slice(0, 16),
     originalImageSource: featureImage || sourceImages[0],
     originalGallerySources: sourceImages,
     imageImportWarnings: warnings.length ? warnings : undefined,

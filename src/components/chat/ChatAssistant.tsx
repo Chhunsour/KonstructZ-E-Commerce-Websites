@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useI18n } from "../../context/I18nContext";
 import { listPublicPosts } from "../../lib/blogStore";
-import { kb, CONTACT, getChatbotConfig, type ProductRef } from "./knowledge";
+import { kb, CONTACT, getChatbotConfig, PRODUCT_DETAIL, type ProductRef } from "./knowledge";
 import {
   getReply,
   emptyMemory,
@@ -353,43 +353,42 @@ export const ChatAssistant: React.FC = () => {
         }
       ];
     } else {
-      const questions = config.suggestedQuestions.split("\n").map(q => q.trim()).filter(Boolean);
       list = [
         {
           glyph: CardGlyphs.machine,
-          title: "Find the right machine",
+          title: "Find the right TYPHON machine",
           sub: "Excavators, skid steers, loaders & more",
-          q: questions[0] || "Help me find the right machine for my job."
+          q: "Find the right TYPHON machine"
+        },
+        {
+          glyph: CardGlyphs.machine,
+          title: "Ask for TYPHON horsepower/specs",
+          sub: "Check engine power, weight & capacities",
+          q: "Ask for TYPHON horsepower/specs"
         },
         {
           glyph: CardGlyphs.compare,
-          title: "Compare equipment",
-          sub: "Check specs, use cases, pros & cons",
-          q: questions[1] || "Compare machines for me."
+          title: "Compare TYPHON machines",
+          sub: "Put two models side-by-side",
+          q: "Compare TYPHON machines"
         },
         {
           glyph: CardGlyphs.wrench,
-          title: "Attachments & fitment",
-          sub: "See what fits your machine",
-          q: questions[2] || "What attachments fit my machine?"
-        },
-        {
-          glyph: CardGlyphs.company,
-          title: "Company & product help",
-          sub: "Learn about Konstructz and available machines",
-          q: questions[3] || "Tell me about Konstructz and what you sell."
+          title: "Check attachment fitment",
+          sub: "See what tools fit which model",
+          q: "Check attachment fitment"
         },
         {
           glyph: CardGlyphs.support,
-          title: "Warranty & support",
+          title: "Ask about warranty/support",
           sub: "1-year warranty + lifetime technical support",
-          q: questions[4] || "Explain the 1-year warranty and lifetime support."
+          q: "Ask about warranty/support"
         },
         {
-          glyph: CardGlyphs.truck,
-          title: "Shipping & returns",
-          sub: "Get help before you buy",
-          q: questions[5] || "Help me with shipping, financing, or returns."
+          glyph: CardGlyphs.company,
+          title: "Contact sales",
+          sub: "Reach out for pricing and quotes",
+          q: "Contact sales"
         }
       ];
     }
@@ -403,6 +402,40 @@ export const ChatAssistant: React.FC = () => {
     initial?.messages?.length ? initial.messages : [welcomeMessage()]
   );
   const [input, setInput] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  useEffect(() => {
+    const val = input.toLowerCase().trim();
+    if (!val || val.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+    const list: string[] = [];
+    if (val.includes("terror")) {
+      list.push("terror hp", "terror engine", "terror weight");
+    }
+    if (val.includes("stomp")) {
+      list.push("stomp 509 specs", "stomp x1300 compare", "stomp attachments");
+    }
+    if (val.includes("vigor")) {
+      list.push("vigor 1.5 weight", "vigor 2.0 lift capacity");
+    }
+    if (val.includes("shipping")) {
+      list.push("USA shipping", "overseas sales contact");
+    }
+    if (val.includes("warranty")) {
+      list.push("1-year warranty + lifetime technical support");
+    }
+
+    if (!list.length) {
+      const matched = PRODUCT_REFS.filter(r => r.name.toLowerCase().includes(val) || r.brand.toLowerCase().includes(val));
+      for (const p of matched.slice(0, 2)) {
+        list.push(`${p.name} specs`, `Compare ${p.name}`);
+      }
+    }
+    setSuggestions(list);
+  }, [input]);
+
   const [phase, setPhase] = useState<null | "analyzing" | "thinking">(null);
   const [doneIds, setDoneIds] = useState<Set<string>>(
     () => new Set((initial?.messages ?? []).map((m) => m.id).concat("welcome"))
@@ -453,8 +486,49 @@ export const ChatAssistant: React.FC = () => {
     setMessages((prev) => [...prev, { id: uid(), role: "user", text, instant: true }]);
     setInput("");
 
-    const { answer, memory } = getReply(text, memoryRef.current, language);
+    const { answer, memory } = getReply(text, memoryRef.current, language, path);
     memoryRef.current = memory;
+
+    try {
+      const stored = localStorage.getItem("kz-chatbot-analytics");
+      const data = stored ? JSON.parse(stored) : {
+        queries: [],
+        products: {},
+        specs: {},
+        failed: [],
+        contacts: 0
+      };
+      
+      data.queries.push(text);
+      
+      const matchedRef = PRODUCT_REFS.find(r => 
+        text.toLowerCase().includes(r.name.toLowerCase().replace(/typhon\s+/i, "")) || 
+        r.name.toLowerCase().replace(/typhon\s+/i, "").includes(text.toLowerCase())
+      );
+      if (matchedRef) {
+        data.products[matchedRef.name] = (data.products[matchedRef.name] || 0) + 1;
+      }
+      
+      const hasSpecKeywords = /\b(spec|specification|horsepower|hp|power|engine|motor|weight|price|cost|lift|lifting|height|digging depth|dig depth|deep|depth|bucket|hydraulic|flow|gpm|fuel|size|dimensions?|attachments?|fitment|warranty|shipping|travel speed|speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(text.toLowerCase());
+      if (hasSpecKeywords) {
+        const specMatch = text.toLowerCase().match(/\b(horsepower|hp|power|engine|motor|weight|price|cost|lift|lifting|height|digging depth|dig depth|deep|depth|bucket|hydraulic|flow|gpm|fuel|size|dimensions?|attachments?|fitment|warranty|shipping|travel speed|speed)\b/);
+        if (specMatch) {
+          const specName = specMatch[1];
+          data.specs[specName] = (data.specs[specName] || 0) + 1;
+        }
+      }
+      
+      if (answer.handoff) {
+        data.contacts += 1;
+      }
+      if (answer.markdown.toLowerCase().includes("i do not have") || answer.markdown.toLowerCase().includes("could not find") || answer.markdown.toLowerCase().includes("not listed")) {
+        data.failed.push(text);
+      }
+      
+      localStorage.setItem("kz-chatbot-analytics", JSON.stringify(data));
+    } catch (e) {
+      // ignore
+    }
 
     setPhase("analyzing");
     const complexity = Math.min(1, answer.markdown.length / 700);
@@ -585,6 +659,23 @@ export const ChatAssistant: React.FC = () => {
           }}
           className="border-t border-[#d8c79a]/15 bg-[#1c1c18] px-3 py-3"
         >
+          {suggestions.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 pb-2">
+              {suggestions.map((s, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => {
+                    send(s);
+                    setSuggestions([]);
+                  }}
+                  className="inline-flex items-center text-[11px] font-googleSans px-2.5 py-1 bg-white/5 border border-white/10 hover:border-[#d8c79a] text-white/80 transition hover:text-[#d8c79a] rounded-none"
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          )}
           <div className="flex items-center gap-2 border border-white/12 bg-[#161613] px-3 py-1.5 transition focus-within:border-[#d8c79a]/50">
             <input
               ref={inputRef}
@@ -695,7 +786,7 @@ const ProductCard: React.FC<{
     reason = "High-traction wheel loader featuring robust bucket capacities and simple mechanical durability.";
   } else if (/SCOOPYDIG/i.test(product.name)) {
     bestFor = "Tight residential digging, utility service, and trenching";
-    reason = "Extremely agile compact backhoe loader ideal for narrow backyard work and property owners.";
+    reason = "Agile compact backhoe loader ideal for narrow backyard work and property owners.";
   } else if (/SPIDER/i.test(product.name)) {
     bestFor = "All-terrain compact landscaping and utility digging";
     reason = "Towable, lightweight excavating unit built for minimal ground damage and narrow access sites.";
@@ -709,6 +800,9 @@ const ProductCard: React.FC<{
     bestFor = "Utility boring, fence posts, and hard soil breaking";
     reason = "High-torque auxiliary hydraulic attachment engineered to expand machine capabilities.";
   }
+
+  const detail = PRODUCT_DETAIL[product.href];
+  const specsToShow = detail ? detail.specs.filter(s => !/category|sku|gtin|price/i.test(s.label)).slice(0, 3) : [];
 
   return (
     <div className="border border-white/10 bg-[#1d1e1a] p-4 text-left space-y-3 shadow-[0_4px_12px_rgba(0,0,0,0.35)] rounded-none">
@@ -733,9 +827,15 @@ const ProductCard: React.FC<{
         <div>
           <span className="font-bold text-white/90">Best for:</span> {bestFor}
         </div>
-        <div>
-          <span className="font-bold text-white/90">Details:</span> {reason}
-        </div>
+        
+        {specsToShow.length > 0 && (
+          <div className="space-y-0.5 border-t border-white/5 pt-1 text-white/50 text-[11px]">
+            <span className="font-bold text-white/75 block">Key Specs:</span>
+            {specsToShow.map((s, i) => (
+              <div key={i}>• {s.label}: <span className="text-white/80 font-bold">{s.value}</span></div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex flex-wrap gap-1.5 pt-0.5">
@@ -751,9 +851,9 @@ const ProductCard: React.FC<{
         <button
           type="button"
           onClick={() => onNavigate(product.href)}
-          className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10px] uppercase tracking-wider bg-[#d8c79a] text-[#153d28] transition hover:bg-white active:bg-[#a99c75] rounded-none"
+          className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10.5px] uppercase tracking-wider bg-[#d8c79a] text-[#153d28] transition hover:bg-white active:bg-[#a99c75] rounded-none"
         >
-          View Machine
+          View Product
         </button>
         <button
           type="button"
@@ -764,10 +864,10 @@ const ProductCard: React.FC<{
         </button>
         <button
           type="button"
-          onClick={() => onFollowup(`Help me with support for the ${product.name}`)}
+          onClick={() => onFollowup(`Contact sales for the ${product.name}`)}
           className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10px] uppercase tracking-wider border border-white/20 text-white/80 transition hover:border-[#d8c79a] hover:text-[#d8c79a] active:bg-white/5 rounded-none"
         >
-          Ask Support
+          Ask Sales
         </button>
       </div>
     </div>

@@ -404,20 +404,30 @@ export interface ChatbotConfig {
   contactEmail: string;
   contactPhone: string;
   safetyDisclaimer: string;
+  productAliases: string;
+  keySpecs: string;
+  attachmentFitment: string;
+  missingDataNotes: string;
+  productPageLinks: string;
 }
 
 export const CHATBOT_CONFIG_DEFAULT: ChatbotConfig = {
   companyDescription: "Konstructz helps customers find compact heavy equipment, attachments, and machine support information.",
   warrantyText: "1-year warranty + lifetime technical support. Covers structural and powertrain components.",
   lifetimeSupportText: "Lifetime technical support is included with every machine purchase.",
-  shippingNotes: "Shipping is available in the USA. For overseas or international orders, please contact the Konstructz sales team so they can confirm availability, cost, and delivery options.",
+  shippingNotes: "Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.",
   financingNotes: "100% financing available through Paramount Financial (lease-to-own).",
   returnNotes: "30-day returns for unused, original condition machinery. Customer covers return shipping.",
-  productCategories: "Excavators, Skid Steers, Wheel Loaders, Dumpers, Trenchers, Backhoe Loaders, Stone Crushers",
+  productCategories: "Excavators, Skid Steers, Wheel Loaders, Dumpers, Trenchers, Backhoe Loader, Stone Crushers",
   suggestedQuestions: "Help me find the right machine for my job.\nCompare skid steer and wheel loader.\nWhat attachments fit my machine?\nTell me about Konstructz and what you sell.\nExplain the 1-year warranty and lifetime support.\nHelp me with shipping, financing, or returns.",
   contactEmail: "support@konstructz.com",
   contactPhone: "+1 213-214-2203",
-  safetyDisclaimer: "Always consult the operator manual and check site conditions before operating heavy equipment."
+  safetyDisclaimer: "Always consult the operator manual and check site conditions before operating heavy equipment.",
+  productAliases: "TYPHON TERROR: terror, typhon terror, terror backhoe, backhoe loader;\nTYPHON TYRANT 17: tyrant, tyrant 17, typhon tyrant, mini excavator 17;\nTYPHON STOMP 509: stomp 509, 509, typhon stomp, mini skid steer 509;\nTYPHON STOMP X1300: stomp x1300, x1300, typhon x1300, skid steer x1300;\nTYPHON VIGOR 1.5: vigor 1.5, vigor blue, electric forklift 1.5;\nTYPHON VIGOR 2.0: vigor 2, vigor 2.0, electric forklift 2.0;\nTYPHON SKOOP: skoop, typhon skoop, wheel loader, telescopic wheel loader",
+  keySpecs: "Engine Model, Horsepower, Weight, Lift Capacity, Digging Depth, Dimensions",
+  attachmentFitment: "Pallet Fork: TYPHON STOMP 509, TYPHON STOMP X1300;\nGrapple: TERROR XI, Tyrant 17",
+  missingDataNotes: "I do not have that exact spec listed in the current product data. Please confirm with sales before buying.",
+  productPageLinks: "TYPHON TERROR: /typhon-machinery/terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments;\nTYPHON TYRANT 17: /typhon-machinery/typhon-tyrant-17"
 };
 
 const CHATBOT_CONFIG_KEY = "kz-chatbot-config";

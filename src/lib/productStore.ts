@@ -27,95 +27,88 @@ interface LocalCatalog {
   products?: LocalProduct[];
   updated_at?: string | null;
 }
+/**
+ * Canonical "synced product" shape written by the receiver. The KiuQ master
+ * (product-sync Edge Function) emits these camelCase fields; the receiver
+ * localizes featuredImage + galleryImages to this site's own image paths.
+ */
 interface LocalProduct {
   id: string;
   slug: string;
-  name?: string;
-  brand?: string | null;
-  category?: string | null;
-  category_slug?: string | null;
-  product_line?: string;
-  product_type?: string;
-  short_description?: string | null;
-  full_description?: string | null;
-  price?: string | null;
-  sale_price?: string | null;
   sku?: string | null;
-  stock_status?: string | null;
-  condition?: string | null;
+  name?: string;
+  category?: string | null;
+  productType?: string | null;
+  shortDescription?: string | null;
+  fullDescription?: string | null;
+  price?: number | string | null;
+  salePrice?: number | string | null;
+  stockStatus?: string | null;
   status?: string;
-  featured_image?: string | null;
-  gallery_images?: string[];
-  specs?: Record<string, string | null>;
-  extra_specs?: { label: string; value: string }[];
-  compatible_attachments?: unknown[];
-  warranty_info?: string | null;
-  shipping_info?: string | null;
-  financing_info?: string | null;
-  button_text?: string | null;
-  button_url?: string | null;
-  seo_title?: string | null;
-  seo_description?: string | null;
-  seo_keywords?: string | null;
-  updated_at?: string;
+  featuredImage?: string | null;
+  galleryImages?: string[];
+  specs?: { label: string; value: string }[];
+  relatedProducts?: unknown[];
+  buttonUrl?: string | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  updatedAt?: string;
 }
 
+const asStr = (v: unknown): string | null =>
+  v === null || v === undefined || v === "" ? null : String(v);
+
 /** Map a synced local product back onto the DbProduct shape the UI expects. */
-const toDbProduct = (p: LocalProduct): DbProduct => {
-  const specs = p.specs ?? {};
-  return {
-    id: p.id,
-    slug: p.slug,
-    name: p.name ?? p.slug,
-    brand: p.brand ?? null,
-    category_id: null,
-    product_line: (p.product_line as DbProduct["product_line"]) ?? "konstructz",
-    product_type: (p.product_type as DbProduct["product_type"]) ?? "equipment",
-    short_description: p.short_description ?? null,
-    full_description: p.full_description ?? "",
-    featured_image: p.featured_image ?? null,
-    gallery_images: Array.isArray(p.gallery_images) ? p.gallery_images : [],
-    price: p.price ?? null,
-    sale_price: p.sale_price ?? null,
-    sku: p.sku ?? null,
-    gtin: null,
-    stock_status: p.stock_status ?? null,
-    condition: p.condition ?? null,
-    engine: specs.engine ?? null,
-    horsepower: specs.horsepower ?? null,
-    operating_weight: specs.operating_weight ?? null,
-    lift_capacity: specs.lift_capacity ?? null,
-    digging_depth: specs.digging_depth ?? null,
-    width: specs.width ?? null,
-    height: specs.height ?? null,
-    length: specs.length ?? null,
-    fuel_type: specs.fuel_type ?? null,
-    machine_type: specs.machine_type ?? null,
-    extra_specs: Array.isArray(p.extra_specs) ? p.extra_specs : [],
-    compatible_attachments: Array.isArray(p.compatible_attachments)
-      ? (p.compatible_attachments as DbProduct["compatible_attachments"])
-      : [],
-    warranty_info: p.warranty_info ?? null,
-    shipping_info: p.shipping_info ?? null,
-    financing_info: p.financing_info ?? null,
-    button_text: p.button_text ?? null,
-    button_url: p.button_url ?? null,
-    seo_title: p.seo_title ?? null,
-    seo_description: p.seo_description ?? null,
-    seo_keywords: p.seo_keywords ?? null,
-    status: (p.status as DbProduct["status"]) ?? "published",
-    sort_order: 0,
-    created_at: p.updated_at ?? new Date().toISOString(),
-    updated_at: p.updated_at ?? new Date().toISOString(),
-    published_at: p.updated_at ?? null,
-    created_by: null,
-    updated_by: null,
-    category:
-      p.category || p.category_slug
-        ? { slug: p.category_slug ?? "", name: p.category ?? "" }
-        : null,
-  };
-};
+const toDbProduct = (p: LocalProduct): DbProduct => ({
+  id: p.id,
+  slug: p.slug,
+  name: p.name ?? p.slug,
+  brand: null,
+  category_id: null,
+  product_line: "konstructz",
+  product_type: (p.productType as DbProduct["product_type"]) ?? "equipment",
+  short_description: p.shortDescription ?? null,
+  full_description: p.fullDescription ?? "",
+  featured_image: p.featuredImage ?? null,
+  gallery_images: Array.isArray(p.galleryImages) ? p.galleryImages : [],
+  price: asStr(p.price),
+  sale_price: asStr(p.salePrice),
+  sku: p.sku ?? null,
+  gtin: null,
+  stock_status: p.stockStatus ?? null,
+  condition: null,
+  engine: null,
+  horsepower: null,
+  operating_weight: null,
+  lift_capacity: null,
+  digging_depth: null,
+  width: null,
+  height: null,
+  length: null,
+  fuel_type: null,
+  machine_type: null,
+  // The master sends a flat label/value spec list — surface it as extra_specs.
+  extra_specs: Array.isArray(p.specs) ? p.specs : [],
+  compatible_attachments: Array.isArray(p.relatedProducts)
+    ? (p.relatedProducts as DbProduct["compatible_attachments"])
+    : [],
+  warranty_info: null,
+  shipping_info: null,
+  financing_info: null,
+  button_text: null,
+  button_url: p.buttonUrl ?? null,
+  seo_title: p.seoTitle ?? null,
+  seo_description: p.seoDescription ?? null,
+  seo_keywords: null,
+  status: (p.status as DbProduct["status"]) ?? "published",
+  sort_order: 0,
+  created_at: p.updatedAt ?? new Date().toISOString(),
+  updated_at: p.updatedAt ?? new Date().toISOString(),
+  published_at: p.updatedAt ?? null,
+  created_by: null,
+  updated_by: null,
+  category: p.category ? { slug: "", name: p.category } : null,
+});
 
 let localCache: DbProduct[] | null = null;
 

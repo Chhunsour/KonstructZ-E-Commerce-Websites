@@ -1,0 +1,780 @@
+[
+  {
+    "name": "STOMP V980",
+    "category": "Skid Steer",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "KUVUO 2.5",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "SKOOP II",
+    "category": "Wheel Loader",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "SCOOPYDIG",
+    "category": "Backhoe Loader",
+    "missingFields": [
+      "Lift Capacity",
+      "Price"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "THUNDERDUMP",
+    "category": "Dumper",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "STONE CRUSHER",
+    "category": "Stone Crusher",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "GROUP RIPPER GRX",
+    "category": "Trencher",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "KUVUO 2.7",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "SPIDER ONE",
+    "category": "Towable Excavator",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "STONE CRUSHER Pro",
+    "category": "Stone Crusher",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "THUNDERDUMP Pro",
+    "category": "Dumper",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "STOMP V950",
+    "category": "Skid Steer",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "STONE CRUSHER Max",
+    "category": "Stone Crusher",
+    "missingFields": [
+      "Price"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TERROR XI",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror X Storm",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Terror XIII",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror XIII",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror XV",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror XVIII Capony",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Terror XVIII Cabin",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Terror XX",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XXV Capony",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON KUVUO 4.0",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror LXV",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Tyrant X",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror XVII Capony",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XVII Cabin",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XIX Storm",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Terror XIX Prestige",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Flex 18 Pro",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror X2 Capony",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror X2 Prestige",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror X2 Max Canopy",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror X2 MAX Cabin",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON 0501R",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0501Y",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0502R",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0502G",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0503R",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0504R",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0505",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0507R",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0508",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON 0509",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Stomp V1000",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Stomp X1300",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON SKOOP",
+    "category": "Wheel Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Forklift (1.5 Ton)",
+    "category": "Forklift",
+    "missingFields": [
+      "Horsepower",
+      "Engine"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "TYPHON Forklift (2.0 Ton)",
+    "category": "Forklift",
+    "missingFields": [
+      "Horsepower",
+      "Engine"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "TYPHON Forklift (2.5 Ton)",
+    "category": "Forklift",
+    "missingFields": [
+      "Horsepower",
+      "Engine"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "TYPHON Forklift (3.0 Ton)",
+    "category": "Forklift",
+    "missingFields": [
+      "Horsepower",
+      "Engine"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "TYPHON Road Roller (1.0 Ton)",
+    "category": "Road Roller",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Road Roller (1.5 Ton)",
+    "category": "Road Roller",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Road Roller (2.0 Ton)",
+    "category": "Road Roller",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON xFlex 4068ET",
+    "category": "Scissor Lift",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON xFlex 4065W",
+    "category": "Scissor Lift",
+    "missingFields": [
+      "Horsepower",
+      "Engine"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "TYPHON xFlex-4046EW",
+    "category": "Scissor Lift",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON xFLEX-2031EM",
+    "category": "Scissor Lift",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON xFlex-2037W",
+    "category": "Scissor Lift",
+    "missingFields": [
+      "Horsepower",
+      "Engine"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "TYPHON XXV Cabin",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "Hydraulic Pallet Fork Attachment",
+    "category": "Wheel Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror 4WD",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Forestry Mulcher Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Hydraulic Wood Grabber Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Hydraulic Pickup Sweeper Broom Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Skid Steer Loader Mulcher",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XVIII Capony",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON 0503G",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Terror X",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XX",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XX",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XVIII Capony",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XVIII Cabin",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Terror XVIII Cabin",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "TYPHON Fury Walk Behind",
+    "category": "Road Roller",
+    "missingFields": [],
+    "qualityScore": 100
+  },
+  {
+    "name": "All-in-One 12 PCS Attachment",
+    "category": "Forklift",
+    "missingFields": [
+      "Horsepower",
+      "Engine"
+    ],
+    "qualityScore": 75
+  },
+  {
+    "name": "TYPHON Tyrant 17",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Lift Capacity"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Terror ONE",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "TYPHON Terror XXV Cabin",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Digging Depth"
+    ],
+    "qualityScore": 88
+  },
+  {
+    "name": "1000mm Pallet Fork & Hay Frame Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Grapple Bucket Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Hydraulic Rock & Concrete Breaker Hammer Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Hydraulic Snow Blower Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Hydraulic Chain Trencher Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "360° Hydraulic Rotary Wood Grabber Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Landscaping Skeleton Rock Bucket Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Landscaping Skeleton Rock Bucket Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Hydraulic Swing Stump Grinder Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Heavy-Duty 3-Blade Hydraulic Brush Mower Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Hydraulic Angle Dozer Blade 30° Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Angle Snow Sweeper Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Heavy Duty Lever Attachment",
+    "category": "Skid Steer Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Ultimate 10 in 1 Attachment",
+    "category": "Mini Excavator",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Digging Depth"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "Heavy Duty Wheel Loader Log Grapple Attachment",
+    "category": "Wheel Loader",
+    "missingFields": [
+      "Horsepower",
+      "Engine",
+      "Lift Capacity"
+    ],
+    "qualityScore": 63
+  },
+  {
+    "name": "TYPHON Terror XVII PRO",
+    "category": "Mini Excavator",
+    "missingFields": [],
+    "qualityScore": 100
+  }
+]

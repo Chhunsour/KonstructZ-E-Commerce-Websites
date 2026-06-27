@@ -1,7 +1,8 @@
 // One-time seed: import the existing static catalogs into the new product
 // tables. Idempotent (upsert on slug) so it's safe to re-run after edits.
 //
-// Prereq: run db/migrations/0005_product_schema.sql in the Supabase SQL editor.
+// Prereq: run db/migrations/0005_product_schema.sql and
+// db/migrations/0007_product_image_imports.sql in the Supabase SQL editor.
 //
 // Usage:
 //   SUPABASE_URL=... SERVICE_KEY=... node scripts/seed-products.mjs

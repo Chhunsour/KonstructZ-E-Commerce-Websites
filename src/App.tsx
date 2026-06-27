@@ -54,10 +54,6 @@ import { AdminCategories } from "./pages/admin/Categories";
 import { ProductsDashboard } from "./pages/admin/ProductsDashboard";
 import { ProductEditor } from "./pages/admin/ProductEditor";
 import { ProductPreview } from "./pages/admin/ProductPreview";
-import { Websites } from "./pages/admin/Websites";
-import { SyncCenter } from "./pages/admin/SyncCenter";
-import { SyncLogs } from "./pages/admin/SyncLogs";
-import { SyncSettings } from "./pages/admin/SyncSettings";
 import { AdminChatbot } from "./pages/admin/Chatbot";
 
 const ScrollToTop: React.FC = () => {
@@ -157,11 +153,7 @@ const AppLayout: React.FC = () => {
             <Route path="/sour/products/new" element={<ProductEditor />} />
             <Route path="/sour/products/:id" element={<ProductEditor />} />
             <Route path="/sour/products/:id/preview" element={<ProductPreview />} />
-            <Route path="/sour/websites" element={<Websites />} />
             <Route path="/sour/chatbot" element={<AdminChatbot />} />
-            <Route path="/sour/sync" element={<SyncCenter />} />
-            <Route path="/sour/sync/logs" element={<SyncLogs />} />
-            <Route path="/sour/sync/settings" element={<SyncSettings />} />
           </Route>
         </Routes>
       </main>

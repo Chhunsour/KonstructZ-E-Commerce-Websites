@@ -321,18 +321,19 @@ foreach ($incoming as $incomingProduct) {
     $slug = $incomingProduct['slug'] ?? $id;
 
     try {
-        // Localize every image field present in this payload.
+        // Localize every image field present in this payload. The master
+        // (KiuQ) sends camelCase keys: featuredImage + galleryImages[].
         $imageReport = [];
         $imageOrder = 0;
-        if (array_key_exists('featured_image', $incomingProduct) && is_string($incomingProduct['featured_image'])) {
-            $local = localize_image($incomingProduct['featured_image'], $manifest, (string) $slug, $imageOrder);
+        if (array_key_exists('featuredImage', $incomingProduct) && is_string($incomingProduct['featuredImage'])) {
+            $local = localize_image($incomingProduct['featuredImage'], $manifest, (string) $slug, $imageOrder);
             $imageOrder++;
             $imageReport[] = $local;
-            $incomingProduct['featured_image'] = $local;
+            $incomingProduct['featuredImage'] = $local;
         }
-        if (array_key_exists('gallery_images', $incomingProduct) && is_array($incomingProduct['gallery_images'])) {
+        if (array_key_exists('galleryImages', $incomingProduct) && is_array($incomingProduct['galleryImages'])) {
             $gallery = [];
-            foreach ($incomingProduct['gallery_images'] as $g) {
+            foreach ($incomingProduct['galleryImages'] as $g) {
                 if (is_string($g)) {
                     $local = localize_image($g, $manifest, (string) $slug, $imageOrder);
                     $imageOrder++;
@@ -340,7 +341,7 @@ foreach ($incoming as $incomingProduct) {
                     $imageReport[] = $local;
                 }
             }
-            $incomingProduct['gallery_images'] = $gallery;
+            $incomingProduct['galleryImages'] = $gallery;
         }
 
         // Merge: partial syncs keep existing fields; full sync replaces.

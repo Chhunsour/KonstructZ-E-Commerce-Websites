@@ -1,6 +1,7 @@
 /**
- * Shared admin UI primitives — reused across the sync pages so they match the
- * existing dashboard look (Products / Posts) without duplicating Tailwind soup.
+ * Shared admin UI primitives — small building blocks used across admin pages
+ * (e.g. the Chatbot settings page) so they match the dashboard look without
+ * duplicating Tailwind soup.
  */
 import React from "react";
 

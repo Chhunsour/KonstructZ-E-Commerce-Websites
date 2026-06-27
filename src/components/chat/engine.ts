@@ -17,7 +17,7 @@ import {
   type ProductDetail,
   getChatbotConfig,
 } from "./knowledge";
-
+import { typhonProducts } from "../../data/typhonProducts";
 export interface Answer {
   markdown: string;
   products?: ProductRef[];
@@ -452,18 +452,8 @@ function detailOf(ref: ProductRef): ProductDetail | undefined {
 }
 
 function findNamed(text: string): ProductRef[] {
-  const found: ProductRef[] = [];
-  for (const ref of PRODUCT_REFS) {
-    const name = ref.name.toLowerCase();
-    const token = name.replace(/typhon\s+/g, "").split("(")[0].trim();
-    if (
-      (text.includes(name) || (token.length >= 4 && text.includes(token))) &&
-      !found.some((f) => f.href === ref.href)
-    ) {
-      found.push(ref);
-    }
-  }
-  return found;
+  const matches = findMatchesWithScoring(text);
+  return matches.map(m => m.ref);
 }
 
 /* ───────────────────────── Need → categories ───────────────────────── */
@@ -630,7 +620,7 @@ export function detectIntent(raw: string, memory: ChatMemory): DetectedIntent {
     return "Product question";
   }
 
-  if (/\b(spec|specification|weight|engine|horsepower|\bhp\b|capacity|dimensions?|hydraulic|flow|gpm|digging depth|dig depth|reach|lift(ing)? (height|capacity)|fuel|travel speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(m)) {
+  if (/\b(spec|specification|horsepower|hp|power|engine|motor|weight|price|cost|lift|lifting|height|digging depth|dig depth|deep|depth|bucket|hydraulic|flow|gpm|fuel|size|dimensions?|attachments?|fitment|warranty|shipping|travel speed|speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(m)) {
     return "Product question";
   }
 
@@ -840,23 +830,21 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
   const shuffled = shuffle(followups).slice(0, 3);
   return shuffled.map(rewordFollowup);
 }function getCompanyQuestionAnswer(q: string): { markdown: string; followups: string[]; links?: { label: string; href: string }[] } | null {
-  const config = getChatbotConfig();
-  const GUIDE_SUGGESTIONS = "\n\n### What would you like to do next?\n- View equipment categories\n- Compare machines\n- Check attachments\n- Contact support\n- Ask about warranty/shipping";
+  const GUIDE_SUGGESTIONS = "\n\n### What would you like to do next?\n- Find the right TYPHON machine\n- Compare TYPHON equipment\n- TYPHON attachments & fitment\n- Contact sales for buying help";
   const GUIDE_LINKS = [
-    { label: "View Equipment Categories", href: "/equipment" },
-    { label: "Contact Support", href: "/contact" }
+    { label: "Browse TYPHON Equipment", href: "/equipment" },
+    { label: "Contact Sales Team", href: "/contact" }
   ];
   const GUIDE_FOLLOWUPS = [
-    "View equipment categories",
-    "Compare machines",
-    "Check attachments",
-    "Contact support",
-    "Ask about warranty/shipping"
+    "Find the right TYPHON machine",
+    "Compare TYPHON equipment",
+    "TYPHON attachments & fitment",
+    "Contact sales for buying help"
   ];
 
-  if (/\bkonstructz\b/.test(q) && (/\b(what is|who is|who are you|about|what does it do)\b/.test(q) || /\b(who we are|the company)\b/.test(q))) {
+  if (/\bkonstructz\b/.test(q) || /\b(who are you|the company|about the company)\b/.test(q)) {
     return {
-      markdown: `### About Konstructz\n\n**Konstructz** is a specialized online platform designed to help contractors, landscapers, and homeowners explore compact machinery, compare models, and understand attachments. ${config.companyDescription}\n\nEvery purchase includes our comprehensive support program to ensure your equipment keeps running smoothly.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]` + GUIDE_SUGGESTIONS,
+      markdown: "### About Konstructz\n\nKonstructz is currently being prepared as a machinery website to help customers explore equipment, compare machines, and get buying/support help. Right now, I can help you with available TYPHON Machinery machines and product details." + GUIDE_SUGGESTIONS,
       links: GUIDE_LINKS,
       followups: GUIDE_FOLLOWUPS
     };
@@ -864,7 +852,7 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 
   if (/\btyphon\b/.test(q) && (/\b(are you|is this|about|who is)\b/.test(q) || /\btyphon machinery\b/.test(q))) {
     return {
-      markdown: "### Typhon Machinery Partnership\n\n**Konstructz** features and organizes machinery information, including selected **Typhon Machinery** products. If you are looking for a specific Typhon machine, we can help you find its page, compare specs in simple terms, or verify fits.\n\nAll Typhon equipment sold through our site qualifies for our standard protection plans.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      markdown: "### TYPHON Machinery Catalog\n\nWe feature available **TYPHON Machinery** products. I can help you find machine pages, compare specifications in simple terms, verify attachment fitment, and explore support details.\n\nAll TYPHON equipment features a **[1-year warranty + lifetime technical support]**.\n\nShipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options." + GUIDE_SUGGESTIONS,
       links: GUIDE_LINKS,
       followups: GUIDE_FOLLOWUPS
     };
@@ -872,7 +860,7 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 
   if (/\b(legit|scam|trust|real|reliable|fake|safe to buy)\b/.test(q)) {
     return {
-      markdown: "### Legitimacy & Trust\n\n**Konstructz** is a real, customer-focused machinery supplier. You can check available product specifications, warranty documents, and contact details directly on this site. For absolute peace of mind before purchase, you can contact our support team directly.\n\nWe prioritize transparent details, fast parts shipping, and dedicated lifetime customer assistance.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support]" + GUIDE_SUGGESTIONS,
+      markdown: "### Legitimacy & Trust\n\nKonstructz is currently being prepared as a machinery catalog platform. We assist customers in exploring authentic **TYPHON Machinery** equipment (mini excavators, skid steers, wheel loaders, forklifts, road rollers, and attachments).\n\nEvery machine comes with a standard **[1-year warranty + lifetime technical support]**.\n\nShipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options." + GUIDE_SUGGESTIONS,
       links: [
         { label: "Official Contact Page", href: "/contact" },
         { label: "Support Center", href: "/support" }
@@ -883,7 +871,7 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 
   if (/\b(what do you sell|what is sold|what do you offer|what products|what machines|types of machine|equipment categories)\b/.test(q) || (/\b(sell|offer|have)\b/.test(q) && /\b(machine|product|equipment|cab|attachment|excavator|loader)\b/.test(q))) {
     return {
-      markdown: `### Equipment Categories\n\nWe sell **compact construction machinery** and **heavy attachments** tailored for tight spaces and high performance. Our core inventory includes:\n- **${config.productCategories}**\n- Compatible **Augers, Breakers, and Buckets**\n\nAll eligible models ship standard with shipping and warranty coverage.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]` + GUIDE_SUGGESTIONS,
+      markdown: "### Equipment Catalog\n\nWe feature a comprehensive list of **TYPHON Machinery** equipment and attachments designed for heavy tasks:\n- **TYPHON Mini Excavators** (Briggs & Stratton / Kubota / Yanmar engines)\n- **TYPHON Skid Steers & Wheel Loaders**\n- **TYPHON Forklifts & Road Rollers**\n- **TYPHON Specialty Attachments** (Augers, Breakers, Forks, thumbs)\n\nAll equipment features a **[1-year warranty + lifetime technical support]**.\n\nShipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options." + GUIDE_SUGGESTIONS,
       links: GUIDE_LINKS,
       followups: GUIDE_FOLLOWUPS
     };
@@ -891,15 +879,7 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 
   if (/\b(why should i buy|why buy here|why choose you|why konstructz|benefits of buying)\b/.test(q)) {
     return {
-      markdown: "### Why Choose Konstructz?\n\nWe make finding and operating heavy equipment simple. With detailed specs, side-by-side comparisons, and transparent support, we guide you to the perfect fit.\n\nOur machines are backed by dedicated U.S.-based support and quick spare parts shipping.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
-      links: GUIDE_LINKS,
-      followups: GUIDE_FOLLOWUPS
-    };
-  }
-
-  if (/\b(the company|about the company)\b/.test(q)) {
-    return {
-      markdown: "### The Company\n\n**Konstructz** supplies compact construction machinery and attachments—alongside the wider **Typhon Machinery** catalog. We focus on delivering dependable, jobsite-ready solutions for contractors, landscapers, farmers, and property owners.\n\nEvery machine is backed by selection assistance, financing options, and reliable shipping.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      markdown: "### Why Choose Us?\n\nWe make exploring and comparing heavy equipment straightforward. Our product overview highlights specifications, pros/cons, and attachments so you can find the perfect match. All featured products are authentic **TYPHON Machinery** models backed by a **[1-year warranty + lifetime technical support]**.\n\nShipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options." + GUIDE_SUGGESTIONS,
       links: GUIDE_LINKS,
       followups: GUIDE_FOLLOWUPS
     };
@@ -1127,61 +1107,94 @@ function attachmentHint(categoryLabel: string): string | undefined {
 
 /* ─────────────────────── Comparison engine ─────────────────────────── */
 
-function compareRow(label: string, vals: string[]): string {
-  return `| ${label} | ${vals.map((v) => v || NA).join(" | ")} |\n`;
+function compareRow(label: string, vals: (string | null | undefined)[]): string {
+  const NA = "Not listed";
+  return `| ${label} | ${vals.map((v) => v && v.trim() ? v.trim() : NA).join(" | ")} |\n`;
 }
 
 function composeComparison(details: ProductDetail[]): Answer {
-  const ds = details.slice(0, 3);
-  const names = ds.map((d) => `**${d.name}**`);
-  const cols = ds.map((d) => `${d.name}<br/><span>(${d.categoryLabel})</span>`);
-  const profs = ds.map((d) => profileFor(d.categoryLabel));
+  const ds = details.map(d => {
+    const ref = PRODUCT_REFS.find(r => r.href === d.href);
+    if (!ref) return d;
+    const tyRef = findTyphonEquivalent(ref);
+    return detailOf(tyRef) || d;
+  }).slice(0, 3);
 
-  const differentClasses = new Set(ds.map((d) => d.categoryLabel)).size > 1;
+  const names = ds.map((d) => `**TYPHON ${d.name}**`);
+  const cols = ds.map((d) => `TYPHON ${d.name}<br/><span>(${d.categoryLabel})</span>`);
+
+  const bestUseVals = ds.map((d) => {
+    const prof = profileFor(d.categoryLabel);
+    return prof ? prof.bestFor.join(", ") : undefined;
+  });
+  const engineVals = ds.map((d) => specValue(d, /engine model|engine/i));
+  const hpVals = ds.map((d) => specValue(d, /horsepower|hp/i) || specValue(d, /engine/i)?.match(/(\d+)\s*hp/i)?.[0]);
+  const weightVals = ds.map((d) => d.weight || specValue(d, /weight/i));
+  const liftVals = ds.map((d) => specValue(d, /lift capacity|operating capacity|load capacity/i));
+  const digVals = ds.map((d) => specValue(d, /digging depth|dig depth/i));
+  const dimVals = ds.map((d) => specValue(d, /dimensions|size/i));
+  const attVals = ds.map((d) => specValue(d, /attachment/i));
+  const priceVals = ds.map((d) => d.price);
+  const urlVals = ds.map((d) => d.href ? `[View Product](${d.href})` : undefined);
+
   let md = `## ${names.join(" vs ")}\n\n`;
-  md += differentClasses
-    ? `${pick(["These are built for different jobs, so it's less about which is “better” and more about which matches your work.", "Good comparison — these sit in different machine classes, so the right pick really depends on the task."])}\n\n`
-    : `${pick(["Both are in the same class, so this comes down to size and spec for your job.", "Same class of machine — here's how they line up."])}\n\n`;
+  md += `Here is a side-by-side comparison of the featured **TYPHON Machinery** products:\n\n`;
 
-  md += `| | ${cols.join(" | ")} |\n|${"---|".repeat(ds.length + 1)}\n`;
-  md += compareRow("Purpose", profs.map((p) => p?.purpose || ""));
-  md += compareRow("Best for", profs.map((p) => (p ? p.bestFor.slice(0, 3).join(", ") : "")));
-  md += compareRow("Operating weight", ds.map((d) => d.weight || specValue(d, /operating weight|weight/i) || ""));
-  md += compareRow("Engine", ds.map((d) => specValue(d, /engine power|engine/i) || ""));
-  md += compareRow("Hydraulics", ds.map((d) => specValue(d, /hydraulic/i) || ""));
-  md += compareRow("Lift / dig capacity", ds.map((d) => specValue(d, /operating capacity|load capacity|lift|digging depth|capacity/i) || ""));
-  md += compareRow("Maneuverability", profs.map((p) => p?.maneuverability || ""));
-  md += compareRow("Terrain", profs.map((p) => p?.terrain || ""));
-  md += compareRow("Attachments", profs.map((p) => p?.attachments || ""));
-  md += compareRow("Maintenance", profs.map((p) => p?.maintenance || ""));
-  md += compareRow("Best suited to", profs.map((p) => p?.recommendedUser || ""));
+  md += `| Attribute | ${cols.join(" | ")} |\n|${"---|".repeat(ds.length + 1)}\n`;
+  md += compareRow("Best use", bestUseVals);
+  md += compareRow("Engine", engineVals);
+  md += compareRow("Horsepower", hpVals);
+  md += compareRow("Weight", weightVals);
+  md += compareRow("Lift capacity", liftVals);
+  md += compareRow("Digging depth", digVals);
+  md += compareRow("Dimensions", dimVals);
+  md += compareRow("Attachments", attVals);
+  md += compareRow("Price", priceVals);
+  md += compareRow("Product URL", urlVals);
   md += "\n";
 
-  // Pros / cons
-  ds.forEach((d, i) => {
-    const p = profs[i];
-    if (!p) return;
-    md += `**${d.name} — pros & cons**\n\n`;
-    md += p.pros.slice(0, 3).map((x) => `- ✅ ${x}`).join("\n") + "\n";
-    md += p.cons.slice(0, 2).map((x) => `- ⚠️ ${x}`).join("\n") + "\n\n";
-  });
+  md += `**1-year warranty + lifetime technical support** is standard. Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.`;
 
-  // Final recommendation
-  if (differentClasses && ds.length >= 2) {
-    md += `### My take\n\nGo with the **${ds[0].name}** if your work leans toward ${profs[0]?.bestFor[0].toLowerCase()} and ${profs[0]?.bestFor[1]?.toLowerCase()}. Choose the **${ds[1].name}** if you're mostly ${profs[1]?.bestFor[0].toLowerCase()}. If you'll do **both regularly**, many crews keep one of each — or look at a backhoe loader that blends the two. Tell me your main task and site conditions and I'll call it for you.`;
-  } else {
-    md += `### My take\n\nThey overlap, so size it to your workload: the heavier machine for higher daily volume, the lighter one for tight access and easier transport. What's the main job and how much will you run it?`;
-  }
+  const finalRefs = ds.map((d) => PRODUCT_REFS.find((r) => r.href === d.href)!).filter(Boolean);
 
   return {
     markdown: md,
-    products: ds.map((d) => PRODUCT_REFS.find((r) => r.href === d.href)!).filter(Boolean),
-    links: relatedBlog(ds.map((d) => d.categoryLabel).join(" ")),
-    followups: ["Which fits my project better?", "Compare operating costs", "What attachments do they take?", "Get a quote"],
+    products: finalRefs,
+    links: [{ label: "Browse TYPHON Equipment", href: "/equipment" }],
+    followups: ["Compare other TYPHON models", "What attachments fit them?", "Contact sales for buying help"]
   };
 }
 
 function comparisonTargets(m: string, memory: ChatMemory): ProductDetail[] | null {
+  const clean = m.toLowerCase().replace(/^compare\s+/i, "");
+  const parts = clean.split(/\b(?:vs|versus|and)\b/).map(s => s.trim()).filter(Boolean);
+
+  if (parts.length >= 2) {
+    const targets: ProductDetail[] = [];
+    for (const part of parts) {
+      const matches = findMatchesWithScoring(part);
+      if (matches.length > 0) {
+        const d = detailOf(matches[0].ref);
+        if (d) targets.push(d);
+      } else {
+        const nameFormatted = part.replace(/\b(typhon)\b/gi, "").trim().split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+        targets.push({
+          name: nameFormatted || "Alternative Model",
+          brand: "Typhon",
+          categoryLabel: "Alternative Model",
+          href: "",
+          price: "Not listed",
+          weight: "Not listed",
+          specs: [],
+          description: "Not listed",
+          tagline: "Not listed",
+          productType: "machine"
+        });
+      }
+    }
+    if (targets.length >= 2) return targets;
+  }
+
   const named = findNamed(m);
   if (named.length >= 2) return named.map(detailOf).filter(Boolean) as ProductDetail[];
 
@@ -1199,7 +1212,9 @@ function comparisonTargets(m: string, memory: ChatMemory): ProductDetail[] | nul
     if (two.length >= 2) return two.map(detailOf).filter(Boolean) as ProductDetail[];
   }
   if (named.length === 1 && memory.activeMachine && memory.activeMachine.href !== named[0].href) {
-    return [named[0], memory.activeMachine].map(detailOf).filter(Boolean) as ProductDetail[];
+    const d1 = detailOf(named[0]);
+    const d2 = detailOf(memory.activeMachine);
+    if (d1 && d2) return [d1, d2];
   }
   if (memory.lastProducts.length >= 2) {
     return memory.lastProducts.map(detailOf).filter(Boolean).slice(0, 3) as ProductDetail[];
@@ -1325,71 +1340,465 @@ function composeAttachments(machine?: ProductRef, memorySlots?: ChatMemory["slot
   };
 }
 
-function composeSpecs(machine: ProductRef | undefined, query: string): Answer {
-  if (!machine) {
-    return {
-      markdown: "Happy to pull up specs — which machine do you mean? Tell me the model (e.g. *KUVUO 2.5*) or let me recommend one for your job.",
-      followups: ["Recommend a machine", "Compare machines"],
-    };
-  }
-  const d = detailOf(machine);
-  if (!d) return composeFallback();
+function getProductAliases(ref: ProductRef): string[] {
+  const config = getChatbotConfig();
+  const list = new Set<string>();
 
-  // If the user asked about a specific attribute, answer that directly first.
-  const asked = SPEC_QUERY.find((s) => s.re.test(query));
-  let lead = "";
-  if (asked) {
-    const hit = d.specs.find((s) => asked.labels.test(s.label));
-    lead = hit
-      ? `The **${d.name}** has a **${asked.word}** of **${hit.value}** (${hit.label}).\n\n`
-      : `I don't have a published **${asked.word}** figure for the **${d.name}** on file, so I won't guess — our team can confirm it. Here's what is published:\n\n`;
-  } else {
-    lead = `Here are the key specs for the **${d.name}** (${d.categoryLabel}):\n\n`;
+  // Parse config productAliases
+  if (config.productAliases) {
+    const lines = config.productAliases.split(";");
+    for (const line of lines) {
+      const parts = line.split(":");
+      if (parts.length === 2) {
+        const prodName = parts[0].trim().toLowerCase();
+        if (prodName === ref.name.toLowerCase() || prodName === ref.name.replace(/typhon\s+/i, "").toLowerCase()) {
+          const aliasList = parts[1].split(",").map(a => a.trim().toLowerCase()).filter(Boolean);
+          for (const a of aliasList) list.add(a);
+        }
+      }
+    }
   }
 
-  let md = lead + `| Spec | Value |\n|---|---|\n`;
-  for (const s of d.specs.slice(0, 8)) md += `| ${s.label} | ${s.value} |\n`;
-  md += `\nOpen the machine page for the full sheet and gallery. ${getPurchaseNote()}`;
+  // Auto-generate aliases
+  const nameLower = ref.name.toLowerCase();
+  list.add(nameLower);
+
+  const cleanName = nameLower.replace(/^typhon\s+/g, "");
+  list.add(cleanName);
+
+  const numbers = cleanName.match(/\b\d+(\.\d+)?\b/g) || [];
+  for (const n of numbers) {
+    list.add(n);
+  }
+  const romans = cleanName.match(/\b(xi|xiii|xv|xviii|xx|xxv|xvii|xix|x|lxv)\b/g) || [];
+  for (const r of romans) {
+    list.add(r);
+  }
+
+  const cat = ref.categoryLabel.toLowerCase();
+  list.add(cat);
+  if (cat.includes("mini")) {
+    list.add(cat.replace(/\bmini\b/g, "").trim());
+  }
+
+  const d = PRODUCT_DETAIL[ref.href];
+  if (d) {
+    const sku = specValue(d, /sku/i)?.toLowerCase();
+    if (sku) list.add(sku);
+    const gtin = specValue(d, /gtin/i)?.toLowerCase();
+    if (gtin) list.add(gtin);
+  }
+
+  return Array.from(list);
+}
+
+function findMatchesWithScoring(text: string): { ref: ProductRef; score: number }[] {
+  const q = text.toLowerCase().trim();
+  const normalizedQ = q
+    .replace(/\bteror\b/g, "terror")
+    .replace(/\bcapony\b/g, "canopy")
+    .replace(/\bcanopy\b/g, "capony")
+    .replace(/\btyran\b/g, "tyrant");
+
+  const results: { ref: ProductRef; score: number }[] = [];
+
+  for (const ref of PRODUCT_REFS) {
+    if (ref.brand !== "Typhon") continue;
+    const aliases = getProductAliases(ref);
+    
+    let highestAliasScore = 0;
+    for (const alias of aliases) {
+      if (normalizedQ === alias) {
+        highestAliasScore = Math.max(highestAliasScore, 100);
+      } else if (normalizedQ.includes(alias) || alias.includes(normalizedQ)) {
+        highestAliasScore = Math.max(highestAliasScore, 80);
+      }
+    }
+    
+    let score = highestAliasScore;
+    const nameLower = ref.name.toLowerCase();
+    const nameWords = nameLower.replace(/typhon\s+/g, "").split(/[^a-z0-9.]+/).filter(Boolean);
+    const queryWords = normalizedQ.split(/[^a-z0-9.]+/).filter(Boolean);
+    
+    for (const w of nameWords) {
+      if (queryWords.includes(w)) {
+        score += 25;
+      }
+    }
+    
+    const numbers = nameLower.match(/\b\d+(\.\d+)?\b/g) || [];
+    const romans = nameLower.match(/\b(xi|xiii|xv|xviii|xx|xxv|xvii|xix|x|lxv)\b/g) || [];
+    const ids = [...numbers, ...romans];
+    for (const id of ids) {
+      if (queryWords.includes(id)) {
+        score += 50;
+      }
+    }
+
+    if (score > 15) {
+      results.push({ ref, score });
+    }
+  }
+
+  const uniqueResults: Record<string, { ref: ProductRef; score: number }> = {};
+  for (const r of results) {
+    if (!uniqueResults[r.ref.href] || uniqueResults[r.ref.href].score < r.score) {
+      uniqueResults[r.ref.href] = r;
+    }
+  }
+
+  const finalResults = Object.values(uniqueResults);
+  finalResults.sort((a, b) => b.score - a.score);
+  return finalResults;
+}
+
+function resolveMatchedProducts(text: string, mLower: string): { type: "single" | "multi" | "none"; products: ProductRef[]; clarification?: string; followups?: string[] } {
+  const matches = findMatchesWithScoring(text);
+  if (!matches.length) return { type: "none", products: [] };
+  
+  const first = matches[0];
+  if (matches.length === 1) {
+    return { type: "single", products: [first.ref] };
+  }
+  
+  const second = matches[1];
+  if (first.score >= 45 && (first.score - second.score) >= 20) {
+    return { type: "single", products: [first.ref] };
+  }
+  
+  const topMatches = matches.slice(0, 3).map(m => m.ref);
+  const namesList = topMatches.map(p => p.name.replace(/typhon\s+/i, "")).join(", ");
+  const clarification = `I found a few similar TYPHON products. Do you mean ${namesList.replace(/,([^,]*)$/, ", or$1")}, or another model?`;
+
+  let specQueryText = "";
+  if (mLower.includes("horsepower") || mLower.includes("hp")) specQueryText = "horsepower";
+  else if (mLower.includes("weight") || mLower.includes("heavy")) specQueryText = "weight";
+  else if (mLower.includes("engine") || mLower.includes("motor")) specQueryText = "engine";
+  else if (mLower.includes("lift capacity") || mLower.includes("lift")) specQueryText = "lift capacity";
+  else if (mLower.includes("digging depth") || mLower.includes("dig depth") || mLower.includes("deep")) specQueryText = "digging depth";
+  else if (mLower.includes("attachment") || mLower.includes("fit")) specQueryText = "attachment fitment";
+  
+  const followups = topMatches.map(p => {
+    if (specQueryText) {
+      if (specQueryText === "attachment fitment") {
+        const attName = mLower.match(/(pallet fork|auger|breaker|sweeper|snow blower|trencher|grapple)/i)?.[1] || "pallet fork";
+        return `Does ${attName} fit ${p.name}?`;
+      }
+      return `What ${specQueryText} is ${p.name}?`;
+    }
+    return p.name;
+  });
+
   return {
-    markdown: md,
-    products: [machine],
-    followups: ["Compare it with another machine", "What attachments fit it?", "Is shipping free?", "Get a quote"],
+    type: "multi",
+    products: topMatches,
+    clarification,
+    followups
   };
 }
 
-// Full machine profile — the "sales engineer" answer for a named model.
-function composeProfile(machine: ProductRef): Answer {
-  const d = detailOf(machine);
-  if (!d) {
-    return {
-      markdown: `Here's the **${machine.name}** (${machine.categoryLabel}). Open it for full specs and a quote:`,
-      products: [machine],
-      followups: ["Show its key specs", "Compare it with another machine", "What attachments fit it?"],
-    };
-  }
-  const prof = profileFor(d.categoryLabel);
-  const blurb = (d.tagline || d.description || "").split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
-  const keySpecs = d.specs.filter((s) => !/^(category|sku|gtin|current price)$/i.test(s.label)).slice(0, 6);
+function checkAttachmentCompatibility(query: string, machine: ProductRef): string {
+  const q = query.toLowerCase();
+  let attTerm = "";
+  if (q.includes("pallet fork") || q.includes("fork")) attTerm = "pallet fork";
+  else if (q.includes("wood grabber") || q.includes("grabber") || q.includes("grapple")) attTerm = "grabber";
+  else if (q.includes("sweeper") || q.includes("broom")) attTerm = "sweeper";
+  else if (q.includes("snow blower") || q.includes("snowblower")) attTerm = "snow blower";
+  else if (q.includes("trencher") || q.includes("chain trencher")) attTerm = "trencher";
+  else if (q.includes("mulcher") || q.includes("forestry mulcher")) attTerm = "mulcher";
+  else if (q.includes("breaker") || q.includes("hammer") || q.includes("rock breaker")) attTerm = "breaker";
+  else if (q.includes("auger") || q.includes("drill")) attTerm = "auger";
+  else if (q.includes("bucket")) attTerm = "bucket";
 
-  let md = `## ${d.name}\n\n`;
-  md += `A **${d.categoryLabel}**${d.weight ? ` at ${d.weight}` : ""}. ${blurb}\n\n`;
-  if (keySpecs.length) {
-    md += `**Key specs**\n\n| Spec | Value |\n|---|---|\n`;
-    for (const s of keySpecs) md += `| ${s.label} | ${s.value} |\n`;
-    md += "\n";
+  if (!attTerm) {
+    return "I do not have confirmed fitment data for this attachment. Please contact sales before buying.";
   }
-  if (prof) md += `**Best for:** ${prof.bestFor.slice(0, 4).join(", ")}.\n\n`;
-  const apps = d.applications && d.applications.length ? d.applications.slice(0, 5).join(", ") : "";
-  if (apps) md += `**Common applications:** ${apps}.\n\n`;
-  const att = attachmentHint(d.categoryLabel);
-  if (att) md += `**Compatible attachments:** ${att} _(fitment confirmed per unit)._\n\n`;
-  md += getPurchaseNote();
+
+  const modelNameClean = machine.name.replace(/typhon\s+/i, "").toLowerCase();
+  
+  const matchedAttachment = typhonProducts.find(p => {
+    if (p.productType !== "attachment") return false;
+    const nameLower = p.name.toLowerCase();
+    const descLower = (p.description || "").toLowerCase();
+    
+    const matchesTerm = nameLower.includes(attTerm);
+    if (!matchesTerm) return false;
+    
+    return nameLower.includes(modelNameClean) || descLower.includes(modelNameClean);
+  });
+
+  if (matchedAttachment) {
+    return `### Attachment Fitment\n\n**${matchedAttachment.name}** is listed for **${machine.name}** and is fully compatible.\n\n[View Attachment Page](/typhon-machinery/${matchedAttachment.id})`;
+  }
+
+  return "I do not have confirmed fitment data for this attachment. Please contact sales before buying.";
+}
+
+function composeDirectSpecAnswer(machine: ProductRef, query: string): Answer {
+  const d = detailOf(machine);
+  const q = query.toLowerCase();
+  const config = getChatbotConfig();
+  
+  let specName = "";
+  let specValueText: string | undefined = undefined;
+  let explanation = "";
+
+  const NO_SPEC_MSG = config.missingDataNotes || "I do not have that exact spec listed in the current product data.";
+
+  if (/\b(horsepower|hp|power)\b/i.test(q)) {
+    specName = "Horsepower";
+    specValueText = d ? (specValue(d, /horsepower|hp/i) || specValue(d, /engine/i)?.match(/(\d+)\s*hp/i)?.[0]) : undefined;
+    if (specValueText && !specValueText.toLowerCase().includes("hp")) {
+      specValueText = `${specValueText} HP`;
+    }
+  } else if (/\b(engine|motor)\b/i.test(q)) {
+    specName = "Engine";
+    specValueText = d ? specValue(d, /engine/i) : undefined;
+  } else if (/\b(weight|heavy)\b/i.test(q)) {
+    specName = "Weight";
+    specValueText = d ? (d.weight || specValue(d, /weight/i)) : undefined;
+  } else if (/\b(price|cost)\b/i.test(q)) {
+    specName = "Price";
+    specValueText = d ? d.price : undefined;
+    explanation = "Final price and availability should be confirmed with sales.";
+  } else if (/\b(lift capacity|lift|lifting)\b/i.test(q)) {
+    specName = "Lift Capacity";
+    specValueText = d ? specValue(d, /lift capacity|operating capacity|load capacity/i) : undefined;
+  } else if (/\b(digging depth|dig depth|deep|depth)\b/i.test(q)) {
+    specName = "Digging Depth";
+    specValueText = d ? specValue(d, /digging depth|dig depth/i) : undefined;
+  } else if (/\b(bucket|bucket capacity)\b/i.test(q)) {
+    specName = "Bucket Capacity";
+    specValueText = d ? specValue(d, /bucket capacity|bucket/i) : undefined;
+  } else if (/\b(hydraulic|hydraulic flow|flow|gpm)\b/i.test(q)) {
+    specName = "Hydraulic Flow";
+    specValueText = d ? specValue(d, /hydraulic flow|hydraulic|flow/i) : undefined;
+  } else if (/\b(fuel)\b/i.test(q)) {
+    specName = "Fuel Type";
+    specValueText = d ? specValue(d, /fuel/i) : undefined;
+  } else if (/\b(size|dimensions?)\b/i.test(q)) {
+    specName = "Dimensions";
+    specValueText = d ? specValue(d, /dimensions|size/i) : undefined;
+  } else if (/\b(travel speed|speed)\b/i.test(q)) {
+    specName = "Travel Speed";
+    specValueText = d ? specValue(d, /travel speed|speed/i) : undefined;
+  } else if (/\b(warranty)\b/i.test(q)) {
+    specName = "Warranty";
+    specValueText = config.warrantyText;
+  } else if (/\b(shipping)\b/i.test(q)) {
+    specName = "Shipping";
+    specValueText = config.shippingNotes;
+  }
+
+  let md = "";
+  if (specValueText) {
+    md += `### ${machine.name} ${specName}\n`;
+    md += `**${specValueText}**\n\n`;
+    if (explanation) {
+      md += `${explanation}\n\n`;
+    }
+  } else {
+    md += `### ${machine.name} ${specName || "Specification"}\n`;
+    md += `I do not have the exact ${specName.toLowerCase()} listed in the current product data.\n\n`;
+    md += `**Available details:**\n`;
+    md += `* Engine: ${d ? (specValue(d, /engine/i) || "Not listed") : "Not listed"}\n`;
+    md += `* Category: ${machine.categoryLabel || "Not listed"}\n`;
+    md += `* Product page: ${machine.href ? `[View Catalog Page](${machine.href})` : "Not listed"}\n`;
+  }
 
   return {
     markdown: md,
     products: [machine],
-    links: relatedBlog(`${d.name} ${d.categoryLabel}`),
-    followups: ["Compare it with another machine", "What attachments fit it?", "Is it good for my job?", "Get a quote"],
+    links: [{ label: `View TYPHON ${machine.name}`, href: machine.href }],
+    followups: [
+      `${machine.name} horsepower`,
+      `${machine.name} weight`,
+      `${machine.name} engine`,
+      `${machine.name} price`,
+      "Compare this machine",
+      "Check attachment fitment",
+      "Contact sales"
+    ]
+  };
+}
+
+function composeGeneralOverview(machine: ProductRef): Answer {
+  const d = detailOf(machine);
+  const config = getChatbotConfig();
+  const NO_SPEC = "Not listed";
+
+  let engineVal = NO_SPEC;
+  let hpVal = NO_SPEC;
+  let weightVal = NO_SPEC;
+  let capVal = NO_SPEC;
+  let attVal = NO_SPEC;
+  let bestFor = "Small construction jobs, property work, landscaping, farm or material handling, and tight work areas.";
+  let features: string[] = [];
+
+  if (d) {
+    engineVal = d.specs.find(s => /engine model|engine/i.test(s.label))?.value || NO_SPEC;
+    hpVal = d.specs.find(s => /horsepower|hp/i.test(s.label))?.value || d.specs.find(s => /engine/i.test(s.label))?.value?.match(/(\d+)\s*hp/i)?.[0] || NO_SPEC;
+    weightVal = d.weight || d.specs.find(s => /weight/i.test(s.label))?.value || NO_SPEC;
+    capVal = d.specs.find(s => /capacity|digging force|dig depth/i.test(s.label))?.value || NO_SPEC;
+    attVal = d.specs.find(s => /attachment/i.test(s.label))?.value || NO_SPEC;
+
+    const prof = profileFor(d.categoryLabel);
+    if (prof) {
+      bestFor = prof.bestFor.join(", ");
+    }
+    
+    if (d.features && d.features.length) {
+      features = d.features.slice(0, 3);
+    } else if (d.description) {
+      const bullets = d.description.split(/(?:✔|•|-|\*)\s+/).slice(1, 4).map(s => s.split("\n")[0].trim()).filter(Boolean);
+      if (bullets.length) features = bullets;
+    }
+  }
+
+  if (features.length < 3) {
+    features = [
+      "Compact design optimized for tight work environments.",
+      "High-efficiency hydraulic system for smooth controls.",
+      "Robust undercarriage build for reliable jobsite traction."
+    ];
+  }
+
+  let md = `### TYPHON ${machine.name}\n\n`;
+  md += `**Best for:** ${bestFor}\n\n`;
+  md += `**Key specs:**\n`;
+  md += `* Engine: ${engineVal}\n`;
+  md += `* Horsepower: ${hpVal}\n`;
+  md += `* Operating weight: ${weightVal}\n`;
+  md += `* Capacity: ${capVal}\n`;
+  md += `* Attachments: ${attVal}\n\n`;
+  
+  md += `**Good for:**\n`;
+  for (const f of features) {
+    md += `* ${f}\n`;
+  }
+  md += `\n`;
+  
+  md += `1-year warranty + lifetime technical support.\n\n`;
+  md += `${config.shippingNotes}`;
+
+  return {
+    markdown: md,
+    products: [machine],
+    links: [{ label: `View TYPHON ${machine.name}`, href: machine.href }],
+    followups: [
+      `${machine.name} horsepower`,
+      `${machine.name} weight`,
+      `${machine.name} engine`,
+      `${machine.name} price`,
+      "Compare this machine",
+      "Check attachment fitment",
+      "Contact sales"
+    ]
+  };
+}
+
+
+function formatTyphonOverview(machine: ProductRef): string {
+  const d = detailOf(machine);
+  const NO_SPEC = "I do not have that exact spec in the current product data. Please confirm with the sales team before buying.";
+  
+  if (!d) {
+    return `### TYPHON Machine Overview\n\n**TYPHON ${machine.name}** is designed for **compact jobsite work** such as digging, loading, lifting, trenching, grading, hauling, or compact work.\n\n**Best for:**\n* Small construction jobs\n* Property work\n* Landscaping\n* Farm or material handling\n* Tight work areas\n\n**Key details:**\n* Engine: ${NO_SPEC}\n* Operating weight: ${NO_SPEC}\n* Lift / digging / loading capacity: ${NO_SPEC}\n* Attachments: ${NO_SPEC}\n\n[1-Year Warranty] [Lifetime Technical Support]\n\nShipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.`;
+  }
+
+  let mainJob = "compact jobsite work";
+  const cat = d.categoryLabel.toLowerCase();
+  if (cat.includes("excavator")) mainJob = "digging, trenching, and excavation";
+  else if (cat.includes("skid steer") || cat.includes("loader")) mainJob = "loading, grading, and material handling";
+  else if (cat.includes("forklift")) mainJob = "lifting and pallet handling";
+  else if (cat.includes("roller")) mainJob = "compaction and road prep";
+  else if (cat.includes("dumper")) mainJob = "hauling and bulk material transport";
+
+  let engineVal = d.specs.find(s => /engine/i.test(s.label))?.value;
+  if (!engineVal) {
+    engineVal = NO_SPEC;
+  }
+
+  let weightVal = d.specs.find(s => /weight/i.test(s.label))?.value || d.weight;
+  if (!weightVal) {
+    weightVal = NO_SPEC;
+  }
+
+  let capVal = d.specs.find(s => /capacity|digging force|dig depth|maximum digging/i.test(s.label))?.value;
+  if (!capVal) {
+    capVal = NO_SPEC;
+  }
+
+  let attVal = d.specs.find(s => /attachment/i.test(s.label))?.value;
+  if (!attVal && d.description && d.description.toLowerCase().includes("attachment")) {
+    const match = d.description.match(/(?:with|includes?)\s+([^.\n]+attachments?)/i);
+    if (match) attVal = match[0];
+  }
+  if (!attVal) {
+    attVal = NO_SPEC;
+  }
+
+  return `### TYPHON Machine Overview
+
+**TYPHON ${d.name}** is designed for **${mainJob}** such as digging, loading, lifting, trenching, grading, hauling, or compact jobsite work.
+
+**Best for:**
+* Small construction jobs
+* Property work
+* Landscaping
+* Farm or material handling
+* Tight work areas
+
+**Key details:**
+* Engine: ${engineVal}
+* Operating weight: ${weightVal}
+* Lift / digging / loading capacity: ${capVal}
+* Attachments: ${attVal}
+
+[1-Year Warranty] [Lifetime Technical Support]
+
+Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.`;
+}
+
+function composeSpecs(machine: ProductRef | undefined, query: string): Answer {
+  if (!machine) {
+    return {
+      markdown: "Happy to pull up specs — which TYPHON machine do you mean? Tell me the model (e.g. *TERROR XI*) or let me recommend one for your job.",
+      followups: ["Find the right TYPHON machine", "Compare TYPHON equipment"],
+    };
+  }
+  
+  const isPrelaunchNote = machine.brand === "Konstructz";
+  const typhonMachine = findTyphonEquivalent(machine);
+  
+  let prefix = "";
+  if (isPrelaunchNote) {
+    prefix = `*Note: Konstructz is currently being prepared as a machinery catalog platform. Right now, I can help you with available TYPHON Machinery machines and product details.*\n\nHere are the key specs for the equivalent featured model, the **${typhonMachine.name}**:\n\n`;
+  }
+  
+  const md = prefix + formatTyphonOverview(typhonMachine);
+  return {
+    markdown: md,
+    products: [typhonMachine],
+    followups: ["Compare it with another machine", "What attachments fit it?", "Contact sales for buying help"]
+  };
+}
+
+function composeProfile(machine: ProductRef): Answer {
+  const isPrelaunchNote = machine.brand === "Konstructz";
+  const typhonMachine = findTyphonEquivalent(machine);
+
+  let prefix = "";
+  if (isPrelaunchNote) {
+    prefix = `*Note: Konstructz is currently being prepared as a machinery catalog platform. Right now, I can help you with available TYPHON Machinery machines and product details.*\n\nHere is the equivalent featured model, the **${typhonMachine.name}**:\n\n`;
+  }
+
+  const md = prefix + formatTyphonOverview(typhonMachine);
+  return {
+    markdown: md,
+    products: [typhonMachine],
+    links: [{ label: `View ${typhonMachine.name}`, href: typhonMachine.href }],
+    followups: ["Compare it with another machine", "What attachments fit it?", "Contact sales for buying help"]
   };
 }
 
@@ -1451,7 +1860,7 @@ function composeFallback(): Answer {
 
 /* ───────────────────────────── Main reply ──────────────────────────── */
 
-export function getReply(raw: string, prev: ChatMemory, lang: string = "EN"): { answer: Answer; memory: ChatMemory } {
+export function getReply(raw: string, prev: ChatMemory, lang: string = "EN", pathname: string = ""): { answer: Answer; memory: ChatMemory } {
   const m = raw.trim();
   const mLower = m.toLowerCase();
   const memory: ChatMemory = { ...prev, slots: { ...prev.slots, ...extractSlots(mLower) }, turn: prev.turn + 1 };
@@ -1464,6 +1873,24 @@ export function getReply(raw: string, prev: ChatMemory, lang: string = "EN"): { 
     memory.activeCategory = namedNow[0].categoryLabel;
   } else if (catsNow.length === 1 && (!memory.activeCategory || memory.activeCategory !== catsNow[0])) {
     memory.activeCategory = catsNow[0];
+  }
+
+  // Page-aware setup
+  if (pathname) {
+    const pageProductRef = PRODUCT_REFS.find(r => r.href === pathname);
+    if (pageProductRef) {
+      memory.activeMachine = pageProductRef;
+      memory.activeCategory = pageProductRef.categoryLabel;
+    } else {
+      const catMatch = pathname.match(/\/product\/([^/]+)/);
+      if (catMatch) {
+        const catSlug = catMatch[1];
+        const matchedCat = PRODUCT_REFS.find(r => r.categoryLabel.toLowerCase().replace(/\s+/g, "-") === catSlug || r.categoryLabel.toLowerCase().replace(/\s+/g, "-") + "s" === catSlug);
+        if (matchedCat) {
+          memory.activeCategory = matchedCat.categoryLabel;
+        }
+      }
+    }
   }
 
   const finish = (answer: Answer, patch: Partial<ChatMemory> = {}): { answer: Answer; memory: ChatMemory } => {
@@ -1488,91 +1915,96 @@ export function getReply(raw: string, prev: ChatMemory, lang: string = "EN"): { 
   // Intercept guided machine finder flows
   if (prev.awaiting === "job_finder_1") {
     let jobType = "digging";
-    if (/\b(load|loader|spreading|pallets|forks)\b/.test(mLower)) jobType = "loading";
-    else if (/\b(move|moving|haul|dumper|site dumper|transport)\b/.test(mLower)) jobType = "moving";
-    else if (/\b(crush|crusher|rock|stone|aggregate)\b/.test(mLower)) jobType = "crushing";
-    else if (/\b(farm|property|garden|landscap)\b/.test(mLower)) jobType = "farm";
+    if (/\b(load|loader|spreading|grading)\b/.test(mLower)) jobType = "loading";
+    else if (/\b(lift|lifting|fork|forks|pallet|pallets)\b/.test(mLower)) jobType = "lifting";
+    else if (/\b(move|moving|haul|dumper|site dumper|transport|hauling)\b/.test(mLower)) jobType = "hauling";
+    else if (/\b(crush|crusher|rock|stone|aggregate|crushing)\b/.test(mLower)) jobType = "crushing";
 
     const nextSlots = { ...prev.slots, job: jobType };
     return finish({
-      markdown: `### Job-Based Machine Finder (Step 2/3)
-
-Got it! Next, **what material are you moving or working with?** (e.g., dirt, gravel, rocks, sand, concrete, logs, pallets, or brush?)`,
+      markdown: `### Job-Based Machine Finder (Step 2/5)\n\nGot it! Next, **what material are you moving or working with?** (e.g., dirt, gravel, rocks, sand, concrete, logs, pallets, or brush?)`,
       followups: ["Dirt and gravel", "Rocks and concrete", "Pallets and logs", "Cancel request"]
     }, { awaiting: "job_finder_2", slots: nextSlots });
   }
 
   if (prev.awaiting === "job_finder_2") {
-    const nextSlots = { ...prev.slots, terrain: m };
+    const nextSlots = { ...prev.slots, material: m };
     return finish({
-      markdown: `### Job-Based Machine Finder (Step 3/3)
-
-Almost done! **Is the work area tight or open?**
-
-- **Tight space** (narrow backyard, tight driveway, working close to structures)
-- **Open space** (large open lot, commercial site, open farm fields)`,
+      markdown: `### Job-Based Machine Finder (Step 3/5)\n\n**Is the work area tight or open?**`,
       followups: ["Tight space", "Open space", "Cancel request"]
     }, { awaiting: "job_finder_3", slots: nextSlots });
   }
 
   if (prev.awaiting === "job_finder_3") {
+    const nextSlots = { ...prev.slots, terrain: m };
+    return finish({
+      markdown: `### Job-Based Machine Finder (Step 4/5)\n\n**Do you need attachments?** (e.g., auger, breaker, grapple, forks, thumb clip, or standard bucket?)`,
+      followups: ["Need attachments", "Standard bucket only", "Cancel request"]
+    }, { awaiting: "job_finder_4", slots: nextSlots });
+  }
+
+  if (prev.awaiting === "job_finder_4") {
+    const nextSlots = { ...prev.slots, attachments: m };
+    return finish({
+      markdown: `### Job-Based Machine Finder (Step 5/5)\n\nFinally, **do you need electric, diesel, or gas if available?**`,
+      followups: ["Electric", "Diesel", "Gasoline / Gas", "No preference", "Cancel request"]
+    }, { awaiting: "job_finder_5", slots: nextSlots });
+  }
+
+  if (prev.awaiting === "job_finder_5") {
     if (mLower.includes("cancel")) {
       return finish({
         markdown: `Cancelled machine finder. How else can I help you today?`,
-        followups: ["Compare machines", "Browse categories"]
+        followups: ["Compare TYPHON equipment", "Find the right TYPHON machine"]
       }, { awaiting: null, slots: {} });
     }
-    const isTight = /\b(tight|narrow|backyard|small|confine)\b/.test(mLower);
+    
+    const fuelPref = mLower;
+    const isTight = /\b(tight|narrow|backyard|small|confine)\b/.test((prev.slots.terrain || "").toLowerCase());
     const job = prev.slots.job || "digging";
 
-    let recommendedModel = "KUVUO 2.5";
-    let explanation = "";
+    let recommendedModel = "TERROR XI";
 
-    if (job === "digging") {
+    if (job === "digging" || job === "trenching") {
       if (isTight) {
-        recommendedModel = "KUVUO 2.5";
-        explanation = "The **KUVUO 2.5** is our zero-tail-swing mini excavator. It is designed precisely for tight utility lines, foundations, and residential backyard digging. It supports attachments like trenching buckets, thumbs, and breakers.";
+        recommendedModel = "TERROR XI";
       } else {
-        recommendedModel = "SCOOPYDIG";
-        explanation = "The **SCOOPYDIG** is a highly versatile backhoe loader. In open spaces, it lets a single operator execute both bulk excavation with the rear backhoe arm and loading/grading with the front loader bucket.";
+        recommendedModel = "TYPHON Tyrant 17";
       }
-    } else if (job === "loading") {
+    } else if (job === "loading" || job === "grading") {
       if (isTight) {
-        recommendedModel = "STOMP V980";
-        explanation = "The **STOMP V980** mini skid steer is our most versatile compact loader. Its compact stand-on platform allows you to maneuver through tight gates while carrying heavy pallets, dirt, or gravel, and swap attachments like pallet forks, augers, or buckets in seconds.";
+        recommendedModel = "TYPHON Stomp V1000";
       } else {
-        recommendedModel = "SKOOP II";
-        explanation = "The **SKOOP II** wheel loader is a heavy-duty material loader. It features a robust articulated chassis and large bucket capacity, making it perfect for moving dirt and stockpiling aggregate on open lots or farms.";
+        recommendedModel = "TYPHON SKOOP";
       }
-    } else if (job === "moving") {
-      recommendedModel = "THUNDERDUMP";
-      explanation = "The **THUNDERDUMP** site dumper is our dedicated bulk material hauler. With its high payload capacity and robust traction system, it is designed to move serious volumes of dirt, gravel, or debris across uneven jobsites.";
+    } else if (job === "lifting") {
+      if (fuelPref.includes("electric")) {
+        recommendedModel = "TYPHON VIGOR 2.0";
+      } else {
+        recommendedModel = "TYPHON Forklift (2.5 Ton)";
+      }
+    } else if (job === "hauling") {
+      recommendedModel = "TYPHON 0501R";
     } else if (job === "crushing") {
-      recommendedModel = "STONEKRUSHER K1";
-      explanation = "The **STONEKRUSHER K1** mobile jaw crusher is built to process demolition concrete, asphalt, and stone on-site. By reducing debris to reusable aggregate, it saves huge hauling and disposal fees.";
+      recommendedModel = "TERROR XI";
     } else {
-      recommendedModel = "STOMP V950";
-      explanation = "The **STOMP V950** or a towable compact excavator is a great general-purpose choice for farm and property maintenance. It lets you run trenchers, augers, and log grabs without a massive footprint.";
+      recommendedModel = "TERROR XI";
     }
 
-    const ref = PRODUCT_REFS.find(r => r.name.toUpperCase() === recommendedModel.toUpperCase()) || PRODUCT_REFS[0];
+    const ref = PRODUCT_REFS.find(r => r.brand === "Typhon" && r.name.toUpperCase().includes(recommendedModel.toUpperCase())) || PRODUCT_REFS.find(r => r.brand === "Typhon") || PRODUCT_REFS[0];
 
-    const markdown = `### Recommended Machine
+    const markdown = `### Recommended TYPHON Machine
 
-Based on your project requirements, I recommend the **${ref.name}** (${ref.categoryLabel}).
+Based on your project requirements (Job: ${job}, Space: ${isTight ? "Tight" : "Open"}, Material: ${prev.slots.terrain || "General"}):
 
-**Why it fits:**
-${explanation}
+${formatTyphonOverview(ref)}
 
-**Support included:**
-[1-year warranty + lifetime technical support] [Free Shipping]
-
-Would you like our heavy machinery team to confirm this recommendation and contact you with a direct shipping rate, financing options, or quote?`;
+Would you like our sales team to confirm this recommendation and contact you with a direct shipping rate, financing options, or quote?`;
 
     return finish({
       markdown,
       products: [ref],
-      followups: ["Yes, contact me", "Explain warranty", "Check attachments", "Restart machine finder"]
+      followups: ["Yes, contact me", "Compare TYPHON equipment", "TYPHON attachments & fitment", "Restart machine finder"]
     }, { awaiting: "ask_lead_capture" });
   }
 
@@ -1668,6 +2100,51 @@ A Konstructz representative will contact you shortly (typically within 1-2 busin
         const followups = generateFollowups("Greeting", m, memory);
         return finish({ markdown: text, followups }, { lastIntent: "Greeting" });
       }
+
+      if (pathname) {
+        const isProductPage = pathname.startsWith("/equipment/") || pathname.startsWith("/typhon-machinery/");
+        const isSupportPage = pathname.startsWith("/support");
+        const isBlogPage = pathname.startsWith("/blog") || pathname.startsWith("/media");
+        const isAttachmentPage = pathname.startsWith("/attachments");
+        const isCategoryPage = pathname.startsWith("/product/");
+
+        if (isProductPage && memory.activeMachine) {
+          return finish({
+            markdown: `### TYPHON ${memory.activeMachine.name}\n\nI see you are viewing the **TYPHON ${memory.activeMachine.name}**. I can help you with its horsepower, operating weight, price, engine model, or confirmed attachments. What would you like to know?`,
+            followups: [
+              `${memory.activeMachine.name} horsepower`,
+              `${memory.activeMachine.name} weight`,
+              `What attachments fit ${memory.activeMachine.name}?`,
+              "Compare this machine"
+            ]
+          }, { lastIntent: "Greeting" });
+        }
+        if (isAttachmentPage) {
+          return finish({
+            markdown: `### Attachments & Fitment\n\nI see you are browsing our **attachments** catalog. Please note that fitment depends on your machine's coupler and auxiliary hydraulic flow. What machine model do you currently own, or are you considering? I can check if our attachments are compatible.`,
+            followups: ["Does pallet fork fit STOMP 509?", "Check attachment fitment", "Browse loaders"]
+          }, { lastIntent: "Greeting" });
+        }
+        if (isSupportPage) {
+          return finish({
+            markdown: `### Warranty, Shipping & Support\n\nEvery machine includes a standard **1-year warranty + lifetime technical support**. Shipping is available in the USA (overseas orders must contact sales first). What support details can I help you find today?`,
+            followups: ["What does the warranty cover?", "How does shipping work?", "Do you offer financing?", "Contact sales"]
+          }, { lastIntent: "Greeting" });
+        }
+        if (isBlogPage) {
+          return finish({
+            markdown: `### Machinery Education & Guides\n\nI can help explain compact machinery concepts simply or recommend models for different applications. What project or jobsite tasks are you preparing for?`,
+            followups: ["Explain machinery terms simply", "Find the right TYPHON machine", "Compare equipment"]
+          }, { lastIntent: "Greeting" });
+        }
+        if (isCategoryPage && memory.activeCategory) {
+          return finish({
+            markdown: `### ${memory.activeCategory}\n\nI see you are browsing our **${memory.activeCategory}** category. I can help you compare models in this class, check specifications, or recommend the best match for your work site.`,
+            followups: ["Find the right machine", "Compare models in this class", "Show all category specs"]
+          }, { lastIntent: "Greeting" });
+        }
+      }
+
       const greet = pick([
         "Hi there! I'm the Konstructz machinery helper. I can help you find the right machine, compare specs, check attachments compatibility, or answer support questions.",
         "Hello! Looking for compact construction equipment or attachments? Tell me what job you are doing, or ask me about any model like KUVUO 2.5 or STOMP V980."
@@ -1700,23 +2177,34 @@ A Konstructz representative will contact you shortly (typically within 1-2 busin
     }
 
     case "Product question": {
-      const machine = namedNow[0] || (isFollowupRef ? memory.activeMachine : undefined);
-      const hasSpecKeywords = /\b(spec|specification|weight|engine|horsepower|\bhp\b|capacity|dimensions?|hydraulic|flow|gpm|digging depth|dig depth|reach|lift(ing)? (height|capacity)|fuel|travel speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(mLower);
+      const resolved = resolveMatchedProducts(mLower, mLower);
+      
+      if (resolved.type === "multi") {
+        return finish({
+          markdown: resolved.clarification!,
+          followups: resolved.followups || resolved.products.map(p => p.name)
+        }, { lastIntent: "Product question" });
+      }
+      
+      const machine = resolved.type === "single" ? resolved.products[0] : (isFollowupRef || (pathname && (pathname.startsWith("/equipment/") || pathname.startsWith("/typhon-machinery/"))) ? memory.activeMachine : undefined);
+      const hasSpecKeywords = /\b(spec|specification|horsepower|hp|power|engine|motor|weight|price|cost|lift|lifting|height|digging depth|dig depth|deep|depth|bucket|hydraulic|flow|gpm|fuel|size|dimensions?|attachments?|fitment|warranty|shipping|travel speed|speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(mLower);
       
       let ans: Answer;
-      if (hasSpecKeywords || SPEC_QUERY.some((s) => s.re.test(mLower))) {
-        ans = composeSpecs(machine, m);
-      } else if (machine) {
-        ans = composeProfile(machine);
-        ans.markdown += "\n\n---\n\n**Planning a purchase?** To help confirm if this machine is the right fit for your work, could you tell me:\n1. **What job** do you need the machine for? (digging, trenching, loading, hauling, crushing, lifting…)\n2. **What material** are you moving?\n3. **Where** will you use it?";
+      if (machine) {
+        if (hasSpecKeywords || SPEC_QUERY.some((s) => s.re.test(mLower))) {
+          ans = composeDirectSpecAnswer(machine, m);
+        } else {
+          ans = composeGeneralOverview(machine);
+        }
       } else {
         ans = {
-          markdown: "Happy to pull up specs or machine details — which machine do you mean? Tell me the model (e.g. *KUVUO 2.5*) or let me recommend one for your job.",
-          followups: ["Recommend a machine", "Compare machines"],
+          markdown: "Happy to pull up specs or machine details — which TYPHON machine do you mean? Tell me the model (e.g. *TERROR XI* or *STOMP 509*) or let me recommend one for your job.",
+          followups: ["Find the right TYPHON machine", "Compare TYPHON equipment"],
         };
       }
+      
       const followups = generateFollowups("Product question", m, memory);
-      return finish({ ...ans, followups }, { lastIntent: "Product question" });
+      return finish({ ...ans, followups: ans.followups || followups }, { lastIntent: "Product question" });
     }
 
     case "Typhon Machinery question": {
@@ -1865,7 +2353,25 @@ Tell me which job fits best, or describe your task.`,
     }
 
     case "Attachment compatibility": {
-      const machine = namedNow[0] || (isFollowupRef ? memory.activeMachine : undefined);
+      const resolved = resolveMatchedProducts(mLower, mLower);
+      const machine = resolved.type === "single" ? resolved.products[0] : (isFollowupRef ? memory.activeMachine : undefined);
+      
+      if (resolved.type === "multi") {
+        return finish({
+          markdown: resolved.clarification!,
+          followups: resolved.followups || resolved.products.map(p => `Does pallet fork fit ${p.name}?`).concat(["TYPHON attachments & fitment"])
+        }, { lastIntent: "Attachment compatibility" });
+      }
+
+      if (machine) {
+        const fitmentText = checkAttachmentCompatibility(mLower, machine);
+        return finish({
+          markdown: fitmentText,
+          products: [machine],
+          followups: ["Compare TYPHON machines", "Check another attachment", "Contact sales"]
+        }, { lastIntent: "Attachment compatibility" });
+      }
+      
       const att = composeAttachments(machine, memory.slots);
       const followups = generateFollowups("Attachment compatibility", m, memory);
       return finish({ ...att, followups }, { lastIntent: "Attachment compatibility" });

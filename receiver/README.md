@@ -1,9 +1,10 @@
 # Product Sync Receiver (framework sites)
 
-Drop this folder onto each e-commerce framework site so the Konstructz admin can
-push product data to it. The receiver downloads images locally, rewrites image
-URLs to local paths, and stores the catalog as a JSON file the site's front-end
-reads — so the site never hits Supabase on a page view.
+Drop this folder onto each e-commerce framework site so the **KiuQ** system
+(Product Sync → Sync Center) can push product data to it. The receiver downloads
+images locally, rewrites image URLs to local paths, and stores the catalog as a
+JSON file the site's front-end reads — so the site never hits Supabase on a page
+view. This site holds **only** the receiver; the admin dashboard lives in KiuQ.
 
 ## Install on a site (Hostinger)
 
@@ -14,7 +15,8 @@ reads — so the site never hits Supabase on a page view.
    cp sync-config.example.php sync-config.php
    ```
    Open `sync-config.php` and paste the **Secret token** shown for this site in
-   the admin (Websites → the site → Secret token). It must match exactly.
+   KiuQ (Product Sync → Connected Websites → the site → Secret token). It must
+   match exactly.
 3. Make sure the target folders are writable by PHP:
    - `public_html/product-images/` (downloaded images, web-served)
    - `public_html/data/` (the `products.json` catalog the SPA fetches)

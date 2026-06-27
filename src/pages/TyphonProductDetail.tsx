@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getTyphonProductById } from "../data/typhonProducts";
 import { TyphonProductSingle } from "../screens/TyphonProductSingle/TyphonProductSingle";
+import { useTyphonProducts } from "../context/ProductsContext";
 
 export const TyphonProductDetail: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
-  const product = getTyphonProductById(productId);
+  const typhonProducts = useTyphonProducts();
+  const product = typhonProducts.find((p) => p.id === productId);
 
   useEffect(() => {
     window.scrollTo(0, 0);

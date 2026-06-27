@@ -62,16 +62,43 @@ const Avatar: React.FC<{ size?: number; className?: string }> = ({ size = 30, cl
 /* ─────────────────────────── Markdown render ───────────────────────── */
 
 const mdComponents = {
-  h2: (p: any) => <h2 className="mb-2 mt-1 font-clofieBold text-[15px] font-bold text-white" {...p} />,
-  h3: (p: any) => <h3 className="mb-1.5 mt-3.5 font-clofieBold text-[13.5px] font-bold text-[#d8c79a]" {...p} />,
+  h1: (p: any) => <h1 className="mb-3.5 mt-1 font-clofieBold text-[16px] font-bold text-white border-b border-[#d8c79a]/15 pb-1" {...p} />,
+  h2: (p: any) => <h2 className="mb-2.5 mt-3.5 font-clofieBold text-[14.5px] font-bold text-white" {...p} />,
+  h3: (p: any) => <h3 className="mb-2 mt-3 font-clofieBold text-[13.5px] font-bold text-[#d8c79a]" {...p} />,
+  h4: (p: any) => <h4 className="mb-1.5 mt-2 font-clofieBold text-[12.5px] font-bold text-white/90" {...p} />,
   p: (p: any) => <p className="mb-2.5 leading-[1.65] text-white/85 last:mb-0" {...p} />,
   ul: (p: any) => <ul className="mb-2.5 list-disc space-y-1.5 pl-4 marker:text-[#d8c79a]" {...p} />,
   ol: (p: any) => <ol className="mb-2.5 list-decimal space-y-1.5 pl-4 marker:text-[#d8c79a]/80" {...p} />,
   li: (p: any) => <li className="leading-[1.55] text-white/85" {...p} />,
   strong: (p: any) => <strong className="font-bold text-white" {...p} />,
   em: (p: any) => <em className="text-[12px] not-italic text-white/45" {...p} />,
-  a: (p: any) => <a className="text-[#d8c79a] underline underline-offset-2 hover:text-white" {...p} />,
-  hr: () => <hr className="my-3 border-white/10" />,
+  del: (p: any) => <span className="bg-[#d8c79a]/10 text-[#d8c79a] border-b border-[#d8c79a]/35 px-1.5 py-0.5 font-medium select-none" {...p} />,
+  a: ({ href, children, ...p }: any) => {
+    if (href && href.startsWith("badge:")) {
+      const type = href.replace("badge:", "");
+      let style = "bg-[#d8c79a]/10 text-[#d8c79a] border border-[#d8c79a]/45";
+      if (type === "shipping") {
+        style = "bg-[#1f5132]/35 text-[#4ade80] border border-[#4ade80]/30";
+      } else if (type === "attachments" || type === "compare") {
+        style = "bg-white/5 text-white/80 border border-white/20";
+      }
+      return (
+        <span className={`inline-flex items-center text-[10px] font-clofieBold font-bold uppercase tracking-wider px-2 py-0.5 rounded-none mr-1.5 last:mr-0 select-none ${style}`}>
+          {children}
+        </span>
+      );
+    }
+    return (
+      <a
+        href={href}
+        className="text-[#d8c79a] underline underline-offset-2 hover:text-white"
+        {...p}
+      >
+        {children}
+      </a>
+    );
+  },
+  hr: () => <hr className="my-3.5 border-white/10" />,
   table: (p: any) => (
     <div className="my-2.5 overflow-x-auto border border-white/10">
       <table className="w-full border-collapse text-[12px]" {...p} />
@@ -83,11 +110,25 @@ const mdComponents = {
   code: (p: any) => <code className="bg-white/10 px-1 text-[#d8c79a]" {...p} />,
 };
 
-const Markdown: React.FC<{ text: string }> = ({ text }) => (
-  <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
-    {text}
-  </ReactMarkdown>
-);
+function injectBadges(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/\[1-year warranty \+ lifetime technical support\]/gi, "[1-year warranty + lifetime technical support](badge:warranty)")
+    .replace(/\[1-Year Warranty\]/gi, "[1-Year Warranty](badge:warranty)")
+    .replace(/\[Lifetime Technical Support\]/gi, "[Lifetime Technical Support](badge:support)")
+    .replace(/\[Free Shipping\]/gi, "[Free Shipping](badge:shipping)")
+    .replace(/\[Attachments\]/gi, "[Attachments](badge:attachments)")
+    .replace(/\[Compare\]/gi, "[Compare](badge:compare)");
+}
+
+const Markdown: React.FC<{ text: string }> = ({ text }) => {
+  const processedText = injectBadges(text);
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+      {processedText}
+    </ReactMarkdown>
+  );
+};
 
 const StreamingMarkdown: React.FC<{ text: string; instant?: boolean; onTick?: () => void; onDone?: () => void }> = ({
   text,
@@ -144,32 +185,82 @@ const SparkIcon = () => (
 
 const CardGlyphs = {
   machine: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2.5" y="14" width="9" height="3.5" rx="1" /><circle cx="5" cy="19.5" r="1.6" /><circle cx="9" cy="19.5" r="1.6" /><path d="M5 14v-3h3.5v3M8.5 11.5l4-2 3 3.5" /><path d="M14.5 13l3 .5 1-2" />
     </svg>
   ),
   compare: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 7H3l2-2M8 7l-2 2M16 17h5l-2-2M16 17l2 2" /><path d="M3 7h13M21 17H8" />
     </svg>
   ),
   wrench: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8a1.8 1.8 0 0 0 2.5 2.5l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.3 2.3-2-2z" />
     </svg>
   ),
-  shield: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" />
+  company: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+      <line x1="9" y1="22" x2="9" y2="16" />
+      <line x1="15" y1="22" x2="15" y2="16" />
+      <line x1="9" y1="16" x2="15" y2="16" />
+      <path d="M8 6h2M8 10h2M14 6h2M14 10h2" />
+    </svg>
+  ),
+  support: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M9 11l2 2 4-4" />
+    </svg>
+  ),
+  truck: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="1" y="3" width="15" height="13" />
+      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+      <circle cx="5.5" cy="18.5" r="2.5" />
+      <circle cx="18.5" cy="18.5" r="2.5" />
     </svg>
   ),
 };
 
 const SUGGESTION_CARDS = [
-  { glyph: CardGlyphs.machine, title: "Find the right machine", sub: "Tell me your job & site", q: "Which machine is right for my job?" },
-  { glyph: CardGlyphs.compare, title: "Compare machines", sub: "Specs, pros & cons", q: "Compare a mini excavator and a skid steer" },
-  { glyph: CardGlyphs.wrench, title: "Attachments & fitment", sub: "What fits your machine", q: "What attachments fit a mini excavator?" },
-  { glyph: CardGlyphs.shield, title: "Warranty & support", sub: "Coverage, shipping, parts", q: "What does the warranty cover?" },
+  {
+    glyph: CardGlyphs.machine,
+    title: "Find the right machine",
+    sub: "Excavators, skid steers, loaders & more",
+    q: "Help me find the right machine for my job."
+  },
+  {
+    glyph: CardGlyphs.compare,
+    title: "Compare equipment",
+    sub: "Check specs, use cases, pros & cons",
+    q: "Compare machines for me."
+  },
+  {
+    glyph: CardGlyphs.wrench,
+    title: "Attachments & fitment",
+    sub: "See what fits your machine",
+    q: "What attachments fit my machine?"
+  },
+  {
+    glyph: CardGlyphs.company,
+    title: "Company & product help",
+    sub: "Learn about Konstructz and available machines",
+    q: "Tell me about Konstructz and what you sell."
+  },
+  {
+    glyph: CardGlyphs.support,
+    title: "Warranty & lifetime support",
+    sub: "1-year warranty + lifetime technical support",
+    q: "Explain the 1-year warranty and lifetime support."
+  },
+  {
+    glyph: CardGlyphs.truck,
+    title: "Shipping, financing & returns",
+    sub: "Get help before you buy",
+    q: "Help me with shipping, financing, or returns."
+  }
 ];
 
 /* ─────────────────────────── Main widget ───────────────────────────── */
@@ -401,29 +492,34 @@ const WelcomeHero: React.FC<{ onPick: (q: string) => void }> = ({ onPick }) => (
     <h2 className="kz-rise mt-4 font-clofieBold text-[22px] font-bold leading-tight text-white" style={{ animationDelay: "60ms" }}>
       Konstructz Assistant
     </h2>
-    <p className="kz-rise mt-2 max-w-[300px] font-googleSans text-[13px] leading-relaxed text-white/60" style={{ animationDelay: "120ms" }}>
-      Your machinery expert. I help you choose the right machine, compare models, check attachments and fitment, and answer warranty, shipping, financing & support questions.
+    <p className="kz-rise mt-2 max-w-[320px] font-googleSans text-[13px] leading-relaxed text-white/60" style={{ animationDelay: "120ms" }}>
+      Your machinery expert. I help you choose the right machine, compare models, check attachments and fitment, and answer shipping, financing, support, and 1-year warranty + lifetime technical support questions.
     </p>
 
-    <div className="mt-6 grid w-full grid-cols-2 gap-2.5 text-left">
+    <div className="mt-6 flex flex-col gap-2.5 w-full text-left">
       {SUGGESTION_CARDS.map((c, i) => (
         <button
           key={c.title}
           type="button"
           onClick={() => onPick(c.q)}
-          className="kz-rise group flex flex-col gap-2 border border-white/10 bg-[#1d1e1a] p-3 transition hover:border-[#d8c79a]/50 hover:bg-[#23241f]"
-          style={{ animationDelay: `${180 + i * 70}ms` }}
+          className="kz-rise group flex items-center gap-3.5 border border-white/10 bg-[#1d1e1a] px-4 py-3 transition hover:border-[#d8c79a]/50 hover:bg-[#23241f] active:bg-[#1a1b17] rounded-none"
+          style={{ animationDelay: `${180 + i * 50}ms` }}
         >
-          <span className="flex h-9 w-9 items-center justify-center border border-[#d8c79a]/30 bg-[#d8c79a]/10 text-[#d8c79a] transition group-hover:bg-[#d8c79a]/20">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#d8c79a]/30 bg-[#d8c79a]/10 text-[#d8c79a] transition group-hover:bg-[#d8c79a]/20 rounded-none">
             {c.glyph}
           </span>
-          <span className="font-clofieBold text-[12.5px] font-bold leading-tight text-white">{c.title}</span>
-          <span className="font-googleSans text-[10.5px] leading-snug text-white/45">{c.sub}</span>
+          <div className="flex-1 min-w-0">
+            <span className="block font-clofieBold text-[13px] font-bold leading-tight text-white">{c.title}</span>
+            <span className="block mt-1 font-googleSans text-[10.5px] leading-snug text-white/45 truncate">{c.sub}</span>
+          </div>
+          <svg width="7" height="11" viewBox="0 0 6 10" fill="none" className="shrink-0 text-[#d8c79a] transition group-hover:translate-x-0.5 duration-200">
+            <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
       ))}
     </div>
 
-    <p className="kz-rise mt-5 font-googleSans text-[11px] text-white/35" style={{ animationDelay: "480ms" }}>
+    <p className="kz-rise mt-5 font-googleSans text-[11px] text-white/35" style={{ animationDelay: "500ms" }}>
       …or just type your question below.
     </p>
   </div>

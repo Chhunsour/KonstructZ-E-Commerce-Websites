@@ -104,3 +104,102 @@ export const blogImagePublicUrl = (path: string | null | undefined): string | nu
   if (/^https?:\/\//.test(path)) return path;
   return supabase.storage.from(BLOG_IMAGE_BUCKET).getPublicUrl(path).data.publicUrl;
 };
+
+/* ── Product types — mirror db/migrations/0005_product_schema.sql ──────── */
+
+export type ProductStatus = "draft" | "published" | "hidden";
+export type ProductLine = "konstructz" | "typhon";
+export type ProductKind = "equipment" | "attachment";
+
+export interface SpecRow {
+  label: string;
+  value: string;
+}
+
+/** A compatible attachment: a plain label, optionally with a link. */
+export type AttachmentRef = string | { name: string; url?: string };
+
+export interface DbProductCategory {
+  id: string;
+  slug: string;
+  name: string;
+  singular: string | null;
+  brand: string | null;
+  description: string | null;
+  image: string | null;
+  sort_order: number;
+  created_at?: string;
+}
+
+/** One product row — column-for-column with the `products` table. */
+export interface DbProduct {
+  id: string;
+  slug: string;
+  name: string;
+  brand: string | null;
+  category_id: string | null;
+  product_line: ProductLine;
+  product_type: ProductKind;
+
+  short_description: string | null;
+  full_description: string;
+  featured_image: string | null;
+  thumbnail_image: string | null;
+  gallery_images: string[];
+  image_import_warnings: string[];
+
+  price: string | null;
+  sale_price: string | null;
+  sku: string | null;
+  gtin: string | null;
+  stock_status: string | null;
+  condition: string | null;
+
+  engine: string | null;
+  horsepower: string | null;
+  operating_weight: string | null;
+  lift_capacity: string | null;
+  digging_depth: string | null;
+  width: string | null;
+  height: string | null;
+  length: string | null;
+  fuel_type: string | null;
+  machine_type: string | null;
+  extra_specs: SpecRow[];
+  compatible_attachments: AttachmentRef[];
+
+  warranty_info: string | null;
+  shipping_info: string | null;
+  financing_info: string | null;
+
+  button_text: string | null;
+  button_url: string | null;
+
+  seo_title: string | null;
+  seo_description: string | null;
+  seo_keywords: string | null;
+
+  status: ProductStatus;
+  sort_order: number;
+  created_at: string;
+  updated_at: string;
+  published_at: string | null;
+  created_by: string | null;
+  updated_by: string | null;
+
+  /** Optional joined category (slug+name) when selected. */
+  category?: { slug: string; name: string } | null;
+}
+
+/** Editable subset used by the admin create/update calls. */
+export type ProductInput = Partial<
+  Omit<DbProduct, "id" | "created_at" | "updated_at" | "category">
+>;
+
+/** Empty JSONB defaults so the editor never sends `undefined`. */
+export const PRODUCT_JSON_DEFAULTS = {
+  gallery_images: [] as string[],
+  image_import_warnings: [] as string[],
+  extra_specs: [] as SpecRow[],
+  compatible_attachments: [] as AttachmentRef[],
+};

@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  TyphonProduct,
-  typhonProducts,
-} from "../../data/typhonProducts";
+import { TyphonProduct } from "../../data/typhonProducts";
 import {
   buildDescriptionBlocks,
   DESCRIPTION_FALLBACK,
 } from "./formatDescription";
+import { useProducts } from "../../context/ProductsContext";
+import ProductMarkdown from "../../components/product/ProductMarkdown";
 import { TyphonProductCard } from "../../components/ui/TyphonProductCard";
 import {
   MachineComparison,
@@ -67,6 +66,10 @@ interface TyphonProductSingleProps {
 }
 
 export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ product }) => {
+  const { typhon: typhonProducts, getDbProduct } = useProducts();
+  // When this product is backed by a published DB row, render its rich
+  // (Markdown) description; otherwise fall back to the parsed static blocks.
+  const richDescription = getDbProduct("typhon", product.id)?.full_description?.trim();
   const gallery = product.gallery.length > 0 ? product.gallery : [product.image];
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -315,7 +318,11 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           <h2 className="font-clofieBold text-4xl font-bold text-white">Product Description</h2>
           <div className="mt-6 h-1.5 w-full bg-[#d9d9d9]" />
 
-          {descriptionBlocks.fallback ? (
+          {richDescription ? (
+            <div className="mt-8 max-w-5xl font-glonimove text-lg leading-8 text-white/82 [&_h1]:text-white [&_h2]:text-white [&_h2]:font-clofieBold [&_h2]:text-2xl [&_h3]:text-white [&_h3]:font-bold [&_strong]:text-white [&_a]:text-[#d8c79a] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mt-1 [&_p]:mt-4">
+              <ProductMarkdown content={richDescription} />
+            </div>
+          ) : descriptionBlocks.fallback ? (
             <p className="mt-8 max-w-4xl font-glonimove text-lg leading-8 text-white/78">
               {DESCRIPTION_FALLBACK}
             </p>

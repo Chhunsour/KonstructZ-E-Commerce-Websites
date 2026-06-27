@@ -117,7 +117,7 @@ const SUPPORT_DOCS: KBDoc[] = [
     title: "Warranty & coverage",
     href: "/support/warranty-returns",
     body:
-      "Every Konstructz machine comes with a one-year warranty that also includes spare parts during the coverage period, so genuine replacement parts are provided to keep your machine running. Exact coverage varies by machine and configuration, so the specific terms for your unit are confirmed by our team rather than stated as a blanket rule. To make a claim or check what's covered on your model, contact support. Detailed component-level coverage needs review and is confirmed per product.",
+      "Every Konstructz machine comes with a 1-year warranty + lifetime technical support that also includes spare parts during the coverage period, so genuine replacement parts are provided to keep your machine running. Exact coverage varies by machine and configuration, so the specific terms for your unit are confirmed by our team rather than stated as a blanket rule. To make a claim or check what's covered on your model, contact support. Detailed component-level coverage needs review and is confirmed per product.",
   },
   {
     id: "sup-shipping",
@@ -157,7 +157,7 @@ const SUPPORT_DOCS: KBDoc[] = [
     title: "Parts & maintenance",
     href: "/support/machine-guidance",
     body:
-      "Genuine spare parts can be ordered directly through our parts team, and many machines include parts support under the one-year warranty. We also provide servicing, parts replacement, and technical assistance for upkeep, plus operator training covering safety and best practices, and user manuals are available for our machines. Routine maintenance keeps a machine reliable: change engine oil and filters, hydraulic oil and filters, and air and fuel filters on schedule, grease pivot points, inspect tracks or tyres, and keep cutting edges and bucket teeth in good condition. Wear items are owner-maintained. For the right parts, service intervals, training, or a manual for your model, contact support.",
+      "Genuine spare parts can be ordered directly through our parts team, and many machines include parts support under the 1-year warranty + lifetime technical support. We also provide servicing, parts replacement, and technical assistance for upkeep, plus operator training covering safety and best practices, and user manuals are available for our machines. Routine maintenance keeps a machine reliable: change engine oil and filters, hydraulic oil and filters, and air and fuel filters on schedule, grease pivot points, inspect tracks or tyres, and keep cutting edges and bucket teeth in good condition. Wear items are owner-maintained. For the right parts, service intervals, training, or a manual for your model, contact support.",
   },
   {
     id: "sup-safety",
@@ -192,7 +192,7 @@ const COMPANY_DOCS: KBDoc[] = [
     title: "About Konstructz",
     href: "/about",
     body:
-      "Konstructz supplies compact construction machinery and attachments — mini excavators, skid steer loaders, wheel loaders, backhoe loaders, dumpers, trenchers, towable excavators, and stone crushers — alongside the wider Typhon Machinery catalog, which adds forklifts, road rollers, and scissor lifts. The focus is dependable, jobsite-ready equipment for contractors, landscapers, farmers, and property owners, backed by sales and support for selection, configuration, quotes, financing, shipping, and warranty.",
+      "Konstructz supplies compact construction machinery and attachments — mini excavators, skid steer loaders, wheel loaders, backhoe loaders, dumpers, trenchers, towable excavators, and stone crushers — alongside the wider Typhon Machinery catalog, which adds forklifts, road rollers, and scissor lifts. The focus is dependable, jobsite-ready equipment for contractors, landscapers, farmers, and property owners, backed by sales and support for selection, configuration, quotes, financing, shipping, and a 1-year warranty + lifetime technical support.",
   },
 ];
 
@@ -388,4 +388,59 @@ export const PRODUCT_DETAIL: Record<string, ProductDetail> = Object.fromEntries(
 /** First spec whose label matches; undefined if not published. */
 export function specValue(d: ProductDetail, re: RegExp): string | undefined {
   return d.specs.find((s) => re.test(s.label))?.value?.trim() || undefined;
+}
+
+/* ───────────────────────── Chatbot Editable Config ─────────────────── */
+
+export interface ChatbotConfig {
+  companyDescription: string;
+  warrantyText: string;
+  lifetimeSupportText: string;
+  shippingNotes: string;
+  financingNotes: string;
+  returnNotes: string;
+  productCategories: string;
+  suggestedQuestions: string;
+  contactEmail: string;
+  contactPhone: string;
+  safetyDisclaimer: string;
+}
+
+export const CHATBOT_CONFIG_DEFAULT: ChatbotConfig = {
+  companyDescription: "Konstructz helps customers find compact heavy equipment, attachments, and machine support information.",
+  warrantyText: "1-year warranty + lifetime technical support. Covers structural and powertrain components.",
+  lifetimeSupportText: "Lifetime technical support is included with every machine purchase.",
+  shippingNotes: "Free ground shipping to the continental U.S. (lower 48 states).",
+  financingNotes: "100% financing available through Paramount Financial (lease-to-own).",
+  returnNotes: "30-day returns for unused, original condition machinery. Customer covers return shipping.",
+  productCategories: "Excavators, Skid Steers, Wheel Loaders, Dumpers, Trenchers, Backhoe Loaders, Stone Crushers",
+  suggestedQuestions: "Help me find the right machine for my job.\nCompare skid steer and wheel loader.\nWhat attachments fit my machine?\nTell me about Konstructz and what you sell.\nExplain the 1-year warranty and lifetime support.\nHelp me with shipping, financing, or returns.",
+  contactEmail: "support@konstructz.com",
+  contactPhone: "+1 213-214-2203",
+  safetyDisclaimer: "Always consult the operator manual and check site conditions before operating heavy equipment."
+};
+
+const CHATBOT_CONFIG_KEY = "kz-chatbot-config";
+
+export function getChatbotConfig(): ChatbotConfig {
+  if (typeof window === "undefined") return CHATBOT_CONFIG_DEFAULT;
+  const raw = window.localStorage.getItem(CHATBOT_CONFIG_KEY);
+  if (!raw) return CHATBOT_CONFIG_DEFAULT;
+  try {
+    return { ...CHATBOT_CONFIG_DEFAULT, ...JSON.parse(raw) };
+  } catch {
+    return CHATBOT_CONFIG_DEFAULT;
+  }
+}
+
+export function saveChatbotConfig(config: ChatbotConfig): void {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(CHATBOT_CONFIG_KEY, JSON.stringify(config));
+}
+
+export function resetChatbotConfig(): ChatbotConfig {
+  if (typeof window !== "undefined") {
+    window.localStorage.removeItem(CHATBOT_CONFIG_KEY);
+  }
+  return CHATBOT_CONFIG_DEFAULT;
 }

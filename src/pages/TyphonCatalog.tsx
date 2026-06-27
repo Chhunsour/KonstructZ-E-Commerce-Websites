@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
-import {
-  TyphonProduct,
-  typhonProducts,
-} from "../data/typhonProducts";
+import { TyphonProduct } from "../data/typhonProducts";
 import { TyphonProductCard } from "../components/ui/TyphonProductCard";
+import { useTyphonProducts } from "../context/ProductsContext";
 
 /* ─── Value extractors (derive filter facets from the real CSV data) ──────── */
 
@@ -162,6 +160,7 @@ const PAGE_SIZE = 12;
 
 export const TyphonCatalog: React.FC = () => {
   const location = useLocation();
+  const typhonProducts = useTyphonProducts();
 
   const parseType = (search: string): ProductKind => {
     const t = new URLSearchParams(search).get("type")?.toLowerCase();
@@ -192,7 +191,7 @@ export const TyphonCatalog: React.FC = () => {
   // counts and the grid derive from this so the two worlds never mix.
   const base = useMemo(
     () => typhonProducts.filter((p) => p.productType === selectedType),
-    [selectedType]
+    [selectedType, typhonProducts]
   );
 
   const typeCounts = useMemo(
@@ -200,7 +199,7 @@ export const TyphonCatalog: React.FC = () => {
       equipment: typhonProducts.filter((p) => p.productType === "equipment").length,
       attachment: typhonProducts.filter((p) => p.productType === "attachment").length,
     }),
-    []
+    [typhonProducts]
   );
 
   const switchType = (next: ProductKind) => {

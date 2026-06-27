@@ -3,8 +3,14 @@ import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 const navItems = [
+  { to: "/sour/products", label: "Products" },
   { to: "/sour/dashboard", label: "Posts" },
   { to: "/sour/categories", label: "Categories" },
+  { to: "/sour/websites", label: "Websites" },
+  { to: "/sour/chatbot", label: "Chatbot" },
+  { to: "/sour/sync", label: "Sync" },
+  { to: "/sour/sync/logs", label: "Logs" },
+  { to: "/sour/sync/settings", label: "Settings" },
 ];
 
 export const AdminLayout: React.FC = () => {

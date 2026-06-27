@@ -267,15 +267,15 @@
   ],
   "edges": [
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:261:12-to-src/pages/AllEquipment.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:273:12-to-src/pages/AllEquipment.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link\n              to=\"/equipment\"\n              className=\"px-5 py-3 bg-[#153d28] text-white font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.explore.equipment\")}</Link>",
-          "line": 261,
-          "endLine": 264,
+          "line": 273,
+          "endLine": 276,
           "column": 12,
           "endColumn": 65,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -283,15 +283,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:265:12-to-src/pages/Contact.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:277:12-to-src/pages/Contact.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n              to=\"/contact\"\n              className=\"px-5 py-3 border-2 border-[#d8c79a] text-[#d8c79a] font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.get.a.quote\")}</Link>",
-          "line": 265,
-          "endLine": 268,
+          "line": 277,
+          "endLine": 280,
           "column": 12,
           "endColumn": 59,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -299,15 +299,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:449:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:461:10-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/blog",
         "trigger": {
           "element": "<Link\n            to=\"/blog\"\n            className=\"w-full max-w-md py-4 bg-[#153d28] text-white text-center font-googleSans font-bold text-base tracking-wide flex items-center justify-center gap-2 btn\"\n          >\n            <span>EXPLORE ALL ARTICLES</span>\n            <span>→</span>\n          </Link>",
-          "line": 449,
-          "endLine": 455,
+          "line": 461,
+          "endLine": 467,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"

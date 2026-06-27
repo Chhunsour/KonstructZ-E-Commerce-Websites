@@ -252,12 +252,24 @@ export const MobileFrontpage = (): JSX.Element => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80 z-[2]" />
 
         <div className="relative z-10 px-5 pt-28 pb-16 flex flex-col h-full justify-end">
-          <span className="inline-block self-start border-2 border-[#d8c79a] px-3 py-1 mb-4 font-glonimove text-white text-sm z-10">{t("auto.mobilefrontpage.mini.skid.steer")}</span>
-          <h1 className="font-heading text-white text-5xl leading-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] z-10">
+          <Reveal
+            as="span"
+            variant="fall"
+            delay={2100}
+            className="inline-block self-start border-2 border-[#d8c79a] px-3 py-1 mb-4 font-glonimove text-white text-sm z-10"
+          >
+            {t("auto.mobilefrontpage.mini.skid.steer")}
+          </Reveal>
+          <Reveal
+            as="h1"
+            variant="cinematic"
+            delay={2400}
+            className="font-heading text-white text-5xl leading-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] z-10"
+          >
             KONSTRUCTZ <span className="text-[#d8c79a]">{activeModel === "v950" ? t("auto.mobilefrontpage.stomp.v950") : "STOMP V980"}</span>
-          </h1>
+          </Reveal>
 
-          <div className="mt-6 flex flex-wrap gap-3 z-10">
+          <Reveal variant="fade" delay={2600} className="mt-6 flex flex-wrap gap-3 z-10">
             <Link
               to="/equipment"
               className="px-5 py-3 bg-[#153d28] text-white font-googleSans font-bold text-sm"
@@ -266,7 +278,7 @@ export const MobileFrontpage = (): JSX.Element => {
               to="/contact"
               className="px-5 py-3 border-2 border-[#d8c79a] text-[#d8c79a] font-googleSans font-bold text-sm"
             >{t("auto.mobilefrontpage.get.a.quote")}</Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 

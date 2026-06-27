@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { products } from "../data/products";
 import { ProductSingle } from "../screens/ProductSingle/ProductSingle";
 import { MobileProductSingle } from "../screens/ProductSingle/MobileProductSingle";
 import { AnimaScaler } from "../components/layout/AnimaScaler";
 import { Button } from "../components/ui/Button";
 import { useI18n } from "../context/I18nContext";
+import { useKonstructzProducts } from "../context/ProductsContext";
 
 export const ProductDetail: React.FC = () => {
   const { t } = useI18n();
   const { productId } = useParams<{ productId: string }>();
+  const products = useKonstructzProducts();
   const product = products.find((p) => p.id === productId);
 
   useEffect(() => {

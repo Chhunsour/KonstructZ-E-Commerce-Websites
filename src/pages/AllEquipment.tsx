@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  typhonProducts,
-  type TyphonProduct,
-} from "../data/typhonProducts";
+import { type TyphonProduct } from "../data/typhonProducts";
 import { TyphonProductCard } from "../components/ui/TyphonProductCard";
 import { useI18n } from "../context/I18nContext";
+import { useTyphonProducts } from "../context/ProductsContext";
 
 const PAGE_SIZE = 12;
 const EQUIPMENT_ICON_PATH = "/icons/equipment";
@@ -51,6 +49,7 @@ const categoryIcon = (id: string) => {
  */
 export const AllEquipment: React.FC = () => {
   const { t } = useI18n();
+  const typhonProducts = useTyphonProducts();
   const location = useLocation();
   const selectedCategory = new URLSearchParams(location.search).get("category");
   const selectedKind = parseKind(location.search);
@@ -74,7 +73,7 @@ export const AllEquipment: React.FC = () => {
   // this so machines and attachments never mix.
   const base = useMemo(
     () => typhonProducts.filter((p) => p.productType === selectedKind),
-    [selectedKind]
+    [selectedKind, typhonProducts]
   );
   const categories = useMemo(() => categoriesFor(base), [base]);
   const typeCounts = useMemo(

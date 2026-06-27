@@ -1,5 +1,11 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const {
+  importProductImages,
+  loadImageImportCache,
+  saveImageImportCache,
+  splitImageUrls,
+} = require("./product-image-importer.cjs");
 
 const OUT_PATH = path.join(process.cwd(), "src", "data", "typhonProducts.ts");
 const CSV_SEARCH_DIRS = [
@@ -160,13 +166,6 @@ function slugFromUrls(buttonUrl, sourceUrl, name, index) {
   const sourceMatch = normalizeText(sourceUrl).match(/\/product\/([^/]+)/);
   const base = buttonMatch?.[1] || sourceMatch?.[1] || slugify(name);
   return base || `typhon-product-${index + 1}`;
-}
-
-function splitUrls(value) {
-  return normalizeText(value)
-    .split(/,\s*/)
-    .map((url) => url.trim())
-    .filter(Boolean);
 }
 
 function unique(values) {
@@ -437,23 +436,60 @@ function uniqueSpecs(specs) {
   });
 }
 
-function productImages(record, category) {
+async function productImages(record, category, productSlug, imageImportContext) {
   const fallback = categoryDefaults[category]?.fallbackImage || categoryDefaults.equipment.fallbackImage;
   const featureImage = normalizeText(record["Feature Image"]);
-  const images = unique([
+  const sourceImages = unique([
     featureImage,
-    ...splitUrls(record["Images"]),
-    ...splitUrls(record["Gallery Images"]),
+    ...splitImageUrls(record["Images"]),
+    ...splitImageUrls(record["Gallery Images"]),
   ]);
 
-  const gallery = images.length ? images : [fallback];
+  if (!sourceImages.length) {
+    return {
+      image: fallback,
+      thumbnailImage: fallback,
+      gallery: [fallback],
+      originalImageSource: undefined,
+      originalGallerySources: undefined,
+      imageImportWarnings: undefined,
+    };
+  }
+
+  const imported = await importProductImages({
+    productSlug,
+    productId: productSlug,
+    urls: sourceImages,
+    cache: imageImportContext.cache,
+    progress: (result) => {
+      imageImportContext.done += 1;
+      const label =
+        result.status === "failed"
+          ? "Failed"
+          : result.status === "skipped duplicate"
+            ? "Skipped duplicate"
+            : "Imported";
+      console.log(
+        `Downloading images ${imageImportContext.done}/${imageImportContext.total}: ${label} — ${productSlug}`,
+      );
+    },
+  });
+
+  const gallery = imported.map((item) => item.localPath || item.sourceUrl).filter(Boolean);
+  const warnings = imported
+    .filter((item) => item.warning)
+    .map((item) => item.warning);
   return {
     image: gallery[0] || fallback,
+    thumbnailImage: imported[0]?.thumbnailPath || gallery[0] || fallback,
     gallery: gallery.slice(0, 16),
+    originalImageSource: featureImage || sourceImages[0],
+    originalGallerySources: sourceImages,
+    imageImportWarnings: warnings.length ? warnings : undefined,
   };
 }
 
-function productFromRecord(record, index, usedIds) {
+async function productFromRecord(record, index, usedIds, imageImportContext) {
   const category = inferCategory(record);
   const defaults = categoryDefaults[category] || categoryDefaults.equipment;
   const categoryLabel = defaults.label;
@@ -472,7 +508,7 @@ function productFromRecord(record, index, usedIds) {
   usedIds.add(id);
 
   const priceInfo = extractPrices(record.Price);
-  const images = productImages(record, category);
+  const images = await productImages(record, category, id, imageImportContext);
   const tagline = buildTagline(record, categoryLabel);
   const description = buildLongDescription(record, categoryLabel, tagline);
   const extractedFeatures = extractFeatureCandidates(record);
@@ -501,11 +537,21 @@ function productFromRecord(record, index, usedIds) {
     tagline,
     description,
     image: images.image,
+    thumbnailImage: images.thumbnailImage,
     gallery: images.gallery,
+    originalImageSource: images.originalImageSource,
+    originalGallerySources: images.originalGallerySources,
+    imageImportWarnings: images.imageImportWarnings,
     specs,
     features,
     applications,
-    imageMatch: images.image.startsWith("http") ? "CSV image fields" : "Category fallback image",
+    imageMatch: images.imageImportWarnings?.length
+      ? "CSV image fields with import warnings"
+      : images.image.startsWith("/uploads/products/")
+        ? "Local CSV image import"
+        : images.image.startsWith("http")
+          ? "CSV image fields"
+          : "Category fallback image",
   };
 }
 
@@ -530,19 +576,35 @@ function toTs(value) {
     .replace(/\\u0026/g, "&");
 }
 
-const csv = fs.readFileSync(CSV_PATH, "utf8");
-const rows = parseCsv(csv);
-const [rawHeaders, ...body] = rows;
-const headers = rawHeaders.map((header) => normalizeText(header));
-const records = body
-  .filter((row) => row.some((cell) => normalizeText(cell)))
-  .map((row) => Object.fromEntries(headers.map((header, index) => [header, row[index] || ""])));
-const usedIds = new Set();
-const products = records.map((record, index) => productFromRecord(record, index, usedIds));
-const categories = buildCategoryList(products);
-const csvLabel = path.relative(process.cwd(), CSV_PATH).replace(/\\/g, "/");
+async function main() {
+  const csv = fs.readFileSync(CSV_PATH, "utf8");
+  const rows = parseCsv(csv);
+  const [rawHeaders, ...body] = rows;
+  const headers = rawHeaders.map((header) => normalizeText(header));
+  const records = body
+    .filter((row) => row.some((cell) => normalizeText(cell)))
+    .map((row) => Object.fromEntries(headers.map((header, index) => [header, row[index] || ""])));
+  const usedIds = new Set();
+  const imageImportContext = {
+    cache: loadImageImportCache(),
+    done: 0,
+    total: records.reduce((sum, record) => {
+      return sum + unique([
+        normalizeText(record["Feature Image"]),
+        ...splitImageUrls(record["Images"]),
+        ...splitImageUrls(record["Gallery Images"]),
+      ]).length;
+    }, 0),
+  };
+  const products = [];
+  for (let index = 0; index < records.length; index += 1) {
+    products.push(await productFromRecord(records[index], index, usedIds, imageImportContext));
+  }
+  saveImageImportCache(imageImportContext.cache);
+  const categories = buildCategoryList(products);
+  const csvLabel = path.relative(process.cwd(), CSV_PATH).replace(/\\/g, "/");
 
-const output = `// Generated from ${csvLabel}.
+  const output = `// Generated from ${csvLabel}.
 // Run \`node scripts/build-typhon-products.cjs\` after updating the CSV.
 
 export interface TyphonProductSpec {
@@ -571,7 +633,11 @@ export interface TyphonProduct {
   tagline: string;
   description: string;
   image: string;
+  thumbnailImage?: string;
   gallery: string[];
+  originalImageSource?: string;
+  originalGallerySources?: string[];
+  imageImportWarnings?: string[];
   specs: TyphonProductSpec[];
   features: string[];
   applications: string[];
@@ -596,6 +662,12 @@ export const getTyphonProductHref = (product: Pick<TyphonProduct, "id">) =>
   \`/typhon-machinery/\${product.id}\`;
 `;
 
-fs.writeFileSync(OUT_PATH, output);
-console.log(`Generated ${products.length} Typhon products in ${path.relative(process.cwd(), OUT_PATH)}`);
-console.log(`Categories: ${categories.map((category) => `${category.label} (${category.count})`).join(", ")}`);
+  fs.writeFileSync(OUT_PATH, output);
+  console.log(`Generated ${products.length} Typhon products in ${path.relative(process.cwd(), OUT_PATH)}`);
+  console.log(`Categories: ${categories.map((category) => `${category.label} (${category.count})`).join(", ")}`);
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

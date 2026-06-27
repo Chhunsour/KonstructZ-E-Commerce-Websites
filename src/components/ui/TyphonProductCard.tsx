@@ -26,6 +26,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
   const { t } = useI18n();
   const detailHref = getTyphonProductHref(product);
   const quoteHref = `/contact?product=${product.id}`;
+  const cardImage = product.thumbnailImage || product.image;
 
   const quickSpecs = QUICK_SPECS.map((spec) => {
     const match = product.specs?.find(
@@ -49,7 +50,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
       >
         <div className="flex aspect-square items-center justify-center overflow-hidden bg-white p-2">
           <img
-            src={product.image}
+            src={cardImage}
             alt={product.name}
             loading="lazy"
             className="h-full w-full object-contain scale-[1.08] transition-transform duration-300 group-hover:scale-[1.12]"

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { products as ALL_PRODUCTS, type Product } from "../../data/products";
+import { type Product } from "../../data/products";
+import { useKonstructzProducts } from "../../context/ProductsContext";
 import { useI18n } from "../../context/I18nContext";
 import { categoryNameKey } from "../../i18n/keys";
 import { ProductCard } from "../../components/ui/ProductCard";
@@ -23,7 +24,6 @@ const BEFORE_AFTER_THUMBS = [
 ];
 
 /* Real products from /data/products.ts drive the cards directly. */
-const EQUIPMENT_LIST: Product[] = ALL_PRODUCTS;
 
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -632,6 +632,7 @@ interface EquipmentSectionProps {
 
 export const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCategory, setSelectedCategory }) => {
   const { t } = useI18n();
+  const equipmentList = useKonstructzProducts();
   const [query, setQuery] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -669,7 +670,7 @@ export const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCate
 
   const HORSEPOWER_FILTERS = ["Under 25 HP", "25 - 50 HP", "Over 50 HP"];
 
-  const filteredList = EQUIPMENT_LIST
+  const filteredList = equipmentList
     .filter((e) => !query || e.name.toLowerCase().includes(query.toLowerCase()))
     .filter((e) => !selectedCategory || e.category === selectedCategory)
     .filter((e) => {

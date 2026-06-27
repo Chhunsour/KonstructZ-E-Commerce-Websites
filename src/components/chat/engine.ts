@@ -701,16 +701,16 @@ const NA = "_Not published — I'd confirm with support rather than guess._";
 export function getWelcomeText(): string {
   return pick([
     "Hi — I'm the **Konstructz assistant**. Think of me as your machinery advisor: I can help you find the right machine for your job, compare models, look up attachments, and answer warranty, shipping, or support questions.\n\nWhat are you working on today? Let me know, or choose a prompt below.",
-    "Hello! I'm the **Konstructz assistant**, ready to help you with anything related to our equipment. Ask me to recommend a machine for your site, compare specifications, check attachment fitment, or walk through our 1-Year Warranty and Free Shipping.\n\nWhere would you like to start?",
+    "Hello! I'm the **Konstructz assistant**, ready to help you with anything related to our equipment. Ask me to recommend a machine for your site, compare specifications, check attachment fitment, or walk through our 1-year warranty + lifetime technical support and Free Shipping.\n\nWhere would you like to start?",
     "Welcome to Konstructz! I'm your AI product and support consultant. Whether you're trenching, loading, or grading, I can help you choose the best machine, compare models, or explain our support and parts coverage.\n\nTell me a bit about your project or select a topic to begin."
   ]);
 }
 
 export function getPurchaseNote(): string {
   return pick([
-    "Every machine includes a **1-Year Warranty** and **Free Shipping** where eligible (continental U.S.).",
-    "Keep in mind that all machines include a **1-Year Warranty** and qualify for **Free Shipping** to the lower 48 states.",
-    "For peace of mind, purchases are backed by a **1-Year Warranty** and eligible models ship with **Free Shipping**."
+    "Every machine includes a **[1-year warranty + lifetime technical support]** and **[Free Shipping]** where eligible (continental U.S.).",
+    "Keep in mind that all machines include a **[1-year warranty + lifetime technical support]** and qualify for **[Free Shipping]** to the lower 48 states.",
+    "For peace of mind, purchases are backed by a **[1-year warranty + lifetime technical support]** and eligible models ship with **[Free Shipping]**."
   ]);
 }
 
@@ -833,10 +833,78 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 
   const shuffled = shuffle(followups).slice(0, 3);
   return shuffled.map(rewordFollowup);
-}
+}function getCompanyQuestionAnswer(q: string): { markdown: string; followups: string[]; links?: { label: string; href: string }[] } | null {
+  const GUIDE_SUGGESTIONS = "\n\n### What would you like to do next?\n- View equipment categories\n- Compare machines\n- Check attachments\n- Contact support\n- Ask about warranty/shipping";
+  const GUIDE_LINKS = [
+    { label: "View Equipment Categories", href: "/equipment" },
+    { label: "Contact Support", href: "/contact" }
+  ];
+  const GUIDE_FOLLOWUPS = [
+    "View equipment categories",
+    "Compare machines",
+    "Check attachments",
+    "Contact support",
+    "Ask about warranty/shipping"
+  ];
 
-function getGeneralAnswer(m: string): { markdown: string; followups: string[] } | null {
+  if (/\bkonstructz\b/.test(q) && (/\b(what is|who is|who are you|about|what does it do)\b/.test(q) || /\b(who we are|the company)\b/.test(q))) {
+    return {
+      markdown: "### About Konstructz\n\n**Konstructz** is a specialized online platform designed to help contractors, landscapers, and homeowners explore compact machinery, compare models, and understand attachments. We specialize in **compact construction equipment** that is jobsite-ready and highly reliable.\n\nEvery purchase includes our comprehensive support program to ensure your equipment keeps running smoothly.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      links: GUIDE_LINKS,
+      followups: GUIDE_FOLLOWUPS
+    };
+  }
+
+  if (/\btyphon\b/.test(q) && (/\b(are you|is this|about|who is)\b/.test(q) || /\btyphon machinery\b/.test(q))) {
+    return {
+      markdown: "### Typhon Machinery Partnership\n\n**Konstructz** features and organizes machinery information, including selected **Typhon Machinery** products. If you are looking for a specific Typhon machine, we can help you find its page, compare specs in simple terms, or verify fits.\n\nAll Typhon equipment sold through our site qualifies for our standard protection plans.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      links: GUIDE_LINKS,
+      followups: GUIDE_FOLLOWUPS
+    };
+  }
+
+  if (/\b(legit|scam|trust|real|reliable|fake|safe to buy)\b/.test(q)) {
+    return {
+      markdown: "### Legitimacy & Trust\n\n**Konstructz** is a real, customer-focused machinery supplier. You can check available product specifications, warranty documents, and contact details directly on this site. For absolute peace of mind before purchase, you can contact our support team directly.\n\nWe prioritize transparent details, fast parts shipping, and dedicated lifetime customer assistance.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support]" + GUIDE_SUGGESTIONS,
+      links: [
+        { label: "Official Contact Page", href: "/contact" },
+        { label: "Support Center", href: "/support" }
+      ],
+      followups: GUIDE_FOLLOWUPS
+    };
+  }
+
+  if (/\b(what do you sell|what is sold|what do you offer|what products|what machines|types of machine|equipment categories)\b/.test(q) || (/\b(sell|offer|have)\b/.test(q) && /\b(machine|product|equipment|cab|attachment|excavator|loader)\b/.test(q))) {
+    return {
+      markdown: "### Equipment Categories\n\nWe sell **compact construction machinery** and **heavy attachments** tailored for tight spaces and high performance. Our core inventory includes:\n- **Mini Excavators** & Towable Excavators\n- **Skid Steers** & Wheel Loaders\n- **Backhoe Loaders**, Dumpers, and Trenchers\n- Compatible **Augers, Breakers, and Buckets**\n\nAll eligible models ship standard with shipping and warranty coverage.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      links: GUIDE_LINKS,
+      followups: GUIDE_FOLLOWUPS
+    };
+  }
+
+  if (/\b(why should i buy|why buy here|why choose you|why konstructz|benefits of buying)\b/.test(q)) {
+    return {
+      markdown: "### Why Choose Konstructz?\n\nWe make finding and operating heavy equipment simple. With detailed specs, side-by-side comparisons, and transparent support, we guide you to the perfect fit.\n\nOur machines are backed by dedicated U.S.-based support and quick spare parts shipping.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      links: GUIDE_LINKS,
+      followups: GUIDE_FOLLOWUPS
+    };
+  }
+
+  if (/\b(the company|about the company)\b/.test(q)) {
+    return {
+      markdown: "### The Company\n\n**Konstructz** supplies compact construction machinery and attachments—alongside the wider **Typhon Machinery** catalog. We focus on delivering dependable, jobsite-ready solutions for contractors, landscapers, farmers, and property owners.\n\nEvery machine is backed by selection assistance, financing options, and reliable shipping.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      links: GUIDE_LINKS,
+      followups: GUIDE_FOLLOWUPS
+    };
+  }
+
+  return null;
+}
+function getGeneralAnswer(m: string): { markdown: string; followups: string[]; links?: { label: string; href: string }[] } | null {
   const q = m.toLowerCase();
+
+  const companyAns = getCompanyQuestionAnswer(q);
+  if (companyAns) return companyAns;
   
   if (/\b(japan|tokyo)\b/.test(q)) {
     return {
@@ -847,14 +915,14 @@ function getGeneralAnswer(m: string): { markdown: string; followups: string[] } 
 
   if (/\btyphon\b/.test(q) && /\b(what is|who is|about)\b/.test(q)) {
     return {
-      markdown: "## Typhon Machinery\n\nTyphon Machinery is an important machinery brand specializing in heavy-duty material handling, access platforms, and compaction equipment. Their lineup adds critical utility to our store, including:\n\n- **Rough-Terrain Forklifts** (1.5 to 3.0 Tons)\n- **Road Rollers / Compactors** (1.0 to 2.0 Tons)\n- **Scissor Lifts** (xFlex electric and rough-terrain series)\n- **Specialty Mini Excavators** (e.g. Terror series ranging from 0.8 ton to larger cab models)\n\nAll Typhon equipment sold through our website qualifies for our standard **1-Year Warranty** (including parts support) and **Free Shipping** to the continental U.S. (lower 48 states).",
+      markdown: "## Typhon Machinery\n\nTyphon Machinery is an important machinery brand specializing in heavy-duty material handling, access platforms, and compaction equipment. Their lineup adds critical utility to our store, including:\n\n- **Rough-Terrain Forklifts** (1.5 to 3.0 Tons)\n- **Road Rollers / Compactors** (1.0 to 2.0 Tons)\n- **Scissor Lifts** (xFlex electric and rough-terrain series)\n- **Specialty Mini Excavators** (e.g. Terror series ranging from 0.8 ton to larger cab models)\n\nAll Typhon equipment sold through our website qualifies for our standard **[1-year warranty + lifetime technical support]** (including parts support during the first year) and **[Free Shipping]** to the continental U.S. (lower 48 states).",
       followups: ["Show machine specs", "Compare similar models", "Check warranty and shipping"]
     };
   }
 
   if (/\bkonstructz\b/.test(q) && /\b(what is|who is|about)\b/.test(q)) {
     return {
-      markdown: "## Konstructz Machinery\n\nKonstructz is our primary brand specializing in compact construction equipment designed for contractors, landscapers, farmers, and residential landowners. Our machinery range is built for high reliability, ease of operation, and structural durability, including:\n\n- **Mini & Towable Excavators** (like the zero-tail-swing KUVUO 2.5 and 2.7)\n- **Skid Steer Loaders** (like the STOMP V980 and V950)\n- **Wheel Loaders** (like the heavy-duty SKOOP II)\n- **Backhoe Loaders** (like the SCOOPYDIG)\n- **Site Dumpers** (like the THUNDERDUMP series)\n- **Trenchers & Stone Crushers** for specialty tasks\n\nEvery Konstructz machine includes a **1-Year Warranty** and eligible models qualify for **Free Shipping** directly to your door or nearest freight terminal in the continental U.S.",
+      markdown: "## Konstructz Machinery\n\nKonstructz is our primary brand specializing in compact construction equipment designed for contractors, landscapers, farmers, and residential landowners. Our machinery range is built for high reliability, ease of operation, and structural durability, including:\n\n- **Mini & Towable Excavators** (like the zero-tail-swing KUVUO 2.5 and 2.7)\n- **Skid Steer Loaders** (like the STOMP V980 and V950)\n- **Wheel Loaders** (like the heavy-duty SKOOP II)\n- **Backhoe Loaders** (like the SCOOPYDIG)\n- **Site Dumpers** (like the THUNDERDUMP series)\n- **Trenchers & Stone Crushers** for specialty tasks\n\nEvery Konstructz machine includes a **[1-year warranty + lifetime technical support]** and eligible models qualify for **[Free Shipping]** directly to your door or nearest freight terminal in the continental U.S.",
       followups: ["Recommend a machine for my job", "Compare excavator vs skid steer", "Check warranty and shipping"]
     };
   }
@@ -882,7 +950,7 @@ function getGeneralAnswer(m: string): { markdown: string; followups: string[] } 
   
   if (/\b(warranty|guarantee)\b/.test(q)) {
     return {
-      markdown: "## Warranty & Parts Support\n\nAll new Konstructz and Typhon machines sold through our site are backed by a **1-Year Warranty**. Here are the key details:\n\n- **Coverage**: Covers structural, powertrain (engine), and hydraulic system defects under normal operating conditions.\n- **Parts Support**: We ship genuine replacement parts directly to you to minimize jobsite downtime. Our dedicated parts support team is based in the U.S. to ensure fast shipping.\n- **Exclusions**: Normal wear-and-tear items (such as tracks, bucket teeth, filters, oil, seals, and hydraulic attachments) are owner-maintained and excluded from the standard warranty.\n\nFor exact component details or to submit a warranty claim, please contact our support team with your model and order number.",
+      markdown: "## Warranty & Parts Support\n\nAll new Konstructz and Typhon machines sold through our site are backed by a **1-year warranty + lifetime technical support**. Here are the key details:\n\n- **Coverage**: Covers structural, powertrain (engine), and hydraulic system defects under normal operating conditions.\n- **Parts Support**: We ship genuine replacement parts directly to you to minimize jobsite downtime. Our dedicated parts support team is based in the U.S. to ensure fast shipping.\n- **Lifetime Support**: Includes lifetime technical assistance and operator/maintenance guidance.\n- **Exclusions**: Normal wear-and-tear items (such as tracks, bucket teeth, filters, oil, seals, and hydraulic attachments) are owner-maintained and excluded from the standard warranty.\n\nFor exact component details or to submit a warranty claim, please contact our support team with your model and order number.",
       followups: ["Check warranty and shipping", "Find compatible attachments", "Request a quote"]
     };
   }
@@ -1124,16 +1192,15 @@ function composeRecommend(refs: ProductRef[], note: string, slots: ChatMemory["s
   const ctx = slotSummary(slots);
   const reasonForJob = note ? note : slots.job ? `${slots.job} work` : "your work";
 
-  let md = `${pick(["Here's how I'd approach it.", "Good brief — here's my thinking.", "Let me reason through this with you."])}\n\n`;
-  if (ctx) md += `From what you've shared (${ctx}), `;
-  md += `I'd lead with a **${lead.categoryLabel}** like the **${lead.name}**`;
-  if (leadProf) md += ` — ${leadProf.purpose.toLowerCase().replace(/\.$/, "")}, which suits ${reasonForJob}`;
-  md += ".\n\n";
+  let md = `### Recommended Machine\n\n`;
+  md += `**${lead.name}** (${lead.categoryLabel}) is a strong option if you need digging, trenching, grading, or small jobsite work.`;
+  if (leadProf) md += ` It is engineered for ${leadProf.purpose.toLowerCase().replace(/\.$/, "")}, which suits ${reasonForJob}.`;
+  md += "\n\n";
 
   if (leadProf) {
-    md += `**Why it fits:**\n`;
-    md += leadProf.pros.slice(0, 3).map((p) => `- ${p}`).join("\n");
-    if (slots.terrain) md += `\n- Handles ${slots.terrain} ground in this class of work`;
+    md += `**Why it fits:**\n\n`;
+    md += leadProf.pros.slice(0, 3).map((p) => `* ${p}`).join("\n");
+    if (slots.terrain) md += `\n* Handles ${slots.terrain} ground in this class of work`;
     md += "\n\n";
   }
 
@@ -1143,7 +1210,8 @@ function composeRecommend(refs: ProductRef[], note: string, slots: ChatMemory["s
     md += `**Worth considering:** a **${alt.categoryLabel}** such as the **${alt.name}**${altProf ? ` if you'll do more ${altProf.bestFor[0].toLowerCase()}` : ""}.\n\n`;
   }
 
-  md += `Here are the closest options — open any for full specs and a quote. ${getPurchaseNote()}`;
+  md += `**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]\n\n`;
+  md += `Need help choosing the exact model? Tell me your job type, work area, and budget.`;
 
   return {
     markdown: md,
@@ -1178,7 +1246,7 @@ function supportAnswer(intent: string): Answer {
 function formatSupportDoc(intent: Intent): string {
   switch (intent) {
     case "warranty":
-      return `## Warranty\n\nEvery Konstructz machine comes with a **one-year warranty**, and that coverage **includes spare parts** during the warranty period — so genuine replacement parts are provided to keep your machine running.\n\n- **Length:** 1 year from purchase\n- **Includes:** spare parts during the coverage period\n- **Exact coverage** varies by machine and configuration, so the specific terms for your unit are confirmed by our team rather than quoted as a blanket rule\n\nI won't invent component-level details — _the detailed coverage breakdown is best confirmed per model (needs review)._ To make a claim or check what's covered on your machine, contact support.`;
+      return `## Warranty & Support\n\nEvery Konstructz machine comes with a **1-year warranty + lifetime technical support**, and that coverage **includes spare parts** during the first year — so genuine replacement parts are provided to keep your machine running.\n\n- **Length:** 1-year warranty + lifetime technical support\n- **Includes:** spare parts during the first year\n- **Exact coverage** varies by machine and configuration, so the specific terms for your unit are confirmed by our team rather than quoted as a blanket rule\n\nI won't invent component-level details — _the detailed coverage breakdown is best confirmed per model (needs review)._ To make a claim or check what's covered on your machine, contact support.`;
     case "returns":
       return `## Returns & refunds\n\nIf a machine isn't right, you can request a **return within 30 days of delivery** for a **refund to your original payment method**.\n\n- **Return shipping is the customer's responsibility** — we don't cover return logistics\n- The machine must be **unused and in original condition**\n- **Can't be returned:** used or damaged equipment, custom/special-order machines, spare parts, consumables, and hydraulic attachments\n- **Transport damage?** Report it **within 48 hours** of delivery\n\nTo start a return, contact support and we'll send return instructions. _Note: the exact return window/start date and refund timeframe should be confirmed (published sources differ) — needs review._`;
     case "shipping":
@@ -1186,7 +1254,7 @@ function formatSupportDoc(intent: Intent): string {
     case "financing":
       return `## Financing\n\nYes — Konstructz offers flexible financing through **Paramount Financial** (lease-to-own).\n\n- **100% financing**, with the option to **bundle equipment, shipping, and taxes**\n- **Soft credit check** — no hard hit to your score\n- **All credit profiles considered**; **startup-friendly** (no minimum time in business)\n- **Instant decisions** on approvals up to **$25,000**\n- Lease payments may be **tax-deductible**; an optional **down payment** lowers the financed balance\n\n**How it works:** apply with Paramount → get a decision by email/phone → choose your machine and get a quote from sales → sign the documents → the order ships once approved. Exact **rates, fees, and early-payoff terms** come from Paramount on approval. Want me to help you pick a machine to quote?`;
     case "parts":
-      return `## Parts & maintenance\n\n**Genuine spare parts** can be ordered directly through our parts team, and many machines include **parts support under the one-year warranty**. We also provide **servicing, parts replacement, and technical assistance**, plus **operator training** (safety and best practices) and **user manuals** for our machines.\n\nRoutine upkeep keeps a machine reliable:\n- Change **engine oil & filters**, **hydraulic oil & filters**, **air/fuel filters** on schedule\n- **Grease** pivot points; check **tracks/tyres**\n- Keep **cutting edges and bucket teeth** in good shape (wear items are owner-maintained)\n\nFor the right part, a service interval, training, or a manual for your model, contact support and they'll pull it up.`;
+      return `## Parts & maintenance\n\n**Genuine spare parts** can be ordered directly through our parts team, and many machines include **parts support under the 1-year warranty + lifetime technical support**. We also provide **servicing, parts replacement, and technical assistance**, plus **operator training** (safety and best practices) and **user manuals** for our machines.\n\nRoutine upkeep keeps a machine reliable:\n- Change **engine oil & filters**, **hydraulic oil & filters**, **air/fuel filters** on schedule\n- **Grease** pivot points; check **tracks/tyres**\n- Keep **cutting edges and bucket teeth** in good shape (wear items are owner-maintained)\n\nFor the right part, a service interval, training, or a manual for your model, contact support and they'll pull it up.`;
     case "safety":
       return `## Operation & safety basics\n\nAlways start with the machine's operator manual. General good practice:\n\n- **Walk-around inspection** before starting\n- **Seatbelt** where fitted\n- Keep people clear of the **working area and swing radius**\n- Work on **stable ground**; take care on slopes\n- **Lower attachments** before leaving the cab\n- Never exceed the machine's **rated capacity** or published spec\n\nWant model-specific guidance? I can point you to machine guidance or support.`;
     default:
@@ -1195,10 +1263,12 @@ function formatSupportDoc(intent: Intent): string {
 }
 
 function composeAttachments(machine?: ProductRef, memorySlots?: ChatMemory["slots"]): Answer {
+  const COMPATIBILITY_WARNING = "\n\n**Compatibility Note:** We only confirm fitment when the specific machine specs (mounting pin layout, coupler size, auxiliary hydraulic flow/pressure GPM) match the attachment exactly. If you are unsure or if the exact match is not listed in the product specifications, compatibility must be confirmed with support before buying to avoid hydraulic or structural mismatch.";
+
   if (machine) {
     const prof = profileFor(machine.categoryLabel);
     return {
-      markdown: `## Attachments for the ${machine.name}\n\nThe **${machine.name}** is a ${machine.categoryLabel.toLowerCase()}, so the work tools that make sense are the ones for that class: ${prof?.attachments || "model-specific tools"}.\n\nThe catch is **fitment** — coupler type, mounting, and hydraulic flow all have to match, and I won't guess at compatibility for a specific unit. The reliable move is a quick **fitment check** with the team so you only buy tools that actually fit and have the flow to run them.\n\nIf you tell me **which tasks** you want to add (drilling, breaking, grabbing, forks…), I can suggest the right attachment types to ask about.`,
+      markdown: `## Attachments for the ${machine.name}\n\nThe **${machine.name}** is a ${machine.categoryLabel.toLowerCase()}, so the work tools that make sense are the ones for that class: ${prof?.attachments || "model-specific tools"}.\n\nThe catch is **fitment** — coupler type, mounting, and hydraulic flow all have to match, and I won't guess at compatibility for a specific unit. The reliable move is a quick **fitment check** with the team so you only buy tools that actually fit and have the flow to run them.\n\nIf you tell me **which tasks** you want to add (drilling, breaking, grabbing, forks…), I can suggest the right attachment types to ask about.` + COMPATIBILITY_WARNING,
       products: [machine],
       links: [{ label: "Attachments support", href: "/support/attachments-support" }, { label: "Ask a fitment check", href: "/contact" }],
       followups: ["Suggest attachments for digging", "Suggest attachments for material handling", "Request a fitment check"],
@@ -1210,14 +1280,14 @@ function composeAttachments(machine?: ProductRef, memorySlots?: ChatMemory["slot
   if (memorySlots) {
     if (memorySlots.job === "landscap") {
       return {
-        markdown: `## Attachments for Landscaping\n\nSince you are working on **landscaping**, here are the work tools and attachments that make the most sense for your project:\n\n- **Augers** for drilling post holes (fences, decks) and tree plantings.\n- **Tilting & Grading Buckets** for leveling soil, backfilling, and landscape contouring.\n- **Thumbs & Grapples** for picking up heavy stones, clearing logs, stumps, and brush.\n- **Rippers** for cutting through thick tree roots and pulling hard ground.\n- **Pallet Forks** (for skid steers) to transport heavy sod, nursery stock, and brick pallets.\n\nFitment and auxiliary hydraulic flow (GPM/PSI) must match your specific machine. We recommend completing a quick **fitment check** with our support team before purchasing tools.`,
+        markdown: `## Attachments for Landscaping\n\nSince you are working on **landscaping**, here are the work tools and attachments that make the most sense for your project:\n\n- **Augers** for drilling post holes (fences, decks) and tree plantings.\n- **Tilting & Grading Buckets** for leveling soil, backfilling, and landscape contouring.\n- **Thumbs & Grapples** for picking up heavy stones, clearing logs, stumps, and brush.\n- **Rippers** for cutting through thick tree roots and pulling hard ground.\n- **Pallet Forks** (for skid steers) to transport heavy sod, nursery stock, and brick pallets.\n\nFitment and auxiliary hydraulic flow (GPM/PSI) must match your specific machine. We recommend completing a quick **fitment check** with our support team before purchasing tools.` + COMPATIBILITY_WARNING,
         links: [{ label: "Attachments support", href: "/support/attachments-support" }, { label: "Ask a fitment check", href: "/contact" }],
         followups: ["Recommend a landscaping machine", "Check warranty and shipping", "Request a fitment check"]
       };
     }
     if (memorySlots.job === "construction" || memorySlots.job === "dig" || memorySlots.job === "trench") {
       return {
-        markdown: `## Attachments for Construction & Excavation\n\nFor **construction, digging, and utility jobs**, the following attachments are highly recommended:\n\n- **Trenching Buckets** (narrow width) for laying utility conduits, water lines, or pipes.\n- **Hydraulic Breakers / Hammers** to smash concrete, rocks, and hard ground.\n- **Rippers** to break tough, compacted soil or frost before digging.\n- **Augers** for excavating structural footers and pier holes.\n- **Grapples** for demolition debris handling and loading.\n\nTo ensure compatibility, we check coupler types, pin dimensions, and hydraulic flows. Let us help you verify with a quick **fitment check**!`,
+        markdown: `## Attachments for Construction & Excavation\n\nFor **construction, digging, and utility jobs**, the following attachments are highly recommended:\n\n- **Trenching Buckets** (narrow width) for laying utility conduits, water lines, or pipes.\n- **Hydraulic Breakers / Hammers** to smash concrete, rocks, and hard ground.\n- **Rippers** to break tough, compacted soil or frost before digging.\n- **Augers** for excavating structural footers and pier holes.\n- **Grapples** for demolition debris handling and loading.\n\nTo ensure compatibility, we check coupler types, pin dimensions, and hydraulic flows. Let us help you verify with a quick **fitment check**!` + COMPATIBILITY_WARNING,
         links: [{ label: "Attachments support", href: "/support/attachments-support" }, { label: "Ask a fitment check", href: "/contact" }],
         followups: ["Recommend a machine first", "Check warranty and shipping", "Request a fitment check"]
       };
@@ -1225,7 +1295,7 @@ function composeAttachments(machine?: ProductRef, memorySlots?: ChatMemory["slot
   }
 
   return {
-    markdown: `## Attachments & fitment\n\nMany Konstructz and Typhon machines are **attachment-ready** — mini excavators and skid steers especially. Common tools:\n\n- **Buckets** (digging, trenching, tilting, screening)\n- **Augers** for drilling\n- **Breakers / hydraulic hammers** for rock and concrete\n- **Grapples**, **rippers**, **pallet forks**, **hydraulic thumbs**\n\nFitment depends on the model's coupler and hydraulic flow, so I'd confirm with a quick **fitment check** rather than assume. Which machine do you have (or are considering)? I'll tailor the suggestions.`,
+    markdown: `## Attachments & fitment\n\nMany Konstructz and Typhon machines are **attachment-ready** — mini excavators and skid steers especially. Common tools:\n\n- **Buckets** (digging, trenching, tilting, screening)\n- **Augers** for drilling\n- **Breakers / hydraulic hammers** for rock and concrete\n- **Grapples**, **rippers**, **pallet forks**, **hydraulic thumbs**\n\nFitment depends on the model's coupler and hydraulic flow, so I'd confirm with a quick **fitment check** rather than assume. Which machine do you have (or are considering)? I'll tailor the suggestions.` + COMPATIBILITY_WARNING,
     links: [{ label: "Attachments support", href: "/support/attachments-support" }, { label: "Browse equipment", href: "/equipment" }],
     followups: ["I have a mini excavator", "Recommend a machine first", "Request a fitment check"],
   };
@@ -1417,6 +1487,7 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
       if (ans) {
         return finish({
           markdown: ans.markdown,
+          links: ans.links,
           followups: ans.followups
         }, { lastIntent: "General question" });
       }
@@ -1453,6 +1524,7 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
         ans = composeSpecs(machine, m);
       } else if (machine) {
         ans = composeProfile(machine);
+        ans.markdown += "\n\n---\n\n**Planning a purchase?** To help confirm if this machine is the right fit for your work, could you tell me:\n1. **What job** do you need the machine for? (digging, trenching, loading, hauling, crushing, lifting…)\n2. **What material** are you moving?\n3. **Where** will you use it?";
       } else {
         ans = {
           markdown: "Happy to pull up specs or machine details — which machine do you mean? Tell me the model (e.g. *KUVUO 2.5*) or let me recommend one for your job.",
@@ -1464,9 +1536,17 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
     }
 
     case "Typhon Machinery question": {
+      const compAns = getCompanyQuestionAnswer(m);
+      if (compAns) {
+        return finish({
+          markdown: compAns.markdown,
+          links: compAns.links,
+          followups: compAns.followups
+        }, { lastIntent: "Typhon Machinery question" });
+      }
       const typhonRefs = PRODUCT_REFS.filter(r => r.brand === "Typhon").slice(0, 3);
       const ans: Answer = {
-        markdown: `## Typhon Machinery\n\nTyphon Machinery is an important source of heavy-duty and specialized material handling and access equipment for our catalog. Their lineup includes forklifts, road rollers, scissor lifts, and compact excavators.\n\nAll Typhon machines in our store feature a **1-Year Warranty** and **Free Shipping** where eligible (continental U.S.), with full parts and service support.\n\nWould you like to browse Typhon equipment, compare specs, or check compatibility with attachments?`,
+        markdown: `### Typhon Machinery\n\n**Typhon Machinery** is an important source of heavy-duty and specialized material handling and access equipment for our catalog. Their lineup includes forklifts, road rollers, scissor lifts, and compact excavators.\n\nAll Typhon machines in our store feature a **[1-year warranty + lifetime technical support]** and **[Free Shipping]** where eligible (continental U.S.), with full parts and service support.\n\nWould you like to browse Typhon equipment, compare specs, or check compatibility with attachments?`,
         products: typhonRefs,
         links: [{ label: "Typhon Equipment", href: "/equipment" }],
         followups: generateFollowups("Typhon Machinery question", m, memory)
@@ -1475,9 +1555,17 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
     }
 
     case "Konstructz question": {
+      const compAns = getCompanyQuestionAnswer(m);
+      if (compAns) {
+        return finish({
+          markdown: compAns.markdown,
+          links: compAns.links,
+          followups: compAns.followups
+        }, { lastIntent: "Konstructz question" });
+      }
       const konstructzRefs = PRODUCT_REFS.filter(r => r.brand === "Konstructz").slice(0, 3);
       const ans: Answer = {
-        markdown: `## Konstructz Machines\n\nKonstructz specializes in professional, jobsite-ready compact construction machinery. Our catalog features:\n\n- **Mini & Towable Excavators** for digging and trenching\n- **Skid Steer & Wheel Loaders** for loading and grading\n- **Backhoe Loaders** for mixed applications\n- **Dumpers & Trenchers** for logistics and utilities\n- **Stone Crushers** for on-site aggregate\n\nEvery Konstructz machine comes standard with a **1-Year Warranty** and **Free Shipping** where eligible (lower 48 states). How can I help you pick or configure the right model today?`,
+        markdown: `### Konstructz Machines\n\n**Konstructz** specializes in professional, jobsite-ready compact construction machinery. Our catalog features:\n\n- **Mini & Towable Excavators** for digging and trenching\n- **Skid Steer & Wheel Loaders** for loading and grading\n- **Backhoe Loaders** for mixed applications\n- **Dumpers & Trenchers** for logistics and utilities\n- **Stone Crushers** for on-site aggregate\n\nEvery Konstructz machine comes standard with a **[1-year warranty + lifetime technical support]** and **[Free Shipping]** where eligible (lower 48 states). How can I help you pick or configure the right model today?`,
         products: konstructzRefs,
         links: [{ label: "Konstructz Equipment", href: "/equipment" }],
         followups: generateFollowups("Konstructz question", m, memory)
@@ -1527,6 +1615,23 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
     }
 
     case "Product recommendation": {
+      const isBuyingQuery = /\b(how do i buy|where can i buy|purchase options|place an order|want to buy|how to order)\b/.test(m);
+      if (isBuyingQuery) {
+        return finish({
+          markdown: "To purchase a machine or request a quote, please visit the product page for the machine you are interested in and click the inquiry button. You can also contact our team directly at support@konstructz.com or +1 213-214-2203 to coordinate shipping rates, delivery logistics, and financing approvals. We do not support direct checkout inside this chat window, and we do not invent prices or inventory availability unless it is explicitly listed on the product page.\n\n### What would you like to do next?\n- View equipment categories\n- Compare machines\n- Check attachments\n- Contact support\n- Ask about warranty/shipping",
+          links: [
+            { label: "Browse Equipment", href: "/equipment" },
+            { label: "Contact Support", href: "/contact" }
+          ],
+          followups: [
+            "View equipment categories",
+            "Compare machines",
+            "Check attachments",
+            "Contact support",
+            "Ask about warranty/shipping"
+          ]
+        }, { lastIntent: "Product recommendation" });
+      }
       const rec = recommend(m);
       const hasSignal = !!(memory.slots.job || memory.slots.terrain || rec.cats.length);
       if (rec.refs.length && (hasSignal || memory.awaiting === "recommend")) {

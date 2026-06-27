@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 
 interface ImageLightboxProps {
   images: string[];
+  fallbackImages?: string[];
   index: number;
   open: boolean;
   alt?: string;
@@ -17,6 +18,7 @@ interface ImageLightboxProps {
  */
 export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   images,
+  fallbackImages = [],
   index,
   open,
   alt = "",
@@ -108,6 +110,12 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         src={images[index]}
         alt={alt}
         onClick={(e) => e.stopPropagation()}
+        onError={(e) => {
+          const fallback = fallbackImages[index];
+          if (!fallback || e.currentTarget.dataset.fallbackApplied === "true") return;
+          e.currentTarget.dataset.fallbackApplied = "true";
+          e.currentTarget.src = fallback;
+        }}
         className="max-h-full max-w-full select-none object-contain"
       />
     </div>,

@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useI18n } from "../../context/I18nContext";
 import { listPublicPosts } from "../../lib/blogStore";
-import { kb, CONTACT, getChatbotConfig, PRODUCT_DETAIL, type ProductRef } from "./knowledge";
+import { kb, CONTACT, getChatbotConfig, PRODUCT_DETAIL, PRODUCT_REFS, type ProductRef } from "./knowledge";
 import {
   getReply,
   emptyMemory,

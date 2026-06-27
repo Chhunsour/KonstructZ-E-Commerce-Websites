@@ -37,12 +37,23 @@ const toComparable = (product: TyphonProduct): ComparableMachine => ({
   name: product.name,
   categoryLabel: product.categoryLabel,
   image: product.image,
+  fallbackImage: product.originalImageSource,
   specs: product.specs,
   priceLabel: product.currentPrice || undefined,
   weightLabel: product.weight || undefined,
   features: product.features,
   buyUrl: getTyphonBuyUrl(product),
 });
+
+const useFallbackImage = (
+  event: React.SyntheticEvent<HTMLImageElement>,
+  fallback: string | undefined,
+) => {
+  const img = event.currentTarget;
+  if (!fallback || img.dataset.fallbackApplied === "true") return;
+  img.dataset.fallbackApplied = "true";
+  img.src = fallback;
+};
 
 const LeadParagraph: React.FC<{ text: string; emphasizeLead?: boolean }> = ({
   text,
@@ -71,6 +82,8 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
   // (Markdown) description; otherwise fall back to the parsed static blocks.
   const richDescription = getDbProduct("typhon", product.id)?.full_description?.trim();
   const gallery = product.gallery.length > 0 ? product.gallery : [product.image];
+  const fallbackGallery =
+    product.originalGallerySources?.length ? product.originalGallerySources : [product.originalImageSource || ""];
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   // Thumbnails stay on a single row of 4; the 4th tile shows a "+N" overlay for
@@ -151,6 +164,12 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                 src={gallery[activeImage] ?? product.image}
                 alt={product.name}
                 onClick={() => setLightboxOpen(true)}
+                onError={(event) =>
+                  useFallbackImage(
+                    event,
+                    fallbackGallery[activeImage] || product.originalImageSource,
+                  )
+                }
                 className="h-full w-full cursor-zoom-in object-cover"
               />
               {/* View full image */}
@@ -214,7 +233,18 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                         : "ring-1 ring-white/10 hover:ring-[#d8c79a]/70"
                     }`}
                   >
-                    <img src={image} alt="" aria-hidden="true" className="h-full w-full object-contain" />
+                    <img
+                      src={image}
+                      alt=""
+                      aria-hidden="true"
+                      onError={(event) =>
+                        useFallbackImage(
+                          event,
+                          fallbackGallery[index] || product.originalImageSource,
+                        )
+                      }
+                      className="h-full w-full object-contain"
+                    />
                     {isOverflowTile && (
                       <span className="absolute inset-0 flex items-center justify-center bg-black/60 font-googleSans text-2xl font-bold text-white transition hover:bg-black/50">
                         +{hiddenThumbCount}
@@ -481,6 +511,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
 
       <ImageLightbox
         images={gallery}
+        fallbackImages={fallbackGallery}
         index={activeImage}
         open={lightboxOpen}
         alt={product.name}

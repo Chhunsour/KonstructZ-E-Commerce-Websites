@@ -81,30 +81,8 @@ export function productRef(href: string): ProductRef | undefined {
   return PRODUCT_REFS.find((r) => r.href === href);
 }
 
-const konstructzRefs: ProductRef[] = products.map((p) => ({
-  name: p.name,
-  href: `/equipment/${p.id}`,
-  categoryLabel: p.categoryLabel,
-  brand: "Konstructz",
-  spec: konstructzSpec(p),
-  image: p.image,
-}));
-
-const typhonRefs: ProductRef[] = typhonProducts.map((p) => ({
-  name: p.name,
-  href: `/typhon-machinery/${p.id}`,
-  categoryLabel: p.categoryLabel,
-  brand: "Typhon",
-  spec: [
-    p.specs.find((s) => s.label === "Weight Class")?.value,
-    p.specs.find((s) => s.label === "Engine Power")?.value,
-  ]
-    .filter(Boolean)
-    .join(" • "),
-  image: p.image,
-}));
-
-export const PRODUCT_REFS: ProductRef[] = [...konstructzRefs, ...typhonRefs];
+// PRODUCT_REFS is initialized as a mutable array populated at runtime
+export const PRODUCT_REFS: ProductRef[] = [];
 
 /* ─────────────────── Curated support / company docs ────────────────── */
 // Grounded in the real support pages and company data. Where exact figures
@@ -341,6 +319,7 @@ export function docToRef(doc: KBDoc): ProductRef | undefined {
 /* ───────────────────── Full product detail (for compare) ───────────── */
 
 export interface ProductDetail {
+  id: string;
   name: string;
   href: string;
   categoryLabel: string;
@@ -352,38 +331,13 @@ export interface ProductDetail {
   description?: string;
   features?: string[];
   applications?: string[];
+  aliases?: string[];
+  verified?: boolean;
+  suggestedQuestions?: string[];
+  attachmentCompatibility?: string[];
 }
 
-const detailList: ProductDetail[] = [
-  ...products.map((p) => ({
-    name: p.name,
-    href: `/equipment/${p.id}`,
-    categoryLabel: p.categoryLabel,
-    brand: "Konstructz" as const,
-    image: p.image,
-    weight: p.weight,
-    specs: p.specs,
-    tagline: p.tagline,
-    description: p.description,
-    features: p.features,
-  })),
-  ...typhonProducts.map((p) => ({
-    name: p.name,
-    href: `/typhon-machinery/${p.id}`,
-    categoryLabel: p.categoryLabel,
-    brand: "Typhon" as const,
-    image: p.image,
-    weight: p.specs.find((s) => s.label === "Weight Class")?.value,
-    specs: p.specs,
-    tagline: p.tagline,
-    description: p.description,
-    applications: p.applications,
-  })),
-];
-
-export const PRODUCT_DETAIL: Record<string, ProductDetail> = Object.fromEntries(
-  detailList.map((d) => [d.href, d])
-);
+export const PRODUCT_DETAIL: Record<string, ProductDetail> = {};
 
 /** First spec whose label matches; undefined if not published. */
 export function specValue(d: ProductDetail, re: RegExp): string | undefined {
@@ -454,3 +408,300 @@ export function resetChatbotConfig(): ChatbotConfig {
   }
   return CHATBOT_CONFIG_DEFAULT;
 }
+
+/* ───────────────────────── Dynamic Merging & Logging ───────────────── */
+
+export interface FailedQueryLog {
+  userQuestion: string;
+  detectedProduct: string | null;
+  detectedIntent: string;
+  missingSpec: string | null;
+  success: boolean;
+  timestamp: string;
+  suggestedFix: string;
+}
+
+export function getFailedQueryLogs(): FailedQueryLog[] {
+  if (typeof window === "undefined") return [];
+  const raw = window.localStorage.getItem("kz-chatbot-failed-queries");
+  if (!raw) return [];
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+export function logChatbotQuery(
+  userQuestion: string,
+  detectedIntent: string,
+  detectedProduct: string | null,
+  missingSpec: string | null,
+  success: boolean,
+  suggestedFix: string
+): void {
+  if (typeof window === "undefined") return;
+  const logs = getFailedQueryLogs();
+  
+  try {
+    const analKey = "kz-chatbot-analytics";
+    let analytics = {
+      queries: [] as string[],
+      products: {} as Record<string, number>,
+      specs: {} as Record<string, number>,
+      failed: [] as string[],
+      contacts: 0
+    };
+    const stored = window.localStorage.getItem(analKey);
+    if (stored) analytics = JSON.parse(stored);
+    
+    analytics.queries.push(userQuestion);
+    if (detectedProduct) {
+      analytics.products[detectedProduct] = (analytics.products[detectedProduct] || 0) + 1;
+    }
+    if (missingSpec) {
+      analytics.specs[missingSpec] = (analytics.specs[missingSpec] || 0) + 1;
+    }
+    if (!success) {
+      analytics.failed.push(userQuestion);
+    }
+    window.localStorage.setItem(analKey, JSON.stringify(analytics));
+  } catch (e) {
+    console.error(e);
+  }
+
+  const newLog: FailedQueryLog = {
+    userQuestion,
+    detectedProduct,
+    detectedIntent,
+    missingSpec,
+    success,
+    timestamp: new Date().toISOString(),
+    suggestedFix
+  };
+  
+  logs.unshift(newLog);
+  if (logs.length > 200) logs.pop();
+  window.localStorage.setItem("kz-chatbot-failed-queries", JSON.stringify(logs));
+}
+
+export function getMergedProducts() {
+  if (typeof window === "undefined") {
+    return { baseProducts: products, baseTyphonProducts: typhonProducts };
+  }
+  
+  const rawCustom = window.localStorage.getItem("kz-chatbot-products-custom");
+  if (!rawCustom) {
+    return { baseProducts: products, baseTyphonProducts: typhonProducts };
+  }
+  
+  try {
+    const custom = JSON.parse(rawCustom) as Record<string, any>;
+    
+    const mergedProducts = products.map(p => {
+      const entry = custom[p.id];
+      if (!entry) return p;
+      
+      const specsMap = new Map(p.specs.map(s => [s.label, s.value]));
+      if (entry.specs) {
+        for (const [lbl, val] of Object.entries(entry.specs)) {
+          if (val === null || val === undefined) continue;
+          specsMap.set(lbl, val as string);
+        }
+      }
+      
+      return {
+        ...p,
+        name: entry.name || p.name,
+        aliases: entry.aliases ? entry.aliases.split(",").map((s: string) => s.trim()) : p.aliases,
+        tagline: entry.tagline || p.tagline,
+        description: entry.description || p.description,
+        features: entry.keyFeatures ? entry.keyFeatures.split(",").map((s: string) => s.trim()) : p.features,
+        bestUseCases: entry.bestUseCases ? entry.bestUseCases.split(",").map((s: string) => s.trim()) : p.features,
+        price: entry.price || p.price,
+        url: entry.url || p.url,
+        image: entry.image || p.image,
+        specs: Array.from(specsMap.entries()).map(([label, value]) => ({ label, value })),
+        verified: !!entry.verified,
+        suggestedQuestions: entry.suggestedQuestions ? entry.suggestedQuestions.split("\n").map((s: string) => s.trim()).filter(Boolean) : [],
+        attachmentCompatibility: entry.attachmentCompatibility ? entry.attachmentCompatibility.split(",").map((s: string) => s.trim()).filter(Boolean) : []
+      };
+    });
+
+    const mergedTyphonProducts = typhonProducts.map(p => {
+      const entry = custom[p.id];
+      if (!entry) return p;
+      
+      const specsMap = new Map(p.specs.map(s => [s.label, s.value]));
+      if (entry.specs) {
+        for (const [lbl, val] of Object.entries(entry.specs)) {
+          if (val === null || val === undefined) continue;
+          specsMap.set(lbl, val as string);
+        }
+      }
+      
+      return {
+        ...p,
+        name: entry.name || p.name,
+        aliases: entry.aliases ? entry.aliases.split(",").map((s: string) => s.trim()) : [],
+        tagline: entry.tagline || p.tagline,
+        description: entry.description || p.description,
+        features: entry.keyFeatures ? entry.keyFeatures.split(",").map((s: string) => s.trim()) : p.features,
+        applications: entry.bestUseCases ? entry.bestUseCases.split(",").map((s: string) => s.trim()) : p.applications,
+        price: entry.price || p.price,
+        currentPrice: entry.price || p.currentPrice || p.price,
+        sourceUrl: entry.url || p.sourceUrl,
+        buttonUrl: entry.url || p.buttonUrl,
+        image: entry.image || p.image,
+        specs: Array.from(specsMap.entries()).map(([label, value]) => ({ label, value })),
+        verified: !!entry.verified,
+        suggestedQuestions: entry.suggestedQuestions ? entry.suggestedQuestions.split("\n").map((s: string) => s.trim()).filter(Boolean) : [],
+        attachmentCompatibility: entry.attachmentCompatibility ? entry.attachmentCompatibility.split(",").map((s: string) => s.trim()).filter(Boolean) : []
+      };
+    });
+
+    return { baseProducts: mergedProducts, baseTyphonProducts: mergedTyphonProducts };
+  } catch (e) {
+    console.error("Error merging custom products", e);
+    return { baseProducts: products, baseTyphonProducts: typhonProducts };
+  }
+}
+
+export function refreshKnowledgeBase() {
+  const { baseProducts, baseTyphonProducts } = getMergedProducts();
+
+  // 1. Refresh PRODUCT_REFS
+  PRODUCT_REFS.length = 0;
+  
+  const konstructzRefs = baseProducts.map((p) => ({
+    name: p.name,
+    href: `/equipment/${p.id}`,
+    categoryLabel: p.categoryLabel,
+    brand: "Konstructz" as const,
+    spec: [p.weight, p.specs.find((s) => /engine/i.test(s.label))?.value].filter(Boolean).join(" • "),
+    image: p.image,
+  }));
+  
+  const typhonRefs = baseTyphonProducts.map((p) => ({
+    name: p.name,
+    href: `/typhon-machinery/${p.id}`,
+    categoryLabel: p.categoryLabel,
+    brand: "Typhon" as const,
+    spec: [
+      p.specs.find((s) => s.label === "Weight Class")?.value,
+      p.specs.find((s) => s.label === "Engine Power")?.value,
+    ].filter(Boolean).join(" • "),
+    image: p.image,
+  }));
+  
+  PRODUCT_REFS.push(...konstructzRefs, ...typhonRefs);
+
+  // 2. Refresh PRODUCT_DETAIL
+  for (const key of Object.keys(PRODUCT_DETAIL)) {
+    delete PRODUCT_DETAIL[key];
+  }
+  
+  const detailList = [
+    ...baseProducts.map((p) => ({
+      id: p.id,
+      name: p.name,
+      href: `/equipment/${p.id}`,
+      categoryLabel: p.categoryLabel,
+      brand: "Konstructz" as const,
+      image: p.image,
+      weight: p.weight,
+      specs: p.specs,
+      tagline: p.tagline,
+      description: p.description,
+      features: p.features || [],
+      applications: p.bestUseCases || [],
+      aliases: p.aliases || [],
+      verified: p.verified || false,
+      suggestedQuestions: p.suggestedQuestions || [],
+      attachmentCompatibility: p.attachmentCompatibility || []
+    })),
+    ...baseTyphonProducts.map((p) => ({
+      id: p.id,
+      name: p.name,
+      href: `/typhon-machinery/${p.id}`,
+      categoryLabel: p.categoryLabel,
+      brand: "Typhon" as const,
+      image: p.image,
+      weight: p.specs.find((s) => s.label === "Weight Class")?.value,
+      specs: p.specs,
+      tagline: p.tagline,
+      description: p.description,
+      features: p.features || [],
+      applications: p.applications || [],
+      aliases: p.aliases || [],
+      verified: p.verified || false,
+      suggestedQuestions: p.suggestedQuestions || [],
+      attachmentCompatibility: p.attachmentCompatibility || []
+    })),
+  ];
+  
+  for (const d of detailList) {
+    PRODUCT_DETAIL[d.href] = d;
+  }
+
+  // 3. Refresh KB docs index
+  const docs: KBDoc[] = [];
+  for (const p of baseProducts) {
+    docs.push({
+      id: `kz-${p.id}`,
+      type: "product",
+      title: p.name,
+      href: `/equipment/${p.id}`,
+      category: p.categoryLabel,
+      brand: "Konstructz",
+      spec: [p.weight, p.specs.find((s) => /engine/i.test(s.label))?.value].filter(Boolean).join(" • "),
+      image: p.image,
+      body: [
+        p.name,
+        p.categoryLabel,
+        p.tagline,
+        p.description,
+        p.specs.map((s) => `${s.label} ${s.value}`).join(" "),
+        (p.features || []).join(" "),
+      ].join(" "),
+    });
+  }
+  for (const p of baseTyphonProducts) {
+    docs.push({
+      id: `ty-${p.id}`,
+      type: "product",
+      title: p.name,
+      href: `/typhon-machinery/${p.id}`,
+      category: p.categoryLabel,
+      brand: "Typhon",
+      spec: [
+        p.specs.find((s) => s.label === "Weight Class")?.value,
+        p.specs.find((s) => s.label === "Engine Power")?.value,
+      ].filter(Boolean).join(" • "),
+      image: p.image,
+      body: [
+        p.name,
+        p.categoryLabel,
+        p.tagline,
+        p.description,
+        p.specs.map((s) => `${s.label} ${s.value}`).join(" "),
+        (p.features || []).join(" "),
+      ].join(" "),
+    });
+  }
+  
+  const catDocs = categories.map((c) => ({
+    id: `cat-${c.id}`,
+    type: "category" as const,
+    title: c.name,
+    href: `/equipment?category=${c.slug}`,
+    category: c.name,
+    body: `${c.name} ${c.description}`,
+  }));
+
+  kb.setBaseDocs([...docs, ...catDocs, ...SUPPORT_DOCS, ...COMPANY_DOCS]);
+}
+
+// Call at initialization time to load base values
+refreshKnowledgeBase();
+

@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Card, Field, Toast, btnPrimary, btnGhost, inputCls } from "../../components/admin/ui.tsx";
-import { getChatbotConfig, saveChatbotConfig, resetChatbotConfig, type ChatbotConfig } from "../../components/chat/knowledge";
+import { 
+  getChatbotConfig, 
+  saveChatbotConfig, 
+  resetChatbotConfig, 
+  type ChatbotConfig,
+  refreshKnowledgeBase,
+  getFailedQueryLogs,
+  getMergedProducts,
+  type FailedQueryLog
+} from "../../components/chat/knowledge";
 import { normalizedProducts } from "../../components/chat/chatbotProductIndex";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface AnalyticsData {
   queries: string[];
@@ -14,9 +25,38 @@ interface AnalyticsData {
 export const AdminChatbot: React.FC = () => {
   const [config, setConfig] = useState<ChatbotConfig | null>(null);
   const [toast, setToast] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"config" | "dashboard" | "analytics">("config");
-  const [filter, setFilter] = useState<"all" | "missing_hp" | "missing_engine" | "missing_weight" | "missing_compat" | "low_score">("all");
+  const [activeTab, setActiveTab] = useState<"config" | "editor" | "dashboard" | "analytics">("config");
+  
+  // Quality filters
+  const [showHpMissing, setShowHpMissing] = useState(false);
+  const [showEngineMissing, setShowEngineMissing] = useState(false);
+  const [showWeightMissing, setShowWeightMissing] = useState(false);
+  const [showPriceMissing, setShowPriceMissing] = useState(false);
+  const [showCompatMissing, setShowCompatMissing] = useState(false);
+  const [showLowQuality, setShowLowQuality] = useState(false);
+  const [showDuplicateNames, setShowDuplicateNames] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Editor State
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [editAliases, setEditAliases] = useState("");
+  const [editPrice, setEditPrice] = useState("");
+  const [editUrl, setEditUrl] = useState("");
+  const [editImage, setEditImage] = useState("");
+  const [editHp, setEditHp] = useState("");
+  const [editEngine, setEditEngine] = useState("");
+  const [editWeight, setEditWeight] = useState("");
+  const [editLiftCap, setEditLiftCap] = useState("");
+  const [editDigDepth, setEditDigDepth] = useState("");
+  const [editTagline, setEditTagline] = useState("");
+  const [editUseCases, setEditUseCases] = useState("");
+  const [editFeatures, setEditFeatures] = useState("");
+  const [editCompat, setEditCompat] = useState("");
+  const [editVerified, setEditVerified] = useState(false);
+  const [editQuestions, setEditQuestions] = useState("");
+  const [previewMode, setPreviewMode] = useState<"summary" | "key" | "full" | "desc">("summary");
+
+  // Analytics & Logs
   const [analytics, setAnalytics] = useState<AnalyticsData>({
     queries: [],
     products: {},
@@ -24,11 +64,13 @@ export const AdminChatbot: React.FC = () => {
     failed: [],
     contacts: 0
   });
+  const [failedLogs, setFailedLogs] = useState<FailedQueryLog[]>([]);
 
   useEffect(() => {
     setConfig(getChatbotConfig());
+    setFailedLogs(getFailedQueryLogs());
     
-    // Load local storage analytics or set premium mock defaults
+    // Load local storage analytics
     try {
       const stored = localStorage.getItem("kz-chatbot-analytics");
       if (stored) {
@@ -64,7 +106,7 @@ export const AdminChatbot: React.FC = () => {
     } catch {
       // ignore
     }
-  }, []);
+  }, [activeTab]);
 
   const handleChange = (key: keyof ChatbotConfig, value: string) => {
     setConfig((prev) => (prev ? { ...prev, [key]: value } : prev));
@@ -73,7 +115,7 @@ export const AdminChatbot: React.FC = () => {
   const handleSave = () => {
     if (!config) return;
     saveChatbotConfig(config);
-    setToast("Chatbot settings saved successfully.");
+    setToast("Chatbot configurations saved successfully.");
     setTimeout(() => setToast(null), 2500);
   };
 
@@ -81,32 +123,94 @@ export const AdminChatbot: React.FC = () => {
     if (window.confirm("Are you sure you want to reset all chatbot settings to default?")) {
       const reset = resetChatbotConfig();
       setConfig(reset);
-      setToast("Chatbot settings reset to defaults.");
+      setToast("Chatbot configurations reset to defaults.");
       setTimeout(() => setToast(null), 2500);
     }
   };
 
-  if (!config) return null;
+  // Merge catalogs to calculate quality scores
+  const { baseProducts, baseTyphonProducts } = getMergedProducts();
+  const allMerged = [
+    ...baseProducts.map(p => ({
+      id: p.id,
+      name: p.name,
+      category: p.categoryLabel,
+      brand: "Konstructz",
+      productType: "machine",
+      horsepower: p.specs.find(s => /horsepower|hp/i.test(s.label))?.value || "",
+      engine: p.specs.find(s => /engine/i.test(s.label))?.value || "",
+      weight: p.weight || p.specs.find(s => /weight/i.test(s.label))?.value || "",
+      price: p.price || "",
+      url: p.url || "",
+      image: p.image || "",
+      tagline: p.tagline || "",
+      bestUseCases: p.bestUseCases || [],
+      keyFeatures: p.features || [],
+      attachmentCompatibility: (p as any).attachmentCompatibility || [],
+      verified: !!p.verified,
+      suggestedQuestions: p.suggestedQuestions || [],
+      specs: p.specs,
+      raw: p
+    })),
+    ...baseTyphonProducts.map(p => ({
+      id: p.id,
+      name: p.name,
+      category: p.categoryLabel,
+      brand: "Typhon",
+      productType: p.productType || "machine",
+      horsepower: p.specs.find(s => /engine power|horsepower|hp/i.test(s.label))?.value || "",
+      engine: p.specs.find(s => /engine model|engine/i.test(s.label))?.value || "",
+      weight: p.specs.find(s => /weight class|weight/i.test(s.label))?.value || "",
+      price: p.currentPrice || p.price || "",
+      url: p.sourceUrl || p.buttonUrl || "",
+      image: p.image || "",
+      tagline: p.tagline || "",
+      bestUseCases: p.applications || [],
+      keyFeatures: p.features || [],
+      attachmentCompatibility: (p as any).attachmentCompatibility || [],
+      verified: !!p.verified,
+      suggestedQuestions: p.suggestedQuestions || [],
+      specs: p.specs,
+      raw: p
+    }))
+  ];
 
-  // Process data quality lists
-  const auditedProducts = normalizedProducts.map(p => {
+  // Map of names to find duplicates
+  const nameCounts: Record<string, number> = {};
+  for (const p of allMerged) {
+    nameCounts[p.name.toLowerCase()] = (nameCounts[p.name.toLowerCase()] || 0) + 1;
+  }
+
+  // Calculate missing parameters for quality reports
+  const auditedProducts = allMerged.map(p => {
     const isAttachment = p.productType === "attachment";
-    const missingHp = p.productType === "machine" && !p.specs.horsepower;
-    const missingEngine = p.productType === "machine" && !p.specs.engine;
-    const missingWeight = p.productType === "machine" && !p.specs.weight;
-    const isCompatMissing = isAttachment && !/\b(terror|tyrant|stomp|vigor|skoop|0509|509|x1300|v1000|0501)\b/i.test(p.name);
     
+    const missingHp = p.productType === "machine" && (!p.horsepower || p.horsepower === "Not listed");
+    const missingEngine = p.productType === "machine" && (!p.engine || p.engine === "Not listed");
+    const missingWeight = p.productType === "machine" && (!p.weight || p.weight === "Not listed");
+    const missingPrice = !p.price || p.price === "Not listed";
+    const missingUrl = !p.url || p.url === "Not listed";
+    const missingImage = !p.image;
+    const missingSummary = !p.tagline;
+    const missingBestUse = p.bestUseCases.length === 0;
+    
+    // Attachments must confirm compatibility with at least one model name
+    const isCompatMissing = isAttachment && p.attachmentCompatibility.length === 0 && !/\b(terror|tyrant|stomp|vigor|skoop|0509|509|x1300|v1000|0501)\b/i.test(p.name);
+
     const missingFields = [];
     if (missingHp) missingFields.push("Horsepower");
     if (missingEngine) missingFields.push("Engine");
     if (missingWeight) missingFields.push("Weight");
-    if (!p.price) missingFields.push("Price");
-    if (!p.url) missingFields.push("Product URL");
-    if (!p.image) missingFields.push("Image");
+    if (missingPrice) missingFields.push("Price");
+    if (missingUrl) missingFields.push("Product URL");
+    if (missingImage) missingFields.push("Image");
+    if (missingSummary) missingFields.push("Summary");
+    if (missingBestUse) missingFields.push("Best Use Cases");
     if (isCompatMissing) missingFields.push("Compatibility");
 
-    const totalFields = isAttachment ? 4 : 6;
-    const score = Math.round(((totalFields - missingFields.length) / totalFields) * 100);
+    const totalCheck = 9;
+    const score = Math.round(((totalCheck - missingFields.length) / totalCheck) * 100);
+    const isDuplicate = nameCounts[p.name.toLowerCase()] > 1;
 
     return {
       ...p,
@@ -115,14 +219,21 @@ export const AdminChatbot: React.FC = () => {
       missingHp,
       missingEngine,
       missingWeight,
-      isCompatMissing
+      missingPrice,
+      isCompatMissing,
+      missingUrl,
+      missingImage,
+      missingSummary,
+      missingBestUse,
+      isDuplicate
     };
   });
 
   const avgQualityScore = Math.round(
-    auditedProducts.reduce((acc, p) => acc + p.score, 0) / auditedProducts.length
+    auditedProducts.reduce((acc, p) => acc + p.score, 0) / (auditedProducts.length || 1)
   );
 
+  // Apply filters on Quality Dashboard list
   const filteredProducts = auditedProducts.filter((p) => {
     if (searchQuery) {
       const s = searchQuery.toLowerCase();
@@ -130,13 +241,155 @@ export const AdminChatbot: React.FC = () => {
         return false;
       }
     }
-    if (filter === "missing_hp") return p.missingHp;
-    if (filter === "missing_engine") return p.missingEngine;
-    if (filter === "missing_weight") return p.missingWeight;
-    if (filter === "missing_compat") return p.isCompatMissing;
-    if (filter === "low_score") return p.score < 70;
+    if (showHpMissing && !p.missingHp) return false;
+    if (showEngineMissing && !p.missingEngine) return false;
+    if (showWeightMissing && !p.missingWeight) return false;
+    if (showPriceMissing && !p.missingPrice) return false;
+    if (showCompatMissing && !p.isCompatMissing) return false;
+    if (showLowQuality && p.score >= 70) return false;
+    if (showDuplicateNames && !p.isDuplicate) return false;
     return true;
   });
+
+  // Handle product editor selection
+  const handleSelectProduct = (id: string) => {
+    const prod = allMerged.find(p => p.id === id);
+    if (!prod) return;
+    
+    setSelectedProductId(id);
+    setEditAliases((prod.raw.aliases || []).join(", "));
+    setEditPrice(prod.price);
+    setEditUrl(prod.url);
+    setEditImage(prod.image);
+    setEditHp(prod.horsepower);
+    setEditEngine(prod.engine);
+    setEditWeight(prod.weight);
+    setEditLiftCap(prod.specs.find(s => /lift capacity|operating capacity/i.test(s.label))?.value || "");
+    setEditDigDepth(prod.specs.find(s => /digging depth|dig depth/i.test(s.label))?.value || "");
+    setEditTagline(prod.tagline);
+    setEditUseCases(prod.bestUseCases.join(", "));
+    setEditFeatures(prod.keyFeatures.join(", "));
+    setEditCompat(prod.attachmentCompatibility.join(", "));
+    setEditVerified(prod.verified);
+    setEditQuestions((prod.suggestedQuestions || []).join("\n"));
+  };
+
+  const handleSaveProductKnowledge = () => {
+    if (!selectedProductId) return;
+    
+    try {
+      const customStoreKey = "kz-chatbot-products-custom";
+      const customStore = JSON.parse(localStorage.getItem(customStoreKey) || "{}");
+      
+      customStore[selectedProductId] = {
+        name: allMerged.find(p => p.id === selectedProductId)?.name,
+        aliases: editAliases,
+        price: editPrice,
+        url: editUrl,
+        image: editImage,
+        verified: editVerified,
+        tagline: editTagline,
+        bestUseCases: editUseCases,
+        keyFeatures: editFeatures,
+        attachmentCompatibility: editCompat,
+        suggestedQuestions: editQuestions,
+        specs: {
+          "Horsepower": editHp,
+          "Engine Power": editHp,
+          "Engine": editEngine,
+          "Engine Model": editEngine,
+          "Weight": editWeight,
+          "Weight Class": editWeight,
+          "Operating Weight": editWeight,
+          "Lift Capacity": editLiftCap,
+          "Operating Capacity": editLiftCap,
+          "Digging Depth": editDigDepth,
+          "Dig Depth": editDigDepth
+        }
+      };
+      
+      localStorage.setItem(customStoreKey, JSON.stringify(customStore));
+      refreshKnowledgeBase();
+      
+      setToast("Product chatbot knowledge saved successfully.");
+      setTimeout(() => setToast(null), 2500);
+      
+      // Clear selected product to return to list or stay in editor
+      setSelectedProductId(null);
+    } catch (e) {
+      console.error(e);
+      alert("Error saving custom knowledge overrides.");
+    }
+  };
+
+  // Generate live chatbot preview markdown in the editor tab
+  const getPreviewMarkdown = (): string => {
+    if (!selectedProductId) return "";
+    
+    const prod = allMerged.find(p => p.id === selectedProductId);
+    if (!prod) return "";
+
+    const name = prod.name;
+    const category = prod.category;
+    const bestFor = editUseCases.split(",")[0] || "General construction";
+    const hp = editHp || "Not listed";
+    const weight = editWeight || "Not listed";
+    const engine = editEngine || "Not listed";
+    
+    if (previewMode === "summary") {
+      let md = `### TYPHON ${name}\n\n`;
+      md += `**Best for:** ${bestFor}\n\n`;
+      md += `| Key Detail | Value |\n`;
+      md += `| ------------ | ------- |\n`;
+      md += `| Category | ${category} |\n`;
+      md += `| Engine | ${engine} |\n`;
+      md += `| Horsepower | ${hp} |\n`;
+      md += `| Weight/Class | ${weight} |\n`;
+      md += `| Main Use | ${editUseCases || "Not listed"} |\n\n`;
+      md += `**Highlights:**\n\n`;
+      const features = editFeatures ? editFeatures.split(",").slice(0, 3) : ["Robust reliability", "Auxiliary flow support", "Operator platform"];
+      for (const f of features) {
+        md += `* ${f.trim()}\n`;
+      }
+      md += `\n[1-Year Warranty] [Lifetime Technical Support]\n\n`;
+      md += `**Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.**`;
+      return md;
+    }
+    
+    if (previewMode === "key") {
+      let md = `### TYPHON ${name} Key Specifications\n\n`;
+      md += `| Specification | Value |\n`;
+      md += `|---|---|\n`;
+      md += `| Engine Model | ${engine} |\n`;
+      md += `| Horsepower | ${hp} |\n`;
+      md += `| Operating Weight | ${weight} |\n`;
+      if (editLiftCap) md += `| Rated Lift Capacity | ${editLiftCap} |\n`;
+      if (editDigDepth) md += `| Max Digging Depth | ${editDigDepth} |\n`;
+      md += `\n**1-year warranty + lifetime technical support**\n\n`;
+      md += `**Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.**`;
+      return md;
+    }
+
+    if (previewMode === "full") {
+      let md = `### TYPHON ${name} Full Specifications\n\n`;
+      md += `| Specification | Value |\n`;
+      md += `|---|---|\n`;
+      md += `| Category | ${category} |\n`;
+      md += `| Engine Model | ${engine} |\n`;
+      md += `| Horsepower | ${hp} |\n`;
+      md += `| Operating Weight | ${weight} |\n`;
+      if (editLiftCap) md += `| Lift Capacity | ${editLiftCap} |\n`;
+      if (editDigDepth) md += `| Digging Depth | ${editDigDepth} |\n`;
+      md += `| Price | ${editPrice || "Not listed"} |\n`;
+      md += `| URL | ${editUrl || "Not listed"} |\n`;
+      md += `\n**1-year warranty + lifetime technical support**\n\n`;
+      md += `**Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.**`;
+      return md;
+    }
+
+    // Default description
+    return `### TYPHON Machine Overview\n\n**TYPHON ${name}** is designed for **compact jobsite work**.\n\n**Best for:**\n* Small construction jobs\n* Property work\n* Landscaping\n* Farm or material handling\n* Tight work areas\n\n**Key details:**\n* Engine: ${engine}\n* Operating weight: ${weight}\n* Lift / digging / loading capacity: ${editLiftCap || editDigDepth || "Not listed"}\n* Attachments: ${editCompat || "Not listed"}\n\n**1-year warranty + lifetime technical support** is standard. **Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.**`;
+  };
 
   return (
     <div className="pb-12">
@@ -144,11 +397,11 @@ export const AdminChatbot: React.FC = () => {
         Chatbot Manager
       </h1>
       <p className="font-glonimove text-sm text-theme-muted mb-8">
-        Refine the AI assistant's responses, warranty parameters, and monitor specifications audits in real-time.
+        Refine the AI assistant's responses, warranty parameters, customize specification overrides, and monitor data completeness quality.
       </p>
 
       {/* Tabs */}
-      <div className="flex border-b border-theme-border/20 mb-6">
+      <div className="flex flex-wrap border-b border-theme-border/20 mb-6">
         <button
           type="button"
           onClick={() => setActiveTab("config")}
@@ -158,7 +411,18 @@ export const AdminChatbot: React.FC = () => {
               : "border-transparent text-theme-muted hover:text-theme-heading"
           }`}
         >
-          Chatbot Configurations
+          Configurations
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab("editor")}
+          className={`px-4 py-2 font-googleSans font-bold text-sm border-b-2 transition ${
+            activeTab === "editor"
+              ? "border-[#153d28] text-[#153d28] dark:border-[#d8c79a] dark:text-[#d8c79a]"
+              : "border-transparent text-theme-muted hover:text-theme-heading"
+          }`}
+        >
+          Product Knowledge Editor
         </button>
         <button
           type="button"
@@ -169,7 +433,7 @@ export const AdminChatbot: React.FC = () => {
               : "border-transparent text-theme-muted hover:text-theme-heading"
           }`}
         >
-          Specs Quality Dashboard ({avgQualityScore}% score)
+          Data Completeness Report ({avgQualityScore}% avg)
         </button>
         <button
           type="button"
@@ -180,10 +444,11 @@ export const AdminChatbot: React.FC = () => {
               : "border-transparent text-theme-muted hover:text-theme-heading"
           }`}
         >
-          Chat Analytics
+          Failed Logs & Analytics
         </button>
       </div>
 
+      {/* CONFIGURATION TAB */}
       {activeTab === "config" && (
         <Card className="p-6 md:p-8 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -325,13 +590,280 @@ export const AdminChatbot: React.FC = () => {
         </Card>
       )}
 
+      {/* PRODUCT KNOWLEDGE EDITOR TAB */}
+      {activeTab === "editor" && (
+        <div className="space-y-6">
+          {!selectedProductId ? (
+            <Card className="p-6">
+              <h2 className="text-lg font-clofieBold text-theme-heading mb-4">Select Product to Edit</h2>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder="Search products by name..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className={`${inputCls} w-full max-w-md text-sm`}
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto">
+                {allMerged
+                  .filter(p => !searchQuery || p.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                  .map(p => (
+                    <div 
+                      key={p.id} 
+                      onClick={() => handleSelectProduct(p.id)}
+                      className="p-4 border border-theme-border/20 hover:border-theme-heading hover:bg-theme-bg-alt/5 cursor-pointer flex justify-between items-center transition"
+                    >
+                      <div>
+                        <span className="font-bold text-theme-heading block text-sm">{p.name}</span>
+                        <span className="text-[10px] text-theme-muted tracking-wider uppercase font-googleSans">{p.brand} ({p.category})</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {p.verified && (
+                          <span className="text-[9px] px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 border border-emerald-500/25 uppercase font-bold tracking-wider">Verified</span>
+                        )}
+                        <span className="text-xs font-bold text-theme-muted">&rarr;</span>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </Card>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+              {/* Form Editor */}
+              <Card className="p-6 md:p-8 space-y-4">
+                <div className="flex items-center justify-between border-b border-theme-border/20 pb-3">
+                  <div>
+                    <h2 className="text-lg font-clofieBold text-theme-heading">
+                      Edit Knowledge: {allMerged.find(p => p.id === selectedProductId)?.name}
+                    </h2>
+                    <span className="text-[11px] text-theme-muted">
+                      Source brand: {allMerged.find(p => p.id === selectedProductId)?.brand}
+                    </span>
+                  </div>
+                  <button 
+                    type="button" 
+                    onClick={() => setSelectedProductId(null)} 
+                    className="text-xs border border-theme-border/20 px-2 py-1 hover:bg-white/5"
+                  >
+                    &larr; Back to list
+                  </button>
+                </div>
+
+                <div className="flex items-center justify-between bg-theme-bg-alt/5 p-3 rounded">
+                  <span className="text-xs font-bold text-theme-heading">Mark specifications data as Verified</span>
+                  <input
+                    type="checkbox"
+                    checked={editVerified}
+                    onChange={(e) => setEditVerified(e.target.checked)}
+                    className="w-4 h-4 cursor-pointer accent-[#153d28]"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Field label="Custom Aliases" hint="Comma-separated lowercase matching tags (e.g. terror, backhoe)">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editAliases}
+                      onChange={(e) => setEditAliases(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Price Override" hint="Display price (e.g. $6,508.95)">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editPrice}
+                      onChange={(e) => setEditPrice(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Product URL Override">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editUrl}
+                      onChange={(e) => setEditUrl(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Main Image URL">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editImage}
+                      onChange={(e) => setEditImage(e.target.value)}
+                    />
+                  </Field>
+                </div>
+
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#d8c79a] mt-4 border-b border-theme-border/10 pb-1">
+                  Core Specifications
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Field label="Engine Model">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editEngine}
+                      onChange={(e) => setEditEngine(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Horsepower / Engine Power">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editHp}
+                      onChange={(e) => setEditHp(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Operating Weight">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editWeight}
+                      onChange={(e) => setEditWeight(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Lift / Loading Capacity">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editLiftCap}
+                      onChange={(e) => setEditLiftCap(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Digging Depth">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editDigDepth}
+                      onChange={(e) => setEditDigDepth(e.target.value)}
+                    />
+                  </Field>
+                </div>
+
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#d8c79a] mt-4 border-b border-theme-border/10 pb-1">
+                  Chatbot Text Content
+                </h3>
+
+                <Field label="Short Summary/Tagline" hint="One-line description displayed on summary screens.">
+                  <input
+                    type="text"
+                    className={`${inputCls} w-full text-xs`}
+                    value={editTagline}
+                    onChange={(e) => setEditTagline(e.target.value)}
+                  />
+                </Field>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Field label="Best Use Cases" hint="Comma-separated key jobs (e.g. landscaping, digging trench)">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editUseCases}
+                      onChange={(e) => setEditUseCases(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Highlights / Key Features" hint="Comma-separated bullet points">
+                    <input
+                      type="text"
+                      className={`${inputCls} w-full text-xs`}
+                      value={editFeatures}
+                      onChange={(e) => setEditFeatures(e.target.value)}
+                    />
+                  </Field>
+                </div>
+
+                <Field label="Attachment Compatibility" hint="Comma-separated attachments currently confirmed (e.g. Pallet Fork, Auger)">
+                  <input
+                    type="text"
+                    className={`${inputCls} w-full text-xs`}
+                    value={editCompat}
+                    onChange={(e) => setEditCompat(e.target.value)}
+                  />
+                </Field>
+
+                <Field label="Suggested Product-Specific Questions" hint="One question per line. Displayed as options when this product is viewed.">
+                  <textarea
+                    className={`${inputCls} w-full text-xs`}
+                    rows={3}
+                    value={editQuestions}
+                    onChange={(e) => setEditQuestions(e.target.value)}
+                  />
+                </Field>
+
+                <div className="flex items-center gap-3 pt-4 border-t border-theme-border/20">
+                  <button type="button" onClick={handleSaveProductKnowledge} className={btnPrimary}>
+                    Save Product Knowledge
+                  </button>
+                  <button type="button" onClick={() => setSelectedProductId(null)} className={btnGhost}>
+                    Cancel
+                  </button>
+                </div>
+              </Card>
+
+              {/* Preview Pane */}
+              <div className="space-y-4">
+                <Card className="p-6 md:p-8 space-y-4 bg-theme-bg-alt/5 border border-theme-border/20">
+                  <div className="flex items-center justify-between border-b border-theme-border/10 pb-3">
+                    <h3 className="font-clofieBold text-theme-heading">Chatbot Live Preview</h3>
+                    <div className="flex gap-1 text-[10px]">
+                      <button 
+                        type="button" 
+                        onClick={() => setPreviewMode("summary")}
+                        className={`px-2 py-0.5 border ${previewMode === "summary" ? "bg-[#153d28] text-white border-transparent" : "border-theme-border/10 text-theme-muted"}`}
+                      >
+                        Summary
+                      </button>
+                      <button 
+                        type="button" 
+                        onClick={() => setPreviewMode("key")}
+                        className={`px-2 py-0.5 border ${previewMode === "key" ? "bg-[#153d28] text-white border-transparent" : "border-theme-border/10 text-theme-muted"}`}
+                      >
+                        Key Specs
+                      </button>
+                      <button 
+                        type="button" 
+                        onClick={() => setPreviewMode("full")}
+                        className={`px-2 py-0.5 border ${previewMode === "full" ? "bg-[#153d28] text-white border-transparent" : "border-theme-border/10 text-theme-muted"}`}
+                      >
+                        Full Specs
+                      </button>
+                      <button 
+                        type="button" 
+                        onClick={() => setPreviewMode("desc")}
+                        className={`px-2 py-0.5 border ${previewMode === "desc" ? "bg-[#153d28] text-white border-transparent" : "border-theme-border/10 text-theme-muted"}`}
+                      >
+                        Description
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {/* Rendering Mock Balloon */}
+                  <div className="bg-[#1f2824] dark:bg-[#1a231f] border border-[#d8c79a]/20 p-5 font-googleSans text-xs text-white max-h-[500px] overflow-y-auto space-y-3 leading-relaxed">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {getPreviewMarkdown()}
+                    </ReactMarkdown>
+                  </div>
+
+                  <span className="text-[10px] text-theme-muted italic block">
+                    * The pane above shows a live simulation of the chatbot output markdown string based on the form values.
+                  </span>
+                </Card>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* SPECS QUALITY DASHBOARD TAB */}
       {activeTab === "dashboard" && (
         <div className="space-y-6">
           {/* General Stats Card */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <Card className="p-5 flex flex-col justify-between">
               <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
-                Average Data Completeness
+                Avg Catalog Quality
               </span>
               <span className="text-3xl font-clofieBold text-theme-heading mt-2">
                 {avgQualityScore}%
@@ -346,12 +878,12 @@ export const AdminChatbot: React.FC = () => {
 
             <Card className="p-5 flex flex-col justify-between">
               <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
-                Total Catalog Products
+                Total Products Audited
               </span>
               <span className="text-3xl font-clofieBold text-theme-heading mt-2">
                 {auditedProducts.length}
               </span>
-              <span className="text-[11px] text-theme-muted mt-3">
+              <span className="text-[10px] text-theme-muted mt-3">
                 {auditedProducts.filter(p => p.productType === "machine").length} machines,{" "}
                 {auditedProducts.filter(p => p.productType === "attachment").length} attachments
               </span>
@@ -359,96 +891,108 @@ export const AdminChatbot: React.FC = () => {
 
             <Card className="p-5 flex flex-col justify-between">
               <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
-                Action Required
+                Incomplete Specs
               </span>
-              <span className="text-3xl font-clofieBold text-theme-heading mt-2 text-amber-600">
+              <span className="text-3xl font-clofieBold text-amber-600 mt-2">
                 {auditedProducts.filter(p => p.missingFields.length > 0).length}
               </span>
-              <span className="text-[11px] text-theme-muted mt-3">
+              <span className="text-[10px] text-theme-muted mt-3">
                 Products require additional data fields
+              </span>
+            </Card>
+
+            <Card className="p-5 flex flex-col justify-between">
+              <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
+                Verified Records
+              </span>
+              <span className="text-3xl font-clofieBold text-emerald-600 mt-2">
+                {auditedProducts.filter(p => p.verified).length}
+              </span>
+              <span className="text-[10px] text-theme-muted mt-3">
+                Manually confirmed specifications
               </span>
             </Card>
           </div>
 
-          {/* Filters & Search */}
-          <div className="flex flex-wrap items-center justify-between gap-4 bg-theme-bg-alt/10 p-4 border border-theme-border/20">
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => setFilter("all")}
-                className={`px-3 py-1 text-[11px] font-bold uppercase tracking-wider border transition ${
-                  filter === "all"
-                    ? "bg-[#153d28] text-white border-transparent"
-                    : "border-theme-border/20 text-theme-muted hover:border-theme-heading"
-                }`}
-              >
-                All ({auditedProducts.length})
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter("missing_hp")}
-                className={`px-3 py-1 text-[11px] font-bold uppercase tracking-wider border transition ${
-                  filter === "missing_hp"
-                    ? "bg-[#153d28] text-white border-transparent"
-                    : "border-theme-border/20 text-theme-muted hover:border-theme-heading"
-                }`}
-              >
-                Missing HP ({auditedProducts.filter(p => p.missingHp).length})
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter("missing_engine")}
-                className={`px-3 py-1 text-[11px] font-bold uppercase tracking-wider border transition ${
-                  filter === "missing_engine"
-                    ? "bg-[#153d28] text-white border-transparent"
-                    : "border-theme-border/20 text-theme-muted hover:border-theme-heading"
-                }`}
-              >
-                Missing Engine ({auditedProducts.filter(p => p.missingEngine).length})
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter("missing_weight")}
-                className={`px-3 py-1 text-[11px] font-bold uppercase tracking-wider border transition ${
-                  filter === "missing_weight"
-                    ? "bg-[#153d28] text-white border-transparent"
-                    : "border-theme-border/20 text-theme-muted hover:border-theme-heading"
-                }`}
-              >
-                Missing Weight ({auditedProducts.filter(p => p.missingWeight).length})
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter("missing_compat")}
-                className={`px-3 py-1 text-[11px] font-bold uppercase tracking-wider border transition ${
-                  filter === "missing_compat"
-                    ? "bg-[#153d28] text-white border-transparent"
-                    : "border-theme-border/20 text-theme-muted hover:border-theme-heading"
-                }`}
-              >
-                Attachments Missing Compat ({auditedProducts.filter(p => p.isCompatMissing).length})
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter("low_score")}
-                className={`px-3 py-1 text-[11px] font-bold uppercase tracking-wider border transition ${
-                  filter === "low_score"
-                    ? "bg-[#153d28] text-white border-transparent"
-                    : "border-theme-border/20 text-theme-muted hover:border-theme-heading"
-                }`}
-              >
-                Low Score &lt; 70% ({auditedProducts.filter(p => p.score < 70).length})
-              </button>
-            </div>
+          {/* Advanced Checkbox Filters */}
+          <Card className="p-5 space-y-4">
+            <h3 className="text-sm font-bold text-theme-heading">Data Quality Audit Filters</h3>
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap gap-x-6 gap-y-3">
+                <label className="flex items-center gap-2 text-xs text-theme-heading cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showHpMissing}
+                    onChange={(e) => setShowHpMissing(e.target.checked)}
+                    className="w-4 h-4 rounded border-theme-border/20 accent-[#153d28]"
+                  />
+                  <span>Missing Horsepower</span>
+                </label>
+                <label className="flex items-center gap-2 text-xs text-theme-heading cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showEngineMissing}
+                    onChange={(e) => setShowEngineMissing(e.target.checked)}
+                    className="w-4 h-4 rounded border-theme-border/20 accent-[#153d28]"
+                  />
+                  <span>Missing Engine</span>
+                </label>
+                <label className="flex items-center gap-2 text-xs text-theme-heading cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showWeightMissing}
+                    onChange={(e) => setShowWeightMissing(e.target.checked)}
+                    className="w-4 h-4 rounded border-theme-border/20 accent-[#153d28]"
+                  />
+                  <span>Missing Weight</span>
+                </label>
+                <label className="flex items-center gap-2 text-xs text-theme-heading cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showPriceMissing}
+                    onChange={(e) => setShowPriceMissing(e.target.checked)}
+                    className="w-4 h-4 rounded border-theme-border/20 accent-[#153d28]"
+                  />
+                  <span>Missing Price</span>
+                </label>
+                <label className="flex items-center gap-2 text-xs text-theme-heading cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showCompatMissing}
+                    onChange={(e) => setShowCompatMissing(e.target.checked)}
+                    className="w-4 h-4 rounded border-theme-border/20 accent-[#153d28]"
+                  />
+                  <span>Missing Attachment Fitment</span>
+                </label>
+                <label className="flex items-center gap-2 text-xs text-theme-heading cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showLowQuality}
+                    onChange={(e) => setShowLowQuality(e.target.checked)}
+                    className="w-4 h-4 rounded border-theme-border/20 accent-[#153d28]"
+                  />
+                  <span>Low Quality Score (&lt; 70)</span>
+                </label>
+                <label className="flex items-center gap-2 text-xs text-theme-heading cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showDuplicateNames}
+                    onChange={(e) => setShowDuplicateNames(e.target.checked)}
+                    className="w-4 h-4 rounded border-theme-border/20 accent-[#153d28]"
+                  />
+                  <span>Duplicate Names</span>
+                </label>
+              </div>
 
-            <input
-              type="text"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className={`${inputCls} text-xs w-48`}
-            />
-          </div>
+              <input
+                type="text"
+                placeholder="Quick name search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={`${inputCls} text-xs w-48`}
+              />
+            </div>
+          </Card>
 
           {/* Audit List Table */}
           <Card className="overflow-hidden">
@@ -459,14 +1003,27 @@ export const AdminChatbot: React.FC = () => {
                     <th className="px-6 py-3.5">Product Name</th>
                     <th className="px-6 py-3.5">Category</th>
                     <th className="px-6 py-3.5">Missing Fields</th>
-                    <th className="px-6 py-3.5 text-right">Completeness Score</th>
+                    <th className="px-6 py-3.5 text-center">Verification Status</th>
+                    <th className="px-6 py-3.5 text-right">Quality Score</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-theme-border/10">
                   {filteredProducts.map((p, idx) => (
-                    <tr key={idx} className="hover:bg-theme-bg-alt/5 transition">
+                    <tr 
+                      key={idx} 
+                      onClick={() => {
+                        setActiveTab("editor");
+                        handleSelectProduct(p.id);
+                      }}
+                      className="hover:bg-theme-bg-alt/5 cursor-pointer transition"
+                    >
                       <td className="px-6 py-4 font-bold text-theme-heading">
-                        {p.name}
+                        <div className="flex flex-col">
+                          <span>{p.name}</span>
+                          {p.isDuplicate && (
+                            <span className="text-[9px] text-red-500 font-bold uppercase tracking-wider mt-0.5">Duplicate model name</span>
+                          )}
+                        </div>
                       </td>
                       <td className="px-6 py-4 text-theme-muted">
                         {p.category}
@@ -487,6 +1044,13 @@ export const AdminChatbot: React.FC = () => {
                           <span className="text-emerald-600 font-bold">100% Complete</span>
                         )}
                       </td>
+                      <td className="px-6 py-4 text-center">
+                        {p.verified ? (
+                          <span className="inline-flex text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 bg-emerald-500/15 text-emerald-600 border border-emerald-500/30">Verified</span>
+                        ) : (
+                          <span className="inline-flex text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white/5 text-theme-muted border border-theme-border/20">Pending</span>
+                        )}
+                      </td>
                       <td className="px-6 py-4 text-right">
                         <span
                           className={`font-googleSans font-bold text-xs ${
@@ -504,8 +1068,8 @@ export const AdminChatbot: React.FC = () => {
                   ))}
                   {filteredProducts.length === 0 && (
                     <tr>
-                      <td colSpan={4} className="px-6 py-8 text-center text-theme-muted font-googleSans">
-                        No products match the selected filters or search queries.
+                      <td colSpan={5} className="px-6 py-8 text-center text-theme-muted font-googleSans">
+                        No products match the selected quality filters or search queries.
                       </td>
                     </tr>
                   )}
@@ -516,6 +1080,7 @@ export const AdminChatbot: React.FC = () => {
         </div>
       )}
 
+      {/* ANALYTICS & LOG TAB */}
       {activeTab === "analytics" && (
         <div className="space-y-6">
           {/* Summary KPI Cards */}
@@ -545,7 +1110,7 @@ export const AdminChatbot: React.FC = () => {
                 Failed/Fallback Hits
               </span>
               <span className="text-3xl font-clofieBold text-red-500 mt-2">
-                {analytics.failed.length}
+                {analytics.failed.length + failedLogs.filter(l => !l.success).length}
               </span>
               <span className="text-[10px] text-theme-muted mt-2">Unresolved questions</span>
             </Card>
@@ -623,26 +1188,58 @@ export const AdminChatbot: React.FC = () => {
             </Card>
           </div>
 
-          {/* Failed / Low Confidence Queries */}
+          {/* Failed / Low Confidence Queries Log */}
           <Card className="p-6 space-y-4">
             <h2 className="text-lg font-clofieBold text-theme-heading text-red-500">
-              Failed & Low Confidence Queries
+              Failed & Weak Question Log
             </h2>
             <p className="text-xs text-theme-muted">
-              These are questions users asked that triggered fallbacks or warnings. Use this to input missing product specifications.
+              Real-time audit log of user questions where specs were missing or intent matches were low. Use this to audit and input missing data in real-time.
             </p>
-            <div className="divide-y divide-theme-border/10">
-              {analytics.failed.map((q, idx) => (
-                <div key={idx} className="py-2.5 flex justify-between items-center text-xs">
-                  <span className="font-bold text-theme-heading font-googleSans">"{q}"</span>
-                  <span className="text-[10px] px-2 py-0.5 bg-red-500/10 text-red-500 border border-red-500/25">
-                    Unresolved Spec
-                  </span>
-                </div>
-              ))}
-              {analytics.failed.length === 0 && (
-                <span className="text-xs text-theme-muted block py-4">No failed queries registered.</span>
-              )}
+            <div className="overflow-x-auto border border-theme-border/10">
+              <table className="min-w-full divide-y divide-theme-border/10 text-left text-xs">
+                <thead className="bg-[#153d28]/10 text-theme-heading font-googleSans uppercase tracking-wider text-[10px]">
+                  <tr>
+                    <th className="px-4 py-3">Timestamp</th>
+                    <th className="px-4 py-3">User Query</th>
+                    <th className="px-4 py-3">Detected Intent</th>
+                    <th className="px-4 py-3">Product Involved</th>
+                    <th className="px-4 py-3">Missing Spec</th>
+                    <th className="px-4 py-3">Suggested Fix</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-theme-border/10">
+                  {failedLogs.map((log, idx) => (
+                    <tr key={idx} className="hover:bg-theme-bg-alt/5">
+                      <td className="px-4 py-3 text-theme-muted whitespace-nowrap">
+                        {new Date(log.timestamp).toLocaleString()}
+                      </td>
+                      <td className="px-4 py-3 font-medium text-theme-heading">
+                        "{log.userQuestion}"
+                      </td>
+                      <td className="px-4 py-3 text-theme-muted">
+                        {log.detectedIntent}
+                      </td>
+                      <td className="px-4 py-3 text-theme-heading font-semibold">
+                        {log.detectedProduct || "None"}
+                      </td>
+                      <td className="px-4 py-3 text-red-500">
+                        {log.missingSpec || "N/A"}
+                      </td>
+                      <td className="px-4 py-3 text-emerald-600 font-medium">
+                        {log.suggestedFix}
+                      </td>
+                    </tr>
+                  ))}
+                  {failedLogs.length === 0 && (
+                    <tr>
+                      <td colSpan={6} className="px-4 py-8 text-center text-theme-muted">
+                        No failed or weak queries tracked yet.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             </div>
           </Card>
         </div>

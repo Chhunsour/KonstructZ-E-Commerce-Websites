@@ -10,6 +10,7 @@ export interface ComparableMachine {
   name: string;
   categoryLabel: string;
   image: string;
+  fallbackImage?: string;
   specs: { label: string; value: string }[];
   /** Optional headline price (Typhon machines carry one). */
   priceLabel?: string;
@@ -269,6 +270,11 @@ const MachineBody: React.FC<{
             alt={name}
             className="h-full w-full object-contain p-2"
             loading="lazy"
+            onError={(event) => {
+              if (!machine.fallbackImage || event.currentTarget.dataset.fallbackApplied === "true") return;
+              event.currentTarget.dataset.fallbackApplied = "true";
+              event.currentTarget.src = machine.fallbackImage;
+            }}
           />
         </div>
         <div className="min-w-0">

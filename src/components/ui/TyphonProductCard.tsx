@@ -17,6 +17,16 @@ const QUICK_SPECS: { label: string; short: string }[] = [
   { label: "Engine Power", short: "Power" },
 ];
 
+const useFallbackImage = (
+  event: React.SyntheticEvent<HTMLImageElement>,
+  fallback: string | undefined,
+) => {
+  const img = event.currentTarget;
+  if (!fallback || img.dataset.fallbackApplied === "true") return;
+  img.dataset.fallbackApplied = "true";
+  img.src = fallback;
+};
+
 /**
  * Typhon Machinery catalog card — a clean, bright white card built for scanning
  * many products. Intentionally distinct from the dark Konstructz `ProductCard`,
@@ -53,6 +63,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
             src={cardImage}
             alt={product.name}
             loading="lazy"
+            onError={(event) => useFallbackImage(event, product.originalImageSource)}
             className="h-full w-full object-contain scale-[1.08] transition-transform duration-300 group-hover:scale-[1.12]"
             // Neutralize the cream/beige backdrop baked into some source photos —
             // slight brightness lifts near-white pixels to pure white, mild

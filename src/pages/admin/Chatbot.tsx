@@ -8,9 +8,15 @@ import {
   refreshKnowledgeBase,
   getFailedQueryLogs,
   getMergedProducts,
-  type FailedQueryLog
+  type FailedQueryLog,
+  getFeedbackLogs,
+  type UserFeedbackLog
 } from "../../components/chat/knowledge";
-import { normalizedProducts } from "../../components/chat/chatbotProductIndex";
+import { 
+  getSpecValAndConfidence, 
+  normalizeSpecValue, 
+  getSimilarityScore 
+} from "../../components/chat/engine";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -25,7 +31,7 @@ interface AnalyticsData {
 export const AdminChatbot: React.FC = () => {
   const [config, setConfig] = useState<ChatbotConfig | null>(null);
   const [toast, setToast] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"config" | "editor" | "dashboard" | "analytics">("config");
+  const [activeTab, setActiveTab] = useState<"config" | "editor" | "dashboard" | "analytics" | "queue">("config");
   
   // Quality filters
   const [showHpMissing, setShowHpMissing] = useState(false);
@@ -65,12 +71,16 @@ export const AdminChatbot: React.FC = () => {
     contacts: 0
   });
   const [failedLogs, setFailedLogs] = useState<FailedQueryLog[]>([]);
+  const [feedbackLogs, setFeedbackLogs] = useState<UserFeedbackLog[]>([]);
 
+  // Metadata Version info
+  const [scanTime, setScanTime] = useState("");
   useEffect(() => {
     setConfig(getChatbotConfig());
     setFailedLogs(getFailedQueryLogs());
+    setFeedbackLogs(getFeedbackLogs());
+    setScanTime(new Date().toLocaleString());
     
-    // Load local storage analytics
     try {
       const stored = localStorage.getItem("kz-chatbot-analytics");
       if (stored) {
@@ -194,7 +204,6 @@ export const AdminChatbot: React.FC = () => {
     const missingSummary = !p.tagline;
     const missingBestUse = p.bestUseCases.length === 0;
     
-    // Attachments must confirm compatibility with at least one model name
     const isCompatMissing = isAttachment && p.attachmentCompatibility.length === 0 && !/\b(terror|tyrant|stomp|vigor|skoop|0509|509|x1300|v1000|0501)\b/i.test(p.name);
 
     const missingFields = [];
@@ -212,6 +221,12 @@ export const AdminChatbot: React.FC = () => {
     const score = Math.round(((totalCheck - missingFields.length) / totalCheck) * 100);
     const isDuplicate = nameCounts[p.name.toLowerCase()] > 1;
 
+    // Direct check for conflict specs
+    const hpTrace = getSpecValAndConfidence(p.raw, "Horsepower");
+    const weightTrace = getSpecValAndConfidence(p.raw, "Weight");
+    const hasConflict = !!(hpTrace.warning || weightTrace.warning);
+    const conflictMessage = hpTrace.warning || weightTrace.warning || "";
+
     return {
       ...p,
       missingFields,
@@ -225,7 +240,9 @@ export const AdminChatbot: React.FC = () => {
       missingImage,
       missingSummary,
       missingBestUse,
-      isDuplicate
+      isDuplicate,
+      hasConflict,
+      conflictMessage
     };
   });
 
@@ -250,6 +267,9 @@ export const AdminChatbot: React.FC = () => {
     if (showDuplicateNames && !p.isDuplicate) return false;
     return true;
   });
+
+  // Total specs count in system
+  const totalSpecsIndexed = auditedProducts.reduce((acc, p) => acc + p.specs.length, 0);
 
   // Handle product editor selection
   const handleSelectProduct = (id: string) => {
@@ -314,7 +334,6 @@ export const AdminChatbot: React.FC = () => {
       setToast("Product chatbot knowledge saved successfully.");
       setTimeout(() => setToast(null), 2500);
       
-      // Clear selected product to return to list or stay in editor
       setSelectedProductId(null);
     } catch (e) {
       console.error(e);
@@ -387,8 +406,44 @@ export const AdminChatbot: React.FC = () => {
       return md;
     }
 
-    // Default description
     return `### TYPHON Machine Overview\n\n**TYPHON ${name}** is designed for **compact jobsite work**.\n\n**Best for:**\n* Small construction jobs\n* Property work\n* Landscaping\n* Farm or material handling\n* Tight work areas\n\n**Key details:**\n* Engine: ${engine}\n* Operating weight: ${weight}\n* Lift / digging / loading capacity: ${editLiftCap || editDigDepth || "Not listed"}\n* Attachments: ${editCompat || "Not listed"}\n\n**1-year warranty + lifetime technical support** is standard. **Shipping is available in the USA. For overseas or international orders, please contact the sales team so they can confirm availability, cost, and delivery options.**`;
+  };
+
+  // Get diagnostic source trace for the editor preview pane
+  const getProductSourceTrace = () => {
+    if (!selectedProductId) return [];
+    const prod = allMerged.find(p => p.id === selectedProductId);
+    if (!prod) return [];
+
+    return [
+      { name: "Horsepower", ...getSpecValAndConfidence(prod.raw, "Horsepower") },
+      { name: "Engine", ...getSpecValAndConfidence(prod.raw, "Engine") },
+      { name: "Weight", ...getSpecValAndConfidence(prod.raw, "Weight") },
+      { name: "Price", ...getSpecValAndConfidence(prod.raw, "Price") },
+      { name: "Product URL", ...getSpecValAndConfidence(prod.raw, "Product URL") },
+      { name: "Image", ...getSpecValAndConfidence(prod.raw, "Image") }
+    ];
+  };
+
+  // Action methods on training queue logs
+  const handleResolveLog = (idx: number, type: "failed" | "feedback") => {
+    try {
+      if (type === "failed") {
+        const copy = [...failedLogs];
+        copy.splice(idx, 1);
+        setFailedLogs(copy);
+        localStorage.setItem("kz-chatbot-failed-queries", JSON.stringify(copy));
+      } else {
+        const copy = [...feedbackLogs];
+        copy.splice(idx, 1);
+        setFeedbackLogs(copy);
+        localStorage.setItem("kz-chatbot-user-feedback", JSON.stringify(copy));
+      }
+      setToast("Item marked as resolved.");
+      setTimeout(() => setToast(null), 2500);
+    } catch {
+      // ignore
+    }
   };
 
   return (
@@ -433,7 +488,18 @@ export const AdminChatbot: React.FC = () => {
               : "border-transparent text-theme-muted hover:text-theme-heading"
           }`}
         >
-          Data Completeness Report ({avgQualityScore}% avg)
+          Specs Quality Dashboard ({avgQualityScore}% avg)
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab("queue")}
+          className={`px-4 py-2 font-googleSans font-bold text-sm border-b-2 transition ${
+            activeTab === "queue"
+              ? "border-[#153d28] text-[#153d28] dark:border-[#d8c79a] dark:text-[#d8c79a]"
+              : "border-transparent text-theme-muted hover:text-theme-heading"
+          }`}
+        >
+          Training Queue ({failedLogs.length + feedbackLogs.filter(l => l.feedbackType === "missing_info").length})
         </button>
         <button
           type="button"
@@ -444,7 +510,7 @@ export const AdminChatbot: React.FC = () => {
               : "border-transparent text-theme-muted hover:text-theme-heading"
           }`}
         >
-          Failed Logs & Analytics
+          Chat Analytics
         </button>
       </div>
 
@@ -802,7 +868,7 @@ export const AdminChatbot: React.FC = () => {
                 </div>
               </Card>
 
-              {/* Preview Pane */}
+              {/* Preview Pane & Source Trace */}
               <div className="space-y-4">
                 <Card className="p-6 md:p-8 space-y-4 bg-theme-bg-alt/5 border border-theme-border/20">
                   <div className="flex items-center justify-between border-b border-theme-border/10 pb-3">
@@ -840,15 +906,52 @@ export const AdminChatbot: React.FC = () => {
                   </div>
                   
                   {/* Rendering Mock Balloon */}
-                  <div className="bg-[#1f2824] dark:bg-[#1a231f] border border-[#d8c79a]/20 p-5 font-googleSans text-xs text-white max-h-[500px] overflow-y-auto space-y-3 leading-relaxed">
+                  <div className="bg-[#1f2824] dark:bg-[#1a231f] border border-[#d8c79a]/20 p-5 font-googleSans text-xs text-white max-h-[400px] overflow-y-auto space-y-3 leading-relaxed">
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
                       {getPreviewMarkdown()}
                     </ReactMarkdown>
                   </div>
 
-                  <span className="text-[10px] text-theme-muted italic block">
+                  <span className="text-[10px] text-theme-muted italic block border-b border-theme-border/10 pb-2">
                     * The pane above shows a live simulation of the chatbot output markdown string based on the form values.
                   </span>
+
+                  {/* Diagnostic Source Trace Table */}
+                  <div className="space-y-2">
+                    <h4 className="text-xs font-bold text-theme-heading font-googleSans uppercase tracking-wider text-[#d8c79a]">Diagnostic Spec Trace</h4>
+                    <div className="overflow-x-auto border border-theme-border/10">
+                      <table className="min-w-full text-left text-[11px] divide-y divide-theme-border/10">
+                        <thead className="bg-white/5 text-theme-muted font-bold">
+                          <tr>
+                            <th className="p-2">Specification</th>
+                            <th className="p-2">Current Value</th>
+                            <th className="p-2">Trace Source</th>
+                            <th className="p-2">Confidence</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-theme-border/10 text-white/90">
+                          {getProductSourceTrace().map((trace, idx) => (
+                            <tr key={idx} className="hover:bg-white/5">
+                              <td className="p-2 font-semibold text-[#d8c79a]">{trace.name}</td>
+                              <td className="p-2 font-mono">{trace.value || "N/A"}</td>
+                              <td className="p-2 text-theme-muted">{trace.source}</td>
+                              <td className="p-2">
+                                <span className={`px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
+                                  trace.confidence === "Verified" ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" :
+                                  trace.confidence === "Found in product data" ? "bg-blue-500/10 text-blue-500 border border-blue-500/20" :
+                                  trace.confidence === "Extracted from description" ? "bg-amber-500/10 text-amber-500 border border-amber-500/20" :
+                                  trace.confidence === "Conflicting" ? "bg-red-500/10 text-red-500 border border-red-500/20 font-bold" :
+                                  "bg-white/5 text-theme-muted"
+                                }`}>
+                                  {trace.confidence}
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </Card>
               </div>
             </div>
@@ -859,16 +962,16 @@ export const AdminChatbot: React.FC = () => {
       {/* SPECS QUALITY DASHBOARD TAB */}
       {activeTab === "dashboard" && (
         <div className="space-y-6">
-          {/* General Stats Card */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <Card className="p-5 flex flex-col justify-between">
-              <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
-                Avg Catalog Quality
+          {/* General Stats Card & Version Info */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <Card className="p-4 flex flex-col justify-between">
+              <span className="text-[10px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
+                Avg Quality
               </span>
-              <span className="text-3xl font-clofieBold text-theme-heading mt-2">
+              <span className="text-2xl font-clofieBold text-theme-heading mt-2">
                 {avgQualityScore}%
               </span>
-              <div className="w-full bg-white/10 h-1.5 mt-3">
+              <div className="w-full bg-white/10 h-1.5 mt-2">
                 <div
                   className="h-full bg-emerald-600 transition-all"
                   style={{ width: `${avgQualityScore}%` }}
@@ -876,41 +979,47 @@ export const AdminChatbot: React.FC = () => {
               </div>
             </Card>
 
-            <Card className="p-5 flex flex-col justify-between">
-              <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
-                Total Products Audited
+            <Card className="p-4 flex flex-col justify-between">
+              <span className="text-[10px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
+                Total Products
               </span>
-              <span className="text-3xl font-clofieBold text-theme-heading mt-2">
+              <span className="text-2xl font-clofieBold text-theme-heading mt-2">
                 {auditedProducts.length}
               </span>
-              <span className="text-[10px] text-theme-muted mt-3">
+              <span className="text-[9px] text-theme-muted mt-2 truncate">
                 {auditedProducts.filter(p => p.productType === "machine").length} machines,{" "}
                 {auditedProducts.filter(p => p.productType === "attachment").length} attachments
               </span>
             </Card>
 
-            <Card className="p-5 flex flex-col justify-between">
-              <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
-                Incomplete Specs
+            <Card className="p-4 flex flex-col justify-between">
+              <span className="text-[10px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
+                Specs Indexed
               </span>
-              <span className="text-3xl font-clofieBold text-amber-600 mt-2">
-                {auditedProducts.filter(p => p.missingFields.length > 0).length}
+              <span className="text-2xl font-clofieBold text-theme-heading mt-2">
+                {totalSpecsIndexed}
               </span>
-              <span className="text-[10px] text-theme-muted mt-3">
-                Products require additional data fields
-              </span>
+              <span className="text-[9px] text-theme-muted mt-2">Total parameters in DB</span>
             </Card>
 
-            <Card className="p-5 flex flex-col justify-between">
-              <span className="text-[12px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
-                Verified Records
+            <Card className="p-4 flex flex-col justify-between">
+              <span className="text-[10px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
+                Conflicts / Warnings
               </span>
-              <span className="text-3xl font-clofieBold text-emerald-600 mt-2">
-                {auditedProducts.filter(p => p.verified).length}
+              <span className="text-2xl font-clofieBold text-red-500 mt-2">
+                {auditedProducts.filter(p => p.hasConflict || p.isDuplicate).length}
               </span>
-              <span className="text-[10px] text-theme-muted mt-3">
-                Manually confirmed specifications
+              <span className="text-[9px] text-theme-muted mt-2">Conflicting / Duplicate items</span>
+            </Card>
+
+            <Card className="p-4 flex flex-col justify-between">
+              <span className="text-[10px] uppercase tracking-wider font-googleSans font-bold text-theme-muted">
+                Knowledge Version
               </span>
+              <span className="text-2xl font-clofieBold text-theme-heading mt-2">
+                v3.2.1
+              </span>
+              <span className="text-[9px] text-theme-muted mt-2 truncate">Scan: {scanTime}</span>
             </Card>
           </div>
 
@@ -1002,7 +1111,7 @@ export const AdminChatbot: React.FC = () => {
                   <tr>
                     <th className="px-6 py-3.5">Product Name</th>
                     <th className="px-6 py-3.5">Category</th>
-                    <th className="px-6 py-3.5">Missing Fields</th>
+                    <th className="px-6 py-3.5">Issues & Missing Fields</th>
                     <th className="px-6 py-3.5 text-center">Verification Status</th>
                     <th className="px-6 py-3.5 text-right">Quality Score</th>
                   </tr>
@@ -1029,20 +1138,24 @@ export const AdminChatbot: React.FC = () => {
                         {p.category}
                       </td>
                       <td className="px-6 py-4">
-                        {p.missingFields.length > 0 ? (
-                          <div className="flex flex-wrap gap-1">
-                            {p.missingFields.map((f, i) => (
-                              <span
-                                key={i}
-                                className="inline-flex items-center text-[9px] px-1.5 py-0.5 bg-red-500/10 text-red-500 border border-red-500/25"
-                              >
-                                {f}
-                              </span>
-                            ))}
-                          </div>
-                        ) : (
-                          <span className="text-emerald-600 font-bold">100% Complete</span>
-                        )}
+                        <div className="flex flex-wrap gap-1">
+                          {p.hasConflict && (
+                            <span className="inline-flex items-center text-[9px] px-1.5 py-0.5 bg-red-500/10 text-red-500 border border-red-500/25 font-bold uppercase">
+                              Spec Conflict Warning
+                            </span>
+                          )}
+                          {p.missingFields.map((f, i) => (
+                            <span
+                              key={i}
+                              className="inline-flex items-center text-[9px] px-1.5 py-0.5 bg-red-500/10 text-red-500 border border-red-500/25"
+                            >
+                              {f}
+                            </span>
+                          ))}
+                          {!p.hasConflict && p.missingFields.length === 0 && (
+                            <span className="text-emerald-600 font-bold">100% Complete</span>
+                          )}
+                        </div>
                       </td>
                       <td className="px-6 py-4 text-center">
                         {p.verified ? (
@@ -1080,7 +1193,142 @@ export const AdminChatbot: React.FC = () => {
         </div>
       )}
 
-      {/* ANALYTICS & LOG TAB */}
+      {/* TRAINING QUEUE TAB */}
+      {activeTab === "queue" && (
+        <div className="space-y-6">
+          <Card className="p-6">
+            <h2 className="text-lg font-clofieBold text-theme-heading mb-2">Chatbot Training Queue</h2>
+            <p className="text-xs text-theme-muted">
+              Analyze unresolved search queries and negative ratings directly. Select "Fix Spec" to update chatbot database values instantly.
+            </p>
+          </Card>
+
+          {/* Unresolved / Failed Logs Queue */}
+          <Card className="p-6 space-y-4">
+            <h3 className="text-sm font-bold text-theme-heading text-[#d8c79a]">Failed & Unresolved Search Logs</h3>
+            <div className="overflow-x-auto border border-theme-border/10">
+              <table className="min-w-full divide-y divide-theme-border/10 text-left text-xs">
+                <thead className="bg-[#153d28]/10 text-theme-heading font-googleSans uppercase tracking-wider text-[10px]">
+                  <tr>
+                    <th className="px-4 py-3">Timestamp</th>
+                    <th className="px-4 py-3">User Question</th>
+                    <th className="px-4 py-3">Detected Intent</th>
+                    <th className="px-4 py-3">Product Involved</th>
+                    <th className="px-4 py-3">Missing Parameter</th>
+                    <th className="px-4 py-3 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-theme-border/10 text-white/90">
+                  {failedLogs.map((log, idx) => (
+                    <tr key={idx} className="hover:bg-white/5">
+                      <td className="px-4 py-3 text-theme-muted whitespace-nowrap">
+                        {new Date(log.timestamp).toLocaleString()}
+                      </td>
+                      <td className="px-4 py-3 font-semibold text-theme-heading">
+                        "{log.userQuestion}"
+                      </td>
+                      <td className="px-4 py-3 text-theme-muted">{log.detectedIntent}</td>
+                      <td className="px-4 py-3 font-bold text-[#d8c79a]">{log.detectedProduct || "None"}</td>
+                      <td className="px-4 py-3 text-red-500 font-medium">{log.missingSpec || "N/A"}</td>
+                      <td className="px-4 py-3 text-right space-x-2">
+                        {log.detectedProduct && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const found = allMerged.find(p => p.name.toLowerCase().includes(log.detectedProduct!.toLowerCase()) || log.detectedProduct!.toLowerCase().includes(p.name.toLowerCase()));
+                              if (found) {
+                                setActiveTab("editor");
+                                handleSelectProduct(found.id);
+                              }
+                            }}
+                            className="bg-[#153d28] border border-transparent px-2.5 py-1 text-[10px] font-bold text-white hover:bg-emerald-800 transition"
+                          >
+                            Fix Spec
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => handleResolveLog(idx, "failed")}
+                          className="bg-white/5 border border-theme-border/20 px-2.5 py-1 text-[10px] text-theme-muted hover:border-white hover:text-white transition"
+                        >
+                          Resolve
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                  {failedLogs.length === 0 && (
+                    <tr>
+                      <td colSpan={6} className="px-4 py-8 text-center text-theme-muted">
+                        No failed or weak queries currently logged in training queue.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </Card>
+
+          {/* User Feedback & Rating Ratings */}
+          <Card className="p-6 space-y-4">
+            <h3 className="text-sm font-bold text-theme-heading text-[#d8c79a]">User Feedback Ratings</h3>
+            <div className="overflow-x-auto border border-theme-border/10">
+              <table className="min-w-full divide-y divide-theme-border/10 text-left text-xs">
+                <thead className="bg-[#153d28]/10 text-theme-heading font-googleSans uppercase tracking-wider text-[10px]">
+                  <tr>
+                    <th className="px-4 py-3">Timestamp</th>
+                    <th className="px-4 py-3">Helpfulness</th>
+                    <th className="px-4 py-3">Detail Logs / Missing parameters</th>
+                    <th className="px-4 py-3">Response Snippet</th>
+                    <th className="px-4 py-3 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-theme-border/10 text-white/90">
+                  {feedbackLogs.map((log, idx) => (
+                    <tr key={idx} className="hover:bg-white/5">
+                      <td className="px-4 py-3 text-theme-muted whitespace-nowrap">
+                        {new Date(log.timestamp).toLocaleString()}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className={`px-2 py-0.5 font-bold uppercase tracking-wider text-[9px] ${
+                          log.feedbackType === "helpful" ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" :
+                          log.feedbackType === "not_helpful" ? "bg-red-500/10 text-red-500 border border-red-500/20" :
+                          "bg-amber-500/10 text-amber-500 border border-amber-500/20"
+                        }`}>
+                          {log.feedbackType.replace("_", " ")}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 font-semibold text-theme-heading">
+                        {log.details}
+                      </td>
+                      <td className="px-4 py-3 text-theme-muted truncate max-w-[200px]">
+                        {log.answerText}
+                      </td>
+                      <td className="px-4 py-3 text-right">
+                        <button
+                          type="button"
+                          onClick={() => handleResolveLog(idx, "feedback")}
+                          className="bg-white/5 border border-theme-border/20 px-2.5 py-1 text-[10px] text-theme-muted hover:border-white hover:text-white transition"
+                        >
+                          Resolve
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                  {feedbackLogs.length === 0 && (
+                    <tr>
+                      <td colSpan={5} className="px-4 py-8 text-center text-theme-muted">
+                        No user feedback ratings currently logged.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </Card>
+        </div>
+      )}
+
+      {/* CHAT ANALYTICS TAB */}
       {activeTab === "analytics" && (
         <div className="space-y-6">
           {/* Summary KPI Cards */}
@@ -1187,61 +1435,6 @@ export const AdminChatbot: React.FC = () => {
               </div>
             </Card>
           </div>
-
-          {/* Failed / Low Confidence Queries Log */}
-          <Card className="p-6 space-y-4">
-            <h2 className="text-lg font-clofieBold text-theme-heading text-red-500">
-              Failed & Weak Question Log
-            </h2>
-            <p className="text-xs text-theme-muted">
-              Real-time audit log of user questions where specs were missing or intent matches were low. Use this to audit and input missing data in real-time.
-            </p>
-            <div className="overflow-x-auto border border-theme-border/10">
-              <table className="min-w-full divide-y divide-theme-border/10 text-left text-xs">
-                <thead className="bg-[#153d28]/10 text-theme-heading font-googleSans uppercase tracking-wider text-[10px]">
-                  <tr>
-                    <th className="px-4 py-3">Timestamp</th>
-                    <th className="px-4 py-3">User Query</th>
-                    <th className="px-4 py-3">Detected Intent</th>
-                    <th className="px-4 py-3">Product Involved</th>
-                    <th className="px-4 py-3">Missing Spec</th>
-                    <th className="px-4 py-3">Suggested Fix</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-theme-border/10">
-                  {failedLogs.map((log, idx) => (
-                    <tr key={idx} className="hover:bg-theme-bg-alt/5">
-                      <td className="px-4 py-3 text-theme-muted whitespace-nowrap">
-                        {new Date(log.timestamp).toLocaleString()}
-                      </td>
-                      <td className="px-4 py-3 font-medium text-theme-heading">
-                        "{log.userQuestion}"
-                      </td>
-                      <td className="px-4 py-3 text-theme-muted">
-                        {log.detectedIntent}
-                      </td>
-                      <td className="px-4 py-3 text-theme-heading font-semibold">
-                        {log.detectedProduct || "None"}
-                      </td>
-                      <td className="px-4 py-3 text-red-500">
-                        {log.missingSpec || "N/A"}
-                      </td>
-                      <td className="px-4 py-3 text-emerald-600 font-medium">
-                        {log.suggestedFix}
-                      </td>
-                    </tr>
-                  ))}
-                  {failedLogs.length === 0 && (
-                    <tr>
-                      <td colSpan={6} className="px-4 py-8 text-center text-theme-muted">
-                        No failed or weak queries tracked yet.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </Card>
         </div>
       )}
 

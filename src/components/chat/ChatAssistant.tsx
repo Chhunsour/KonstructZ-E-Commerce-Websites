@@ -4,7 +4,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useI18n } from "../../context/I18nContext";
 import { listPublicPosts } from "../../lib/blogStore";
-import { kb, CONTACT, getChatbotConfig, PRODUCT_DETAIL, PRODUCT_REFS, type ProductRef } from "./knowledge";
+import { kb, CONTACT, getChatbotConfig, PRODUCT_DETAIL, PRODUCT_REFS, type ProductRef, logUserFeedback } from "./knowledge";
+import { getCanonicalProducts } from "./matchingEngine";
 import {
   getReply,
   emptyMemory,
@@ -235,17 +236,49 @@ export const ChatAssistant: React.FC = () => {
   const { t, language } = useI18n();
   const path = location.pathname;
 
+  useEffect(() => {
+    const pathParts = path.split("/").filter(Boolean);
+    if (pathParts.length >= 2 && (pathParts[0] === "typhon-machinery" || pathParts[0] === "equipment" || pathParts[0] === "product")) {
+      const prodId = pathParts[1];
+      try {
+        const raw = localStorage.getItem("kz-recently-viewed") || "[]";
+        const list: string[] = JSON.parse(raw);
+        const updated = [prodId, ...list.filter(id => id !== prodId)].slice(0, 3);
+        localStorage.setItem("kz-recently-viewed", JSON.stringify(updated));
+      } catch (e) {
+        console.error("Failed to update recently viewed", e);
+      }
+    }
+  }, [path]);
+
   const currentSuggestionCards = React.useMemo(() => {
     const config = getChatbotConfig();
-    const isProductPage = path.startsWith("/equipment/") && path !== "/equipment";
+    const isProductPage = (path.startsWith("/equipment/") || path.startsWith("/typhon-machinery/")) && path !== "/equipment" && path !== "/typhon-machinery";
     const isSkidSteerCategory = path.includes("skid-steer") || path.includes("stomp");
     const isSupportPage = path.startsWith("/support");
     const isBlogPage = path.startsWith("/blog") || path.startsWith("/post");
 
     let list: { glyph: React.ReactNode; title: string; sub: string; q: string }[] = [];
 
+    let recentlyViewed: string[] = [];
+    if (typeof window !== "undefined") {
+      try {
+        const raw = localStorage.getItem("kz-recently-viewed") || "[]";
+        recentlyViewed = JSON.parse(raw);
+      } catch {}
+    }
+
+    if (recentlyViewed.length >= 2) {
+      list.push({
+        glyph: CardGlyphs.compare,
+        title: "Compare recently viewed",
+        sub: `Compare the machines you recently looked at`,
+        q: "Compare recently viewed"
+      });
+    }
+
     if (isProductPage) {
-      list = [
+      list.push(
         {
           glyph: CardGlyphs.machine,
           title: "View machine specs",
@@ -270,9 +303,9 @@ export const ChatAssistant: React.FC = () => {
           sub: "1-year warranty + lifetime technical support",
           q: "Help me with shipping, warranty, or returns."
         }
-      ];
+      );
     } else if (isSkidSteerCategory) {
-      list = [
+      list.push(
         {
           glyph: CardGlyphs.wrench,
           title: "Attachments for skid steer",
@@ -297,9 +330,9 @@ export const ChatAssistant: React.FC = () => {
           sub: "1-year warranty + lifetime technical support",
           q: "Explain the 1-year warranty and lifetime support."
         }
-      ];
+      );
     } else if (isSupportPage) {
-      list = [
+      list.push(
         {
           glyph: CardGlyphs.support,
           title: "Warranty & Support",
@@ -309,7 +342,7 @@ export const ChatAssistant: React.FC = () => {
         {
           glyph: CardGlyphs.truck,
           title: "Shipping & delivery",
-          sub: "Free continental U.S. freight options",
+          sub: "Freight shipping options in the USA",
           q: "How does shipping work?"
         },
         {
@@ -324,9 +357,9 @@ export const ChatAssistant: React.FC = () => {
           sub: "30-day return policy and exclusions",
           q: "What is the return policy?"
         }
-      ];
+      );
     } else if (isBlogPage) {
-      list = [
+      list.push(
         {
           glyph: CardGlyphs.machine,
           title: "Related machines",
@@ -351,9 +384,9 @@ export const ChatAssistant: React.FC = () => {
           sub: "Learn what we sell and if we are legit",
           q: "Tell me about Konstructz and what you sell."
         }
-      ];
+      );
     } else {
-      list = [
+      list.push(
         {
           glyph: CardGlyphs.machine,
           title: "Find the right TYPHON machine",
@@ -390,10 +423,10 @@ export const ChatAssistant: React.FC = () => {
           sub: "Reach out for pricing and quotes",
           q: "Contact sales"
         }
-      ];
+      );
     }
 
-    return list;
+    return list.slice(0, 6);
   }, [path, t]);
 
   const initial = loadState();
@@ -410,30 +443,60 @@ export const ChatAssistant: React.FC = () => {
       setSuggestions([]);
       return;
     }
+    
     const list: string[] = [];
-    if (val.includes("terror")) {
-      list.push("terror hp", "terror engine", "terror weight");
+    
+    if ("shipping".startsWith(val) || val.includes("shipping")) {
+      list.push("shipping", "ship overseas");
     }
-    if (val.includes("stomp")) {
-      list.push("stomp 509 specs", "stomp x1300 compare", "stomp attachments");
+    if ("warranty".startsWith(val) || val.includes("warranty")) {
+      list.push("warranty");
     }
-    if (val.includes("vigor")) {
-      list.push("vigor 1.5 weight", "vigor 2.0 lift capacity");
-    }
-    if (val.includes("shipping")) {
-      list.push("USA shipping", "overseas sales contact");
-    }
-    if (val.includes("warranty")) {
-      list.push("1-year warranty + lifetime technical support");
+    
+    try {
+      const canonicals = getCanonicalProducts();
+      const matches = canonicals.filter(p => 
+        p.name.toLowerCase().includes(val) || 
+        p.category.toLowerCase().includes(val) ||
+        p.aliases.some(a => a.includes(val)) ||
+        p.misspellings.some(m => m.includes(val))
+      );
+
+      for (const p of matches.slice(0, 2)) {
+        const nameShort = p.name.replace(/typhon\s+/i, "");
+        if (p.category.toLowerCase().includes("excavator")) {
+          list.push(
+            `${nameShort} horsepower`,
+            `${nameShort} engine`,
+            `${nameShort} digging depth`,
+            `Compare ${nameShort}`
+          );
+        } else if (p.category.toLowerCase().includes("skid steer")) {
+          list.push(
+            `${nameShort} lift capacity`,
+            `${nameShort} engine`,
+            `Compare ${nameShort}`
+          );
+        } else if (p.category.toLowerCase().includes("forklift") || p.name.toLowerCase().includes("vigor")) {
+          list.push(
+            `${nameShort} lift capacity`,
+            `${nameShort} lift height`,
+            `Compare ${nameShort}`
+          );
+        } else {
+          list.push(
+            `${nameShort} specs`,
+            `${nameShort} engine`,
+            `Compare ${nameShort}`
+          );
+        }
+      }
+    } catch (e) {
+      console.error("Autocomplete match error", e);
     }
 
-    if (!list.length) {
-      const matched = PRODUCT_REFS.filter(r => r.name.toLowerCase().includes(val) || r.brand.toLowerCase().includes(val));
-      for (const p of matched.slice(0, 2)) {
-        list.push(`${p.name} specs`, `Compare ${p.name}`);
-      }
-    }
-    setSuggestions(list);
+    const uniqueList = Array.from(new Set(list)).slice(0, 5);
+    setSuggestions(uniqueList);
   }, [input]);
 
   const [phase, setPhase] = useState<null | "analyzing" | "thinking">(null);
@@ -486,7 +549,18 @@ export const ChatAssistant: React.FC = () => {
     setMessages((prev) => [...prev, { id: uid(), role: "user", text, instant: true }]);
     setInput("");
 
-    const { answer, memory } = getReply(text, memoryRef.current, language, path);
+    let recentlyViewed: string[] = [];
+    try {
+      const rawRV = localStorage.getItem("kz-recently-viewed") || "[]";
+      recentlyViewed = JSON.parse(rawRV);
+    } catch {}
+
+    const memoryWithViews = {
+      ...memoryRef.current,
+      recentlyViewedIds: recentlyViewed
+    };
+
+    const { answer, memory } = getReply(text, memoryWithViews, language, path);
     memoryRef.current = memory;
 
     try {
@@ -882,6 +956,10 @@ const MessageBubble: React.FC<{
   onNavigate: (href: string) => void;
   onFollowup: (q: string) => void;
 }> = ({ msg, done, onStreamTick, onStreamDone, onNavigate, onFollowup }) => {
+  const [feedback, setFeedback] = useState<"helpful" | "not_helpful" | "missing_info" | null>(null);
+  const [missingSpecInput, setMissingSpecInput] = useState("");
+  const [showMissingForm, setShowMissingForm] = useState(false);
+
   if (msg.role === "user") {
     return (
       <div className="flex justify-end kz-rise">
@@ -905,6 +983,74 @@ const MessageBubble: React.FC<{
         <div className="border border-white/10 bg-[#20211d] px-3.5 py-3 shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
           <StreamingMarkdown text={msg.text} instant={msg.instant} onTick={onStreamTick} onDone={onStreamDone} />
         </div>
+
+        {msg.role === "bot" && showExtras && (
+          <div className="flex items-center gap-3 text-[11px] text-white/50 pt-0.5">
+            <span>Was this helpful?</span>
+            {!feedback ? (
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFeedback("helpful");
+                    logUserFeedback(msg.text, msg.text, "helpful", "User marked helpful");
+                  }}
+                  className="hover:text-[#4ade80] transition underline"
+                >
+                  Helpful
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFeedback("not_helpful");
+                    logUserFeedback(msg.text, msg.text, "not_helpful", "User marked not helpful");
+                  }}
+                  className="hover:text-red-400 transition underline"
+                >
+                  Not helpful
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFeedback("missing_info");
+                    setShowMissingForm(true);
+                  }}
+                  className="hover:text-amber-400 transition underline"
+                >
+                  Missing info
+                </button>
+              </div>
+            ) : (
+              <span className="text-[#d8c79a] font-medium">Thank you for your feedback!</span>
+            )}
+          </div>
+        )}
+
+        {showMissingForm && (
+          <div className="bg-[#1f201b] border border-[#d8c79a]/20 p-2.5 space-y-2">
+            <span className="text-[11px] text-white/70 block">What product specification or detail was missing?</span>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={missingSpecInput}
+                onChange={(e) => setMissingSpecInput(e.target.value)}
+                placeholder="e.g. engine, track width, lift capacity"
+                className="bg-black/40 border border-white/10 px-2 py-1 text-xs text-white min-w-0 flex-1 focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  logUserFeedback(msg.text, msg.text, "missing_info", `Missing: ${missingSpecInput}`);
+                  setShowMissingForm(false);
+                  setFeedback("missing_info");
+                }}
+                className="bg-[#d8c79a] text-[#153d28] px-2.5 py-1 text-[11px] font-bold uppercase transition hover:bg-white"
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        )}
 
         {showExtras && msg.products && msg.products.length > 0 && (
           <div className="space-y-3">

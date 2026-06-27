@@ -206,7 +206,7 @@ function productDocs(): KBDoc[] {
       href: `/typhon-machinery/${p.id}`,
       category: p.categoryLabel,
       brand: "Typhon",
-      spec: typhonRefs.find((r) => r.name === p.name)?.spec,
+      spec: PRODUCT_REFS.find((r) => r.name === p.name)?.spec,
       image: p.image,
       body: [
         p.name,
@@ -704,4 +704,45 @@ export function refreshKnowledgeBase() {
 
 // Call at initialization time to load base values
 refreshKnowledgeBase();
+
+export interface UserFeedbackLog {
+  id: string;
+  userQuestion: string;
+  answerText: string;
+  feedbackType: "helpful" | "not_helpful" | "missing_info";
+  details: string;
+  timestamp: string;
+}
+
+export function getFeedbackLogs(): UserFeedbackLog[] {
+  if (typeof window === "undefined") return [];
+  const raw = window.localStorage.getItem("kz-chatbot-user-feedback");
+  if (!raw) return [];
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+export function logUserFeedback(
+  userQuestion: string,
+  answerText: string,
+  feedbackType: "helpful" | "not_helpful" | "missing_info",
+  details: string
+): void {
+  if (typeof window === "undefined") return;
+  const logs = getFeedbackLogs();
+  const newLog: UserFeedbackLog = {
+    id: Math.random().toString(36).slice(2, 10),
+    userQuestion,
+    answerText,
+    feedbackType,
+    details,
+    timestamp: new Date().toISOString()
+  };
+  logs.unshift(newLog);
+  if (logs.length > 200) logs.pop();
+  window.localStorage.setItem("kz-chatbot-user-feedback", JSON.stringify(logs));
+}
 

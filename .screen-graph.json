@@ -285,34 +285,6 @@
       "routes": [
         "/sour/products/:id/preview"
       ]
-    },
-    {
-      "id": "src/pages/admin/Websites.tsx",
-      "label": "Websites",
-      "routes": [
-        "/sour/websites"
-      ]
-    },
-    {
-      "id": "src/pages/admin/SyncCenter.tsx",
-      "label": "SyncCenter",
-      "routes": [
-        "/sour/sync"
-      ]
-    },
-    {
-      "id": "src/pages/admin/SyncLogs.tsx",
-      "label": "SyncLogs",
-      "routes": [
-        "/sour/sync/logs"
-      ]
-    },
-    {
-      "id": "src/pages/admin/SyncSettings.tsx",
-      "label": "SyncSettings",
-      "routes": [
-        "/sour/sync/settings"
-      ]
     }
   ],
   "edges": [
@@ -1613,15 +1585,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:134:10-to-src/pages/Home.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:149:10-to-src/pages/Home.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link to=\"/\" className=\"hover:text-white\">\n            Home\n          </Link>",
-          "line": 134,
-          "endLine": 136,
+          "line": 149,
+          "endLine": 151,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1629,15 +1601,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:138:10-to-src/pages/TyphonCatalog.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:153:10-to-src/pages/TyphonCatalog.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/TyphonCatalog.tsx",
       "data": {
         "viaRoute": "/typhon-machinery",
         "trigger": {
           "element": "<Link to=\"/typhon-machinery\" className=\"hover:text-white\">\n            Typhon Machinery\n          </Link>",
-          "line": 138,
-          "endLine": 140,
+          "line": 153,
+          "endLine": 155,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1645,15 +1617,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:470:10-to-src/pages/TyphonCatalog.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:502:10-to-src/pages/TyphonCatalog.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/TyphonCatalog.tsx",
       "data": {
         "viaRoute": "/typhon-machinery",
         "trigger": {
           "element": "<Link to=\"/typhon-machinery\" className=\"font-googleSans text-sm font-bold uppercase text-[#d8c79a] hover:text-white\">\n            View Typhon Catalog\n          </Link>",
-          "line": 470,
-          "endLine": 472,
+          "line": 502,
+          "endLine": 504,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -2109,31 +2081,31 @@
       }
     },
     {
-      "id": "src/pages/admin/ProductsDashboard.tsx:239:10-to-src/pages/admin/ProductEditor.tsx",
+      "id": "src/pages/admin/ProductsDashboard.tsx:200:8-to-src/pages/admin/ProductEditor.tsx",
       "source": "src/pages/admin/ProductsDashboard.tsx",
       "target": "src/pages/admin/ProductEditor.tsx",
       "data": {
         "viaRoute": "/sour/products/new",
         "trigger": {
-          "element": "<Link\n            to=\"/sour/products/new\"\n            className=\"inline-flex items-center justify-center bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded transition-colors\"\n          >\n            + New product\n          </Link>",
-          "line": 239,
-          "endLine": 244,
-          "column": 10,
-          "endColumn": 17,
+          "element": "<Link\n          to=\"/sour/products/new\"\n          className=\"inline-flex items-center justify-center bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded transition-colors\"\n        >\n          + New product\n        </Link>",
+          "line": 200,
+          "endLine": 205,
+          "column": 8,
+          "endColumn": 15,
           "sourceFile": "src/pages/admin/ProductsDashboard.tsx"
         }
       }
     },
     {
-      "id": "src/pages/admin/ProductsDashboard.tsx:353:12-to-src/pages/admin/ProductEditor.tsx",
+      "id": "src/pages/admin/ProductsDashboard.tsx:285:12-to-src/pages/admin/ProductEditor.tsx",
       "source": "src/pages/admin/ProductsDashboard.tsx",
       "target": "src/pages/admin/ProductEditor.tsx",
       "data": {
         "viaRoute": "/sour/products/new",
         "trigger": {
           "element": "<Link\n              to=\"/sour/products/new\"\n              className=\"inline-block bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded transition-colors\"\n            >\n              + New product\n            </Link>",
-          "line": 353,
-          "endLine": 358,
+          "line": 285,
+          "endLine": 290,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src/pages/admin/ProductsDashboard.tsx"

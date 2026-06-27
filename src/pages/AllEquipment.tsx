@@ -8,6 +8,7 @@ import { TyphonProductCard } from "../components/ui/TyphonProductCard";
 import { useI18n } from "../context/I18nContext";
 
 const PAGE_SIZE = 12;
+const EQUIPMENT_ICON_PATH = "/icons/equipment";
 
 type ProductKind = "equipment" | "attachment";
 
@@ -29,6 +30,18 @@ const categoriesFor = (items: TyphonProduct[]) => {
     map.set(p.category, e);
   }
   return [...map.values()].sort((a, b) => b.count - a.count);
+};
+
+const categoryIcon = (id: string) => {
+  const icons: Record<string, string> = {
+    forklifts: "forklift.svg",
+    "mini-excavators": "mini-excavator.svg",
+    "road-rollers": "road-roller.svg",
+    "scissor-lifts": "scissor-lift.svg",
+    "skid-steer-loaders": "skid-steer.svg",
+    "wheel-loaders": "wheel-loader.svg",
+  };
+  return `${EQUIPMENT_ICON_PATH}/${icons[id] ?? "all-equipment.svg"}`;
 };
 
 /**
@@ -91,6 +104,14 @@ export const AllEquipment: React.FC = () => {
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE
   );
+  const selectedCategoryLabel =
+    categories.find((cat) => cat.id === selectedCategory)?.label ?? null;
+  const productTypeLabel =
+    selectedKind === "attachment" ? "Typhon Attachments" : "Typhon Machines";
+  const activeListingLabel =
+    selectedCategoryLabel ??
+    (selectedKind === "attachment" ? "All Typhon Attachments" : "All Typhon Equipment");
+  const hasActiveFilters = Boolean(selectedCategory || query.trim());
 
   return (
     <div className="bg-theme-bg min-h-screen text-theme-text transition-colors duration-200">
@@ -114,177 +135,277 @@ export const AllEquipment: React.FC = () => {
               ? "Typhon attachments, grouped by the machine they fit — skid steer, mini excavator, wheel loader and forklift attachments."
               : "Browse our full Typhon Machinery catalog. Heavy-duty mini excavators, skid steer loaders, forklifts, road rollers, scissor lifts, and wheel loaders — built for the job site."}
           </p>
-
-          {/* Machines vs Attachments */}
-          <div className="mt-8 inline-flex border border-white/15 bg-[#232323] p-1">
-            {([
-              ["equipment", "Machines", typeCounts.equipment, "/equipment"],
-              ["attachment", "Attachments", typeCounts.attachment, "/equipment?type=attachments"],
-            ] as const).map(([value, label, count, href]) => {
-              const active = selectedKind === value;
-              return (
-                <Link
-                  key={value}
-                  to={href}
-                  className={`px-5 py-2.5 font-googleSans text-sm font-bold uppercase tracking-wide transition ${
-                    active ? "bg-[#d8c79a] text-[#153d28]" : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  {label}
-                  <span className={`ml-2 text-xs ${active ? "text-[#153d28]/70" : "text-white/40"}`}>
-                    {count}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
         </div>
       </section>
 
       {/* ── Filters + Grid ── */}
       <section className="relative bg-theme-bg py-12 lg:py-20 transition-colors duration-200">
         <div className="max-w-[1480px] mx-auto px-5 sm:px-8 lg:px-10">
-          {/* Category tabs */}
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            <Link
-              to={allHref}
-              className={`border px-4 py-2 font-googleSans text-sm font-bold transition-colors ${
-                !selectedCategory
-                  ? "border-[#d8c79a] bg-[#d8c79a] text-[#153d28]"
-                  : "border-theme-border/40 text-theme-muted hover:border-[#d8c79a] hover:text-theme-text"
-              }`}
+          <div className="grid gap-8 lg:grid-cols-[292px_minmax(0,1fr)] lg:items-start lg:gap-10">
+            <aside
+              aria-label="Typhon product filters"
+              className="border border-theme-border/15 bg-theme-sec p-4 shadow-[0_16px_40px_rgba(0,0,0,0.08)] lg:sticky lg:top-28 lg:p-5"
             >
-              All ({base.length})
-            </Link>
-            {categories.map((cat) => (
-              <Link
-                key={cat.id}
-                to={categoryHref(cat.id)}
-                className={`border px-4 py-2 font-googleSans text-sm font-bold transition-colors ${
-                  selectedCategory === cat.id
-                    ? "border-[#d8c79a] bg-[#d8c79a] text-[#153d28]"
-                    : "border-theme-border/40 text-theme-muted hover:border-[#d8c79a] hover:text-theme-text"
-                }`}
-              >
-                {cat.label} ({cat.count})
-              </Link>
-            ))}
-          </div>
-
-          {/* Search bar */}
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <form
-              role="search"
-              className="relative w-full sm:max-w-[420px]"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <label htmlFor="typhon-search" className="sr-only">
-                {t("action.searchEquipment")}
-              </label>
-              <input
-                id="typhon-search"
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search equipment..."
-                className="w-full h-12 lg:h-14 border-2 border-theme-border/30 bg-theme-card text-theme-text font-googleSans text-base lg:text-lg px-5 pr-14 placeholder:text-theme-muted/60 focus:outline-none focus:border-theme-accent transition-colors"
-              />
-              <button
-                type="submit"
-                aria-label={t("action.searchEquipment")}
-                className="absolute right-0 top-0 h-12 w-12 lg:h-14 lg:w-14 bg-theme-accent text-theme-bg flex items-center justify-center hover:bg-brand-green hover:text-white transition-colors"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="M21 21L16.65 16.65" strokeLinecap="round" />
-                </svg>
-              </button>
-            </form>
-            <p className="font-clofie text-theme-muted text-sm lg:text-base transition-colors">
-              {filteredProducts.length} product
-              {filteredProducts.length !== 1 ? "s" : ""} found
-            </p>
-          </div>
-
-          {/* Product grid */}
-          <div className="mt-10">
-            {paginatedProducts.length === 0 ? (
-              <div className="py-20 text-center bg-theme-sec border border-theme-border/10 rounded-xl px-4">
-                <span className="text-4xl">🔍</span>
-                <p className="font-clofieBold text-2xl text-theme-accent mt-4">
-                  No equipment found
+              <div className="border-b border-theme-border/15 pb-4">
+                <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.22em] text-theme-accent">
+                  Product Filters
                 </p>
-                <p className="font-glonimove text-sm text-theme-muted/60 max-w-md mx-auto mt-2">
-                  Try adjusting your search or selected category.
-                </p>
+                <h2 className="mt-2 font-clofieBold text-2xl leading-tight text-theme-text">
+                  {productTypeLabel}
+                </h2>
               </div>
-            ) : (
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,293px))] items-start justify-center gap-5 sm:gap-6">
-                {paginatedProducts.map((product) => (
-                  <div key={product.id} className="animate-fade-up self-start">
-                    <TyphonProductCard product={product} />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <nav
-              aria-label="Pagination"
-              className="mt-12 flex items-center justify-center gap-2 flex-wrap"
-            >
-              {currentPage > 1 && (
-                <button
-                  type="button"
-                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                  aria-label="Previous page"
-                  className="w-12 h-12 bg-theme-sec text-theme-text border border-theme-border/20 hover:bg-theme-accent/20 transition-colors text-xl rounded flex items-center justify-center cursor-pointer"
-                >
-                  ‹
-                </button>
-              )}
-              {Array.from({ length: totalPages }).map((_, i) => {
-                const n = i + 1;
-                const isCurrent = n === currentPage;
-                return (
+              <form
+                role="search"
+                className="mt-5"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <label htmlFor="typhon-search" className="sr-only">
+                  {t("action.searchEquipment")}
+                </label>
+                <div className="relative">
+                  <input
+                    id="typhon-search"
+                    type="search"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search products"
+                    className="h-12 w-full border border-theme-border/25 bg-theme-card px-4 pr-12 font-googleSans text-sm text-theme-text placeholder:text-theme-muted/60 transition-colors focus:border-theme-accent focus:outline-none"
+                  />
                   <button
-                    key={n}
-                    type="button"
-                    onClick={() => setCurrentPage(n)}
-                    aria-current={isCurrent ? "page" : undefined}
-                    className={`w-12 h-12 border text-lg rounded flex items-center justify-center cursor-pointer transition-colors font-googleSans font-bold ${
-                      isCurrent
-                        ? "bg-theme-accent text-theme-bg border-theme-accent"
-                        : "bg-theme-sec text-theme-text border-theme-border/20 hover:bg-theme-accent/20"
+                    type="submit"
+                    aria-label={t("action.searchEquipment")}
+                    className="absolute right-0 top-0 flex h-12 w-12 items-center justify-center bg-theme-accent text-theme-bg transition-colors hover:bg-brand-green hover:text-white"
+                  >
+                    <svg
+                      width="17"
+                      height="17"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M21 21L16.65 16.65" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+
+              <div className="mt-6">
+                <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-theme-muted">
+                  Product Type
+                </p>
+                <div className="mt-3 space-y-2">
+                  {([
+                    ["equipment", "All Typhon Equipment", typeCounts.equipment, "/equipment"],
+                    ["attachment", "Typhon Attachments", typeCounts.attachment, "/equipment?type=attachments"],
+                  ] as const).map(([value, label, count, href]) => {
+                    const active = selectedKind === value;
+                    return (
+                      <Link
+                        key={value}
+                        to={href}
+                        className={`flex min-h-[56px] items-center gap-3 border px-3 py-2 transition-colors ${
+                          active
+                            ? "border-theme-accent bg-theme-accent text-theme-bg"
+                            : "border-theme-border/15 bg-theme-card text-theme-text hover:border-theme-accent"
+                        }`}
+                      >
+                        <span
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center ${
+                            active ? "bg-theme-bg/10" : "bg-[#111]"
+                          }`}
+                        >
+                          <img
+                            src={`${EQUIPMENT_ICON_PATH}/all-equipment.svg`}
+                            alt=""
+                            aria-hidden="true"
+                            className="h-5 w-5"
+                          />
+                        </span>
+                        <span className="flex min-w-0 flex-1 items-center justify-between gap-3">
+                          <span className="font-googleSans text-sm font-bold leading-snug">
+                            {label}
+                          </span>
+                          <span className="font-googleSans text-xs font-bold opacity-70">
+                            {count}
+                          </span>
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="mt-7">
+                <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-theme-muted">
+                  Categories
+                </p>
+                <div className="mt-3 space-y-2">
+                  <Link
+                    to={allHref}
+                    className={`flex min-h-[58px] items-center gap-3 border px-3 py-2 transition-colors ${
+                      !selectedCategory
+                        ? "border-theme-accent bg-theme-accent text-theme-bg"
+                        : "border-theme-border/15 bg-theme-card text-theme-text hover:border-theme-accent"
                     }`}
                   >
-                    {n}
-                  </button>
-                );
-              })}
-              {currentPage < totalPages && (
-                <button
-                  type="button"
-                  onClick={() =>
-                    setCurrentPage((p) => Math.min(totalPages, p + 1))
-                  }
-                  aria-label="Next page"
-                  className="w-12 h-12 bg-theme-sec text-theme-text border border-theme-border/20 hover:bg-theme-accent/20 transition-colors text-xl rounded flex items-center justify-center cursor-pointer"
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center ${
+                        !selectedCategory ? "bg-theme-bg/10" : "bg-[#111]"
+                      }`}
+                    >
+                      <img
+                        src={`${EQUIPMENT_ICON_PATH}/all-equipment.svg`}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-5 w-5"
+                      />
+                    </span>
+                    <span className="flex min-w-0 flex-1 items-center justify-between gap-3">
+                      <span className="font-googleSans text-sm font-bold leading-snug">
+                        All {selectedKind === "attachment" ? "Attachments" : "Machines"}
+                      </span>
+                      <span className="font-googleSans text-xs font-bold opacity-70">
+                        {base.length}
+                      </span>
+                    </span>
+                  </Link>
+
+                  {categories.map((cat) => {
+                    const active = selectedCategory === cat.id;
+                    return (
+                      <Link
+                        key={cat.id}
+                        to={categoryHref(cat.id)}
+                        className={`flex min-h-[58px] items-center gap-3 border px-3 py-2 transition-colors ${
+                          active
+                            ? "border-theme-accent bg-theme-accent text-theme-bg"
+                            : "border-theme-border/15 bg-theme-card text-theme-text hover:border-theme-accent"
+                        }`}
+                      >
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center ${
+                            active ? "bg-theme-bg/10" : "bg-[#111]"
+                          }`}
+                        >
+                          <img
+                            src={categoryIcon(cat.id)}
+                            alt=""
+                            aria-hidden="true"
+                            className="h-5 w-5"
+                          />
+                        </span>
+                        <span className="flex min-w-0 flex-1 items-center justify-between gap-3">
+                          <span className="font-googleSans text-sm font-bold leading-snug">
+                            {cat.label}
+                          </span>
+                          <span className="font-googleSans text-xs font-bold opacity-70">
+                            {cat.count}
+                          </span>
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </aside>
+
+            <div className="min-w-0">
+              <div className="flex flex-col gap-4 border-b border-theme-border/15 pb-5 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="font-googleSans text-sm font-bold uppercase tracking-[0.12em] text-theme-accent">
+                    {filteredProducts.length} product
+                    {filteredProducts.length !== 1 ? "s" : ""} found
+                  </p>
+                  <h2 className="mt-2 font-clofieBold text-3xl leading-tight text-theme-text sm:text-4xl">
+                    {activeListingLabel}
+                  </h2>
+                </div>
+                {hasActiveFilters && (
+                  <Link
+                    to={allHref}
+                    onClick={() => setQuery("")}
+                    className="inline-flex h-11 items-center justify-center border border-theme-border/25 px-4 font-googleSans text-sm font-bold uppercase tracking-wide text-theme-text transition-colors hover:border-theme-accent hover:text-theme-accent"
+                  >
+                    Clear filters
+                  </Link>
+                )}
+              </div>
+
+              <div className="mt-8">
+                {paginatedProducts.length === 0 ? (
+                  <div className="border border-dashed border-theme-border/20 bg-theme-sec px-6 py-16 text-center">
+                    <p className="font-clofieBold text-2xl text-theme-accent">
+                      No equipment found
+                    </p>
+                    <p className="mx-auto mt-2 max-w-md font-glonimove text-sm text-theme-muted/70">
+                      Try adjusting your search or selected category.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,293px))] items-start justify-center gap-5 sm:gap-6 xl:justify-start">
+                    {paginatedProducts.map((product) => (
+                      <div key={product.id} className="animate-fade-up self-start">
+                        <TyphonProductCard product={product} />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {totalPages > 1 && (
+                <nav
+                  aria-label="Pagination"
+                  className="mt-12 flex flex-wrap items-center justify-center gap-2"
                 >
-                  ›
-                </button>
+                  {currentPage > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                      aria-label="Previous page"
+                      className="flex h-12 w-12 cursor-pointer items-center justify-center border border-theme-border/20 bg-theme-sec text-xl text-theme-text transition-colors hover:bg-theme-accent/20"
+                    >
+                      ‹
+                    </button>
+                  )}
+                  {Array.from({ length: totalPages }).map((_, i) => {
+                    const n = i + 1;
+                    const isCurrent = n === currentPage;
+                    return (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => setCurrentPage(n)}
+                        aria-current={isCurrent ? "page" : undefined}
+                        className={`flex h-12 w-12 cursor-pointer items-center justify-center border font-googleSans text-lg font-bold transition-colors ${
+                          isCurrent
+                            ? "border-theme-accent bg-theme-accent text-theme-bg"
+                            : "border-theme-border/20 bg-theme-sec text-theme-text hover:bg-theme-accent/20"
+                        }`}
+                      >
+                        {n}
+                      </button>
+                    );
+                  })}
+                  {currentPage < totalPages && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setCurrentPage((p) => Math.min(totalPages, p + 1))
+                      }
+                      aria-label="Next page"
+                      className="flex h-12 w-12 cursor-pointer items-center justify-center border border-theme-border/20 bg-theme-sec text-xl text-theme-text transition-colors hover:bg-theme-accent/20"
+                    >
+                      ›
+                    </button>
+                  )}
+                </nav>
               )}
-            </nav>
-          )}
+            </div>
+          </div>
         </div>
       </section>
     </div>

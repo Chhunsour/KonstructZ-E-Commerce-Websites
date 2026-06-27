@@ -16,17 +16,35 @@ const STORE_ID = "80100025";
 const SCRIPT_ID = "ecwid-script";
 const SRC = `https://app.ecwid.com/script.js?${STORE_ID}&data_platform=code&data_date=2026-02-23`;
 
+/**
+ * Public Storefront API token (read-only; safe to ship in the client). Set it
+ * in `.env.local` / build env as VITE_ECWID_PUBLIC_TOKEN. It lets the site
+ * resolve a product's Ecwid id from its SKU so "Add to Cart" adds the exact
+ * product. Without it, Add-to-Cart stays hidden and Buy Now / View Cart are
+ * used instead.
+ */
+const PUBLIC_TOKEN = (import.meta.env.VITE_ECWID_PUBLIC_TOKEN as string | undefined) || "";
+
 /** Public store id, used by the storefront container element id. */
 export const ECWID_STORE_ID = STORE_ID;
 /** Path of the Ecwid cart on this site (hashbang under the /product store). */
 export const ECWID_CART_PATH = "/product#!/~/cart";
+/** Whether SKU-based Add-to-Cart is available (a public token is configured). */
+export const ecwidAddToCartEnabled = (): boolean => !!PUBLIC_TOKEN;
 
 interface EcwidEvent {
   add: (cb: (...args: unknown[]) => void) => void;
 }
+interface EcwidCart {
+  addProduct: (
+    arg: number | { id: number; quantity?: number; callback?: (success: boolean) => void }
+  ) => void;
+}
 interface EcwidGlobal {
   OnAPILoaded?: EcwidEvent;
   OnCartChanged?: EcwidEvent;
+  Cart?: EcwidCart;
+  openPage?: (page: string) => void;
 }
 type EcwidWindow = Window & {
   ec?: {
@@ -111,4 +129,79 @@ export const subscribeCartCount = (cb: (count: number) => void): (() => void) =>
   return () => {
     subscribers.delete(cb);
   };
+};
+
+/* ── Add to cart by SKU ───────────────────────────────────────────────────
+   The cart adds by Ecwid's numeric product id, which our CSV catalog doesn't
+   store. We resolve it from the product's SKU via the Storefront API (cached),
+   then add it through the JS API so the item lands in the real cart. */
+
+const skuIdCache = new Map<string, number | null>();
+
+/** Resolve a product's Ecwid id from its SKU (cached). Null if not found. */
+export const resolveEcwidProductId = async (sku: string): Promise<number | null> => {
+  const key = (sku || "").trim();
+  if (!key || !PUBLIC_TOKEN) return null;
+  if (skuIdCache.has(key)) return skuIdCache.get(key)!;
+  try {
+    const url = `https://app.ecwid.com/api/v3/${STORE_ID}/products?sku=${encodeURIComponent(
+      key
+    )}&token=${PUBLIC_TOKEN}`;
+    const res = await fetch(url);
+    if (!res.ok) {
+      skuIdCache.set(key, null);
+      return null;
+    }
+    const data = (await res.json()) as { items?: { id: number }[] };
+    const id = data.items?.[0]?.id ?? null;
+    skuIdCache.set(key, id);
+    return id;
+  } catch {
+    return null;
+  }
+};
+
+export type AddToCartResult = "added" | "not-found" | "disabled" | "error";
+
+/** Add a product to the Ecwid cart by its Ecwid numeric id (no token needed). */
+export const addToCartByEcwidId = async (id: number): Promise<AddToCartResult> => {
+  if (!id) return "not-found";
+  await loadEcwid();
+  return new Promise<AddToCartResult>((resolve) => {
+    const ecwid = (window as EcwidWindow).Ecwid;
+    if (!ecwid?.Cart?.addProduct) return resolve("error");
+    let settled = false;
+    const done = (r: AddToCartResult) => {
+      if (!settled) {
+        settled = true;
+        resolve(r);
+      }
+    };
+    ecwid.Cart.addProduct({
+      id,
+      quantity: 1,
+      callback: (success: boolean) => done(success ? "added" : "error"),
+    });
+    // Safety net in case the callback never fires.
+    setTimeout(() => done("added"), 4000);
+  });
+};
+
+/** Add a product to the Ecwid cart by SKU. Resolves to the outcome. */
+export const addToCartBySku = async (sku: string): Promise<AddToCartResult> => {
+  if (!PUBLIC_TOKEN) return "disabled";
+  await loadEcwid();
+  const id = await resolveEcwidProductId(sku);
+  if (!id) return "not-found";
+  return new Promise<AddToCartResult>((resolve) => {
+    const ecwid = (window as EcwidWindow).Ecwid;
+    if (!ecwid?.Cart?.addProduct) return resolve("error");
+    ecwid.Cart.addProduct({
+      id,
+      quantity: 1,
+      callback: (success: boolean) => resolve(success ? "added" : "error"),
+    });
+    // Safety timeout in case the callback never fires.
+    setTimeout(() => resolve("added"), 4000);
+  });
 };

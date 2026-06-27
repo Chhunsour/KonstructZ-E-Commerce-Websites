@@ -15,7 +15,8 @@ import {
 } from "../../components/product/MachineComparison";
 import { ImageLightbox } from "../../components/product/ImageLightbox";
 import { ShareMenu } from "../../components/product/ShareMenu";
-import { ECWID_CART_PATH } from "../../lib/ecwid";
+import { AddToCartButton } from "../../components/product/AddToCartButton";
+import { getEcwidProductId } from "../../data/ecwidProductIds";
 
 // The CSV "Button URL" field is the canonical purchase link for a Typhon
 // machine (always a /product/<slug> path). Fall back to the original source
@@ -105,6 +106,8 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
   }, [product]);
 
   const buyUrl = getTyphonBuyUrl(product);
+  // Ecwid product id for this machine (present only when it exists in the store).
+  const ecwidId = getEcwidProductId(product.id);
 
   // Comparison candidates: ONLY machines from the same category (excavators vs
   // excavators, forklifts vs forklifts, etc.). Never cross-category.
@@ -243,36 +246,50 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
               ))}
             </div>
 
-            <div className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
-              {buyUrl && (
-                <a
-                  href={buyUrl}
-                  className="inline-flex min-h-[44px] items-center justify-center bg-[#d8c79a] px-6 font-googleSans text-sm font-bold text-[#153d28] transition hover:bg-white"
+            <div className="mt-7 space-y-3">
+              {/* ── Primary purchase actions ── */}
+              <div className="flex flex-col gap-2.5 sm:flex-row">
+                {/* Add to Cart — only when this machine exists in the Ecwid
+                    store (matched by SKU). Adds the exact product to the cart. */}
+                {ecwidId && (
+                  <AddToCartButton
+                    ecwidId={ecwidId}
+                    className="flex-1 inline-flex min-h-[52px] items-center justify-center gap-2 bg-[#d8c79a] px-6 font-googleSans text-[15px] font-bold text-[#153d28] shadow-[0_6px_20px_rgba(216,199,154,0.25)] transition hover:bg-white disabled:opacity-70"
+                  />
+                )}
+                {buyUrl && (
+                  <a
+                    href={buyUrl}
+                    className={`flex-1 inline-flex min-h-[52px] items-center justify-center gap-2 px-6 font-googleSans text-[15px] font-bold transition ${
+                      ecwidId
+                        ? "border-2 border-[#d8c79a] text-[#d8c79a] hover:bg-[#d8c79a] hover:text-[#153d28]"
+                        : "bg-[#d8c79a] text-[#153d28] shadow-[0_6px_20px_rgba(216,199,154,0.25)] hover:bg-white"
+                    }`}
+                  >
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+                    </svg>
+                    Buy Now
+                  </a>
+                )}
+              </div>
+
+              {/* ── Secondary actions ── */}
+              <div className="flex items-stretch gap-2.5">
+                <Link
+                  to={`/contact?product=${product.id}&brand=typhon`}
+                  className="flex flex-1 min-h-[44px] items-center justify-center gap-2 border border-white/20 px-4 font-googleSans text-sm font-medium text-white/85 transition hover:border-white/60 hover:text-white"
                 >
-                  Buy Now
-                </a>
-              )}
-              {/* Opens the Ecwid store cart (database-backed). */}
-              <a
-                href={ECWID_CART_PATH}
-                className="inline-flex min-h-[44px] items-center justify-center gap-2 border border-[#d8c79a] px-5 font-googleSans text-sm font-bold text-[#d8c79a] transition hover:bg-[#d8c79a] hover:text-[#153d28]"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                </svg>
-                View Cart
-              </a>
-              <Link
-                to={`/contact?product=${product.id}&brand=typhon`}
-                className="inline-flex min-h-[44px] items-center justify-center bg-neutral-100 px-5 font-googleSans text-sm font-bold text-[#153d28] transition hover:bg-[#d8c79a]"
-              >
-                Request Quote
-              </Link>
-              <ShareMenu
-                title={product.name}
-                className="inline-flex min-h-[44px] items-center justify-center border border-white/20 px-4 font-googleSans text-sm text-white transition hover:border-white"
-              />
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Request a Quote
+                </Link>
+                <ShareMenu
+                  title={product.name}
+                  className="flex min-h-[44px] items-center justify-center gap-2 border border-white/20 px-4 font-googleSans text-sm font-medium text-white/85 transition hover:border-white/60 hover:text-white"
+                />
+              </div>
             </div>
           </section>
         </div>

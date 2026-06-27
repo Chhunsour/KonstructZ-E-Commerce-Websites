@@ -165,30 +165,13 @@ export const SingleBlog = (): JSX.Element => {
     };
   }, []);
 
-  // Load initial comments using translated content
+  // Reader-submitted comments. Starts empty (no template/demo comment); reset
+  // when navigating to a different article.
   const [postComments, setPostComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    if (!post) return;
-    setPostComments([
-      {
-        id: 1,
-        avatar: "/single-blog/img/image-74.png",
-        name: t("auto.singleblog.mr.sarak"),
-        message: t("auto.singleblog.i.really.love"),
-        date: "13th June 2026",
-        replies: [
-          {
-            id: 2,
-            avatar: "/single-blog/img/286f1e83ef7372ad17b09ff60c8264c5-2.png",
-            name: t("auto.singleblog.denvor.wayne.arthur"),
-            message: t("auto.singleblog.thank.you.very") + " " + t("auto.singleblog.hope.you.have"),
-            date: "14th June 2026",
-          }
-        ]
-      }
-    ]);
-  }, [t, post?.slug]);
+    setPostComments([]);
+  }, [post?.slug]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

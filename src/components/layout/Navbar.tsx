@@ -15,42 +15,40 @@ const NAV_HEIGHT = 76;
 const MOBILE_NAV_HEIGHT = 53;
 const MOBILE_BREAKPOINT = 1024;
 
-// Equipment is ONE catalog (Typhon Machinery). Konstructz machines are a
-// featured collection inside that catalog, not a separate brand. Labels are
-// static English so we never leak raw `nav.*` keys into the menu.
-type EquipmentLink = { label: string; href: string; icon: string };
+// Static labels keep the equipment dropdown readable and avoid leaking raw
+// translation keys into the menu.
+type EquipmentDropdownLink = {
+  label: string;
+  href: string;
+  icon: string;
+  context?: string;
+};
 
-const equipmentMenu: {
-  allEquipment: { label: string; sub: string; href: string; icon: string };
-  featured: { heading: string; badge: string; viewAll: EquipmentLink; links: EquipmentLink[] };
-  categories: { heading: string; links: EquipmentLink[] };
-} = {
-  allEquipment: {
-    label: "All Equipment Categories",
-    sub: "Konstructz Depot Overview",
-    href: "/categories",
-    icon: `${ICON}/all-equipment.svg`,
-  },
-  featured: {
-    heading: "Featured Konstructz Machines",
-    badge: "Konstructz",
-    viewAll: { label: "View All Categories", href: "/categories", icon: `${ICON}/view-all.svg` },
+type EquipmentDropdownSection = {
+  title: string;
+  links: EquipmentDropdownLink[];
+};
+
+const equipmentDropdownSections: EquipmentDropdownSection[] = [
+  {
+    title: "Konstructz",
     links: [
-      { label: "Backhoe Loaders", href: "/product/backhoe-loaders", icon: `${ICON}/backhoe-loader.svg` },
-      { label: "Dumpers", href: "/product/dumpers", icon: `${ICON}/dumper.svg` },
-      { label: "Mini Excavators", href: "/product/mini-excavators", icon: `${ICON}/mini-excavator.svg` },
-      { label: "Towable Excavators", href: "/product/towable-excavators", icon: `${ICON}/towable-excavator.svg` },
-      { label: "Stone Crushers", href: "/product/stone-crushers", icon: `${ICON}/stone-crusher.svg` },
-      { label: "Trenchers", href: "/product/trenchers", icon: `${ICON}/trencher.svg` },
-      { label: "Wheel Loaders", href: "/product/wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
-      { label: "Mini Skid Steers", href: "/product/mini-skid-steers", icon: `${ICON}/skid-steer.svg` },
+      { label: "All Products", context: "Konstructz", href: "/categories", icon: `${ICON}/all-equipment.svg` },
+      { label: "Mini Skid Steer", href: "/product/mini-skid-steers", icon: `${ICON}/skid-steer.svg` },
+      { label: "Mini Excavator", href: "/product/mini-excavators", icon: `${ICON}/mini-excavator.svg` },
+      { label: "Backhoe Loader", href: "/product/backhoe-loaders", icon: `${ICON}/backhoe-loader.svg` },
+      { label: "Wheel Loader", href: "/product/wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
+      { label: "Dumper", href: "/product/dumpers", icon: `${ICON}/dumper.svg` },
+      { label: "Trencher", href: "/product/trenchers", icon: `${ICON}/trencher.svg` },
+      { label: "Towable Excavator", href: "/product/towable-excavators", icon: `${ICON}/towable-excavator.svg` },
+      { label: "Stone Crusher", href: "/product/stone-crushers", icon: `${ICON}/stone-crusher.svg` },
     ],
   },
-  categories: {
-    heading: "Typhon Machinery Catalog",
+  {
+    title: "Typhon Machinery",
     links: [
       { label: "All Typhon Equipment", href: "/equipment", icon: `${ICON}/all-equipment.svg` },
-      { label: "Typhon Attachments", href: "/equipment?type=attachments", icon: `${ICON}/all-equipment.svg` },
+      { label: "Typhon Attachments", href: "/equipment?type=attachments", icon: `${ICON}/attachment.svg` },
       { label: "Forklifts", href: "/equipment?category=forklifts", icon: `${ICON}/forklift.svg` },
       { label: "Mini Excavators", href: "/equipment?category=mini-excavators", icon: `${ICON}/mini-excavator.svg` },
       { label: "Road Rollers", href: "/equipment?category=road-rollers", icon: `${ICON}/road-roller.svg` },
@@ -59,7 +57,7 @@ const equipmentMenu: {
       { label: "Wheel Loaders", href: "/equipment?category=wheel-loaders", icon: `${ICON}/wheel-loader.svg` },
     ],
   },
-};
+];
 
 const navItems = [
   { labelKey: "nav.home", href: "/" },
@@ -95,6 +93,25 @@ const navItems = [
     ],
   },
 ];
+
+const darkHeaderTopRoutes = [
+  "/",
+  "/about",
+  "/categories",
+  "/equipment",
+  "/typhon-machinery",
+  "/quality-equipment",
+  "/trusted-support",
+  "/job-site-ready",
+  "/long-term-value",
+];
+
+const isDarkHeaderTopRoute = (pathname: string) =>
+  darkHeaderTopRoutes.includes(pathname) ||
+  pathname.startsWith("/product/") ||
+  pathname.startsWith("/typhon-machinery/") ||
+  (pathname.startsWith("/equipment/") &&
+    pathname !== "/equipment/konstructz-machine");
 
 const DropdownArrow = () => (
   <svg width="8" height="5" viewBox="0 0 10 7" fill="none" className="ml-1.5 mt-0.5">
@@ -226,19 +243,31 @@ export const Navbar: React.FC = () => {
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
   // First-load entrance: header starts above the screen, drops in after 2.1s.
   // `reduceMotion` skips the animation entirely for users who request it.
-  const [navEntered, setNavEntered] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  // The drop-in plays ONLY on the front page ("/"), and replays on every reload
+  // of it. On any other page the header is shown instantly (navEntered starts
+  // true). Gated by window.location at mount so a front-page reload animates.
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [reduceMotion] = useState(prefersReducedMotion);
+  const [navEntered, setNavEntered] = useState(() => {
+    if (typeof window === "undefined") return false;
+    if (prefersReducedMotion) return true;
+    return window.location.pathname !== "/"; // animate only on the front page
+  });
   const navRef = useRef<HTMLElement>(null);
   const location = useLocation();
 
-  const isDarkHeroPage =
-    location.pathname === "/" ||
-    location.pathname === "/about" ||
+  const currentPathWithSearch = location.pathname + location.search;
+  const isEquipmentLinkActive = (href: string) =>
+    href.includes("?") ? currentPathWithSearch === href : location.pathname === href;
+  const isEquipmentRoute =
     location.pathname === "/categories" ||
     location.pathname.startsWith("/product/") ||
-    (location.pathname.startsWith("/equipment/") &&
-      location.pathname !== "/equipment" &&
-      location.pathname !== "/equipment/konstructz-machine");
+    location.pathname === "/equipment" ||
+    location.pathname.startsWith("/typhon-machinery/");
+
+  const isDarkHeroPage = isDarkHeaderTopRoute(location.pathname);
 
   const useLightHeader =
     theme === "dark" || (theme === "light" && isDarkHeroPage && !scrolled);
@@ -303,17 +332,14 @@ export const Navbar: React.FC = () => {
     setMobileExpanded(null);
   }, [location]);
 
-  // Premium first-load entrance — runs once on mount only, never on scroll.
+  // Premium front-page entrance — runs once after mount, never on scroll.
+  // navEntered only starts false on a fresh "/" load, so this drops the header
+  // in there and is a no-op everywhere else.
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setReduceMotion(true);
-      setNavEntered(true);
-      return;
-    }
+    if (typeof window === "undefined" || navEntered || reduceMotion) return;
     const timer = window.setTimeout(() => setNavEntered(true), 2100);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [navEntered, reduceMotion]);
 
   // One transition declaration covers BOTH the entrance properties (opacity /
   // transform / filter) and the scroll-state properties (background, border,
@@ -335,7 +361,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 w-full z-50 ${
+      className={`fixed top-0 left-0 w-full ${isOpen ? "z-[999999]" : "z-50"} ${
         scrolled
           ? "bg-theme-bg/95 backdrop-blur-sm shadow-lg border-b border-theme-border text-theme-text"
           : "bg-transparent"
@@ -376,7 +402,7 @@ export const Navbar: React.FC = () => {
                 location.pathname === item.href ||
                 (item.href !== "/" && location.pathname.startsWith(item.href)) ||
                 // Equipment section also covers the /product/<slug> category pages.
-                (item.href === "/categories" && location.pathname.startsWith("/product/"));
+                (item.href === "/categories" && isEquipmentRoute);
               const itemLabel = t(item.labelKey);
               const isDropdownOpen = activeDropdown === item.labelKey;
 
@@ -413,132 +439,68 @@ export const Navbar: React.FC = () => {
                     {item.hasDropdown && <DropdownArrow />}
                   </Link>
 
-                  {/* Desktop Equipment menu — compact dark icon-card menu */}
+                  {/* Desktop Equipment menu — narrow, single-column catalog dropdown */}
                   {item.hasDropdown && (item as any).isMega && (
                     <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 w-[900px] origin-top border border-white/10 bg-[#161616] p-3 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.85)] transition-all duration-300 z-50 ${
+                      className={`absolute top-full left-0 z-50 w-[360px] origin-top border border-white/10 bg-[#161616] py-2 shadow-[0_10px_28px_rgba(0,0,0,0.45)] transition-all duration-200 ${
                         isDropdownOpen
                           ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
-                          : "opacity-0 translate-y-2 scale-[0.98] pointer-events-none"
+                          : "opacity-0 translate-y-1 scale-[0.99] pointer-events-none"
                       }`}
                     >
-                      {/* Top CTA — All Equipment (strongest card) */}
-                      <Link
-                        to={equipmentMenu.allEquipment.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="group/cta flex items-center gap-4 border border-[#d8c79a]/45 bg-[#d8c79a]/10 px-4 py-3.5 transition-colors hover:border-[#d8c79a] hover:bg-[#d8c79a]/[0.16]"
-                      >
-                        <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#d8c79a]/30 bg-[#0e0e0e]">
-                          <img src={equipmentMenu.allEquipment.icon} alt="" aria-hidden="true" className="h-7 w-7" />
-                        </span>
-                        <span className="flex-1">
-                          <span className="block font-clofieBold text-[16px] font-bold leading-none text-white">
-                            {equipmentMenu.allEquipment.label}
-                          </span>
-                          <span className="mt-1.5 block font-googleSans text-[11px] uppercase tracking-[0.16em] text-[#d8c79a]">
-                            {equipmentMenu.allEquipment.sub}
-                          </span>
-                        </span>
-                        <svg width="20" height="12" viewBox="0 0 22 14" fill="none" className="text-[#d8c79a] transition-transform group-hover/cta:translate-x-1">
-                          <path d="M1 7h19m0 0L14 1m6 6l-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </Link>
-
-                      {/* Body — two icon-grid sections */}
-                      <div className="mt-3 grid grid-cols-[1.5fr_1fr] gap-3">
-                        {/* Featured Konstructz Machines */}
-                        <div className="border border-white/10 bg-white/[0.02] p-3">
-                          <div className="mb-2.5 flex items-center gap-2 px-1">
-                            <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-white/80">
-                              {equipmentMenu.featured.heading}
-                            </p>
-                            <span className="border border-[#68825B]/55 bg-[#68825B]/15 px-2 py-0.5 font-googleSans text-[9px] font-bold uppercase tracking-[0.12em] text-[#a9c79a]">
-                              {equipmentMenu.featured.badge}
-                            </span>
-                          </div>
-
-                          {/* View all — full-width feature row */}
-                          <Link
-                            to={equipmentMenu.featured.viewAll.href}
-                            onClick={() => setActiveDropdown(null)}
-                            className="group/row mb-1.5 flex items-center gap-3 border border-[#d8c79a]/30 bg-[#d8c79a]/[0.08] px-2.5 py-2 transition-colors hover:border-[#d8c79a]/70 hover:bg-[#d8c79a]/[0.16]"
+                      <div className="max-h-[calc(100vh-110px)] overflow-y-auto px-2">
+                        {equipmentDropdownSections.map((section, sectionIndex) => (
+                          <div
+                            key={section.title}
+                            className={sectionIndex === 0 ? "" : "mt-2 border-t border-white/10 pt-2"}
                           >
-                            <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#d8c79a]/30 bg-[#0e0e0e]">
-                              <img src={equipmentMenu.featured.viewAll.icon} alt="" aria-hidden="true" className="h-6 w-6" />
-                            </span>
-                            <span className="font-googleSans text-[13px] font-bold text-[#d8c79a]">
-                              {equipmentMenu.featured.viewAll.label}
-                            </span>
-                          </Link>
-
-                          <div className="grid grid-cols-2 gap-1.5">
-                            {equipmentMenu.featured.links.map((link) => {
-                              const isSubActive =
-                                location.pathname === link.href ||
-                                (link.href.includes("?") &&
-                                  location.pathname + location.search === link.href);
-                              return (
-                                <Link
-                                  key={link.href}
-                                  to={link.href}
-                                  onClick={() => setActiveDropdown(null)}
-                                  className={`group/row flex items-center gap-2.5 border px-2 py-2 transition-colors ${
-                                    isSubActive
-                                      ? "border-[#d8c79a]/50 bg-white/[0.06]"
-                                      : "border-transparent hover:border-[#d8c79a]/40 hover:bg-white/[0.05]"
-                                  }`}
-                                >
-                                  <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-[#0e0e0e] transition-colors group-hover/row:border-[#d8c79a]/40">
-                                    <img src={link.icon} alt="" aria-hidden="true" className="h-6 w-6" />
-                                  </span>
-                                  <span
-                                    className={`font-googleSans text-[13px] font-medium leading-tight transition-colors ${
-                                      isSubActive ? "text-white" : "text-white/85 group-hover/row:text-white"
+                            <p className="px-3 py-1.5 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">
+                              {section.title}
+                            </p>
+                            <div className="flex flex-col">
+                              {section.links.map((link) => {
+                                const isSubActive = isEquipmentLinkActive(link.href);
+                                return (
+                                  <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    onClick={() => setActiveDropdown(null)}
+                                    className={`group/row flex min-h-[48px] items-center gap-3 px-3 py-2 transition-colors ${
+                                      isSubActive
+                                        ? "bg-[#d8c79a] text-[#153d28]"
+                                        : "text-white/86 hover:bg-white/[0.06] hover:text-white"
                                     }`}
                                   >
-                                    {link.label}
-                                  </span>
-                                </Link>
-                              );
-                            })}
+                                    <span
+                                      className={`flex h-8 w-8 shrink-0 items-center justify-center ${
+                                        isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"
+                                      }`}
+                                    >
+                                      <img src={link.icon} alt="" aria-hidden="true" className="h-5 w-5" />
+                                    </span>
+                                    <span className="min-w-0 flex-1">
+                                      <span className="block truncate font-googleSans text-[13px] font-bold leading-tight">
+                                        {link.label}
+                                      </span>
+                                      {link.context && (
+                                        <span
+                                          className={`mt-0.5 block truncate font-googleSans text-[9px] font-bold uppercase tracking-[0.13em] ${
+                                            isSubActive ? "text-[#153d28]/65" : "text-[#d8c79a]/80"
+                                          }`}
+                                        >
+                                          {link.context}
+                                        </span>
+                                      )}
+                                    </span>
+                                    <span className={`font-googleSans text-[17px] leading-none ${isSubActive ? "text-[#153d28]/65" : "text-[#d8c79a]/70"}`}>
+                                      ›
+                                    </span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
                           </div>
-                        </div>
-
-                        {/* Browse Equipment Categories */}
-                        <div className="border border-white/10 bg-white/[0.02] p-3">
-                          <p className="mb-2.5 px-1 font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-white/80">
-                            {equipmentMenu.categories.heading}
-                          </p>
-                          <div className="flex flex-col gap-1.5">
-                            {equipmentMenu.categories.links.map((link) => {
-                              const isSubActive =
-                                location.pathname + location.search === link.href;
-                              return (
-                                <Link
-                                  key={link.href}
-                                  to={link.href}
-                                  onClick={() => setActiveDropdown(null)}
-                                  className={`group/row flex items-center gap-2.5 border px-2 py-2 transition-colors ${
-                                    isSubActive
-                                      ? "border-[#d8c79a]/50 bg-white/[0.06]"
-                                      : "border-transparent hover:border-[#d8c79a]/40 hover:bg-white/[0.05]"
-                                  }`}
-                                >
-                                  <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-[#0e0e0e] transition-colors group-hover/row:border-[#d8c79a]/40">
-                                    <img src={link.icon} alt="" aria-hidden="true" className="h-6 w-6" />
-                                  </span>
-                                  <span
-                                    className={`font-googleSans text-[13px] font-medium leading-tight transition-colors ${
-                                      isSubActive ? "text-white" : "text-white/85 group-hover/row:text-white"
-                                    }`}
-                                  >
-                                    {link.label}
-                                  </span>
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -734,22 +696,22 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       <div
-        className={`lg:hidden fixed inset-y-0 right-0 max-w-xs w-full bg-theme-bg border-l border-theme-border shadow-2xl z-50 p-6 transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed right-0 top-0 h-[100dvh] max-w-xs w-full overflow-y-auto overscroll-contain border-l border-[#2d2d2d] bg-[#111] text-white shadow-2xl z-[999999] p-6 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center mb-8 border-b border-theme-border pb-4">
-          <span className="[font-family:'Mission_X-Regular',Helvetica] text-theme-text text-xl tracking-wider">
+        <div className="flex justify-between items-center mb-8 border-b border-white/12 pb-4">
+          <span className="[font-family:'Mission_X-Regular',Helvetica] text-white text-xl tracking-wider">
             KONSTRUCTZ
           </span>
-          <button onClick={() => setIsOpen(false)} className="text-theme-muted hover:text-theme-text">
+          <button onClick={() => setIsOpen(false)} className="text-white/65 hover:text-white">
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
-        <ul className="flex flex-col gap-6 [font-family:'Clofie-Regular',Helvetica] text-xl text-theme-text">
+        <ul className="flex flex-col gap-6 [font-family:'Clofie-Regular',Helvetica] text-xl text-white">
           {navItems.map((item) => {
             const itemLabel = t(item.labelKey);
             const isExpanded = mobileExpanded === item.labelKey;
@@ -759,10 +721,10 @@ export const Navbar: React.FC = () => {
                   <>
                     <button
                       onClick={() => setMobileExpanded(isExpanded ? null : item.labelKey)}
-                      className={`flex items-center justify-between w-full hover:text-theme-accent transition-colors py-1 ${
+                      className={`flex items-center justify-between w-full hover:text-[#d8c79a] transition-colors py-1 ${
                         location.pathname.startsWith(item.href) ||
-                        (item.href === "/categories" && location.pathname.startsWith("/product/"))
-                          ? "text-theme-accent"
+                        (item.href === "/categories" && isEquipmentRoute)
+                          ? "text-[#d8c79a]"
                           : ""
                       }`}
                     >
@@ -784,109 +746,55 @@ export const Navbar: React.FC = () => {
                       }`}
                     >
                       {(item as any).isMega ? (
-                        <div className="flex flex-col gap-4 border-l border-theme-border pl-3 py-1">
-                          {/* 1 — All Equipment (Typhon catalog) */}
-                          <Link
-                            to={equipmentMenu.allEquipment.href}
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-center gap-3 border border-theme-accent/45 bg-theme-accent/10 px-3 py-2.5 transition-colors hover:bg-theme-accent/15"
-                          >
-                            <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-accent/30 bg-[#0e0e0e]">
-                              <img src={equipmentMenu.allEquipment.icon} alt="" aria-hidden="true" className="h-7 w-7" />
-                            </span>
-                            <span className="flex-1">
-                              <span className="block font-googleSans text-[15px] font-bold leading-none text-theme-text">
-                                {equipmentMenu.allEquipment.label}
-                              </span>
-                              <span className="mt-1 block font-googleSans text-[10px] uppercase tracking-[0.14em] text-theme-accent">
-                                {equipmentMenu.allEquipment.sub}
-                              </span>
-                            </span>
-                          </Link>
-
-                          {/* 2 — Featured Konstructz Machines */}
-                          <div className="pt-1">
-                            <div className="flex items-center gap-2 pb-2">
-                              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-theme-accent/80 font-googleSans">
-                                {equipmentMenu.featured.heading}
+                        <div className="flex flex-col border-l border-white/12 pl-3 py-1">
+                          {equipmentDropdownSections.map((section, sectionIndex) => (
+                            <div
+                              key={section.title}
+                              className={sectionIndex === 0 ? "" : "mt-3 border-t border-white/12 pt-3"}
+                            >
+                              <p className="px-2 pb-2 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-[#d8c79a]/75">
+                                {section.title}
                               </p>
-                              <span className="border border-theme-accent/40 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-theme-accent font-googleSans">
-                                {equipmentMenu.featured.badge}
-                              </span>
+                              <div className="flex flex-col gap-1.5">
+                                {section.links.map((link) => {
+                                  const isSubActive = isEquipmentLinkActive(link.href);
+                                  return (
+                                    <Link
+                                      key={link.href}
+                                      to={link.href}
+                                      onClick={() => setIsOpen(false)}
+                                      className={`flex min-h-[48px] items-center gap-3 px-2.5 py-2 transition-colors ${
+                                        isSubActive ? "bg-[#d8c79a] text-[#153d28]" : "text-white hover:bg-white/[0.06]"
+                                      }`}
+                                    >
+                                      <span className={`flex h-9 w-9 shrink-0 items-center justify-center ${isSubActive ? "bg-[#153d28]/10" : "bg-[#0e0e0e]"}`}>
+                                        <img src={link.icon} alt="" aria-hidden="true" className="h-5 w-5" />
+                                      </span>
+                                      <span className="min-w-0 flex-1">
+                                        <span className="block truncate font-googleSans text-[15px] font-bold leading-tight">
+                                          {link.label}
+                                        </span>
+                                        {link.context && (
+                                          <span className={`mt-0.5 block truncate font-googleSans text-[9px] font-bold uppercase tracking-[0.13em] ${isSubActive ? "text-[#153d28]/65" : "text-[#d8c79a]"}`}>
+                                            {link.context}
+                                          </span>
+                                        )}
+                                      </span>
+                                    </Link>
+                                  );
+                                })}
+                              </div>
                             </div>
-                            <div className="flex flex-col gap-1.5">
-                              <Link
-                                to={equipmentMenu.featured.viewAll.href}
-                                onClick={() => setIsOpen(false)}
-                                className="flex items-center gap-3 border border-theme-accent/30 bg-theme-accent/[0.08] px-2.5 py-2 transition-colors hover:bg-theme-accent/15"
-                              >
-                                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-accent/30 bg-[#0e0e0e]">
-                                  <img src={equipmentMenu.featured.viewAll.icon} alt="" aria-hidden="true" className="h-7 w-7" />
-                                </span>
-                                <span className="font-googleSans text-[14px] font-bold text-theme-accent">
-                                  {equipmentMenu.featured.viewAll.label}
-                                </span>
-                              </Link>
-                              {equipmentMenu.featured.links.map((link) => {
-                                const isSubActive = location.pathname === link.href;
-                                return (
-                                  <Link
-                                    key={link.href}
-                                    to={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`flex items-center gap-3 border px-2.5 py-2 transition-colors ${
-                                      isSubActive ? "border-theme-accent/50 bg-theme-accent/10" : "border-transparent hover:border-theme-accent/30 hover:bg-theme-border/15"
-                                    }`}
-                                  >
-                                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-border/40 bg-[#0e0e0e]">
-                                      <img src={link.icon} alt="" aria-hidden="true" className="h-7 w-7" />
-                                    </span>
-                                    <span className={`font-googleSans text-[15px] ${isSubActive ? "text-theme-accent" : "text-theme-text"}`}>
-                                      {link.label}
-                                    </span>
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </div>
-
-                          {/* 3 — Browse Equipment Categories */}
-                          <div className="pt-2 border-t border-theme-border/20">
-                            <p className="pb-2 pt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-theme-accent/80 font-googleSans">
-                              {equipmentMenu.categories.heading}
-                            </p>
-                            <div className="flex flex-col gap-1.5">
-                              {equipmentMenu.categories.links.map((link) => {
-                                const isSubActive = location.pathname + location.search === link.href;
-                                return (
-                                  <Link
-                                    key={link.href}
-                                    to={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`flex items-center gap-3 border px-2.5 py-2 transition-colors ${
-                                      isSubActive ? "border-theme-accent/50 bg-theme-accent/10" : "border-transparent hover:border-theme-accent/30 hover:bg-theme-border/15"
-                                    }`}
-                                  >
-                                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-theme-border/40 bg-[#0e0e0e]">
-                                      <img src={link.icon} alt="" aria-hidden="true" className="h-7 w-7" />
-                                    </span>
-                                    <span className={`font-googleSans text-[15px] ${isSubActive ? "text-theme-accent" : "text-theme-text"}`}>
-                                      {link.label}
-                                    </span>
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </div>
+                          ))}
                         </div>
                       ) : (
-                        <ul className="flex flex-col gap-3 border-l border-theme-border pl-4 py-1 text-base text-theme-muted">
+                        <ul className="flex flex-col gap-3 border-l border-white/12 pl-4 py-1 text-base text-white/70">
                           {/* Link to main landing page */}
                           <li>
                             <Link
                               to={item.href}
                               onClick={() => setIsOpen(false)}
-                              className="hover:text-theme-accent transition-colors block py-1"
+                              className="hover:text-[#d8c79a] transition-colors block py-1"
                             >
                               {t("nav.allLabel", { values: { label: itemLabel } })}
                             </Link>
@@ -894,7 +802,7 @@ export const Navbar: React.FC = () => {
                           {(item as any).dropdownItems?.map((subItem: any) => {
                             if (subItem.isSectionHeader) {
                               return (
-                                <li key={subItem.labelKey} className="pt-3 pb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-theme-accent/80 border-t border-theme-border/20 mt-1 font-googleSans">
+                                <li key={subItem.labelKey} className="pt-3 pb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-[#d8c79a]/80 border-t border-white/12 mt-1 font-googleSans">
                                   {t(subItem.labelKey)}
                                 </li>
                               );
@@ -904,8 +812,8 @@ export const Navbar: React.FC = () => {
                                 <Link
                                   to={subItem.href}
                                   onClick={() => setIsOpen(false)}
-                                  className={`hover:text-theme-accent transition-colors block py-1 ${
-                                    location.pathname === subItem.href ? "text-theme-accent" : ""
+                                  className={`hover:text-[#d8c79a] transition-colors block py-1 ${
+                                    location.pathname === subItem.href ? "text-[#d8c79a]" : ""
                                   }`}
                                 >
                                   {t(subItem.labelKey)}
@@ -921,8 +829,8 @@ export const Navbar: React.FC = () => {
                   <Link
                     to={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center hover:text-theme-accent transition-colors py-1 ${
-                      location.pathname === item.href ? "text-theme-accent" : ""
+                    className={`flex items-center hover:text-[#d8c79a] transition-colors py-1 ${
+                      location.pathname === item.href ? "text-[#d8c79a]" : ""
                     }`}
                   >
                     {itemLabel}
@@ -933,12 +841,12 @@ export const Navbar: React.FC = () => {
           })}
         </ul>
 
-        <div className="mt-10 pt-6 border-t border-theme-border flex flex-col gap-4">
+        <div className="mt-10 pt-6 border-t border-white/12 flex flex-col gap-4">
           <div className="relative" id="mobile-language-switcher-container">
             <button
               onClick={() => setMobileLangOpen(!mobileLangOpen)}
               type="button"
-              className="flex items-center justify-between w-full [font-family:'Clofie-Regular',Helvetica] text-theme-text text-lg hover:text-theme-accent transition-colors cursor-pointer text-left"
+              className="flex items-center justify-between w-full [font-family:'Clofie-Regular',Helvetica] text-white text-lg hover:text-[#d8c79a] transition-colors cursor-pointer text-left"
               aria-label={t("language.selectCurrent", { values: { language } })}
             >
               <span className="flex items-center gap-2">
@@ -960,7 +868,7 @@ export const Navbar: React.FC = () => {
                 mobileLangOpen ? "max-h-[300px] opacity-100 mt-2 pl-4" : "max-h-0 opacity-0"
               }`}
             >
-              <div className="flex flex-col gap-2 border-l border-theme-border pl-4 py-1">
+              <div className="flex flex-col gap-2 border-l border-white/12 pl-4 py-1">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -972,7 +880,7 @@ export const Navbar: React.FC = () => {
                     type="button"
                     aria-label={t("language.switchTo", { values: { language: lang.name } })}
                     className={`flex items-center gap-2 text-left text-sm py-1.5 font-googleSans transition-colors cursor-pointer ${
-                      language === lang.code ? "text-theme-accent font-semibold" : "text-theme-muted hover:text-theme-accent"
+                      language === lang.code ? "text-[#d8c79a] font-semibold" : "text-white/70 hover:text-[#d8c79a]"
                     }`}
                   >
                     <FlagIcon code={lang.code} />
@@ -984,7 +892,7 @@ export const Navbar: React.FC = () => {
           </div>
           <Link
             to="/contact"
-            className="text-center py-3 px-5 [font-family:'Clofie-Regular',Helvetica] text-lg leading-none text-theme-text border border-theme-border/95 bg-theme-bg/20 hover:border-theme-border hover:bg-theme-border/10 hover:text-theme-accent active:translate-y-px transition-all duration-200"
+            className="text-center py-3 px-5 [font-family:'Clofie-Regular',Helvetica] text-lg leading-none text-white border border-white/25 bg-white/[0.04] hover:border-[#d8c79a] hover:text-[#d8c79a] active:translate-y-px transition-all duration-200"
           >
             {t("action.getAQuote")}
           </Link>

@@ -3,6 +3,10 @@ import { useI18n } from "../../../../context/I18nContext";
 
 export const LocationMapSection = (): JSX.Element => {
   const { t } = useI18n();
+  const mapEmbedUrl =
+    "https://www.google.com/maps?q=2522+S+Malt+Ave,+Commerce,+CA+90040&z=15&output=embed";
+  const googleMapsUrl =
+    "https://www.google.com/maps/search/?api=1&query=2522%20S%20Malt%20Ave%2C%20Commerce%2C%20CA%2090040";
 
   return (
     <section
@@ -30,41 +34,25 @@ export const LocationMapSection = (): JSX.Element => {
       </header>
 
       <div
-        className="relative bg-theme-bg overflow-hidden transition-colors duration-200"
+        className="relative mx-[90px] h-[640px] overflow-hidden border border-theme-border/20 bg-theme-sec transition-colors duration-200"
         aria-label={t("auto.locationmap.warehouse.location.section")}
       >
-        {/* Real Google Maps embed (left side) */}
-        <div className="absolute top-[40px] left-[90px] w-[900px] h-[560px] border-4 border-theme-accent/30 rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
-          <iframe
-            title="Konstructz Commerce CA depot — Google Maps"
-            src="https://www.google.com/maps?q=2522+S+Malt+Ave,+Commerce,+CA+90040&z=13&output=embed"
-            className="w-full h-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-        </div>
-
-        {/* USA service-area map (right side) with pin over California */}
-        <div
-          className="absolute top-[20px] left-[1050px] w-[820px] h-[620px]"
-          aria-label="Konstructz nationwide service area — depot located in California"
+        <iframe
+          title="Konstructz Commerce CA depot — Google Maps"
+          src={mapEmbedUrl}
+          className="absolute inset-0 h-full w-full"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+        <a
+          href={googleMapsUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="absolute bottom-6 right-6 bg-[#153d28] px-5 py-3 [font-family:'Google_Sans_Flex',Helvetica] text-[14px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-theme-accent hover:text-[#153d28]"
         >
-          <img
-            src="/img/a1ae787b-3532-4fdb-b941-933e9d0075b4-1.png"
-            alt="Map of the United States showing Konstructz nationwide service coverage"
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-contain"
-          />
-          {/* Red map pin — positioned over California (west coast, middle-vertically) */}
-          <img
-            src="/img/a1ae787b-3532-4fdb-b941-933e9d0075b4-1-1.png"
-            alt="Pin marking Commerce, California — Konstructz headquarters"
-            loading="lazy"
-            className="absolute w-[150px] h-[170px] aspect-[0.88] drop-shadow-[0_10px_18px_rgba(0,0,0,0.45)]"
-            style={{ top: "230px", left: "65px" }}
-          />
-        </div>
+          Open in Google Maps
+        </a>
       </div>
     </section>
   );

@@ -71,6 +71,12 @@ function ensure_dir(string $dir): void
     }
 }
 
+function safe_slug(string $value): string
+{
+    $slug = strtolower(trim(preg_replace('/[^a-z0-9]+/i', '-', $value), '-'));
+    return $slug !== '' ? substr($slug, 0, 96) : 'product';
+}
+
 /** Atomic JSON write with an exclusive lock. */
 function write_json_atomic(string $file, $data): bool
 {
@@ -99,52 +105,72 @@ function read_json(string $file, $default)
     return $data === null ? $default : $data;
 }
 
+function max_image_bytes(): int
+{
+    return defined('MAX_IMAGE_BYTES') ? (int) MAX_IMAGE_BYTES : 12582912; // 12 MB
+}
+
+function request_timeout_seconds(): int
+{
+    return defined('IMAGE_REQUEST_TIMEOUT') ? (int) IMAGE_REQUEST_TIMEOUT : 20;
+}
+
 /** Download a URL to a string, cURL first then fallback to file_get_contents. */
 function http_get(string $url): ?string
 {
     if (function_exists('curl_init')) {
         $ch = curl_init($url);
+        $bytes = '';
+        $maxBytes = max_image_bytes();
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_MAXREDIRS => 5,
-            CURLOPT_CONNECTTIMEOUT => 15,
-            CURLOPT_TIMEOUT => 60,
+            CURLOPT_CONNECTTIMEOUT => min(10, request_timeout_seconds()),
+            CURLOPT_TIMEOUT => request_timeout_seconds(),
             CURLOPT_USERAGENT => 'KonstructzSyncReceiver/1.0',
             CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_WRITEFUNCTION => function ($ch, string $chunk) use (&$bytes, $maxBytes): int {
+                $bytes .= $chunk;
+                return strlen($bytes) > $maxBytes ? 0 : strlen($chunk);
+            },
         ]);
-        $body = curl_exec($ch);
+        curl_exec($ch);
         $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $contentType = (string) curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
         curl_close($ch);
-        if ($body !== false && $code >= 200 && $code < 300) {
-            return $body;
+        if ($bytes !== '' && strlen($bytes) <= $maxBytes && $code >= 200 && $code < 300) {
+            $mime = strtolower(trim(explode(';', $contentType)[0]));
+            if ($mime === '' || in_array($mime, ['image/jpeg', 'image/png', 'image/webp'], true)) {
+                return $bytes;
+            }
         }
         return null;
     }
     if (ini_get('allow_url_fopen')) {
-        $ctx = stream_context_create(['http' => ['timeout' => 60, 'user_agent' => 'KonstructzSyncReceiver/1.0']]);
+        $ctx = stream_context_create(['http' => ['timeout' => request_timeout_seconds(), 'user_agent' => 'KonstructzSyncReceiver/1.0']]);
         $body = @file_get_contents($url, false, $ctx);
-        return $body === false ? null : $body;
+        if ($body === false || strlen($body) > max_image_bytes()) return null;
+        return $body;
     }
     return null;
 }
 
-function ext_from(string $url, ?string $bytes): string
+function image_mime_from_bytes(string $bytes): ?string
 {
-    $path = parse_url($url, PHP_URL_PATH) ?: '';
-    $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
-    $allowed = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg'];
-    if (in_array($ext, $allowed, true)) {
-        return $ext === 'jpeg' ? 'jpg' : $ext;
-    }
-    // sniff from magic bytes
-    if ($bytes !== null && strlen($bytes) > 12) {
-        if (substr($bytes, 0, 3) === "\xFF\xD8\xFF") return 'jpg';
-        if (substr($bytes, 0, 8) === "\x89PNG\r\n\x1a\n") return 'png';
-        if (substr($bytes, 0, 4) === 'RIFF' && substr($bytes, 8, 4) === 'WEBP') return 'webp';
-        if (substr($bytes, 0, 3) === 'GIF') return 'gif';
-    }
-    return 'jpg';
+    if (strlen($bytes) < 12) return null;
+    if (substr($bytes, 0, 3) === "\xFF\xD8\xFF") return 'image/jpeg';
+    if (substr($bytes, 0, 8) === "\x89PNG\r\n\x1a\n") return 'image/png';
+    if (substr($bytes, 0, 4) === 'RIFF' && substr($bytes, 8, 4) === 'WEBP') return 'image/webp';
+    return null;
+}
+
+function ext_from_mime(string $mime): ?string
+{
+    if ($mime === 'image/jpeg') return 'jpg';
+    if ($mime === 'image/png') return 'png';
+    if ($mime === 'image/webp') return 'webp';
+    return null;
 }
 
 /** Optional GD recompression for jpg/png to shrink payload. Best-effort. */
@@ -180,7 +206,7 @@ function maybe_compress(string $path, string $ext): void
  *    reuse that file (same image from a different URL → no duplicate).
  * Returns the local public URL, or the original URL if download failed.
  */
-function localize_image(string $url, array &$manifest): string
+function localize_image(string $url, array &$manifest, string $slug = 'product', int $order = 0): string
 {
     // Already a local path — nothing to do.
     if ($url === '' || strpos($url, IMAGES_URL . '/') === 0) {
@@ -198,6 +224,11 @@ function localize_image(string $url, array &$manifest): string
     if ($bytes === null || $bytes === '') {
         return $url; // keep remote URL so the product still renders
     }
+    $mime = image_mime_from_bytes($bytes);
+    $ext = $mime ? ext_from_mime($mime) : null;
+    if ($mime === null || $ext === null) {
+        return $url;
+    }
 
     $hash = sha1($bytes);
     if (isset($manifest['by_hash'][$hash])) {
@@ -206,17 +237,18 @@ function localize_image(string $url, array &$manifest): string
         return $local;
     }
 
-    $ext = ext_from($url, $bytes);
-    ensure_dir(IMAGES_DIR);
-    $filename = $hash . '.' . $ext;
-    $dest = rtrim(IMAGES_DIR, '/') . '/' . $filename;
+    $safeSlug = safe_slug($slug);
+    $dir = rtrim(IMAGES_DIR, '/') . '/' . $safeSlug;
+    ensure_dir($dir);
+    $filename = $safeSlug . '-' . str_pad((string) ($order + 1), 2, '0', STR_PAD_LEFT) . '-' . substr($hash, 0, 10) . '.' . $ext;
+    $dest = $dir . '/' . $filename;
     if (!is_file($dest)) {
         if (file_put_contents($dest, $bytes) === false) {
             return $url;
         }
         maybe_compress($dest, $ext);
     }
-    $local = rtrim(IMAGES_URL, '/') . '/' . $filename;
+    $local = rtrim(IMAGES_URL, '/') . '/' . $safeSlug . '/' . $filename;
     $manifest['by_url'][$url] = $local;
     $manifest['by_hash'][$hash] = $local;
     return $local;
@@ -291,8 +323,10 @@ foreach ($incoming as $incomingProduct) {
     try {
         // Localize every image field present in this payload.
         $imageReport = [];
+        $imageOrder = 0;
         if (array_key_exists('featured_image', $incomingProduct) && is_string($incomingProduct['featured_image'])) {
-            $local = localize_image($incomingProduct['featured_image'], $manifest);
+            $local = localize_image($incomingProduct['featured_image'], $manifest, (string) $slug, $imageOrder);
+            $imageOrder++;
             $imageReport[] = $local;
             $incomingProduct['featured_image'] = $local;
         }
@@ -300,7 +334,8 @@ foreach ($incoming as $incomingProduct) {
             $gallery = [];
             foreach ($incomingProduct['gallery_images'] as $g) {
                 if (is_string($g)) {
-                    $local = localize_image($g, $manifest);
+                    $local = localize_image($g, $manifest, (string) $slug, $imageOrder);
+                    $imageOrder++;
                     $gallery[] = $local;
                     $imageReport[] = $local;
                 }

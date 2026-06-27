@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useI18n } from "../../context/I18nContext";
 import { listPublicPosts } from "../../lib/blogStore";
-import { kb, CONTACT, type ProductRef } from "./knowledge";
+import { kb, CONTACT, getChatbotConfig, type ProductRef } from "./knowledge";
 import {
   getReply,
   emptyMemory,
@@ -224,49 +225,178 @@ const CardGlyphs = {
   ),
 };
 
-const SUGGESTION_CARDS = [
-  {
-    glyph: CardGlyphs.machine,
-    title: "Find the right machine",
-    sub: "Excavators, skid steers, loaders & more",
-    q: "Help me find the right machine for my job."
-  },
-  {
-    glyph: CardGlyphs.compare,
-    title: "Compare equipment",
-    sub: "Check specs, use cases, pros & cons",
-    q: "Compare machines for me."
-  },
-  {
-    glyph: CardGlyphs.wrench,
-    title: "Attachments & fitment",
-    sub: "See what fits your machine",
-    q: "What attachments fit my machine?"
-  },
-  {
-    glyph: CardGlyphs.company,
-    title: "Company & product help",
-    sub: "Learn about Konstructz and available machines",
-    q: "Tell me about Konstructz and what you sell."
-  },
-  {
-    glyph: CardGlyphs.support,
-    title: "Warranty & lifetime support",
-    sub: "1-year warranty + lifetime technical support",
-    q: "Explain the 1-year warranty and lifetime support."
-  },
-  {
-    glyph: CardGlyphs.truck,
-    title: "Shipping, financing & returns",
-    sub: "Get help before you buy",
-    q: "Help me with shipping, financing, or returns."
-  }
-];
+// SUGGESTION_CARDS is now dynamically computed inside ChatAssistant.FC
 
 /* ─────────────────────────── Main widget ───────────────────────────── */
 
 export const ChatAssistant: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { t, language } = useI18n();
+  const path = location.pathname;
+
+  const currentSuggestionCards = React.useMemo(() => {
+    const config = getChatbotConfig();
+    const isProductPage = path.startsWith("/equipment/") && path !== "/equipment";
+    const isSkidSteerCategory = path.includes("skid-steer") || path.includes("stomp");
+    const isSupportPage = path.startsWith("/support");
+    const isBlogPage = path.startsWith("/blog") || path.startsWith("/post");
+
+    let list: { glyph: React.ReactNode; title: string; sub: string; q: string }[] = [];
+
+    if (isProductPage) {
+      list = [
+        {
+          glyph: CardGlyphs.machine,
+          title: "View machine specs",
+          sub: "Check engine power, dimensions & capacity",
+          q: "What are the specs for this machine?"
+        },
+        {
+          glyph: CardGlyphs.compare,
+          title: "Compare this machine",
+          sub: "See how it ranks against similar models",
+          q: "Compare this machine with another model."
+        },
+        {
+          glyph: CardGlyphs.wrench,
+          title: "Attachments & fitment",
+          sub: "See what attachments fit this machine",
+          q: "What attachments fit this machine?"
+        },
+        {
+          glyph: CardGlyphs.support,
+          title: "Buying & support help",
+          sub: "1-year warranty + lifetime technical support",
+          q: "Help me with shipping, warranty, or returns."
+        }
+      ];
+    } else if (isSkidSteerCategory) {
+      list = [
+        {
+          glyph: CardGlyphs.wrench,
+          title: "Attachments for skid steer",
+          sub: "Pallet forks, buckets, grapples & more",
+          q: "What attachments fit a skid steer?"
+        },
+        {
+          glyph: CardGlyphs.compare,
+          title: "Compare skid steer vs loader",
+          sub: "Learn key differences & best choices",
+          q: "Compare skid steer and wheel loader."
+        },
+        {
+          glyph: CardGlyphs.machine,
+          title: "Find the right loader",
+          sub: "Let's pick a model for your work site",
+          q: "Recommend a loader for my job."
+        },
+        {
+          glyph: CardGlyphs.support,
+          title: "Ask about warranty",
+          sub: "1-year warranty + lifetime technical support",
+          q: "Explain the 1-year warranty and lifetime support."
+        }
+      ];
+    } else if (isSupportPage) {
+      list = [
+        {
+          glyph: CardGlyphs.support,
+          title: "Warranty & Support",
+          sub: "Details of structural/powertrain coverage",
+          q: "What does the warranty cover?"
+        },
+        {
+          glyph: CardGlyphs.truck,
+          title: "Shipping & delivery",
+          sub: "Free continental U.S. freight options",
+          q: "How does shipping work?"
+        },
+        {
+          glyph: CardGlyphs.compare,
+          title: "Financing options",
+          sub: "100% financing through Paramount Financial",
+          q: "Do you offer financing?"
+        },
+        {
+          glyph: CardGlyphs.wrench,
+          title: "Returns & refunds",
+          sub: "30-day return policy and exclusions",
+          q: "What is the return policy?"
+        }
+      ];
+    } else if (isBlogPage) {
+      list = [
+        {
+          glyph: CardGlyphs.machine,
+          title: "Related machines",
+          sub: "Match what you read to jobsite equipment",
+          q: "Recommend a machine based on my project."
+        },
+        {
+          glyph: CardGlyphs.compare,
+          title: "Beginner explanation",
+          sub: "Learn machine terms in simple language",
+          q: "Explain compact machinery terms simply."
+        },
+        {
+          glyph: CardGlyphs.wrench,
+          title: "Attachments & fitment",
+          sub: "See what fits your machine",
+          q: "What attachments fit my machine?"
+        },
+        {
+          glyph: CardGlyphs.company,
+          title: "Who is Konstructz?",
+          sub: "Learn what we sell and if we are legit",
+          q: "Tell me about Konstructz and what you sell."
+        }
+      ];
+    } else {
+      const questions = config.suggestedQuestions.split("\n").map(q => q.trim()).filter(Boolean);
+      list = [
+        {
+          glyph: CardGlyphs.machine,
+          title: "Find the right machine",
+          sub: "Excavators, skid steers, loaders & more",
+          q: questions[0] || "Help me find the right machine for my job."
+        },
+        {
+          glyph: CardGlyphs.compare,
+          title: "Compare equipment",
+          sub: "Check specs, use cases, pros & cons",
+          q: questions[1] || "Compare machines for me."
+        },
+        {
+          glyph: CardGlyphs.wrench,
+          title: "Attachments & fitment",
+          sub: "See what fits your machine",
+          q: questions[2] || "What attachments fit my machine?"
+        },
+        {
+          glyph: CardGlyphs.company,
+          title: "Company & product help",
+          sub: "Learn about Konstructz and available machines",
+          q: questions[3] || "Tell me about Konstructz and what you sell."
+        },
+        {
+          glyph: CardGlyphs.support,
+          title: "Warranty & support",
+          sub: "1-year warranty + lifetime technical support",
+          q: questions[4] || "Explain the 1-year warranty and lifetime support."
+        },
+        {
+          glyph: CardGlyphs.truck,
+          title: "Shipping & returns",
+          sub: "Get help before you buy",
+          q: questions[5] || "Help me with shipping, financing, or returns."
+        }
+      ];
+    }
+
+    return list;
+  }, [path, t]);
+
   const initial = loadState();
   const [open, setOpen] = useState(initial?.open ?? false);
   const [messages, setMessages] = useState<ChatMessage[]>(
@@ -323,7 +453,7 @@ export const ChatAssistant: React.FC = () => {
     setMessages((prev) => [...prev, { id: uid(), role: "user", text, instant: true }]);
     setInput("");
 
-    const { answer, memory } = getReply(text, memoryRef.current);
+    const { answer, memory } = getReply(text, memoryRef.current, language);
     memoryRef.current = memory;
 
     setPhase("analyzing");
@@ -425,7 +555,7 @@ export const ChatAssistant: React.FC = () => {
         {/* Body */}
         <div ref={scrollRef} className="kz-chat-scroll flex-1 overflow-y-auto bg-[#161613] px-4 py-4 font-googleSans text-[13.5px] text-white/90">
           {showHero ? (
-            <WelcomeHero onPick={send} />
+            <WelcomeHero onPick={send} cards={currentSuggestionCards} />
           ) : (
             <div className="space-y-4">
               {messages.map((msg) => (
@@ -484,7 +614,10 @@ export const ChatAssistant: React.FC = () => {
 
 /* ─────────────────────────── Welcome hero ──────────────────────────── */
 
-const WelcomeHero: React.FC<{ onPick: (q: string) => void }> = ({ onPick }) => (
+const WelcomeHero: React.FC<{
+  onPick: (q: string) => void;
+  cards: { glyph: React.ReactNode; title: string; sub: string; q: string }[];
+}> = ({ onPick, cards }) => (
   <div className="flex flex-col items-center px-1 pb-2 pt-3 text-center">
     <div className="kz-rise">
       <Avatar size={64} />
@@ -497,9 +630,9 @@ const WelcomeHero: React.FC<{ onPick: (q: string) => void }> = ({ onPick }) => (
     </p>
 
     <div className="mt-6 flex flex-col gap-2.5 w-full text-left">
-      {SUGGESTION_CARDS.map((c, i) => (
+      {cards.map((c, i) => (
         <button
-          key={c.title}
+          key={c.title + i}
           type="button"
           onClick={() => onPick(c.q)}
           className="kz-rise group flex items-center gap-3.5 border border-white/10 bg-[#1d1e1a] px-4 py-3 transition hover:border-[#d8c79a]/50 hover:bg-[#23241f] active:bg-[#1a1b17] rounded-none"
@@ -543,6 +676,104 @@ const StatusBubble: React.FC<{ phase: "analyzing" | "thinking" }> = ({ phase }) 
   </div>
 );
 
+const ProductCard: React.FC<{
+  product: ProductRef;
+  onNavigate: (href: string) => void;
+  onFollowup: (q: string) => void;
+}> = ({ product, onNavigate, onFollowup }) => {
+  let bestFor = "Excavation, grading & site preparation";
+  let reason = "High reliability with professional compact design.";
+
+  if (/KUVUO/i.test(product.name)) {
+    bestFor = "Digging foundations, footings, and utility trenches";
+    reason = "Features zero-tail-swing maneuverability, proportional hydraulics, and dual-duty excavator capabilities.";
+  } else if (/STOMP/i.test(product.name)) {
+    bestFor = "Surface grading, landscaping, and bulk material loading";
+    reason = "Tough, high-torque skid steer designed for continuous site-prep work and fast attachment swaps.";
+  } else if (/SKOOP/i.test(product.name)) {
+    bestFor = "Loading dirt, stockpiling aggregate, and heavy site hauling";
+    reason = "High-traction wheel loader featuring robust bucket capacities and simple mechanical durability.";
+  } else if (/SCOOPYDIG/i.test(product.name)) {
+    bestFor = "Tight residential digging, utility service, and trenching";
+    reason = "Extremely agile compact backhoe loader ideal for narrow backyard work and property owners.";
+  } else if (/SPIDER/i.test(product.name)) {
+    bestFor = "All-terrain compact landscaping and utility digging";
+    reason = "Towable, lightweight excavating unit built for minimal ground damage and narrow access sites.";
+  } else if (/THUNDERDUMP/i.test(product.name)) {
+    bestFor = "Hauling rock, concrete, dirt, and heavy materials on site";
+    reason = "High-payload site dumper designed to transport bulk loads safely across uneven terrain.";
+  } else if (/STONEKRUSHER/i.test(product.name)) {
+    bestFor = "On-site concrete recycling, rock crushing, and aggregates";
+    reason = "Industrial mobile jaw crusher designed to process demolition debris into reusable fill.";
+  } else if (/RIPPER|AUGER/i.test(product.name)) {
+    bestFor = "Utility boring, fence posts, and hard soil breaking";
+    reason = "High-torque auxiliary hydraulic attachment engineered to expand machine capabilities.";
+  }
+
+  return (
+    <div className="border border-white/10 bg-[#1d1e1a] p-4 text-left space-y-3 shadow-[0_4px_12px_rgba(0,0,0,0.35)] rounded-none">
+      <div className="flex gap-3">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-white/10 bg-white">
+          {product.image ? (
+            <img src={product.image} alt={product.name} className="h-full w-full object-contain p-1" />
+          ) : (
+            <div className="h-full w-full bg-[#153d28]/25 flex items-center justify-center text-[#d8c79a] font-bold">K</div>
+          )}
+        </span>
+        <div className="min-w-0 flex-1">
+          <span className="flex items-center gap-1.5 flex-wrap">
+            <span className="font-clofieBold text-[13.5px] font-bold text-white leading-tight">{product.name}</span>
+            <span className="border border-[#d8c79a]/40 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-[#d8c79a] leading-none">{product.brand}</span>
+          </span>
+          <span className="mt-1 block font-googleSans text-[10.5px] text-[#d8c79a]/90">{product.categoryLabel}</span>
+        </div>
+      </div>
+
+      <div className="space-y-1.5 font-googleSans text-[11.5px] leading-relaxed text-white/70 border-t border-white/5 pt-2">
+        <div>
+          <span className="font-bold text-white/90">Best for:</span> {bestFor}
+        </div>
+        <div>
+          <span className="font-bold text-white/90">Details:</span> {reason}
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-1.5 pt-0.5">
+        <span className="inline-flex items-center text-[9px] font-clofieBold font-bold uppercase tracking-wider px-2 py-0.5 bg-[#d8c79a]/10 text-[#d8c79a] border border-[#d8c79a]/45 select-none">
+          1-Year Warranty
+        </span>
+        <span className="inline-flex items-center text-[9px] font-clofieBold font-bold uppercase tracking-wider px-2 py-0.5 bg-[#d8c79a]/10 text-[#d8c79a] border border-[#d8c79a]/45 select-none">
+          Lifetime Technical Support
+        </span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 pt-1 border-t border-white/5">
+        <button
+          type="button"
+          onClick={() => onNavigate(product.href)}
+          className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10px] uppercase tracking-wider bg-[#d8c79a] text-[#153d28] transition hover:bg-white active:bg-[#a99c75] rounded-none"
+        >
+          View Machine
+        </button>
+        <button
+          type="button"
+          onClick={() => onFollowup(`Compare ${product.name} with similar model`)}
+          className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10px] uppercase tracking-wider border border-white/20 text-white/80 transition hover:border-[#d8c79a] hover:text-[#d8c79a] active:bg-white/5 rounded-none"
+        >
+          Compare
+        </button>
+        <button
+          type="button"
+          onClick={() => onFollowup(`Help me with support for the ${product.name}`)}
+          className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10px] uppercase tracking-wider border border-white/20 text-white/80 transition hover:border-[#d8c79a] hover:text-[#d8c79a] active:bg-white/5 rounded-none"
+        >
+          Ask Support
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const MessageBubble: React.FC<{
   msg: ChatMessage;
   done: boolean;
@@ -563,8 +794,6 @@ const MessageBubble: React.FC<{
 
   const showExtras = done || msg.instant;
 
-  // When the handoff row is shown it already offers a "Contact form" button
-  // (→ /contact), so drop any duplicate /contact link from the links row.
   const visibleLinks = (msg.links ?? []).filter(
     (l) => !(msg.handoff && l.href === "/contact")
   );
@@ -578,31 +807,9 @@ const MessageBubble: React.FC<{
         </div>
 
         {showExtras && msg.products && msg.products.length > 0 && (
-          <div className="space-y-2">
+          <div className="space-y-3">
             {msg.products.map((p) => (
-              <button
-                key={p.href}
-                type="button"
-                onClick={() => onNavigate(p.href)}
-                className="group flex w-full items-center gap-3 border border-white/10 bg-[#1d1e1a] p-2 text-left transition hover:border-[#d8c79a]/50 hover:bg-[#23241f]"
-              >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-white/10 bg-white">
-                  {p.image ? <img src={p.image} alt="" aria-hidden="true" className="h-full w-full object-contain p-1" /> : null}
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="flex items-center gap-1.5">
-                    <span className="truncate font-clofieBold text-[13px] font-bold text-white">{p.name}</span>
-                    <span className="shrink-0 border border-[#d8c79a]/40 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-[#d8c79a]">{p.brand}</span>
-                  </span>
-                  <span className="mt-0.5 block truncate font-googleSans text-[11px] text-white/55">
-                    {p.categoryLabel}
-                    {p.spec ? ` • ${p.spec}` : ""}
-                  </span>
-                </span>
-                <svg width="7" height="11" viewBox="0 0 6 10" fill="none" className="shrink-0 text-[#d8c79a] transition group-hover:translate-x-0.5">
-                  <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
+              <ProductCard key={p.href} product={p} onNavigate={onNavigate} onFollowup={onFollowup} />
             ))}
           </div>
         )}

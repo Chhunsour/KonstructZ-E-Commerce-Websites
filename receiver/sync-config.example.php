@@ -30,3 +30,7 @@ define('IMAGES_URL', '/product-images');
 // Optional: re-encode/compress downloaded JPEG/PNG images when GD is available.
 define('COMPRESS_IMAGES', true);
 define('JPEG_QUALITY', 82);
+
+// Safety limits for server-side image importing.
+define('IMAGE_REQUEST_TIMEOUT', 20);
+define('MAX_IMAGE_BYTES', 12 * 1024 * 1024);

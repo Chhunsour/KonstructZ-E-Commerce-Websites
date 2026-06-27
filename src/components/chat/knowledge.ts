@@ -125,7 +125,7 @@ const SUPPORT_DOCS: KBDoc[] = [
     title: "Shipping & delivery",
     href: "/support/shipping-delivery",
     body:
-      "Konstructz ships across the United States (lower 48 states) by freight and trucking, with free ground shipping to the continental U.S. Any import duties, EPA certification, and documentation are handled on our side. Orders are typically processed within about three business days of cleared payment, and delivery usually takes around five to fourteen business days after that, depending on destination and carrier. Heavy machines ship by truck and the carrier arranges a delivery appointment by phone or email; standard delivery does not include a forklift or liftgate, and warehouse pickup is available. Please inspect your machine on arrival and report any transport damage within 48 hours. Missing a scheduled delivery slot can incur a redelivery fee of around ten percent, and address changes after dispatch may add carrier charges. Online tracking is not always available for trucked machines, so we keep you updated directly. International shipping is not offered.",
+      "Shipping is available in the USA. For overseas or international orders, please contact the Konstructz sales team so they can confirm availability, cost, and delivery options.",
   },
   {
     id: "sup-returns",
@@ -410,7 +410,7 @@ export const CHATBOT_CONFIG_DEFAULT: ChatbotConfig = {
   companyDescription: "Konstructz helps customers find compact heavy equipment, attachments, and machine support information.",
   warrantyText: "1-year warranty + lifetime technical support. Covers structural and powertrain components.",
   lifetimeSupportText: "Lifetime technical support is included with every machine purchase.",
-  shippingNotes: "Free ground shipping to the continental U.S. (lower 48 states).",
+  shippingNotes: "Shipping is available in the USA. For overseas or international orders, please contact the Konstructz sales team so they can confirm availability, cost, and delivery options.",
   financingNotes: "100% financing available through Paramount Financial (lease-to-own).",
   returnNotes: "30-day returns for unused, original condition machinery. Customer covers return shipping.",
   productCategories: "Excavators, Skid Steers, Wheel Loaders, Dumpers, Trenchers, Backhoe Loaders, Stone Crushers",

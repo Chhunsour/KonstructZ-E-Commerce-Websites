@@ -15,6 +15,7 @@ import {
   CONTACT,
   type ProductRef,
   type ProductDetail,
+  getChatbotConfig,
 } from "./knowledge";
 
 export interface Answer {
@@ -544,6 +545,7 @@ export type DetectedIntent =
   | "Machine comparison"
   | "Product recommendation"
   | "Support request"
+  | "Beginner mode explanation"
   | "Unknown question";
 
 // Job/project verbs & tasks that signal a recommendation request. Carefully
@@ -575,6 +577,10 @@ export function detectIntent(raw: string, memory: ChatMemory): DetectedIntent {
   const m = raw.toLowerCase().trim();
   if (!m) return "Unknown question";
   if (memory.awaiting === "recommend") return "Product recommendation";
+
+  if (/\b(simply|beginner|simple language|terms simply)\b/.test(m)) {
+    return "Beginner mode explanation";
+  }
 
   if (
     /^(h(i+|ey+|ello+)|hiya|heya|yo+|howdy|sup|wassup|greetings|g'?day|good (morning|afternoon|evening|day)|morning|afternoon|evening|what'?s up|whats up)\b/.test(m) &&
@@ -834,6 +840,7 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
   const shuffled = shuffle(followups).slice(0, 3);
   return shuffled.map(rewordFollowup);
 }function getCompanyQuestionAnswer(q: string): { markdown: string; followups: string[]; links?: { label: string; href: string }[] } | null {
+  const config = getChatbotConfig();
   const GUIDE_SUGGESTIONS = "\n\n### What would you like to do next?\n- View equipment categories\n- Compare machines\n- Check attachments\n- Contact support\n- Ask about warranty/shipping";
   const GUIDE_LINKS = [
     { label: "View Equipment Categories", href: "/equipment" },
@@ -849,7 +856,7 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 
   if (/\bkonstructz\b/.test(q) && (/\b(what is|who is|who are you|about|what does it do)\b/.test(q) || /\b(who we are|the company)\b/.test(q))) {
     return {
-      markdown: "### About Konstructz\n\n**Konstructz** is a specialized online platform designed to help contractors, landscapers, and homeowners explore compact machinery, compare models, and understand attachments. We specialize in **compact construction equipment** that is jobsite-ready and highly reliable.\n\nEvery purchase includes our comprehensive support program to ensure your equipment keeps running smoothly.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      markdown: `### About Konstructz\n\n**Konstructz** is a specialized online platform designed to help contractors, landscapers, and homeowners explore compact machinery, compare models, and understand attachments. ${config.companyDescription}\n\nEvery purchase includes our comprehensive support program to ensure your equipment keeps running smoothly.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]` + GUIDE_SUGGESTIONS,
       links: GUIDE_LINKS,
       followups: GUIDE_FOLLOWUPS
     };
@@ -876,7 +883,7 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 
   if (/\b(what do you sell|what is sold|what do you offer|what products|what machines|types of machine|equipment categories)\b/.test(q) || (/\b(sell|offer|have)\b/.test(q) && /\b(machine|product|equipment|cab|attachment|excavator|loader)\b/.test(q))) {
     return {
-      markdown: "### Equipment Categories\n\nWe sell **compact construction machinery** and **heavy attachments** tailored for tight spaces and high performance. Our core inventory includes:\n- **Mini Excavators** & Towable Excavators\n- **Skid Steers** & Wheel Loaders\n- **Backhoe Loaders**, Dumpers, and Trenchers\n- Compatible **Augers, Breakers, and Buckets**\n\nAll eligible models ship standard with shipping and warranty coverage.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]" + GUIDE_SUGGESTIONS,
+      markdown: `### Equipment Categories\n\nWe sell **compact construction machinery** and **heavy attachments** tailored for tight spaces and high performance. Our core inventory includes:\n- **${config.productCategories}**\n- Compatible **Augers, Breakers, and Buckets**\n\nAll eligible models ship standard with shipping and warranty coverage.\n\n**Support included:**\n[1-Year Warranty] [Lifetime Technical Support] [Free Shipping]` + GUIDE_SUGGESTIONS,
       links: GUIDE_LINKS,
       followups: GUIDE_FOLLOWUPS
     };
@@ -902,6 +909,15 @@ function generateFollowups(intent: DetectedIntent, query: string, memory: ChatMe
 }
 function getGeneralAnswer(m: string): { markdown: string; followups: string[]; links?: { label: string; href: string }[] } | null {
   const q = m.toLowerCase();
+
+  const isOverseasQuery = /\b(overseas|international|foreign|export|canada|mexico|europe|asia|outside (us|usa))\b/.test(q);
+  if (isOverseasQuery && /\b(ship|shipping|deliver|delivery|post|send|rate|cost|time|duration|speed|transit)\b/.test(q)) {
+    return {
+      markdown: "## Overseas & International Shipping\n\nShipping is available in the USA. For overseas or international orders, please contact the Konstructz sales team so they can confirm availability, cost, and delivery options.",
+      followups: ["Contact sales team", "Compare machines", "Warranty details"],
+      links: [{ label: "Contact Sales", href: "/contact" }]
+    };
+  }
 
   const companyAns = getCompanyQuestionAnswer(q);
   if (companyAns) return companyAns;
@@ -955,9 +971,16 @@ function getGeneralAnswer(m: string): { markdown: string; followups: string[]; l
     };
   }
 
-  if (/\b(free shipping|shipping free|is shipping free|shipping mean)\b/.test(q)) {
+  if (/\b(free shipping|shipping free|is shipping free|shipping mean|shipping rules?|delivery)\b/.test(q)) {
+    const isOverseas = /\b(overseas|international|foreign|export|canada|mexico|europe|asia|outside (us|usa))\b/.test(q);
+    if (isOverseas) {
+      return {
+        markdown: "## Overseas & International Shipping\n\nShipping is available in the USA. For overseas or international orders, please contact the Konstructz sales team so they can confirm availability, cost, and delivery options.",
+        followups: ["Contact sales team", "Compare machines", "Warranty details"]
+      };
+    }
     return {
-      markdown: "## Shipping & Delivery Logistics\n\nYes! We include **Free Ground Shipping** on eligible machines to the continental United States (lower 48 states). Here is what you need to know about delivery:\n\n- **Freight Carriage**: Heavy machinery ships via commercial freight truck lines. The carrier will contact you in advance to schedule a delivery appointment window.\n- **Unloading Requirements**: Standard delivery does **not** include a forklift or liftgate. The customer is responsible for having a loading dock, a forklift, or a tractor with forks to safely unload the machine. Alternatively, you can request pickup at the nearest carrier terminal.\n- **Processing & Delivery**: Orders are processed within ~3 business days. Transit time takes between 5 to 14 business days depending on your distance from our warehouse.\n- **Logistics Notes**: Address changes after dispatch or missed delivery appointments can incur carrier fees (like a redelivery fee). Make sure to inspect the machine on arrival and report transit damage within 48 hours.",
+      markdown: "## Shipping & Delivery Logistics\n\nShipping is available in the USA. For overseas or international orders, please contact the Konstructz sales team so they can confirm availability, cost, and delivery options.\n\nWe do not promise international shipping, delivery times, shipping costs, or availability.\n\nFor continental U.S. (lower 48 states) orders, we include **Free Ground Shipping** on eligible machines:\n- **Freight Carriage**: Heavy machinery ships via commercial freight truck lines. The carrier will contact you in advance to schedule a delivery appointment window.\n- **Unloading Requirements**: Standard delivery does **not** include a forklift or liftgate. The customer is responsible for having a loading dock, a forklift, or a tractor with forks to safely unload the machine. Alternatively, you can request pickup at the nearest carrier terminal.\n- **Processing & Delivery**: Orders are processed within ~3 business days. Transit time takes between 5 to 14 business days depending on your distance from our warehouse.\n- **Logistics Notes**: Address changes after dispatch or missed delivery appointments can incur carrier fees (like a redelivery fee). Make sure to inspect the machine on arrival and report transit damage within 48 hours.",
       followups: ["Check warranty and shipping", "Request a quote", "Find compatible attachments"]
     };
   }
@@ -1243,27 +1266,28 @@ function supportAnswer(intent: string): Answer {
   return { markdown: md, links: [{ label: `Open: ${e.topic}`, href: e.href }, ...relatedBlog(intent)], followups: e.followups, handoff: e.handoff };
 }
 
-function formatSupportDoc(intent: Intent): string {
+function formatSupportDoc(intent: string): string {
+  const config = getChatbotConfig();
   switch (intent) {
     case "warranty":
-      return `## Warranty & Support\n\nEvery Konstructz machine comes with a **1-year warranty + lifetime technical support**, and that coverage **includes spare parts** during the first year — so genuine replacement parts are provided to keep your machine running.\n\n- **Length:** 1-year warranty + lifetime technical support\n- **Includes:** spare parts during the first year\n- **Exact coverage** varies by machine and configuration, so the specific terms for your unit are confirmed by our team rather than quoted as a blanket rule\n\nI won't invent component-level details — _the detailed coverage breakdown is best confirmed per model (needs review)._ To make a claim or check what's covered on your machine, contact support.`;
+      return `## Warranty & Support\n\nEvery Konstructz machine comes standard with a **[1-year warranty + lifetime technical support]**.\n\n- **Coverage details:** ${config.warrantyText}\n- **Lifetime assistance:** ${config.lifetimeSupportText}\n- **Spare parts support:** Genuine parts provided for manufacturing defects during the first year.\n\n_Note: Specific coverage details should be confirmed per model with our team._`;
     case "returns":
-      return `## Returns & refunds\n\nIf a machine isn't right, you can request a **return within 30 days of delivery** for a **refund to your original payment method**.\n\n- **Return shipping is the customer's responsibility** — we don't cover return logistics\n- The machine must be **unused and in original condition**\n- **Can't be returned:** used or damaged equipment, custom/special-order machines, spare parts, consumables, and hydraulic attachments\n- **Transport damage?** Report it **within 48 hours** of delivery\n\nTo start a return, contact support and we'll send return instructions. _Note: the exact return window/start date and refund timeframe should be confirmed (published sources differ) — needs review._`;
+      return `## Returns & refunds\n\n- **Policy:** ${config.returnNotes}\n- **Return Window:** Unused machines in original packaging can be returned within 30 days of delivery.\n- **Exclusions:** Consumables and custom-configured items are non-returnable.\n- **Damage in transit:** Must be reported within 48 hours.`;
     case "shipping":
-      return `## Shipping & delivery\n\nWe ship across the **United States (lower 48 states)** by **freight/trucking**, with **free ground shipping** to the continental U.S. Import duties, EPA certification, and documentation are handled on our side.\n\n- **Processing:** ~3 business days after cleared payment\n- **Delivery:** ~5–14 business days after that, by destination and carrier\n- Heavy machines ship by **truck**; the carrier books a delivery appointment by phone/email\n- **No forklift/liftgate** on standard delivery — **warehouse pickup** is available\n- **Inspect on arrival** and report any transport damage **within 48 hours**\n- Missing a booked slot can add a **~10% redelivery fee**; address changes after dispatch may add carrier charges\n- Online tracking isn't always available for trucked machines, so we keep you posted directly\n- _International shipping is not offered (U.S. only)._\n\nTell me roughly where you are and I'll point you to the team for a delivery estimate.`;
+      return `## Shipping & delivery\n\n- **Delivery details:** ${config.shippingNotes}\n- **Lower 48 states:** Eligible machines qualify for **[Free Shipping]**.\n- **Access:** Ensure safe curbside flatbed/step-deck trailer access on site.`;
     case "financing":
-      return `## Financing\n\nYes — Konstructz offers flexible financing through **Paramount Financial** (lease-to-own).\n\n- **100% financing**, with the option to **bundle equipment, shipping, and taxes**\n- **Soft credit check** — no hard hit to your score\n- **All credit profiles considered**; **startup-friendly** (no minimum time in business)\n- **Instant decisions** on approvals up to **$25,000**\n- Lease payments may be **tax-deductible**; an optional **down payment** lowers the financed balance\n\n**How it works:** apply with Paramount → get a decision by email/phone → choose your machine and get a quote from sales → sign the documents → the order ships once approved. Exact **rates, fees, and early-payoff terms** come from Paramount on approval. Want me to help you pick a machine to quote?`;
+      return `## Financing Options\n\n- **Partner:** Paramount Financial (lease-to-own).\n- **Details:** ${config.financingNotes}\n- **Credit review:** Soft credit check options available for qualified business buyers.`;
     case "parts":
-      return `## Parts & maintenance\n\n**Genuine spare parts** can be ordered directly through our parts team, and many machines include **parts support under the 1-year warranty + lifetime technical support**. We also provide **servicing, parts replacement, and technical assistance**, plus **operator training** (safety and best practices) and **user manuals** for our machines.\n\nRoutine upkeep keeps a machine reliable:\n- Change **engine oil & filters**, **hydraulic oil & filters**, **air/fuel filters** on schedule\n- **Grease** pivot points; check **tracks/tyres**\n- Keep **cutting edges and bucket teeth** in good shape (wear items are owner-maintained)\n\nFor the right part, a service interval, training, or a manual for your model, contact support and they'll pull it up.`;
+      return `## Parts & maintenance\n\n- **Availability:** Genuine replacement teeth, filters, hoses, and fluids shipped directly from our CA depot.\n- **Warranty coverage:** Parts replacement is covered under the standard **[1-year warranty + lifetime technical support]** for eligible claims.\n- **Upkeep:** Change fluids and grease pivots as outlined in the operator manual.`;
     case "safety":
-      return `## Operation & safety basics\n\nAlways start with the machine's operator manual. General good practice:\n\n- **Walk-around inspection** before starting\n- **Seatbelt** where fitted\n- Keep people clear of the **working area and swing radius**\n- Work on **stable ground**; take care on slopes\n- **Lower attachments** before leaving the cab\n- Never exceed the machine's **rated capacity** or published spec\n\nWant model-specific guidance? I can point you to machine guidance or support.`;
+      return `## Operation & safety basics\n\n- **Caution:** ${config.safetyDisclaimer}\n- **Inspection:** Perform daily walk-around checks.\n- **Safe zone:** Keep clear of rotation paths and load lines.`;
     default:
       return "Let me connect you with the team for that.";
   }
 }
 
 function composeAttachments(machine?: ProductRef, memorySlots?: ChatMemory["slots"]): Answer {
-  const COMPATIBILITY_WARNING = "\n\n**Compatibility Note:** We only confirm fitment when the specific machine specs (mounting pin layout, coupler size, auxiliary hydraulic flow/pressure GPM) match the attachment exactly. If you are unsure or if the exact match is not listed in the product specifications, compatibility must be confirmed with support before buying to avoid hydraulic or structural mismatch.";
+  const COMPATIBILITY_WARNING = "\n\n**Compatibility Note:** Fitment should be confirmed with the Konstructz team before buying to ensure proper mounting pin layout, coupler size, and hydraulic flow.";
 
   if (machine) {
     const prof = profileFor(machine.categoryLabel);
@@ -1427,13 +1451,14 @@ function composeFallback(): Answer {
 
 /* ───────────────────────────── Main reply ──────────────────────────── */
 
-export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memory: ChatMemory } {
-  const m = raw.toLowerCase().trim();
-  const memory: ChatMemory = { ...prev, slots: { ...prev.slots, ...extractSlots(m) }, turn: prev.turn + 1 };
+export function getReply(raw: string, prev: ChatMemory, lang: string = "EN"): { answer: Answer; memory: ChatMemory } {
+  const m = raw.trim();
+  const mLower = m.toLowerCase();
+  const memory: ChatMemory = { ...prev, slots: { ...prev.slots, ...extractSlots(mLower) }, turn: prev.turn + 1 };
 
   // If the user names a new machine/category, that becomes the active focus.
-  const namedNow = findNamed(m);
-  const catsNow = detectCategories(m);
+  const namedNow = findNamed(mLower);
+  const catsNow = detectCategories(mLower);
   if (namedNow.length === 1) {
     memory.activeMachine = namedNow[0];
     memory.activeCategory = namedNow[0].categoryLabel;
@@ -1444,17 +1469,183 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
   const finish = (answer: Answer, patch: Partial<ChatMemory> = {}): { answer: Answer; memory: ChatMemory } => {
     const next: ChatMemory = { ...memory, ...patch };
     if (answer.products && answer.products.length) {
-      // Keep a multi-machine set for "compare these" follow-ups; a single
-      // product (lookup/attachments/specs) only updates the active machine and
-      // must NOT shrink a previously recommended/compared set.
       if (answer.products.length >= 2) next.lastProducts = answer.products;
       if (answer.products.length === 1) {
         next.activeMachine = answer.products[0];
         next.activeCategory = answer.products[0].categoryLabel;
       }
     }
-    return { answer, memory: next };
+    
+    // Apply dynamic language translations to bot replies and follow-ups
+    const translatedAnswer: Answer = {
+      ...answer,
+      markdown: translateReply(answer.markdown, lang),
+      followups: answer.followups?.map(f => translateReply(f, lang))
+    };
+    return { answer: translatedAnswer, memory: next };
   };
+
+  // Intercept guided machine finder flows
+  if (prev.awaiting === "job_finder_1") {
+    let jobType = "digging";
+    if (/\b(load|loader|spreading|pallets|forks)\b/.test(mLower)) jobType = "loading";
+    else if (/\b(move|moving|haul|dumper|site dumper|transport)\b/.test(mLower)) jobType = "moving";
+    else if (/\b(crush|crusher|rock|stone|aggregate)\b/.test(mLower)) jobType = "crushing";
+    else if (/\b(farm|property|garden|landscap)\b/.test(mLower)) jobType = "farm";
+
+    const nextSlots = { ...prev.slots, job: jobType };
+    return finish({
+      markdown: `### Job-Based Machine Finder (Step 2/3)
+
+Got it! Next, **what material are you moving or working with?** (e.g., dirt, gravel, rocks, sand, concrete, logs, pallets, or brush?)`,
+      followups: ["Dirt and gravel", "Rocks and concrete", "Pallets and logs", "Cancel request"]
+    }, { awaiting: "job_finder_2", slots: nextSlots });
+  }
+
+  if (prev.awaiting === "job_finder_2") {
+    const nextSlots = { ...prev.slots, terrain: m };
+    return finish({
+      markdown: `### Job-Based Machine Finder (Step 3/3)
+
+Almost done! **Is the work area tight or open?**
+
+- **Tight space** (narrow backyard, tight driveway, working close to structures)
+- **Open space** (large open lot, commercial site, open farm fields)`,
+      followups: ["Tight space", "Open space", "Cancel request"]
+    }, { awaiting: "job_finder_3", slots: nextSlots });
+  }
+
+  if (prev.awaiting === "job_finder_3") {
+    if (mLower.includes("cancel")) {
+      return finish({
+        markdown: `Cancelled machine finder. How else can I help you today?`,
+        followups: ["Compare machines", "Browse categories"]
+      }, { awaiting: null, slots: {} });
+    }
+    const isTight = /\b(tight|narrow|backyard|small|confine)\b/.test(mLower);
+    const job = prev.slots.job || "digging";
+
+    let recommendedModel = "KUVUO 2.5";
+    let explanation = "";
+
+    if (job === "digging") {
+      if (isTight) {
+        recommendedModel = "KUVUO 2.5";
+        explanation = "The **KUVUO 2.5** is our zero-tail-swing mini excavator. It is designed precisely for tight utility lines, foundations, and residential backyard digging. It supports attachments like trenching buckets, thumbs, and breakers.";
+      } else {
+        recommendedModel = "SCOOPYDIG";
+        explanation = "The **SCOOPYDIG** is a highly versatile backhoe loader. In open spaces, it lets a single operator execute both bulk excavation with the rear backhoe arm and loading/grading with the front loader bucket.";
+      }
+    } else if (job === "loading") {
+      if (isTight) {
+        recommendedModel = "STOMP V980";
+        explanation = "The **STOMP V980** mini skid steer is our most versatile compact loader. Its compact stand-on platform allows you to maneuver through tight gates while carrying heavy pallets, dirt, or gravel, and swap attachments like pallet forks, augers, or buckets in seconds.";
+      } else {
+        recommendedModel = "SKOOP II";
+        explanation = "The **SKOOP II** wheel loader is a heavy-duty material loader. It features a robust articulated chassis and large bucket capacity, making it perfect for moving dirt and stockpiling aggregate on open lots or farms.";
+      }
+    } else if (job === "moving") {
+      recommendedModel = "THUNDERDUMP";
+      explanation = "The **THUNDERDUMP** site dumper is our dedicated bulk material hauler. With its high payload capacity and robust traction system, it is designed to move serious volumes of dirt, gravel, or debris across uneven jobsites.";
+    } else if (job === "crushing") {
+      recommendedModel = "STONEKRUSHER K1";
+      explanation = "The **STONEKRUSHER K1** mobile jaw crusher is built to process demolition concrete, asphalt, and stone on-site. By reducing debris to reusable aggregate, it saves huge hauling and disposal fees.";
+    } else {
+      recommendedModel = "STOMP V950";
+      explanation = "The **STOMP V950** or a towable compact excavator is a great general-purpose choice for farm and property maintenance. It lets you run trenchers, augers, and log grabs without a massive footprint.";
+    }
+
+    const ref = PRODUCT_REFS.find(r => r.name.toUpperCase() === recommendedModel.toUpperCase()) || PRODUCT_REFS[0];
+
+    const markdown = `### Recommended Machine
+
+Based on your project requirements, I recommend the **${ref.name}** (${ref.categoryLabel}).
+
+**Why it fits:**
+${explanation}
+
+**Support included:**
+[1-year warranty + lifetime technical support] [Free Shipping]
+
+Would you like our heavy machinery team to confirm this recommendation and contact you with a direct shipping rate, financing options, or quote?`;
+
+    return finish({
+      markdown,
+      products: [ref],
+      followups: ["Yes, contact me", "Explain warranty", "Check attachments", "Restart machine finder"]
+    }, { awaiting: "ask_lead_capture" });
+  }
+
+  if (prev.awaiting === "ask_lead_capture") {
+    if (/\b(yes|contact|confirm|sure|ok|yep|yeah)\b/.test(mLower)) {
+      return finish({
+        markdown: `### Specialist Quote & Confirmation
+
+Great! I can collect your details and queue them for our sales/support specialists. 
+
+First, **what is your name?**`,
+        followups: ["Cancel request"]
+      }, { awaiting: "lead_capture_name" });
+    } else {
+      return finish({
+        markdown: `No problem. Let me know if you want to explore other machines, compare specifications, or ask about attachments.`,
+        followups: ["Restart machine finder", "Compare machines", "Browse categories"]
+      }, { awaiting: null });
+    }
+  }
+
+  if (prev.awaiting === "lead_capture_name") {
+    if (/\b(cancel|stop|nevermind|no)\b/.test(mLower)) {
+      return finish({
+        markdown: `Cancelled lead capture. How else can I help you today?`,
+        followups: ["Compare machines", "Browse categories"]
+      }, { awaiting: null });
+    }
+    const nextSlots = { ...prev.slots, leadName: m };
+    return finish({
+      markdown: `Thanks, **${m}**! What is **your email or phone number** so a specialist can reach out?`,
+      followups: ["Cancel request"]
+    }, { awaiting: "lead_capture_contact", slots: nextSlots });
+  }
+
+  if (prev.awaiting === "lead_capture_contact") {
+    if (/\b(cancel|stop|nevermind|no)\b/.test(mLower)) {
+      return finish({
+        markdown: `Cancelled lead capture. How else can I help you today?`,
+        followups: ["Compare machines", "Browse categories"]
+      }, { awaiting: null });
+    }
+    const nextSlots = { ...prev.slots, leadContact: m };
+    return finish({
+      markdown: `Got it. Finally, do you have any **additional message, attachments request, or questions** for the team? (If none, just type 'none')`,
+      followups: ["None", "Cancel request"]
+    }, { awaiting: "lead_capture_message", slots: nextSlots });
+  }
+
+  if (prev.awaiting === "lead_capture_message") {
+    const leadMsg = mLower === "none" ? "No additional message" : m;
+    const name = prev.slots.leadName || "Valued Customer";
+    const contact = prev.slots.leadContact || "Not provided";
+    const job = prev.slots.job || "Digging";
+    const machineInterest = prev.activeMachine?.name || "General Machinery";
+
+    const markdown = `### Request Submitted Successfully!
+
+Thank you, **${name}**! I have captured your inquiry details and queued them for our support specialists:
+
+- **Name**: ${name}
+- **Contact**: ${contact}
+- **Machine Interest**: ${machineInterest}
+- **Job Type**: ${job}
+- **Message**: ${leadMsg}
+
+A Konstructz representative will contact you shortly (typically within 1-2 business days).`;
+
+    return finish({
+      markdown,
+      followups: ["Compare machines", "Explain warranty", "Check attachments"]
+    }, { awaiting: null, slots: {} });
+  }
 
   if (!m) return finish({ markdown: "Ask me anything about Konstructz machines, attachments, or support." });
 
@@ -1462,11 +1653,11 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
 
   // Context-bound follow-ups: "what attachments should I buy?" with an active
   // machine → relate to that machine without the user repeating it.
-  const isFollowupRef = /\b(it|this|that|them|these|those|the machine|the one)\b/.test(m) || namedNow.length === 0;
+  const isFollowupRef = /\b(it|this|that|them|these|those|the machine|the one)\b/.test(mLower) || namedNow.length === 0;
 
   switch (detectedIntent) {
     case "Greeting": {
-      const isThanks = /\b(thanks|thank you|appreciate|cheers)\b/.test(m);
+      const isThanks = /\b(thanks|thank you|appreciate|cheers)\b/.test(mLower);
       if (isThanks) {
         const text = pick([
           "Anytime! Want me to recommend a machine, compare a couple, or get you a quote?",
@@ -1477,24 +1668,17 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
         const followups = generateFollowups("Greeting", m, memory);
         return finish({ markdown: text, followups }, { lastIntent: "Greeting" });
       }
-      const g = composeGreeting(m, memory);
+      const greet = pick([
+        "Hi there! I'm the Konstructz machinery helper. I can help you find the right machine, compare specs, check attachments compatibility, or answer support questions.",
+        "Hello! Looking for compact construction equipment or attachments? Tell me what job you are doing, or ask me about any model like KUVUO 2.5 or STOMP V980."
+      ]);
       const followups = generateFollowups("Greeting", m, memory);
-      return finish({ ...g.answer, followups }, { lastIntent: "Greeting", greeted: true });
+      return finish({ markdown: greet, followups }, { lastIntent: "Greeting" });
     }
 
     case "General question": {
-      const ans = getGeneralAnswer(m);
-      if (ans) {
-        return finish({
-          markdown: ans.markdown,
-          links: ans.links,
-          followups: ans.followups
-        }, { lastIntent: "General question" });
-      }
-      const fallbackAns = {
-        markdown: "I can help answer general questions, but my main focus is machinery, attachments, and support. If you need help finding the right mini excavator, loader, or checking warranty coverage (1-Year) and free shipping options, just let me know!",
-        followups: ["Which machine is best for this job?", "Compare excavator vs skid steer", "Check warranty and shipping"]
-      };
+      const fallbackAns = getGeneralAnswer(m);
+      if (!fallbackAns) return composeFallback();
       return finish({
         markdown: fallbackAns.markdown,
         followups: fallbackAns.followups.map(rewordFollowup)
@@ -1517,10 +1701,10 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
 
     case "Product question": {
       const machine = namedNow[0] || (isFollowupRef ? memory.activeMachine : undefined);
-      const hasSpecKeywords = /\b(spec|specification|weight|engine|horsepower|\bhp\b|capacity|dimensions?|hydraulic|flow|gpm|digging depth|dig depth|reach|lift(ing)? (height|capacity)|fuel|travel speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(m);
+      const hasSpecKeywords = /\b(spec|specification|weight|engine|horsepower|\bhp\b|capacity|dimensions?|hydraulic|flow|gpm|digging depth|dig depth|reach|lift(ing)? (height|capacity)|fuel|travel speed|how (heavy|big|powerful|deep|tall|wide|fast))/.test(mLower);
       
       let ans: Answer;
-      if (hasSpecKeywords || SPEC_QUERY.some((s) => s.re.test(m))) {
+      if (hasSpecKeywords || SPEC_QUERY.some((s) => s.re.test(mLower))) {
         ans = composeSpecs(machine, m);
       } else if (machine) {
         ans = composeProfile(machine);
@@ -1574,10 +1758,18 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
     }
 
     case "Warranty/free shipping": {
+      const isOverseas = /\b(overseas|international|foreign|export|canada|mexico|europe|asia|outside (us|usa))\b/.test(mLower);
+      if (isOverseas && /\b(ship|shipping|deliver|delivery|freight|rate|cost|time|duration|speed|transit)\b/.test(mLower)) {
+        return finish({
+          markdown: "Shipping is available in the USA. For overseas or international orders, please contact the Konstructz sales team so they can confirm availability, cost, and delivery options.",
+          followups: ["Contact sales team", "Compare machines", "Warranty details"],
+          links: [{ label: "Contact Sales", href: "/contact" }]
+        }, { lastIntent: "Warranty/free shipping" });
+      }
       let supportIntent: "warranty" | "returns" | "shipping" | "financing" = "warranty";
-      if (/\b(returns?|refund|send (it|this|the machine)? ?back|money back|cancel( my)? order|exchange it)\b/.test(m)) supportIntent = "returns";
-      else if (/\b(ship|shipping|deliver|delivery|freight|tracking|customs|international|liftgate)\b/.test(m)) supportIntent = "shipping";
-      else if (/\b(financ|payment|installment|monthly|lease|pay over time|paramount)\b/.test(m)) supportIntent = "financing";
+      if (/\b(returns?|refund|send (it|this|the machine)? ?back|money back|cancel( my)? order|exchange it)\b/.test(mLower)) supportIntent = "returns";
+      else if (/\b(ship|shipping|deliver|delivery|freight|tracking|customs|international|liftgate)\b/.test(mLower)) supportIntent = "shipping";
+      else if (/\b(financ|payment|installment|monthly|lease|pay over time|paramount)\b/.test(mLower)) supportIntent = "financing";
       
       const ans = supportAnswer(supportIntent);
       const followups = generateFollowups("Warranty/free shipping", m, memory);
@@ -1586,9 +1778,9 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
 
     case "Support request": {
       let supportIntent: "parts" | "safety" | "contact" | "troubleshoot" = "contact";
-      if (/\b(spare ?parts?|parts?|filters?|\boil\b|fluid|service interval|maintenance|maintain|grease|service schedule)\b/.test(m)) supportIntent = "parts";
-      else if (/\b(safe|safety|operate safely|operating tips)\b/.test(m)) supportIntent = "safety";
-      else if (/\b(won'?t start|not (start|working|moving)|overheat|leak|error|problem|trouble|fault|stuck|smok|warning light|won'?t move)\b/.test(m)) supportIntent = "troubleshoot";
+      if (/\b(spare ?parts?|parts?|filters?|\boil\b|fluid|service interval|maintenance|maintain|grease|service schedule)\b/.test(mLower)) supportIntent = "parts";
+      else if (/\b(safe|safety|operate safely|operating tips)\b/.test(mLower)) supportIntent = "safety";
+      else if (/\b(won'?t start|not (start|working|moving)|overheat|leak|error|problem|trouble|fault|stuck|smok|warning light|won'?t move)\b/.test(mLower)) supportIntent = "troubleshoot";
       
       let ans: Answer;
       if (supportIntent === "contact") ans = composeContact();
@@ -1615,7 +1807,25 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
     }
 
     case "Product recommendation": {
-      const isBuyingQuery = /\b(how do i buy|where can i buy|purchase options|place an order|want to buy|how to order)\b/.test(m);
+      // If user is initiating guided finder flow:
+      if (mLower.includes("finder") || mLower.includes("find the right machine") || mLower.includes("help me find the right machine") || mLower.includes("choose") || mLower.includes("pick")) {
+        return finish({
+          markdown: `### Job-Based Machine Finder (Step 1/3)
+
+Let's find the right machine category for your project! First, **what primary job are you doing?**
+
+- **Digging / trenching**
+- **Loading dirt, gravel, or pallets**
+- **Moving material around a site**
+- **Crushing rocks / stone**
+- **General farm or property maintenance**
+
+Tell me which job fits best, or describe your task.`,
+          followups: ["Digging / trenching", "Loading dirt, gravel, or pallets", "Moving material around a site", "Crushing rocks / stone", "General farm or property maintenance"]
+        }, { awaiting: "job_finder_1" });
+      }
+
+      const isBuyingQuery = /\b(how do i buy|where can i buy|purchase options|place an order|want to buy|how to order)\b/.test(mLower);
       if (isBuyingQuery) {
         return finish({
           markdown: "To purchase a machine or request a quote, please visit the product page for the machine you are interested in and click the inquiry button. You can also contact our team directly at support@konstructz.com or +1 213-214-2203 to coordinate shipping rates, delivery logistics, and financing approvals. We do not support direct checkout inside this chat window, and we do not invent prices or inventory availability unless it is explicitly listed on the product page.\n\n### What would you like to do next?\n- View equipment categories\n- Compare machines\n- Check attachments\n- Contact support\n- Ask about warranty/shipping",
@@ -1661,6 +1871,33 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
       return finish({ ...att, followups }, { lastIntent: "Attachment compatibility" });
     }
 
+    case "Beginner mode explanation": {
+      return finish({
+        markdown: `### Compact Machinery Terms (Explained Simply)
+
+If you are new to heavy equipment, here are the most important terms translated into simple language:
+
+1. **Hydraulic Auxiliary Flow (GPM/PSI)**:
+   *~~Simple meaning~~*: This is the fluid power the machine pumps out to run attachments.
+   *Example*: If you want to use a post-hole digger (auger) or soil cutter (trencher), the machine pumps oil through hoses to spin the attachment.
+
+2. **Operating Capacity (ROC)**:
+   *~~Simple meaning~~*: How much weight the machine can safely lift without tipping over.
+   *Example*: A skid steer rated at 950 lbs can safely lift a pallet of sod or gravel up to that weight.
+
+3. **Zero Tail Swing**:
+   *~~Simple meaning~~*: When the excavator rotates, the back end doesn't stick out past the tracks.
+   *Example*: Perfect for working right next to a fence or house wall without worrying about denting the building.
+
+4. **Articulated Steering**:
+   *~~Simple meaning~~*: The machine has a pivot point in the middle, allowing it to fold/bend as it turns.
+   *Example*: A wheel loader with articulated steering turns smoothly without tearing up the grass like a skid steer does.
+
+Do you have another spec term or machine you'd like me to explain in simple language?`,
+        followups: ["Recommend a machine", "Compare skid steer vs wheel loader", "Check attachments"]
+      }, { slots: { ...prev.slots, experience: "beginner" } });
+    }
+
     case "Unknown question":
     default: {
       const fb = composeFallback();
@@ -1668,4 +1905,246 @@ export function getReply(raw: string, prev: ChatMemory): { answer: Answer; memor
       return finish({ ...fb, followups }, { lastIntent: "Unknown question" });
     }
   }
+}
+
+/* ───────────────────────── Translation Dictionary ──────────────────── */
+
+function translateReply(md: string, lang: string): string {
+  if (!lang || lang === "EN") return md;
+  
+  const dicts: Record<string, Record<string, string>> = {
+    FR: {
+      "### Recommended Machine": "### Machine Recommandée",
+      "**Why it fits:**": "**Pourquoi elle convient :**",
+      "**Support included:**": "**Support inclus :**",
+      "### Best Option": "### Meilleure Option",
+      "### About Konstructz": "### À propos de Konstructz",
+      "### Typhon Machinery Partnership": "### Partenariat Typhon Machinery",
+      "### Legitimacy & Trust": "### Légitimité et Confiance",
+      "### Equipment Categories": "### Catégories d'Équipement",
+      "### Why Choose Konstructz?": "### Pourquoi Choisir Konstructz ?",
+      "### The Company": "### L'Entreprise",
+      "Need help choosing the exact model? Tell me your job type, work area, and budget.": "Besoin d'aide pour choisir le modèle exact ? Indiquez-moi votre type de travail, votre zone de travail et votre budget.",
+      "What job are you doing?": "Quel travail faites-vous ?",
+      "What material are you moving?": "Quel matériau déplacez-vous ?",
+      "Is the work area tight or open?": "La zone de travail est-elle étroite ou ouverte ?",
+      "What is Konstructz?": "Qu'est-ce que Konstructz ?",
+      "Are you Typhon Machinery?": "Êtes-vous Typhon Machinery ?",
+      "Is this company legit?": "Cette entreprise est-elle légitime ?",
+      "What do you sell?": "Que vendez-vous ?",
+      "Why should I buy from here?": "Pourquoi devrais-je acheter ici ?",
+      "1-Year Warranty": "Garantie de 1 an",
+      "Lifetime Technical Support": "Support technique à vie",
+      "Free Shipping": "Livraison gratuite",
+      "Attachments": "Accessoires",
+      "Compare": "Comparer",
+      "Find the right machine": "Trouver la bonne machine",
+      "Compare equipment": "Comparer les équipements",
+      "Attachments & fitment": "Accessoires et compatibilité",
+      "Company & product help": "Aide sur l'entreprise et les produits",
+      "Warranty & lifetime support": "Garantie et support à vie",
+      "Shipping, financing & returns": "Livraison, financement et retours"
+    },
+    ES: {
+      "### Recommended Machine": "### Máquina Recomendada",
+      "**Why it fits:**": "**Por qué se adapta:**",
+      "**Support included:**": "**Soporte incluido:**",
+      "### Best Option": "### Mejor Opción",
+      "### About Konstructz": "### Sobre Konstructz",
+      "### Typhon Machinery Partnership": "### Asociación con Typhon Machinery",
+      "### Legitimacy & Trust": "### Legitimidad y Confianza",
+      "### Equipment Categories": "### Categorías de Equipos",
+      "### Why Choose Konstructz?": "### ¿Por qué elegir Konstructz?",
+      "### The Company": "### La Empresa",
+      "Need help choosing the exact model? Tell me your job type, work area, and budget.": "¿Necesita ayuda para elegir el modelo exacto? Cuénteme su tipo de trabajo, área de trabajo y presupuesto.",
+      "What job are you doing?": "¿Qué trabajo está haciendo?",
+      "What material are you moving?": "¿Qué material está moviendo?",
+      "Is the work area tight or open?": "¿El área de trabajo es estrecha o abierta?",
+      "What is Konstructz?": "¿Qué es Konstructz?",
+      "Are you Typhon Machinery?": "¿Es usted Typhon Machinery?",
+      "Is this company legit?": "¿Es esta empresa legítima?",
+      "What do you sell?": "¿Qué vende?",
+      "Why should I buy from here?": "¿Por qué debería comprar aquí?",
+      "1-Year Warranty": "Garantía de 1 año",
+      "Lifetime Technical Support": "Soporte técnico de por vida",
+      "Free Shipping": "Envío gratis",
+      "Attachments": "Accesorios",
+      "Compare": "Comparar",
+      "Find the right machine": "Encontrar la máquina adecuada",
+      "Compare equipment": "Comparar equipos",
+      "Attachments & fitment": "Accesorios y compatibilidad",
+      "Company & product help": "Ayuda de empresa y productos",
+      "Warranty & lifetime support": "Garantía y soporte de por vida",
+      "Shipping, financing & returns": "Envío, financiación y devoluciones"
+    },
+    DE: {
+      "### Recommended Machine": "### Empfohlene Maschine",
+      "**Why it fits:**": "**Warum es passt:**",
+      "**Support included:**": "**Inbegriffener Support:**",
+      "### Best Option": "### Beste Option",
+      "### About Konstructz": "### Über Konstructz",
+      "### Typhon Machinery Partnership": "### Typhon Machinery Partnerschaft",
+      "### Legitimacy & Trust": "### Legitimität & Vertrauen",
+      "### Equipment Categories": "### Gerätekategorien",
+      "### Why Choose Konstructz?": "### Warum Konstructz wählen?",
+      "### The Company": "### Das Unternehmen",
+      "Need help choosing the exact model? Tell me your job type, work area, and budget.": "Benötigen Sie Hilfe bei der Auswahl des genauen Modells? Teilen Sie mir Ihre Arbeitsart, Ihren Arbeitsbereich und Ihr Budget mit.",
+      "What job are you doing?": "Welche Arbeit führen Sie aus?",
+      "What material are you moving?": "Welches Material bewegen Sie?",
+      "Is the work area tight or open?": "Ist der Arbeitsbereich eng oder offen?",
+      "What is Konstructz?": "Was ist Konstructz?",
+      "Are you Typhon Machinery?": "Sind Sie Typhon Machinery?",
+      "Is this company legit?": "Ist dieses Unternehmen seriös?",
+      "What do you sell?": "Was verkaufen Sie?",
+      "Why should I buy from here?": "Warum sollte ich hier kaufen?",
+      "1-Year Warranty": "1 Jahr Garantie",
+      "Lifetime Technical Support": "Lebenslanger technischer Support",
+      "Free Shipping": "Kostenloser Versand",
+      "Attachments": "Anbaugeräte",
+      "Compare": "Vergleichen",
+      "Find the right machine": "Die richtige Maschine finden",
+      "Compare equipment": "Geräte vergleichen",
+      "Attachments & fitment": "Anbaugeräte & Passform",
+      "Company & product help": "Hilfe zu Unternehmen & Produkten",
+      "Warranty & lifetime support": "Garantie & lebenslanger Support",
+      "Shipping, financing & returns": "Versand, Finanzierung & Rückgaben"
+    },
+    IT: {
+      "### Recommended Machine": "### Macchina Consigliata",
+      "**Why it fits:**": "**Perché è adatta:**",
+      "**Support included:**": "**Supporto incluso:**",
+      "### Best Option": "### Migliore Opzione",
+      "### About Konstructz": "### Informazioni su Konstructz",
+      "### Typhon Machinery Partnership": "### Partnership con Typhon Machinery",
+      "### Legitimacy & Trust": "### Legittimità e Fiducia",
+      "### Equipment Categories": "### Categorie di Attrezzature",
+      "### Why Choose Konstructz?": "### Perché Scegliere Konstructz?",
+      "### The Company": "### L'Azienda",
+      "Need help choosing the exact model? Tell me your job type, work area, and budget.": "Hai bisogno di aiuto per scegliere il modello esatto? Dimmi il tipo di lavoro, l'area di lavoro e il budget.",
+      "What job are you doing?": "Che lavoro stai fazendo?",
+      "What material are you moving?": "Quale materiale stai spostando?",
+      "Is the work area tight or open?": "L'area di lavoro è stretta o aperta?",
+      "What is Konstructz?": "Cos'è Konstructz?",
+      "Are you Typhon Machinery?": "Sei Typhon Machinery?",
+      "Is this company legit?": "Questa azienda è affidabile?",
+      "What do you sell?": "Cosa vendete?",
+      "Why should I buy from here?": "Perché dovrei acquistare qui?",
+      "1-Year Warranty": "Garanzia di 1 anno",
+      "Lifetime Technical Support": "Supporto tecnico a vita",
+      "Free Shipping": "Spedizione gratuita",
+      "Attachments": "Accessori",
+      "Compare": "Confronta",
+      "Find the right machine": "Trova la macchina giusta",
+      "Compare equipment": "Confronta attrezzature",
+      "Attachments & fitment": "Accessori e compatibilità",
+      "Company & product help": "Aiuto su azienda e prodotti",
+      "Warranty & lifetime support": "Garanzia e supporto a vita",
+      "Shipping, financing & returns": "Spedizione, finanziamento e resi"
+    },
+    JP: {
+      "### Recommended Machine": "### 推奨される機械",
+      "**Why it fits:**": "**適合する理由:**",
+      "**Support included:**": "**含まれるサポート:**",
+      "### Best Option": "### 最良の選択肢",
+      "### About Konstructz": "### Konstructzについて",
+      "### Typhon Machinery Partnership": "### Typhon Machineryとの提携",
+      "### Legitimacy & Trust": "### 信頼性と合法性",
+      "### Equipment Categories": "### 機器カテゴリー",
+      "### Why Choose Konstructz?": "### Konstructzを選ぶ理由",
+      "### The Company": "### 会社概要",
+      "Need help choosing the exact model? Tell me your job type, work area, and budget.": "正確なモデル選びでお困りですか？作業内容、作業エリア、予算を教えてください。",
+      "What job are you doing?": "どのような作業を行いますか？",
+      "What material are you moving?": "どのような資材を移動しますか？",
+      "Is the work area tight or open?": "作業エリアは狭いですか、それとも広いですか？",
+      "What is Konstructz?": "Konstructzとは何ですか？",
+      "Are you Typhon Machinery?": "Typhon Machineryですか？",
+      "Is this company legit?": "この会社は信頼できますか？",
+      "What do you sell?": "何を販売していますか？",
+      "Why should I buy from here?": "なぜここで購入すべきなのですか？",
+      "1-Year Warranty": "1年保証",
+      "Lifetime Technical Support": "生涯テクニカルサポート",
+      "Free Shipping": "送料無料",
+      "Attachments": "アタッチメント",
+      "Compare": "比較する",
+      "Find the right machine": "最適な機械を見つける",
+      "Compare equipment": "機器を比較する",
+      "Attachments & fitment": "アタッチメントと適合性",
+      "Company & product help": "会社と製品のヘルプ",
+      "Warranty & lifetime support": "保証と生涯サポート",
+      "Shipping, financing & returns": "配送、融資、返品"
+    },
+    CN: {
+      "### Recommended Machine": "### 推荐机器",
+      "**Why it fits:**": "**为什么适合：**",
+      "**Support included:**": "**包含的支持：**",
+      "### Best Option": "### 最佳选择",
+      "### About Konstructz": "### 关于 Konstructz",
+      "### Typhon Machinery Partnership": "### Typhon Machinery 合作伙伴",
+      "### Legitimacy & Trust": "### 合法性与信任",
+      "### Equipment Categories": "### 设备类别",
+      "### Why Choose Konstructz?": "### 为什么选择 Konstructz？",
+      "### The Company": "### 公司",
+      "Need help choosing the exact model? Tell me your job type, work area, and budget.": "需要帮助选择确切的型号吗？请告诉我您的工作类型、工作区域和预算。",
+      "What job are you doing?": "您在做什么工作？",
+      "What material are you moving?": "您在移动什么材料？",
+      "Is the work area tight or open?": "工作区域是狭窄还是开阔？",
+      "What is Konstructz?": "什么是 Konstructz？",
+      "Are you Typhon Machinery?": "您是 Typhon Machinery 吗？",
+      "Is this company legit?": "这家公司合规吗？",
+      "What do you sell?": "你们卖什么？",
+      "Why should I buy from here?": "为什么我应该在这里购买？",
+      "1-Year Warranty": "1年保修",
+      "Lifetime Technical Support": "终身技术支持",
+      "Free Shipping": "免运费",
+      "Attachments": "附件",
+      "Compare": "比较",
+      "Find the right machine": "寻找合适的机器",
+      "Compare equipment": "比较设备",
+      "Attachments & fitment": "附件与适配",
+      "Company & product help": "公司与产品帮助",
+      "Warranty & lifetime support": "保修与终身支持",
+      "Shipping, financing & returns": "运输、融资和退货"
+    },
+    KR: {
+      "### Recommended Machine": "### 추천 장비",
+      "**Why it fits:**": "**적합한 이유:**",
+      "**Support included:**": "**포함된 지원:**",
+      "### Best Option": "### 최선의 선택",
+      "### About Konstructz": "### 약 Konstructz",
+      "### Typhon Machinery Partnership": "### Typhon Machinery 파트너십",
+      "### Legitimacy & Trust": "### 신뢰성 및 안전성",
+      "### Equipment Categories": "### 장비 카테고리",
+      "### Why Choose Konstructz?": "### Konstructz를 선택해야 하는 이유",
+      "### The Company": "### 회사 소개",
+      "Need help choosing the exact model? Tell me your job type, work area, and budget.": "정확한 모델을 선택하는 데 도움이 필요하신가요? 작업 유형, 작업 구역, 예산을 말씀해 주세요.",
+      "What job are you doing?": "어떤 작업을 하시나요?",
+      "What material are you moving?": "어떤 자재를 이동하시나요?",
+      "Is the work area tight or open?": "작업 공간이 협소한가요, 아니면 개방되어 있나요?",
+      "What is Konstructz?": "Konstructz란 무엇인가요?",
+      "Are you Typhon Machinery?": "Typhon Machinery인가요?",
+      "Is this company legit?": "이 회사는 믿을 수 있나요?",
+      "What do you sell?": "무엇을 판매하나요?",
+      "Why should I buy from here?": "왜 여기서 구매해야 하나요?",
+      "1-Year Warranty": "1년 보증",
+      "Lifetime Technical Support": "평생 기술 지원",
+      "Free Shipping": "무료 배송",
+      "Attachments": "어태치먼트",
+      "Compare": "비교",
+      "Find the right machine": "알맞은 장비 찾기",
+      "Compare equipment": "장비 비교",
+      "Attachments & fitment": "어태치먼트 및 장착",
+      "Company & product help": "회사 및 제품 도움말",
+      "Warranty & lifetime support": "보증 및 평생 지원",
+      "Shipping, financing & returns": "배송, 금융 및 반품"
+    }
+  };
+
+  let translated = md;
+  const d = dicts[lang];
+  if (d) {
+    for (const [enKey, langVal] of Object.entries(d)) {
+      translated = translated.split(enKey).join(langVal);
+    }
+  }
+  return translated;
 }

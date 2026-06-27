@@ -13,6 +13,12 @@ dist-qa*
 dist-ssr
 *.local
 
+# Synced product images — delivered to the server by the receiver, not via git
+static/uploads/
+
+# Supabase CLI internal state
+supabase/.temp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

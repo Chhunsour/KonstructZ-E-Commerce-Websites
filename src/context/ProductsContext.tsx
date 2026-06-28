@@ -151,29 +151,56 @@ export const ProductsProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   const value = useMemo<ProductsContextValue>(() => {
-    // Index DB rows by line+slug. `null` = not yet loaded → pure static.
+    // Index DB rows. `null` = not yet loaded → pure static.
+    //
+    // The synced catalog (from the KiuQ Image Dashboard) doesn't share slugs
+    // with the static catalog, but it DOES share the SKU — the static data was
+    // generated from the same source. So we match a static product to its DB
+    // twin by normalized SKU (falling back to line+slug), then overlay DB
+    // fields (name, price, description, images) onto it.
+    const normSku = (s?: string | null): string =>
+      (s ?? "").replace(/^\s*sku\s*[:#-]?\s*/i, "").trim().toUpperCase();
+
     const dbBySlug = new Map<string, DbProduct>();
-    const usedSlugs = new Set<string>();
+    const dbBySku = new Map<string, DbProduct>();
     if (dbRows) {
-      for (const r of dbRows) dbBySlug.set(`${r.product_line}:${r.slug}`, r);
+      for (const r of dbRows) {
+        dbBySlug.set(`${r.product_line}:${r.slug}`, r);
+        const k = normSku(r.sku);
+        if (k && !dbBySku.has(k)) dbBySku.set(k, r);
+      }
     }
+    // DB rows already claimed by a static twin (by row id) — so a row matched
+    // into the Typhon catalog isn't also dumped into the Konstructz catalog.
+    const usedDbIds = new Set<string>();
+
+    const twinFor = (line: "konstructz" | "typhon", id: string, sku?: string): DbProduct | undefined => {
+      const bySlug = dbBySlug.get(`${line}:${id}`);
+      if (bySlug) return bySlug;
+      const k = normSku(sku);
+      return k ? dbBySku.get(k) : undefined;
+    };
 
     const buildTyphon = (): TyphonProduct[] => {
       if (!dbRows) return staticTyphon;
       const merged: TyphonProduct[] = [];
       for (const s of staticTyphon) {
-        const hit = dbBySlug.get(`typhon:${s.id}`);
+        const hit = twinFor("typhon", s.id, s.sku);
         if (hit) {
-          usedSlugs.add(`typhon:${s.id}`);
-          merged.push(mergeTyphon(s, hit)); // published → merge
-        } else if (!dbRows.some((r) => r.product_line === "typhon" && r.slug === s.id)) {
-          merged.push(s); // no DB twin at all → keep static fallback
+          usedDbIds.add(hit.id);
+          dbBySlug.set(`typhon:${s.id}`, hit); // so detail pages resolve by slug too
+          merged.push(mergeTyphon(s, hit));
+        } else {
+          merged.push(s); // no DB twin → keep static
         }
-        // else: a typhon DB row with this slug exists but isn't published → drop
       }
+      // Brand-new synced products with no static twin (TYPHON-branded).
       for (const r of dbRows) {
-        const key = `typhon:${r.slug}`;
-        if (r.product_line === "typhon" && !usedSlugs.has(key)) merged.push(dbToTyphon(r));
+        if (usedDbIds.has(r.id)) continue;
+        if (r.product_line === "typhon" || /typhon/i.test(r.name)) {
+          usedDbIds.add(r.id);
+          merged.push(dbToTyphon(r));
+        }
       }
       return merged;
     };
@@ -181,27 +208,32 @@ export const ProductsProvider: React.FC<{ children: React.ReactNode }> = ({
     const buildKonstructz = (): Product[] => {
       if (!dbRows) return staticKonstructz;
       const merged: Product[] = [];
-      const used = new Set<string>();
       for (const s of staticKonstructz) {
-        const hit = dbBySlug.get(`konstructz:${s.id}`);
+        const hit = twinFor("konstructz", s.id, s.sku);
         if (hit) {
-          used.add(`konstructz:${s.id}`);
+          usedDbIds.add(hit.id);
+          dbBySlug.set(`konstructz:${s.id}`, hit);
           merged.push(mergeKonstructz(s, hit));
-        } else if (!dbRows.some((r) => r.product_line === "konstructz" && r.slug === s.id)) {
+        } else {
           merged.push(s);
         }
       }
       for (const r of dbRows) {
-        const key = `konstructz:${r.slug}`;
-        if (r.product_line === "konstructz" && !used.has(key)) merged.push(dbToKonstructz(r));
+        if (usedDbIds.has(r.id)) continue;
+        usedDbIds.add(r.id);
+        merged.push(dbToKonstructz(r));
       }
       return merged;
     };
 
+    // Typhon first so it claims its SKU matches before Konstructz sweeps leftovers.
+    const typhon = buildTyphon();
+    const konstructz = buildKonstructz();
+
     return {
       loading,
-      konstructz: buildKonstructz(),
-      typhon: buildTyphon(),
+      konstructz,
+      typhon,
       dbBySlug,
       getDbProduct: (line, slug) => dbBySlug.get(`${line}:${slug}`),
     };

@@ -50,7 +50,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
     .slice(0, 3);
 
   return (
-    <article className="group mx-auto flex h-fit w-full max-w-[293px] flex-col bg-white transition-shadow duration-200 hover:shadow-[0_10px_28px_rgba(21,61,40,0.12)]">
+    <article className="group mx-auto flex h-fit w-full max-w-[293px] flex-col bg-white dark:bg-[#232323] border border-neutral-250/10 dark:border-white/5 transition-all duration-200 hover:shadow-[0_10px_28px_rgba(21,61,40,0.12)] rounded-sm">
       {/* IMAGE — large, white, uncluttered, consistent height, never cropped */}
       <Link
         to={detailHref}
@@ -58,9 +58,9 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
           values: { name: product.name },
           fallback: `View details for ${product.name}`,
         })}
-        className="block bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#153d28]"
+        className="block bg-white dark:bg-[#1a1a1a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#153d28] transition-colors rounded-t-sm"
       >
-        <div className="flex aspect-square items-center justify-center overflow-hidden bg-white p-2">
+        <div className="flex aspect-square items-center justify-center overflow-hidden bg-white dark:bg-[#1a1a1a] p-2 transition-colors">
           <img
             src={cardImage}
             alt={product.name}
@@ -78,19 +78,19 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
       {/* BODY */}
       <div className="flex flex-col px-4 pb-4 pt-3">
         <div className="flex items-start justify-between gap-3">
-          <p className="font-googleSans text-[10px] font-bold uppercase tracking-[0.08em] text-[#68825B]">
+          <p className="font-googleSans text-[10px] font-bold uppercase tracking-[0.08em] text-[#68825B] dark:text-[#d8c79a]">
             {t(`category.${product.category}`, { fallback: product.categoryLabel })}
           </p>
 
           {product.currentPrice && (
-            <p className="shrink-0 font-googleSans text-[13px] font-bold leading-none text-[#153d28]">
+            <p className="shrink-0 font-googleSans text-[13px] font-bold leading-none text-[#153d28] dark:text-[#d8c79a]">
               {product.currentPrice}
             </p>
           )}
         </div>
 
-        <h3 className="mt-2 font-googleSans text-[15px] font-bold leading-snug text-[#1a1a1a] line-clamp-2">
-          <Link to={detailHref} className="transition-colors hover:text-[#153d28]">
+        <h3 className="mt-2 font-googleSans text-[15px] font-bold leading-snug text-[#1a1a1a] dark:text-white line-clamp-2">
+          <Link to={detailHref} className="transition-colors hover:text-[#153d28] dark:hover:text-[#d8c79a]">
             {product.name}
           </Link>
         </h3>
@@ -100,10 +100,10 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
           <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2">
             {quickSpecs.map((spec) => (
               <div key={spec.label} className="flex min-w-0 flex-col">
-                <dt className="font-googleSans text-[9.5px] font-bold uppercase tracking-[0.08em] text-[#9aa09a]">
+                <dt className="font-googleSans text-[9.5px] font-bold uppercase tracking-[0.08em] text-[#9aa09a] dark:text-white/40">
                   {spec.label}
                 </dt>
-                <dd className="font-googleSans text-[12.5px] font-semibold leading-tight text-[#1f2420]">
+                <dd className="font-googleSans text-[12.5px] font-semibold leading-tight text-[#1f2420] dark:text-white/80">
                   {spec.value}
                 </dd>
               </div>
@@ -119,7 +119,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
               values: { name: product.name },
               fallback: `View details for ${product.name}`,
             })}
-            className="flex h-[38px] flex-1 items-center justify-center gap-1.5 bg-[#153d28] font-googleSans text-[14px] font-medium text-white transition-colors hover:bg-[#0e2b1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#153d28]"
+            className="flex h-[38px] flex-1 items-center justify-center gap-1.5 bg-[#153d28] dark:bg-[#d8c79a] font-googleSans text-[14px] font-medium text-white dark:text-[#153d28] transition-colors hover:bg-[#0e2b1c] dark:hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#153d28]"
           >
             <span>{t("action.viewDetails", { fallback: "View Details" })}</span>
             <svg width="9" height="14" viewBox="0 0 9 14" fill="none" aria-hidden="true">
@@ -132,7 +132,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
               values: { name: product.name },
               fallback: `Request quote for ${product.name}`,
             })}
-            className="flex h-[38px] min-w-[88px] items-center justify-center border border-[#153d28] px-3 font-googleSans text-[14px] font-medium text-[#153d28] transition-colors hover:bg-[#153d28] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#153d28]"
+            className="flex h-[38px] min-w-[88px] items-center justify-center border border-[#153d28] dark:border-[#d8c79a] px-3 font-googleSans text-[14px] font-medium text-[#153d28] dark:text-[#d8c79a] transition-colors hover:bg-[#153d28] dark:hover:bg-[#d8c79a] hover:text-white dark:hover:text-[#153d28] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#153d28]"
           >
             {t("action.quote", { fallback: "Quote" })}
           </Link>

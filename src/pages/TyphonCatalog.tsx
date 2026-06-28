@@ -105,15 +105,15 @@ const FilterGroup: React.FC<{
   if (options.length === 0) return null;
 
   return (
-    <div className="border border-white/10 bg-[#232323]">
+    <div className="border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#232323] rounded shadow-sm transition-colors">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between px-4 py-3 font-googleSans text-sm font-bold uppercase tracking-wide text-white"
+        className="flex w-full items-center justify-between px-4 py-3 font-googleSans text-sm font-bold uppercase tracking-wide text-neutral-800 dark:text-white"
       >
         <span>{title}</span>
         <svg width="12" height="8" viewBox="0 0 10 7" fill="none" className={`transition-transform ${open ? "rotate-180" : ""}`} aria-hidden="true">
-          <path d="M1 1L5 5L9 1" stroke="#d8c79a" strokeWidth="1.6" />
+          <path d="M1 1L5 5L9 1" stroke="currentColor" className="text-[#153d28] dark:text-[#d8c79a]" strokeWidth="1.6" />
         </svg>
       </button>
       <div className={`overflow-hidden transition-all ${open ? "max-h-[640px] opacity-100" : "max-h-0 opacity-0"}`}>
@@ -125,15 +125,15 @@ const FilterGroup: React.FC<{
                 <button
                   type="button"
                   onClick={() => onSelect(isChecked ? null : opt.value)}
-                  className={`flex w-full items-center gap-2.5 px-2.5 py-2 text-left font-glonimove text-sm transition ${
+                  className={`flex w-full items-center gap-2.5 px-2.5 py-2 text-left font-glonimove text-sm transition rounded-sm ${
                     isChecked
-                      ? "bg-[#d8c79a]/12 text-[#d8c79a]"
-                      : "text-white/80 hover:bg-white/5 hover:text-white"
+                      ? "bg-[#153d28]/10 dark:bg-[#d8c79a]/12 text-[#153d28] dark:text-[#d8c79a] font-bold"
+                      : "text-neutral-600 dark:text-white/80 hover:bg-neutral-50 dark:hover:bg-white/5 hover:text-neutral-900 dark:hover:text-white"
                   }`}
                 >
                   <span
-                    className={`flex h-4 w-4 shrink-0 items-center justify-center border ${
-                      isChecked ? "border-[#d8c79a] bg-[#d8c79a] text-[#153d28]" : "border-white/30 text-transparent"
+                    className={`flex h-4 w-4 shrink-0 items-center justify-center border transition-colors ${
+                      isChecked ? "border-[#153d28] dark:border-[#d8c79a] bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28]" : "border-neutral-300 dark:border-white/30 text-transparent"
                     }`}
                   >
                     <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" aria-hidden="true">
@@ -141,7 +141,7 @@ const FilterGroup: React.FC<{
                     </svg>
                   </span>
                   <span className="flex-1">{opt.label}</span>
-                  <span className={`font-googleSans text-xs ${isChecked ? "text-[#d8c79a]" : "text-white/40"}`}>
+                  <span className={`font-googleSans text-xs ${isChecked ? "text-[#153d28] dark:text-[#d8c79a]" : "text-neutral-400 dark:text-white/40"}`}>
                     {opt.count}
                   </span>
                 </button>
@@ -291,16 +291,16 @@ export const TyphonCatalog: React.FC = () => {
   };
 
   return (
-    <main className="min-h-screen bg-[#282828] px-4 pb-20 pt-28 text-white sm:px-6 lg:px-10 lg:pt-36">
+    <main className="min-h-screen bg-[#fafafc] dark:bg-[#282828] px-4 pb-20 pt-28 text-neutral-800 dark:text-white sm:px-6 lg:px-10 lg:pt-36 transition-colors duration-200">
       <div className="mx-auto max-w-[1480px]">
         <div className="max-w-4xl">
-          <p className="font-googleSans text-sm font-bold uppercase text-[#d8c79a]">
+          <p className="font-googleSans text-sm font-bold uppercase text-[#153d28] dark:text-[#d8c79a]">
             Typhon Machinery
           </p>
-          <h1 className="mt-3 font-clofieBold text-5xl font-bold leading-none sm:text-6xl">
+          <h1 className="mt-3 font-clofieBold text-5xl font-bold leading-none sm:text-6xl text-neutral-900 dark:text-white">
             Typhon Machinery catalog
           </h1>
-          <p className="mt-5 max-w-2xl font-glonimove text-lg leading-8 text-white/72">
+          <p className="mt-5 max-w-2xl font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/72">
             {selectedType === "equipment"
               ? "Browse Typhon machines — mini excavators, skid steer loaders, forklifts, road rollers, scissor lifts and wheel loaders built for jobsite work."
               : "Browse Typhon attachments, grouped by the machine they fit — skid steer, mini excavator, wheel loader and forklift attachments."}
@@ -311,7 +311,7 @@ export const TyphonCatalog: React.FC = () => {
         <div
           role="tablist"
           aria-label="Product type"
-          className="mt-8 inline-flex border border-white/15 bg-[#232323] p-1"
+          className="mt-8 inline-flex border border-neutral-200 dark:border-white/15 bg-neutral-100 dark:bg-[#232323] p-1 rounded-sm transition-colors"
         >
           {([
             ["equipment", "Machines", typeCounts.equipment],
@@ -325,14 +325,14 @@ export const TyphonCatalog: React.FC = () => {
                 role="tab"
                 aria-selected={active}
                 onClick={() => switchType(value)}
-                className={`px-5 py-2.5 font-googleSans text-sm font-bold uppercase tracking-wide transition ${
+                className={`px-5 py-2.5 font-googleSans text-sm font-bold uppercase tracking-wide transition rounded-sm ${
                   active
-                    ? "bg-[#d8c79a] text-[#153d28]"
-                    : "text-white/70 hover:text-white"
+                    ? "bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28]"
+                    : "text-neutral-600 dark:text-white/70 hover:text-neutral-900 dark:hover:text-white"
                 }`}
               >
                 {label}
-                <span className={`ml-2 text-xs ${active ? "text-[#153d28]/70" : "text-white/40"}`}>
+                <span className={`ml-2 text-xs ${active ? "text-white/80 dark:text-[#153d28]/70" : "text-neutral-400 dark:text-white/40"}`}>
                   {count}
                 </span>
               </button>
@@ -349,14 +349,14 @@ export const TyphonCatalog: React.FC = () => {
               onChange={(e) => setQuery(e.target.value)}
               placeholder={selectedType === "equipment" ? "Search Typhon machines…" : "Search Typhon attachments…"}
               aria-label={selectedType === "equipment" ? "Search Typhon machines" : "Search Typhon attachments"}
-              className="h-12 w-full border border-white/15 bg-[#232323] pl-11 pr-4 font-googleSans text-sm text-white placeholder:text-white/40 focus:border-[#d8c79a] focus:outline-none"
+              className="h-12 w-full border border-neutral-300 dark:border-white/15 bg-white dark:bg-[#232323] pl-11 pr-4 font-googleSans text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-white/40 focus:border-[#153d28] dark:focus:border-[#d8c79a] focus:outline-none rounded-sm transition-colors shadow-sm"
             />
-            <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-white/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.35-4.35" strokeLinecap="round" />
             </svg>
           </div>
-          <p className="font-glonimove text-white/64">
-            <strong className="font-googleSans text-white">{filtered.length}</strong> of {base.length}{" "}
+          <p className="font-glonimove text-neutral-500 dark:text-white/64">
+            <strong className="font-googleSans text-neutral-800 dark:text-white">{filtered.length}</strong> of {base.length}{" "}
             {selectedType === "equipment" ? "machines" : "attachments"}
           </p>
         </div>
@@ -365,10 +365,10 @@ export const TyphonCatalog: React.FC = () => {
         <button
           type="button"
           onClick={() => setFiltersOpen((o) => !o)}
-          className="mt-4 flex w-full items-center justify-center gap-2 bg-[#d8c79a] py-3 font-googleSans text-sm font-bold uppercase tracking-wide text-[#153d28] lg:hidden"
+          className="mt-4 flex w-full items-center justify-center gap-2 bg-[#153d28] dark:bg-[#d8c79a] py-3 font-googleSans text-sm font-bold uppercase tracking-wide text-white dark:text-[#153d28] lg:hidden transition hover:bg-[#153d28]/95 dark:hover:bg-white"
         >
           {filtersOpen ? "Hide filters" : "Show filters"}
-          {activeFilters > 0 && <span className="bg-[#153d28] px-1.5 py-0.5 text-xs text-white">{activeFilters}</span>}
+          {activeFilters > 0 && <span className="bg-[#d8c79a] dark:bg-[#153d28] px-1.5 py-0.5 text-xs text-[#153d28] dark:text-white font-bold">{activeFilters}</span>}
           <span aria-hidden>{filtersOpen ? "▲" : "▼"}</span>
         </button>
 
@@ -376,12 +376,12 @@ export const TyphonCatalog: React.FC = () => {
           {/* Filters */}
           <aside aria-label="Filters" className={`flex-col gap-4 ${filtersOpen ? "flex" : "hidden"} lg:flex`}>
             <div className="flex items-center justify-between">
-              <span className="font-clofieBold text-lg text-white">Filters</span>
+              <span className="font-clofieBold text-lg text-neutral-900 dark:text-white">Filters</span>
               {activeFilters > 0 && (
                 <button
                   type="button"
                   onClick={clearAll}
-                  className="font-googleSans text-xs font-bold uppercase tracking-wide text-[#d8c79a] hover:text-white"
+                  className="font-googleSans text-xs font-bold uppercase tracking-wide text-[#8c7a52] dark:text-[#d8c79a] hover:text-[#153d28] dark:hover:text-white"
                 >
                   Clear all ({activeFilters})
                 </button>
@@ -401,16 +401,16 @@ export const TyphonCatalog: React.FC = () => {
           {/* Grid */}
           <div>
             {filtered.length === 0 ? (
-              <div className="border border-dashed border-white/15 bg-[#232323] px-6 py-16 text-center">
-                <p className="font-clofieBold text-2xl text-[#d8c79a]">
+              <div className="border border-dashed border-neutral-300 dark:border-white/15 bg-white dark:bg-[#232323] px-6 py-16 text-center shadow-sm rounded-sm">
+                <p className="font-clofieBold text-2xl text-[#153d28] dark:text-[#d8c79a]">
                   No {selectedType === "equipment" ? "machines" : "attachments"} match your filters
                 </p>
-                <p className="mt-2 font-glonimove text-white/60">Try removing a filter or clearing your search.</p>
+                <p className="mt-2 font-glonimove text-neutral-500 dark:text-white/60">Try removing a filter or clearing your search.</p>
                 {activeFilters > 0 && (
                   <button
                     type="button"
                     onClick={clearAll}
-                    className="mt-6 inline-flex items-center justify-center bg-[#d8c79a] px-5 py-2.5 font-googleSans text-sm font-bold uppercase tracking-wide text-[#153d28] transition hover:bg-white"
+                    className="mt-6 inline-flex items-center justify-center bg-[#153d28] dark:bg-[#d8c79a] px-5 py-2.5 font-googleSans text-sm font-bold uppercase tracking-wide text-white dark:text-[#153d28] transition hover:bg-neutral-800 dark:hover:bg-white"
                   >
                     Clear all filters
                   </button>
@@ -431,7 +431,7 @@ export const TyphonCatalog: React.FC = () => {
                   type="button"
                   disabled={page === 1}
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
-                  className="border border-white/20 px-3 py-2 font-googleSans text-sm text-white transition enabled:hover:border-[#d8c79a] disabled:opacity-40"
+                  className="border border-neutral-300 dark:border-white/20 px-3 py-2 font-googleSans text-sm text-neutral-600 dark:text-white transition enabled:hover:border-[#153d28] enabled:dark:hover:border-[#d8c79a] enabled:hover:text-[#153d28] enabled:dark:hover:text-[#d8c79a] disabled:opacity-40 bg-white dark:bg-transparent"
                 >
                   Prev
                 </button>
@@ -440,10 +440,10 @@ export const TyphonCatalog: React.FC = () => {
                     key={p}
                     type="button"
                     onClick={() => setPage(p)}
-                    className={`min-w-[40px] border px-3 py-2 font-googleSans text-sm font-bold ${
+                    className={`min-w-[40px] border px-3 py-2 font-googleSans text-sm font-bold transition ${
                       p === page
-                        ? "border-[#d8c79a] bg-[#d8c79a] text-[#153d28]"
-                        : "border-white/20 text-white hover:border-[#d8c79a]"
+                        ? "border-[#153d28] dark:border-[#d8c79a] bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28]"
+                        : "border-neutral-300 dark:border-white/20 text-neutral-600 dark:text-white bg-white dark:bg-transparent hover:border-[#153d28] dark:hover:border-[#d8c79a] hover:text-[#153d28] dark:hover:text-[#d8c79a]"
                     }`}
                   >
                     {p}
@@ -453,7 +453,7 @@ export const TyphonCatalog: React.FC = () => {
                   type="button"
                   disabled={page === totalPages}
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                  className="border border-white/20 px-3 py-2 font-googleSans text-sm text-white transition enabled:hover:border-[#d8c79a] disabled:opacity-40"
+                  className="border border-neutral-300 dark:border-white/20 px-3 py-2 font-googleSans text-sm text-neutral-600 dark:text-white transition enabled:hover:border-[#153d28] enabled:dark:hover:border-[#d8c79a] enabled:hover:text-[#153d28] enabled:dark:hover:text-[#d8c79a] disabled:opacity-40 bg-white dark:bg-transparent"
                 >
                   Next
                 </button>

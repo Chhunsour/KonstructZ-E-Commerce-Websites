@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useI18n } from "../../context/I18nContext";
 
 /**
  * A single machine normalised into the shape the comparison UI understands.
@@ -81,39 +82,39 @@ interface Tokens {
 
 const TOKENS: Record<Variant, Tokens> = {
   typhon: {
-    section: "bg-[#1a1a1a] text-white",
-    kicker: "text-[#d8c79a]",
-    heading: "font-clofieBold text-white",
-    subtitle: "text-white/55",
-    rule: "bg-[#d8c79a]",
-    accentText: "text-[#d8c79a]",
-    panel: "bg-[#232323] border border-white/10",
-    panelHead: "border-b border-white/10 bg-[#1f1f1f]",
-    panelLabel: "text-white/45",
-    imageWrap: "bg-neutral-100",
-    chip: "bg-[#d8c79a]/15 text-[#d8c79a]",
-    machineName: "font-clofieBold text-white",
-    price: "text-[#d8c79a]",
-    factLabel: "text-white/40",
-    factValue: "text-white",
-    cta: "bg-[#d8c79a] text-[#153d28] hover:bg-white",
+    section: "bg-[#fafafc] text-neutral-800",
+    kicker: "text-[#153d28] font-bold",
+    heading: "font-clofieBold text-neutral-900",
+    subtitle: "text-neutral-500",
+    rule: "bg-[#153d28]",
+    accentText: "text-[#153d28]",
+    panel: "bg-white border border-neutral-200 shadow-sm rounded-sm",
+    panelHead: "border-b border-neutral-200 bg-neutral-50",
+    panelLabel: "text-neutral-400",
+    imageWrap: "bg-white",
+    chip: "bg-[#153d28]/10 text-[#153d28]",
+    machineName: "font-googleSans text-neutral-900 font-bold",
+    price: "text-[#153d28] font-bold",
+    factLabel: "text-neutral-400",
+    factValue: "text-neutral-700",
+    cta: "bg-[#d8c79a] text-[#153d28] hover:bg-[#153d28] hover:text-white font-bold transition-colors",
     select:
-      "bg-[#1a1a1a] border border-white/20 text-white focus:border-[#d8c79a] focus:outline-none",
-    emptyPanel: "bg-[#232323] border border-dashed border-white/15",
-    emptyText: "text-white/55",
-    tableWrap: "border border-white/10 bg-[#232323]",
-    theadRow: "bg-[#1f1f1f]",
-    theadSpec: "text-white/45",
-    theadMachine: "text-white",
-    theadMachineAccent: "text-[#d8c79a]",
-    groupRow: "bg-[#1a1a1a] text-[#d8c79a]",
-    rowBorder: "border-white/8",
-    rowLabel: "text-white/55",
-    rowValue: "text-white/90",
-    rowValueMissing: "text-white/30 italic",
-    diffRow: "bg-[#d8c79a]/[0.06] border-l-2 border-l-[#d8c79a]",
-    diffValue: "text-[#d8c79a]",
-    featureItem: "text-white/80",
+      "bg-white border border-neutral-300 text-neutral-800 focus:border-[#153d28] focus:outline-none rounded-sm",
+    emptyPanel: "bg-white border border-dashed border-neutral-300 rounded-sm",
+    emptyText: "text-neutral-400",
+    tableWrap: "border border-neutral-200 bg-white shadow-sm rounded-sm",
+    theadRow: "bg-neutral-50",
+    theadSpec: "text-neutral-400 font-bold",
+    theadMachine: "text-neutral-800",
+    theadMachineAccent: "text-[#153d28] font-bold",
+    groupRow: "bg-[#153d28]/10 text-[#153d28] font-bold",
+    rowBorder: "border-neutral-100",
+    rowLabel: "text-neutral-500",
+    rowValue: "text-neutral-800",
+    rowValueMissing: "text-neutral-400 italic",
+    diffRow: "bg-[#153d28]/[0.06] border-l-2 border-l-[#153d28]",
+    diffValue: "text-[#153d28]",
+    featureItem: "text-neutral-600",
   },
   konstructz: {
     section: "bg-theme-bg text-theme-text",
@@ -222,17 +223,17 @@ const extractPower = (machine: ComparableMachine): string => {
   return findSpec(machine, /power/i);
 };
 
-const quickFacts = (machine: ComparableMachine): { label: string; value: string }[] => [
-  { label: "Category", value: machine.categoryLabel || MISSING },
+const quickFacts = (machine: ComparableMachine, t: any): { label: string; value: string }[] => [
+  { label: t("equipment.categories", { fallback: "Category" }), value: t(`category.${machine.categoryLabel.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-")}`, { fallback: machine.categoryLabel }) },
   {
-    label: "Weight Class",
-    value: machine.weightLabel || findSpec(machine, /weight/i) || MISSING,
+    label: t("catalog.filters.weight", { fallback: "Weight Class" }),
+    value: machine.weightLabel || findSpec(machine, /weight/i) || t("product.comparison.notListed", { fallback: MISSING }),
   },
-  { label: "Power", value: extractPower(machine) || MISSING },
+  { label: t("spec.power", { fallback: "Power" }), value: extractPower(machine) || t("product.comparison.notListed", { fallback: MISSING }) },
   {
-    label: "Engine",
+    label: t("spec.engine", { fallback: "Engine" }),
     value:
-      findSpec(machine, /^engine$/i) || findSpec(machine, /engine/i) || MISSING,
+      findSpec(machine, /^engine$/i) || findSpec(machine, /engine/i) || t("product.comparison.notListed", { fallback: MISSING }),
   },
 ];
 
@@ -257,7 +258,8 @@ const MachineBody: React.FC<{
   tokens: Tokens;
   buyLabel: string;
 }> = ({ machine, tokens, buyLabel }) => {
-  const facts = quickFacts(machine);
+  const { t } = useI18n();
+  const facts = quickFacts(machine, t);
   const name = displayName(machine);
   return (
     <div className="p-5">
@@ -281,7 +283,7 @@ const MachineBody: React.FC<{
           <span
             className={`inline-block px-2 py-0.5 font-googleSans text-[11px] font-bold uppercase tracking-wide ${tokens.chip}`}
           >
-            {machine.categoryLabel}
+            {t(`category.${machine.categoryLabel.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-")}`, { fallback: machine.categoryLabel })}
           </span>
           <h3 className={`mt-1.5 text-lg leading-tight ${tokens.machineName}`}>
             {name}
@@ -333,7 +335,8 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
   variant,
   buyLabel = "View Product",
 }) => {
-  const t = TOKENS[variant];
+  const { t } = useI18n();
+  const themeTokens = TOKENS[variant];
   const [comparedId, setComparedId] = useState<string>("");
   const sameCategoryCandidates = useMemo(
     () =>
@@ -388,31 +391,31 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
 
   return (
     <section
-      className={`${t.section} transition-colors duration-200`}
+      className={`${themeTokens.section} transition-colors duration-200`}
       aria-labelledby="machine-comparison-title"
     >
       <div className="mx-auto w-full max-w-[1280px] px-4 py-14 sm:px-6 lg:px-10 lg:py-20">
         {/* ── Title ── */}
         <p
-          className={`font-googleSans text-xs font-bold uppercase tracking-[0.18em] ${t.kicker}`}
+          className={`font-googleSans text-xs font-bold uppercase tracking-[0.18em] ${themeTokens.kicker}`}
         >
-          Comparison
+          {t("product.comparison.kicker", { fallback: "Comparison" })}
         </p>
         <h2
           id="machine-comparison-title"
-          className={`mt-2 text-3xl md:text-4xl font-bold ${t.heading}`}
+          className={`mt-2 text-3xl md:text-4xl font-bold ${themeTokens.heading}`}
         >
-          Compare Similar Machines
+          {t("product.comparison.title", { fallback: "Compare Similar Machines" })}
         </h2>
-        <div className={`mt-4 h-1 w-16 ${t.rule}`} />
-        <p className={`mt-4 max-w-xl font-glonimove text-base ${t.subtitle}`}>
-          Compare this machine with other machines in the same category.
+        <div className={`mt-4 h-1 w-16 ${themeTokens.rule}`} />
+        <p className={`mt-4 max-w-xl font-glonimove text-base ${themeTokens.subtitle}`}>
+          {t("product.comparison.description", { fallback: "Compare this machine with other machines in the same category." })}
         </p>
 
         {!hasCandidates ? (
-          <div className={`mt-8 ${t.emptyPanel} px-6 py-10 text-center`}>
-            <p className={`font-glonimove ${t.emptyText}`}>
-              No other machines available for comparison in this category.
+          <div className={`mt-8 ${themeTokens.emptyPanel} px-6 py-10 text-center`}>
+            <p className={`font-glonimove ${themeTokens.emptyText}`}>
+              {t("product.comparison.noCandidates", { fallback: "No other machines available for comparison in this category." })}
             </p>
           </div>
         ) : (
@@ -420,37 +423,37 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
             {/* ── Two-panel comparison header ── */}
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {/* Current machine */}
-              <div className={t.panel}>
+              <div className={themeTokens.panel}>
                 <div
-                  className={`flex items-center px-5 py-3 ${t.panelHead}`}
+                  className={`flex items-center px-5 py-3 ${themeTokens.panelHead}`}
                 >
                   <span
-                    className={`font-googleSans text-[11px] font-bold uppercase tracking-wide ${t.panelLabel}`}
+                    className={`font-googleSans text-[11px] font-bold uppercase tracking-wide ${themeTokens.panelLabel}`}
                   >
-                    Currently viewing
+                    {t("product.comparison.currentlyViewing", { fallback: "Currently viewing" })}
                   </span>
                 </div>
-                <MachineBody machine={current} tokens={t} buyLabel={buyLabel} />
+                <MachineBody machine={current} tokens={themeTokens} buyLabel={buyLabel} />
               </div>
 
               {/* Compared machine + selector */}
-              <div className={t.panel}>
+              <div className={themeTokens.panel}>
                 <div
-                  className={`flex flex-wrap items-center justify-between gap-2 px-5 py-3 ${t.panelHead}`}
+                  className={`flex flex-wrap items-center justify-between gap-2 px-5 py-3 ${themeTokens.panelHead}`}
                 >
                   <label
                     htmlFor="compare-select"
-                    className={`font-googleSans text-[11px] font-bold uppercase tracking-wide ${t.panelLabel}`}
+                    className={`font-googleSans text-[11px] font-bold uppercase tracking-wide ${themeTokens.panelLabel}`}
                   >
-                    {compared ? "Change comparison machine" : `Select a ${categoryLabel.toLowerCase()}`}
+                    {compared ? t("product.comparison.changeComparison", { fallback: "Change comparison machine" }) : t("product.comparison.selectCategory", { values: { category: categoryLabel }, fallback: `Select a ${categoryLabel}` })}
                   </label>
                   <select
                     id="compare-select"
                     value={comparedId}
                     onChange={(event) => setComparedId(event.target.value)}
-                    className={`max-w-[55%] truncate px-3 py-1.5 font-googleSans text-xs ${t.select}`}
+                    className={`max-w-[55%] truncate px-3 py-1.5 font-googleSans text-xs ${themeTokens.select}`}
                   >
-                    <option value="">Choose a machine…</option>
+                    <option value="">{t("product.comparison.chooseMachine", { fallback: "Choose a machine…" })}</option>
                     {sameCategoryCandidates.map((candidate) => (
                       <option key={candidate.id} value={candidate.id}>
                         {displayName(candidate)}
@@ -459,12 +462,11 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
                   </select>
                 </div>
                 {compared ? (
-                  <MachineBody machine={compared} tokens={t} buyLabel={buyLabel} />
+                  <MachineBody machine={compared} tokens={themeTokens} buyLabel={buyLabel} />
                 ) : (
                   <div className="flex min-h-[180px] items-center justify-center p-6 text-center">
-                    <p className={`font-glonimove text-sm ${t.emptyText}`}>
-                      Pick another {categoryLabel.toLowerCase()} from the dropdown
-                      above to see a full side-by-side specification comparison.
+                    <p className={`font-glonimove text-sm ${themeTokens.emptyText}`}>
+                      {t("product.comparison.pickPrompt", { values: { category: categoryLabel }, fallback: `Pick another ${categoryLabel} from the dropdown above to see a full side-by-side specification comparison.` })}
                     </p>
                   </div>
                 )}
@@ -473,39 +475,37 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
 
             {/* ── No shared specs to compare ── */}
             {compared && !hasSharedSpecs && !showFeatures && (
-              <div className={`mt-6 ${t.emptyPanel} px-6 py-8 text-center`}>
-                <p className={`font-glonimove ${t.emptyText}`}>
-                  These two machines don't list any directly comparable
-                  specifications.
+              <div className={`mt-6 ${themeTokens.emptyPanel} px-6 py-8 text-center`}>
+                <p className={`font-glonimove ${themeTokens.emptyText}`}>
+                  {t("product.comparison.noSharedSpecs", { fallback: "These two machines don't list any directly comparable specifications." })}
                 </p>
               </div>
             )}
 
             {/* ── Specification table (shared specs only) ── */}
             {compared && (hasSharedSpecs || showFeatures) && (
-              <div className={`mt-6 overflow-hidden ${t.tableWrap}`}>
+              <div className={`mt-6 overflow-hidden ${themeTokens.tableWrap}`}>
                 <table className="w-full table-fixed border-collapse text-left">
                   <caption className="sr-only">
-                    Specification comparison between {displayName(current)} and{" "}
-                    {displayName(compared)}
+                    {t("product.comparison.caption", { values: { current: displayName(current), compared: displayName(compared) }, fallback: `Specification comparison between ${displayName(current)} and ${displayName(compared)}` })}
                   </caption>
                   <thead>
-                    <tr className={`sticky top-0 z-10 ${t.theadRow}`}>
+                    <tr className={`sticky top-0 z-10 ${themeTokens.theadRow}`}>
                       <th
                         scope="col"
-                        className={`w-[34%] px-4 py-3 font-googleSans text-[11px] font-bold uppercase tracking-wide ${t.theadSpec}`}
+                        className={`w-[34%] px-4 py-3 font-googleSans text-[11px] font-bold uppercase tracking-wide ${themeTokens.theadSpec}`}
                       >
-                        Specification
+                        {t("product.comparison.specification", { fallback: "Specification" })}
                       </th>
                       <th
                         scope="col"
-                        className={`px-4 py-3 font-googleSans text-sm font-bold ${t.theadMachine}`}
+                        className={`px-4 py-3 font-googleSans text-sm font-bold ${themeTokens.theadMachine}`}
                       >
                         {displayName(current)}
                       </th>
                       <th
                         scope="col"
-                        className={`px-4 py-3 font-googleSans text-sm font-bold ${t.theadMachineAccent}`}
+                        className={`px-4 py-3 font-googleSans text-sm font-bold ${themeTokens.theadMachineAccent}`}
                       >
                         {displayName(compared)}
                       </th>
@@ -520,9 +520,9 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
                             <th
                               scope="colgroup"
                               colSpan={3}
-                              className={`px-4 py-2 text-left font-googleSans text-[11px] font-bold uppercase tracking-[0.12em] ${t.groupRow}`}
+                              className={`px-4 py-2 text-left font-googleSans text-[11px] font-bold uppercase tracking-[0.12em] ${themeTokens.groupRow}`}
                             >
-                              {group.title}
+                              {t(`product.comparison.group.${group.key}`, { fallback: group.title })}
                             </th>
                           </tr>
                           {grouped[group.key].map((label) => {
@@ -531,29 +531,30 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
                             const a = specValue(current, label);
                             const b = specValue(compared, label);
                             const isDiff = a.trim() !== b.trim();
+                            const translatedLabel = t(`spec.${label.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-")}`, { fallback: label });
                             return (
                               <tr
                                 key={label}
-                                className={`border-t ${t.rowBorder} ${
-                                  isDiff ? t.diffRow : ""
+                                className={`border-t ${themeTokens.rowBorder} ${
+                                  isDiff ? themeTokens.diffRow : ""
                                 }`}
                               >
                                 <th
                                   scope="row"
-                                  className={`px-4 py-3 align-top font-glonimove text-[13px] font-normal ${t.rowLabel}`}
+                                  className={`px-4 py-3 align-top font-glonimove text-[13px] font-normal ${themeTokens.rowLabel}`}
                                 >
-                                  {label}
+                                  {translatedLabel}
                                 </th>
                                 <td
                                   className={`px-4 py-3 align-top font-googleSans text-sm ${
-                                    isDiff ? t.diffValue : t.rowValue
+                                    isDiff ? themeTokens.diffValue : themeTokens.rowValue
                                   }`}
                                 >
                                   {a}
                                 </td>
                                 <td
                                   className={`px-4 py-3 align-top font-googleSans text-sm ${
-                                    isDiff ? t.diffValue : t.rowValue
+                                    isDiff ? themeTokens.diffValue : themeTokens.rowValue
                                   }`}
                                 >
                                   {b}
@@ -571,17 +572,17 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
                         <th
                           scope="colgroup"
                           colSpan={3}
-                          className={`px-4 py-2 text-left font-googleSans text-[11px] font-bold uppercase tracking-[0.12em] ${t.groupRow}`}
+                          className={`px-4 py-2 text-left font-googleSans text-[11px] font-bold uppercase tracking-[0.12em] ${themeTokens.groupRow}`}
                         >
-                          Attachments / Features
+                          {t("product.comparison.featuresGroup", { fallback: "Attachments / Features" })}
                         </th>
                       </tr>
-                      <tr className={`border-t ${t.rowBorder}`}>
+                      <tr className={`border-t ${themeTokens.rowBorder}`}>
                         <th
                           scope="row"
-                          className={`px-4 py-3 align-top font-glonimove text-[13px] font-normal ${t.rowLabel}`}
+                          className={`px-4 py-3 align-top font-glonimove text-[13px] font-normal ${themeTokens.rowLabel}`}
                         >
-                          Key Features
+                          {t("product.comparison.keyFeatures", { fallback: "Key Features" })}
                         </th>
                         {[current, compared].map((machine, idx) => (
                           <td
@@ -593,10 +594,10 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
                                 {machine.features.map((feature, fi) => (
                                   <li
                                     key={fi}
-                                    className={`flex gap-2 font-glonimove text-[13px] leading-snug ${t.featureItem}`}
+                                    className={`flex gap-2 font-glonimove text-[13px] leading-snug ${themeTokens.featureItem}`}
                                   >
                                     <span
-                                      className={`mt-1.5 h-1.5 w-1.5 shrink-0 ${t.rule}`}
+                                      className={`mt-1.5 h-1.5 w-1.5 shrink-0 ${themeTokens.rule}`}
                                     />
                                     <span>{feature}</span>
                                   </li>
@@ -604,9 +605,9 @@ export const MachineComparison: React.FC<MachineComparisonProps> = ({
                               </ul>
                             ) : (
                               <span
-                                className={`font-googleSans text-sm ${t.rowValueMissing}`}
+                                className={`font-googleSans text-sm ${themeTokens.rowValueMissing}`}
                               >
-                                {MISSING}
+                                {t("product.comparison.notListed", { fallback: MISSING })}
                               </span>
                             )}
                           </td>

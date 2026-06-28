@@ -68,7 +68,7 @@ export const Contact: React.FC = () => {
                   {/* Name */}
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
-                      Full Name *
+                      {t("contact.form.fullName", { fallback: "Full Name *" })}
                     </label>
                     <input
                       type="text"
@@ -83,7 +83,7 @@ export const Contact: React.FC = () => {
                   {/* Email */}
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
-                      Email Address *
+                      {t("contact.form.emailAddress", { fallback: "Email Address *" })}
                     </label>
                     <input
                       type="email"
@@ -100,7 +100,7 @@ export const Contact: React.FC = () => {
                   {/* Phone */}
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
-                      Phone Number *
+                      {t("contact.form.phoneNumber", { fallback: "Phone Number *" })}
                     </label>
                     <input
                       type="tel"
@@ -160,7 +160,7 @@ export const Contact: React.FC = () => {
                 {interestType !== "general" && (
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
-                      {interestType === "product" ? "Select Machinery Model" : t("auto.contact.select.attachment.of")}
+                      {interestType === "product" ? t("contact.form.selectModel", { fallback: "Select Machinery Model" }) : t("auto.contact.select.attachment.of")}
                     </label>
                     <select
                       value={modelInterest}
@@ -225,14 +225,14 @@ export const Contact: React.FC = () => {
             <div className="bg-white border border-brand-green/10 rounded-lg p-6 space-y-4">
               <h3 className="font-heading text-xl uppercase tracking-wider text-brand-dark border-b pb-2">{t("auto.contact.depot.location")}</h3>
               <p className="font-glonimove text-sm text-neutral-600 leading-relaxed">
-                <strong>Warehouse Address:</strong>
+                <strong>{t("contact.warehouseAddress", { fallback: "Warehouse Address:" })}</strong>
                 <br />{t("auto.contact.commerce.california.usa")}</p>
               <p className="font-glonimove text-sm text-neutral-600 leading-relaxed">
-                <strong>Business Hours:</strong>
+                <strong>{t("contact.businessHours", { fallback: "Business Hours:" })}</strong>
                 <br />
-                Monday - Friday: 8:00 AM - 5:00 PM (PST)
+                {t("contact.hours.weekday", { fallback: "Monday - Friday: 8:00 AM - 5:00 PM (PST)" })}
                 <br />
-                Saturday & Sunday: Closed for field testing
+                {t("contact.hours.weekend", { fallback: "Saturday & Sunday: Closed for field testing" })}
               </p>
             </div>
 

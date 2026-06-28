@@ -14,12 +14,12 @@ export const ShippingDelivery: React.FC = () => {
     { title: t("auto.shippingdelivery.freight.booked"), desc: t("auto.shippingdelivery.we.match.your") },
     { title: t("auto.shippingdelivery.loaded.secured"), desc: t("auto.shippingdelivery.the.machine.is") },
     { title: t("auto.shippingdelivery.in.transit"), desc: t("auto.shippingdelivery.live.tracking.number") },
-    { title: "Offloaded", desc: t("auto.shippingdelivery.carrier.delivers.curbside") },
+    { title: t("shipping.freight.offloaded"), desc: t("auto.shippingdelivery.carrier.delivers.curbside") },
   ];
 
   const timeline = [
-    { icon: Icons.clock, title: t("auto.shippingdelivery.in.stock.units"), desc: "Dispatch timing depends on machine status, configuration, inspection, and carrier availability." },
-    { icon: Icons.shipping, title: t("auto.shippingdelivery.transit.time"), desc: "Transit time varies by destination, route, carrier schedule, and offload requirements." },
+    { icon: Icons.clock, title: t("auto.shippingdelivery.in.stock.units"), desc: t("shipping.timeline.stock.desc") },
+    { icon: Icons.shipping, title: t("auto.shippingdelivery.transit.time"), desc: t("shipping.timeline.transit.desc") },
     { icon: Icons.track, title: t("auto.shippingdelivery.live.tracking"), desc: t("auto.shippingdelivery.every.shipment.includes") },
   ];
 
@@ -28,56 +28,56 @@ export const ShippingDelivery: React.FC = () => {
     { q: t("auto.shippingdelivery.can.i.pick"), a: t("auto.shippingdelivery.yes.warehouse.pickup") },
     { q: t("auto.shippingdelivery.what.do.i"), a: t("auto.shippingdelivery.ensure.clear.truck") },
     { q: t("auto.shippingdelivery.what.happens.if"), a: t("auto.shippingdelivery.note.any.damage") },
-    { q: "Do you ship internationally?", a: "Our standard freight network is U.S. based. For Canada, Mexico, and select export destinations we can quote dedicated international logistics — ask your specialist for an international quotation with port-of-entry details." },
-    { q: "Is liftgate or residential delivery available?", a: "Most machines are too heavy for liftgate trucks. We use flatbed and step-deck carriers and deliver curbside or to a firm offload pad. Residential delivery is possible if there is suitable truck access and an offload surface." },
+    { q: t("shipping.faq.intl.q"), a: t("shipping.faq.intl.a") },
+    { q: t("shipping.faq.res.q"), a: t("shipping.faq.res.a") },
   ];
 
   const stats = [
-    { value: "Varies", label: "Dispatch Window", sub: "Based on configuration and inspection" },
-    { value: "Route", label: "Transit Timing", sub: "Depends on destination and carrier" },
-    { value: "Tracking", label: "Shipment Updates", sub: "Provided when carrier confirms" },
-    { value: "Secured", label: "Load Planning", sub: "Matched to machine and route" },
+    { value: t("shipping.stat.dispatch.val"), label: t("shipping.stat.dispatch.lbl"), sub: t("shipping.stat.dispatch.sub") },
+    { value: t("shipping.stat.transit.val"), label: t("shipping.stat.transit.lbl"), sub: t("shipping.stat.transit.sub") },
+    { value: t("shipping.stat.updates.val"), label: t("shipping.stat.updates.lbl"), sub: t("shipping.stat.updates.sub") },
+    { value: t("shipping.stat.load.val"), label: t("shipping.stat.load.lbl"), sub: t("shipping.stat.load.sub") },
   ];
 
   const journey = [
-    { icon: Icons.doc, title: "Order locked in", desc: "Once payment and pre-delivery review are complete, your unit moves into the dispatch queue." },
-    { icon: Icons.truck, title: "Carrier matched", desc: "We route by machine configuration, destination, access needs, and offload requirements." },
-    { icon: Icons.shield, title: "Load secured", desc: "The machine and loose attachments are secured for the selected freight method before departure." },
-    { icon: Icons.track, title: "Tracking issued", desc: "Carrier contact and tracking details are shared when the shipment is confirmed." },
-    { icon: Icons.gauge, title: "In transit", desc: "The carrier manages ETA updates while our team helps with routing or access questions." },
-    { icon: Icons.check, title: "Curbside delivery", desc: "The carrier offloads onto your firm pad. You inspect with the driver, note anything on the receipt, and sign." },
+    { icon: Icons.doc, title: t("shipping.journey.step1.title"), desc: t("shipping.journey.step1.desc") },
+    { icon: Icons.truck, title: t("shipping.journey.step2.title"), desc: t("shipping.journey.step2.desc") },
+    { icon: Icons.shield, title: t("shipping.journey.step3.title"), desc: t("shipping.journey.step3.desc") },
+    { icon: Icons.track, title: t("shipping.journey.step4.title"), desc: t("shipping.journey.step4.desc") },
+    { icon: Icons.gauge, title: t("shipping.journey.step5.title"), desc: t("shipping.journey.step5.desc") },
+    { icon: Icons.check, title: t("shipping.journey.step6.title"), desc: t("shipping.journey.step6.desc") },
   ];
 
   const prep = {
     left: {
-      title: "Get ready for the truck",
+      title: t("shipping.prep.ready.title"),
       items: [
-        "Flat, firm offload pad with no overhead obstructions",
-        "Truck access with enough turning room and overhead clearance",
-        "Diesel, fuel, or operator on standby if needed for offload",
-        "Authorised contact on-site to inspect and sign",
+        t("shipping.prep.ready.item1"),
+        t("shipping.prep.ready.item2"),
+        t("shipping.prep.ready.item3"),
+        t("shipping.prep.ready.item4"),
       ],
     },
     right: {
-      title: "Avoid these delivery delays",
+      title: t("shipping.prep.delay.title"),
       items: [
-        "Soft or muddy ground that traps the carrier truck",
-        "Low cable, branch, or gate clearance that blocks the carrier",
-        "Site closed during the carrier's agreed window",
-        "No one on-site authorised to inspect or sign",
+        t("shipping.prep.delay.item1"),
+        t("shipping.prep.delay.item2"),
+        t("shipping.prep.delay.item3"),
+        t("shipping.prep.delay.item4"),
       ],
     },
   };
 
   const trust = [
-    { icon: Icons.shield, label: "Load Securing", sub: "Machine and attachments secured for transport" },
-    { icon: Icons.truck, label: "Right-Size Freight", sub: "Freight method matched to the unit" },
-    { icon: Icons.track, label: "Shipment Updates", sub: "Carrier contact and tracking when confirmed" },
-    { icon: Icons.bolt, label: "Arrival Issue Help", sub: "Damage documentation reviewed quickly" },
+    { icon: Icons.shield, label: t("shipping.trust.item1.lbl"), sub: t("shipping.trust.item1.sub") },
+    { icon: Icons.truck, label: t("shipping.trust.item2.lbl"), sub: t("shipping.trust.item2.sub") },
+    { icon: Icons.track, label: t("shipping.trust.item3.lbl"), sub: t("shipping.trust.item3.sub") },
+    { icon: Icons.bolt, label: t("shipping.trust.item4.lbl"), sub: t("shipping.trust.item4.sub") },
   ];
 
   const gallery = [
-    { src: "/img/support/production-hall.jpg", alt: "Konstructz production hall", caption: "Commerce Depot" },
+    { src: "/img/support/production-hall.jpg", alt: "Konstructz production hall", caption: t("shipping.gallery.caption") },
     { src: "/img/support/factory-worker.png", alt: "Operator on the load floor", caption: "Load Crew" },
     { src: "/img/support/sawmill-production.jpg", alt: "Industrial production yard", caption: "Yard Operations" },
     { src: "/img/support/construction-site.jpg", alt: "Job-site delivery", caption: "Site Delivery" },
@@ -112,17 +112,17 @@ export const ShippingDelivery: React.FC = () => {
 
       <ImageBand
         image="/img/support/sawmill-production.jpg"
-        eyebrow="Coast To Coast"
-        title="Built To Land Ready For Work, Anywhere"
-        body="From rural yards to active construction sites, each shipment is planned around machine configuration, access conditions, offload needs, and carrier requirements."
+        eyebrow={t("shipping.band.eyebrow")}
+        title={t("shipping.band.title")}
+        body={t("shipping.band.body")}
       />
 
 
       <Section variant="secondary" bordered>
         <SectionHeading
-          eyebrow="Logistics Standards"
-          title="How We Protect Your Investment In Transit"
-          description="Heavy equipment freight needs careful loading, clear handoff details, and an offload plan that matches the site before the truck arrives."
+          eyebrow={t("shipping.standards.eyebrow")}
+          title={t("shipping.standards.title")}
+          description={t("shipping.standards.description")}
         />
         <div className="mt-12"><TrustStrip items={trust} /></div>
       </Section>
@@ -145,9 +145,9 @@ export const ShippingDelivery: React.FC = () => {
 
       <Section variant="secondary" bordered>
         <SectionHeading
-          eyebrow="Inside The Process"
-          title="The Six-Stage Shipping Journey"
-          description="From the moment your unit clears PDI to the moment the carrier rolls off your pad."
+          eyebrow={t("shipping.process.eyebrow")}
+          title={t("shipping.process.title")}
+          description={t("shipping.process.description")}
         />
         <div className="mt-14"><Timeline items={journey} /></div>
       </Section>
@@ -171,9 +171,9 @@ export const ShippingDelivery: React.FC = () => {
       {/* Site prep two-column */}
       <Section>
         <SectionHeading
-          eyebrow="Site Preparation"
-          title="Make The Offload Painless"
-          description="Five minutes of prep saves an hour of headache for your team and the carrier."
+          eyebrow={t("shipping.prep.eyebrow")}
+          title={t("shipping.prep.title")}
+          description={t("shipping.prep.description")}
         />
         <div className="mt-12">
           <TwoColumnList left={prep.left} right={prep.right} />
@@ -182,9 +182,9 @@ export const ShippingDelivery: React.FC = () => {
 
       <Section variant="secondary" bordered>
         <SectionHeading
-          eyebrow="If Something Looks Wrong"
-          title="Damage Reporting Procedure"
-          description="On the rare occasion that a unit arrives with transit damage, follow these three steps so we can open a freight claim immediately."
+          eyebrow={t("shipping.wrong.eyebrow")}
+          title={t("shipping.wrong.title")}
+          description={t("shipping.wrong.description")}
         />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
           <InfoCard icon={Icons.doc} title={t("auto.shippingdelivery.inspect.on.arrival")} desc={t("auto.shippingdelivery.walk.around.the")} />
@@ -194,17 +194,17 @@ export const ShippingDelivery: React.FC = () => {
         <div className="mt-10 max-w-3xl mx-auto">
           <Callout
             tone="warning"
-            title="Note damage on the delivery receipt"
-            body="Carriers' liability rules require visible damage to be written on the delivery receipt at the time of offload. Photograph the receipt and the unit before the truck leaves, then call our logistics line the same day."
+            title={t("shipping.wrong.callout.title")}
+            body={t("shipping.wrong.callout.body")}
           />
         </div>
       </Section>
 
       <Section>
         <SectionHeading
-          eyebrow="Behind The Scenes"
-          title="The Commerce Depot, In Picture"
-          description="A look inside the facility your machine is dispatched from."
+          eyebrow={t("shipping.scenes.eyebrow")}
+          title={t("shipping.scenes.title")}
+          description={t("shipping.scenes.description")}
         />
         <div className="mt-12"><ImageCollage images={gallery} /></div>
       </Section>
@@ -216,9 +216,9 @@ export const ShippingDelivery: React.FC = () => {
 
       <Section>
         <SectionHeading
-          eyebrow="Reach Logistics"
-          title="Get In Touch"
-          description="Track a shipment, change a delivery address, or report a freight issue."
+          eyebrow={t("shipping.reach.eyebrow")}
+          title={t("shipping.reach.title")}
+          description={t("shipping.reach.description")}
         />
         <div className="mt-10"><ContactStrip /></div>
       </Section>

@@ -16,6 +16,12 @@ import { ImageLightbox } from "../../components/product/ImageLightbox";
 import { ShareMenu } from "../../components/product/ShareMenu";
 import { AddToCartButton } from "../../components/product/AddToCartButton";
 import { getEcwidProductId } from "../../data/ecwidProductIds";
+import { useI18n } from "../../context/I18nContext";
+
+const translateSpecLabel = (label: string, t: any): string => {
+  const specKey = `spec.${label.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-")}`;
+  return t(specKey, { fallback: label });
+};
 
 // The CSV "Button URL" field is the canonical purchase link for a Typhon
 // machine (always a /product/<slug> path). Fall back to the original source
@@ -66,7 +72,7 @@ const LeadParagraph: React.FC<{ text: string; emphasizeLead?: boolean }> = ({
 
   return (
     <>
-      <strong className="font-googleSans font-bold text-white">{match[1]}</strong>{" "}
+      <strong className="font-googleSans font-bold text-neutral-900">{match[1]}</strong>{" "}
       {match[2]}
     </>
   );
@@ -77,6 +83,7 @@ interface TyphonProductSingleProps {
 }
 
 export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ product }) => {
+  const { t } = useI18n();
   const { typhon: typhonProducts, getDbProduct } = useProducts();
   // When this product is backed by a published DB row, render its rich
   // (Markdown) description; otherwise fall back to the parsed static blocks.
@@ -143,25 +150,25 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
   );
 
   return (
-    <main className="bg-[#282828] text-white">
+    <main className="bg-[#fafafc] dark:bg-[#282828] text-neutral-800 dark:text-white transition-colors duration-200">
       <section className="mx-auto flex w-full max-w-[1480px] flex-col gap-8 px-4 pb-12 pt-24 sm:px-6 lg:px-10 lg:pb-16 lg:pt-32">
-        <nav className="flex flex-wrap items-center gap-2 text-[13px] text-[#d8c79a]" aria-label="Breadcrumb">
-          <Link to="/" className="hover:text-white">
-            Home
+        <nav className="flex flex-wrap items-center gap-2 text-[13px] text-[#8c7a52] dark:text-[#d8c79a]" aria-label={t("allProducts.breadcrumbs", { fallback: "Breadcrumb" })}>
+          <Link to="/" className="hover:text-[#153d28] dark:hover:text-[#d8c79a] text-neutral-600 dark:text-white/60 transition-colors">
+            {t("nav.home", { fallback: "Home" })}
           </Link>
-          <span className="text-white/55">/</span>
-          <Link to="/typhon-machinery" className="hover:text-white">
-            Typhon Machinery
+          <span className="text-neutral-400 dark:text-white/30">/</span>
+          <Link to="/typhon-machinery" className="hover:text-[#153d28] dark:hover:text-[#d8c79a] text-neutral-600 dark:text-white/60 transition-colors">
+            {t("nav.typhonMachinery", { fallback: "Typhon Machinery" })}
           </Link>
-          <span className="text-white/55">/</span>
-          <span className="text-white">{product.name}</span>
+          <span className="text-neutral-400 dark:text-white/30">/</span>
+          <span className="text-neutral-900 dark:text-white font-medium">{product.name}</span>
         </nav>
 
         {/* Image column is sized so the square placeholder renders ~27% smaller
             than the original full-width layout; info column expands to fill. */}
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.69fr)_minmax(420px,1fr)] lg:items-start">
           <section aria-label="Product image gallery" className="min-w-0">
-            <div className="relative aspect-[4/3] w-full bg-neutral-100 sm:aspect-square">
+            <div className="relative aspect-[4/3] w-full bg-white dark:bg-[#1e1e1e] border border-neutral-200 dark:border-white/10 shadow-sm rounded-sm sm:aspect-square transition-colors">
               <img
                 src={gallery[activeImage] ?? product.image}
                 alt={product.name}
@@ -178,9 +185,9 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
               <button
                 type="button"
                 onClick={() => setLightboxOpen(true)}
-                aria-label="View full image"
-                title="View full image"
-                className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center bg-black/55 text-white transition hover:bg-[#d8c79a] hover:text-[#153d28]"
+                aria-label={t("product.viewFullImage", { fallback: "View full image" })}
+                title={t("product.viewFullImage", { fallback: "View full image" })}
+                className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center bg-neutral-900/60 text-white transition hover:bg-[#153d28] hover:text-white"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -193,8 +200,8 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                     onClick={() =>
                       setActiveImage((i) => (i - 1 + gallery.length) % gallery.length)
                     }
-                    aria-label="Previous image"
-                    className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/55 text-white transition hover:bg-[#d8c79a] hover:text-[#153d28]"
+                    aria-label={t("product.prevImage", { fallback: "Previous image" })}
+                    className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-neutral-900/60 text-white transition hover:bg-[#153d28] hover:text-white"
                   >
                     <svg width="11" height="18" viewBox="0 0 11 18" fill="none" aria-hidden="true">
                       <path d="M10 1L2 9l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -203,8 +210,8 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                   <button
                     type="button"
                     onClick={() => setActiveImage((i) => (i + 1) % gallery.length)}
-                    aria-label="Next image"
-                    className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/55 text-white transition hover:bg-[#d8c79a] hover:text-[#153d28]"
+                    aria-label={t("product.nextImage", { fallback: "Next image" })}
+                    className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-neutral-900/60 text-white transition hover:bg-[#153d28] hover:text-white"
                   >
                     <svg width="11" height="18" viewBox="0 0 11 18" fill="none" aria-hidden="true">
                       <path d="M1 1l8 8-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -226,13 +233,13 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                     }}
                     aria-label={
                       isOverflowTile
-                        ? `Show ${hiddenThumbCount} more ${product.name} images`
-                        : `View ${product.name} image ${index + 1}`
+                        ? t("product.showMoreImages", { values: { count: hiddenThumbCount, name: product.name }, fallback: `Show ${hiddenThumbCount} more ${product.name} images` })
+                        : t("product.viewImageIndex", { values: { name: product.name, index: index + 1 }, fallback: `View ${product.name} image ${index + 1}` })
                     }
-                    className={`relative aspect-square bg-neutral-100 p-1.5 transition ${
+                    className={`relative aspect-square bg-white dark:bg-[#1e1e1e] p-1.5 transition rounded-sm shadow-sm ${
                       activeImage === index && !isOverflowTile
-                        ? "ring-4 ring-[#d8c79a]"
-                        : "ring-1 ring-white/10 hover:ring-[#d8c79a]/70"
+                        ? "ring-4 ring-[#153d28]"
+                        : "ring-1 ring-neutral-200 dark:ring-white/10 hover:ring-[#153d28]/70 dark:hover:ring-[#d8c79a]/80"
                     }`}
                   >
                     <img
@@ -248,7 +255,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                       className="h-full w-full object-contain"
                     />
                     {isOverflowTile && (
-                      <span className="absolute inset-0 flex items-center justify-center bg-black/60 font-googleSans text-2xl font-bold text-white transition hover:bg-black/50">
+                      <span className="absolute inset-0 flex items-center justify-center bg-black/60 font-googleSans text-2xl font-bold text-white transition hover:bg-black/50 rounded-sm">
                         +{hiddenThumbCount}
                       </span>
                     )}
@@ -259,24 +266,24 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           </section>
 
           <section className="min-w-0 lg:pt-6" aria-labelledby="typhon-product-title">
-            <p className="font-googleSans text-xs font-bold uppercase tracking-wide text-[#d8c79a]">
-              {product.categoryLabel}
+            <p className="font-googleSans text-xs font-bold uppercase tracking-wide text-[#153d28] dark:text-[#d8c79a]">
+              {t(`category.${product.category}`, { fallback: product.categoryLabel })}
             </p>
             <h1
               id="typhon-product-title"
-              className="mt-2.5 font-clofieBold text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl"
+              className="mt-2.5 font-clofieBold text-4xl font-bold leading-[1.05] text-neutral-900 dark:text-white sm:text-5xl lg:text-6xl"
             >
               {product.name}
             </h1>
-            <p className="mt-3.5 max-w-xl font-glonimove text-lg leading-7 text-white/82">
+            <p className="mt-3.5 max-w-xl font-glonimove text-lg leading-7 text-neutral-600 dark:text-white/80">
               {product.tagline}
             </p>
 
-            <div className="mt-7 grid gap-2.5" aria-label="Product specifications">
+            <div className="mt-7 grid gap-2.5" aria-label={t("product.specifications", { fallback: "Product specifications" })}>
               {product.specs.slice(1, 5).map((spec) => (
-                <div key={spec.label} className="grid grid-cols-[140px_minmax(0,1fr)] items-center gap-4 border-b border-white/14 py-2.5">
-                  <span className="font-glonimove text-[13px] text-white/62">{spec.label}</span>
-                  <strong className="font-googleSans text-sm text-white">{spec.value}</strong>
+                <div key={spec.label} className="grid grid-cols-[140px_minmax(0,1fr)] items-center gap-4 border-b border-neutral-200 dark:border-white/10 py-2.5">
+                  <span className="font-glonimove text-[13px] text-neutral-500 dark:text-white/60">{translateSpecLabel(spec.label, t)}</span>
+                  <strong className="font-googleSans text-sm text-neutral-800 dark:text-white">{spec.value}</strong>
                 </div>
               ))}
             </div>
@@ -289,22 +296,22 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                 {ecwidId && (
                   <AddToCartButton
                     ecwidId={ecwidId}
-                    className="flex-1 inline-flex min-h-[52px] items-center justify-center gap-2 bg-[#d8c79a] px-6 font-googleSans text-[15px] font-bold text-[#153d28] shadow-[0_6px_20px_rgba(216,199,154,0.25)] transition hover:bg-white disabled:opacity-70"
+                    className="flex-1 inline-flex min-h-[52px] items-center justify-center gap-2 bg-[#d8c79a] px-6 font-googleSans text-[15px] font-bold text-[#153d28] shadow-[0_6px_20px_rgba(216,199,154,0.15)] transition hover:bg-[#153d28] hover:text-white disabled:opacity-70 rounded-sm"
                   />
                 )}
                 {buyUrl && (
                   <a
                     href={buyUrl}
-                    className={`flex-1 inline-flex min-h-[52px] items-center justify-center gap-2 px-6 font-googleSans text-[15px] font-bold transition ${
+                    className={`flex-1 inline-flex min-h-[52px] items-center justify-center gap-2 px-6 font-googleSans text-[15px] font-bold transition rounded-sm ${
                       ecwidId
-                        ? "border-2 border-[#d8c79a] text-[#d8c79a] hover:bg-[#d8c79a] hover:text-[#153d28]"
-                        : "bg-[#d8c79a] text-[#153d28] shadow-[0_6px_20px_rgba(216,199,154,0.25)] hover:bg-white"
+                        ? "border-2 border-solid border-[#153d28] dark:border-[#d8c79a] text-[#153d28] dark:text-[#d8c79a] hover:bg-[#153d28] dark:hover:bg-[#d8c79a] hover:text-white dark:hover:text-[#153d28]"
+                        : "bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28] shadow-[0_6px_20px_rgba(21,61,40,0.15)] hover:bg-neutral-800 dark:hover:bg-white"
                     }`}
                   >
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
                     </svg>
-                    Buy Now
+                    {t("action.buyNow", { fallback: "Buy Now" })}
                   </a>
                 )}
               </div>
@@ -313,16 +320,16 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
               <div className="flex items-stretch gap-2.5">
                 <Link
                   to={`/contact?product=${product.id}&brand=typhon`}
-                  className="flex flex-1 min-h-[44px] items-center justify-center gap-2 border border-white/20 px-4 font-googleSans text-sm font-medium text-white/85 transition hover:border-white/60 hover:text-white"
+                  className="flex flex-1 min-h-[44px] items-center justify-center gap-2 border border-solid border-neutral-300 dark:border-white/10 px-4 font-googleSans text-sm font-medium text-neutral-600 dark:text-white/80 transition hover:border-neutral-500 dark:hover:border-white/30 hover:text-neutral-900 dark:hover:text-white bg-white dark:bg-[#232323] shadow-sm rounded-sm"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
-                  Request a Quote
+                  {t("action.requestAQuote", { fallback: "Request a Quote" })}
                 </Link>
                 <ShareMenu
                   title={product.name}
-                  className="flex min-h-[44px] items-center justify-center gap-2 border border-white/20 px-4 font-googleSans text-sm font-medium text-white/85 transition hover:border-white/60 hover:text-white"
+                  className="flex min-h-[44px] items-center justify-center gap-2 border border-solid border-neutral-300 dark:border-white/10 px-4 font-googleSans text-sm font-medium text-neutral-600 dark:text-white/80 transition hover:border-neutral-500 dark:hover:border-white/30 hover:text-neutral-900 dark:hover:text-white bg-white dark:bg-[#232323] shadow-sm rounded-sm"
                 />
               </div>
             </div>
@@ -330,16 +337,16 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-[#202020]">
+      <section className="border-y border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-[#1e1e1e] transition-colors">
         <div className="mx-auto grid max-w-[1480px] gap-6 px-4 py-8 sm:px-6 lg:grid-cols-3 lg:px-10">
           {[
-            ["Series", product.series],
-            ["Category", product.categoryLabel],
-            ["Weight Class", product.weight],
+            [t("product.series", { fallback: "Series" }), product.series],
+            [t("equipment.categories", { fallback: "Category" }), t(`category.${product.category}`, { fallback: product.categoryLabel })],
+            [t("catalog.filters.weight", { fallback: "Weight Class" }), product.weight],
           ].map(([label, value]) => (
-            <div key={label} className="border-l-4 border-[#d8c79a] pl-5">
-              <p className="font-glonimove text-sm text-white/58">{label}</p>
-              <p className="mt-2 font-googleSans text-lg font-bold text-white">{value}</p>
+            <div key={label} className="border-l-4 border-[#153d28] dark:border-[#d8c79a] pl-5">
+              <p className="font-glonimove text-sm text-neutral-500 dark:text-white/50">{label}</p>
+              <p className="mt-2 font-googleSans text-lg font-bold text-neutral-900 dark:text-white">{value}</p>
             </div>
           ))}
         </div>
@@ -347,24 +354,24 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
 
       <section className="mx-auto grid max-w-[1480px] gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:px-10 lg:py-20">
         <article className="min-w-0">
-          <h2 className="font-clofieBold text-4xl font-bold text-white">Product Description</h2>
-          <div className="mt-6 h-1.5 w-full bg-[#d9d9d9]" />
+          <h2 className="font-clofieBold text-4xl font-bold text-neutral-900 dark:text-white">{t("product.descriptionHeader", { fallback: "Product Description" })}</h2>
+          <div className="mt-6 h-1.5 w-full bg-[#153d28] dark:bg-[#d8c79a]" />
 
           {richDescription ? (
-            <div className="mt-8 max-w-5xl font-glonimove text-lg leading-8 text-white/82 [&_h1]:text-white [&_h2]:text-white [&_h2]:font-clofieBold [&_h2]:text-2xl [&_h3]:text-white [&_h3]:font-bold [&_strong]:text-white [&_a]:text-[#d8c79a] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mt-1 [&_p]:mt-4">
+            <div className="mt-8 max-w-5xl font-glonimove text-lg leading-8 text-neutral-700 dark:text-white/80 [&_h1]:text-neutral-900 dark:[&_h1]:text-white [&_h2]:text-neutral-900 dark:[&_h2]:text-white [&_h2]:font-clofieBold [&_h2]:text-2xl [&_h3]:text-neutral-900 dark:[&_h3]:text-white [&_h3]:font-bold [&_strong]:text-neutral-900 dark:[&_strong]:text-white [&_a]:text-[#153d28] dark:[&_a]:text-[#d8c79a] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mt-1 [&_p]:mt-4 transition-colors">
               <ProductMarkdown content={richDescription} />
             </div>
           ) : descriptionBlocks.fallback ? (
-            <p className="mt-8 max-w-4xl font-glonimove text-lg leading-8 text-white/78">
-              {DESCRIPTION_FALLBACK}
+            <p className="mt-8 max-w-4xl font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/80 transition-colors">
+              {t("product.descriptionFallback", { fallback: DESCRIPTION_FALLBACK })}
             </p>
           ) : (
             <div className="mt-8 max-w-5xl">
               {descriptionBlocks.blocks.map((block, index) => {
                 if (block.kind === "heading") {
                   return (
-                    <div key={index} className="mt-10 border-l-4 border-[#d8c79a] pl-4 first:mt-0">
-                      <h3 className="font-googleSans text-2xl font-bold leading-tight text-white">
+                    <div key={index} className="mt-10 border-l-4 border-[#153d28] dark:border-[#d8c79a] pl-4 first:mt-0 transition-colors">
+                      <h3 className="font-googleSans text-2xl font-bold leading-tight text-neutral-900 dark:text-white">
                         {block.text}
                       </h3>
                     </div>
@@ -374,7 +381,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                   return (
                     <p
                       key={index}
-                      className="mt-4 font-glonimove text-lg leading-8 text-white/78"
+                      className="mt-4 font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/80 transition-colors"
                     >
                       <LeadParagraph text={block.text} emphasizeLead={index === 0} />
                     </p>
@@ -382,25 +389,25 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                 }
                 if (block.kind === "table") {
                   return (
-                    <div key={index} className="mt-8 overflow-hidden border border-white/12 bg-[#232323]">
-                      <div className="border-b border-white/10 bg-[#1f1f1f] px-5 py-4">
-                        <h3 className="font-googleSans text-xl font-bold text-white">
+                    <div key={index} className="mt-8 overflow-hidden border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#1e1e1e] shadow-sm rounded transition-colors">
+                      <div className="border-b border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-[#2a2a2a] px-5 py-4 transition-colors">
+                        <h3 className="font-googleSans text-xl font-bold text-neutral-800 dark:text-white">
                           {block.title}
                         </h3>
                       </div>
                       <div className="overflow-x-auto">
                         <table className="w-full min-w-[560px] border-collapse text-left">
                           <caption className="sr-only">{block.title}</caption>
-                          <tbody className="divide-y divide-white/10">
+                          <tbody className="divide-y divide-neutral-200 dark:divide-white/10">
                             {block.rows.map((row) => (
                               <tr key={`${row.label}-${row.value}`}>
                                 <th
                                   scope="row"
-                                  className="w-[34%] bg-white/[0.03] px-5 py-3 align-top font-googleSans text-[13px] font-bold text-[#d8c79a]"
+                                  className="w-[34%] bg-neutral-50/50 dark:bg-white/3 px-5 py-3 align-top font-googleSans text-[13px] font-bold text-[#153d28] dark:text-[#d8c79a] transition-colors"
                                 >
-                                  {row.label}
+                                  {translateSpecLabel(row.label, t)}
                                 </th>
-                                <td className="px-5 py-3 align-top font-glonimove text-[15px] leading-7 text-white/84">
+                                <td className="px-5 py-3 align-top font-glonimove text-[15px] leading-7 text-neutral-700 dark:text-white/80">
                                   {row.value}
                                 </td>
                               </tr>
@@ -416,12 +423,12 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                     {block.items.map((feature, i) => (
                       <li
                         key={i}
-                        className="flex gap-3 font-glonimove text-lg leading-8 text-white/78"
+                        className="flex gap-3 font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/80"
                       >
-                        <span className="mt-3 h-2 w-2 shrink-0 bg-[#d8c79a]" />
+                        <span className="mt-3 h-2 w-2 shrink-0 bg-[#153d28] dark:bg-[#d8c79a]" />
                         <span>
                           {feature.title && (
-                            <strong className="font-googleSans font-bold text-white">
+                            <strong className="font-googleSans font-bold text-neutral-900 dark:text-white">
                               {feature.title}.{" "}
                             </strong>
                           )}
@@ -436,11 +443,11 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           )}
 
           <div className="mt-10">
-            <h3 className="font-googleSans text-2xl font-bold text-white">Common Applications</h3>
+            <h3 className="font-googleSans text-2xl font-bold text-neutral-900 dark:text-white">{t("product.commonApplications", { fallback: "Common Applications" })}</h3>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {product.applications.map((application) => (
-                <li key={application} className="flex gap-3 font-glonimove text-white/76">
-                  <span className="mt-2 h-2 w-2 shrink-0 bg-[#d8c79a]" />
+                <li key={application} className="flex gap-3 font-glonimove text-neutral-650 dark:text-white/80">
+                  <span className="mt-2 h-2 w-2 shrink-0 bg-[#153d28] dark:bg-[#d8c79a]" />
                   <span>{application}</span>
                 </li>
               ))}
@@ -448,36 +455,36 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           </div>
         </article>
 
-        <aside className="border-t border-white/18 pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-          <h2 className="font-clofieBold text-4xl font-bold text-white">Need Help?</h2>
-          <div className="mt-6 h-1.5 w-full bg-[#d9d9d9]" />
+        <aside className="border-t lg:border-t-0 border-neutral-200 dark:border-white/10 pt-8 lg:border-l lg:border-t-0 lg:border-neutral-200 lg:dark:border-white/10 lg:pl-8 lg:pt-0">
+          <h2 className="font-clofieBold text-4xl font-bold text-neutral-900 dark:text-white">{t("product.needHelp", { fallback: "Need Help?" })}</h2>
+          <div className="mt-6 h-1.5 w-full bg-[#153d28] dark:bg-[#d8c79a]" />
           <div className="mt-8 space-y-8">
             <div>
-              <h3 className="font-googleSans text-2xl font-bold text-white">Product Help</h3>
-              <Link to={`/contact?product=${product.id}&brand=typhon`} className="mt-3 block font-glonimove text-xl text-[#e8e8e8] hover:text-[#d8c79a]">
-                Request configuration support
+              <h3 className="font-googleSans text-2xl font-bold text-neutral-800 dark:text-white">{t("product.productHelp", { fallback: "Product Help" })}</h3>
+              <Link to={`/contact?product=${product.id}&brand=typhon`} className="mt-3 block font-glonimove text-xl text-neutral-600 dark:text-white/70 hover:text-[#153d28] dark:hover:text-[#d8c79a] transition-colors">
+                {t("product.requestSupport", { fallback: "Request configuration support" })}
               </Link>
             </div>
             <div>
-              <h3 className="font-googleSans text-2xl font-bold text-white">Compare Category</h3>
-              <Link to={`/typhon-machinery?category=${product.category}`} className="mt-3 block font-glonimove text-xl text-[#e8e8e8] hover:text-[#d8c79a]">
-                View {product.categoryLabel} models
+              <h3 className="font-googleSans text-2xl font-bold text-neutral-800 dark:text-white">{t("product.compareCategory", { fallback: "Compare Category" })}</h3>
+              <Link to={`/typhon-machinery?category=${product.category}`} className="mt-3 block font-glonimove text-xl text-neutral-600 dark:text-white/70 hover:text-[#153d28] dark:hover:text-[#d8c79a] transition-colors">
+                {t("product.viewCategoryModels", { values: { category: t(`category.${product.category}`, { fallback: product.categoryLabel }) }, fallback: `View ${product.categoryLabel} models` })}
               </Link>
             </div>
             <div>
-              <h3 className="font-googleSans text-2xl font-bold text-white">Product Source</h3>
+              <h3 className="font-googleSans text-2xl font-bold text-neutral-800 dark:text-white">{t("product.productSource", { fallback: "Product Source" })}</h3>
               {product.sourceUrl ? (
                 <a
                   href={product.sourceUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 block font-glonimove text-xl text-[#e8e8e8] hover:text-[#d8c79a]"
+                  className="mt-3 block font-glonimove text-xl text-neutral-600 dark:text-white/70 hover:text-[#153d28] dark:hover:text-[#d8c79a] transition-colors"
                 >
-                  View original Typhon record
+                  {t("product.viewOriginalRecord", { fallback: "View original Typhon record" })}
                 </a>
               ) : (
-                <p className="mt-3 font-glonimove text-lg leading-7 text-[#e8e8e8]">
-                  Imported from the Typhon Machinery CSV.
+                <p className="mt-3 font-glonimove text-lg leading-7 text-neutral-600 dark:text-white/60">
+                  {t("product.importedFromCsv", { fallback: "Imported from the Typhon Machinery CSV." })}
                 </p>
               )}
             </div>
@@ -488,19 +495,19 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
       <MachineComparison
         current={toComparable(product)}
         candidates={comparisonCandidates}
-        categoryLabel={product.categoryLabel}
+        categoryLabel={t(`category.${product.category}`, { fallback: product.categoryLabel })}
         variant="typhon"
-        buyLabel="View Product"
+        buyLabel={t("action.viewProduct", { fallback: "View Product" })}
       />
 
       <section className="mx-auto max-w-[1480px] px-4 pb-16 sm:px-6 lg:px-10 lg:pb-24">
-        <div className="flex flex-col justify-between gap-4 border-t border-white/14 pt-10 sm:flex-row sm:items-end">
+        <div className="flex flex-col justify-between gap-4 border-t border-neutral-200 dark:border-white/10 pt-10 sm:flex-row sm:items-end">
           <div>
-            <h2 className="font-clofieBold text-4xl font-bold text-white">Related Products</h2>
-            <p className="mt-2 font-glonimove text-white/64">Typhon products from the same category and product type appear first.</p>
+            <h2 className="font-clofieBold text-4xl font-bold text-neutral-900 dark:text-white">{t("product.relatedProducts", { fallback: "Related Products" })}</h2>
+            <p className="mt-2 font-glonimove text-neutral-500 dark:text-white/60">{t("product.relatedProductsSub", { fallback: "Typhon products from the same category and product type appear first." })}</p>
           </div>
-          <Link to="/typhon-machinery" className="font-googleSans text-sm font-bold uppercase text-[#d8c79a] hover:text-white">
-            View Typhon Catalog
+          <Link to="/typhon-machinery" className="font-googleSans text-sm font-bold uppercase text-[#8c7a52] dark:text-[#d8c79a] hover:text-[#153d28] dark:hover:text-white transition-colors">
+            {t("product.viewCatalog", { fallback: "View Typhon Catalog" })}
           </Link>
         </div>
 

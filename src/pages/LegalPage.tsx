@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../context/I18nContext";
 
 type LegalPageKind = "privacy" | "policy";
 
@@ -47,6 +48,7 @@ const pageContent: Record<LegalPageKind, { title: string; intro: string; section
 };
 
 export const LegalPage: React.FC<LegalPageProps> = ({ kind }) => {
+  const { t } = useI18n();
   const content = pageContent[kind];
 
   return (
@@ -59,19 +61,19 @@ export const LegalPage: React.FC<LegalPageProps> = ({ kind }) => {
           KonstructZ
         </Link>
         <h1 className="mt-6 font-heading text-5xl uppercase tracking-wide text-theme-heading sm:text-6xl">
-          {content.title}
+          {t(`legal.${kind}.title`, { fallback: content.title })}
         </h1>
         <p className="mt-5 max-w-2xl font-glonimove text-lg leading-8 text-theme-muted">
-          {content.intro}
+          {t(`legal.${kind}.intro`, { fallback: content.intro })}
         </p>
         <div className="mt-12 divide-y divide-theme-border/30 border-y border-theme-border/30">
-          {content.sections.map((section) => (
+          {content.sections.map((section, index) => (
             <section key={section.title} className="py-8">
               <h2 className="font-googleSans text-base font-bold uppercase tracking-[0.14em] text-theme-heading">
-                {section.title}
+                {t(`legal.${kind}.section.${index}.title`, { fallback: section.title })}
               </h2>
               <p className="mt-4 font-glonimove text-base leading-8 text-theme-muted">
-                {section.body}
+                {t(`legal.${kind}.section.${index}.body`, { fallback: section.body })}
               </p>
             </section>
           ))}
@@ -80,7 +82,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ kind }) => {
           to="/contact"
           className="mt-10 inline-flex min-h-[46px] items-center justify-center bg-theme-accent px-6 font-googleSans text-sm font-bold uppercase tracking-[0.12em] text-theme-bg transition-colors hover:bg-brand-green hover:text-white"
         >
-          Contact Us
+          {t("nav.contactUs", { fallback: "Contact Us" })}
         </Link>
       </div>
     </main>

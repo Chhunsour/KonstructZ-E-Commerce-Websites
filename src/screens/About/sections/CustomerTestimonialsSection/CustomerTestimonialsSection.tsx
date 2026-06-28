@@ -20,41 +20,42 @@ const Stars: React.FC<{ rating: number }> = ({ rating }) => {
   );
 };
 
-const testimonials = [
-  {
-    id: 1,
-    rating: 5.0,
-    ratingText: "5.0 / 5.0 Review",
-    title: "Seamless Online Purchase",
-    body: "We ordered the Stomp V980 loader directly through their online checkout. The financing approval took minutes, and the machine was delivered to our site fully ready for deployment.",
-    author: "John Mirkant",
-    role: "Operations Manager",
-    leftOffset: "0px",
-  },
-  {
-    id: 2,
-    rating: 4.8,
-    ratingText: "4.8 / 5.0 Review",
-    title: "Easy E-Commerce Compatibility",
-    body: "Finding attachment options on this digital store is incredibly easy. We bought a trenching bucket online and had it shipped to our site. The specs check tool is 100% accurate.",
-    author: "Sarah Jenkins",
-    role: "Site Supervisor",
-    leftOffset: "484px",
-  },
-  {
-    id: 3,
-    rating: 4.9,
-    ratingText: "4.9 / 5.0 Review",
-    title: "Fast Online Orders & Tracking",
-    body: "Ordering heavy equipment online felt risky, but the support chat helped us select the right model. Secure checkout, easy real-time tracking, and fast delivery direct to our yard.",
-    author: "Mateo Silva",
-    role: "Contractor",
-    leftOffset: "969px",
-  },
-];
-
 export const CustomerTestimonialsSection = (): JSX.Element => {
   const { t } = useI18n();
+
+  const testimonials = [
+    {
+      id: 1,
+      rating: 5.0,
+      ratingText: "5.0 / 5.0 Review",
+      title: t("about.testimonial.1.title", { fallback: "Seamless Online Purchase" }),
+      body: t("about.testimonial.1.body", { fallback: "We ordered the Stomp V980 loader directly through their online checkout. The financing approval took minutes, and the machine was delivered to our site fully ready for deployment." }),
+      author: "John Mirkant",
+      role: t("about.role.opsManager", { fallback: "Operations Manager" }),
+      leftOffset: "0px",
+    },
+    {
+      id: 2,
+      rating: 4.8,
+      ratingText: "4.8 / 5.0 Review",
+      title: t("about.testimonial.2.title", { fallback: "Easy E-Commerce Compatibility" }),
+      body: t("about.testimonial.2.body", { fallback: "Finding attachment options on this digital store is incredibly easy. We bought a trenching bucket online and had it shipped to our site. The specs check tool is 100% accurate." }),
+      author: "Sarah Jenkins",
+      role: t("about.role.siteSupervisor", { fallback: "Site Supervisor" }),
+      leftOffset: "484px",
+    },
+    {
+      id: 3,
+      rating: 4.9,
+      ratingText: "4.9 / 5.0 Review",
+      title: t("about.testimonial.3.title", { fallback: "Fast Online Orders & Tracking" }),
+      body: t("about.testimonial.3.body", { fallback: "Ordering heavy equipment online felt risky, but the support chat helped us select the right model. Secure checkout, easy real-time tracking, and fast delivery direct to our yard." }),
+      author: "Mateo Silva",
+      role: t("about.role.contractor", { fallback: "Contractor" }),
+      leftOffset: "969px",
+    },
+  ];
+
   return (
     <section
       className="absolute top-[4785px] left-[260px] w-[1430px] h-[550px]"
@@ -70,7 +71,7 @@ export const CustomerTestimonialsSection = (): JSX.Element => {
       {/* Trust Rating Summary */}
       <div className="absolute top-[80px] left-0 flex items-center justify-between w-full border-b border-theme-border/20 pb-6">
         <p className="font-glonimove text-theme-text text-xl">
-          Rated 4.7 / 5 based on 28,370 reviews Showing our 4 &amp; 5 star reviews
+          {t("about.rated.4.7", { fallback: "Rated 4.7 / 5 based on 28,370 reviews Showing our 4 & 5 star reviews" })}
         </p>
         <img
           className="h-[30px] w-auto dark:opacity-100 opacity-80"

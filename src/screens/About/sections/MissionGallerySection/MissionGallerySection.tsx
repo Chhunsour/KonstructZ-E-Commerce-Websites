@@ -5,11 +5,7 @@ export const MissionGallerySection = (): JSX.Element => {
   const missionCards = [
     {
       id: "road-ironing-or-compaction",
-      title: (
-        <>{t("auto.missiongallery.road.ironing")}<br />
-  or&nbsp;&nbsp;Compaction
-        </>
-  ),
+      title: t("auto.mobileabout.road.ironing.or", { fallback: "Road Compaction / Ironing" }),
       image: "/img/chatgpt-image-jun-11-2026-09-17-59-am-1.png",
       className:
         "absolute top-px left-0 w-[343px] h-[343px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-17-59-am-1.png)] bg-cover bg-[50%_50%]",
@@ -18,7 +14,7 @@ export const MissionGallerySection = (): JSX.Element => {
     },
     {
       id: "material-handling-and-lifting",
-      title: <>Material Handling &amp; Lifting</>,
+      title: t("auto.mobileabout.material.handling.lifting", { fallback: "Material Handling & Lifting" }),
       image: "/img/chatgpt-image-jun-11-2026-09-18-07-am-1.png",
       className:
         "absolute top-px left-[352px] w-[343px] h-[343px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-18-07-am-1.png)] bg-cover bg-[50%_50%]",
@@ -27,7 +23,7 @@ export const MissionGallerySection = (): JSX.Element => {
     },
     {
       id: "vertical-reach-and-maintenance",
-      title: <>{t("auto.missiongallery.vertical.reach.and")}</>,
+      title: t("auto.mobileabout.vertical.reach.and", { fallback: "Vertical Reach & Maintenance" }),
       image: "/img/chatgpt-image-jun-11-2026-09-18-16-am-1.png",
       className:
         "absolute top-px left-[704px] w-[344px] h-[344px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-18-16-am-1.png)] bg-cover bg-[50%_50%]",
@@ -36,7 +32,7 @@ export const MissionGallerySection = (): JSX.Element => {
     },
     {
       id: "bulk-transport-and-stockpiling",
-      title: <>{t("auto.missiongallery.bulk.transport.and")}</>,
+      title: t("auto.mobileabout.bulk.transport.and", { fallback: "Bulk Transport & Stockpiling" }),
       image: "/img/chatgpt-image-jun-11-2026-09-18-20-am-1.png",
       className:
         "absolute top-px left-[1056px] w-[343px] h-[343px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-18-20-am-1.png)] bg-cover bg-[50%_50%]",
@@ -45,7 +41,7 @@ export const MissionGallerySection = (): JSX.Element => {
     },
     {
       id: "stone-and-aggregate-processing",
-      title: <>Stone &amp; Aggregate Processing</>,
+      title: t("auto.mobileabout.stone.aggregate.processing", { fallback: "Stone & Aggregate Processing" }),
       image: "/img/chatgpt-image-jun-11-2026-09-18-31-am-1.png",
       className:
         "absolute top-[351px] left-0 w-[344px] h-[344px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-18-31-am-1.png)] bg-cover bg-[50%_50%]",
@@ -54,9 +50,7 @@ export const MissionGallerySection = (): JSX.Element => {
     },
     {
       id: "heavy-goods-and-pallet-handling",
-      title: (
-        <>{t("auto.missiongallery.heavy.goods")}<br />{t("auto.missiongallery.and.pallet.handling")}</>
-  ),
+      title: t("auto.mobileabout.heavy.goods.and", { fallback: "Heavy Goods & Pallet Handling" }),
       image: "/img/chatgpt-image-jun-11-2026-09-18-23-am-1.png",
       className:
         "absolute top-[351px] left-[352px] w-[343px] h-[343px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-18-23-am-1.png)] bg-cover bg-[50%_50%]",
@@ -65,9 +59,7 @@ export const MissionGallerySection = (): JSX.Element => {
     },
     {
       id: "soil-ripping-and-site-prep",
-      title: (
-        <>{t("auto.missiongallery.soil.ripping")}<br />{t("auto.missiongallery.and.site.prep")}</>
-  ),
+      title: t("auto.mobileabout.soil.ripping.and", { fallback: "Soil Ripping & Site Prep" }),
       image: "/img/chatgpt-image-jun-11-2026-09-18-27-am-1.png",
       className:
         "absolute top-[351px] left-[704px] w-[343px] h-[343px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-18-27-am-1.png)] bg-cover bg-[50%_50%]",
@@ -76,11 +68,7 @@ export const MissionGallerySection = (): JSX.Element => {
     },
     {
       id: "excavation-and-trenching",
-      title: (
-        <>
-  Excavation
-          <br />{t("auto.missiongallery.and.trenching")}</>
-  ),
+      title: t("auto.mobileabout.excavation.and.trenching", { fallback: "Excavation & Trenching" }),
       image: "/img/chatgpt-image-jun-11-2026-09-18-03-am-1.png",
       className:
         "absolute top-[351px] left-[1056px] w-[343px] h-[343px] flex bg-[url(/img/chatgpt-image-jun-11-2026-09-18-03-am-1.png)] bg-cover bg-[50%_50%]",

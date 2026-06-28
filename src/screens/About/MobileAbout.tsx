@@ -84,28 +84,28 @@ export const MobileAbout = (): JSX.Element => {
       id: 1,
       rating: 5.0,
       ratingText: "5.0 / 5.0 Review",
-      title: "Seamless Online Purchase",
-      body: "We ordered the Stomp V980 loader directly through their online checkout. The financing approval took minutes, and the machine was delivered to our site fully ready for deployment.",
+      title: t("about.testimonial.1.title", { fallback: "Seamless Online Purchase" }),
+      body: t("about.testimonial.1.body", { fallback: "We ordered the Stomp V980 loader directly through their online checkout. The financing approval took minutes, and the machine was delivered to our site fully ready for deployment." }),
       author: "John Mirkant",
-      role: "Operations Manager",
+      role: t("about.role.opsManager", { fallback: "Operations Manager" }),
     },
     {
       id: 2,
       rating: 4.8,
       ratingText: "4.8 / 5.0 Review",
-      title: "Easy E-Commerce Compatibility",
-      body: "Finding attachment options on this digital store is incredibly easy. We bought a trenching bucket online and had it shipped to our site. The specs check tool is 100% accurate.",
+      title: t("about.testimonial.2.title", { fallback: "Easy E-Commerce Compatibility" }),
+      body: t("about.testimonial.2.body", { fallback: "Finding attachment options on this digital store is incredibly easy. We bought a trenching bucket online and had it shipped to our site. The specs check tool is 100% accurate." }),
       author: "Sarah Jenkins",
-      role: "Site Supervisor",
+      role: t("about.role.siteSupervisor", { fallback: "Site Supervisor" }),
     },
     {
       id: 3,
       rating: 4.9,
       ratingText: "4.9 / 5.0 Review",
-      title: "Fast Online Orders & Tracking",
-      body: "Ordering heavy equipment online felt risky, but the support chat helped us select the right model. Secure checkout, easy real-time tracking, and fast delivery direct to our yard.",
+      title: t("about.testimonial.3.title", { fallback: "Fast Online Orders & Tracking" }),
+      body: t("about.testimonial.3.body", { fallback: "Ordering heavy equipment online felt risky, but the support chat helped us select the right model. Secure checkout, easy real-time tracking, and fast delivery direct to our yard." }),
       author: "Mateo Silva",
-      role: "Contractor",
+      role: t("about.role.contractor", { fallback: "Contractor" }),
     },
   ];
 
@@ -133,11 +133,7 @@ export const MobileAbout = (): JSX.Element => {
 
       <section className="px-5 py-8 bg-theme-bg transition-colors duration-200">
         <p className="font-glonimove text-theme-text text-base leading-relaxed transition-colors">
-          At Konstructz, we make quality machinery accessible to small
-          businesses and local farmers. With a carefully curated selection of
-          reliable, low-cost equipment, we help projects get done
-          efficiently—without breaking the budget. Based in California, our
-          team is small, agile, and ready to assist 24/7 online.
+          {t("about.mobile.intro", { fallback: "At Konstructz, we make quality machinery accessible to small businesses and local farmers. With a carefully curated selection of reliable, low-cost equipment, we help projects get done efficiently—without breaking the budget. Based in California, our team is small, agile, and ready to assist 24/7 online." })}
         </p>
       </section>
 
@@ -174,18 +170,17 @@ export const MobileAbout = (): JSX.Element => {
       {/* Location & Warehouse */}
       <section className="bg-theme-bg px-5 py-12 transition-colors duration-200">
         <h2 className="font-heading text-theme-heading text-3xl sm:text-4xl mb-4 transition-colors">
-          Our Location &amp; Warehouse
+          {t("about.location.heading", { fallback: "Our Location & Warehouse" })}
         </h2>
         <p className="font-glonimove text-theme-text text-lg sm:text-xl leading-relaxed mb-2 transition-colors">
-          Our main warehouse is located at{" "}
+          {t("about.location.warehouseIntro", { fallback: "Our main warehouse is located at" })}{" "}
           <span className="font-bold text-theme-accent">
             2522 S Malt Ave., Commerce, CA 90040, United States
           </span>
           .
         </p>
         <p className="font-glonimove text-theme-muted text-sm sm:text-base leading-relaxed mb-6 transition-colors">
-          Visit by appointment for yard walkthroughs, equipment demos and depot
-          pickup. Monday–Friday, 8:00 AM – 5:00 PM Pacific.
+          {t("about.location.appointmentDesc", { fallback: "Visit by appointment for yard walkthroughs, equipment demos and depot pickup. Monday–Friday, 8:00 AM – 5:00 PM Pacific." })}
         </p>
 
         {/* Real Google Maps embed */}

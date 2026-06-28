@@ -105,8 +105,8 @@ export const Footer: React.FC<FooterProps> = ({ variant = "default", style }) =>
   ];
 
   const legalLinks: FooterLink[] = [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Policy", href: "/policy" },
+    { label: t("footer.privacy", { fallback: "Privacy" }), href: "/privacy" },
+    { label: t("footer.policy", { fallback: "Policy" }), href: "/policy" },
     { label: t("auto.footer.contact.us"), href: "/contact" },
   ];
 

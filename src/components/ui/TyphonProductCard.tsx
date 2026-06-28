@@ -44,7 +44,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
     const match = product.specs?.find(
       (p) => p.label === spec.label && p.value && p.value.trim()
     );
-    return match ? { label: spec.short, value: match.value.trim() } : null;
+    return match ? { label: t(`spec.${spec.short.toLowerCase()}`, { fallback: spec.short }), value: match.value.trim() } : null;
   })
     .filter((s): s is { label: string; value: string } => s !== null)
     .slice(0, 3);
@@ -79,7 +79,7 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
       <div className="flex flex-col px-4 pb-4 pt-3">
         <div className="flex items-start justify-between gap-3">
           <p className="font-googleSans text-[10px] font-bold uppercase tracking-[0.08em] text-[#68825B]">
-            {product.categoryLabel}
+            {t(`category.${product.category}`, { fallback: product.categoryLabel })}
           </p>
 
           {product.currentPrice && (
@@ -115,20 +115,26 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
         <div className="flex items-stretch gap-2 pt-4">
           <Link
             to={detailHref}
-            aria-label={`View details for ${product.name}`}
+            aria-label={t("product.viewDetailsFor", {
+              values: { name: product.name },
+              fallback: `View details for ${product.name}`,
+            })}
             className="flex h-[38px] flex-1 items-center justify-center gap-1.5 bg-[#153d28] font-googleSans text-[14px] font-medium text-white transition-colors hover:bg-[#0e2b1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#153d28]"
           >
-            <span>View Details</span>
+            <span>{t("action.viewDetails", { fallback: "View Details" })}</span>
             <svg width="9" height="14" viewBox="0 0 9 14" fill="none" aria-hidden="true">
               <path d="M1 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
           <Link
             to={quoteHref}
-            aria-label={`Request quote for ${product.name}`}
+            aria-label={t("product.requestQuoteFor", {
+              values: { name: product.name },
+              fallback: `Request quote for ${product.name}`,
+            })}
             className="flex h-[38px] min-w-[88px] items-center justify-center border border-[#153d28] px-3 font-googleSans text-[14px] font-medium text-[#153d28] transition-colors hover:bg-[#153d28] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#153d28]"
           >
-            Quote
+            {t("action.quote", { fallback: "Quote" })}
           </Link>
         </div>
       </div>

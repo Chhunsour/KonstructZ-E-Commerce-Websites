@@ -12,70 +12,70 @@ export const WarrantyReturns: React.FC = () => {
 
   const coverage = [
     { icon: Icons.warranty, title: t("auto.warrantyreturns.structural.frame"), desc: t("auto.warrantyreturns.reinforced.steel.castings") },
-    { icon: Icons.machine, title: "Powertrain", desc: t("auto.warrantyreturns.industrial.diesel.engine") },
-    { icon: Icons.wrench, title: "Hydraulics", desc: t("auto.warrantyreturns.pumps.valves.and") },
+    { icon: Icons.machine, title: t("warranty.coverage.powertrain.title"), desc: t("auto.warrantyreturns.industrial.diesel.engine") },
+    { icon: Icons.wrench, title: t("warranty.coverage.hydraulics.title"), desc: t("auto.warrantyreturns.pumps.valves.and") },
   ];
 
   const claimSteps = [
     { title: t("auto.warrantyreturns.submit.claim"), desc: t("auto.warrantyreturns.send.your.model") },
-    { title: "Review", desc: t("auto.warrantyreturns.our.service.team") },
-    { title: "Approval", desc: t("auto.warrantyreturns.approved.claims.are") },
-    { title: "Resolution", desc: t("auto.warrantyreturns.replacement.parts.shipped") },
+    { title: t("warranty.claim.review.title"), desc: t("auto.warrantyreturns.our.service.team") },
+    { title: t("warranty.claim.approval.title"), desc: t("auto.warrantyreturns.approved.claims.are") },
+    { title: t("warranty.claim.resolution.title"), desc: t("auto.warrantyreturns.replacement.parts.shipped") },
   ];
 
   const faqs = [
     { q: t("auto.warrantyreturns.what.warranty.comes"), a: t("auto.warrantyreturns.each.machine.includes") },
-    { q: t("auto.warrantyreturns.how.do.i"), a: "Submit your machine model, serial number, and issue details through Contact Support. The service team reviews the case, asks for photos or video if needed, and responds with the next practical step." },
+    { q: t("auto.warrantyreturns.how.do.i"), a: t("warranty.faq.how.a") },
     { q: t("auto.warrantyreturns.am.i.eligible"), a: t("auto.warrantyreturns.unused.units.in") },
     { q: t("auto.warrantyreturns.how.do.replacement"), a: t("auto.warrantyreturns.approved.warranty.parts") },
     { q: t("auto.warrantyreturns.does.the.warranty"), a: t("auto.warrantyreturns.routine.wear.items") },
-    { q: "What documentation do I need on file?", a: "Keep your original invoice, the machine's serial number, and your delivery receipt. These three documents let us validate any claim quickly without back-and-forth." },
-    { q: "Can I transfer the warranty when I sell the machine?", a: "Warranty coverage is tied to the original purchase. Talk to our service team if you are selling — depending on the unit's age and condition we can sometimes assign the remaining term to the new owner." },
+    { q: t("warranty.faq.docs.q"), a: t("warranty.faq.docs.a") },
+    { q: t("warranty.faq.transfer.q"), a: t("warranty.faq.transfer.a") },
   ];
 
   const stats = [
-    { value: "Frame", label: "Structural Cover", sub: "Reinforced castings & chassis" },
-    { value: "Engine", label: "Powertrain Cover", sub: "Industrial diesel & drive" },
-    { value: "Hydraulics", label: "System Cover", sub: "Pumps, valves & cylinders" },
-    { value: "Direct", label: "Claim Support", sub: "Service team coordinates the case" },
+    { value: t("warranty.stat.frame.val"), label: t("warranty.stat.frame.lbl"), sub: t("warranty.stat.frame.sub") },
+    { value: t("warranty.stat.engine.val"), label: t("warranty.stat.engine.lbl"), sub: t("warranty.stat.engine.sub") },
+    { value: t("warranty.stat.hydraulics.val"), label: t("warranty.stat.hydraulics.lbl"), sub: t("warranty.stat.hydraulics.sub") },
+    { value: t("warranty.stat.direct.val"), label: t("warranty.stat.direct.lbl"), sub: t("warranty.stat.direct.sub") },
   ];
 
   const claimJourney = [
-    { icon: Icons.doc, title: "Open a claim", desc: "Send model, serial, purchase date, and a description of the issue through the contact form or call our service line." },
-    { icon: Icons.search, title: "Service review", desc: "Our service team reviews your claim, asks for photos or a short video if needed, and confirms what the warranty covers." },
-    { icon: Icons.check, title: "Approval & plan", desc: "Once approved, you get a plan: parts shipped, partner service scheduled where available, or a remote troubleshooting walkthrough." },
-    { icon: Icons.truck, title: "Parts or service", desc: "Genuine replacement parts ship from our warehouse, or a service appointment is scheduled with one of our partners in your region." },
-    { icon: Icons.wrench, title: "Repair & verify", desc: "After the repair, we verify the unit is operating normally and close out the claim with documentation for your records." },
+    { icon: Icons.doc, title: t("warranty.journey.step1.lbl"), desc: t("warranty.journey.step1.sub") },
+    { icon: Icons.search, title: t("warranty.journey.step2.lbl"), desc: t("warranty.journey.step2.sub") },
+    { icon: Icons.check, title: t("warranty.journey.step3.lbl"), desc: t("warranty.journey.step3.sub") },
+    { icon: Icons.truck, title: t("warranty.journey.step4.lbl"), desc: t("warranty.journey.step4.sub") },
+    { icon: Icons.wrench, title: t("warranty.journey.step5.lbl"), desc: t("warranty.journey.step5.sub") },
   ];
 
   const includedExcluded = {
     left: {
-      title: "Covered by warranty",
+      title: t("warranty.included.title"),
       items: [
-        "Manufacturing defects in the frame and chassis",
-        "Diesel engine and drivetrain failures under normal operation",
-        "Hydraulic pumps, valves and cylinders under spec load",
-        "Electrical harness and control modules (where fitted)",
-        "Cracks or weld failures from manufacturing defects",
+        t("warranty.included.item1"),
+        t("warranty.included.item2"),
+        t("warranty.included.item3"),
+        t("warranty.included.item4"),
+        t("warranty.included.item5"),
       ],
     },
     right: {
-      title: "Not covered (maintenance items)",
+      title: t("warranty.excluded.title"),
       items: [
-        "Routine wear: filters, fluids, teeth, cutting edges",
-        "Damage from operating outside the published spec",
-        "Cosmetic wear, scratches, paint chips, or rust",
-        "Modifications or non-genuine parts installed by third parties",
-        "Improper storage damage (corrosion, freeze damage, rodents)",
+        t("warranty.excluded.item1"),
+        t("warranty.excluded.item2"),
+        t("warranty.excluded.item3"),
+        t("warranty.excluded.item4"),
+        t("warranty.excluded.item5"),
       ],
     },
   };
 
   const trust = [
-    { icon: Icons.shield, label: "Direct From Maker", sub: "No outsourced warranty middlemen" },
-    { icon: Icons.bolt, label: "Responsive Review", sub: "Claims routed to the service team" },
-    { icon: Icons.wrench, label: "Parts Support", sub: "Replacement path confirmed per claim" },
-    { icon: Icons.doc, label: "Documented Closure", sub: "Every repair logged for your records" },
+    { icon: Icons.shield, label: t("warranty.trust.maker.lbl"), sub: t("warranty.trust.maker.sub") },
+    { icon: Icons.bolt, label: t("warranty.trust.review.lbl"), sub: t("warranty.trust.review.sub") },
+    { icon: Icons.wrench, label: t("warranty.trust.support.lbl"), sub: t("warranty.trust.support.sub") },
+    { icon: Icons.doc, label: t("warranty.trust.closure.lbl"), sub: t("warranty.trust.closure.sub") },
   ];
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -114,9 +114,9 @@ export const WarrantyReturns: React.FC = () => {
 
       <Section>
         <SectionHeading
-          eyebrow="Coverage Detail"
-          title="What's Included, What's Maintenance"
-          description="Heavy machinery needs regular maintenance — that is the operator's responsibility. The warranty covers what the machine cannot ask of you."
+          eyebrow={t("warranty.detail.eyebrow")}
+          title={t("warranty.detail.title", { fallback: "What's Included, What's Maintenance" })}
+          description={t("warranty.detail.description", { fallback: "Heavy machinery needs regular maintenance — that is the operator's responsibility. The warranty covers what the machine cannot ask of you." })}
         />
         <div className="mt-12">
           <TwoColumnList left={includedExcluded.left} right={includedExcluded.right} />
@@ -124,17 +124,17 @@ export const WarrantyReturns: React.FC = () => {
         <div className="mt-10 max-w-3xl mx-auto">
           <Callout
             tone="info"
-            title="Service intervals matter"
-            body="Following the maintenance schedule in your operator's manual is part of keeping warranty coverage valid. Save your service receipts — they help if a powertrain or hydraulic claim is ever submitted."
+            title={t("warranty.detail.callout.title", { fallback: "Service intervals matter" })}
+            body={t("warranty.detail.callout.body", { fallback: "Following the maintenance schedule in your operator's manual is part of keeping warranty coverage valid. Save your service receipts — they help if a powertrain or hydraulic claim is ever submitted." })}
           />
         </div>
       </Section>
 
       <Section variant="secondary" bordered>
         <SectionHeading
-          eyebrow="Service Promise"
-          title="What You Can Expect From Us"
-          description="Warranty support should feel clear, documented, and practical from the first claim note to the final repair record."
+          eyebrow={t("warranty.promise.eyebrow")}
+          title={t("warranty.promise.title", { fallback: "What You Can Expect From Us" })}
+          description={t("warranty.promise.description", { fallback: "Warranty support should feel clear, documented, and practical from the first claim note to the final repair record." })}
         />
         <div className="mt-12"><TrustStrip items={trust} /></div>
       </Section>
@@ -149,18 +149,18 @@ export const WarrantyReturns: React.FC = () => {
 
       <Section variant="secondary" bordered>
         <SectionHeading
-          eyebrow="End-to-End Claim Journey"
-          title="From First Issue To Closed Case"
-          description="The full lifecycle of a warranty claim, mapped out so you know what to expect at every stage."
+          eyebrow={t("warranty.journey.eyebrow")}
+          title={t("warranty.journey.title", { fallback: "From First Issue To Closed Case" })}
+          description={t("warranty.journey.description", { fallback: "The full lifecycle of a warranty claim, mapped out so you know what to expect at every stage." })}
         />
         <div className="mt-14"><Timeline items={claimJourney} /></div>
       </Section>
 
       <ImageBand
         image="/img/support/factory-worker.png"
-        eyebrow="Built To Be Repairable"
-        title="Heavy Castings, Honest Hydraulics, Simple Service"
-        body="Konstructz machines are selected for serviceable layouts, accessible components, and practical troubleshooting. When something needs attention, the support path is documented before work begins."
+        eyebrow={t("warranty.repairable.eyebrow")}
+        title={t("warranty.repairable.title", { fallback: "Heavy Castings, Honest Hydraulics, Simple Service" })}
+        body={t("warranty.repairable.body", { fallback: "Konstructz machines are selected for serviceable layouts, accessible components, and practical troubleshooting. When something needs attention, the support path is documented before work begins." })}
         tone="green"
       />
 
@@ -175,17 +175,17 @@ export const WarrantyReturns: React.FC = () => {
         <div className="mt-12 max-w-3xl mx-auto">
           <Callout
             tone="warning"
-            title="Operated machines are not returnable"
-            body="Once a machine has been fueled, started, and operated on a job site, it is no longer eligible for return. Use our pre-purchase guidance to make sure the configuration is right before delivery."
+            title={t("warranty.claim.returnsBadge")}
+            body={t("warranty.claim.returnsBody", { fallback: "Once a machine has been fueled, started, and operated on a job site, it is no longer eligible for return. Use our pre-purchase guidance to make sure the configuration is right before delivery." })}
           />
         </div>
       </Section>
 
       <Section variant="secondary" bordered>
         <SectionHeading
-          eyebrow="Day-to-Day Resources"
-          title="Supporting Tools"
-          description="The three resources we use most often when working with owners through a claim."
+          eyebrow={t("warranty.resources.eyebrow")}
+          title={t("warranty.resources.title", { fallback: "Supporting Tools" })}
+          description={t("warranty.resources.description", { fallback: "The three resources we use most often when working with owners through a claim." })}
         />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
           <InfoCard icon={Icons.wrench} title={t("auto.warrantyreturns.replacement.procedure")} desc={t("auto.warrantyreturns.approved.parts.ship")} />
@@ -201,9 +201,9 @@ export const WarrantyReturns: React.FC = () => {
 
       <Section variant="secondary" bordered>
         <SectionHeading
-          eyebrow="Submit A Claim"
-          title="Three Ways To Reach Service"
-          description="The fastest path is the phone — but every channel reaches the same team."
+          eyebrow={t("warranty.claim.eyebrow")}
+          title={t("warranty.claim.title", { fallback: "Three Ways To Reach Service" })}
+          description={t("warranty.claim.description", { fallback: "The fastest path is the phone — but every channel reaches the same team." })}
         />
         <div className="mt-10"><ContactStrip /></div>
       </Section>

@@ -23,9 +23,9 @@ export const Attachments: React.FC = () => {
     {
       id: "auger-drive",
       name: t("auto.attachments.planetary.auger.drives"),
-      category: "Drilling",
+      category: t("attachments.category.drilling", { fallback: "Drilling" }),
       image: "https://c.animaapp.com/9h31joeZ/img/new-project--19--3@2x.png",
-      tagline: "High-torque gears for deep boring operations",
+      tagline: t("attachments.item.auger.tagline", { fallback: "High-torque gears for deep boring operations" }),
       specs: [
         { label: t("auto.attachments.mount.type"), value: t("auto.attachments.universal.quick.attach") },
         { label: t("auto.attachments.max.torque"), value: "2,800 Nm (2,065 ft-lbs)" },
@@ -35,20 +35,20 @@ export const Attachments: React.FC = () => {
     {
       id: "excavator-thumb",
       name: t("auto.attachments.hydraulic.excavator.thumbs"),
-      category: "Handling",
-      image: "https://c.animaapp.com/9h31joeZ/img/new-project--16--2@2x.png", // Reusing styling assets
+      category: t("attachments.category.handling", { fallback: "Handling" }),
+      image: "https://c.animaapp.com/9h31joeZ/img/new-project--16--2@2x.png",
       tagline: t("auto.attachments.heavy.steel.clamp"),
       specs: [
-        { label: "Material", value: "High-Tensile Hardox Steel" },
-        { label: "Operation", value: t("auto.attachments.hydraulic.cylinder.dual") },
-        { label: "Compatibility", value: t("auto.attachments.kuvuo.and.scoopydig") },
+        { label: t("attachments.spec.material", { fallback: "Material" }), value: t("attachments.spec.material.value", { fallback: "High-Tensile Hardox Steel" }) },
+        { label: t("attachments.spec.operation", { fallback: "Operation" }), value: t("auto.attachments.hydraulic.cylinder.dual") },
+        { label: t("attachments.spec.compatibility", { fallback: "Compatibility" }), value: t("auto.attachments.kuvuo.and.scoopydig") },
       ],
     },
     {
       id: "concrete-breaker",
       name: t("auto.attachments.hydraulic.hammers.breakers"),
-      category: "Demolition",
-      image: "https://c.animaapp.com/9h31joeZ/img/groundripper-png-4@2x.png", // Reusing styling assets
+      category: t("attachments.category.demolition", { fallback: "Demolition" }),
+      image: "https://c.animaapp.com/9h31joeZ/img/groundripper-png-4@2x.png",
       tagline: t("auto.attachments.carving.concrete.pavement"),
       specs: [
         { label: t("auto.attachments.impact.rate"), value: "500 - 1,200 bpm" },
@@ -59,8 +59,8 @@ export const Attachments: React.FC = () => {
     {
       id: "skeleton-bucket",
       name: t("auto.attachments.skeleton.aggregates.buckets"),
-      category: "Sorting",
-      image: "https://c.animaapp.com/9h31joeZ/img/mini-excavator-png-4-1.png", // Reusing styling assets
+      category: t("attachments.category.sorting", { fallback: "Sorting" }),
+      image: "https://c.animaapp.com/9h31joeZ/img/mini-excavator-png-4-1.png",
       tagline: t("auto.attachments.sift.soil.and"),
       specs: [
         { label: t("auto.attachments.sieve.opening"), value: "3\" x 3\" (75mm) Grid" },
@@ -80,7 +80,7 @@ export const Attachments: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-heading uppercase tracking-wide">{t("auto.attachments.engineered.attachments")}</h1>
           <div className="w-16 h-1 bg-brand-green mx-auto my-2" />
           <p className="text-neutral-600 font-glonimove text-base leading-relaxed">
-            Expand what your loader, skid steer or excavator can do. Konstructz attachments are engineered around real jobsite wear, matched coupler setups, and hydraulic fitment checks so you can move between digging, lifting, breaking and sorting with confidence.
+            {t("attachments.introText", { fallback: "Expand what your loader, skid steer or excavator can do. Konstructz attachments are engineered around real jobsite wear, matched coupler setups, and hydraulic fitment checks so you can move between digging, lifting, breaking and sorting with confidence." })}
           </p>
         </div>
 
@@ -146,31 +146,31 @@ export const Attachments: React.FC = () => {
 
         <AttachmentInfo
           scope="machine"
-          intro="An attachment is the difference between a one-job machine and a multi-job machine. The right work tool turns the same loader or excavator into a trencher, breaker, auger drill, grapple, or material sorter — so you get more billable hours per machine and spend less on rental, transport and fleet count."
+          intro={t("attachments.info.intro", { fallback: "An attachment is the difference between a one-job machine and a multi-job machine. The right work tool turns the same loader or excavator into a trencher, breaker, auger drill, grapple, or material sorter — so you get more billable hours per machine and spend less on rental, transport and fleet count." })}
           benefits={[
-            "High-tensile wear steel built for continuous daily cycles",
-            "Quick-attach and pin-on options matched to machine setup",
-            "Sized to common machine flow and pressure classes",
-            "Replaceable wear edges and teeth to extend service life",
-            "Backed by the Konstructz parts and support team",
+            t("attachments.info.benefit.1", { fallback: "High-tensile wear steel built for continuous daily cycles" }),
+            t("attachments.info.benefit.2", { fallback: "Quick-attach and pin-on options matched to machine setup" }),
+            t("attachments.info.benefit.3", { fallback: "Sized to common machine flow and pressure classes" }),
+            t("attachments.info.benefit.4", { fallback: "Replaceable wear edges and teeth to extend service life" }),
+            t("attachments.info.benefit.5", { fallback: "Backed by the Konstructz parts and support team" }),
           ]}
-          compatibility="Attachment fit depends on coupler style, pin size, machine weight class, hydraulic flow, pressure range, and any electrical requirements. Before ordering, send us your machine model and we will confirm the safest attachment path."
+          compatibility={t("attachments.info.compatibility", { fallback: "Attachment fit depends on coupler style, pin size, machine weight class, hydraulic flow, pressure range, and any electrical requirements. Before ordering, send us your machine model and we will confirm the safest attachment path." })}
           faqs={[
             {
-              q: "Will Konstructz attachments fit other brands of machine?",
-              a: "Many can be matched across compatible coupler systems. Confirm coupler type, pin size, machine weight class, and hydraulic flow with our team before you order and we will identify the right unit.",
+              q: t("attachments.info.faq.1.q", { fallback: "Will Konstructz attachments fit other brands of machine?" }),
+              a: t("attachments.info.faq.1.a", { fallback: "Many can be matched across compatible coupler systems. Confirm coupler type, pin size, machine weight class, and hydraulic flow with our team before you order and we will identify the right unit." }),
             },
             {
-              q: "What is the difference between standard-flow and high-flow attachments?",
-              a: "Flow classes describe the hydraulic demand of a powered attachment. Running a tool on the wrong hydraulic setup can underperform, overheat oil, or shorten seal life. Always match the attachment to the machine before purchase.",
+              q: t("attachments.info.faq.2.q", { fallback: "What is the difference between standard-flow and high-flow attachments?" }),
+              a: t("attachments.info.faq.2.a", { fallback: "Flow classes describe the hydraulic demand of a powered attachment. Running a tool on the wrong hydraulic setup can underperform, overheat oil, or shorten seal life. Always match the attachment to the machine before purchase." }),
             },
             {
-              q: "Can I run more than one attachment from a single hydraulic line?",
-              a: "Not at the same time. With a quick-coupler you can swap between attachments in minutes — one line, one tool active at a time.",
+              q: t("attachments.info.faq.3.q", { fallback: "Can I run more than one attachment from a single hydraulic line?" }),
+              a: t("attachments.info.faq.3.a", { fallback: "Not at the same time. With a quick-coupler you can swap between attachments in minutes — one line, one tool active at a time." }),
             },
             {
-              q: "Do attachments come with a warranty?",
-              a: "Yes. Konstructz attachments carry a manufacturer warranty against defects. Wear parts (teeth, cutting edges, bits) are consumables and are not covered by the warranty but are kept in stock for fast replacement.",
+              q: t("attachments.info.faq.4.q", { fallback: "Do attachments come with a warranty?" }),
+              a: t("attachments.info.faq.4.a", { fallback: "Yes. Konstructz attachments carry a manufacturer warranty against defects. Wear parts (teeth, cutting edges, bits) are consumables and are not covered by the warranty but are kept in stock for fast replacement." }),
             },
           ]}
         />

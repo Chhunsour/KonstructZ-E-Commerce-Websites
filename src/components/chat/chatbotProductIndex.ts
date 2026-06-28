@@ -326,7 +326,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa",
-    "name": "TYPHON Terror XVIII Capony",
+    "name": "TYPHON Terror XVIII Canopy",
     "brand": "Typhon",
     "category": "Mini Excavator",
     "productType": "equipment",
@@ -377,7 +377,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa",
-    "name": "TYPHON Terror XXV Capony",
+    "name": "TYPHON Terror XXV Canopy",
     "brand": "Typhon",
     "category": "Mini Excavator",
     "productType": "equipment",
@@ -445,7 +445,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine",
-    "name": "TYPHON Terror XVII Capony",
+    "name": "TYPHON Terror XVII Canopy",
     "brand": "Typhon",
     "category": "Mini Excavator",
     "productType": "equipment",
@@ -530,7 +530,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa",
-    "name": "TYPHON Terror X2 Capony",
+    "name": "TYPHON Terror X2 Canopy",
     "brand": "Typhon",
     "category": "Mini Excavator",
     "productType": "equipment",
@@ -1141,14 +1141,14 @@ export const normalizedProducts: NormalizedProduct[] = [
     }
   },
   {
-    "id": "typhon-terror-xviii-capony",
-    "name": "TYPHON Terror XVIII Capony",
+    "id": "typhon-terror-xviii-canopy",
+    "name": "TYPHON Terror XVIII Canopy",
     "brand": "Typhon",
     "category": "Mini Excavator",
     "productType": "equipment",
     "price": "$12 482.40",
-    "url": "/typhon-machinery/typhon-terror-xviii-capony",
-    "image": "/uploads/products/typhon-terror-xviii-capony/typhon-terror-xviii-capony-01.webp",
+    "url": "/typhon-machinery/typhon-terror-xviii-canopy",
+    "image": "/uploads/products/typhon-terror-xviii-canopy/typhon-terror-xviii-canopy-01.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "20.4 HP",
@@ -1226,14 +1226,14 @@ export const normalizedProducts: NormalizedProduct[] = [
     }
   },
   {
-    "id": "typhon-terror-xviii-capony-2",
-    "name": "TYPHON Terror XVIII Capony",
+    "id": "typhon-terror-xviii-canopy-2",
+    "name": "TYPHON Terror XVIII Canopy",
     "brand": "Typhon",
     "category": "Mini Excavator",
     "productType": "equipment",
     "price": "$12 482.40",
-    "url": "/typhon-machinery/typhon-terror-xviii-capony-2",
-    "image": "/uploads/products/typhon-terror-xviii-capony-2/typhon-terror-xviii-capony-2-01.webp",
+    "url": "/typhon-machinery/typhon-terror-xviii-canopy-2",
+    "image": "/uploads/products/typhon-terror-xviii-canopy-2/typhon-terror-xviii-canopy-2-01.webp",
     "specs": {
       "horsepower": null,
       "engine": null,

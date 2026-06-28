@@ -50,7 +50,7 @@ export const AppointmentCTASection = (): JSX.Element => {
             className="mt-[1px] h-24 w-[559px] [font-family:'Readex_Pro',Helvetica] text-[28px] font-semibold leading-[36px] tracking-[0] text-transparent flex flex-wrap items-center"
           >
             <span className="text-white">
-              Make An Appointment or Call Us Now{" "}
+              {t("about.appointment.callNow", { fallback: "Make An Appointment or Call Us Now" })}{" "}
             </span>
             <a
               href="tel:+12132142203"

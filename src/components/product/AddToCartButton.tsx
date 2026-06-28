@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addToCartByEcwidId } from "../../lib/ecwid";
+import { useI18n } from "../../context/I18nContext";
 
 interface AddToCartButtonProps {
   /** The product's Ecwid numeric id (resolved from the SKU→id mapping). */
@@ -12,6 +13,7 @@ interface AddToCartButtonProps {
  * count updates automatically (via the OnCartChanged subscription).
  */
 export const AddToCartButton: React.FC<AddToCartButtonProps> = ({ ecwidId, className = "" }) => {
+  const { t } = useI18n();
   const [state, setState] = useState<"idle" | "adding" | "added" | "error">("idle");
 
   const onClick = async () => {
@@ -29,12 +31,12 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({ ecwidId, class
 
   const label =
     state === "adding"
-      ? "Adding…"
+      ? t("action.cart.adding", { fallback: "Adding…" })
       : state === "added"
-        ? "Added to cart"
+        ? t("action.cart.added", { fallback: "Added to cart" })
         : state === "error"
-          ? "Couldn't add"
-          : "Add to Cart";
+          ? t("action.cart.error", { fallback: "Couldn't add" })
+          : t("action.cart.add", { fallback: "Add to Cart" });
 
   const Icon = () => {
     if (state === "adding")

@@ -57,7 +57,7 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
 
   return (
     <main
-      className="w-full min-w-[1920px] relative bg-theme-bg transition-colors duration-200"
+      className="w-full min-w-[1920px] relative bg-theme-bg text-theme-text transition-colors duration-200"
       data-model-id="2170:5142"
     >
       {/* Static relative container for all the absolutely positioned upper components */}

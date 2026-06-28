@@ -471,14 +471,14 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
 
           {/* Clean modern table: General Machine Overview / Specification Guide */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-glonimoveBold text-[28px] text-[#d8c79a]">
+            <h3 className="font-glonimoveBold text-[28px] text-theme-heading">
               General Machine Overview
             </h3>
             <div className="overflow-x-auto w-full border border-theme-border/20 rounded">
               <table className="min-w-full border-collapse">
                 <thead>
                   <tr className="bg-[#153D28] border-b border-theme-border/20">
-                    <th className="p-4 text-left font-glonimoveBold text-lg text-[#d8c79a] w-1/3">Planning Field</th>
+                    <th className="p-4 text-left font-glonimoveBold text-lg text-theme-heading w-1/3">Planning Field</th>
                     <th className="p-4 text-left font-glonimoveBold text-lg text-white">General Reference</th>
                   </tr>
                 </thead>
@@ -525,7 +525,7 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
 
           <div className="grid grid-cols-2 gap-8">
             <div className="flex flex-col gap-4 p-6 bg-theme-sec/5 border border-theme-border/10 rounded">
-              <h3 className="font-glonimoveBold text-[24px] text-[#d8c79a]">
+              <h3 className="font-glonimoveBold text-[24px] text-theme-heading">
                 Who Should Choose This Machine?
               </h3>
               <p className="font-glonimove text-lg leading-relaxed text-theme-muted">
@@ -534,7 +534,7 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
             </div>
 
             <div className="flex flex-col gap-4 p-6 bg-theme-sec/5 border border-theme-border/10 rounded">
-              <h3 className="font-glonimoveBold text-[24px] text-[#d8c79a]">
+              <h3 className="font-glonimoveBold text-[24px] text-theme-heading">
                 Before You Request A Quote
               </h3>
               <p className="font-glonimove text-lg leading-relaxed text-theme-muted">
@@ -579,7 +579,7 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
           {/* Deployment and Buyer Guidance */}
           <div className="grid grid-cols-2 gap-8">
             <div className="flex flex-col gap-4">
-              <h3 className="font-glonimoveBold text-[24px] text-[#d8c79a]">
+              <h3 className="font-glonimoveBold text-[24px] text-theme-heading">
                 Worksite Deployment Guide
               </h3>
               <p className="font-glonimove text-lg leading-relaxed text-theme-muted">
@@ -588,7 +588,7 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
             </div>
 
             <div className="flex flex-col gap-4">
-              <h3 className="font-glonimoveBold text-[24px] text-[#d8c79a]">
+              <h3 className="font-glonimoveBold text-[24px] text-theme-heading">
                 Buyer Guidance & Selection
               </h3>
               <ul className="list-none flex flex-col gap-2 font-glonimove text-lg text-theme-muted">
@@ -604,7 +604,7 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
 
           {/* Maintenance & Support Guide */}
           <div className="flex flex-col gap-4 p-6 bg-theme-sec/5 border border-theme-border/10 rounded">
-            <h3 className="font-glonimoveBold text-[24px] text-[#d8c79a]">
+            <h3 className="font-glonimoveBold text-[24px] text-theme-heading">
               Support & Maintenance Schedule
             </h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 font-glonimove text-lg text-theme-muted">
@@ -634,7 +634,7 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
 
           {/* Interactive FAQ Accordion */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-glonimoveBold text-[28px] text-[#d8c79a]">
+            <h3 className="font-glonimoveBold text-[28px] text-theme-heading">
               Frequently Asked Questions
             </h3>
             <div className="flex flex-col gap-3">

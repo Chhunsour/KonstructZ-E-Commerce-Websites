@@ -184,8 +184,13 @@ export function getCanonicalProfiles(): CanonicalProfile[] {
     const trackWidth = lookupSpecWithPriority(p, ["Track Width", "Shoe Width"]).value;
     const wheelbase = lookupSpecWithPriority(p, ["Wheelbase"]).value;
     const travelSpeed = lookupSpecWithPriority(p, ["Travel Speed", "Speed"]).value;
-    const cabinType = p.name.toLowerCase().includes("cabin") ? "Enclosed Cabin" : "Open Canopy";
-    const acHeater = p.name.toLowerCase().includes("cabin") ? "Yes (A/C & Heater)" : "No (Open Air)";
+    let cabinType = "Open Station";
+    if (p.name.toLowerCase().includes("cabin")) {
+      cabinType = "Enclosed Cab";
+    } else if (p.name.toLowerCase().includes("canopy") || p.name.toLowerCase().includes("capony")) {
+      cabinType = "ROPS Canopy";
+    }
+    const acHeater = cabinType === "Enclosed Cab" ? "Yes (A/C & Heater)" : "No";
     const batteryInfo = p.name.toLowerCase().includes("electric") ? (lookupSpecWithPriority(p, ["Battery", "Battery Info", "Voltage"]).value !== "Not listed" ? lookupSpecWithPriority(p, ["Battery", "Battery Info", "Voltage"]).value : "60V / 250Ah Lead-Acid") : "Not listed";
 
     // Dynamic Meaning & Application mapping
@@ -231,7 +236,7 @@ export function getCanonicalProfiles(): CanonicalProfile[] {
         biggerOption = "TYPHON Tyrant 17";
         cheaperOption = "TYPHON Terror XX";
         strongerOption = "TYPHON Tyrant 17";
-        if (lowercaseName.includes("capony")) {
+        if (lowercaseName.includes("canopy") || lowercaseName.includes("capony")) {
           cabinOption = "TYPHON Terror XXV Cabin";
         }
       }

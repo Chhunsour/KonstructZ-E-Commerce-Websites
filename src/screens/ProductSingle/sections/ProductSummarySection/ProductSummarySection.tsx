@@ -8,7 +8,7 @@ export const ProductSummarySection = (): JSX.Element => {
       iconSrc: "/img/date-range.svg",
       iconAlt: t("auto.productsummary.date.range"),
       textKey: "service.returnExchange",
-      iconClassName: "mt-[30px] w-[55px] h-[55px] ml-[90px] dark:invert-0 invert opacity-80 dark:opacity-100 transition-all",
+      iconClassName: "mt-[30px] w-[55px] h-[55px] ml-[90px] opacity-80 transition-all",
       textClassName:
         "mt-[45px] w-[389px] h-[33px] ml-[17px] text-theme-text text-3xl whitespace-nowrap [font-family:'Glonimove-Regular',Helvetica] font-normal tracking-[0] leading-[normal] transition-colors",
     },
@@ -16,7 +16,7 @@ export const ProductSummarySection = (): JSX.Element => {
       iconSrc: "/img/user-alt.svg",
       iconAlt: t("auto.productsummary.user.alt"),
       textKey: "service.lifetimeSupport",
-      iconClassName: "mt-[30px] w-[55px] h-[55px] ml-[181px] dark:invert-0 invert opacity-80 dark:opacity-100 transition-all",
+      iconClassName: "mt-[30px] w-[55px] h-[55px] ml-[181px] opacity-80 transition-all",
       textClassName:
         "mt-[45px] w-[361px] h-[33px] ml-[17px] text-theme-text text-3xl whitespace-nowrap [font-family:'Glonimove-Regular',Helvetica] font-normal tracking-[0] leading-[normal] transition-colors",
     },
@@ -24,7 +24,7 @@ export const ProductSummarySection = (): JSX.Element => {
       iconSrc: "/img/package-car.svg",
       iconAlt: t("auto.productsummary.package.car"),
       textKey: "service.freeDelivery",
-      iconClassName: "mt-[15px] w-[72px] h-[72px] ml-[209px] dark:invert-0 invert opacity-80 dark:opacity-100 transition-all",
+      iconClassName: "mt-[15px] w-[72px] h-[72px] ml-[209px] opacity-80 transition-all",
       textClassName:
         "mt-11 w-[186px] h-[33px] ml-[17px] text-theme-text text-3xl whitespace-nowrap [font-family:'Glonimove-Regular',Helvetica] font-normal tracking-[0] leading-[normal] transition-colors",
     },

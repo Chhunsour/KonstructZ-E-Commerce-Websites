@@ -52,10 +52,10 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
   return (
     <section
       aria-labelledby="hero-banner-heading"
-      className="absolute top-[678px] left-0 w-[1920px] h-[1080px] overflow-hidden text-white"
+      className="absolute top-[678px] left-0 w-[1920px] h-[1080px] overflow-hidden text-theme-text"
     >
       <div
-        className="absolute left-0 top-[121px] h-[1557px] w-[1920px] bg-[#282828]"
+        className="absolute left-0 top-[121px] h-[1557px] w-[1920px] bg-theme-bg"
         aria-hidden="true"
       />
       
@@ -92,7 +92,7 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
       <header className="absolute left-[91px] top-[226px]">
         <h2
           id="hero-banner-heading"
-          className="w-[915px] [text-shadow:-6px_5px_10.4px_#00000040] [font-family:'Mission_X-Regular',Helvetica] text-[75px] font-normal leading-[normal] tracking-[0] text-[#d8c79a]"
+          className="w-[915px] [text-shadow:-6px_5px_10.4px_#00000040] [font-family:'Mission_X-Regular',Helvetica] text-[75px] font-normal leading-[normal] tracking-[0] text-theme-heading"
         >
           {product.name.toUpperCase()}
         </h2>
@@ -114,19 +114,19 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
               key={`${spec.label}-${index}`}
               role="listitem"
               aria-label={`${t(specLabelKey(spec.label), { fallback: spec.label })}: ${spec.value}`}
-              className={`absolute top-0 ${leftOffset} h-52 w-[210px] bg-[#1e1e1e] border border-[#d8c79a]/10 aspect-[1.01] flex flex-col items-center justify-between py-5 px-3`}
+              className={`absolute top-0 ${leftOffset} h-52 w-[210px] bg-theme-card border border-theme-border/20 aspect-[1.01] flex flex-col items-center justify-between py-5 px-3 rounded shadow-sm`}
             >
-              <Icon className="w-[88px] h-[88px] text-[#d8c79a]" />
+              <Icon className="w-[88px] h-[88px] text-theme-accent" />
               <div className="flex flex-col items-center text-center w-full mt-2">
                 <span
-                  className="[font-family:'Cal_Sans',Helvetica] text-xl font-normal leading-tight text-white line-clamp-2 break-words w-full"
+                  className="[font-family:'Cal_Sans',Helvetica] text-xl font-normal leading-tight text-theme-text line-clamp-2 break-words w-full"
                   title={spec.value}
                 >
                   {spec.value}
                 </span>
                 {spec.label && (
                   <span
-                    className="mt-1 font-googleSans text-[9px] font-bold uppercase tracking-wider text-neutral-400 truncate w-full"
+                    className="mt-1 font-googleSans text-[9px] font-bold uppercase tracking-wider text-theme-muted truncate w-full"
                     title={t(specLabelKey(spec.label), { fallback: spec.label })}
                   >
                     {t(specLabelKey(spec.label), { fallback: spec.label })}
@@ -139,10 +139,10 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
       </div>
 
       <div className="absolute top-[670px] left-[91px] w-[805px]">
-        <p className="[font-family:'Glonimove-Bold',Helvetica] text-[24px] font-bold leading-[30px] tracking-[0] text-[#d8c79a]">
+        <p className="[font-family:'Glonimove-Bold',Helvetica] text-[24px] font-bold leading-[30px] tracking-[0] text-theme-heading">
           {product.tagline}
         </p>
-        <p className="mt-3 [font-family:'Glonimove-Regular',Helvetica] text-[20px] font-normal leading-[30px] tracking-[0] text-white">
+        <p className="mt-3 [font-family:'Glonimove-Regular',Helvetica] text-[20px] font-normal leading-[30px] tracking-[0] text-theme-text opacity-90">
           {product.description}
         </p>
       </div>
@@ -152,15 +152,15 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
         {/* Get a Quote Button */}
         <Link
           to={`/contact?product=${product.id}`}
-          className="absolute top-0 left-0 w-[220px] h-[50px] flex items-center justify-center bg-[#d8c79a] hover:bg-[#c9b788] transition-colors border-0"
+          className="absolute top-0 left-0 w-[220px] h-[50px] flex items-center justify-center bg-theme-accent hover:bg-theme-accent/90 transition-colors border-0 rounded-[3px] shadow-sm"
           aria-label={t("action.getAQuote")}
         >
           <span className="flex items-center gap-2">
-            <span className="[font-family:'Google_Sans_Flex',Helvetica] font-bold text-[#2f2f2f] text-xl tracking-[-0.24px] leading-none">
+            <span className="[font-family:'Google_Sans_Flex',Helvetica] font-bold text-theme-bg text-xl tracking-[-0.24px] leading-none">
               {t("action.getAQuote")}
             </span>
             <img
-              className="w-6 h-6 object-contain"
+              className="w-6 h-6 object-contain dark:invert-0 invert"
               alt=""
               aria-hidden="true"
               src="/img/message.svg"
@@ -171,19 +171,18 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
         {/* Share Button */}
         <button
           type="button"
-          className="absolute top-[60px] left-0 w-[110px] h-[36px] flex items-center justify-center bg-[#1e1e1e] border border-[#d8c79a]/10 hover:border-[#d8c79a]/30 transition-colors cursor-pointer rounded-[3px]"
+          className="absolute top-[60px] left-0 w-[110px] h-[36px] flex items-center justify-center bg-theme-card border border-theme-border/20 hover:border-theme-border/50 transition-colors cursor-pointer rounded-[3px] shadow-sm"
           aria-label={t("action.share")}
         >
           <span className="flex items-center gap-2">
-            <span className="[font-family:'Google_Sans_Flex',Helvetica] font-medium text-[#d8c79a] text-[17px] tracking-[0] leading-none">
+            <span className="[font-family:'Google_Sans_Flex',Helvetica] font-medium text-theme-text text-[17px] tracking-[0] leading-none">
               {t("action.share")}
             </span>
             <img
-              className="w-4 h-4 object-contain"
+              className="w-4 h-4 object-contain dark:invert-0 invert"
               alt=""
               aria-hidden="true"
               src="/img/refund-ring-back.svg"
-              style={{ filter: "invert(79%) sepia(35%) saturate(497%) hue-rotate(357deg) brightness(93%) contrast(90%)" }}
             />
           </span>
         </button>
@@ -191,11 +190,11 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
         {/* Favorite Button */}
         <button
           type="button"
-          className="absolute top-[60px] left-[120px] w-[36px] h-[36px] flex items-center justify-center bg-[#d8c79a] hover:bg-[#c9b788] transition-colors cursor-pointer border-0 rounded-[3px]"
+          className="absolute top-[60px] left-[120px] w-[36px] h-[36px] flex items-center justify-center bg-theme-accent hover:bg-theme-accent/90 transition-colors cursor-pointer border-0 rounded-[3px] shadow-sm"
           aria-label="Add to favorites"
         >
           <img
-            className="w-4.5 h-4.5 object-contain"
+            className="w-4.5 h-4.5 object-contain dark:invert-0 invert"
             alt=""
             aria-hidden="true"
             src="/img/vector-15.svg"

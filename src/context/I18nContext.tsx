@@ -52,6 +52,25 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children
     window.localStorage.setItem(languageStorageKey, language);
     const current = languageOptions.find((option) => option.code === language) ?? languageOptions[0];
     document.documentElement.lang = current.htmlLang;
+
+    // Dynamically inject language-specific Google Fonts on-demand
+    const loadFont = (id: string, href: string) => {
+      if (!document.getElementById(id)) {
+        const link = document.createElement("link");
+        link.id = id;
+        link.rel = "stylesheet";
+        link.href = href;
+        document.head.appendChild(link);
+      }
+    };
+
+    if (language === "JP") {
+      loadFont("google-font-ja", "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+    } else if (language === "KR") {
+      loadFont("google-font-ko", "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+    } else if (language === "CN") {
+      loadFont("google-font-zh", "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap");
+    }
   }, [language]);
 
   const t = useCallback(

@@ -18,18 +18,17 @@ export const LocationMapSection = (): JSX.Element => {
           id="location-map-section-heading"
           className="[font-family:'Malking-Regular',Helvetica] font-normal text-theme-heading text-[44px] tracking-[0] leading-[1.05] transition-colors"
         >
-          Our Location &amp; Warehouse
+          {t("about.location.heading", { fallback: "Our Location & Warehouse" })}
         </h2>
         <p className="mt-6 max-w-[1300px] [font-family:'Glonimove-Regular',Helvetica] font-normal text-theme-text text-[24px] leading-[1.25] transition-colors">
-          Our main warehouse is located at{" "}
+          {t("about.location.warehouseIntro", { fallback: "Our main warehouse is located at" })}{" "}
           <span className="font-bold text-theme-accent">
             2522 S Malt Ave., Commerce, CA 90040, United States
           </span>
           .
         </p>
         <p className="mt-4 max-w-[1300px] [font-family:'Glonimove-Regular',Helvetica] font-normal text-theme-muted text-[18px] leading-[1.4] transition-colors">
-          Visit by appointment for yard walkthroughs, equipment demos and depot
-          pickup. Our team is on site Monday–Friday, 8:00 AM – 5:00 PM Pacific.
+          {t("about.location.appointmentDescDetailed", { fallback: "Visit by appointment for yard walkthroughs, equipment demos and depot pickup. Our team is on site Monday–Friday, 8:00 AM – 5:00 PM Pacific." })}
         </p>
       </header>
 
@@ -51,7 +50,7 @@ export const LocationMapSection = (): JSX.Element => {
           rel="noreferrer"
           className="absolute bottom-6 right-6 bg-[#153d28] px-5 py-3 [font-family:'Google_Sans_Flex',Helvetica] text-[14px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-theme-accent hover:text-[#153d28]"
         >
-          Open in Google Maps
+          {t("about.location.openInMaps", { fallback: "Open in Google Maps" })}
         </a>
       </div>
     </section>

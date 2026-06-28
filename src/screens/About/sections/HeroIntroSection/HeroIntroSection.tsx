@@ -53,13 +53,7 @@ export const HeroIntroSection = (): JSX.Element => {
           >{t("auto.herointro.affordable.machinery.reliable")}</h1>
         </div>
         <p className="absolute left-[125px] top-[549px] w-[1079px] [font-family:'Glonimove-Regular',Helvetica] text-[24px] font-normal leading-relaxed tracking-[0] text-white z-10">
-          Konstructz exists to put dependable construction machinery within
-          reach of the people who actually swing the hammer — small contractors,
-          landscapers, farmers, and family-run job shops. Every machine and
-          attachment in our catalogue is chosen for daily-driver reliability,
-          honest pricing, and serviceability you can plan around. Based in
-          Commerce, California, with a small, accountable team and online
-          support around the clock.
+          {t("about.hero.intro", { fallback: "Konstructz exists to put dependable construction machinery within reach of the people who actually swing the hammer — small contractors, landscapers, farmers, and family-run job shops. Every machine and attachment in our catalogue is chosen for daily-driver reliability, honest pricing, and serviceability you can plan around. Based in Commerce, California, with a small, accountable team and online support around the clock." })}
         </p>
       </div>
     </section>

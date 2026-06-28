@@ -499,7 +499,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa",
-    name: "TYPHON Terror XVIII Capony",
+    name: "TYPHON Terror XVIII Canopy",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -787,7 +787,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa",
-    name: "TYPHON Terror XXV Capony",
+    name: "TYPHON Terror XXV Canopy",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -1235,7 +1235,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine",
-    name: "TYPHON Terror XVII Capony",
+    name: "TYPHON Terror XVII Canopy",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -1710,7 +1710,7 @@ export const typhonProducts: TyphonProduct[] = [
   },
   {
     id: "typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa",
-    name: "TYPHON Terror X2 Capony",
+    name: "TYPHON Terror X2 Canopy",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -4878,8 +4878,8 @@ export const typhonProducts: TyphonProduct[] = [
     imageMatch: "CSV image fields"
   },
   {
-    id: "typhon-terror-xviii-capony",
-    name: "TYPHON Terror XVIII Capony",
+    id: "typhon-terror-xviii-canopy",
+    name: "TYPHON Terror XVIII Canopy",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",
@@ -5307,8 +5307,8 @@ export const typhonProducts: TyphonProduct[] = [
     imageMatch: "CSV image fields"
   },
   {
-    id: "typhon-terror-xviii-capony-2",
-    name: "TYPHON Terror XVIII Capony",
+    id: "typhon-terror-xviii-canopy-2",
+    name: "TYPHON Terror XVIII Canopy",
     productType: "equipment",
     rawProductType: "equipment",
     category: "mini-excavators",

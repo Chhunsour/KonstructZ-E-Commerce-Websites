@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { useI18n } from "../context/I18nContext";
 
 declare global {
   interface Window {
@@ -12,10 +13,11 @@ const ECWID_SCRIPT_SRC =
 const ECWID_CONTAINER_ID = "my-store-80100025";
 
 export const KonstructzMachine: React.FC = () => {
+  const { t } = useI18n();
   const initializedRef = useRef(false);
 
   useEffect(() => {
-    document.title = "Konstructz Machine | KonstructZ";
+    document.title = `${t("nav.konstructzMachine", { fallback: "Konstructz Machine" })} | KonstructZ`;
 
     const mountStore = () => {
       if (initializedRef.current || typeof window.xProductBrowser !== "function") {

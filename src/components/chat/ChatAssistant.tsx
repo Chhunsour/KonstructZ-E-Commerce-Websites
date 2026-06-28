@@ -48,7 +48,7 @@ function loadState(): { open: boolean; messages: ChatMessage[]; memory: ChatMemo
   }
 }
 
-const welcomeMessage = (): ChatMessage => ({ id: "welcome", role: "bot", text: getWelcomeText(), instant: true });
+const welcomeMessage = (lang: string = "en"): ChatMessage => ({ id: "welcome", role: "bot", text: getWelcomeText(lang), instant: true });
 
 /* ─────────────────────────── Brand avatar ──────────────────────────── */
 
@@ -271,9 +271,9 @@ export const ChatAssistant: React.FC = () => {
     if (recentlyViewed.length >= 2) {
       list.push({
         glyph: CardGlyphs.compare,
-        title: "Compare recently viewed",
-        sub: `Compare the machines you recently looked at`,
-        q: "Compare recently viewed"
+        title: t("chatbot.suggest.compareRecentlyViewedTitle"),
+        sub: t("chatbot.suggest.compareRecentlyViewedSub"),
+        q: t("chatbot.suggest.compareRecentlyViewedQ")
       });
     }
 
@@ -281,147 +281,147 @@ export const ChatAssistant: React.FC = () => {
       list.push(
         {
           glyph: CardGlyphs.machine,
-          title: "View machine specs",
-          sub: "Check engine power, dimensions & capacity",
-          q: "What are the specs for this machine?"
+          title: t("chatbot.suggest.viewSpecsTitle"),
+          sub: t("chatbot.suggest.viewSpecsSub"),
+          q: t("chatbot.suggest.viewSpecsQ")
         },
         {
           glyph: CardGlyphs.compare,
-          title: "Compare this machine",
-          sub: "See how it ranks against similar models",
-          q: "Compare this machine with another model."
+          title: t("chatbot.suggest.compareThisTitle"),
+          sub: t("chatbot.suggest.compareThisSub"),
+          q: t("chatbot.suggest.compareThisQ")
         },
         {
           glyph: CardGlyphs.wrench,
-          title: "Attachments & fitment",
-          sub: "See what attachments fit this machine",
-          q: "What attachments fit this machine?"
+          title: t("chatbot.suggest.attachmentsTitle"),
+          sub: t("chatbot.suggest.attachmentsSub"),
+          q: t("chatbot.suggest.attachmentsQ")
         },
         {
           glyph: CardGlyphs.support,
-          title: "Buying & support help",
-          sub: "1-year warranty + lifetime technical support",
-          q: "Help me with shipping, warranty, or returns."
+          title: t("chatbot.suggest.buyingHelpTitle"),
+          sub: t("chatbot.suggest.buyingHelpSub"),
+          q: t("chatbot.suggest.buyingHelpQ")
         }
       );
     } else if (isSkidSteerCategory) {
       list.push(
         {
           glyph: CardGlyphs.wrench,
-          title: "Attachments for skid steer",
-          sub: "Pallet forks, buckets, grapples & more",
-          q: "What attachments fit a skid steer?"
+          title: t("chatbot.suggest.skidSteerAttachmentsTitle"),
+          sub: t("chatbot.suggest.skidSteerAttachmentsSub"),
+          q: t("chatbot.suggest.skidSteerAttachmentsQ")
         },
         {
           glyph: CardGlyphs.compare,
-          title: "Compare skid steer vs loader",
-          sub: "Learn key differences & best choices",
-          q: "Compare skid steer and wheel loader."
+          title: t("chatbot.suggest.compareSkidSteerTitle"),
+          sub: t("chatbot.suggest.compareSkidSteerSub"),
+          q: t("chatbot.suggest.compareSkidSteerQ")
         },
         {
           glyph: CardGlyphs.machine,
-          title: "Find the right loader",
-          sub: "Let's pick a model for your work site",
-          q: "Recommend a loader for my job."
+          title: t("chatbot.suggest.findLoaderTitle"),
+          sub: t("chatbot.suggest.findLoaderSub"),
+          q: t("chatbot.suggest.findLoaderQ")
         },
         {
           glyph: CardGlyphs.support,
-          title: "Ask about warranty",
-          sub: "1-year warranty + lifetime technical support",
-          q: "Explain the 1-year warranty and lifetime support."
+          title: t("chatbot.suggest.askWarrantyTitle"),
+          sub: t("chatbot.suggest.askWarrantySub"),
+          q: t("chatbot.suggest.askWarrantyQ")
         }
       );
     } else if (isSupportPage) {
       list.push(
         {
           glyph: CardGlyphs.support,
-          title: "Warranty & Support",
-          sub: "Details of structural/powertrain coverage",
-          q: "What does the warranty cover?"
+          title: t("chatbot.suggest.warrantySupportTitle"),
+          sub: t("chatbot.suggest.warrantySupportSub"),
+          q: t("chatbot.suggest.warrantySupportQ")
         },
         {
           glyph: CardGlyphs.truck,
-          title: "Shipping & delivery",
-          sub: "Freight shipping options in the USA",
-          q: "How does shipping work?"
+          title: t("chatbot.suggest.shippingDeliveryTitle"),
+          sub: t("chatbot.suggest.shippingDeliverySub"),
+          q: t("chatbot.suggest.shippingDeliveryQ")
         },
         {
           glyph: CardGlyphs.compare,
-          title: "Financing options",
-          sub: "100% financing through Paramount Financial",
-          q: "Do you offer financing?"
+          title: t("chatbot.suggest.financingOptionsTitle"),
+          sub: t("chatbot.suggest.financingOptionsSub"),
+          q: t("chatbot.suggest.financingOptionsQ")
         },
         {
           glyph: CardGlyphs.wrench,
-          title: "Returns & refunds",
-          sub: "30-day return policy and exclusions",
-          q: "What is the return policy?"
+          title: t("chatbot.suggest.returnsRefundsTitle"),
+          sub: t("chatbot.suggest.returnsRefundsSub"),
+          q: t("chatbot.suggest.returnsRefundsQ")
         }
       );
     } else if (isBlogPage) {
       list.push(
         {
           glyph: CardGlyphs.machine,
-          title: "Related machines",
-          sub: "Match what you read to jobsite equipment",
-          q: "Recommend a machine based on my project."
+          title: t("chatbot.suggest.blog.machinesTitle", { fallback: "Related machines" }),
+          sub: t("chatbot.suggest.blog.machinesSub", { fallback: "Match what you read to jobsite equipment" }),
+          q: t("chatbot.suggest.blog.machinesQ", { fallback: "Recommend a machine based on my project." })
         },
         {
           glyph: CardGlyphs.compare,
-          title: "Beginner explanation",
-          sub: "Learn machine terms in simple language",
-          q: "Explain compact machinery terms simply."
+          title: t("chatbot.suggest.blog.beginnerTitle", { fallback: "Beginner explanation" }),
+          sub: t("chatbot.suggest.blog.beginnerSub", { fallback: "Learn machine terms in simple language" }),
+          q: t("chatbot.suggest.blog.beginnerQ", { fallback: "Explain compact machinery terms simply." })
         },
         {
           glyph: CardGlyphs.wrench,
-          title: "Attachments & fitment",
-          sub: "See what fits your machine",
-          q: "What attachments fit my machine?"
+          title: t("chatbot.suggest.blog.attachmentsTitle", { fallback: "Attachments & fitment" }),
+          sub: t("chatbot.suggest.blog.attachmentsSub", { fallback: "See what fits your machine" }),
+          q: t("chatbot.suggest.blog.attachmentsQ", { fallback: "What attachments fit my machine?" })
         },
         {
           glyph: CardGlyphs.company,
-          title: "Who is Konstructz?",
-          sub: "Learn what we sell and if we are legit",
-          q: "Tell me about Konstructz and what you sell."
+          title: t("chatbot.suggest.blog.whoTitle", { fallback: "Who is Konstructz?" }),
+          sub: t("chatbot.suggest.blog.whoSub", { fallback: "Learn what we sell and if we are legit" }),
+          q: t("chatbot.suggest.blog.whoQ", { fallback: "Tell me about Konstructz and what you sell." })
         }
       );
     } else {
       list.push(
         {
           glyph: CardGlyphs.machine,
-          title: "Find the right TYPHON machine",
-          sub: "Excavators, skid steers, loaders & more",
-          q: "Find the right TYPHON machine"
+          title: t("chatbot.suggest.default.findTitle", { fallback: "Find the right TYPHON machine" }),
+          sub: t("chatbot.suggest.default.findSub", { fallback: "Excavators, skid steers, loaders & more" }),
+          q: t("chatbot.suggest.default.findQ", { fallback: "Find the right TYPHON machine" })
         },
         {
           glyph: CardGlyphs.machine,
-          title: "Ask for TYPHON horsepower/specs",
-          sub: "Check engine power, weight & capacities",
-          q: "Ask for TYPHON horsepower/specs"
+          title: t("chatbot.suggest.default.specsTitle", { fallback: "Ask for TYPHON horsepower/specs" }),
+          sub: t("chatbot.suggest.default.specsSub", { fallback: "Check engine power, weight & capacities" }),
+          q: t("chatbot.suggest.default.specsQ", { fallback: "Ask for TYPHON horsepower/specs" })
         },
         {
           glyph: CardGlyphs.compare,
-          title: "Compare TYPHON machines",
-          sub: "Put two models side-by-side",
-          q: "Compare TYPHON machines"
+          title: t("chatbot.suggest.default.compareTitle", { fallback: "Compare TYPHON machines" }),
+          sub: t("chatbot.suggest.default.compareSub", { fallback: "Put two models side-by-side" }),
+          q: t("chatbot.suggest.default.compareQ", { fallback: "Compare TYPHON machines" })
         },
         {
           glyph: CardGlyphs.wrench,
-          title: "Check attachment fitment",
-          sub: "See what tools fit which model",
-          q: "Check attachment fitment"
+          title: t("chatbot.suggest.default.fitmentTitle", { fallback: "Check attachment fitment" }),
+          sub: t("chatbot.suggest.default.fitmentSub", { fallback: "See what tools fit which model" }),
+          q: t("chatbot.suggest.default.fitmentQ", { fallback: "Check attachment fitment" })
         },
         {
           glyph: CardGlyphs.support,
-          title: "Ask about warranty/support",
-          sub: "1-year warranty + lifetime technical support",
-          q: "Ask about warranty/support"
+          title: t("chatbot.suggest.default.warrantyTitle", { fallback: "Ask about warranty/support" }),
+          sub: t("chatbot.suggest.default.warrantySub", { fallback: "1-year warranty + lifetime technical support" }),
+          q: t("chatbot.suggest.default.warrantyQ", { fallback: "Ask about warranty/support" })
         },
         {
           glyph: CardGlyphs.company,
-          title: "Contact sales",
-          sub: "Reach out for pricing and quotes",
-          q: "Contact sales"
+          title: t("chatbot.suggest.default.salesTitle", { fallback: "Contact sales" }),
+          sub: t("chatbot.suggest.default.salesSub", { fallback: "Reach out for pricing and quotes" }),
+          q: t("chatbot.suggest.default.salesQ", { fallback: "Contact sales" })
         }
       );
     }
@@ -432,7 +432,7 @@ export const ChatAssistant: React.FC = () => {
   const initial = loadState();
   const [open, setOpen] = useState(initial?.open ?? false);
   const [messages, setMessages] = useState<ChatMessage[]>(
-    initial?.messages?.length ? initial.messages : [welcomeMessage()]
+    initial?.messages?.length ? initial.messages : [welcomeMessage(language)]
   );
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -636,7 +636,7 @@ export const ChatAssistant: React.FC = () => {
   const resetChat = () => {
     timers.current.forEach((t) => window.clearTimeout(t));
     memoryRef.current = emptyMemory();
-    setMessages([welcomeMessage()]);
+    setMessages([welcomeMessage(language)]);
     setDoneIds(new Set(["welcome"]));
     setPhase(null);
   };
@@ -649,7 +649,7 @@ export const ChatAssistant: React.FC = () => {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close assistant" : "Open Konstructz assistant"}
+        aria-label={open ? t("chatbot.launcher.close") : t("chatbot.launcher.open")}
         aria-expanded={open}
         className="group fixed bottom-5 right-5 z-[80] flex h-14 w-14 items-center justify-center border border-[#d8c79a]/45 bg-[#f4f1ea] shadow-[0_14px_34px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(21,61,40,0.45)] active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#153d28]"
       >
@@ -676,7 +676,7 @@ export const ChatAssistant: React.FC = () => {
       {/* Panel */}
       <div
         role="dialog"
-        aria-label="Konstructz assistant"
+        aria-label={t("chatbot.launcher.open")}
         aria-hidden={!open}
         className={`fixed z-[80] flex flex-col overflow-hidden border border-[#d8c79a]/20 bg-[#161613] shadow-[0_40px_90px_-24px_rgba(0,0,0,0.9)] transition-all duration-300 ease-out
           inset-x-3 bottom-3 max-h-[calc(100dvh-1.5rem)] h-[82dvh]
@@ -687,15 +687,15 @@ export const ChatAssistant: React.FC = () => {
         <header className="flex items-center gap-3 border-b border-[#d8c79a]/15 bg-gradient-to-r from-[#10301f] via-[#153d28] to-[#1b4a31] px-4 py-3.5">
           <Avatar size={38} />
           <div className="min-w-0 flex-1">
-            <p className="font-clofieBold text-[15px] font-bold leading-none text-white">Konstructz Assistant</p>
+            <p className="font-clofieBold text-[15px] font-bold leading-none text-white">{t("chatbot.title", { fallback: "Konstructz Assistant" })}</p>
             <p className="mt-1.5 flex items-center gap-1.5 font-googleSans text-[11px] font-medium tracking-wide text-[#d8c79a]">
-              <SparkIcon /> Powered by Konstructz AI
+              <SparkIcon /> {t("chatbot.header.poweredBy")}
             </p>
           </div>
-          <button type="button" onClick={resetChat} aria-label="Start new chat" title="New chat" className="flex h-8 w-8 items-center justify-center text-white/65 transition hover:bg-white/10 hover:text-white">
+          <button type="button" onClick={resetChat} aria-label={t("chatbot.header.startNew")} title={t("chatbot.header.newChat")} className="flex h-8 w-8 items-center justify-center text-white/65 transition hover:bg-white/10 hover:text-white">
             <NewChatIcon />
           </button>
-          <button type="button" onClick={() => setOpen(false)} aria-label="Close assistant" className="flex h-8 w-8 items-center justify-center text-white/65 transition hover:bg-white/10 hover:text-white">
+          <button type="button" onClick={() => setOpen(false)} aria-label={t("chatbot.header.close")} className="flex h-8 w-8 items-center justify-center text-white/65 transition hover:bg-white/10 hover:text-white">
             <CloseIcon />
           </button>
         </header>
@@ -709,7 +709,7 @@ export const ChatAssistant: React.FC = () => {
               {messages.map((msg) => (
                 <MessageBubble
                   key={msg.id}
-                  msg={msg}
+                  msg={msg.id === "welcome" ? { ...msg, text: getWelcomeText(language) } : msg}
                   done={doneIds.has(msg.id)}
                   onStreamTick={scrollToBottom}
                   onStreamDone={() => {
@@ -755,21 +755,21 @@ export const ChatAssistant: React.FC = () => {
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about machines, attachments, support…"
-              aria-label="Message"
+              placeholder={t("chatbot.input.placeholder")}
+              aria-label={t("chatbot.input.placeholder")}
               className="min-w-0 flex-1 bg-transparent py-1.5 font-googleSans text-[14px] text-white placeholder:text-white/35 focus:outline-none"
             />
             <button
               type="submit"
               disabled={!input.trim() || !!phase}
-              aria-label="Send message"
+              aria-label={t("chatbot.input.send")}
               className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#d8c79a] text-[#153d28] transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
             >
               <SendIcon />
             </button>
           </div>
           <p className="mt-2 text-center font-googleSans text-[10px] text-white/30">
-            Konstructz AI can make mistakes — confirm important details with our team.
+            {t("chatbot.input.disclaimer")}
           </p>
         </form>
       </div>
@@ -782,99 +782,106 @@ export const ChatAssistant: React.FC = () => {
 const WelcomeHero: React.FC<{
   onPick: (q: string) => void;
   cards: { glyph: React.ReactNode; title: string; sub: string; q: string }[];
-}> = ({ onPick, cards }) => (
-  <div className="flex flex-col items-center px-1 pb-2 pt-3 text-center">
-    <div className="kz-rise">
-      <Avatar size={64} />
-    </div>
-    <h2 className="kz-rise mt-4 font-clofieBold text-[22px] font-bold leading-tight text-white" style={{ animationDelay: "60ms" }}>
-      Konstructz Assistant
-    </h2>
-    <p className="kz-rise mt-2 max-w-[320px] font-googleSans text-[13px] leading-relaxed text-white/60" style={{ animationDelay: "120ms" }}>
-      Your machinery expert. I help you choose the right machine, compare models, check attachments and fitment, and answer shipping, financing, support, and 1-year warranty + lifetime technical support questions.
-    </p>
+}> = ({ onPick, cards }) => {
+  const { t } = useI18n();
+  return (
+    <div className="flex flex-col items-center px-1 pb-2 pt-3 text-center">
+      <div className="kz-rise">
+        <Avatar size={64} />
+      </div>
+      <h2 className="kz-rise mt-4 font-clofieBold text-[22px] font-bold leading-tight text-white" style={{ animationDelay: "60ms" }}>
+        {t("chatbot.title", { fallback: "Konstructz Assistant" })}
+      </h2>
+      <p className="kz-rise mt-2 max-w-[320px] font-googleSans text-[13px] leading-relaxed text-white/60" style={{ animationDelay: "120ms" }}>
+        {t("chatbot.welcome.expert")}
+      </p>
 
-    <div className="mt-6 flex flex-col gap-2.5 w-full text-left">
-      {cards.map((c, i) => (
-        <button
-          key={c.title + i}
-          type="button"
-          onClick={() => onPick(c.q)}
-          className="kz-rise group flex items-center gap-3.5 border border-white/10 bg-[#1d1e1a] px-4 py-3 transition hover:border-[#d8c79a]/50 hover:bg-[#23241f] active:bg-[#1a1b17] rounded-none"
-          style={{ animationDelay: `${180 + i * 50}ms` }}
-        >
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#d8c79a]/30 bg-[#d8c79a]/10 text-[#d8c79a] transition group-hover:bg-[#d8c79a]/20 rounded-none">
-            {c.glyph}
-          </span>
-          <div className="flex-1 min-w-0">
-            <span className="block font-clofieBold text-[13px] font-bold leading-tight text-white">{c.title}</span>
-            <span className="block mt-1 font-googleSans text-[10.5px] leading-snug text-white/45 truncate">{c.sub}</span>
-          </div>
-          <svg width="7" height="11" viewBox="0 0 6 10" fill="none" className="shrink-0 text-[#d8c79a] transition group-hover:translate-x-0.5 duration-200">
-            <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-      ))}
-    </div>
+      <div className="mt-6 flex flex-col gap-2.5 w-full text-left">
+        {cards.map((c, i) => (
+          <button
+            key={c.title + i}
+            type="button"
+            onClick={() => onPick(c.q)}
+            className="kz-rise group flex items-center gap-3.5 border border-white/10 bg-[#1d1e1a] px-4 py-3 transition hover:border-[#d8c79a]/50 hover:bg-[#23241f] active:bg-[#1a1b17] rounded-none"
+            style={{ animationDelay: `${180 + i * 50}ms` }}
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#d8c79a]/30 bg-[#d8c79a]/10 text-[#d8c79a] transition group-hover:bg-[#d8c79a]/20 rounded-none">
+              {c.glyph}
+            </span>
+            <div className="flex-1 min-w-0">
+              <span className="block font-clofieBold text-[13px] font-bold leading-tight text-white">{c.title}</span>
+              <span className="block mt-1 font-googleSans text-[10.5px] leading-snug text-white/45 truncate">{c.sub}</span>
+            </div>
+            <svg width="7" height="11" viewBox="0 0 6 10" fill="none" className="shrink-0 text-[#d8c79a] transition group-hover:translate-x-0.5 duration-200">
+              <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        ))}
+      </div>
 
-    <p className="kz-rise mt-5 font-googleSans text-[11px] text-white/35" style={{ animationDelay: "500ms" }}>
-      …or just type your question below.
-    </p>
-  </div>
-);
+      <p className="kz-rise mt-5 font-googleSans text-[11px] text-white/35" style={{ animationDelay: "500ms" }}>
+        {t("chatbot.welcome.orType")}
+      </p>
+    </div>
+  );
+};
 
 /* ─────────────────────────── Sub-components ────────────────────────── */
 
-const StatusBubble: React.FC<{ phase: "analyzing" | "thinking" }> = ({ phase }) => (
-  <div className="flex items-end gap-2.5 kz-rise">
-    <Avatar size={30} />
-    <div className="flex items-center gap-2 border border-white/10 bg-[#20211d] px-3.5 py-3">
-      <span className="font-googleSans text-[12px] text-white/55">
-        {phase === "analyzing" ? "Analyzing your question" : "Thinking"}
-      </span>
-      <span className="flex gap-1">
-        {[0, 1, 2].map((i) => (
-          <span key={i} className="h-1.5 w-1.5 rounded-full bg-[#d8c79a] kz-dot" style={{ animationDelay: `${i * 160}ms` }} />
-        ))}
-      </span>
+const StatusBubble: React.FC<{ phase: "analyzing" | "thinking" }> = ({ phase }) => {
+  const { t } = useI18n();
+  return (
+    <div className="flex items-end gap-2.5 kz-rise">
+      <Avatar size={30} />
+      <div className="flex items-center gap-2 border border-white/10 bg-[#20211d] px-3.5 py-3">
+        <span className="font-googleSans text-[12px] text-white/55">
+          {phase === "analyzing" ? t("chatbot.status.analyzing") : t("chatbot.status.thinking")}
+        </span>
+        <span className="flex gap-1">
+          {[0, 1, 2].map((i) => (
+            <span key={i} className="h-1.5 w-1.5 rounded-full bg-[#d8c79a] kz-dot" style={{ animationDelay: `${i * 160}ms` }} />
+          ))}
+        </span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ProductCard: React.FC<{
   product: ProductRef;
   onNavigate: (href: string) => void;
   onFollowup: (q: string) => void;
 }> = ({ product, onNavigate, onFollowup }) => {
-  let bestFor = "Excavation, grading & site preparation";
-  let reason = "High reliability with professional compact design.";
+  const { t } = useI18n();
+
+  let bestFor = t("chatbot.bestFor.default", { fallback: "Excavation, grading & site preparation" });
+  let reason = t("chatbot.reason.default", { fallback: "High reliability with professional compact design." });
 
   if (/KUVUO/i.test(product.name)) {
-    bestFor = "Digging foundations, footings, and utility trenches";
-    reason = "Features zero-tail-swing maneuverability, proportional hydraulics, and dual-duty excavator capabilities.";
+    bestFor = t("chatbot.bestFor.kuvuo", { fallback: "Digging foundations, footings, and utility trenches" });
+    reason = t("chatbot.reason.kuvuo", { fallback: "Features zero-tail-swing maneuverability, proportional hydraulics, and dual-duty excavator capabilities." });
   } else if (/STOMP/i.test(product.name)) {
-    bestFor = "Surface grading, landscaping, and bulk material loading";
-    reason = "Tough, high-torque skid steer designed for continuous site-prep work and fast attachment swaps.";
+    bestFor = t("chatbot.bestFor.stomp", { fallback: "Surface grading, landscaping, and bulk material loading" });
+    reason = t("chatbot.reason.stomp", { fallback: "Tough, high-torque skid steer designed for continuous site-prep work and fast attachment swaps." });
   } else if (/SKOOP/i.test(product.name)) {
-    bestFor = "Loading dirt, stockpiling aggregate, and heavy site hauling";
-    reason = "High-traction wheel loader featuring robust bucket capacities and simple mechanical durability.";
+    bestFor = t("chatbot.bestFor.skoop", { fallback: "Loading dirt, stockpiling aggregate, and heavy site hauling" });
+    reason = t("chatbot.reason.skoop", { fallback: "High-traction wheel loader featuring robust bucket capacities and simple mechanical durability." });
   } else if (/SCOOPYDIG/i.test(product.name)) {
-    bestFor = "Tight residential digging, utility service, and trenching";
-    reason = "Agile compact backhoe loader ideal for narrow backyard work and property owners.";
+    bestFor = t("chatbot.bestFor.scoopydig", { fallback: "Tight residential digging, utility service, and trenching" });
+    reason = t("chatbot.reason.scoopydig", { fallback: "Agile compact backhoe loader ideal for narrow backyard work and property owners." });
   } else if (/SPIDER/i.test(product.name)) {
-    bestFor = "All-terrain compact landscaping and utility digging";
-    reason = "Towable, lightweight excavating unit built for minimal ground damage and narrow access sites.";
+    bestFor = t("chatbot.bestFor.spider", { fallback: "All-terrain compact landscaping and utility digging" });
+    reason = t("chatbot.reason.spider", { fallback: "Towable, lightweight excavating unit built for minimal ground damage and narrow access sites." });
   } else if (/THUNDERDUMP/i.test(product.name)) {
-    bestFor = "Hauling rock, concrete, dirt, and heavy materials on site";
-    reason = "High-payload site dumper designed to transport bulk loads safely across uneven terrain.";
+    bestFor = t("chatbot.bestFor.thunderdump", { fallback: "Hauling rock, concrete, dirt, and heavy materials on site" });
+    reason = t("chatbot.reason.thunderdump", { fallback: "High-payload site dumper designed to transport bulk loads safely across uneven terrain." });
   } else if (/STONEKRUSHER/i.test(product.name)) {
-    bestFor = "On-site concrete recycling, rock crushing, and aggregates";
-    reason = "Industrial mobile jaw crusher designed to process demolition debris into reusable fill.";
+    bestFor = t("chatbot.bestFor.stonekrusher", { fallback: "On-site concrete recycling, rock crushing, and aggregates" });
+    reason = t("chatbot.reason.stonekrusher", { fallback: "Industrial mobile jaw crusher designed to process demolition debris into reusable fill." });
   } else if (/RIPPER|AUGER/i.test(product.name)) {
-    bestFor = "Utility boring, fence posts, and hard soil breaking";
-    reason = "High-torque auxiliary hydraulic attachment engineered to expand machine capabilities.";
+    bestFor = t("chatbot.bestFor.attachments", { fallback: "Utility boring, fence posts, and hard soil breaking" });
+    reason = t("chatbot.reason.attachments", { fallback: "High-torque auxiliary hydraulic attachment engineered to expand machine capabilities." });
   }
-
   const detail = PRODUCT_DETAIL[product.href];
   const specsToShow = detail ? detail.specs.filter(s => !/category|sku|gtin|price/i.test(s.label)).slice(0, 3) : [];
 
@@ -899,12 +906,12 @@ const ProductCard: React.FC<{
 
       <div className="space-y-1.5 font-googleSans text-[11.5px] leading-relaxed text-white/70 border-t border-white/5 pt-2">
         <div>
-          <span className="font-bold text-white/90">Best for:</span> {bestFor}
+          <span className="font-bold text-white/90">{t("chatbot.bestFor")}:</span> {bestFor}
         </div>
         
         {specsToShow.length > 0 && (
           <div className="space-y-0.5 border-t border-white/5 pt-1 text-white/50 text-[11px]">
-            <span className="font-bold text-white/75 block">Key Specs:</span>
+            <span className="font-bold text-white/75 block">{t("chatbot.keySpecs")}:</span>
             {specsToShow.map((s, i) => (
               <div key={i}>• {s.label}: <span className="text-white/80 font-bold">{s.value}</span></div>
             ))}
@@ -914,10 +921,10 @@ const ProductCard: React.FC<{
 
       <div className="flex flex-wrap gap-1.5 pt-0.5">
         <span className="inline-flex items-center text-[9px] font-clofieBold font-bold uppercase tracking-wider px-2 py-0.5 bg-[#d8c79a]/10 text-[#d8c79a] border border-[#d8c79a]/45 select-none">
-          1-Year Warranty
+          {t("chatbot.badge.warranty")}
         </span>
         <span className="inline-flex items-center text-[9px] font-clofieBold font-bold uppercase tracking-wider px-2 py-0.5 bg-[#d8c79a]/10 text-[#d8c79a] border border-[#d8c79a]/45 select-none">
-          Lifetime Technical Support
+          {t("chatbot.badge.support")}
         </span>
       </div>
 
@@ -927,21 +934,21 @@ const ProductCard: React.FC<{
           onClick={() => onNavigate(product.href)}
           className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10.5px] uppercase tracking-wider bg-[#d8c79a] text-[#153d28] transition hover:bg-white active:bg-[#a99c75] rounded-none"
         >
-          View Product
+          {t("chatbot.action.viewProduct")}
         </button>
         <button
           type="button"
           onClick={() => onFollowup(`Compare ${product.name} with similar model`)}
           className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10px] uppercase tracking-wider border border-white/20 text-white/80 transition hover:border-[#d8c79a] hover:text-[#d8c79a] active:bg-white/5 rounded-none"
         >
-          Compare
+          {t("chatbot.action.compare")}
         </button>
         <button
           type="button"
           onClick={() => onFollowup(`Contact sales for the ${product.name}`)}
           className="flex items-center justify-center py-2 text-center font-googleSans font-bold text-[10px] uppercase tracking-wider border border-white/20 text-white/80 transition hover:border-[#d8c79a] hover:text-[#d8c79a] active:bg-white/5 rounded-none"
         >
-          Ask Sales
+          {t("chatbot.action.askSales")}
         </button>
       </div>
     </div>
@@ -956,6 +963,7 @@ const MessageBubble: React.FC<{
   onNavigate: (href: string) => void;
   onFollowup: (q: string) => void;
 }> = ({ msg, done, onStreamTick, onStreamDone, onNavigate, onFollowup }) => {
+  const { t } = useI18n();
   const [feedback, setFeedback] = useState<"helpful" | "not_helpful" | "missing_info" | null>(null);
   const [missingSpecInput, setMissingSpecInput] = useState("");
   const [showMissingForm, setShowMissingForm] = useState(false);
@@ -986,7 +994,7 @@ const MessageBubble: React.FC<{
 
         {msg.role === "bot" && showExtras && (
           <div className="flex items-center gap-3 text-[11px] text-white/50 pt-0.5">
-            <span>Was this helpful?</span>
+            <span>{t("chatbot.feedback.wasHelpful", { fallback: "Was this helpful?" })}</span>
             {!feedback ? (
               <div className="flex gap-2">
                 <button
@@ -997,7 +1005,7 @@ const MessageBubble: React.FC<{
                   }}
                   className="hover:text-[#4ade80] transition underline"
                 >
-                  Helpful
+                  {t("chatbot.feedback.helpful", { fallback: "Helpful" })}
                 </button>
                 <button
                   type="button"
@@ -1007,7 +1015,7 @@ const MessageBubble: React.FC<{
                   }}
                   className="hover:text-red-400 transition underline"
                 >
-                  Not helpful
+                  {t("chatbot.feedback.notHelpful", { fallback: "Not helpful" })}
                 </button>
                 <button
                   type="button"
@@ -1017,24 +1025,24 @@ const MessageBubble: React.FC<{
                   }}
                   className="hover:text-amber-400 transition underline"
                 >
-                  Missing info
+                  {t("chatbot.feedback.missingInfo", { fallback: "Missing info" })}
                 </button>
               </div>
             ) : (
-              <span className="text-[#d8c79a] font-medium">Thank you for your feedback!</span>
+              <span className="text-[#d8c79a] font-medium">{t("chatbot.feedback.thankYou", { fallback: "Thank you for your feedback!" })}</span>
             )}
           </div>
         )}
 
         {showMissingForm && (
           <div className="bg-[#1f201b] border border-[#d8c79a]/20 p-2.5 space-y-2">
-            <span className="text-[11px] text-white/70 block">What product specification or detail was missing?</span>
+            <span className="text-[11px] text-white/70 block">{t("chatbot.feedback.missingQuestion", { fallback: "What product specification or detail was missing?" })}</span>
             <div className="flex gap-2">
               <input
                 type="text"
                 value={missingSpecInput}
                 onChange={(e) => setMissingSpecInput(e.target.value)}
-                placeholder="e.g. engine, track width, lift capacity"
+                placeholder={t("chatbot.feedback.missingPlaceholder", { fallback: "e.g. engine, track width, lift capacity" })}
                 className="bg-black/40 border border-white/10 px-2 py-1 text-xs text-white min-w-0 flex-1 focus:outline-none"
               />
               <button
@@ -1046,7 +1054,7 @@ const MessageBubble: React.FC<{
                 }}
                 className="bg-[#d8c79a] text-[#153d28] px-2.5 py-1 text-[11px] font-bold uppercase transition hover:bg-white"
               >
-                Send
+                {t("chatbot.feedback.send", { fallback: "Send" })}
               </button>
             </div>
           </div>
@@ -1063,8 +1071,12 @@ const MessageBubble: React.FC<{
         {showExtras && msg.handoff && (
           <div className="flex flex-wrap gap-2">
             <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 bg-[#1f5132] px-3 py-1.5 font-googleSans text-[12px] font-bold text-white transition hover:bg-[#256b3f]">WhatsApp</a>
-            <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center gap-1.5 border border-[#d8c79a]/50 px-3 py-1.5 font-googleSans text-[12px] font-bold text-[#d8c79a] transition hover:bg-[#d8c79a]/10">Email</a>
-            <button type="button" onClick={() => onNavigate("/contact")} className="inline-flex items-center gap-1.5 border border-white/20 px-3 py-1.5 font-googleSans text-[12px] font-bold text-white/85 transition hover:border-white hover:text-white">Contact form</button>
+            <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center gap-1.5 border border-[#d8c79a]/50 px-3 py-1.5 font-googleSans text-[12px] font-bold text-[#d8c79a] transition hover:bg-[#d8c79a]/10">
+              {t("chatbot.action.email", { fallback: "Email" })}
+            </a>
+            <button type="button" onClick={() => onNavigate("/contact")} className="inline-flex items-center gap-1.5 border border-white/20 px-3 py-1.5 font-googleSans text-[12px] font-bold text-white/85 transition hover:border-white hover:text-white">
+              {t("chatbot.action.contactForm", { fallback: "Contact form" })}
+            </button>
           </div>
         )}
 
@@ -1083,7 +1095,9 @@ const MessageBubble: React.FC<{
 
         {showExtras && msg.followups && msg.followups.length > 0 && (
           <div className="flex flex-col gap-1 border-t border-white/8 pt-2.5">
-            <p className="mb-0.5 font-googleSans text-[10px] font-bold uppercase tracking-[0.14em] text-white/35">Suggested follow-ups</p>
+            <p className="mb-0.5 font-googleSans text-[10px] font-bold uppercase tracking-[0.14em] text-white/35">
+              {t("chatbot.suggestedFollowups", { fallback: "Suggested follow-ups" })}
+            </p>
             {msg.followups.map((f) => (
               <button key={f} type="button" onClick={() => onFollowup(f)} className="group flex items-center gap-2 py-1 text-left font-googleSans text-[12.5px] text-[#d8c79a]/90 transition hover:text-[#d8c79a]">
                 <svg width="6" height="10" viewBox="0 0 6 10" fill="none" className="shrink-0 -translate-x-0.5 opacity-50 transition group-hover:translate-x-0 group-hover:opacity-100">

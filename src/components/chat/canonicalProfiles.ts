@@ -44,6 +44,7 @@ export interface CanonicalProfile {
   cabinType: string;
   acHeater: string;
   batteryInfo: string;
+  attachmentCompatibility: string[];
 
   // Meaning
   shortSummary: string;
@@ -94,9 +95,11 @@ export function lookupSpecWithPriority(
 ): { value: string; source: string } {
   // 1. Check custom overrides from admin
   if (p.specs) {
-    for (const spec of p.specs) {
-      if (keys.some(k => spec.label.toLowerCase() === k.toLowerCase())) {
-        return { value: spec.value || fallbackVal, source: "Admin Override" };
+    for (const k of keys) {
+      for (const spec of p.specs) {
+        if (spec.label.toLowerCase() === k.toLowerCase()) {
+          return { value: spec.value || fallbackVal, source: "Admin Override" };
+        }
       }
     }
   }
@@ -108,11 +111,15 @@ export function lookupSpecWithPriority(
     }
   }
 
-  // 3. Check specs list elements matching label key
+  // 3. Check specs list elements matching label key in priority order (substring match)
   if (p.specs) {
-    for (const spec of p.specs) {
-      if (keys.some(k => new RegExp(`\\b${k}\\b`, "i").test(spec.label))) {
-        return { value: spec.value || fallbackVal, source: "Product Spec Table" };
+    for (const k of keys) {
+      for (const spec of p.specs) {
+        const labelLower = spec.label.toLowerCase();
+        const kLower = k.toLowerCase();
+        if (labelLower === kLower || labelLower.includes(kLower)) {
+          return { value: spec.value || fallbackVal, source: "Product Spec Table" };
+        }
       }
     }
   }
@@ -162,36 +169,79 @@ export function getCanonicalProfiles(): CanonicalProfile[] {
     const gallery = p.gallery || [image];
 
     // Priority Specs Extractors
-    const engineBrand = lookupSpecWithPriority(p, ["Engine Brand", "Engine Manufacture", "Engine Make"]).value;
-    const engineModel = lookupSpecWithPriority(p, ["Engine Model", "Engine Type"]).value;
-    const horsepower = lookupSpecWithPriority(p, ["Horsepower", "Engine Power", "Power Output", "Power"]).value;
-    const ratedPower = lookupSpecWithPriority(p, ["Rated Power", "Working Power"]).value;
-    const torque = lookupSpecWithPriority(p, ["Torque", "Max Torque"]).value;
-    const fuelType = p.name.toLowerCase().includes("electric") ? "Electric" : "Diesel";
-    const epaCertified = lookupSpecWithPriority(p, ["EPA", "EPA Certified", "Certification"]).value;
-    const operatingWeight = p.weight || lookupSpecWithPriority(p, ["Operating Weight", "Machine Weight", "Weight"]).value;
-    const liftCapacity = lookupSpecWithPriority(p, ["Lift Capacity", "Operating Capacity", "Rated Load"]).value;
-    const maxLiftHeight = lookupSpecWithPriority(p, ["Max Lift Height", "Lifting Height", "Lift Height"]).value;
-    const diggingDepth = lookupSpecWithPriority(p, ["Digging Depth", "Max Digging Depth", "Dig Depth"]).value;
-    const diggingHeight = lookupSpecWithPriority(p, ["Digging Height", "Max Digging Height"]).value;
+    const engineBrand = lookupSpecWithPriority(p, ["Engine Brand", "Engine Manufacture", "Engine Make", "Engine Model", "Engine"]).value;
+    const engineModel = lookupSpecWithPriority(p, ["Engine Model", "Engine Type", "Engine Brand", "Engine Make", "Engine"]).value;
+    const horsepower = lookupSpecWithPriority(p, ["horsepower", "engine power", "power output", "power", "maximum engine output", "hp", "rated power", "engine output"]).value;
+    const ratedPower = lookupSpecWithPriority(p, ["Rated Power", "Working Power", "Maximum Engine Output"]).value;
+    const torque = lookupSpecWithPriority(p, ["Torque", "Max Torque", "Maximum Torque"]).value;
+    
+    // Fuel Type & Battery Detection
+    let fuelType = "Diesel";
+    const nameLower = name.toLowerCase();
+    const descLower = (p.description || "").toLowerCase();
+    const tagLower = (p.tagline || "").toLowerCase();
+    
+    const isElectric = nameLower.includes("electric") || descLower.includes("electric") || tagLower.includes("electric");
+    const isGasoline = nameLower.includes("gas") || nameLower.includes("gasoline") || 
+                       descLower.includes("gasoline") || descLower.includes("gas engine") ||
+                       tagLower.includes("gasoline") ||
+                       engineBrand.toLowerCase().includes("gasoline") ||
+                       engineBrand.toLowerCase().includes("briggs") ||
+                       engineModel.toLowerCase().includes("rato") ||
+                       engineModel.toLowerCase().includes("honda");
+                       
+    if (isElectric) {
+      fuelType = "Electric";
+    } else if (isGasoline) {
+      fuelType = "Gasoline";
+    } else {
+      const fuelSpec = lookupSpecWithPriority(p, ["Fuel Type", "Fuel"]).value;
+      if (fuelSpec !== "Not listed") {
+        fuelType = fuelSpec;
+      }
+    }
+
+    const epaCertified = lookupSpecWithPriority(p, ["EPA", "EPA Certified", "Certification", "Engine Certification"]).value;
+    const operatingWeight = p.weight || lookupSpecWithPriority(p, ["Operating Weight", "Machine Weight", "Weight Class", "Weight", "Rated Operating Capacity"]).value;
+    const liftCapacity = lookupSpecWithPriority(p, ["Lift Capacity", "Operating Capacity", "Rated Load", "Lifting Capacity", "Rated Operating Capacity", "load capacity"]).value;
+    const maxLiftHeight = lookupSpecWithPriority(p, ["Max Lift Height", "Lifting Height", "Lift Height", "Maximum Lift Height"]).value;
+    const diggingDepth = lookupSpecWithPriority(p, ["Digging Depth", "Max Digging Depth", "Dig Depth", "Maximum Digging Depth"]).value;
+    const diggingHeight = lookupSpecWithPriority(p, ["Digging Height", "Max Digging Height", "Maximum Digging Height"]).value;
     const bucketWidth = lookupSpecWithPriority(p, ["Bucket Width", "Standard Bucket"]).value;
     const bucketCapacity = lookupSpecWithPriority(p, ["Bucket Capacity"]).value;
-    const hydraulicFlow = lookupSpecWithPriority(p, ["Hydraulic Flow", "Auxiliary Flow", "Auxiliary Hydraulic Flow"]).value;
+    const hydraulicFlow = lookupSpecWithPriority(p, ["Hydraulic Flow", "Auxiliary Flow", "Auxiliary Hydraulic Flow", "Main Hydraulic Flow", "System Flow"]).value;
     const hydraulicPressure = lookupSpecWithPriority(p, ["Hydraulic Pressure", "System Pressure"]).value;
-    const overallWidth = lookupSpecWithPriority(p, ["Overall Width", "Width", "Machine Width"]).value;
-    const overallHeight = lookupSpecWithPriority(p, ["Overall Height", "Height", "Machine Height"]).value;
-    const overallLength = lookupSpecWithPriority(p, ["Overall Length", "Length", "Machine Length"]).value;
-    const trackWidth = lookupSpecWithPriority(p, ["Track Width", "Shoe Width"]).value;
+    const overallWidth = lookupSpecWithPriority(p, ["Overall Width", "Machine Width", "Width"]).value;
+    const overallHeight = lookupSpecWithPriority(p, ["Overall Height", "Machine Height", "Height"]).value;
+    const overallLength = lookupSpecWithPriority(p, ["Overall Length", "Machine Length", "Length"]).value;
+    const trackWidth = lookupSpecWithPriority(p, ["Track Width", "Shoe Width", "Track Shoe Width"]).value;
     const wheelbase = lookupSpecWithPriority(p, ["Wheelbase"]).value;
-    const travelSpeed = lookupSpecWithPriority(p, ["Travel Speed", "Speed"]).value;
+    const travelSpeed = lookupSpecWithPriority(p, ["Travel Speed", "Speed", "Maximum Travel Speed"]).value;
+
     let cabinType = "Open Station";
-    if (p.name.toLowerCase().includes("cabin")) {
+    const hasCabin = nameLower.includes("cabin") || 
+                     nameLower.includes("prestige") || 
+                     descLower.includes("enclosed cabin") || 
+                     descLower.includes("enclosed cab") || 
+                     descLower.includes("climate-controlled") || 
+                     descLower.includes("ac/heater cabin") || 
+                     descLower.includes("climate controlled") ||
+                     (nameLower.includes("kuvuo") && !nameLower.includes("2.5") && !nameLower.includes("2.7"));
+                     
+    if (hasCabin) {
       cabinType = "Enclosed Cab";
-    } else if (p.name.toLowerCase().includes("canopy") || p.name.toLowerCase().includes("capony")) {
+    } else if (nameLower.includes("canopy") || nameLower.includes("capony") || 
+               descLower.includes("canopy") || descLower.includes("capony")) {
       cabinType = "ROPS Canopy";
     }
     const acHeater = cabinType === "Enclosed Cab" ? "Yes (A/C & Heater)" : "No";
-    const batteryInfo = p.name.toLowerCase().includes("electric") ? (lookupSpecWithPriority(p, ["Battery", "Battery Info", "Voltage"]).value !== "Not listed" ? lookupSpecWithPriority(p, ["Battery", "Battery Info", "Voltage"]).value : "60V / 250Ah Lead-Acid") : "Not listed";
+    const batteryInfo = isElectric ? (lookupSpecWithPriority(p, ["Battery", "Battery Info", "Voltage", "Battery Capacity"]).value !== "Not listed" ? lookupSpecWithPriority(p, ["Battery", "Battery Info", "Voltage", "Battery Capacity"]).value : "60V / 250Ah Lead-Acid") : "Not listed";
+
+    const attachmentCompatibility = category.toLowerCase().includes("excavator")
+      ? ["Quick Coupler", "7.9 in Narrow Bucket", "19.7 in Plain Bucket", "Rake", "Ripper", "Auger", "Grapple", "23.6 in Screen Bucket", "23.6 in Tilting Bucket", "Hydraulic Hammer", "Pallet Fork", "Hydraulic Thumb Clip", "15.7 in Trenching Bucket"]
+      : category.toLowerCase().includes("skid steer")
+      ? ["Standard Buckets", "Grapples", "Pallet Forks", "Augers", "Trenchers", "Hydraulic Breakers", "Sweepers", "Forestry Mulchers", "Brush Cutters", "Snow Blades", "Snow Blowers", "Tillers"]
+      : ["Standard Buckets", "Compatible pallet forks"];
 
     // Dynamic Meaning & Application mapping
     const shortSummary = p.tagline || `A heavy-duty professional-grade ${category} designed for construction and landscaping.`;
@@ -315,6 +365,7 @@ export function getCanonicalProfiles(): CanonicalProfile[] {
       cabinType,
       acHeater,
       batteryInfo,
+      attachmentCompatibility,
       shortSummary,
       bestUseCases,
       goodFor,

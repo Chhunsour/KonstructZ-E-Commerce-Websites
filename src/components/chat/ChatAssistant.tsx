@@ -563,6 +563,63 @@ export const ChatAssistant: React.FC = () => {
     const { answer, memory } = getReply(text, memoryWithViews, language, path);
     memoryRef.current = memory;
 
+    if (memoryWithViews.awaiting === "quote_location" && memory.awaiting === null && memory.quoteSlots) {
+      // Guided quote finished, capture lead!
+      const userMsgHistory = [...messages, { role: "user", text }]
+        .map(m => `${m.role === 'user' ? 'User' : 'Bot'}: ${m.text}`)
+        .join("\n");
+      
+      const contactVal = memory.quoteSlots.contact || "";
+      let email = "";
+      let phone = "";
+      if (contactVal.includes("@")) {
+        const parts = contactVal.split(/[\s,]+/);
+        email = parts.find(p => p.includes("@")) || contactVal;
+        phone = parts.find(p => !p.includes("@")) || "";
+      } else {
+        phone = contactVal;
+      }
+
+      import("../../services/leadCaptureService").then(({ leadCaptureService }) => {
+        leadCaptureService.capture({
+          sourcePage: path,
+          name: memory.quoteSlots?.name || "",
+          company: memory.quoteSlots?.company || "",
+          email,
+          phone,
+          productInterest: memory.quoteSlots?.product || "",
+          productUrl: memory.activeMachine?.href || "",
+          message: memory.quoteSlots?.job || "",
+          location: memory.quoteSlots?.location || "",
+          chatTranscriptSummary: userMsgHistory,
+          currentLanguage: language || "EN",
+          consentIntent: "Guided Quote Request Completion"
+        });
+      }).catch(err => {
+        console.error("Failed to import leadCaptureService", err);
+      });
+    }
+
+    if (answer.capturedLead) {
+      // Direct free-text lead captured!
+      const userMsgHistory = [...messages, { role: "user", text }]
+        .map(m => `${m.role === 'user' ? 'User' : 'Bot'}: ${m.text}`)
+        .join("\n");
+
+      import("../../services/leadCaptureService").then(({ leadCaptureService }) => {
+        leadCaptureService.capture({
+          ...answer.capturedLead,
+          sourcePage: path,
+          productUrl: memory.activeMachine?.href || "",
+          chatTranscriptSummary: userMsgHistory,
+          currentLanguage: language || "EN",
+          consentIntent: text
+        });
+      }).catch(err => {
+        console.error("Failed to import leadCaptureService", err);
+      });
+    }
+
     try {
       const stored = localStorage.getItem("kz-chatbot-analytics");
       const data = stored ? JSON.parse(stored) : {

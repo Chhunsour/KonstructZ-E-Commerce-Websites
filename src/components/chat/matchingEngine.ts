@@ -7,6 +7,26 @@ import {
   type ProductDetail 
 } from "./knowledge";
 
+export function parsePriceNumber(priceStr: string | null): number {
+  if (!priceStr) return Infinity;
+  const cleaned = priceStr.replace(/[^0-9.]/g, "");
+  const num = parseFloat(cleaned);
+  return isNaN(num) ? Infinity : num;
+}
+
+export function parseWeightNumber(weightStr: string | null): number {
+  if (!weightStr) return Infinity;
+  const cleaned = weightStr.replace(/[^0-9.]/g, "");
+  let num = parseFloat(cleaned);
+  if (isNaN(num)) return Infinity;
+  
+  const lower = weightStr.toLowerCase();
+  if (lower.includes("ton")) {
+    num = num * 1000;
+  }
+  return num;
+}
+
 export interface CanonicalProduct {
   id: string;
   name: string;
@@ -27,21 +47,39 @@ export interface CanonicalProduct {
 
 // Nickname query translations
 export function resolveNicknames(cleanSearch: string): string {
-  const s = cleanSearch.toLowerCase().trim()
+  let s = cleanSearch.toLowerCase().trim()
     .replace(/^the\s+/i, "")
-    .replace(/\s+one$/i, "");
+    .replace(/\s+one$/i, "")
+    .replace(/\btyphon machinery\b/g, "typhon")
+    .replace(/\bx\s+1300\b/g, "x1300")
+    .replace(/\b18\s+flex\b/g, "18 flex");
   
-  if (s === "big skid steer" || s === "stronger stomp") return "stomp x1300";
-  if (s === "small excavator") return "terror xi";
-  if (s === "cabin excavator" || s === "cabin one") return "terror xxv cabin";
+  if (s === "big skid steer" || s === "stronger stomp" || s === "big skid") return "stomp x1300";
+  if (s === "small skid" || s === "small stomp") return "stomp 509";
+  if (s.includes("small skid vs big skid") || s.includes("small skid steer vs big skid steer")) return "stomp 509 vs stomp x1300";
+  
+  if (s === "small excavator" || s === "cheap excavator" || s === "cheap" || s === "cheap one") return "terror xi";
+  if (s === "cabin excavator" || s === "cabin one" || s === "with cabin" || s === "cabin" || s === "closed cabin") return "cabin";
+  if (s === "no cabin" || s === "canopy" || s === "capony" || s === "open cabin") return "canopy";
   if (s === "blue forklift" || s === "electric forklift") return "forklift";
   if (s === "2 ton forklift" || s === "2 ton forklift lift") return "forklift 2.0 ton";
-  if (s === "kubota excavator" || s === "typhon with kubota engine") return "terror xxv";
+  if (s === "kubota excavator" || s === "typhon with kubota engine" || s === "kubota one" || s === "kubota") return "kubota";
   if (s === "25hp" || s === "25hp excavator") return "terror xxv";
   if (s === "2.7 ton excavator") return "terror xxv";
   if (s === "mini loader") return "skoop ii";
   
-  return cleanSearch;
+  // Lazy inputs smart mappings
+  if (s === "stomp" || s === "mini skid" || s === "skid steer" || s === "skid" || s === "loader" || s === "skid with canopy") return "stomp";
+  if (s === "509" || s === "stomp 509") return "stomp 509";
+  if (s === "x1300" || s === "stomp x1300") return "stomp x1300";
+  if (s === "507") return "stomp 508";
+  if (s === "fork" || s === "forks" || s === "forklift") return "pallet fork";
+  if (s === "tyrant") return "tyrant 17";
+  if (s === "18 flex" || s === "flex 18" || s === "18flex") return "flex 18 pro";
+  if (s === "flex pro") return "flex 18 pro";
+  if (s === "attachment for skid steer" || s === "skid steer attachment" || s === "skid steer attachments" || s === "attachment for skid" || s === "attachments for skid") return "skid steer attachments";
+  
+  return s;
 }
 
 // Strip leading zeros and trailing decimals like .0 to match "0509" -> "509" and "2.0" -> "2"
@@ -94,7 +132,10 @@ export function getFuzzySimilarity(s1: string, s2: string): number {
 
 // Smart word-overlap similarity score supporting small spelling errors
 export function getSimilarityScore(s1: string, s2: string): number {
-  const clean = (s: string) => normalizeNumericTokens(s).replace(/typhon\s+/gi, "").replace(/[^a-z0-9]/gi, " ");
+  const clean = (s: string) => normalizeNumericTokens(s)
+    .replace(/typhon machinery/gi, "")
+    .replace(/typhon/gi, "")
+    .replace(/[^a-z0-9]/gi, " ");
   const w1 = clean(s1).split(/\s+/).filter(Boolean);
   const w2 = clean(s2).split(/\s+/).filter(Boolean);
   
@@ -342,6 +383,10 @@ export function getCanonicalProducts(): CanonicalProduct[] {
   });
 }
 
+export function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 // Core Matching Engine
 export function matchProductAndSpec(
   query: string, 
@@ -371,8 +416,11 @@ export function matchProductAndSpec(
   pSearch = resolveNicknames(pSearch);
 
   const products = getCanonicalProducts();
-  
-  if (!pSearch) {
+  const qLower = pSearch.toLowerCase();
+
+  // 1. Direct Page / Active Machine Context Check
+  const hasThis = /\bthis\b/i.test(q) || /\bthis\b/i.test(query);
+  if (!qLower || qLower === "this" || qLower === "this machine" || qLower === "this product" || hasThis) {
     if (currentPageUrl) {
       const matchPage = products.find(p => p.url && currentPageUrl.includes(p.id));
       if (matchPage) {
@@ -385,7 +433,6 @@ export function matchProductAndSpec(
         };
       }
     }
-    
     if (activeMachine) {
       const matchActive = products.find(p => p.id === activeMachine.id || (p.url && activeMachine.href.includes(p.id)));
       if (matchActive) {
@@ -398,7 +445,144 @@ export function matchProductAndSpec(
         };
       }
     }
-    
+  }
+
+  // 1.5 Cheap or Small Category Check
+  const wantsCheap = /\b(cheap|cheapest|low price|lowest price|affordable)\b/i.test(query) || /\b(cheap|cheapest|low price|lowest price|affordable)\b/i.test(qLower);
+  const wantsSmall = /\b(small|smallest|compact|tiny|mini)\b/i.test(query) || /\b(small|smallest|compact|tiny|mini)\b/i.test(qLower);
+
+  if (wantsCheap || wantsSmall) {
+    let categoryProducts = products;
+    if (/\b(excavator|digger|terror|tyrant|flex)\b/i.test(qLower) || /\b(excavator|digger|terror|tyrant|flex)\b/i.test(query)) {
+      categoryProducts = products.filter(p => p.category.toLowerCase().includes("excavator"));
+    } else if (/\b(forklift|vigor)\b/i.test(qLower) || /\b(forklift|vigor)\b/i.test(query)) {
+      categoryProducts = products.filter(p => p.category.toLowerCase().includes("forklift") || p.name.toLowerCase().includes("forklift"));
+    } else if (/\b(skid steer|loader|stomp|skoop)\b/i.test(qLower) || /\b(skid steer|loader|stomp|skoop)\b/i.test(query)) {
+      categoryProducts = products.filter(p => p.category.toLowerCase().includes("loader") || p.category.toLowerCase().includes("skid"));
+    } else if (/\b(roller)\b/i.test(qLower) || /\b(roller)\b/i.test(query)) {
+      categoryProducts = products.filter(p => p.category.toLowerCase().includes("roller"));
+    }
+
+    if (categoryProducts.length > 0) {
+      if (wantsCheap) {
+        const sorted = [...categoryProducts].sort((a, b) => {
+          const aPrice = parsePriceNumber(a.price);
+          const bPrice = parsePriceNumber(b.price);
+          return aPrice - bPrice;
+        });
+        return {
+          product: sorted[0],
+          intent: specIntent,
+          confidence: 98,
+          type: "direct",
+          candidates: [sorted[0]]
+        };
+      } else {
+        const sorted = [...categoryProducts].sort((a, b) => {
+          const aWeight = parseWeightNumber(a.specs["Weight"] || a.raw?.weight);
+          const bWeight = parseWeightNumber(b.specs["Weight"] || b.raw?.weight);
+          return aWeight - bWeight;
+        });
+        return {
+          product: sorted[0],
+          intent: specIntent,
+          confidence: 98,
+          type: "direct",
+          candidates: [sorted[0]]
+        };
+      }
+    }
+  }
+
+  // 2. Token-based Mentions Scanner
+  const tokenCandidates: CanonicalProduct[] = [];
+  const searchWords = qLower.split(/\s+/).filter(w => w.length >= 2);
+  
+  if (searchWords.length > 0) {
+    for (const p of products) {
+      const cleanProdName = p.name.toLowerCase().replace(/typhon\s+/gi, "").trim();
+      const prodWords = cleanProdName.split(/\s+/).map(w => w.toLowerCase());
+      
+      // Look for model number indicators (e.g. 509, x1300, xxv, xviii, xvii, xix, xi)
+      const modelNum = prodWords.find(w => /\b(x|x2|17|509|508|1300|xxv|xviii|xvii|xix|xi|v980|skoop|vigor)\b/i.test(w));
+      
+      let matched = false;
+      
+      // Match if full clean name or any alias is directly contained in the query
+      if (qLower === cleanProdName || qLower === p.name.toLowerCase()) {
+        matched = true;
+      } else {
+        for (const a of p.aliases) {
+          const cleanAlias = a.toLowerCase();
+          if (qLower === cleanAlias || new RegExp(`\\b${escapeRegExp(cleanAlias)}\\b`, "i").test(qLower)) {
+            matched = true;
+            break;
+          }
+        }
+      }
+      
+      // Match by model number specifically
+      if (!matched && modelNum) {
+        if (new RegExp(`\\b${escapeRegExp(modelNum)}\\b`, "i").test(qLower)) {
+          matched = true;
+        }
+      }
+      
+      if (matched) {
+        tokenCandidates.push(p);
+      }
+    }
+  }
+
+  if (tokenCandidates.length >= 2) {
+    const exactMatches = tokenCandidates.filter(p => {
+      const cleanProdName = p.name.toLowerCase().replace(/typhon\s+/gi, "").trim();
+      if (qLower === cleanProdName || qLower === p.name.toLowerCase()) return true;
+      for (const a of p.aliases) {
+        if (qLower === a.toLowerCase()) return true;
+      }
+      return false;
+    });
+
+    if (exactMatches.length === 1) {
+      return {
+        product: exactMatches[0],
+        intent: specIntent,
+        confidence: 100,
+        type: "direct",
+        candidates: exactMatches
+      };
+    } else if (exactMatches.length > 1) {
+      return {
+        product: null,
+        intent: specIntent,
+        confidence: 95,
+        type: "clarify",
+        candidates: exactMatches.slice(0, 5)
+      };
+    }
+
+    return {
+      product: null,
+      intent: specIntent,
+      confidence: 95,
+      type: "clarify",
+      candidates: tokenCandidates.slice(0, 5)
+    };
+  }
+  
+  if (tokenCandidates.length === 1) {
+    return {
+      product: tokenCandidates[0],
+      intent: specIntent,
+      confidence: 100,
+      type: "direct",
+      candidates: tokenCandidates
+    };
+  }
+
+  // 3. Fallback scoring engine (Fuzzy matching, specs boost, typos)
+  if (!pSearch) {
     return {
       product: null,
       intent: specIntent,
@@ -408,10 +592,8 @@ export function matchProductAndSpec(
     };
   }
 
-  // Score candidate products
   const scored = products.map(p => {
     let score = 0;
-    
     const cleanSearch = normalizeNumericTokens(pSearch);
     const cleanProdName = normalizeNumericTokens(p.name);
     
@@ -423,7 +605,7 @@ export function matchProductAndSpec(
         if (cleanAlias === cleanSearch) {
           score = Math.max(score, 95);
         } else if (cleanAlias.includes(cleanSearch) || cleanSearch.includes(cleanAlias)) {
-          score = Math.max(score, 88);
+          score = Math.max(score, 85);
         }
       }
       
@@ -435,9 +617,17 @@ export function matchProductAndSpec(
       }
       
       const nameSim = getSimilarityScore(cleanSearch, cleanProdName);
-      if (nameSim >= 0.8) {
-        score = Math.max(score, Math.round(nameSim * 95));
+      if (nameSim >= 0.75) {
+        score = Math.max(score, Math.round(nameSim * 90));
       }
+    }
+    
+    // Specifications Boosts
+    if (cleanSearch.includes("kubota") && p.specs["Engine"]?.toLowerCase().includes("kubota")) {
+      score = Math.max(score, 85);
+    }
+    if (cleanSearch.includes("cabin") && p.raw?.description?.toLowerCase().includes("cabin")) {
+      score = Math.max(score, 80);
     }
     
     if (currentPageUrl && p.url && currentPageUrl.includes(p.id)) {
@@ -448,17 +638,15 @@ export function matchProductAndSpec(
     }
     
     score = Math.min(score, 100);
-    
     return { product: p, score };
   });
 
   // Model token exclusivity penalty
-  const searchWords = normalizeNumericTokens(pSearch).split(/\s+/);
   const penalized = scored.map(item => {
     let score = item.score;
     const prodWords = normalizeNumericTokens(item.product.name).split(/\s+/);
     
-    const hasModelNumber = /\b(x|x2|17|509|10|15|20|1300|xxv)\b/i;
+    const hasModelNumber = /\b(x|x2|17|509|508|1300|xxv|xviii|xvii|xix|xi|v980|skoop|vigor)\b/i;
     const searchModels = searchWords.filter(w => hasModelNumber.test(w));
     if (searchModels.length > 0) {
       const prodModels = prodWords.filter(w => hasModelNumber.test(w));
@@ -483,7 +671,6 @@ export function matchProductAndSpec(
   }
 
   const best = validCandidates[0];
-  
   const closeCandidates = validCandidates.filter(c => c.product.id !== best.product.id && (best.score - c.score) <= 10);
   
   if (closeCandidates.length > 0) {

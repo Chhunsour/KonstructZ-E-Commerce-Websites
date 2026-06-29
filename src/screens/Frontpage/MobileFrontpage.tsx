@@ -32,6 +32,12 @@ const ProductSlider = () => {
   const product = products[index];
   const navigate = useNavigate();
 
+  // Mobile Swipe Touch References
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const touchEndX = useRef(0);
+  const touchEndY = useRef(0);
+
   const triggerAnimation = (targetIdx: number, dir: "left" | "right") => {
     if (animating) return;
     setAnimating(true);
@@ -66,6 +72,36 @@ const ProductSlider = () => {
     triggerAnimation(targetIdx, "left");
   };
 
+  // Touch Handlers for Finger Swipe Support
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (animating) return;
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    touchEndX.current = e.touches[0].clientX;
+    touchEndY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+    touchEndY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = () => {
+    if (animating) return;
+    const diffX = touchStartX.current - touchEndX.current;
+    const diffY = touchStartY.current - touchEndY.current;
+    const threshold = 40; // horizontal swipe threshold in px
+
+    // Check if horizontal movement is clear and greater than vertical movement
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+      if (diffX > 0) {
+        next(); // Swipe left moves track left (shows next)
+      } else {
+        prev(); // Swipe right moves track right (shows prev)
+      }
+    }
+  };
+
   return (
     <section className="bg-[#ebebeb] px-5 py-10 overflow-hidden border-b border-theme-border/10">
       {/* 1. Static Branded Heading (No Animation) */}
@@ -80,7 +116,12 @@ const ProductSlider = () => {
       />
 
       {/* 2. Slideable Product Image (Hardware-accelerated layout-safe transition) */}
-      <div className="relative w-full h-[260px] overflow-hidden mb-6">
+      <div 
+        className="relative w-full h-[260px] overflow-hidden mb-6 cursor-grab active:cursor-grabbing select-none"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {!animationState ? (
           // Idle state - only one image is rendered, perfectly centered
           <div className="absolute inset-0 flex items-center justify-center">
@@ -106,8 +147,8 @@ const ProductSlider = () => {
                 transform: animationState.phase === "init" 
                   ? 'translate3d(0,0,0) translateZ(0)' 
                   : animationState.direction === "left"
-                    ? 'translate3d(-24px, 0, 0) translateZ(0)' 
-                    : 'translate3d(24px, 0, 0) translateZ(0)',
+                    ? 'translate3d(-100%, 0, 0) translateZ(0)' 
+                    : 'translate3d(100%, 0, 0) translateZ(0)',
                 opacity: animationState.phase === "init" ? 1 : 0
               }}
             >
@@ -126,8 +167,8 @@ const ProductSlider = () => {
                 backfaceVisibility: 'hidden',
                 transform: animationState.phase === "init"
                   ? animationState.direction === "left"
-                    ? 'translate3d(24px, 0, 0) translateZ(0)'
-                    : 'translate3d(-24px, 0, 0) translateZ(0)'
+                    ? 'translate3d(100%, 0, 0) translateZ(0)'
+                    : 'translate3d(-100%, 0, 0) translateZ(0)'
                   : 'translate3d(0,0,0) translateZ(0)',
                 opacity: animationState.phase === "init" ? 0 : 1
               }}
@@ -178,7 +219,7 @@ const ProductSlider = () => {
           </svg>
         </button>
 
-        <span className="font-heading text-lg font-bold text-[#153d28] min-w-[60px] text-center">
+        <span className="font-googleSans text-lg font-bold text-black min-w-[60px] text-center">
           {index + 1} / {products.length}
         </span>
 

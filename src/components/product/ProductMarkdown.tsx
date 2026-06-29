@@ -2,15 +2,15 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { normalizeBrandCopy } from "../../lib/brandCopy";
+import { sanitizeHtml } from "../../lib/sanitizeHtml";
 
 /**
  * Shared renderer for a product's rich "Full description".
  *
- * Content is authored as **Markdown** (GFM — so tables, lists, links, images,
- * bold all work out of the box). Raw HTML is intentionally NOT enabled, so the
- * content is XSS-safe by construction.
+ * Content is authored as **Markdown** or **HTML**. If HTML tags are detected,
+ * we sanitize and render it safely. Otherwise, we render via ReactMarkdown.
  *
- * CTA buttons: write a normal Markdown link with the title text `cta`, e.g.
+ * CTA buttons in Markdown: write a normal Markdown link with the title text `cta`, e.g.
  *   [Get a quote](/contact "cta")
  * and it renders as a styled call-to-action button instead of a plain link.
  */
@@ -20,6 +20,20 @@ export const ProductMarkdown: React.FC<{ content: string; className?: string }> 
 }) => {
   if (!content?.trim()) return null;
   const normalizedContent = normalizeBrandCopy(content);
+
+  // Detect HTML tags (like <p>, <h1>, <strong>, etc.)
+  const isHtml = /<\/?[a-z][a-z0-9]*\b[^>]*>/i.test(normalizedContent);
+
+  if (isHtml) {
+    const sanitized = sanitizeHtml(normalizedContent);
+    return (
+      <div
+        className={`product-prose ${className ?? ""}`}
+        dangerouslySetInnerHTML={{ __html: sanitized }}
+      />
+    );
+  }
+
   return (
     <div className={`product-prose ${className ?? ""}`}>
       <ReactMarkdown
@@ -37,7 +51,7 @@ export const ProductMarkdown: React.FC<{ content: string; className?: string }> 
                   href={url}
                   target={target}
                   rel={rel}
-                  className="inline-flex items-center justify-center bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded transition-colors no-underline my-2"
+                  className="inline-flex items-center justify-center bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded-none transition-colors no-underline my-2"
                 >
                   {children}
                 </a>
@@ -69,7 +83,7 @@ export const ProductMarkdown: React.FC<{ content: string; className?: string }> 
               src={typeof src === "string" ? src : ""}
               alt={alt ?? ""}
               loading="lazy"
-              className="rounded my-3 max-w-full h-auto"
+              className="rounded-none my-3 max-w-full h-auto"
             />
           ),
         }}
@@ -81,3 +95,4 @@ export const ProductMarkdown: React.FC<{ content: string; className?: string }> 
 };
 
 export default ProductMarkdown;
+

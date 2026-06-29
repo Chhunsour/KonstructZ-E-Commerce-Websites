@@ -151,3 +151,27 @@ export const contentTextLength = (content: string): number => {
   const doc = new DOMParser().parseFromString(content, "text/html");
   return (doc.body.textContent ?? "").trim().length;
 };
+
+/** Strips HTML tags and decodes entities to output clean plain text. */
+export const getPlainText = (content: string): string => {
+  if (!content) return "";
+  if (typeof window === "undefined" || typeof DOMParser === "undefined") {
+    return content
+      .replace(/<[^>]*>/g, "")
+      .replace(/&nbsp;/gi, " ")
+      .replace(/&amp;/gi, "&")
+      .replace(/&lt;/gi, "<")
+      .replace(/&gt;/gi, ">")
+      .replace(/&#39;|&apos;/gi, "'")
+      .replace(/&quot;/gi, '"')
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+  try {
+    const doc = new DOMParser().parseFromString(content, "text/html");
+    return (doc.body.textContent ?? doc.body.innerText ?? "").trim();
+  } catch (e) {
+    return content.replace(/<[^>]*>/g, "").trim();
+  }
+};
+

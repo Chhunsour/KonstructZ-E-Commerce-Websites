@@ -7,6 +7,8 @@ import {
 } from "../../components/product/MachineComparison";
 import { ImageLightbox } from "../../components/product/ImageLightbox";
 import { useI18n } from "../../context/I18nContext";
+import ProductMarkdown from "../../components/product/ProductMarkdown";
+
 
 const toComparable = (p: Product): ComparableMachine => ({
   id: p.id,
@@ -144,9 +146,9 @@ export const MobileProductSingle: React.FC<{ product: Product }> = ({ product })
         {product.description && (
           <section className="mt-8">
             <h2 className="font-clofieBold text-xl text-theme-heading">{t("product.overview", { fallback: "Overview" })}</h2>
-            <p className="mt-3 font-glonimove text-base leading-7 text-theme-text/80">
-              {product.description}
-            </p>
+            <div className="mt-3 font-glonimove text-base leading-7">
+              <ProductMarkdown content={product.description} />
+            </div>
           </section>
         )}
 

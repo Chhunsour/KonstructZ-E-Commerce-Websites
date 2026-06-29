@@ -5,6 +5,7 @@ import { categories } from "../data/categories";
 import { products } from "../data/products";
 import { getTyphonProductById } from "../data/typhonProducts";
 import { normalizeBrandCopy } from "../lib/brandCopy";
+import { getPlainText } from "../lib/sanitizeHtml";
 
 const SITE_URL = "https://konstructz.com";
 const SITE_NAME = "Konstructz";
@@ -334,7 +335,7 @@ const getRouteConfig = (pathname: string): MetaConfig => {
     if (product) {
       return {
         title: `${product.name} ${product.categoryLabel} | Konstructz Equipment`,
-        description: `${product.name} is a Konstructz ${product.categoryLabel.toLowerCase()} for ${product.description.toLowerCase()} Review applications, buyer guidance, support, and attachment fitment.`,
+        description: `${product.name} is a Konstructz ${product.categoryLabel.toLowerCase()} for ${getPlainText(product.description).toLowerCase()} Review applications, buyer guidance, support, and attachment fitment.`,
         image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
         schema: [
           {
@@ -342,7 +343,7 @@ const getRouteConfig = (pathname: string): MetaConfig => {
             name: product.name,
             brand: { "@type": "Brand", name: SITE_NAME },
             category: product.categoryLabel,
-            description: product.description,
+            description: getPlainText(product.description),
             image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
           },
         ],
@@ -364,7 +365,7 @@ const getRouteConfig = (pathname: string): MetaConfig => {
             name: product.name,
             brand: { "@type": "Brand", name: "Typhon" },
             category: product.categoryLabel,
-            description: normalizeBrandCopy(product.description),
+            description: getPlainText(normalizeBrandCopy(product.description)),
             image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
           },
         ],

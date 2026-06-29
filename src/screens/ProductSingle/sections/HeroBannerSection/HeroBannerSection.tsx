@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Product } from "../../../../data/products";
 import { useI18n } from "../../../../context/I18nContext";
 import { specLabelKey } from "../../../../i18n/keys";
+import { getPlainText } from "../../../../lib/sanitizeHtml";
+
 
 interface HeroBannerSectionProps {
   product: Product;
@@ -48,6 +50,11 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
 
   // Render first 4 specs dynamically
   const displayedSpecs = product.specs.slice(0, 4);
+
+  const plainDescription = getPlainText(product.description);
+  const displayDescription = plainDescription.length > 220
+    ? plainDescription.slice(0, 220) + "..."
+    : plainDescription;
 
   return (
     <section
@@ -143,7 +150,7 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
           {product.tagline}
         </p>
         <p className="mt-3 [font-family:'Glonimove-Regular',Helvetica] text-[20px] font-normal leading-[30px] tracking-[0] text-theme-text opacity-90">
-          {product.description}
+          {displayDescription}
         </p>
       </div>
 

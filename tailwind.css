@@ -381,3 +381,48 @@ html[lang="de"], html[lang="de"] body {
 .animate-gallery-swap {
   animation: gallery-swap 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Premium styled elements inside Product Description prose */
+.product-prose {
+  line-height: 1.75;
+}
+.product-prose h1 {
+  @apply font-bold text-3xl mt-8 mb-4 tracking-tight;
+  color: var(--theme-heading);
+}
+.product-prose h2 {
+  @apply font-clofieBold text-2xl mt-8 mb-4 tracking-tight;
+  color: var(--theme-heading);
+}
+.product-prose h3 {
+  @apply font-bold text-xl mt-6 mb-3 tracking-tight;
+  color: var(--theme-heading);
+}
+.product-prose p {
+  @apply mt-4 mb-4;
+  color: var(--theme-text);
+  opacity: 0.9;
+}
+.product-prose strong {
+  @apply font-bold;
+  color: var(--theme-heading);
+}
+.product-prose a {
+  @apply hover:underline font-semibold;
+  color: var(--theme-accent);
+}
+.product-prose ul {
+  @apply list-disc pl-6 my-4 space-y-2;
+}
+.product-prose ol {
+  @apply list-decimal pl-6 my-4 space-y-2;
+}
+.product-prose li {
+  color: var(--theme-text);
+  opacity: 0.9;
+}
+.product-prose hr {
+  @apply my-8 border-t;
+  border-color: rgba(var(--theme-border-rgb), 0.3);
+}
+

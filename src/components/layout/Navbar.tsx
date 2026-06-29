@@ -169,7 +169,7 @@ export const KonstructzLogo: React.FC<KonstructzLogoProps> = ({ height, isDark }
 };
 
 const headerActionTextClass =
-  "[font-family:'Clofie-Regular',Helvetica] text-[14px] font-normal leading-none tracking-[0] transition-colors";
+  "font-googleSans text-[13px] font-medium leading-none tracking-[0] transition-colors";
 
 const SearchIcon: React.FC<{ label: string; className: string }> = ({ label, className }) => (
   <Link
@@ -272,16 +272,19 @@ export const Navbar: React.FC = () => {
 
   const getActionButtonClass = (extraClasses: string = "") => {
     const base =
-      "flex h-[32px] items-center justify-center border shadow-[0_8px_22px_rgba(0,0,0,0.12)] transition-all duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B]";
+      "flex h-9 items-center justify-center rounded-[4px] border-2 border-solid backdrop-blur-[10px] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B]";
 
     if (scrolled) {
-      return `${base} border-theme-border/95 bg-theme-bg/20 text-theme-text hover:border-theme-border hover:bg-theme-border/10 hover:text-theme-accent ${extraClasses}`;
+      return `${base} border-theme-border/95 bg-theme-bg/45 text-theme-text hover:border-theme-accent hover:bg-theme-border/10 hover:text-theme-accent ${extraClasses}`;
     } else if (useLightHeader) {
-      return `${base} border-[#68825B]/70 bg-black/20 text-white hover:border-[#68825B] hover:bg-white/10 hover:text-theme-accent ${extraClasses}`;
+      return `${base} border-[#68825B] bg-black/25 text-white hover:border-[#7f9a70] hover:bg-white/10 hover:text-theme-accent ${extraClasses}`;
     } else {
-      return `${base} border-[#153d28]/35 bg-black/5 text-[#212121] hover:border-[#153d28] hover:bg-black/10 hover:text-[#153d28] ${extraClasses}`;
+      return `${base} border-[#153d28] bg-white/70 text-[#212121] hover:border-[#153d28] hover:bg-white hover:text-[#153d28] ${extraClasses}`;
     }
   };
+
+  const headerIconButtonClass = getActionButtonClass("w-9 shrink-0 cursor-pointer");
+  const headerQuoteButtonClass = getActionButtonClass("min-w-[148px] px-4 cursor-pointer");
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -623,7 +626,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={toggleTheme}
-              className={getActionButtonClass("w-[32px] cursor-pointer rounded-[3px]")}
+              className={headerIconButtonClass}
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             >
               {theme === "dark" ? (
@@ -640,14 +643,14 @@ export const Navbar: React.FC = () => {
 
             <SearchIcon
               label={t("action.searchEquipment")}
-              className={getActionButtonClass("w-[32px] shrink-0 cursor-pointer rounded-[3px] group")}
+              className={`${headerIconButtonClass} group`}
             />
 
             <div className="relative" id="language-switcher-container">
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === "language" ? null : "language")}
-                className={getActionButtonClass("w-[32px] cursor-pointer rounded-[3px]")}
+                className={headerIconButtonClass}
                 aria-haspopup="listbox"
                 aria-expanded={activeDropdown === "language"}
                 aria-label={t("language.selectCurrent", { values: { language } })}
@@ -692,18 +695,12 @@ export const Navbar: React.FC = () => {
             </div>
 
             <CartButton
-              className={getActionButtonClass("w-[32px] cursor-pointer rounded-[3px]")}
+              className={headerIconButtonClass}
             />
 
             <Link
               to="/contact"
-              className={`flex h-[32px] min-w-[98px] items-center justify-center border rounded-[3px] px-[15px] cursor-pointer bg-transparent transition-all duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B] ${
-                scrolled
-                  ? "border-theme-border text-theme-text hover:bg-theme-border/10"
-                  : useLightHeader
-                    ? "border-[#68825B] text-white hover:bg-white/10"
-                    : "border-[#153d28] text-[#212121] hover:bg-black/5"
-              }`}
+              className={headerQuoteButtonClass}
             >
               <span className={`${headerActionTextClass} whitespace-nowrap`}>
                 {t("action.getAQuote")}

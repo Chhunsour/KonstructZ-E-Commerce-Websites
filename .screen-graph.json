@@ -1473,15 +1473,15 @@
       }
     },
     {
-      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:47:10-to-src/pages/Home.tsx",
+      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:49:10-to-src/pages/Home.tsx",
       "source": "src/pages/ProductDetail.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link to=\"/\" className=\"hover:text-theme-accent\">{t(\"nav.home\")}</Link>",
-          "line": 47,
-          "endLine": 47,
+          "line": 49,
+          "endLine": 49,
           "column": 10,
           "endColumn": 81,
           "sourceFile": "src/screens/ProductSingle/MobileProductSingle.tsx"
@@ -1489,15 +1489,15 @@
       }
     },
     {
-      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:49:10-to-src/pages/AllEquipment.tsx",
+      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:51:10-to-src/pages/AllEquipment.tsx",
       "source": "src/pages/ProductDetail.tsx",
       "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link to=\"/equipment\" className=\"hover:text-theme-accent\">{t(\"nav.equipment\")}</Link>",
-          "line": 49,
-          "endLine": 49,
+          "line": 51,
+          "endLine": 51,
           "column": 10,
           "endColumn": 95,
           "sourceFile": "src/screens/ProductSingle/MobileProductSingle.tsx"
@@ -1585,15 +1585,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:156:10-to-src/pages/Home.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:163:10-to-src/pages/Home.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link to=\"/\" className=\"hover:text-white\">\n            {t(\"nav.home\", { fallback: \"Home\" })}\n          </Link>",
-          "line": 156,
-          "endLine": 158,
+          "element": "<Link to=\"/\" className=\"hover:text-[#153d28] dark:hover:text-[#d8c79a] text-neutral-600 dark:text-white/60 transition-colors\">\n            {t(\"nav.home\", { fallback: \"Home\" })}\n          </Link>",
+          "line": 163,
+          "endLine": 165,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1601,15 +1601,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:160:10-to-src/pages/TyphonCatalog.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:167:10-to-src/pages/TyphonCatalog.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/TyphonCatalog.tsx",
       "data": {
         "viaRoute": "/typhon-machinery",
         "trigger": {
-          "element": "<Link to=\"/typhon-machinery\" className=\"hover:text-white\">\n            {t(\"nav.typhonMachinery\", { fallback: \"Typhon Machinery\" })}\n          </Link>",
-          "line": 160,
-          "endLine": 162,
+          "element": "<Link to=\"/typhon-machinery\" className=\"hover:text-[#153d28] dark:hover:text-[#d8c79a] text-neutral-600 dark:text-white/60 transition-colors\">\n            {t(\"nav.typhonMachinery\", { fallback: \"Typhon\" })}\n          </Link>",
+          "line": 167,
+          "endLine": 169,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1617,15 +1617,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:509:10-to-src/pages/TyphonCatalog.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:525:10-to-src/pages/TyphonCatalog.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/TyphonCatalog.tsx",
       "data": {
         "viaRoute": "/typhon-machinery",
         "trigger": {
-          "element": "<Link to=\"/typhon-machinery\" className=\"font-googleSans text-sm font-bold uppercase text-[#d8c79a] hover:text-white\">\n            {t(\"product.viewCatalog\", { fallback: \"View Typhon Catalog\" })}\n          </Link>",
-          "line": 509,
-          "endLine": 511,
+          "element": "<Link to=\"/typhon-machinery\" className=\"font-googleSans text-sm font-bold uppercase text-[#8c7a52] dark:text-[#d8c79a] hover:text-[#153d28] dark:hover:text-white transition-colors\">\n            {t(\"product.viewCatalog\", { fallback: \"View Typhon Catalog\" })}\n          </Link>",
+          "line": 525,
+          "endLine": 527,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1873,15 +1873,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:179:2-to-src/pages/AllEquipment.tsx",
+      "id": "src/components/layout/Navbar.tsx:175:2-to-src/pages/AllEquipment.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link\n    to=\"/equipment\"\n    aria-label={label}\n    className={className}\n  >\n    <svg\n      width=\"15\"\n      height=\"15\"\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2.25\"\n      className=\"transition-colors\"\n    >\n      <circle cx=\"11\" cy=\"11\" r=\"7\" />\n      <path d=\"M21 21L16.65 16.65\" strokeLinecap=\"round\" />\n    </svg>\n  </Link>",
-          "line": 179,
-          "endLine": 196,
+          "line": 175,
+          "endLine": 192,
           "column": 2,
           "endColumn": 9,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1889,15 +1889,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:394:10-to-src/pages/Home.tsx",
+      "id": "src/components/layout/Navbar.tsx:398:10-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n            <KonstructzLogo height={61.6} isDark={theme === \"light\" && !useLightHeader} />\n          </Link>",
-          "line": 394,
-          "endLine": 396,
+          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n            <KonstructzLogo height={61.6} isDark={(theme === \"light\" && !useLightHeader) || isLightPage} />\n          </Link>",
+          "line": 398,
+          "endLine": 400,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1905,15 +1905,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:697:12-to-src/pages/Contact.tsx",
+      "id": "src/components/layout/Navbar.tsx:701:12-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
-          "element": "<Link\n              to=\"/contact\"\n              className={`flex h-[32px] min-w-[98px] items-center justify-center border rounded-[3px] px-[15px] cursor-pointer bg-transparent transition-all duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B] ${\n                scrolled\n                  ? \"border-theme-border text-theme-text hover:bg-theme-border/10\"\n                  : useLightHeader\n                    ? \"border-[#68825B] text-white hover:bg-white/10\"\n                    : \"border-[#153d28] text-[#212121] hover:bg-black/5\"\n              }`}\n            >\n              <span className={`${headerActionTextClass} whitespace-nowrap`}>\n                {t(\"action.getAQuote\")}\n              </span>\n            </Link>",
-          "line": 697,
-          "endLine": 710,
+          "element": "<Link\n              to=\"/contact\"\n              className={headerQuoteButtonClass}\n            >\n              <span className={`${headerActionTextClass} whitespace-nowrap`}>\n                {t(\"action.getAQuote\")}\n              </span>\n            </Link>",
+          "line": 701,
+          "endLine": 708,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1921,15 +1921,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:725:8-to-src/pages/Home.tsx",
+      "id": "src/components/layout/Navbar.tsx:723:8-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n          <KonstructzLogo height={36.96} isDark={theme === \"light\" && !useLightHeader} />\n        </Link>",
-          "line": 725,
-          "endLine": 727,
+          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n          <KonstructzLogo height={36.96} isDark={(theme === \"light\" && !useLightHeader) || isLightPage} />\n        </Link>",
+          "line": 723,
+          "endLine": 725,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1937,15 +1937,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:1038:10-to-src/pages/Contact.tsx",
+      "id": "src/components/layout/Navbar.tsx:1036:10-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n            to=\"/contact\"\n            className=\"text-center py-3 px-5 [font-family:'Clofie-Regular',Helvetica] text-lg leading-none text-white border border-white/25 bg-white/[0.04] hover:border-[#d8c79a] hover:text-[#d8c79a] active:translate-y-px transition-all duration-200\"\n          >\n            {t(\"action.getAQuote\")}\n          </Link>",
-          "line": 1038,
-          "endLine": 1043,
+          "line": 1036,
+          "endLine": 1041,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/components/layout/Navbar.tsx"

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { type TyphonProduct } from "../data/typhonProducts";
 import { TyphonProductCard } from "../components/ui/TyphonProductCard";
+import { FilterGroup, PriceFilter } from "../components/ui/ProductFilter";
 import { useI18n } from "../context/I18nContext";
 import { useTyphonProducts } from "../context/ProductsContext";
 
 const PAGE_SIZE = 12;
-const EQUIPMENT_ICON_PATH = "/icons/equipment";
 
 type ProductKind = "equipment" | "attachment";
 
@@ -30,16 +30,84 @@ const categoriesFor = (items: TyphonProduct[]) => {
   return [...map.values()].sort((a, b) => b.count - a.count);
 };
 
-const categoryIcon = (id: string) => {
-  const icons: Record<string, string> = {
-    forklifts: "forklift.svg",
-    "mini-excavators": "mini-excavator.svg",
-    "road-rollers": "road-roller.svg",
-    "scissor-lifts": "scissor-lift.svg",
-    "skid-steer-loaders": "skid-steer.svg",
-    "wheel-loaders": "wheel-loader.svg",
-  };
-  return `${EQUIPMENT_ICON_PATH}/${icons[id] ?? "all-equipment.svg"}`;
+/**
+ * Build one lowercase string holding every searchable field of a product so a
+ * single query can match by name, category, model/series, SKU, marketing copy,
+ * key features, applications, or any spec value (e.g. engine HP, weight).
+ */
+const searchHaystack = (p: TyphonProduct): string =>
+  [
+    p.name,
+    p.categoryLabel,
+    p.category,
+    p.series,
+    p.sku,
+    p.tagline,
+    p.description,
+    p.weight,
+    ...p.features,
+    ...p.applications,
+    ...p.specs.flatMap((s) => [s.label, s.value]),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+/* ── Faceted-filter helpers (Konstructz product-filter parity) ──
+   These read structured values out of a Typhon product so the Price,
+   Operation Weight, Engine and Horsepower facets can filter the catalog. */
+
+const WEIGHT_FILTERS = ["1.0 - 2.5 Tons", "2.6 - 4.5 Tons", "4.6+ Tons"];
+const ENGINE_FILTERS = ["Diesel Powertrain", "Gasoline Powertrain", "Electric Drive"];
+const HORSEPOWER_FILTERS = ["Under 25 HP", "25 - 50 HP", "Over 50 HP"];
+
+/** Numeric price from the display string, e.g. "$6,508.95" → 6508.95. */
+const parsePriceNumber = (p: TyphonProduct): number => {
+  const raw = (p.currentPrice || p.price || "").replace(/[^0-9.]/g, "");
+  const n = parseFloat(raw);
+  return isNaN(n) ? 0 : n;
+};
+
+/** Operation weight normalised to metric tons (handles lb / kg / ton). */
+const getWeightTons = (p: TyphonProduct): number => {
+  const normalized = (p.weight || "").toLowerCase();
+  const num = parseFloat(normalized.replace(/,/g, ""));
+  if (isNaN(num)) return 0;
+  if (normalized.includes("lb") || normalized.includes("pound")) return num / 2000;
+  if (normalized.includes("kg")) return num / 1000;
+  return num;
+};
+
+const getEngineType = (p: TyphonProduct): string => {
+  const txt = [p.name, p.tagline, p.description, ...p.features, ...p.specs.map((s) => `${s.label} ${s.value}`)]
+    .join(" ")
+    .toLowerCase();
+  if (txt.includes("electric") || txt.includes("battery")) return "Electric Drive";
+  if (txt.includes("gasoline") || txt.includes("petrol") || txt.includes("honda gx") || /\bgas\b/.test(txt))
+    return "Gasoline Powertrain";
+  return "Diesel Powertrain";
+};
+
+const getHorsepower = (p: TyphonProduct): number => {
+  const txt = [p.name, p.tagline, p.description, ...p.specs.map((s) => s.value)].join(" ");
+  const m = txt.match(/(\d+(?:\.\d+)?)\s*HP/i);
+  return m ? parseFloat(m[1]) : 0;
+};
+
+const matchesWeight = (p: TyphonProduct, bucket: string): boolean => {
+  const w = getWeightTons(p);
+  if (bucket === "1.0 - 2.5 Tons") return w <= 2.5;
+  if (bucket === "2.6 - 4.5 Tons") return w > 2.5 && w <= 4.5;
+  if (bucket === "4.6+ Tons") return w > 4.5;
+  return true;
+};
+
+const matchesHorsepower = (p: TyphonProduct, bucket: string): boolean => {
+  const hp = getHorsepower(p);
+  if (bucket === "Under 25 HP") return hp < 25;
+  if (bucket === "25 - 50 HP") return hp >= 25 && hp <= 50;
+  if (bucket === "Over 50 HP") return hp > 50;
+  return true;
 };
 
 /**
@@ -50,12 +118,27 @@ const categoryIcon = (id: string) => {
 export const AllEquipment: React.FC = () => {
   const { t } = useI18n();
   const typhonProducts = useTyphonProducts();
-  const location = useLocation();
-  const selectedCategory = new URLSearchParams(location.search).get("category");
-  const selectedKind = parseKind(location.search);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedCategory = searchParams.get("category");
+  const selectedKind = parseKind(`?${searchParams.toString()}`);
 
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Faceted-filter state (Konstructz product-filter parity).
+  // Seed the price ceiling from the dearest product so the grid isn't filtered
+  // to empty on the first render before the sync effect below runs.
+  const [priceMax, setPriceMax] = useState(() => {
+    const kind = parseKind(`?${searchParams.toString()}`);
+    const prices = typhonProducts
+      .filter((p) => p.productType === kind)
+      .map(parsePriceNumber)
+      .filter((n) => n > 0);
+    return prices.length ? Math.ceil(Math.max(...prices) / 1000) * 1000 : 69999;
+  });
+  const [selectedWeight, setSelectedWeight] = useState<string | null>(null);
+  const [selectedEngine, setSelectedEngine] = useState<string | null>(null);
+  const [selectedHorsepower, setSelectedHorsepower] = useState<string | null>(null);
 
   useEffect(() => {
     document.title =
@@ -67,7 +150,7 @@ export const AllEquipment: React.FC = () => {
   // Reset page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedKind, selectedCategory, query]);
+  }, [selectedKind, selectedCategory, query, priceMax, selectedWeight, selectedEngine, selectedHorsepower]);
 
   // Everything of the selected kind — category tabs and the grid derive from
   // this so machines and attachments never mix.
@@ -76,6 +159,45 @@ export const AllEquipment: React.FC = () => {
     [selectedKind, typhonProducts]
   );
   const categories = useMemo(() => categoriesFor(base), [base]);
+
+  // Slider ceiling = the dearest product in the current kind (rounded up).
+  const maxPrice = useMemo(() => {
+    const prices = base.map(parsePriceNumber).filter((n) => n > 0);
+    if (!prices.length) return 69999;
+    return Math.ceil(Math.max(...prices) / 1000) * 1000;
+  }, [base]);
+
+  // When the kind (machines/attachments) changes, reset the facet filters and
+  // snap the price slider back to the full range of the new product set.
+  useEffect(() => {
+    setPriceMax(maxPrice);
+    setSelectedWeight(null);
+    setSelectedEngine(null);
+    setSelectedHorsepower(null);
+  }, [maxPrice, selectedKind]);
+
+  const selectCategory = (id: string | null) => {
+    const next = new URLSearchParams(searchParams);
+    if (id) next.set("category", id);
+    else next.delete("category");
+    setSearchParams(next);
+  };
+
+  const resetAllFilters = () => {
+    setQuery("");
+    setPriceMax(maxPrice);
+    setSelectedWeight(null);
+    setSelectedEngine(null);
+    setSelectedHorsepower(null);
+    selectCategory(null);
+  };
+
+  // Category facet options for the Konstructz-style FilterGroup: translated
+  // labels shown to the user, mapped back to the internal category id.
+  const categoryLabels = categories.map((c) => t(`category.${c.id}`, { fallback: c.label }));
+  const categoryValueMapping = Object.fromEntries(
+    categories.map((c) => [t(`category.${c.id}`, { fallback: c.label }), c.id])
+  );
   const typeCounts = useMemo(
     () => ({
       equipment: typhonProducts.filter((p) => p.productType === "equipment").length,
@@ -84,19 +206,32 @@ export const AllEquipment: React.FC = () => {
     [typhonProducts]
   );
 
-  // Build hrefs that preserve the active kind.
-  const kindQuery = selectedKind === "attachment" ? "type=attachments" : "";
-  const allHref = kindQuery ? `/equipment?${kindQuery}` : "/equipment";
-  const categoryHref = (id: string) =>
-    `/equipment?${[kindQuery, `category=${id}`].filter(Boolean).join("&")}`;
+  // Precompute the searchable text once per kind so typing stays snappy.
+  const haystacks = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const p of base) map.set(p.id, searchHaystack(p));
+    return map;
+  }, [base]);
+
+  // Split the query into words; a product must match every word (in any field).
+  const searchTokens = useMemo(
+    () => query.trim().toLowerCase().split(/\s+/).filter(Boolean),
+    [query]
+  );
 
   const filteredProducts: TyphonProduct[] = useMemo(() => {
     return base
       .filter((p) => !selectedCategory || p.category === selectedCategory)
-      .filter(
-        (p) => !query || p.name.toLowerCase().includes(query.toLowerCase())
-      );
-  }, [base, selectedCategory, query]);
+      .filter((p) => {
+        if (searchTokens.length === 0) return true;
+        const hay = haystacks.get(p.id) ?? "";
+        return searchTokens.every((token) => hay.includes(token));
+      })
+      .filter((p) => parsePriceNumber(p) <= priceMax)
+      .filter((p) => !selectedWeight || matchesWeight(p, selectedWeight))
+      .filter((p) => !selectedEngine || getEngineType(p) === selectedEngine)
+      .filter((p) => !selectedHorsepower || matchesHorsepower(p, selectedHorsepower));
+  }, [base, selectedCategory, searchTokens, haystacks, priceMax, selectedWeight, selectedEngine, selectedHorsepower]);
 
   const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE);
   const paginatedProducts = filteredProducts.slice(
@@ -116,7 +251,14 @@ export const AllEquipment: React.FC = () => {
     (selectedKind === "attachment"
       ? t("catalog.allAttachments", { fallback: "All Typhon Attachments" })
       : t("catalog.allEquipment", { fallback: "All Typhon Equipment" }));
-  const hasActiveFilters = Boolean(selectedCategory || query.trim());
+  const hasActiveFilters = Boolean(
+    selectedCategory ||
+      query.trim() ||
+      selectedWeight ||
+      selectedEngine ||
+      selectedHorsepower ||
+      priceMax < maxPrice
+  );
 
   return (
     <div className="bg-[#fafafc] dark:bg-[#282828] min-h-screen text-neutral-800 dark:text-white transition-colors duration-200">
@@ -149,57 +291,65 @@ export const AllEquipment: React.FC = () => {
           <div className="grid gap-8 lg:grid-cols-[292px_minmax(0,1fr)] lg:items-start lg:gap-10">
             <aside
               aria-label={t("equipment.filters", { fallback: "Typhon product filters" })}
-              className="border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#232323] p-4 shadow-[0_10px_30px_rgba(0,0,0,0.04)] rounded lg:sticky lg:top-28 lg:p-5 transition-colors"
+              className="flex flex-col gap-4 lg:sticky lg:top-28"
             >
-              <div className="border-b border-neutral-200 dark:border-white/10 pb-4">
-                <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.22em] text-[#153d28] dark:text-[#d8c79a]">
+              {/* Title + search */}
+              <div className="bg-theme-sec text-theme-text p-4 border border-theme-border/10 rounded transition-colors">
+                <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.22em] text-theme-accent">
                   {t("catalog.productFilters", { fallback: "Product Filters" })}
                 </p>
-                <h2 className="mt-2 font-clofieBold text-2xl leading-tight text-neutral-900 dark:text-white">
+                <h2 className="mt-1 font-clofieBold text-2xl leading-tight text-theme-text">
                   {productTypeLabel}
                 </h2>
-              </div>
 
-              <form
-                role="search"
-                className="mt-5"
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <label htmlFor="typhon-search" className="sr-only">
-                  {t("action.searchEquipment", { fallback: "Search equipment" })}
-                </label>
-                <div className="relative">
-                  <input
-                    id="typhon-search"
-                    type="search"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder={t("equipment.searchPlaceholderShort", { fallback: "Search..." })}
-                    className="h-12 w-full border border-neutral-300 dark:border-white/15 bg-white dark:bg-[#1a1a1a] px-4 pr-12 font-googleSans text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-white/40 transition-colors focus:border-[#153d28] dark:focus:border-[#d8c79a] focus:outline-none rounded-sm"
-                  />
-                  <button
-                    type="submit"
-                    aria-label={t("action.searchEquipment", { fallback: "Search equipment" })}
-                    className="absolute right-0 top-0 flex h-12 w-12 items-center justify-center bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28] transition-colors hover:bg-neutral-800 dark:hover:bg-white rounded-r-sm"
-                  >
-                    <svg
-                      width="17"
-                      height="17"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      aria-hidden="true"
+                <form role="search" className="mt-4" onSubmit={(e) => e.preventDefault()}>
+                  <label htmlFor="typhon-search" className="sr-only">
+                    {t("action.searchEquipment", { fallback: "Search equipment" })}
+                  </label>
+                  <div className="relative">
+                    <input
+                      id="typhon-search"
+                      type="search"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      placeholder={t("equipment.searchPlaceholder", { fallback: "Search by name, model or spec…" })}
+                      className={`h-12 w-full border-2 border-theme-border/30 bg-theme-card text-theme-text pl-4 ${query ? "pr-20" : "pr-12"} font-googleSans text-sm placeholder:text-theme-muted/70 transition-colors focus:border-theme-accent focus:outline-none rounded [&::-webkit-search-cancel-button]:appearance-none`}
+                    />
+                    {query && (
+                      <button
+                        type="button"
+                        onClick={() => setQuery("")}
+                        aria-label={t("action.clearSearch", { fallback: "Clear search" })}
+                        className="absolute right-12 top-0 flex h-12 w-8 items-center justify-center text-theme-muted transition-colors hover:text-theme-accent"
+                      >
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                          <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+                        </svg>
+                      </button>
+                    )}
+                    <button
+                      type="submit"
+                      aria-label={t("action.searchEquipment", { fallback: "Search equipment" })}
+                      className="absolute right-0 top-0 flex h-12 w-12 items-center justify-center bg-theme-accent text-theme-bg transition-colors hover:bg-brand-green hover:text-white rounded-r"
                     >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="M21 21L16.65 16.65" strokeLinecap="round" />
-                    </svg>
-                  </button>
-                </div>
-              </form>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="M21 21L16.65 16.65" strokeLinecap="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  {query.trim() && (
+                    <p className="mt-2 font-googleSans text-xs text-theme-muted">
+                      {t("catalog.searchResultCount", {
+                        values: { count: filteredProducts.length },
+                        fallback: `${filteredProducts.length} match${filteredProducts.length === 1 ? "" : "es"} for “${query.trim()}”`,
+                      })}
+                    </p>
+                  )}
+                </form>
 
-              <div className="mt-6">
-                <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-neutral-455 dark:text-white/40">
+                {/* Product Type */}
+                <p className="mt-5 font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-theme-muted">
                   {t("catalog.productType", { fallback: "Product Type" })}
                 </p>
                 <div className="mt-3 space-y-2">
@@ -212,31 +362,15 @@ export const AllEquipment: React.FC = () => {
                       <Link
                         key={value}
                         to={href}
-                        className={`flex min-h-[56px] items-center gap-3 border px-3 py-2 transition-colors rounded-sm ${
+                        className={`flex items-center justify-between gap-3 border px-3 py-2.5 transition-all rounded-md ${
                           active
-                            ? "border-[#153d28] dark:border-[#d8c79a] bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28]"
-                            : "border-neutral-200 dark:border-white/10 bg-white dark:bg-[#232323] text-neutral-700 dark:text-white/80 hover:border-[#153d28] dark:hover:border-[#d8c79a]"
+                            ? "bg-theme-accent/10 border-theme-accent/30 text-theme-accent"
+                            : "bg-theme-card/30 border-theme-border/20 text-theme-text hover:bg-brand-dark/40 hover:border-theme-accent/30"
                         }`}
                       >
-                        <span
-                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-sm transition-colors ${
-                            active ? "bg-white/10 dark:bg-black/10" : "bg-neutral-100 dark:bg-[#111]"
-                          }`}
-                        >
-                          <img
-                            src={`${EQUIPMENT_ICON_PATH}/all-equipment.svg`}
-                            alt=""
-                            aria-hidden="true"
-                            className={`h-5 w-5 ${active ? "brightness-0 invert dark:brightness-[0.2] dark:invert-0" : ""}`}
-                          />
-                        </span>
-                        <span className="flex min-w-0 flex-1 items-center justify-between gap-3">
-                          <span className="font-googleSans text-sm font-bold leading-snug">
-                            {label}
-                          </span>
-                          <span className={`font-googleSans text-xs font-bold ${active ? "text-white/80 dark:text-[#153d28]/70" : "text-neutral-400 dark:text-white/40"}`}>
-                            {count}
-                          </span>
+                        <span className="font-glonimove text-sm font-bold leading-snug">{label}</span>
+                        <span className={`font-googleSans text-xs font-bold ${active ? "text-theme-accent" : "text-theme-muted"}`}>
+                          {count}
                         </span>
                       </Link>
                     );
@@ -244,78 +378,43 @@ export const AllEquipment: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-7">
-                <p className="font-googleSans text-[11px] font-bold uppercase tracking-[0.16em] text-neutral-455 dark:text-white/40">
-                  {t("equipment.categories", { fallback: "Categories" })}
-                </p>
-                <div className="mt-3 space-y-2">
-                  <Link
-                    to={allHref}
-                    className={`flex min-h-[58px] items-center gap-3 border px-3 py-2 transition-colors rounded-sm ${
-                      !selectedCategory
-                        ? "border-[#153d28] dark:border-[#d8c79a] bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28]"
-                        : "border-neutral-200 dark:border-white/10 bg-white dark:bg-[#232323] text-neutral-700 dark:text-white/80 hover:border-[#153d28] dark:hover:border-[#d8c79a]"
-                    }`}
-                  >
-                    <span
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm transition-colors ${
-                        !selectedCategory ? "bg-white/10 dark:bg-black/10" : "bg-neutral-100 dark:bg-[#111]"
-                      }`}
-                    >
-                      <img
-                        src={`${EQUIPMENT_ICON_PATH}/all-equipment.svg`}
-                        alt=""
-                        aria-hidden="true"
-                        className={`h-5 w-5 ${!selectedCategory ? "brightness-0 invert dark:brightness-[0.2] dark:invert-0" : ""}`}
-                      />
-                    </span>
-                    <span className="flex min-w-0 flex-1 items-center justify-between gap-3">
-                      <span className="font-googleSans text-sm font-bold leading-snug">
-                        {t("catalog.allType", { values: { type: selectedKind === "attachment" ? t("nav.attachments", { fallback: "Attachments" }) : t("catalog.type.machines", { fallback: "Machines" }) }, fallback: `All ${selectedKind === "attachment" ? "Attachments" : "Machines"}` })}
-                      </span>
-                      <span className={`font-googleSans text-xs font-bold ${!selectedCategory ? "text-white/80 dark:text-[#153d28]/70" : "text-neutral-400 dark:text-white/40"}`}>
-                        {base.length}
-                      </span>
-                    </span>
-                  </Link>
+              {/* Konstructz-style faceted filters */}
+              <FilterGroup
+                title={t("equipment.categories", { fallback: "Categories" })}
+                options={categoryLabels}
+                selectedOption={selectedCategory}
+                onOptionSelect={selectCategory}
+                optionValueMapping={categoryValueMapping}
+              />
+              <PriceFilter value={priceMax} max={maxPrice} onChange={setPriceMax} />
+              <FilterGroup
+                title={t("equipment.operationWeight", { fallback: "Operation Weight" })}
+                options={WEIGHT_FILTERS}
+                selectedOption={selectedWeight}
+                onOptionSelect={setSelectedWeight}
+              />
+              <FilterGroup
+                title={t("equipment.engine", { fallback: "Engine" })}
+                options={ENGINE_FILTERS}
+                selectedOption={selectedEngine}
+                onOptionSelect={setSelectedEngine}
+              />
+              <FilterGroup
+                title={t("equipment.horsepower", { fallback: "Horsepower" })}
+                options={HORSEPOWER_FILTERS}
+                selectedOption={selectedHorsepower}
+                onOptionSelect={setSelectedHorsepower}
+              />
 
-                  {categories.map((cat) => {
-                    const active = selectedCategory === cat.id;
-                    return (
-                      <Link
-                        key={cat.id}
-                        to={categoryHref(cat.id)}
-                        className={`flex min-h-[58px] items-center gap-3 border px-3 py-2 transition-colors rounded-sm ${
-                          active
-                            ? "border-[#153d28] dark:border-[#d8c79a] bg-[#153d28] dark:bg-[#d8c79a] text-white dark:text-[#153d28]"
-                            : "border-neutral-200 dark:border-white/10 bg-white dark:bg-[#232323] text-neutral-700 dark:text-white/80 hover:border-[#153d28] dark:hover:border-[#d8c79a]"
-                        }`}
-                      >
-                        <span
-                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm transition-colors ${
-                            active ? "bg-white/10 dark:bg-black/10" : "bg-neutral-100 dark:bg-[#111]"
-                          }`}
-                        >
-                          <img
-                            src={categoryIcon(cat.id)}
-                            alt=""
-                            aria-hidden="true"
-                            className={`h-5 w-5 ${active ? "brightness-0 invert dark:brightness-[0.2] dark:invert-0" : ""}`}
-                          />
-                        </span>
-                        <span className="flex min-w-0 flex-1 items-center justify-between gap-3">
-                          <span className="font-googleSans text-sm font-bold leading-snug">
-                            {t(`category.${cat.id}`, { fallback: cat.label })}
-                          </span>
-                          <span className={`font-googleSans text-xs font-bold ${active ? "text-white/80 dark:text-[#153d28]/70" : "text-neutral-400 dark:text-white/40"}`}>
-                            {cat.count}
-                          </span>
-                        </span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
+              {hasActiveFilters && (
+                <button
+                  type="button"
+                  onClick={resetAllFilters}
+                  className="inline-flex h-11 items-center justify-center border border-theme-border/30 px-4 font-googleSans text-sm font-bold uppercase tracking-wide text-theme-text bg-theme-card/30 transition-colors hover:border-theme-accent hover:text-theme-accent rounded"
+                >
+                  {t("catalog.clearAllFilters", { fallback: "Clear filters" })}
+                </button>
+              )}
             </aside>
 
             <div className="min-w-0">
@@ -329,13 +428,13 @@ export const AllEquipment: React.FC = () => {
                   </h2>
                 </div>
                 {hasActiveFilters && (
-                  <Link
-                    to={allHref}
-                    onClick={() => setQuery("")}
+                  <button
+                    type="button"
+                    onClick={resetAllFilters}
                     className="inline-flex h-11 items-center justify-center border border-neutral-300 dark:border-white/15 px-4 font-googleSans text-sm font-bold uppercase tracking-wide text-neutral-600 dark:text-white/80 bg-white dark:bg-[#232323] shadow-sm transition-colors hover:border-[#153d28] dark:hover:border-[#d8c79a] hover:text-[#153d28] dark:hover:text-[#d8c79a] rounded-sm"
                   >
                     {t("catalog.clearAllFilters", { fallback: "Clear filters" })}
-                  </Link>
+                  </button>
                 )}
               </div>
 

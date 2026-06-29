@@ -449,7 +449,7 @@ export const MobileFrontpage = (): JSX.Element => {
 
         {/* 1. Main large product card first (focus) */}
         <Link
-          to="/equipment"
+          to="/equipment/scoopydig"
           className="relative block w-full h-[240px] bg-[#1a1b1a] overflow-hidden border border-white/5 shadow-lg group"
         >
           <img
@@ -472,7 +472,7 @@ export const MobileFrontpage = (): JSX.Element => {
         <div className="grid grid-cols-2 gap-4">
           {/* Card A: Excavator */}
           <Link
-            to="/product/excavator"
+            to="/product/mini-excavators"
             className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden group"
           >
             <div className="relative h-[120px] bg-[#114f2f]/30 overflow-hidden flex items-center justify-center">

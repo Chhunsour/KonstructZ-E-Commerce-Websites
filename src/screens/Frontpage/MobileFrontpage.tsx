@@ -21,38 +21,97 @@ const ProductSlider = () => {
   ];
 
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState<"left" | "right" | "enter-left" | "enter-right" | "center" | "">("");
+  const [isAnimating, setIsAnimating] = useState(false);
   const product = products[index];
   const navigate = useNavigate();
 
-  const prev = () => setIndex((i) => (i === 0 ? products.length - 1 : i - 1));
-  const next = () => setIndex((i) => (i === products.length - 1 ? 0 : i + 1));
+  const triggerSlide = (targetIdx: number, slideDir: "left" | "right") => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setDirection(slideDir);
+
+    // Step 1: Slide out current item
+    setTimeout(() => {
+      // Step 2: Teleport to entering position instantly while swapping index
+      setIndex(targetIdx);
+      setDirection(slideDir === "left" ? "enter-right" : "enter-left");
+
+      // Step 3: Trigger slide in
+      setTimeout(() => {
+        setDirection("center");
+
+        // Step 4: Finish transition
+        setTimeout(() => {
+          setIsAnimating(false);
+          setDirection("");
+        }, 300);
+      }, 20);
+    }, 200);
+  };
+
+  const prev = () => {
+    const target = index === 0 ? products.length - 1 : index - 1;
+    triggerSlide(target, "right");
+  };
+
+  const next = () => {
+    const target = index === products.length - 1 ? 0 : index + 1;
+    triggerSlide(target, "left");
+  };
+
+  // Determine transition styles based on the animation state
+  let transformClass = "translate-x-0 opacity-100 ease-out";
+  let durationClass = "duration-300";
+
+  if (direction === "left") {
+    transformClass = "-translate-x-12 opacity-0 ease-in";
+    durationClass = "duration-200";
+  } else if (direction === "right") {
+    transformClass = "translate-x-12 opacity-0 ease-in";
+    durationClass = "duration-200";
+  } else if (direction === "enter-left") {
+    transformClass = "-translate-x-12 opacity-0 transition-none";
+    durationClass = "duration-0";
+  } else if (direction === "enter-right") {
+    transformClass = "translate-x-12 opacity-0 transition-none";
+    durationClass = "duration-0";
+  } else if (direction === "center") {
+    transformClass = "translate-x-0 opacity-100 ease-out";
+    durationClass = "duration-300";
+  }
 
   return (
-    <section className="bg-[#ebebeb] px-5 py-10">
-      <h2 className="font-clofieBold text-[#153d28] text-3xl mb-2">
-        {product.title}
-      </h2>
-      <img
-        src="/img/zig-zag.svg"
-        alt=""
-        aria-hidden="true"
-        className="w-32 h-auto mb-4"
-      />
-
-      <div className="relative w-full h-[260px] flex items-center justify-center">
+    <section className="bg-[#ebebeb] px-5 py-10 overflow-hidden border-b border-theme-border/10">
+      {/* Slideable heading & content container */}
+      <div className={`transition-all ${durationClass} transform ${transformClass}`}>
+        <h2 className="font-heading text-[#153d28] text-3xl font-bold uppercase tracking-wide mb-2">
+          {product.title}
+        </h2>
         <img
-          src={product.imageSrc}
-          alt={product.title}
-          className="max-h-[240px] w-auto object-contain transition-all duration-300"
+          src="/img/zig-zag.svg"
+          alt=""
+          aria-hidden="true"
+          className="w-32 h-auto mb-6"
         />
+
+        <div className="relative w-full h-[260px] flex items-center justify-center mb-6">
+          <img
+            src={product.imageSrc}
+            alt={product.title}
+            className="max-h-[240px] w-auto object-contain transition-all duration-300"
+          />
+        </div>
       </div>
 
-      <div className="flex items-center justify-center gap-4 mt-4">
+      {/* Navigation arrows (stationary, not animated) */}
+      <div className="flex items-center justify-center gap-6 mt-4">
         <button
           type="button"
           onClick={prev}
+          disabled={isAnimating}
           aria-label={t("auto.mobilefrontpage.previous.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B]"
+          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
         >
           <span
             aria-hidden="true"
@@ -80,14 +139,17 @@ const ProductSlider = () => {
             <path d="M8.5 12H20" />
           </svg>
         </button>
-        <span className="font-glonimove text-sm text-[#153d28]">
+
+        <span className="font-heading text-lg font-bold text-[#153d28] min-w-[60px] text-center">
           {index + 1} / {products.length}
         </span>
+
         <button
           type="button"
           onClick={next}
+          disabled={isAnimating}
           aria-label={t("auto.mobilefrontpage.next.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B]"
+          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
         >
           <span
             aria-hidden="true"
@@ -117,12 +179,15 @@ const ProductSlider = () => {
         </button>
       </div>
 
-      <div className="flex flex-col gap-3 mt-6">
+      {/* Specification & purchase buttons */}
+      <div className="flex flex-col gap-3 mt-8">
         <button
           type="button"
           onClick={() => navigate(`/equipment/${product.id}`)}
           className="w-full py-4 bg-[#153d28] text-white font-googleSans font-bold text-base tracking-wide btn"
-        >{t("auto.mobilefrontpage.view.spec")}</button>
+        >
+          {t("auto.mobilefrontpage.view.spec")}
+        </button>
         <button
           type="button"
           onClick={() => navigate(`/contact?product=${product.id}`)}

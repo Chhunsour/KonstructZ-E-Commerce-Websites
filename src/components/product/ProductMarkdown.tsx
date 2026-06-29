@@ -64,17 +64,17 @@ export const ProductMarkdown: React.FC<{ content: string; className?: string }> 
             );
           },
           table: ({ children }) => (
-            <div className="overflow-x-auto my-4">
+            <div className="overflow-x-auto my-6 border border-neutral-200 dark:border-neutral-800">
               <table className="w-full text-left border-collapse">{children}</table>
             </div>
           ),
           th: ({ children }) => (
-            <th className="border border-theme-border/30 px-3 py-2 bg-theme-bg/50 font-googleSans text-xs uppercase tracking-wider">
+            <th className="border border-neutral-200 dark:border-neutral-800 px-4 py-3 bg-neutral-50 dark:bg-neutral-900/50 font-googleSans text-sm font-semibold text-neutral-600 dark:text-neutral-400">
               {children}
             </th>
           ),
           td: ({ children }) => (
-            <td className="border border-theme-border/30 px-3 py-2 font-glonimove text-sm">
+            <td className="border border-neutral-200 dark:border-neutral-800 px-4 py-3 font-glonimove text-sm leading-relaxed text-neutral-800 dark:text-neutral-200">
               {children}
             </td>
           ),

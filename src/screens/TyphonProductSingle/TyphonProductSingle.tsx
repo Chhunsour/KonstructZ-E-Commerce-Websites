@@ -396,25 +396,25 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                 }
                 if (block.kind === "table") {
                   return (
-                    <div key={index} className="mt-8 overflow-hidden border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#1e1e1e] shadow-sm rounded transition-colors">
-                      <div className="border-b border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-[#2a2a2a] px-5 py-4 transition-colors">
-                        <h3 className="font-googleSans text-xl font-bold text-neutral-800 dark:text-white">
+                    <div key={index} className="mt-8 overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#181818] shadow-sm rounded-none transition-colors">
+                      <div className="border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-[#202020] px-6 py-4 transition-colors">
+                        <h3 className="font-googleSans text-sm font-bold text-[#153d28] dark:text-[#d8c79a] uppercase tracking-wider">
                           {block.title}
                         </h3>
                       </div>
                       <div className="overflow-x-auto">
                         <table className="w-full min-w-[560px] border-collapse text-left">
                           <caption className="sr-only">{block.title}</caption>
-                          <tbody className="divide-y divide-neutral-200 dark:divide-white/10">
+                          <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800/80">
                             {block.rows.map((row) => (
-                              <tr key={`${row.label}-${row.value}`}>
+                              <tr key={`${row.label}-${row.value}`} className="hover:bg-neutral-50/30 dark:hover:bg-neutral-900/10 transition-colors">
                                 <th
                                   scope="row"
-                                  className="w-[34%] bg-neutral-50/50 dark:bg-white/3 px-5 py-3 align-top font-googleSans text-[13px] font-bold text-[#153d28] dark:text-[#d8c79a] transition-colors"
+                                  className="w-[34%] bg-neutral-50/20 dark:bg-neutral-900/40 px-6 py-4 align-top font-googleSans text-[13px] font-bold text-neutral-600 dark:text-neutral-400 border-r border-neutral-200/60 dark:border-neutral-800/60 transition-colors"
                                 >
                                   {translateSpecLabel(row.label, t)}
                                 </th>
-                                <td className="px-5 py-3 align-top font-glonimove text-[15px] leading-7 text-neutral-700 dark:text-white/80">
+                                <td className="px-6 py-4 align-top font-glonimove text-sm leading-relaxed text-neutral-800 dark:text-neutral-200">
                                   {row.value}
                                 </td>
                               </tr>

@@ -474,45 +474,45 @@ export const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps>
             <h3 className="font-glonimoveBold text-[28px] text-theme-heading">
               General Machine Overview
             </h3>
-            <div className="overflow-x-auto w-full border border-theme-border/20 rounded">
+            <div className="overflow-x-auto w-full border border-theme-border/20 rounded-none">
               <table className="min-w-full border-collapse">
                 <thead>
                   <tr className="bg-[#153D28] border-b border-theme-border/20">
-                    <th className="p-4 text-left font-glonimoveBold text-lg text-theme-heading w-1/3">Planning Field</th>
+                    <th className="p-4 text-left font-glonimoveBold text-lg text-[#d8c79a] w-1/3">Planning Field</th>
                     <th className="p-4 text-left font-glonimoveBold text-lg text-white">General Reference</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-theme-border/10 font-glonimove text-base">
-                  <tr className="bg-theme-sec/10 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Machine Category</td>
+                  <tr className="bg-theme-sec/5 dark:bg-neutral-900/10 hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10 w-1/3">Machine Category</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.category}</td>
                   </tr>
-                  <tr className="bg-theme-sec/5 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Common Applications</td>
+                  <tr className="bg-transparent hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10">Common Applications</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.applications}</td>
                   </tr>
-                  <tr className="bg-theme-sec/10 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Power Type / Engine Type</td>
+                  <tr className="bg-theme-sec/5 dark:bg-neutral-900/10 hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10">Power Type / Engine Type</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.powerType}</td>
                   </tr>
-                  <tr className="bg-theme-sec/5 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Best For</td>
+                  <tr className="bg-transparent hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10">Best For</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.bestFor}</td>
                   </tr>
-                  <tr className="bg-theme-sec/10 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Attachment Support</td>
+                  <tr className="bg-theme-sec/5 dark:bg-neutral-900/10 hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10">Attachment Support</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.attachments}</td>
                   </tr>
-                  <tr className="bg-theme-sec/5 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Worksite Use</td>
+                  <tr className="bg-transparent hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10">Worksite Use</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.worksiteUse}</td>
                   </tr>
-                  <tr className="bg-theme-sec/10 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Key Advantages</td>
+                  <tr className="bg-theme-sec/5 dark:bg-neutral-900/10 hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10">Key Advantages</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.advantages}</td>
                   </tr>
-                  <tr className="bg-theme-sec/5 hover:bg-theme-sec/20 transition-colors">
-                    <td className="p-4 font-bold text-theme-heading">Maintenance Notes</td>
+                  <tr className="bg-transparent hover:bg-theme-sec/10 dark:hover:bg-neutral-900/20 transition-colors">
+                    <td className="p-4 font-bold text-theme-heading border-r border-theme-border/10">Maintenance Notes</td>
                     <td className="p-4 text-theme-text">{categoryInfo.tableData.maintenanceNotes}</td>
                   </tr>
                 </tbody>

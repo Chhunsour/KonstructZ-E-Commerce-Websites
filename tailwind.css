@@ -426,3 +426,21 @@ html[lang="de"], html[lang="de"] body {
   border-color: rgba(var(--theme-border-rgb), 0.3);
 }
 
+.product-prose table {
+  @apply w-full text-left border-collapse my-6 border;
+  border-color: rgba(var(--theme-border-rgb), 0.2);
+}
+.product-prose th {
+  @apply px-4 py-3 bg-neutral-50/20 dark:bg-neutral-900/40 font-googleSans text-sm font-semibold border-r border-b;
+  color: var(--theme-heading);
+  border-color: rgba(var(--theme-border-rgb), 0.2);
+}
+.product-prose td {
+  @apply px-4 py-3 font-glonimove text-sm leading-relaxed border-b;
+  color: var(--theme-text);
+  border-color: rgba(var(--theme-border-rgb), 0.15);
+}
+.product-prose tr {
+  @apply hover:bg-neutral-50/10 dark:hover:bg-neutral-900/10 transition-colors;
+}
+

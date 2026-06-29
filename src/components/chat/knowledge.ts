@@ -10,6 +10,7 @@
 import { products, type Product } from "../../data/products";
 import { typhonProducts } from "../../data/typhonProducts";
 import { categories } from "../../data/categories";
+import { normalizeBrandCopy } from "../../lib/brandCopy";
 
 /* ───────────────────────────── Contact ─────────────────────────────── */
 
@@ -170,7 +171,7 @@ const COMPANY_DOCS: KBDoc[] = [
     title: "About Konstructz",
     href: "/about",
     body:
-      "Konstructz supplies compact construction machinery and attachments — mini excavators, skid steer loaders, wheel loaders, backhoe loaders, dumpers, trenchers, towable excavators, and stone crushers — alongside the wider Typhon Machinery catalog, which adds forklifts, road rollers, and scissor lifts. The focus is dependable, jobsite-ready equipment for contractors, landscapers, farmers, and property owners, backed by sales and support for selection, configuration, quotes, financing, shipping, and a 1-year warranty + lifetime technical support.",
+      "Konstructz supplies compact construction machinery and attachments — mini excavators, skid steer loaders, wheel loaders, backhoe loaders, dumpers, trenchers, towable excavators, and stone crushers — alongside the wider Typhon catalog, which adds forklifts, road rollers, and scissor lifts. The focus is dependable, jobsite-ready equipment for contractors, landscapers, farmers, and property owners, backed by sales and support for selection, configuration, quotes, financing, shipping, and a 1-year warranty + lifetime technical support.",
   },
 ];
 
@@ -211,8 +212,8 @@ function productDocs(): KBDoc[] {
       body: [
         p.name,
         p.categoryLabel,
-        p.tagline,
-        p.description,
+        normalizeBrandCopy(p.tagline),
+        normalizeBrandCopy(p.description),
         p.specs.map((s) => `${s.label} ${s.value}`).join(" "),
         (p.applications || []).join(" "),
       ].join(" "),
@@ -544,8 +545,8 @@ export function getMergedProducts() {
         ...p,
         name: entry.name || p.name,
         aliases: entry.aliases ? entry.aliases.split(",").map((s: string) => s.trim()) : [],
-        tagline: entry.tagline || p.tagline,
-        description: entry.description || p.description,
+        tagline: normalizeBrandCopy(entry.tagline || p.tagline),
+        description: normalizeBrandCopy(entry.description || p.description),
         features: entry.keyFeatures ? entry.keyFeatures.split(",").map((s: string) => s.trim()) : p.features,
         applications: entry.bestUseCases ? entry.bestUseCases.split(",").map((s: string) => s.trim()) : p.applications,
         price: entry.price || p.price,
@@ -629,8 +630,8 @@ export function refreshKnowledgeBase() {
       image: p.image,
       weight: p.specs.find((s) => s.label === "Weight Class")?.value,
       specs: p.specs,
-      tagline: p.tagline,
-      description: p.description,
+      tagline: normalizeBrandCopy(p.tagline),
+      description: normalizeBrandCopy(p.description),
       features: p.features || [],
       applications: p.applications || [],
       aliases: p.aliases || [],
@@ -659,8 +660,8 @@ export function refreshKnowledgeBase() {
       body: [
         p.name,
         p.categoryLabel,
-        p.tagline,
-        p.description,
+        normalizeBrandCopy(p.tagline),
+        normalizeBrandCopy(p.description),
         p.specs.map((s) => `${s.label} ${s.value}`).join(" "),
         (p.features || []).join(" "),
       ].join(" "),
@@ -745,4 +746,3 @@ export function logUserFeedback(
   if (logs.length > 200) logs.pop();
   window.localStorage.setItem("kz-chatbot-user-feedback", JSON.stringify(logs));
 }
-

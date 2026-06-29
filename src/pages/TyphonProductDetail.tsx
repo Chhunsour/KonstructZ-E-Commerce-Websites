@@ -21,7 +21,7 @@ export const TyphonProductDetail: React.FC = () => {
           {t("catalog.productNotFound", { fallback: "Typhon product not found" })}
         </h1>
         <p className="mt-3 max-w-md font-glonimove text-white/70">
-          {t("catalog.productNotFoundDesc", { fallback: "We couldn't match this URL to a Typhon Machinery product. It may have been moved or renamed." })}
+          {t("catalog.productNotFoundDesc", { fallback: "We couldn't match this URL to a Typhon product. It may have been moved or renamed." })}
         </p>
         <Link
           to="/typhon-machinery"

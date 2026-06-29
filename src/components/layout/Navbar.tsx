@@ -524,10 +524,10 @@ export const Navbar: React.FC = () => {
                           })}
                         </div>
 
-                        {/* Column 2: Typhon Machinery */}
+                        {/* Column 2: Typhon */}
                         <div className="flex flex-col gap-1 pl-6">
                           <div className="px-3 pb-2 font-googleSans text-[10px] font-bold uppercase tracking-[0.16em] text-theme-accent/80">
-                            Typhon Machinery
+                            Typhon
                           </div>
                           {typhonMachineryLinks.map((link) => {
                             const isSubActive = isEquipmentLinkActive(link.href);
@@ -852,7 +852,7 @@ export const Navbar: React.FC = () => {
                               <img src={`${ICON}/all-equipment.svg`} alt="" aria-hidden="true" className="h-5 w-5" />
                             </span>
                             <span className="block min-w-0 flex-1 truncate font-googleSans text-[15px] font-bold leading-tight">
-                              Typhon Machinery
+                              Typhon
                             </span>
                             <svg
                               width="12"

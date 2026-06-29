@@ -43,7 +43,7 @@ const categoryIcon = (id: string) => {
 };
 
 /**
- * All Equipment — Typhon Machinery listing page.
+ * All Equipment — Typhon listing page.
  * Rendered at /equipment. Shows all Typhon products with category filters,
  * search, and pagination. Uses the same premium card design as Konstructz.
  */
@@ -60,8 +60,8 @@ export const AllEquipment: React.FC = () => {
   useEffect(() => {
     document.title =
       selectedKind === "attachment"
-        ? `${t("nav.attachments", { fallback: "Attachments" })} | ${t("nav.typhonMachinery", { fallback: "Typhon Machinery" })}`
-        : `${t("nav.typhonAllEquipment", { fallback: "All Equipment" })} | ${t("nav.typhonMachinery", { fallback: "Typhon Machinery" })}`;
+        ? `${t("nav.attachments", { fallback: "Attachments" })} | ${t("nav.typhonMachinery", { fallback: "Typhon" })}`
+        : `${t("nav.typhonAllEquipment", { fallback: "All Equipment" })} | ${t("nav.typhonMachinery", { fallback: "Typhon" })}`;
   }, [selectedKind, t]);
 
   // Reset page when filters change
@@ -130,7 +130,7 @@ export const AllEquipment: React.FC = () => {
 
         <div className="relative max-w-[1480px] mx-auto px-5 sm:px-8 lg:px-10">
           <p className="font-googleSans text-sm font-bold uppercase tracking-[0.25em] text-[#153d28] dark:text-[#d8c79a]">
-            {t("nav.typhonMachinery", { fallback: "Typhon Machinery" })}
+            {t("nav.typhonMachinery", { fallback: "Typhon" })}
           </p>
           <h1 className="mt-4 font-clofieBold text-4xl sm:text-5xl lg:text-6xl font-bold leading-none text-neutral-900 dark:text-white">
             {selectedKind === "attachment" ? t("nav.attachments", { fallback: "Attachments" }) : t("nav.typhonAllEquipment", { fallback: "All Equipment" })}
@@ -138,7 +138,7 @@ export const AllEquipment: React.FC = () => {
           <p className="mt-5 max-w-2xl font-glonimove text-base sm:text-lg leading-relaxed text-neutral-600 dark:text-white/65">
             {selectedKind === "attachment"
               ? t("catalog.desc.attachments", { fallback: "Typhon attachments, grouped by the machine they fit — skid steer, mini excavator, wheel loader and forklift attachments." })
-              : t("catalog.desc.machines", { fallback: "Browse our full Typhon Machinery catalog. Heavy-duty mini excavators, skid steer loaders, forklifts, road rollers, scissor lifts, and wheel loaders — built for the job site." })}
+              : t("catalog.desc.machines", { fallback: "Browse our full Typhon catalog. Heavy-duty mini excavators, skid steer loaders, forklifts, road rollers, scissor lifts, and wheel loaders built for the job site." })}
           </p>
         </div>
       </section>

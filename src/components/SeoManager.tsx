@@ -4,6 +4,7 @@ import { blogPosts, getBlogPostBySlug } from "../data/blogPosts";
 import { categories } from "../data/categories";
 import { products } from "../data/products";
 import { getTyphonProductById } from "../data/typhonProducts";
+import { normalizeBrandCopy } from "../lib/brandCopy";
 
 const SITE_URL = "https://konstructz.com";
 const SITE_NAME = "Konstructz";
@@ -166,9 +167,9 @@ const staticMeta: Record<string, MetaConfig> = {
       "Explore the Konstructz compact machinery lineup with buyer guidance, category summaries, attachment support, and jobsite-ready equipment options.",
   },
   "/typhon-machinery": {
-    title: "Typhon Machinery Product Pages | Konstructz",
+    title: "Typhon Products | Konstructz",
     description:
-      "Browse CSV-imported Typhon Machinery product pages by category, including excavators, skid steers, forklifts, rollers, scissor lifts, and loaders.",
+      "Browse Typhon product pages by category, including excavators, skid steers, forklifts, rollers, scissor lifts, and loaders.",
   },
   "/attachments": {
     title: "Construction Machine Attachments | Konstructz",
@@ -354,16 +355,16 @@ const getRouteConfig = (pathname: string): MetaConfig => {
     const product = getTyphonProductById(typhonProductMatch[1]);
     if (product) {
       return {
-        title: `${product.name} ${product.categoryLabel} | Typhon Machinery`,
-        description: `${product.name} is a Typhon Machinery ${product.categoryLabel.toLowerCase()} for ${product.applications.join(", ").toLowerCase()}.`,
+        title: `${product.name} ${product.categoryLabel} | Typhon`,
+        description: `${product.name} is a Typhon ${product.categoryLabel.toLowerCase()} for ${product.applications.join(", ").toLowerCase()}.`,
         image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
         schema: [
           {
             "@type": "Product",
             name: product.name,
-            brand: { "@type": "Brand", name: "Typhon Machinery" },
+            brand: { "@type": "Brand", name: "Typhon" },
             category: product.categoryLabel,
-            description: product.description,
+            description: normalizeBrandCopy(product.description),
             image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
           },
         ],

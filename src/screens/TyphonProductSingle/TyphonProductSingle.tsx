@@ -17,6 +17,7 @@ import { ShareMenu } from "../../components/product/ShareMenu";
 import { AddToCartButton } from "../../components/product/AddToCartButton";
 import { getEcwidProductId } from "../../data/ecwidProductIds";
 import { useI18n } from "../../context/I18nContext";
+import { normalizeBrandCopy } from "../../lib/brandCopy";
 
 const translateSpecLabel = (label: string, t: any): string => {
   const specKey = `spec.${label.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-")}`;
@@ -85,6 +86,7 @@ interface TyphonProductSingleProps {
 export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ product }) => {
   const { t } = useI18n();
   const { typhon: typhonProducts, getDbProduct } = useProducts();
+  const displayTagline = normalizeBrandCopy(product.tagline);
   // When this product is backed by a published DB row, render its rich
   // (Markdown) description; otherwise fall back to the parsed static blocks.
   const richDescription = getDbProduct("typhon", product.id)?.full_description?.trim();
@@ -158,7 +160,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           </Link>
           <span className="text-neutral-400 dark:text-white/30">/</span>
           <Link to="/typhon-machinery" className="hover:text-[#153d28] dark:hover:text-[#d8c79a] text-neutral-600 dark:text-white/60 transition-colors">
-            {t("nav.typhonMachinery", { fallback: "Typhon Machinery" })}
+            {t("nav.typhonMachinery", { fallback: "Typhon" })}
           </Link>
           <span className="text-neutral-400 dark:text-white/30">/</span>
           <span className="text-neutral-900 dark:text-white font-medium">{product.name}</span>
@@ -276,7 +278,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
               {product.name}
             </h1>
             <p className="mt-3.5 max-w-xl font-glonimove text-lg leading-7 text-neutral-600 dark:text-white/80">
-              {product.tagline}
+              {displayTagline}
             </p>
 
             <div className="mt-7 grid gap-2.5" aria-label={t("product.specifications", { fallback: "Product specifications" })}>
@@ -484,7 +486,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                 </a>
               ) : (
                 <p className="mt-3 font-glonimove text-lg leading-7 text-neutral-600 dark:text-white/60">
-                  {t("product.importedFromCsv", { fallback: "Imported from the Typhon Machinery CSV." })}
+                  {t("product.importedFromCsv", { fallback: "Imported from the Typhon CSV." })}
                 </p>
               )}
             </div>

@@ -15,6 +15,8 @@
 // Everything is plain text rendered through React (which escapes it), so any
 // stray markup is shown safely rather than injected.
 
+import { normalizeBrandCopy } from "../../lib/brandCopy";
+
 export interface DescriptionFeature {
   /** Optional bold lead-in, e.g. "Ideal for Tight-Space Tasks". */
   title?: string;
@@ -269,8 +271,8 @@ export function buildDescriptionBlocks(
   description: string,
   tagline: string
 ): DescriptionBlocks {
-  let text = stripHtml(description);
-  const short = stripHtml(tagline);
+  let text = stripHtml(normalizeBrandCopy(description));
+  const short = stripHtml(normalizeBrandCopy(tagline));
 
   // No real full description (empty, or just a copy of the short description).
   if (!text || (short && text === short)) return { fallback: true };

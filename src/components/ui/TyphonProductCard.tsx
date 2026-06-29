@@ -28,7 +28,7 @@ const useFallbackImage = (
 };
 
 /**
- * Typhon Machinery catalog card — a clean, bright white card built for scanning
+ * Typhon catalog card — a clean, bright white card built for scanning
  * many products. Intentionally distinct from the dark Konstructz `ProductCard`,
  * but still links to the Typhon single-product route.
  */

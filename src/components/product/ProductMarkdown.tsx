@@ -1,6 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { normalizeBrandCopy } from "../../lib/brandCopy";
 
 /**
  * Shared renderer for a product's rich "Full description".
@@ -18,6 +19,7 @@ export const ProductMarkdown: React.FC<{ content: string; className?: string }> 
   className,
 }) => {
   if (!content?.trim()) return null;
+  const normalizedContent = normalizeBrandCopy(content);
   return (
     <div className={`product-prose ${className ?? ""}`}>
       <ReactMarkdown
@@ -72,7 +74,7 @@ export const ProductMarkdown: React.FC<{ content: string; className?: string }> 
           ),
         }}
       >
-        {content}
+        {normalizedContent}
       </ReactMarkdown>
     </div>
   );

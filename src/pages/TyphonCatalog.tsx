@@ -295,10 +295,10 @@ export const TyphonCatalog: React.FC = () => {
       <div className="mx-auto max-w-[1480px]">
         <div className="max-w-4xl">
           <p className="font-googleSans text-sm font-bold uppercase text-[#153d28] dark:text-[#d8c79a]">
-            Typhon Machinery
+            Typhon
           </p>
           <h1 className="mt-3 font-clofieBold text-5xl font-bold leading-none sm:text-6xl text-neutral-900 dark:text-white">
-            Typhon Machinery catalog
+            Typhon catalog
           </h1>
           <p className="mt-5 max-w-2xl font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/72">
             {selectedType === "equipment"

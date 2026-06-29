@@ -84,7 +84,7 @@ export const STARTERS = [
 ];
 
 export const WELCOME =
-  "Hi — I'm your **TYPHON Machinery advisor**. I can help you select the right machine, compare models, look up specifications, check attachment fitment, and coordinate financing, shipping, or warranty policies.\n\nTell me what project you're working on and I'll match you to the right equipment.";
+  "Hi — I'm your **Typhon advisor**. I can help you select the right machine, compare models, look up specifications, check attachment fitment, and coordinate financing, shipping, or warranty policies.\n\nTell me what project you're working on and I'll match you to the right equipment.";
 
 // Spec Terminology explanations
 export const SPEC_HELPERS: Record<string, string> = {
@@ -385,7 +385,7 @@ export function getReply(
   switch (detectedIntent) {
     case "Greeting": {
       return finish({
-        markdown: t("chatbot.greeting", "Hi there! I'm your TYPHON Machinery product expert and sales advisor. I can answer exact specifications, help you choose the right machine for your job, check attachment compatibility, or guide you through financing and shipping details. What can I help you build today?"),
+        markdown: t("chatbot.greeting", "Hi there! I'm your Typhon product expert and sales advisor. I can answer exact specifications, help you choose the right machine for your job, check attachment compatibility, or guide you through financing and shipping details. What can I help you build today?"),
         followups: ["Find the right TYPHON machine", "Compare TYPHON equipment", "Ask about warranty/support"]
       }, nextMemory);
     }
@@ -656,7 +656,7 @@ export function getReply(
       // Default guided prompt if no job matched
       nextMemory.awaiting = "quote_job";
       return finish({
-        markdown: t("chatbot.recommend.askJob", "### What kind of work/job will you be doing?\n\nTell me the job type (e.g. digging trench, grading yards, lifting pallets, compacting driveways) so I can match you to the right TYPHON machinery class."),
+        markdown: t("chatbot.recommend.askJob", "### What kind of work/job will you be doing?\n\nTell me the job type (e.g. digging trench, grading yards, lifting pallets, compacting driveways) so I can match you to the right Typhon product category."),
         followups: ["Digging trenches", "Lifting pallets", "Loading gravel", "Landscaping"]
       }, nextMemory);
     }
@@ -693,7 +693,7 @@ export function getReply(
 
     case "Ask warranty": {
       return finish({
-        markdown: t("chatbot.warranty.markdown", "### Standard TYPHON Machinery Warranty\n\nEvery TYPHON machine includes a **1-year warranty + lifetime technical support** standard.\n\nThis covers structural components, main hydraulic pumps, and engines. Wear items are owner-maintained. Contact sales for details."),
+        markdown: t("chatbot.warranty.markdown", "### Standard Typhon Warranty\n\nEvery Typhon machine includes a **1-year warranty + lifetime technical support** standard.\n\nThis covers structural components, main hydraulic pumps, and engines. Wear items are owner-maintained. Contact sales for details."),
         followups: ["What does the warranty cover?", "Build quote request"]
       }, nextMemory);
     }

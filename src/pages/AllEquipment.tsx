@@ -449,7 +449,7 @@ export const AllEquipment: React.FC = () => {
                     </p>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,293px))] items-start justify-center gap-5 sm:gap-6 xl:justify-start">
+                  <div className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(250px,293px))] items-start justify-center gap-2.5 sm:gap-6 xl:justify-start">
                     {paginatedProducts.map((product) => (
                       <div key={product.id} className="animate-fade-up self-start">
                         <TyphonProductCard product={product} />

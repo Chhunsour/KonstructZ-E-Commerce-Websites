@@ -478,7 +478,7 @@ const CategoriesSection: React.FC<CategoriesSectionProps> = ({ selectedCategory,
         {t("allProducts.categoriesTitle")}
       </h2>
 
-      <div className="mt-12 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      <div className="mt-12 lg:mt-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 lg:gap-10">
         {CATEGORIES.map((cat) => {
           const isActive = selectedCategory === cat.slug;
           const scale = cat.display?.scale || 1.0;
@@ -806,7 +806,7 @@ export const EquipmentSection: React.FC<EquipmentSectionProps> = ({ selectedCate
 
           {/* Grid */}
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 place-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-5 lg:gap-6 place-items-center">
               {filteredList.length === 0 ? (
                 <div className="col-span-full py-16 text-center w-full bg-theme-sec border border-theme-border/10 rounded-xl px-4 animate-fade-in">
                   <p className="font-clofieBold text-2xl text-theme-accent mb-2">

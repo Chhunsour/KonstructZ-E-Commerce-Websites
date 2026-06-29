@@ -417,7 +417,7 @@ export const TyphonCatalog: React.FC = () => {
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] items-start gap-5 sm:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(240px,1fr))] items-start gap-2.5 sm:gap-6">
                 {pageItems.map((product) => (
                   <TyphonProductCard key={product.id} product={product} />
                 ))}

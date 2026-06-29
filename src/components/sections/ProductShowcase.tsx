@@ -25,7 +25,7 @@ export const ProductShowcase: React.FC = () => {
         </div>
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,293px))] justify-center gap-5 sm:gap-6 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(270px,293px))] justify-center gap-2.5 sm:gap-6 mb-12">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

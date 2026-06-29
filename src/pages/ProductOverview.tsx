@@ -72,7 +72,7 @@ export const ProductOverview: React.FC = () => {
           <Stagger
             as="div"
             step={90}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6"
           >
             {productCategories.map((category) => {
               const count = getCategoryProductCount(category);

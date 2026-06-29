@@ -527,7 +527,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           </Link>
         </div>
 
-        <div className="mt-8 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 items-start gap-2.5 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {relatedProducts.map((item) => (
             <TyphonProductCard key={item.id} product={item} />
           ))}

@@ -58,13 +58,13 @@ export const MiniSkidSteerAttachments: React.FC = () => {
         </div>
 
         {/* Catalog List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-8 mb-16">
           {items.map((item) => (
             <div
               key={item.id}
               className="bg-white border border-brand-green/10 rounded-lg overflow-hidden flex flex-col sm:flex-row group shadow-sm hover:shadow transition-shadow"
             >
-              <div className="sm:w-1/2 aspect-video sm:aspect-square bg-neutral-100 p-6 flex items-center justify-center">
+              <div className="sm:w-1/2 aspect-video sm:aspect-square bg-neutral-100 p-3 sm:p-6 flex items-center justify-center">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -72,31 +72,31 @@ export const MiniSkidSteerAttachments: React.FC = () => {
                 />
               </div>
 
-              <div className="p-6 sm:w-1/2 flex flex-col justify-between">
+              <div className="p-3 sm:p-6 sm:w-1/2 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-brand-military font-googleSans font-bold block mb-1">
+                  <span className="text-[9px] sm:text-xs uppercase tracking-widest text-brand-military font-googleSans font-bold block mb-0.5 sm:mb-1">
                     {item.category}
                   </span>
-                  <h2 className="text-2xl font-heading text-brand-dark">
+                  <h2 className="text-sm sm:text-2xl font-heading text-brand-dark line-clamp-2">
                     {item.name}
                   </h2>
-                  <p className="text-neutral-500 font-glonimove text-xs mt-2 leading-relaxed">
+                  <p className="text-neutral-500 font-glonimove text-[10px] sm:text-xs mt-1 sm:mt-2 leading-normal line-clamp-2 sm:line-clamp-none">
                     {item.tagline}
                   </p>
                 </div>
 
-                <div className="my-6 space-y-1.5 font-googleSans text-xs text-neutral-700">
+                <div className="my-3 sm:my-6 space-y-1 sm:space-y-1.5 font-googleSans text-[9.5px] sm:text-xs text-neutral-700">
                   {item.specs.map((spec) => (
-                    <div key={spec.label} className="flex justify-between border-b pb-1">
-                      <span className="text-neutral-400">{spec.label}</span>
-                      <span className="font-bold text-brand-dark">{spec.value}</span>
+                    <div key={spec.label} className="flex justify-between border-b pb-0.5 sm:pb-1">
+                      <span className="text-neutral-400 truncate mr-1">{spec.label}</span>
+                      <span className="font-bold text-brand-dark shrink-0">{spec.value}</span>
                     </div>
                   ))}
                 </div>
 
                 <Link
                   to={`/contact?attachment=${item.id}`}
-                  className="w-full text-center py-2.5 font-googleSans font-bold text-sm tracking-wider bg-brand-greenDark text-brand-sand hover:bg-brand-green hover:text-white transition-colors duration-300 uppercase"
+                  className="w-full text-center py-2 sm:py-2.5 font-googleSans font-bold text-[10px] sm:text-sm tracking-wider bg-brand-greenDark text-brand-sand hover:bg-brand-green hover:text-white transition-colors duration-300 uppercase"
                 >{t("auto.miniskidsteerattachments.request.quote")}</Link>
               </div>
             </div>

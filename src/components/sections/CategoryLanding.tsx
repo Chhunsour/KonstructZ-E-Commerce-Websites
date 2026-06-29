@@ -146,7 +146,7 @@ export const CategoryLanding: React.FC<CategoryLandingProps> = ({ category }) =>
           </Reveal>
 
           {categoryProducts.length > 0 ? (
-            <Stagger as="div" step={90} className="grid grid-cols-[repeat(auto-fit,minmax(270px,293px))] justify-center gap-5 sm:gap-6">
+            <Stagger as="div" step={90} className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(270px,293px))] justify-center gap-2.5 sm:gap-6">
               {categoryProducts.map((product) => (
                 <Reveal key={product.id} variant="rise" className="w-full">
                   <ProductCard product={product} />

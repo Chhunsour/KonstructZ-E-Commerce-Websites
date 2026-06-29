@@ -109,7 +109,7 @@ export const Equipment: React.FC = () => {
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,293px))] justify-center gap-5 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(270px,293px))] justify-center gap-2.5 sm:gap-6">
             {filteredProducts.map((product) => (
               <div key={product.id} className="animate-fade-up">
                 <ProductCard product={product} />

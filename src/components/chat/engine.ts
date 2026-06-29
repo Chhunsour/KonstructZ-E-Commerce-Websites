@@ -9,11 +9,12 @@ import {
   logChatbotQuery,
 } from "./knowledge";
 import { typhonProducts } from "../../data/typhonProducts";
-import { matchProductAndSpec, getCanonicalProducts } from "./matchingEngine";
+import { matchProductAndSpec, getCanonicalProducts, parseWeightNumber, parsePriceNumber } from "./matchingEngine";
 import { getCanonicalProfiles, type CanonicalProfile } from "./canonicalProfiles";
 import { dictionaries, type LanguageCode } from "../../i18n/dictionaries";
 import { productKnowledgeService } from "./productKnowledgeService";
 import { chatResponseService } from "./chatResponseService";
+import { productMatcher } from "./productMatcher";
 
 function getT(lang: string) {
   const code = (lang || "EN").toUpperCase() as LanguageCode;
@@ -634,79 +635,70 @@ export function getReply(
     }
 
     case "Ask product comparison": {
-      // Sizing comparison query
-      const isStrongerCheck = /\b(strong|stronger|power|hp|lift|capacity|force)\b/i.test(mLower);
-      const isBiggerCheck = /\b(big|bigger|heavy|heavier|weight|dimensions|tall|wide)\b/i.test(mLower);
-      const isBackyardCheck = /\b(tight|backyard|narrow|small|smaller|compact)\b/i.test(mLower);
-
-      const profiles = getCanonicalProfiles();
+      const compResult = productMatcher.matchComparison(mLower);
       
-      // If comparing stomp models
-      if (mLower.includes("stomp")) {
-        const s509 = profiles.find(p => p.name.includes("509"));
-        const sx1300 = profiles.find(p => p.name.includes("X1300"));
-        if (s509 && sx1300) {
-          const metricName = isStrongerCheck ? "Strength / Power" : isBackyardCheck ? "Compactness" : "Overall Size";
-          const comparisonText = isStrongerCheck 
-            ? `**Based on available data, the STOMP X1300 is the stronger option because it delivers higher horsepower and lift capacity.**`
-            : isBackyardCheck
-            ? `**The STOMP 509 is the smaller/narrower option, making it better for tight residential backyard gates.**`
-            : `**The STOMP X1300 is the bigger and heavier option.**`;
+      // Internal matching logs (for development and debug safety)
+      // Query: mLower
+      // Matches Found: compResult.matchesFound
+      // Product A: compResult.productA?.name
+      // Product B: compResult.productB?.name
+      // Candidates: compResult.candidates
+      console.log("[Comparison Engine Log]", {
+        query: mLower,
+        productA: compResult.productA?.name || "None",
+        productB: compResult.productB?.name || "None",
+        matchesFound: compResult.matchesFound,
+        candidates: compResult.candidates.map(c => c.name)
+      });
 
-          let intro = `### STOMP Model Comparison (${metricName})`;
-          const headers = ["Attribute", "STOMP 509", "STOMP X1300"];
-          const rows = [
-            ["Horsepower", s509.horsepower, sx1300.horsepower],
-            ["Lift Capacity", s509.liftCapacity, sx1300.liftCapacity],
-            ["Engine", s509.engineModel, sx1300.engineModel],
-            ["Weight", s509.operatingWeight, sx1300.operatingWeight]
-          ];
-
-          return finish({
-            markdown: formatLimitedResponse(intro, headers, rows, [comparisonText], []),
-            followups: ["Build quote request", "Show financing options"]
-          }, nextMemory);
-        }
-      }
-
-      // If comparing tyrant vs terror
-      if (mLower.includes("tyrant") || mLower.includes("terror")) {
-        const tyrant = profiles.find(p => p.name.includes("Tyrant 17"));
-        const terror = profiles.find(p => p.name.includes("Terror XXV"));
-        if (tyrant && terror) {
-          const comparisonText = isBackyardCheck
-            ? `**The Tyrant 17 has a smaller footprint than the Terror XXV, making it better for tight spaces.**`
-            : `**Based on available data, the Terror XXV is heavier and digs slightly deeper than the Tyrant 17.**`;
-
-          let intro = `### TYPHON Tyrant 17 vs Terror XXV Comparison`;
-          const headers = [t("chatbot.attribute", "Attribute"), "Tyrant 17", "Terror XXV"];
-          const rows = [
-            ["Weight", tyrant.operatingWeight, terror.operatingWeight],
-            ["Engine output", tyrant.horsepower, terror.horsepower],
-            ["Digging Depth", tyrant.diggingDepth, terror.diggingDepth]
-          ];
-
-          return finish({
-            markdown: formatLimitedResponse(intro, headers, rows, [comparisonText], []),
-            followups: ["Build quote request", "Ask about warranty"]
-          }, nextMemory);
-        }
-      }
-
-      const res = matchProductAndSpec(mLower, memory.activeMachine, pathname);
-      
-      if (res.type === "clarify" && res.candidates.length >= 2) {
-        let intro = `### ${t("chatbot.compare.title", "Compare TYPHON Models")}\n\n${t("chatbot.compare.tableDesc", "Here is a comparison of the matched models:")}`;
-        const headers = [t("chatbot.attribute", "Attribute"), ...res.candidates.map(c => c.name)];
-        const specs = ["Horsepower", "Lift Capacity", "Engine", "Weight", "Best Use", "Price"];
-        const rows = specs.map(s => {
-          const rowVals = res.candidates.map(c => getSpecValAndConfidence(c, s).value);
-          return [s, ...rowVals];
-        });
-        
+      if (compResult.matchesFound >= 2 && compResult.productA && compResult.productB) {
+        const md = chatResponseService.formatModelComparison(compResult.productA, compResult.productB, t);
         return finish({
-          markdown: formatLimitedResponse(intro, headers, rows, [], []),
-          followups: [t("chatbot.findMachine", "Find the right machine"), t("chatbot.compareStomp", "Compare stomp models"), t("chatbot.askSales", "Ask sales")]
+          markdown: md,
+          followups: ["Build quote request", "Apply for financing", "Contact sales"]
+        }, nextMemory);
+      }
+
+      if (compResult.matchesFound === 1 && compResult.productA) {
+        const anchor = compResult.productA;
+        const profiles = getCanonicalProfiles();
+        
+        // Find a similar model in the same category, prioritizing closest weight
+        const anchorProfile = profiles.find(p => p.id === anchor.id)!;
+        const sameCategory = profiles.filter(p => p.id !== anchor.id && p.category === anchorProfile.category);
+        
+        let similar = sameCategory[0];
+        if (sameCategory.length > 1) {
+          // Sort by weight difference
+          const anchorWeight = parseWeightNumber(anchorProfile.operatingWeight);
+          sameCategory.sort((a, b) => {
+            const diffA = Math.abs(parseWeightNumber(a.operatingWeight) - anchorWeight);
+            const diffB = Math.abs(parseWeightNumber(b.operatingWeight) - anchorWeight);
+            return diffA - diffB;
+          });
+          similar = sameCategory[0];
+        }
+
+        if (similar) {
+          const md = chatResponseService.formatModelComparison(anchor, similar, t);
+          return finish({
+            markdown: md,
+            followups: ["Build quote request", "Check shipping costs"]
+          }, nextMemory);
+        } else {
+          return finish({
+            markdown: `I found **${anchorProfile.name}**, but could not find similar models of the same category in our listed data to compare it with.`,
+            followups: ["Build quote request", "Show specs"]
+          }, nextMemory);
+        }
+      }
+
+      // If no exact matched products found
+      if (compResult.candidates.length > 0) {
+        const matchesText = compResult.candidates.map(c => `* **${c.name}** ([Explore product catalog page](${c.url || `/typhon-machinery/${c.id}`}))`).join("\n");
+        return finish({
+          markdown: `I could not find an exact match for '${m}'. I found these close matches:\n\n${matchesText}\n\nWhich model did you want to compare?`,
+          followups: compResult.candidates.map(c => `Compare ${c.name}`)
         }, nextMemory);
       }
 

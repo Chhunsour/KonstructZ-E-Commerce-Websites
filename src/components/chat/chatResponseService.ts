@@ -1,5 +1,6 @@
 import { productKnowledgeService, type NormalizedProduct } from "./productKnowledgeService";
-import { type CanonicalProfile } from "./canonicalProfiles";
+import { type CanonicalProfile, getCanonicalProfiles } from "./canonicalProfiles";
+import { cleanSpecUnit, parseWeightNumber, parsePriceNumber } from "./matchingEngine";
 
 export const chatResponseService = {
   formatProductOverview(profile: CanonicalProfile, t: (key: string, fallback: string) => string): string {
@@ -76,6 +77,61 @@ export const chatResponseService = {
       const displayName = relatedNameMap[relatedId] || `TYPHON ${relatedId.replace(/-/g, " ").toUpperCase()}`;
       md += `**Related Option:** If you need a different size, consider looking at the **${displayName}**.\n`;
     }
+
+    return md;
+  },
+
+  formatModelComparison(pA: any, pB: any, t: (key: string, fallback: string) => string): string {
+    const profileA = getCanonicalProfiles().find(p => p.id === pA.id)!;
+    const profileB = getCanonicalProfiles().find(p => p.id === pB.id)!;
+    
+    let md = `I found **${profileA.name}**. Here is the closest comparison I can make from listed product data.\n\n`;
+    
+    md += `| Specification | ${profileA.name} (Product A) | ${profileB.name} (Product B) |\n`;
+    md += `|---|---|---|\n`;
+    md += `| **Category** | ${profileA.category} | ${profileB.category} |\n`;
+    
+    const priceA = profileA.price && profileA.price !== "Not listed" ? profileA.price : "Price not listed";
+    const priceB = profileB.price && profileB.price !== "Not listed" ? profileB.price : "Price not listed";
+    md += `| **Price** | ${priceA} | ${priceB} |\n`;
+
+    const specsList = [
+      { label: "Engine Model", valA: profileA.engineModel, valB: profileB.engineModel },
+      { label: "Engine Output", valA: profileA.horsepower, valB: profileB.horsepower },
+      { label: "Operating Weight", valA: profileA.operatingWeight, valB: profileB.operatingWeight },
+      { label: "Lift Capacity", valA: profileA.liftCapacity, valB: profileB.liftCapacity },
+      { label: "Digging Depth", valA: profileA.diggingDepth, valB: profileB.diggingDepth },
+      { label: "Cabin Type", valA: profileA.cabinType, valB: profileB.cabinType }
+    ];
+
+    for (const s of specsList) {
+      md += `| **${s.label}** | ${cleanSpecUnit(s.valA)} | ${cleanSpecUnit(s.valB)} |\n`;
+    }
+    md += `\n`;
+
+    md += `### Recommendation\n`;
+    
+    const hasAWeight = profileA.operatingWeight !== "Not listed";
+    const hasBWeight = profileB.operatingWeight !== "Not listed";
+    const hasAHp = profileA.horsepower !== "Not listed";
+    const hasBHp = profileB.horsepower !== "Not listed";
+    
+    let recText = "";
+    if (hasAWeight && hasBWeight && parseWeightNumber(profileA.operatingWeight) > parseWeightNumber(profileB.operatingWeight)) {
+      recText = `Choose **${profileA.name}** if you need a heavier, more stable platform for demanding jobs. Choose **${profileB.name}** if you need a lighter, more compact machine for easier transport and tight spaces.`;
+    } else if (hasAWeight && hasBWeight && parseWeightNumber(profileA.operatingWeight) < parseWeightNumber(profileB.operatingWeight)) {
+      recText = `Choose **${profileB.name}** if you need a heavier, more stable platform for demanding jobs. Choose **${profileA.name}** if you need a lighter, more compact machine for easier transport and tight spaces.`;
+    } else if (hasAHp && hasBHp && parsePriceNumber(profileA.horsepower) > parsePriceNumber(profileB.horsepower)) {
+      recText = `**${profileA.name}** offers higher engine output (${profileA.horsepower}) than **${profileB.name}** (${profileB.horsepower}) based on listed specifications.`;
+    } else {
+      recText = `Both models offer excellent performance. Compare their dimensions and cabin style (e.g. cabin vs canopy) to choose the best option for your site conditions.`;
+    }
+
+    md += `* ${recText}\n\n`;
+
+    md += `**Product Catalog Links:**\n`;
+    md += `* [Explore ${profileA.name}](${profileA.productUrl})\n`;
+    md += `* [Explore ${profileB.name}](${profileB.productUrl})\n`;
 
     return md;
   }

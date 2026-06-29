@@ -704,3 +704,87 @@ export interface MatchResult {
   type: "direct" | "clarify" | "not_found";
   candidates: CanonicalProduct[];
 }
+
+export function cleanSpecUnit(val: string | undefined): string {
+  if (!val || val === "Not listed") return "Not listed";
+  const trimmed = val.trim();
+  if (/^\d+(\.\d+)?$/.test(trimmed)) {
+    return `${trimmed} — unit not listed`;
+  }
+  return trimmed;
+}
+
+export function matchTwoProductsForComparison(query: string): { productA: CanonicalProduct | null; productB: CanonicalProduct | null; matchesFound: number; candidates: CanonicalProduct[] } {
+  const products = getCanonicalProducts();
+  const qLower = query.toLowerCase();
+  
+  const strictModels = [
+    { key: "terror xix storm", id: "typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy" },
+    { key: "terror xix prestige", id: "typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retractable-tracks" },
+    { key: "xix storm", id: "typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy" },
+    { key: "xix prestige", id: "typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retractable-tracks" },
+    { key: "terror xix", id: "typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy" },
+    { key: "xix", id: "typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy" },
+    { key: "terror xxv", id: "typhon-terror-xxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing" },
+    { key: "xxv", id: "typhon-terror-xxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing" },
+    { key: "terror lxv", id: "typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing" },
+    { key: "lxv", id: "typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing" },
+    { key: "terror xviii", id: "typhon-terror-xviii-cabin-prestige-mini-excavator-3800lbs-13-8-hp-kubota-d722-with-boom-swing" },
+    { key: "xviii", id: "typhon-terror-xviii-cabin-prestige-mini-excavator-3800lbs-13-8-hp-kubota-d722-with-boom-swing" },
+    { key: "terror xvii", id: "typhon-terror-xvii-cabin-prestige-mini-excavator-3600lbs-13-8-hp-kubota-d722-with-boom-swing" },
+    { key: "xvii", id: "typhon-terror-xvii-cabin-prestige-mini-excavator-3600lbs-13-8-hp-kubota-d722-with-boom-swing" },
+    { key: "terror xi", id: "typhon-terror-xi-mini-excavator-2500lbs-13-5-hp-b-s-engine-with-boom-swing" },
+    { key: "terror x", id: "typhon-terror-x-mini-excavator-2200lbs-13-5-hp-b-s-engine" },
+    { key: "terror xv", id: "typhon-terror-xv-mini-excavator-2300lbs-13-5hp-b-s-engine-with-boom-swing" },
+    { key: "tyrant 17", id: "typhon-tyrant-17-mini-excavator-3800lbs-25-hp-kubota-d1703-with-boom-swing" },
+    { key: "tyrant", id: "typhon-tyrant-17-mini-excavator-3800lbs-25-hp-kubota-d1703-with-boom-swing" },
+    { key: "18 flex pro", id: "typhon-18-flex-pro-mini-excavator-kubota-d902-16-1hp-canopy-retractable-tracks" },
+    { key: "flex pro", id: "typhon-18-flex-pro-mini-excavator-kubota-d902-16-1hp-canopy-retractable-tracks" },
+    { key: "18 flex", id: "typhon-18-flex-pro-mini-excavator-kubota-d902-16-1hp-canopy-retractable-tracks" },
+    { key: "stomp 509", id: "brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa" },
+    { key: "509", id: "brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa" },
+    { key: "stomp x1300", id: "brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader" },
+    { key: "x1300", id: "brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader" },
+    { key: "stomp 508", id: "brand-new-typhon-stomp-508-25hp-kubota-diesel-mini-skid-steer-loader" },
+    { key: "508", id: "brand-new-typhon-stomp-508-25hp-kubota-diesel-mini-skid-steer-loader" },
+    { key: "stomp 507", id: "brand-new-typhon-stomp-508-25hp-kubota-diesel-mini-skid-steer-loader" },
+    { key: "507", id: "brand-new-typhon-stomp-508-25hp-kubota-diesel-mini-skid-steer-loader" },
+    { key: "vigor 1.5", id: "new-2025-typhon-vigor-1-5-blue-electric-forklift-1-5-ton-lifter-lift-truck-jitney" },
+    { key: "vigor 2.0", id: "typhon-vigor-2-compact-electric-forklift-2025-model" },
+    { key: "vigor 2.5", id: "new-2025-typhon-vigor-2-5-blue-electric-forklift-2-5-ton-lifter-lift-truck" },
+    { key: "vigor 3.0", id: "new-2025-typhon-vigor-3-0-blue-electric-forklift-3-ton-lifter-lift-truck" },
+    { key: "skoop ii", id: "new-typhon-skoop-ii-articulated-compact-mini-wheel-loader-25hp-kubota-engine" },
+    { key: "skoop", id: "new-typhon-skoop-ii-articulated-compact-mini-wheel-loader-25hp-kubota-engine" }
+  ];
+
+  const matchedIds: string[] = [];
+  
+  for (const m of strictModels) {
+    if (new RegExp(`\\b${escapeRegExp(m.key)}\\b`, "i").test(qLower)) {
+      if (!matchedIds.includes(m.id)) {
+        matchedIds.push(m.id);
+      }
+    }
+  }
+
+  const matches = matchedIds.map(id => products.find(p => p.id === id)).filter((x): x is CanonicalProduct => !!x);
+  
+  if (matches.length >= 2) {
+    return { productA: matches[0], productB: matches[1], matchesFound: matches.length, candidates: matches };
+  } else if (matches.length === 1) {
+    return { productA: matches[0], productB: null, matchesFound: 1, candidates: matches };
+  }
+
+  // Fuzzier check if no strict models found
+  const candidates: CanonicalProduct[] = [];
+  const words = qLower.split(/\s+/).filter(w => w.length >= 2 && w !== "typhon" && w !== "machinery" && w !== "compare" && w !== "similar" && w !== "model");
+  if (words.length > 0) {
+    for (const p of products) {
+      if (words.some(w => p.name.toLowerCase().includes(w))) {
+        candidates.push(p);
+      }
+    }
+  }
+
+  return { productA: null, productB: null, matchesFound: 0, candidates: candidates.slice(0, 3) };
+}

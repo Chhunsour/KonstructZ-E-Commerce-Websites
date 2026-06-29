@@ -1,5 +1,6 @@
-import { matchProductAndSpec } from "./matchingEngine";
+import { matchProductAndSpec, matchTwoProductsForComparison } from "./matchingEngine";
 
 export const productMatcher = {
-  match: matchProductAndSpec
+  match: matchProductAndSpec,
+  matchComparison: matchTwoProductsForComparison
 };

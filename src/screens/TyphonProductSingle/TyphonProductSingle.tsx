@@ -462,37 +462,46 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           </div>
         </article>
 
-        <aside className="border-t lg:border-t-0 border-neutral-200 dark:border-white/10 pt-8 lg:border-l lg:border-t-0 lg:border-neutral-200 lg:dark:border-white/10 lg:pl-8 lg:pt-0">
+        <aside className="border-t lg:border-t-0 border-neutral-200 dark:border-white/10 pt-8 lg:border-l lg:border-neutral-200 lg:dark:border-white/10 lg:pl-8 lg:pt-0">
           <h2 className="font-clofieBold text-4xl font-bold text-neutral-900 dark:text-white">{t("product.needHelp", { fallback: "Need Help?" })}</h2>
           <div className="mt-6 h-1.5 w-full bg-[#153d28] dark:bg-[#d8c79a]" />
-          <div className="mt-8 space-y-8">
-            <div>
-              <h3 className="font-googleSans text-2xl font-bold text-neutral-800 dark:text-white">{t("product.productHelp", { fallback: "Product Help" })}</h3>
-              <Link to={`/contact?product=${product.id}&brand=typhon`} className="mt-3 block font-glonimove text-xl text-neutral-600 dark:text-white/70 hover:text-[#153d28] dark:hover:text-[#d8c79a] transition-colors">
-                {t("product.requestSupport", { fallback: "Request configuration support" })}
+          <div className="mt-8 space-y-4">
+            <div className="group relative border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/30 dark:bg-[#151515] p-5 transition-all duration-300 hover:border-[#153d28]/40 dark:hover:border-[#d8c79a]/40 hover:bg-neutral-50/60 dark:hover:bg-[#1a1a1a]">
+              <h3 className="font-googleSans text-sm font-bold uppercase tracking-wider text-[#153d28] dark:text-[#d8c79a]">{t("product.productHelp", { fallback: "Product Help" })}</h3>
+              <Link to={`/contact?product=${product.id}&brand=typhon`} className="mt-2.5 flex items-center justify-between gap-4 font-glonimove text-base text-neutral-800 dark:text-neutral-200">
+                <span>{t("product.requestSupport", { fallback: "Request configuration support" })}</span>
+                <svg className="w-5 h-5 shrink-0 text-neutral-400 group-hover:text-[#153d28] dark:group-hover:text-[#d8c79a] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
-            <div>
-              <h3 className="font-googleSans text-2xl font-bold text-neutral-800 dark:text-white">{t("product.compareCategory", { fallback: "Compare Category" })}</h3>
-              <Link to={`/typhon-machinery?category=${product.category}`} className="mt-3 block font-glonimove text-xl text-neutral-600 dark:text-white/70 hover:text-[#153d28] dark:hover:text-[#d8c79a] transition-colors">
-                {t("product.viewCategoryModels", { values: { category: t(`category.${product.category}`, { fallback: product.categoryLabel }) }, fallback: `View ${product.categoryLabel} models` })}
+            <div className="group relative border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/30 dark:bg-[#151515] p-5 transition-all duration-300 hover:border-[#153d28]/40 dark:hover:border-[#d8c79a]/40 hover:bg-neutral-50/60 dark:hover:bg-[#1a1a1a]">
+              <h3 className="font-googleSans text-sm font-bold uppercase tracking-wider text-[#153d28] dark:text-[#d8c79a]">{t("product.compareCategory", { fallback: "Compare Category" })}</h3>
+              <Link to={`/typhon-machinery?category=${product.category}`} className="mt-2.5 flex items-center justify-between gap-4 font-glonimove text-base text-neutral-800 dark:text-neutral-200">
+                <span>{t("product.viewCategoryModels", { values: { category: t(`category.${product.category}`, { fallback: product.categoryLabel }) }, fallback: `View ${product.categoryLabel} models` })}</span>
+                <svg className="w-5 h-5 shrink-0 text-neutral-400 group-hover:text-[#153d28] dark:group-hover:text-[#d8c79a] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
-            <div>
-              <h3 className="font-googleSans text-2xl font-bold text-neutral-800 dark:text-white">{t("product.productSource", { fallback: "Product Source" })}</h3>
+            <div className="group relative border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/30 dark:bg-[#151515] p-5 transition-all duration-300 hover:border-[#153d28]/40 dark:hover:border-[#d8c79a]/40 hover:bg-neutral-50/60 dark:hover:bg-[#1a1a1a]">
+              <h3 className="font-googleSans text-sm font-bold uppercase tracking-wider text-[#153d28] dark:text-[#d8c79a]">{t("product.productSource", { fallback: "Product Source" })}</h3>
               {product.sourceUrl ? (
                 <a
                   href={product.sourceUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 block font-glonimove text-xl text-neutral-600 dark:text-white/70 hover:text-[#153d28] dark:hover:text-[#d8c79a] transition-colors"
+                  className="mt-2.5 flex items-center justify-between gap-4 font-glonimove text-base text-neutral-800 dark:text-neutral-200"
                 >
-                  {t("product.viewOriginalRecord", { fallback: "View original Typhon record" })}
+                  <span>{t("product.viewOriginalRecord", { fallback: "View original Typhon record" })}</span>
+                  <svg className="w-5 h-5 shrink-0 text-neutral-400 group-hover:text-[#153d28] dark:group-hover:text-[#d8c79a] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </a>
               ) : (
-                <p className="mt-3 font-glonimove text-lg leading-7 text-neutral-600 dark:text-white/60">
-                  {t("product.importedFromCsv", { fallback: "Imported from the Typhon CSV." })}
-                </p>
+                <div className="mt-2.5 flex items-center justify-between gap-4 font-glonimove text-base text-neutral-500 dark:text-neutral-400">
+                  <span>{t("product.importedFromCsv", { fallback: "Imported from the Typhon CSV." })}</span>
+                </div>
               )}
             </div>
           </div>

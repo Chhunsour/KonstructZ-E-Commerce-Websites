@@ -287,21 +287,76 @@ export const MobileFrontpage = (): JSX.Element => {
 
 
 
-      {/* Promo tiles */}
-      <Reveal as="section" variant="zoom" className="grid grid-cols-1">
-        <div className="relative h-[220px] bg-[#e22c2c] overflow-hidden">
-          <img
-            src="/img/change-the-aspect-ratio-to-202605291023-1.png"
-            alt={t("auto.mobilefrontpage.featured.equipment")}
-            className="absolute inset-0 w-full h-full object-cover mix-blend-multiply"
-          />
+      {/* Promo tiles Redesign */}
+      <Reveal as="section" variant="zoom" className="bg-[#0c0d0b] px-5 py-10 flex flex-col gap-6 border-b border-theme-border/10">
+        {/* Section Heading */}
+        <div className="flex flex-col gap-1 text-center">
+          <span className="font-googleSans text-[10px] tracking-[0.2em] text-[#d8c79a] uppercase font-bold">
+            Typhon Machinery
+          </span>
+          <h2 className="font-heading text-white text-3xl font-normal uppercase">
+            Equipment Lineup
+          </h2>
+          <div className="w-12 h-1 bg-[#d8c79a] mx-auto mt-2" />
         </div>
-        <div className="relative h-[220px] bg-[#114f2f] overflow-hidden">
+
+        {/* 1. Main large product card first (focus) */}
+        <div className="relative w-full h-[240px] bg-[#1a1b1a] overflow-hidden border border-white/5 shadow-lg">
           <img
-            src="/img/remove-the-white-background-and-202605291020-1.png"
-            alt={t("auto.mobilefrontpage.featured.equipment")}
-            className="absolute inset-0 w-full h-full object-contain"
+            src="/img/rectangle-9581.png"
+            alt="Typhon Excavation Showcase"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4">
+            <span className="bg-[#d8c79a] text-black text-[9px] font-bold px-2 py-0.5 uppercase tracking-wide">
+              Showcase
+            </span>
+            <h3 className="font-heading text-white text-lg mt-1 uppercase">
+              Heavy Duty Commercial Grade
+            </h3>
+          </div>
+        </div>
+
+        {/* 2. Two smaller machine cards below it */}
+        <div className="grid grid-cols-2 gap-4">
+          {/* Card A: Excavator */}
+          <div className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden">
+            <div className="relative h-[120px] bg-[#114f2f]/30 overflow-hidden flex items-center justify-center">
+              <img
+                src="/img/remove-the-white-background-and-202605291020-1.png"
+                alt="Typhon Compact Excavators"
+                className="max-h-[100px] w-auto object-contain p-2"
+              />
+            </div>
+            <div className="p-3">
+              <h4 className="font-heading text-[#d8c79a] text-xs uppercase tracking-wide">
+                Excavators
+              </h4>
+              <p className="font-googleSans text-[10px] text-white/60 mt-1 leading-snug">
+                Precision digging & trenching.
+              </p>
+            </div>
+          </div>
+
+          {/* Card B: Skid Steer */}
+          <div className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden">
+            <div className="relative h-[120px] bg-[#2d1c15]/30 overflow-hidden flex items-center justify-center">
+              <img
+                src="/img/change-the-aspect-ratio-to-202605291023-1.png"
+                alt="Typhon Skid Steers"
+                className="max-h-[100px] w-auto object-contain p-2"
+              />
+            </div>
+            <div className="p-3">
+              <h4 className="font-heading text-[#d8c79a] text-xs uppercase tracking-wide">
+                Skid Steers
+              </h4>
+              <p className="font-googleSans text-[10px] text-white/60 mt-1 leading-snug">
+                Heavy loading & grading.
+              </p>
+            </div>
+          </div>
         </div>
       </Reveal>
 

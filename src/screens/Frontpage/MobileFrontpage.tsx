@@ -21,15 +21,49 @@ const ProductSlider = () => {
   ];
 
   const [index, setIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [animationState, setAnimationState] = useState<{
+    prevIndex: number;
+    currentIndex: number;
+    direction: "left" | "right";
+    phase: "init" | "active";
+  } | null>(null);
+
   const product = products[index];
   const navigate = useNavigate();
 
+  const triggerAnimation = (targetIdx: number, dir: "left" | "right") => {
+    if (animating) return;
+    setAnimating(true);
+    setIndex(targetIdx);
+
+    setAnimationState({
+      prevIndex: index,
+      currentIndex: targetIdx,
+      direction: dir,
+      phase: "init"
+    });
+
+    setTimeout(() => {
+      setAnimationState(prev => prev ? { ...prev, phase: "active" } : null);
+
+      setTimeout(() => {
+        setAnimating(false);
+        setAnimationState(null);
+      }, 550);
+    }, 30);
+  };
+
   const prev = () => {
-    setIndex((i) => (i === 0 ? products.length - 1 : i - 1));
+    if (animating) return;
+    const targetIdx = index === 0 ? products.length - 1 : index - 1;
+    triggerAnimation(targetIdx, "right");
   };
 
   const next = () => {
-    setIndex((i) => (i === products.length - 1 ? 0 : i + 1));
+    if (animating) return;
+    const targetIdx = index === products.length - 1 ? 0 : index + 1;
+    triggerAnimation(targetIdx, "left");
   };
 
   return (
@@ -47,29 +81,65 @@ const ProductSlider = () => {
 
       {/* 2. Slideable Product Image (Hardware-accelerated layout-safe transition) */}
       <div className="relative w-full h-[260px] overflow-hidden mb-6">
-        <div 
-          className="absolute inset-0 flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
-          style={{ 
-            transform: `translate3d(-${index * 100}%, 0, 0)`,
-            width: `${products.length * 100}%`,
-            willChange: 'transform'
-          }}
-        >
-          {products.map((p, idx) => (
+        {!animationState ? (
+          // Idle state - only one image is rendered, perfectly centered
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src={product.imageSrc}
+              alt={product.title}
+              className="max-h-[240px] w-auto object-contain select-none"
+              style={{
+                transform: 'translate3d(0,0,0) translateZ(0)',
+                backfaceVisibility: 'hidden'
+              }}
+            />
+          </div>
+        ) : (
+          // Animating state - two images are rendered absolute and transitioned via transform + opacity
+          <>
+            {/* Previous Image Layer (Sliding Out) */}
             <div 
-              key={idx}
-              className="w-full h-full flex items-center justify-center shrink-0"
-              style={{ width: `${100 / products.length}%` }}
+              className="absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              style={{
+                willChange: 'transform, opacity',
+                backfaceVisibility: 'hidden',
+                transform: animationState.phase === "init" 
+                  ? 'translate3d(0,0,0) translateZ(0)' 
+                  : animationState.direction === "left"
+                    ? 'translate3d(-24px, 0, 0) translateZ(0)' 
+                    : 'translate3d(24px, 0, 0) translateZ(0)',
+                opacity: animationState.phase === "init" ? 1 : 0
+              }}
             >
               <img
-                src={p.imageSrc}
-                alt={p.title}
+                src={products[animationState.prevIndex].imageSrc}
+                alt=""
                 className="max-h-[240px] w-auto object-contain select-none"
-                style={{ willChange: 'transform, opacity' }}
               />
             </div>
-          ))}
-        </div>
+
+            {/* Current Image Layer (Sliding In) */}
+            <div 
+              className="absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              style={{
+                willChange: 'transform, opacity',
+                backfaceVisibility: 'hidden',
+                transform: animationState.phase === "init"
+                  ? animationState.direction === "left"
+                    ? 'translate3d(24px, 0, 0) translateZ(0)'
+                    : 'translate3d(-24px, 0, 0) translateZ(0)'
+                  : 'translate3d(0,0,0) translateZ(0)',
+                opacity: animationState.phase === "init" ? 0 : 1
+              }}
+            >
+              <img
+                src={products[animationState.currentIndex].imageSrc}
+                alt=""
+                className="max-h-[240px] w-auto object-contain select-none"
+              />
+            </div>
+          </>
+        )}
       </div>
 
       {/* 3. Navigation Controls (Stationary) */}
@@ -77,8 +147,9 @@ const ProductSlider = () => {
         <button
           type="button"
           onClick={prev}
+          disabled={animating}
           aria-label={t("auto.mobilefrontpage.previous.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B]"
+          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
         >
           <span
             aria-hidden="true"
@@ -114,8 +185,9 @@ const ProductSlider = () => {
         <button
           type="button"
           onClick={next}
+          disabled={animating}
           aria-label={t("auto.mobilefrontpage.next.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B]"
+          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
         >
           <span
             aria-hidden="true"
@@ -161,6 +233,13 @@ const ProductSlider = () => {
         >
           BUY {product.title.toUpperCase()}
         </button>
+      </div>
+
+      {/* Hidden preloader container to cache all slider images in browser cache */}
+      <div className="absolute w-1 h-1 opacity-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        {products.map((p) => (
+          <img key={p.id} src={p.imageSrc} alt="" />
+        ))}
       </div>
     </section>
   );

@@ -598,7 +598,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "brand-new-typhon-stomp-1800lbs-mini-skid-steer-23hp-wheel-gas-epa-b-s-engine-usa",
-    "name": "TYPHON 0501R",
+    "name": "TYPHON Stomp 0501R",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -615,7 +615,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "brand-new-typhon-stomp-2000lbs-mini-skid-steer-23hp-gas-epa-engine-usa",
-    "name": "TYPHON 0501Y",
+    "name": "TYPHON Stomp 0501Y",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -632,7 +632,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-2",
-    "name": "TYPHON 0502R",
+    "name": "TYPHON Stomp 0502R",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -649,7 +649,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-0502g",
-    "name": "TYPHON 0502G",
+    "name": "TYPHON Stomp 0502G",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -666,7 +666,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming",
-    "name": "TYPHON 0503R",
+    "name": "TYPHON Stomp 0503R",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -683,7 +683,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-0504r",
-    "name": "TYPHON 0504R",
+    "name": "TYPHON Stomp 0504R",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -700,7 +700,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "brand-new-typhon-stomp-507-1760lbs-mini-skid-steer-13-5hp-gas-epa-engine-usa",
-    "name": "TYPHON 0505",
+    "name": "TYPHON Stomp 0505",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -717,7 +717,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-0507r",
-    "name": "TYPHON 0507R",
+    "name": "TYPHON Stomp 0507R",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -734,7 +734,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-0508",
-    "name": "TYPHON 0508",
+    "name": "TYPHON Stomp 0508",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -751,7 +751,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa",
-    "name": "TYPHON 0509",
+    "name": "TYPHON Stomp 0509",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",
@@ -1159,7 +1159,7 @@ export const normalizedProducts: NormalizedProduct[] = [
   },
   {
     "id": "typhon-0503g",
-    "name": "TYPHON 0503G",
+    "name": "TYPHON Stomp 0503G",
     "brand": "Typhon",
     "category": "Skid Steer Loader",
     "productType": "equipment",

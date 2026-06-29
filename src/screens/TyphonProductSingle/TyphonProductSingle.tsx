@@ -282,7 +282,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
             >
               {product.name}
             </h1>
-            <p className="mt-3.5 max-w-xl font-glonimove text-lg leading-7 text-neutral-600 dark:text-white/80">
+            <p className="mt-3.5 max-w-xl font-glonimove text-lg leading-7 text-neutral-600 dark:text-white">
               {displayTagline}
             </p>
 
@@ -365,11 +365,11 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
           <div className="mt-6 h-1.5 w-full bg-[#153d28] dark:bg-[#d8c79a]" />
 
           {richDescription ? (
-            <div className="mt-8 max-w-5xl font-glonimove text-lg leading-8 text-neutral-700 dark:text-white/80 [&_h1]:text-neutral-900 dark:[&_h1]:text-white [&_h2]:text-neutral-900 dark:[&_h2]:text-white [&_h2]:font-clofieBold [&_h2]:text-2xl [&_h3]:text-neutral-900 dark:[&_h3]:text-white [&_h3]:font-bold [&_strong]:text-neutral-900 dark:[&_strong]:text-white [&_a]:text-[#153d28] dark:[&_a]:text-[#d8c79a] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mt-1 [&_p]:mt-4 transition-colors">
+            <div className="mt-8 max-w-5xl font-glonimove text-lg leading-8 text-neutral-700 dark:text-white [&_h1]:text-neutral-900 dark:[&_h1]:text-white [&_h2]:text-neutral-900 dark:[&_h2]:text-white [&_h2]:font-clofieBold [&_h2]:text-2xl [&_h3]:text-neutral-900 dark:[&_h3]:text-white [&_h3]:font-bold [&_strong]:text-neutral-900 dark:[&_strong]:text-white [&_a]:text-[#153d28] dark:[&_a]:text-[#d8c79a] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mt-1 [&_p]:mt-4 transition-colors">
               <ProductMarkdown content={richDescription} />
             </div>
           ) : descriptionBlocks.fallback ? (
-            <p className="mt-8 max-w-4xl font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/80 transition-colors">
+            <p className="mt-8 max-w-4xl font-glonimove text-lg leading-8 text-neutral-600 dark:text-white transition-colors">
               {t("product.descriptionFallback", { fallback: DESCRIPTION_FALLBACK })}
             </p>
           ) : (
@@ -388,7 +388,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                   return (
                     <p
                       key={index}
-                      className="mt-4 font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/80 transition-colors"
+                      className="mt-4 font-glonimove text-lg leading-8 text-neutral-600 dark:text-white transition-colors"
                     >
                       <LeadParagraph text={block.text} emphasizeLead={index === 0} />
                     </p>
@@ -430,7 +430,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
                     {block.items.map((feature, i) => (
                       <li
                         key={i}
-                        className="flex gap-3 font-glonimove text-lg leading-8 text-neutral-600 dark:text-white/80"
+                        className="flex gap-3 font-glonimove text-lg leading-8 text-neutral-600 dark:text-white"
                       >
                         <span className="mt-3 h-2 w-2 shrink-0 bg-[#153d28] dark:bg-[#d8c79a]" />
                         <span>
@@ -453,7 +453,7 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
             <h3 className="font-googleSans text-2xl font-bold text-neutral-900 dark:text-white">{t("product.commonApplications", { fallback: "Common Applications" })}</h3>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {product.applications.map((application) => (
-                <li key={application} className="flex gap-3 font-glonimove text-neutral-650 dark:text-white/80">
+                <li key={application} className="flex gap-3 font-glonimove text-neutral-650 dark:text-white">
                   <span className="mt-2 h-2 w-2 shrink-0 bg-[#153d28] dark:bg-[#d8c79a]" />
                   <span>{application}</span>
                 </li>

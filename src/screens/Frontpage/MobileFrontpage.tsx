@@ -21,97 +21,64 @@ const ProductSlider = () => {
   ];
 
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState<"left" | "right" | "enter-left" | "enter-right" | "center" | "">("");
-  const [isAnimating, setIsAnimating] = useState(false);
   const product = products[index];
   const navigate = useNavigate();
 
-  const triggerSlide = (targetIdx: number, slideDir: "left" | "right") => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setDirection(slideDir);
-
-    // Step 1: Slide out current item
-    setTimeout(() => {
-      // Step 2: Teleport to entering position instantly while swapping index
-      setIndex(targetIdx);
-      setDirection(slideDir === "left" ? "enter-right" : "enter-left");
-
-      // Step 3: Trigger slide in
-      setTimeout(() => {
-        setDirection("center");
-
-        // Step 4: Finish transition
-        setTimeout(() => {
-          setIsAnimating(false);
-          setDirection("");
-        }, 300);
-      }, 20);
-    }, 200);
-  };
-
   const prev = () => {
-    const target = index === 0 ? products.length - 1 : index - 1;
-    triggerSlide(target, "right");
+    setIndex((i) => (i === 0 ? products.length - 1 : i - 1));
   };
 
   const next = () => {
-    const target = index === products.length - 1 ? 0 : index + 1;
-    triggerSlide(target, "left");
+    setIndex((i) => (i === products.length - 1 ? 0 : i + 1));
   };
-
-  // Determine transition styles based on the animation state
-  let transformClass = "translate-x-0 opacity-100 ease-out";
-  let durationClass = "duration-300";
-
-  if (direction === "left") {
-    transformClass = "-translate-x-12 opacity-0 ease-in";
-    durationClass = "duration-200";
-  } else if (direction === "right") {
-    transformClass = "translate-x-12 opacity-0 ease-in";
-    durationClass = "duration-200";
-  } else if (direction === "enter-left") {
-    transformClass = "-translate-x-12 opacity-0 transition-none";
-    durationClass = "duration-0";
-  } else if (direction === "enter-right") {
-    transformClass = "translate-x-12 opacity-0 transition-none";
-    durationClass = "duration-0";
-  } else if (direction === "center") {
-    transformClass = "translate-x-0 opacity-100 ease-out";
-    durationClass = "duration-300";
-  }
 
   return (
     <section className="bg-[#ebebeb] px-5 py-10 overflow-hidden border-b border-theme-border/10">
-      {/* Slideable heading & content container */}
-      <div className={`transition-all ${durationClass} transform ${transformClass}`}>
-        <h2 className="font-heading text-[#153d28] text-3xl font-bold uppercase tracking-wide mb-2">
-          {product.title}
-        </h2>
-        <img
-          src="/img/zig-zag.svg"
-          alt=""
-          aria-hidden="true"
-          className="w-32 h-auto mb-6"
-        />
+      {/* 1. Static Branded Heading (No Animation) */}
+      <h2 className="font-heading text-[#153d28] text-3xl font-bold uppercase tracking-wide mb-2 transition-colors duration-200">
+        {product.title}
+      </h2>
+      <img
+        src="/img/zig-zag.svg"
+        alt=""
+        aria-hidden="true"
+        className="w-32 h-auto mb-6"
+      />
 
-        <div className="relative w-full h-[260px] flex items-center justify-center mb-6">
-          <img
-            src={product.imageSrc}
-            alt={product.title}
-            className="max-h-[240px] w-auto object-contain transition-all duration-300"
-          />
+      {/* 2. Slideable Product Image (Hardware-accelerated layout-safe transition) */}
+      <div className="relative w-full h-[260px] overflow-hidden mb-6">
+        <div 
+          className="absolute inset-0 flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          style={{ 
+            transform: `translate3d(-${index * 100}%, 0, 0)`,
+            width: `${products.length * 100}%`,
+            willChange: 'transform'
+          }}
+        >
+          {products.map((p, idx) => (
+            <div 
+              key={idx}
+              className="w-full h-full flex items-center justify-center shrink-0"
+              style={{ width: `${100 / products.length}%` }}
+            >
+              <img
+                src={p.imageSrc}
+                alt={p.title}
+                className="max-h-[240px] w-auto object-contain select-none"
+                style={{ willChange: 'transform, opacity' }}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Navigation arrows (stationary, not animated) */}
+      {/* 3. Navigation Controls (Stationary) */}
       <div className="flex items-center justify-center gap-6 mt-4">
         <button
           type="button"
           onClick={prev}
-          disabled={isAnimating}
           aria-label={t("auto.mobilefrontpage.previous.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
+          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B]"
         >
           <span
             aria-hidden="true"
@@ -147,9 +114,8 @@ const ProductSlider = () => {
         <button
           type="button"
           onClick={next}
-          disabled={isAnimating}
           aria-label={t("auto.mobilefrontpage.next.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
+          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B]"
         >
           <span
             aria-hidden="true"
@@ -179,7 +145,7 @@ const ProductSlider = () => {
         </button>
       </div>
 
-      {/* Specification & purchase buttons */}
+      {/* 4. Specification & Purchase Buttons (Stationary) */}
       <div className="flex flex-col gap-3 mt-8">
         <button
           type="button"

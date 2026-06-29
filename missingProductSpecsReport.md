@@ -5,7 +5,7 @@ This report outlines missing fields in the Konstructz/TYPHON Machinery database.
 | Product Name | Category | Missing Fields | Quality Score |
 |---|---|---|---|
 | TYPHON Terror XX | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
-| TYPHON Terror XVII Capony | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
+| TYPHON Terror XVII Canopy | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
 | TYPHON Terror XVII Cabin | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
 | Hydraulic Pallet Fork Attachment | Wheel Loader | Horsepower, Engine, Lift Capacity | 63% |
 | TYPHON Terror 4WD | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
@@ -16,7 +16,7 @@ This report outlines missing fields in the Konstructz/TYPHON Machinery database.
 | TYPHON Terror X | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
 | TYPHON Terror XX | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
 | TYPHON Terror XX | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
-| TYPHON Terror XVIII Capony | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
+| TYPHON Terror XVIII Canopy | Mini Excavator | Horsepower, Engine, Digging Depth | 63% |
 | 1000mm Pallet Fork & Hay Frame Attachment | Skid Steer Loader | Horsepower, Engine, Lift Capacity | 63% |
 | Grapple Bucket Attachment | Skid Steer Loader | Horsepower, Engine, Lift Capacity | 63% |
 | Hydraulic Rock & Concrete Breaker Hammer Attachment | Skid Steer Loader | Horsepower, Engine, Lift Capacity | 63% |
@@ -53,7 +53,7 @@ This report outlines missing fields in the Konstructz/TYPHON Machinery database.
 | STOMP V950 | Skid Steer | Price | 88% |
 | STONE CRUSHER Max | Stone Crusher | Price | 88% |
 | TYPHON Terror X Storm | Mini Excavator | Digging Depth | 88% |
-| TYPHON Terror XVIII Capony | Mini Excavator | Digging Depth | 88% |
+| TYPHON Terror XVIII Canopy | Mini Excavator | Digging Depth | 88% |
 | TYPHON Terror XVIII Cabin | Mini Excavator | Digging Depth | 88% |
 | TYPHON Terror LXV | Mini Excavator | Digging Depth | 88% |
 | TYPHON Terror XIX Storm | Mini Excavator | Digging Depth | 88% |
@@ -80,11 +80,11 @@ This report outlines missing fields in the Konstructz/TYPHON Machinery database.
 | TYPHON Terror XIII | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Terror XIII | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Terror XV | Mini Excavator | None (100% Complete) | 100% |
-| TYPHON Terror XXV Capony | Mini Excavator | None (100% Complete) | 100% |
+| TYPHON Terror XXV Canopy | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON KUVUO 4.0 | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Tyrant X | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Flex 18 Pro | Mini Excavator | None (100% Complete) | 100% |
-| TYPHON Terror X2 Capony | Mini Excavator | None (100% Complete) | 100% |
+| TYPHON Terror X2 Canopy | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Terror X2 Prestige | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Terror X2 Max Canopy | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Terror X2 MAX Cabin | Mini Excavator | None (100% Complete) | 100% |
@@ -94,7 +94,7 @@ This report outlines missing fields in the Konstructz/TYPHON Machinery database.
 | TYPHON xFlex 4068ET | Scissor Lift | None (100% Complete) | 100% |
 | TYPHON xFlex-4046EW | Scissor Lift | None (100% Complete) | 100% |
 | TYPHON xFLEX-2031EM | Scissor Lift | None (100% Complete) | 100% |
-| TYPHON Terror XVIII Capony | Mini Excavator | None (100% Complete) | 100% |
+| TYPHON Terror XVIII Canopy | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Terror XVIII Cabin | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Terror XVIII Cabin | Mini Excavator | None (100% Complete) | 100% |
 | TYPHON Fury Walk Behind | Road Roller | None (100% Complete) | 100% |

@@ -247,7 +247,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$6 508.95",
     "url": "/typhon-machinery/terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments",
-    "image": "/uploads/products/terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments/terror-xi-mini-excavator-digger-13-5hp-gas-bs-epa-engine-with-13-attachments-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781666343721-d73wl-2.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -264,7 +264,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$6 298.95",
     "url": "/typhon-machinery/typhon-terror-x-storm-mini-excavator-1-ton-trench-digger-with-canopy-hydraulic-thumb-clip-bucket",
-    "image": "/uploads/products/typhon-terror-x-storm-mini-excavator-1-ton-trench-digger-with-canopy-hydraulic-thumb-clip-bucket/typhon-terror-x-storm-mini-excavator-1-ton-trench-digger-with-canopy-hydraulic-thumb-clip-bucket-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781677663831-355ir-18.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -281,7 +281,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$7 034.99",
     "url": "/typhon-machinery/typhon-terror-xiii-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-13-5hp-bs-engine-usa",
-    "image": "/uploads/products/typhon-terror-xiii-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-13-5hp-/typhon-terror-xiii-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-13-5hp--01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781835069599-9t7q7-4848479415.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -298,7 +298,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 293.95",
     "url": "/typhon-machinery/typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-clip-22-1hp-honda-engine-usa",
-    "image": "/uploads/products/typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-cl/typhon-terror-xiii-pro-storm-mini-excavator-1-3-ton-trench-digger-with-canopy-hydraulic-thumb-cl-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836000759-8d78k-bd6a7527-3634-4ad9-9b3a-65db39cf0237.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "22.1 HP",
@@ -315,7 +315,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$7 180.74",
     "url": "/typhon-machinery/typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa",
-    "image": "/uploads/products/typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa/typhon-terror-xv-storm-mini-excavator-1-05-ton-trench-digger-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781678654548-elzo6-4848479405.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -332,7 +332,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 482.40",
     "url": "/typhon-machinery/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa",
-    "image": "/uploads/products/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781679306782-a11le-4716955522.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "20.4 HP",
@@ -349,7 +349,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$13 648.95",
     "url": "/typhon-machinery/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa-2",
-    "image": "/uploads/products/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa-2/typhon-terror-xviii-prestige-2-ton-mini-excavator-kubota-diesel-engine-usa-2-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836458619-f49ee-9a7d34aa-df27-465f-810d-c60b299eb3ba.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "20.4 HP",
@@ -366,7 +366,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 598.95",
     "url": "/typhon-machinery/2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902",
-    "image": "/uploads/products/2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902/2025-4000-lb-typhon-terror-xx-mini-excavator-rubber-track-with-kubota-d902-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781836964649-c7qop-image.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -383,7 +383,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$20 998.95",
     "url": "/typhon-machinery/typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa",
-    "image": "/uploads/products/typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa/typhon-terror-xxv-prestige-2-5-ton-mini-excavator-kubota-diesel-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837721658-1swvx-pasted-image-20260619-095521-bref4.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "25.1 HP",
@@ -400,7 +400,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$31 498.95",
     "url": "/typhon-machinery/typhon-kuvuo-4-0-four-ton-cabin-mini-excavator-w-kubota-d1703-diesel-engine-metal-tracks-boom-swing-ac-heater-hydraulic-control",
-    "image": "/uploads/products/typhon-kuvuo-4-0-four-ton-cabin-mini-excavator-w-kubota-d1703-diesel-engine-metal-tracks-boom-sw/typhon-kuvuo-4-0-four-ton-cabin-mini-excavator-w-kubota-d1703-diesel-engine-metal-tracks-boom-sw-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781837956973-34bh9-pasted-image-20260619-095916-t4bet.webp",
     "specs": {
       "horsepower": "25 HP",
       "engine": "25 HP",
@@ -417,7 +417,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$45 148.95",
     "url": "/typhon-machinery/typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing",
-    "image": "/uploads/products/typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing/typhon-terror-lxv-6-6-ton-excavator-kubota-v2607-56-9hp-ac-heater-cabin-boom-swing-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781838288646-kp8gl-pasted-image-20260619-100448-tg0ny.webp",
     "specs": {
       "horsepower": "9 HP",
       "engine": "56.9 HP",
@@ -434,7 +434,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$5 353.95",
     "url": "/typhon-machinery/typhon-tyrant-x-1-ton-mini-excavator-with-13-5hp-briggs-stratton-engine-hydraulic-oil-cooler-thumb-clip",
-    "image": "/uploads/products/typhon-tyrant-x-1-ton-mini-excavator-with-13-5hp-briggs-stratton-engine-hydraulic-oil-cooler-thu/typhon-tyrant-x-1-ton-mini-excavator-with-13-5hp-briggs-stratton-engine-hydraulic-oil-cooler-thu-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455280990-vtsud-pasted-image-20260626-132800-pjspm.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -451,7 +451,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$11 548.95",
     "url": "/typhon-machinery/2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine",
-    "image": "/uploads/products/2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine/2025-3800-lb-typhon-terror-xvii-lux-mini-excavator-rubber-track-with-kubota-d902-diesel-engine-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681375517-ziha9-4757894710.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -468,7 +468,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$13 248.95",
     "url": "/typhon-machinery/2025-4000-lb-typhon-terror-xvii-cabin-mini-excavator-rubber-track-with-kubota-d902-diesel-engine",
-    "image": "/uploads/products/2025-4000-lb-typhon-terror-xvii-cabin-mini-excavator-rubber-track-with-kubota-d902-diesel-engine/2025-4000-lb-typhon-terror-xvii-cabin-mini-excavator-rubber-track-with-kubota-d902-diesel-engine-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781681571784-6radb-4757969750.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -485,7 +485,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$15 499.00",
     "url": "/typhon-machinery/typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy",
-    "image": "/uploads/products/typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy/typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781840001357-5b1ab-pasted-image-20260619-103321-m8ruc.webp",
     "specs": {
       "horsepower": "8 HP",
       "engine": "15.8 HP",
@@ -502,7 +502,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$16 999.00",
     "url": "/typhon-machinery/typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retractable-tracks",
-    "image": "/uploads/products/typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retr/typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retr-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781840115103-8jbhw-pasted-image-20260619-103514-fmkgh.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "20.4 HP",
@@ -519,7 +519,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$15 223.95",
     "url": "/typhon-machinery/typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2",
-    "image": "/uploads/products/typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2/typhon-18-flex-pro-1-8-ton-mini-excavator-usa-with-12-attachments-2-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781683766939-oe0cf-4882745625.webp",
     "specs": {
       "horsepower": "8 HP",
       "engine": "13.8 HP",
@@ -536,7 +536,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$18 999.00",
     "url": "/typhon-machinery/typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa",
-    "image": "/uploads/products/typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa/typhon-terror-x2-storm-mini-excavator-2-5-ton-diesel-kubota-v1505-25hp-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781841702237-x94m0-pasted-image-20260619-110142-uing2.webp",
     "specs": {
       "horsepower": "25 HP",
       "engine": "25 HP",
@@ -553,7 +553,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$23 999.99",
     "url": "/typhon-machinery/typhon-terror-x2-mini-excavator-2-7-ton-epa-diesel-kubota-v1505-engine-usa",
-    "image": "/uploads/products/typhon-terror-x2-mini-excavator-2-7-ton-epa-diesel-kubota-v1505-engine-usa/typhon-terror-x2-mini-excavator-2-7-ton-epa-diesel-kubota-v1505-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781684142148-f3gh7-4950517805.webp",
     "specs": {
       "horsepower": "25 HP",
       "engine": "25 HP",
@@ -570,7 +570,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$ 20,000.00",
     "url": "/typhon-machinery/typhon-terror-x2-max-canopy-mini-excavator-powerful-2-5-ton-compact-machine-with-yanmar-engine-advanced-hydraulic-system",
-    "image": "/uploads/products/typhon-terror-x2-max-canopy-mini-excavator-powerful-2-5-ton-compact-machine-with-yanmar-engine-a/typhon-terror-x2-max-canopy-mini-excavator-powerful-2-5-ton-compact-machine-with-yanmar-engine-a-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781842621914-zw7u3-pasted-image-20260619-111701-of3vk.webp",
     "specs": {
       "horsepower": "2 HP",
       "engine": "23.2 HP",
@@ -587,7 +587,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$ 25,999.00 Original price was: $25,999.00. $ 23,098.95 Current price is: $23,098.95.",
     "url": "/typhon-machinery/typhon-terror-x2-max-2-7-ton-mini-excavator-powerful-yanmar-engine-cabin-with-a-c-heater-pilot-control-boom-swing",
-    "image": "/uploads/products/typhon-terror-x2-max-2-7-ton-mini-excavator-powerful-yanmar-engine-cabin-with-a-c-heater-pilot-c/typhon-terror-x2-max-2-7-ton-mini-excavator-powerful-yanmar-engine-cabin-with-a-c-heater-pilot-c-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781843516949-otwrm-pasted-image-20260619-113156-6jgva.webp",
     "specs": {
       "horsepower": "2 HP",
       "engine": "23.2 HP",
@@ -604,7 +604,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 083.95",
     "url": "/typhon-machinery/brand-new-typhon-stomp-1800lbs-mini-skid-steer-23hp-wheel-gas-epa-b-s-engine-usa",
-    "image": "/uploads/products/brand-new-typhon-stomp-1800lbs-mini-skid-steer-23hp-wheel-gas-epa-b-s-engine-usa/brand-new-typhon-stomp-1800lbs-mini-skid-steer-23hp-wheel-gas-epa-b-s-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/27730350-2fb3-4214-8b9a-b2e864ee244d/1781844487549-buefx-pasted-image-20260619-114807-d3kgs.webp",
     "specs": {
       "horsepower": "23 HP",
       "engine": "23 HP",
@@ -621,7 +621,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 083.95",
     "url": "/typhon-machinery/brand-new-typhon-stomp-2000lbs-mini-skid-steer-23hp-gas-epa-engine-usa",
-    "image": "/uploads/products/brand-new-typhon-stomp-2000lbs-mini-skid-steer-23hp-gas-epa-engine-usa/brand-new-typhon-stomp-2000lbs-mini-skid-steer-23hp-gas-epa-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355344947-8nglb-pasted-image-20260625-094224-0x9ec.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "23.5 HP",
@@ -638,7 +638,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 083.95",
     "url": "/typhon-machinery/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-2",
-    "image": "/uploads/products/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-2/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-2-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355485890-mfw6m-pasted-image-20260625-094445-znb19.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "23.1 HP",
@@ -655,7 +655,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 083.95",
     "url": "/typhon-machinery/typhon-0502g",
-    "image": "/uploads/products/typhon-0502g/typhon-0502g-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685013447-0w5se-4.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "22.1 HP",
@@ -672,7 +672,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 083.95",
     "url": "/typhon-machinery/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming",
-    "image": "/uploads/products/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming/skid-steer-loader-tracked-22-1-hp-honda-epa-gasoline-engine-for-gardens-farming-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355723471-uj2m0-pasted-image-20260625-094843-nmk8w.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "22.1 HP",
@@ -689,7 +689,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 083.95",
     "url": "/typhon-machinery/typhon-0504r",
-    "image": "/uploads/products/typhon-0504r/typhon-0504r-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782355965381-j10mp-chatgpt_image_jun_25_2026_09_52_15_am.webp",
     "specs": {
       "horsepower": "23 HP",
       "engine": "23 HP",
@@ -706,7 +706,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$5 983.95",
     "url": "/typhon-machinery/brand-new-typhon-stomp-507-1760lbs-mini-skid-steer-13-5hp-gas-epa-engine-usa",
-    "image": "/uploads/products/brand-new-typhon-stomp-507-1760lbs-mini-skid-steer-13-5hp-gas-epa-engine-usa/brand-new-typhon-stomp-507-1760lbs-mini-skid-steer-13-5hp-gas-epa-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685633959-poqfg-11.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -723,7 +723,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$5 773.95",
     "url": "/typhon-machinery/typhon-0507r",
-    "image": "/uploads/products/typhon-0507r/typhon-0507r-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356317405-egj10-chatgpt_image_jun_25_2026_09_58_25_am.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -740,7 +740,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$11 549.79",
     "url": "/typhon-machinery/typhon-0508",
-    "image": "/uploads/products/typhon-0508/typhon-0508-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781685960993-gcj8s-4824099676.webp",
     "specs": {
       "horsepower": "35 HP",
       "engine": "35 HP",
@@ -757,7 +757,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$14 999.00",
     "url": "/typhon-machinery/brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa",
-    "image": "/uploads/products/brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa/brand-new-typhon-stomp-mini-skid-steer-kubota-d1105-diesel-epa-engine-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356484167-h0e3y-chatgpt_image_jun_25_2026_10_01_17_am.webp",
     "specs": {
       "horsepower": "25 HP",
       "engine": "25 HP",
@@ -774,7 +774,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$14 173.95",
     "url": "/typhon-machinery/typhon-stomp-v1000-24hp-kubota-d1105-water-cooled-diesel-skid-steer-pilot-control",
-    "image": "/uploads/products/typhon-stomp-v1000-24hp-kubota-d1105-water-cooled-diesel-skid-steer-pilot-control/typhon-stomp-v1000-24hp-kubota-d1105-water-cooled-diesel-skid-steer-pilot-control-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356638062-l3r4v-chatgpt_image_jun_25_2026_10_03_49_am.webp",
     "specs": {
       "horsepower": "25 HP",
       "engine": "25 HP",
@@ -791,7 +791,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$16 499.00",
     "url": "/typhon-machinery/brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader",
-    "image": "/uploads/products/brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader/brand-new-typhon-stomp-x1300-25hp-kubota-diesel-mini-skid-steer-loader-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356771118-f48sv-chatgpt_image_jun_25_2026_10_06_02_am.webp",
     "specs": {
       "horsepower": "25 HP",
       "engine": "25 HP",
@@ -808,7 +808,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$17 848.95",
     "url": "/typhon-machinery/new-typhon-telescopic-wheel-loader-with-kubota-d1105-engine-25-hp-1-ton-load-usa",
-    "image": "/uploads/products/new-typhon-telescopic-wheel-loader-with-kubota-d1105-engine-25-hp-1-ton-load-usa/new-typhon-telescopic-wheel-loader-with-kubota-d1105-engine-25-hp-1-ton-load-usa-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782356955882-5nat1-chatgpt_image_jun_25_2026_10_09_08_am.webp",
     "specs": {
       "horsepower": "25 HP",
       "engine": "25 HP",
@@ -825,7 +825,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$10 498.95",
     "url": "/typhon-machinery/new-2025-typhon-vigor-1-5-blue-electric-forklift-1-5-ton-lifter-lift-truck-jitney",
-    "image": "/uploads/products/new-2025-typhon-vigor-1-5-blue-electric-forklift-1-5-ton-lifter-lift-truck-jitney/new-2025-typhon-vigor-1-5-blue-electric-forklift-1-5-ton-lifter-lift-truck-jitney-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828423754-zeesr-4754993577_1_.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -842,7 +842,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$11 548.74",
     "url": "/typhon-machinery/typhon-vigor-2-compact-electric-forklift-2025-model",
-    "image": "/uploads/products/typhon-vigor-2-compact-electric-forklift-2025-model/typhon-vigor-2-compact-electric-forklift-2025-model-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828643980-jt11a-4754993627.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -859,7 +859,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 598.95",
     "url": "/typhon-machinery/new-2025-typhon-vigor-2-5-blue-electric-forklift-2-5-ton-lifter-lift-truck",
-    "image": "/uploads/products/new-2025-typhon-vigor-2-5-blue-electric-forklift-2-5-ton-lifter-lift-truck/new-2025-typhon-vigor-2-5-blue-electric-forklift-2-5-ton-lifter-lift-truck-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828828032-wh6u4-4754993642.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -876,7 +876,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$13 648.95",
     "url": "/typhon-machinery/new-2025-typhon-vigor-3-0-blue-electric-forklift-3-ton-lifter-lift-truck",
-    "image": "/uploads/products/new-2025-typhon-vigor-3-0-blue-electric-forklift-3-ton-lifter-lift-truck/new-2025-typhon-vigor-3-0-blue-electric-forklift-3-ton-lifter-lift-truck-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781828988267-2h8qh-4754993662.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -893,7 +893,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 818.74",
     "url": "/typhon-machinery/typhon-fury-10-mini-road-roller-1ton-hydraulic-oil-bs-13-5hp-gas-usa-air-cooled",
-    "image": "/uploads/products/typhon-fury-10-mini-road-roller-1ton-hydraulic-oil-bs-13-5hp-gas-usa-air-cooled/typhon-fury-10-mini-road-roller-1ton-hydraulic-oil-bs-13-5hp-gas-usa-air-cooled-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829165088-gk4cc-1.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -910,7 +910,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 398.95",
     "url": "/typhon-machinery/typhon-fury-15-mini-road-roller-1-5ton-13-5-hp-bs-gas-engine-hydraulic-steering",
-    "image": "/uploads/products/typhon-fury-15-mini-road-roller-1-5ton-13-5-hp-bs-gas-engine-hydraulic-steering/typhon-fury-15-mini-road-roller-1-5ton-13-5-hp-bs-gas-engine-hydraulic-steering-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829270687-tciou-1.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -927,7 +927,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 598.95",
     "url": "/typhon-machinery/typhon-fury-20-mini-road-roller-2ton-hydraulic-oil-vibratory-bs-23hp-usa-engine",
-    "image": "/uploads/products/typhon-fury-20-mini-road-roller-2ton-hydraulic-oil-vibratory-bs-23hp-usa-engine/typhon-fury-20-mini-road-roller-2ton-hydraulic-oil-vibratory-bs-23hp-usa-engine-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829372613-u2p02-1.webp",
     "specs": {
       "horsepower": "23 HP",
       "engine": "23 HP",
@@ -944,7 +944,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$23 511.46",
     "url": "/typhon-machinery/typhon-xflex-4068et-electric-rubber-track-scissor-lift-3-2-ton-with-5-4hp-hydraulic-pump-motor-drive-and-hydraulic-lifting-cylinder-40-ft-max-lifting-height",
-    "image": "/uploads/products/typhon-xflex-4068et-electric-rubber-track-scissor-lift-3-2-ton-with-5-4hp-hydraulic-pump-motor-d/typhon-xflex-4068et-electric-rubber-track-scissor-lift-3-2-ton-with-5-4hp-hydraulic-pump-motor-d-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781829547530-1func-1.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "5.4 HP",
@@ -961,7 +961,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$9 403.96",
     "url": "/typhon-machinery/typhon-xflex-4065w-walk-behind-scissor-lift-2-7-ton-with-assisted-walking-manual-outriggers-of-40-ft-lifting-height-110v-electric",
-    "image": "/uploads/products/typhon-xflex-4065w-walk-behind-scissor-lift-2-7-ton-with-assisted-walking-manual-outriggers-of-4/typhon-xflex-4065w-walk-behind-scissor-lift-2-7-ton-with-assisted-walking-manual-outriggers-of-4-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830241070-qeckd-1.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -978,7 +978,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 329.96",
     "url": "/typhon-machinery/typhon-xflex-4046ew-electric-wheel-scissor-lift-2-6-ton-operating-weight-and-40ft-platform-height-with-705lbs-load-capacity",
-    "image": "/uploads/products/typhon-xflex-4046ew-electric-wheel-scissor-lift-2-6-ton-operating-weight-and-40ft-platform-heigh/typhon-xflex-4046ew-electric-wheel-scissor-lift-2-6-ton-operating-weight-and-40ft-platform-heigh-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830366842-9vxns-1.webp",
     "specs": {
       "horsepower": "6 HP",
       "engine": "6 HP",
@@ -995,7 +995,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$11 493.96",
     "url": "/typhon-machinery/typhon-xflex-2031em-1-2-ton-electric-mini-scissor-lift-with-20ft-max-platform-height-and-19-7-platform-extend",
-    "image": "/uploads/products/typhon-xflex-2031em-1-2-ton-electric-mini-scissor-lift-with-20ft-max-platform-height-and-19-7-pl/typhon-xflex-2031em-1-2-ton-electric-mini-scissor-lift-with-20ft-max-platform-height-and-19-7-pl-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830465046-o0ft9-1.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "4 HP",
@@ -1012,7 +1012,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$4 910.46",
     "url": "/typhon-machinery/typhon-xflex-2037w",
-    "image": "/uploads/products/typhon-xflex-2037w/typhon-xflex-2037w-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/1d463b79-438f-4f2b-9e88-acd42a324c27/1781830572731-46hdp-1.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1029,7 +1029,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$23 098.95",
     "url": "/typhon-machinery/typhon-xxv-cabin",
-    "image": "/uploads/products/typhon-xxv-cabin/typhon-xxv-cabin-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782459868373-i3kn3-pasted-image-20260626-144428-h2lb8.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "25.1 HP",
@@ -1046,7 +1046,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$3 465.00",
     "url": "/typhon-machinery/hydraulic-pallet-fork-attachment",
-    "image": "/uploads/products/hydraulic-pallet-fork-attachment/hydraulic-pallet-fork-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437686411-obkhi-pasted-image-20260626-083446-gu20w.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1063,7 +1063,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$30 534.00",
     "url": "/typhon-machinery/typhon-terror-4wd",
-    "image": "/uploads/products/typhon-terror-4wd/typhon-terror-4wd-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782437998493-b0szp-pasted-image-20260626-083958-0qabn.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1080,7 +1080,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$3 244.49",
     "url": "/typhon-machinery/forestry-mulcher-attachment",
-    "image": "/uploads/products/forestry-mulcher-attachment/forestry-mulcher-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782440813510-ke7xs-pasted-image-20260626-092652-q5vac.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1097,7 +1097,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 158.80",
     "url": "/typhon-machinery/hydraulic-wood-grabber-attachment",
-    "image": "/uploads/products/hydraulic-wood-grabber-attachment/hydraulic-wood-grabber-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441152253-ksdaa-pasted-image-20260626-093231-37pk0.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1114,7 +1114,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 872.79",
     "url": "/typhon-machinery/hydraulic-pickup-sweeper-broom-attachment",
-    "image": "/uploads/products/hydraulic-pickup-sweeper-broom-attachment/hydraulic-pickup-sweeper-broom-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441699098-7q2yp-pasted-image-20260626-094138-bksfa.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1131,7 +1131,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$4 202.10",
     "url": "/typhon-machinery/skid-steer-loader-mulcher",
-    "image": "/uploads/products/skid-steer-loader-mulcher/skid-steer-loader-mulcher-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782441825266-nh2v8-pasted-image-20260626-094345-zo4ph.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1148,7 +1148,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 482.40",
     "url": "/typhon-machinery/typhon-terror-xviii-canopy",
-    "image": "/uploads/products/typhon-terror-xviii-canopy/typhon-terror-xviii-canopy-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782442159697-wmqw7-pasted-image-20260626-094919-7h69k.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "20.4 HP",
@@ -1165,7 +1165,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$8 083.95",
     "url": "/typhon-machinery/typhon-0503g",
-    "image": "/uploads/products/typhon-0503g/typhon-0503g-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782443442367-jogz7-pasted-image-20260626-101042-hfaom.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "22.1 HP",
@@ -1182,7 +1182,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$6 298.95",
     "url": "/typhon-machinery/typhon-terror-x",
-    "image": "/uploads/products/typhon-terror-x/typhon-terror-x-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444104341-wxqay-pasted-image-20260626-102144-jdmo8.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1199,7 +1199,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 598.95",
     "url": "/typhon-machinery/typhon-terror-xx",
-    "image": "/uploads/products/typhon-terror-xx/typhon-terror-xx-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444710521-5trnn-pasted-image-20260626-103150-qft1a.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1216,7 +1216,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 482.40",
     "url": "/typhon-machinery/typhon-terror-xx-2",
-    "image": "/uploads/products/typhon-terror-xx-2/typhon-terror-xx-2-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782444931761-7jxys-pasted-image-20260626-103531-ljd2c.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1233,7 +1233,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$12 482.40",
     "url": "/typhon-machinery/typhon-terror-xviii-canopy-2",
-    "image": "/uploads/products/typhon-terror-xviii-canopy-2/typhon-terror-xviii-canopy-2-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445120286-rbmaa-pasted-image-20260626-103839-mjn1d.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1250,7 +1250,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$13 648.95",
     "url": "/typhon-machinery/typhon-terror-xviii-cabin",
-    "image": "/uploads/products/typhon-terror-xviii-cabin/typhon-terror-xviii-cabin-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445417926-4sxzr-pasted-image-20260626-104337-4m4cy.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "20.4 HP",
@@ -1267,7 +1267,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$13 648.95",
     "url": "/typhon-machinery/typhon-terror-xviii-cabin-2",
-    "image": "/uploads/products/typhon-terror-xviii-cabin-2/typhon-terror-xviii-cabin-2-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782445703852-ujxoa-pasted-image-20260626-104823-kc9h0.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "20.4 HP",
@@ -1284,7 +1284,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$5 248.95",
     "url": "/typhon-machinery/typhon-fury-walk-behind",
-    "image": "/uploads/products/typhon-fury-walk-behind/typhon-fury-walk-behind-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782446782353-kj7pw-pasted-image-20260626-110622-wlc51.webp",
     "specs": {
       "horsepower": "10 HP",
       "engine": "10 HP",
@@ -1301,7 +1301,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$6 298.95",
     "url": "/typhon-machinery/all-in-one-12-pcs-attachment",
-    "image": "/uploads/products/all-in-one-12-pcs-attachment/all-in-one-12-pcs-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447390258-7e37v-pasted-image-20260626-111630-fsvm0.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1318,7 +1318,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$14 698.95",
     "url": "/typhon-machinery/typhon-tyrant-17",
-    "image": "/uploads/products/typhon-tyrant-17/typhon-tyrant-17-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782447820916-6ywtj-pasted-image-20260626-112340-yvnu1.webp",
     "specs": {
       "horsepower": "16 HP",
       "engine": "16 HP",
@@ -1335,7 +1335,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$5 248.95",
     "url": "/typhon-machinery/typhon-terror-one",
-    "image": "/uploads/products/typhon-terror-one/typhon-terror-one-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448009646-32mlh-pasted-image-20260626-112649-tacvw.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "13.5 HP",
@@ -1352,7 +1352,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$23 098.95",
     "url": "/typhon-machinery/typhon-terror-xxv-cabin",
-    "image": "/uploads/products/typhon-xxv-cabin/typhon-xxv-cabin-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448243977-uv7dl-pasted-image-20260626-113043-ig3ct.webp",
     "specs": {
       "horsepower": "1 HP",
       "engine": "25.1 HP",
@@ -1369,7 +1369,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$1 751.00",
     "url": "/typhon-machinery/1000mm-pallet-fork-and-hay-frame-attachment",
-    "image": "/uploads/products/1000mm-pallet-fork-and-hay-frame-attachment/1000mm-pallet-fork-and-hay-frame-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782448886297-snl8o-pasted-image-20260626-114126-oxee1.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1386,7 +1386,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 029.64",
     "url": "/typhon-machinery/grapple-bucket-attachment",
-    "image": "/uploads/products/grapple-bucket-attachment/grapple-bucket-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449277392-32qav-pasted-image-20260626-114757-ebdhf.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1403,7 +1403,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 757.29",
     "url": "/typhon-machinery/hydraulic-rock-and-concrete-breaker-hammer-attachment",
-    "image": "/uploads/products/hydraulic-rock-and-concrete-breaker-hammer-attachment/hydraulic-rock-and-concrete-breaker-hammer-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449420715-pswjq-pasted-image-20260626-115020-uy54d.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1420,7 +1420,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$3 082.79",
     "url": "/typhon-machinery/hydraulic-snow-blower-attachment",
-    "image": "/uploads/products/hydraulic-snow-blower-attachment/hydraulic-snow-blower-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449573469-wwliq-pasted-image-20260626-115253-ql970.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1437,7 +1437,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 879.09",
     "url": "/typhon-machinery/hydraulic-chain-trencher-attachment",
-    "image": "/uploads/products/hydraulic-chain-trencher-attachment/hydraulic-chain-trencher-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449675244-yftck-pasted-image-20260626-115435-cgt2f.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1454,7 +1454,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$3 236.09",
     "url": "/typhon-machinery/360-hydraulic-rotary-wood-grabber-attachment",
-    "image": "/uploads/products/360-hydraulic-rotary-wood-grabber-attachment/360-hydraulic-rotary-wood-grabber-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449804452-vr1s8-pasted-image-20260626-115644-p4rz2.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1471,7 +1471,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$1 841.69",
     "url": "/typhon-machinery/landscaping-skeleton-rock-bucket-attachment",
-    "image": "/uploads/products/landscaping-skeleton-rock-bucket-attachment/landscaping-skeleton-rock-bucket-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782449954735-9629p-pasted-image-20260626-115914-w7j0m.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1488,7 +1488,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$1 841.69",
     "url": "/typhon-machinery/landscaping-skeleton-rock-bucket-attachment-2",
-    "image": "/uploads/products/landscaping-skeleton-rock-bucket-attachment-2/landscaping-skeleton-rock-bucket-attachment-2-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454372520-u9rse-pasted-image-20260626-131252-qh4ak.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1505,7 +1505,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$3 830.39",
     "url": "/typhon-machinery/hydraulic-swing-stump-grinder-attachment",
-    "image": "/uploads/products/hydraulic-swing-stump-grinder-attachment/hydraulic-swing-stump-grinder-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454648563-u943d-pasted-image-20260626-131728-4sf0a.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1522,7 +1522,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 619.75",
     "url": "/typhon-machinery/heavy-duty-3-blade-hydraulic-brush-mower-attachment",
-    "image": "/uploads/products/heavy-duty-3-blade-hydraulic-brush-mower-attachment/heavy-duty-3-blade-hydraulic-brush-mower-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454793293-63jk0-pasted-image-20260626-131953-vyfdo.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1539,7 +1539,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 286.89",
     "url": "/typhon-machinery/hydraulic-angle-dozer-blade-30-attachment",
-    "image": "/uploads/products/hydraulic-angle-dozer-blade-30-attachment/hydraulic-angle-dozer-blade-30-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782454951660-parh8-pasted-image-20260626-132231-qsno7.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1556,7 +1556,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$2 700.00",
     "url": "/typhon-machinery/angle-snow-sweeper-attachment",
-    "image": "/uploads/products/angle-snow-sweeper-attachment/angle-snow-sweeper-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455452136-uo3pv-pasted-image-20260626-133051-zpizj.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1573,7 +1573,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$1 999.99",
     "url": "/typhon-machinery/heavy-duty-lever-attachment",
-    "image": "/uploads/products/heavy-duty-lever-attachment/heavy-duty-lever-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782455607300-tk4tu-pasted-image-20260626-133327-0tkyd.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1590,7 +1590,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$6 257.96",
     "url": "/typhon-machinery/ultimate-10-in-1-attachment",
-    "image": "/uploads/products/ultimate-10-in-1-attachment/ultimate-10-in-1-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456394327-79fvv-pasted-image-20260626-134634-vkm2l.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1607,7 +1607,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "attachment",
     "price": "$3 255.00",
     "url": "/typhon-machinery/heavy-duty-wheel-loader-log-grapple-attachment",
-    "image": "/uploads/products/heavy-duty-wheel-loader-log-grapple-attachment/heavy-duty-wheel-loader-log-grapple-attachment-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456565084-jjw0h-pasted-image-20260626-134924-e4zqg.webp",
     "specs": {
       "horsepower": null,
       "engine": null,
@@ -1624,7 +1624,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "equipment",
     "price": "$10 884.50",
     "url": "/typhon-machinery/typhon-terror-xvii-pro",
-    "image": "/uploads/products/typhon-terror-xvii-pro/typhon-terror-xvii-pro-01.webp",
+    "image": "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/team-images/b3835dd4-1380-4643-a890-360388f20bea/1782456774859-u2o57-pasted-image-20260626-135254-a3nzk.webp",
     "specs": {
       "horsepower": "8 HP",
       "engine": "15.8 HP",

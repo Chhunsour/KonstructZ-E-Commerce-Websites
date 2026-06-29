@@ -219,10 +219,6 @@ const ProductSlider = () => {
           </svg>
         </button>
 
-        <span className="font-googleSans text-lg font-bold text-black min-w-[60px] text-center">
-          {index + 1} / {products.length}
-        </span>
-
         <button
           type="button"
           onClick={next}

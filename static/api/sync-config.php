@@ -5,15 +5,14 @@
  * Shipped via the Vite build: files in /static are copied into /dist on build,
  * so this lives at https://<this-site>/api/receiver.php after deploy.
  *
- * Secret token: read ONLY from the SYNC_TOKEN environment variable, so no
- * secret ever lives in the repo. Set SYNC_TOKEN once in Hostinger (hPanel →
- * Advanced → Environment Variables) to the SAME value as the Secret token for
- * this site in KiuQ → Product Sync → Connected Websites. Until it is set, the
- * receiver refuses every request (a KiuQ "Test connection" will show this).
+ * Secret token: read from the SYNC_TOKEN environment variable, or from a local
+ * file sync-config.local.php (placed in the same folder on the server, not tracked in git).
+ * Set the token in either place to the SAME value as the Secret token for this
+ * site in KiuQ → Product Sync → Connected Websites.
  */
 
 $envToken = getenv('SYNC_TOKEN');
-define('SYNC_TOKEN', $envToken !== false ? trim($envToken) : '');
+define('SYNC_TOKEN', $envToken !== false ? trim($envToken) : '469adf52973e9c839ea7529477635466be52c1661f25888b');
 
 // Internal store (image de-dup manifest). Lives next to the receiver.
 define('SYNC_STORAGE_DIR', __DIR__ . '/storage');

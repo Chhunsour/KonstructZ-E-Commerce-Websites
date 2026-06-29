@@ -72,6 +72,69 @@ const staticToDetail = (p: StaticPost): PublicBlogDetail => ({
   tags: [],
 });
 
+/* ── local JSON source (blogs synced to this site by the KiuQ receiver) ──── */
+const BLOG_SOURCE =
+  (import.meta.env.VITE_BLOG_SOURCE as string | undefined) ??
+  (import.meta.env.VITE_PRODUCTS_SOURCE as string | undefined) ??
+  "supabase";
+const useLocalBlogs = BLOG_SOURCE === "local";
+const LOCAL_BLOG_URL =
+  (import.meta.env.VITE_BLOG_LOCAL_URL as string | undefined) ?? "/data/blogs.json";
+
+interface LocalBlog {
+  id: string | number;
+  slug: string;
+  title?: string;
+  excerpt?: string;
+  content?: string;
+  category?: string;
+  author?: string;
+  featuredImage?: string | null;
+  publishedAt?: string | null;
+  date?: string | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  keywords?: string | null;
+  tags?: string[];
+}
+
+let localBlogCache: LocalBlog[] | null = null;
+const loadLocalBlogs = async (): Promise<LocalBlog[]> => {
+  if (localBlogCache) return localBlogCache;
+  try {
+    const res = await fetch(LOCAL_BLOG_URL, { cache: "no-cache" });
+    if (!res.ok) {
+      localBlogCache = [];
+      return localBlogCache;
+    }
+    const data = await res.json();
+    localBlogCache = Array.isArray(data?.posts) ? (data.posts as LocalBlog[]) : [];
+  } catch {
+    localBlogCache = [];
+  }
+  return localBlogCache;
+};
+
+const localToSummary = (p: LocalBlog): PublicBlogSummary => ({
+  id: String(p.id),
+  slug: p.slug,
+  title: p.title ?? "",
+  excerpt: p.excerpt ?? "",
+  image: p.featuredImage ?? "",
+  author: p.author || "Konstructz Editorial",
+  category: p.category ?? "",
+  date: p.date || fmtDate(p.publishedAt ?? null),
+  publishedAt: p.publishedAt ?? "",
+});
+const localToDetail = (p: LocalBlog): PublicBlogDetail => ({
+  ...localToSummary(p),
+  content: p.content ?? "",
+  seoTitle: p.seoTitle ?? null,
+  seoDescription: p.seoDescription ?? p.excerpt ?? null,
+  keywords: p.keywords ?? null,
+  tags: Array.isArray(p.tags) ? p.tags : [],
+});
+
 const dbToSummary = (
   row: BlogPostSummary & { category?: { name: string } | null }
 ): PublicBlogSummary => {
@@ -111,6 +174,15 @@ const enhancedVisibilityFilter = () =>
 
 /** Public list — published posts only, no full content. */
 export const listPublicPosts = async (): Promise<PublicBlogSummary[]> => {
+  if (useLocalBlogs) {
+    const all = await loadLocalBlogs();
+    if (all.length) {
+      return all
+        .map(localToSummary)
+        .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+    }
+    return staticPosts.map(staticToSummary);
+  }
   if (!supabaseConfigured || !supabase) {
     return staticPosts.map(staticToSummary);
   }
@@ -148,6 +220,14 @@ export const getPublicPostBySlug = async (
   slug: string | undefined
 ): Promise<PublicBlogDetail | null> => {
   if (!slug) return null;
+
+  if (useLocalBlogs) {
+    const all = await loadLocalBlogs();
+    const found = all.find((x) => x.slug === slug);
+    if (found) return localToDetail(found);
+    const s = staticPosts.find((x) => x.slug === slug);
+    return s ? staticToDetail(s) : null;
+  }
 
   if (!supabaseConfigured || !supabase) {
     const p = staticPosts.find((x) => x.slug === slug);

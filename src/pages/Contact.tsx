@@ -3,6 +3,7 @@ import React, { useState, useEffect, FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { products } from "../data/products";
 import { Button } from "../components/ui/Button";
+import { submitLead } from "../lib/leadsStore";
 
 export const Contact: React.FC = () => {
   const { t } = useI18n();
@@ -22,14 +23,41 @@ export const Contact: React.FC = () => {
   );
   const [notes, setNotes] = useState("");
   const [success, setSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (name && email && phone) {
+    if (!(name && email && phone) || submitting) return;
+
+    setSubmitting(true);
+    setError(false);
+
+    const product = modelInterest
+      ? products.find((p) => p.id === modelInterest)
+      : undefined;
+
+    const result = await submitLead({
+      source: "contact-form",
+      source_page: "/contact",
+      name,
+      email,
+      phone,
+      company,
+      interest_type: interestType,
+      product_interest: product?.name ?? modelInterest,
+      product_url: product ? `${window.location.origin}/equipment/${product.id}` : undefined,
+      message: notes,
+      language: typeof navigator !== "undefined" ? navigator.language : undefined,
+    });
+
+    setSubmitting(false);
+
+    if (result.ok) {
       setSuccess(true);
       setName("");
       setEmail("");
@@ -37,7 +65,9 @@ export const Contact: React.FC = () => {
       setCompany("");
       setModelInterest("");
       setNotes("");
-      setTimeout(() => setSuccess(false), 5000);
+      setTimeout(() => setSuccess(false), 6000);
+    } else {
+      setError(true);
     }
   };
 
@@ -201,7 +231,16 @@ export const Contact: React.FC = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="filled" className="w-full">{t("auto.contact.submit.quote.request")}</Button>
+                {error && (
+                  <p className="text-sm font-googleSans text-red-600 bg-red-50 border border-red-200 rounded p-3 text-center">
+                    {t("contact.form.error", { fallback: "Sorry, your message couldn't be sent. Please try again, or email us directly at sales@konstructz.com." })}
+                  </p>
+                )}
+                <Button type="submit" variant="filled" className="w-full" disabled={submitting}>
+                  {submitting
+                    ? t("contact.form.submitting", { fallback: "Sending…" })
+                    : t("auto.contact.submit.quote.request")}
+                </Button>
               </form>
             )}
           </div>

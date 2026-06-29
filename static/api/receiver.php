@@ -254,6 +254,17 @@ function localize_image(string $url, array &$manifest, string $slug = 'product',
     return $local;
 }
 
+/** Rewrite absolute image URLs inside blog HTML/Markdown to local copies. */
+function localize_content_images(string $content, array &$manifest, string $slug): string
+{
+    $pattern = '#(!\[[^\]]*\]\(|src=["\']|href=["\'])(https?://[^)"\'\s]+\.(?:jpe?g|png|webp))#i';
+    $out = preg_replace_callback($pattern, function (array $m) use (&$manifest, $slug): string {
+        $local = localize_image($m[2], $manifest, $slug, 0);
+        return $m[1] . $local;
+    }, $content);
+    return is_string($out) ? $out : $content;
+}
+
 /* ── auth ────────────────────────────────────────────────────────────── */
 
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
@@ -284,6 +295,61 @@ if ($action === 'ping') {
         'curl' => function_exists('curl_init'),
         'writable' => is_writable(dirname(PRODUCTS_PUBLIC_FILE)) || @ensure_dir(dirname(PRODUCTS_PUBLIC_FILE)),
     ]);
+}
+
+/* ── action: sync-blogs (KiuQ blog-sync → /data/blogs.json) ──────────────── */
+if ($action === 'sync-blogs') {
+    $incoming = $req['posts'] ?? [];
+    if (!is_array($incoming) || count($incoming) === 0) {
+        fail(400, 'No posts in payload');
+    }
+
+    // blogs.json lives next to products.json (same public /data folder).
+    $blogsFile = rtrim(dirname(PRODUCTS_PUBLIC_FILE), '/') . '/blogs.json';
+    ensure_dir(SYNC_STORAGE_DIR);
+    $manifestFile = rtrim(SYNC_STORAGE_DIR, '/') . '/image-manifest.json';
+    $manifest = read_json($manifestFile, ['by_url' => [], 'by_hash' => []]);
+
+    $store = read_json($blogsFile, ['posts' => [], 'updated_at' => null]);
+    $byId = [];
+    foreach (($store['posts'] ?? []) as $b) {
+        if (isset($b['id'])) {
+            $byId[$b['id']] = $b;
+        }
+    }
+
+    $results = [];
+    foreach ($incoming as $post) {
+        if (!is_array($post) || !isset($post['id'])) {
+            $results[] = ['ok' => false, 'error' => 'Post missing id'];
+            continue;
+        }
+        $id = $post['id'];
+        $slug = $post['slug'] ?? $id;
+        try {
+            $imgSlug = 'blog-' . safe_slug((string) $slug);
+            if (array_key_exists('featuredImage', $post) && is_string($post['featuredImage']) && $post['featuredImage'] !== '') {
+                $post['featuredImage'] = localize_image($post['featuredImage'], $manifest, $imgSlug, 0);
+            }
+            if (array_key_exists('content', $post) && is_string($post['content']) && $post['content'] !== '') {
+                $post['content'] = localize_content_images($post['content'], $manifest, $imgSlug);
+            }
+            $post['_synced_at'] = date('c');
+            $byId[$id] = $post;
+            $results[] = ['ok' => true, 'id' => $id, 'slug' => $slug];
+        } catch (\Throwable $e) {
+            $results[] = ['ok' => false, 'id' => $id, 'slug' => $slug, 'error' => $e->getMessage()];
+        }
+    }
+
+    write_json_atomic($manifestFile, $manifest);
+    $store['posts'] = array_values($byId);
+    $store['updated_at'] = date('c');
+    if (!write_json_atomic($blogsFile, $store)) {
+        fail(500, 'Failed to write blog store (check folder permissions)');
+    }
+
+    ok(['type' => 'blogs', 'count' => count($results), 'results' => $results, 'total_posts' => count($byId)]);
 }
 
 /* ── action: sync ────────────────────────────────────────────────────── */

@@ -13,7 +13,7 @@
  * 2. Uncomment the Supabase insert block in the capture() function.
  */
 
-import { supabase } from "../lib/supabase"; // Pre-imported for quick swap
+import { submitLead } from "../lib/leadsStore";
 
 export interface LeadData {
   id: string;
@@ -64,39 +64,24 @@ export const leadCaptureService = {
       console.error("[LeadCaptureService] Failed to save lead locally:", e);
     }
 
-    // 2. Future Backend (Supabase/KiuQ) Integration Hook
-    // TO CONNECT: Simply uncomment the block below:
-    /*
-    try {
-      const { data, error } = await supabase
-        .from("leads") // Or your KiuQ system table name
-        .insert([
-          {
-            id: newLead.id,
-            created_at: newLead.timestamp,
-            source_page: newLead.sourcePage,
-            name: newLead.name,
-            company: newLead.company,
-            email: newLead.email,
-            phone: newLead.phone,
-            product_interest: newLead.productInterest,
-            product_url: newLead.productUrl,
-            message: newLead.message,
-            location: newLead.location,
-            transcript_summary: newLead.chatTranscriptSummary,
-            current_language: newLead.currentLanguage,
-            consent_intent: newLead.consentIntent
-          }
-        ]);
-      if (error) {
-        console.error("[LeadCaptureService] Backend insertion error:", error.message);
-      } else {
-        console.log("[LeadCaptureService] Lead successfully synced to backend database.");
-      }
-    } catch (err) {
-      console.error("[LeadCaptureService] Backend connection failed:", err);
-    }
-    */
+    // 2. Persist to the backend (Supabase `leads` table) and email the inbox.
+    //    Best-effort and non-blocking — the chat flow continues regardless.
+    submitLead({
+      source: "chat",
+      source_page: newLead.sourcePage,
+      name: newLead.name,
+      company: newLead.company,
+      email: newLead.email,
+      phone: newLead.phone,
+      location: newLead.location,
+      language: newLead.currentLanguage,
+      product_interest: newLead.productInterest,
+      product_url: newLead.productUrl,
+      message: newLead.message,
+      transcript_summary: newLead.chatTranscriptSummary,
+    }).catch((err) => {
+      console.error("[LeadCaptureService] Backend sync failed:", err);
+    });
 
     return newLead;
   },

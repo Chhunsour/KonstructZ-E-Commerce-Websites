@@ -9,7 +9,7 @@ import {
   logChatbotQuery,
 } from "./knowledge";
 import { typhonProducts } from "../../data/typhonProducts";
-import { matchProductAndSpec, getCanonicalProducts, parseWeightNumber, parsePriceNumber } from "./matchingEngine";
+import { matchProductAndSpec, getCanonicalProducts, parseWeightNumber, parsePriceNumber, isSkuSearchQuery, executeSkuSearch, getSkuDisplayName } from "./matchingEngine";
 import { getCanonicalProfiles, type CanonicalProfile } from "./canonicalProfiles";
 import { dictionaries, type LanguageCode } from "../../i18n/dictionaries";
 import { productKnowledgeService } from "./productKnowledgeService";
@@ -130,7 +130,7 @@ export function formatLimitedResponse(
 
 // Wrong machine warnings mapping
 export function checkWrongMachineRedirection(
-  mLower: string, 
+  mLower: string,
   t: (key: string, fallback: string) => string
 ): Answer | null {
   const hasForklift = /\b(forklift|vigor)\b/i.test(mLower);
@@ -174,7 +174,7 @@ export function checkWrongMachineRedirection(
 
 export function detectIntent(m: string, memory: ChatMemory): string {
   const text = m.toLowerCase().trim();
-  
+
   if (/\b(hi|hello|hey|yo|bonjour|salut|hola|ciao|hallo|guten\s+tag|こんにちは|もしもし|안녕하세요|여보세요|你好|您好)\b/i.test(text) && !/\b(which|ship|this|that|white)\b/i.test(text)) return "Greeting";
   if (prevIntentMatches(text, ["gtin", "sku", "upc", "barcode", "serial number"])) return "Ask GTIN/SKU";
   if (prevIntentMatches(text, ["who is typhon", "about typhon", "typhon brand", "typhon machinery", "what is typhon"])) return "Ask Typhon question";
@@ -195,7 +195,7 @@ export function detectIntent(m: string, memory: ChatMemory): string {
   if (prevIntentMatches(text, ["url", "link", "website", "lien", "site web", "enlace", "sito web", "webseite", "リンク", "웹사이트", "链接", "网址"])) return "Ask product URL";
   if (prevIntentMatches(text, ["image", "picture", "photo", "gallery", "image", "photo", "galerie", "imagen", "galería", "foto", "galleria", "bild", "galerie", "画像", "写真", "ギャラリー", "사진", "갤러리", "图片", "照片", "图集"])) return "Ask image/gallery";
   if (prevIntentMatches(text, ["cabin", "canopy", "closed cab", "enclosed cab", "open canopy", "cabine", "windshield", "a/c", "heater", "climate control", "ac/heater"])) return "Ask cabin canopy info";
-  
+
   // Check specs synonyms
   const isSpec = ["hp", "horsepower", "engine", "weight", "lift", "dig", "depth", "dimensions", "size", "width", "height", "moteur", "poids", "largeur", "hauteur", "puissance", "cavalli", "potencia", "peso", "ps", "motor", "gewicht", "馬力", "エンジン", "重量", "마력", "엔진", "무게", "크기", "尺寸", "重量", "马力", "发动机"].some(s => text.includes(s));
   if (isSpec) return "Ask exact spec";
@@ -216,7 +216,7 @@ function prevIntentMatches(text: string, list: string[]): boolean {
 function translateReply(md: string, lang: string): string {
   if (!lang || lang.toUpperCase() === "EN") return md;
   const t = getT(lang);
-  
+
   let translated = md;
   const labelMap = {
     "Warranty": t("chatbot.compare.warranty", "Warranty"),
@@ -248,15 +248,16 @@ function translateReply(md: string, lang: string): string {
 
 // Dialog reply builder
 export function getReply(
-  m: string, 
-  memory: ChatMemory, 
+  m: string,
+  memory: ChatMemory,
   lang: string = "EN",
   pathname?: string
 ): { answer: Answer; memory: ChatMemory } {
   const t = getT(lang);
   const mLower = m.toLowerCase().trim();
   const nextMemory = { ...memory, turn: memory.turn + 1 };
-  
+  let detectedIntent = "Unknown question";
+
   // Look up product matching and pre-fill activeMachine context
   const lookup = matchProductAndSpec(mLower, memory.activeMachine, pathname);
   if (lookup.product && lookup.confidence >= 80) {
@@ -272,10 +273,10 @@ export function getReply(
       };
     }
   }
-  
+
   const finish = (ans: Answer, mem: ChatMemory) => {
     const translatedMd = translateReply(ans.markdown, lang);
-    
+
     let finalFollowups = ans.followups || [];
     if (finalFollowups.length > 0) {
       const activeProd = mem.activeMachine ? getCanonicalProfiles().find(p => p.id === mem.activeMachine?.id) : lookup.product;
@@ -287,17 +288,17 @@ export function getReply(
       const key = `chatbot.followup.${f.replace(/\s+/g, "").replace(/[^a-zA-Z0-9]/g, "")}`;
       return t(key, f);
     });
-    return { 
-      answer: { ...ans, markdown: translatedMd, followups: translatedFollowups }, 
-      memory: mem 
+    return {
+      answer: { ...ans, markdown: translatedMd, followups: translatedFollowups },
+      memory: mem
     };
   };
 
   // Helper inside getReply scope or module scope
   function getDynamicFollowups(
-    product: any, 
-    intent: string, 
-    mLowerStr: string, 
+    product: any,
+    intent: string,
+    mLowerStr: string,
     pathUrl?: string
   ): string[] {
     const isSkidSteer = (product?.category?.toLowerCase().includes("skid steer") || mLowerStr.includes("skid") || mLowerStr.includes("stomp"));
@@ -315,6 +316,134 @@ export function getReply(
     }
     return ["Find the right TYPHON machine", "Compare TYPHON equipment", "Ask about warranty/support"];
   }
+
+  // SKU/GTIN/Product Code Search Interceptor
+  const profiles = getCanonicalProfiles();
+  const skuSearchResult = executeSkuSearch(m, profiles);
+
+  if (skuSearchResult.isSkuSearch || skuSearchResult.exactMatch) {
+    detectedIntent = "Ask GTIN/SKU";
+    const matchedProfile = skuSearchResult.exactMatch;
+    if (matchedProfile) {
+      nextMemory.activeMachine = {
+        id: matchedProfile.id,
+        name: matchedProfile.name,
+        href: matchedProfile.productUrl,
+        categoryLabel: matchedProfile.category,
+        brand: matchedProfile.brand as any,
+        image: matchedProfile.image || undefined
+      };
+
+      const name = getSkuDisplayName(matchedProfile);
+      const sku = matchedProfile.sku !== "Not listed" ? matchedProfile.sku : "This spec is not listed yet.";
+      const gtin = matchedProfile.gtin !== "Not listed" ? matchedProfile.gtin : "This spec is not listed yet.";
+      const brand = matchedProfile.brand !== "Not listed" ? matchedProfile.brand : "Typhon";
+      const category = matchedProfile.category !== "Not listed" ? matchedProfile.category : "This spec is not listed yet.";
+      const price = matchedProfile.price !== "Not listed" ? matchedProfile.price : "This spec is not listed yet.";
+      const shortDesc = matchedProfile.shortSummary !== "Not listed" ? matchedProfile.shortSummary : "This spec is not listed yet.";
+      const pUrl = matchedProfile.productUrl || `/typhon-machinery/${matchedProfile.id}`;
+
+      const hp = matchedProfile.horsepower !== "Not listed" ? matchedProfile.horsepower : "This spec is not listed yet.";
+      const engine = matchedProfile.engineModel !== "Not listed" ? matchedProfile.engineModel : "This spec is not listed yet.";
+      const weight = matchedProfile.operatingWeight !== "Not listed" ? matchedProfile.operatingWeight : "This spec is not listed yet.";
+      const lift = matchedProfile.liftCapacity !== "Not listed" ? matchedProfile.liftCapacity : "This spec is not listed yet.";
+      const depth = matchedProfile.diggingDepth !== "Not listed" ? matchedProfile.diggingDepth : "This spec is not listed yet.";
+
+      const dimsVal = matchedProfile.overallWidth !== "Not listed"
+        ? `Width: ${matchedProfile.overallWidth}, Height: ${matchedProfile.overallHeight}, Length: ${matchedProfile.overallLength}`
+        : "This spec is not listed yet.";
+
+      let header = "";
+      const baseSku = sku.replace(/\s*(blue|red|yellow|green|black|white|orange|grey|gray)/gi, "");
+      if (skuSearchResult.isLikelyDigitsMatch) {
+        header = `I found a likely SKU match: ${baseSku}.`;
+      } else {
+        header = `Here’s what I found for SKU ${skuSearchResult.searchTerm.toUpperCase()}: ${name}.`;
+      }
+
+      let possibleMatchNote = "";
+      if (skuSearchResult.isPossibleMatch) {
+        possibleMatchNote = `*(Note: This is a possible match based on the product model/name)*\n\n`;
+      }
+
+      const missingList: string[] = [];
+      const fieldsToCheck = {
+        "Engine Output": hp,
+        "Engine Model": engine,
+        "Operating Weight": weight,
+        "Lift Capacity": lift,
+        "Digging Depth": depth,
+        "Dimensions": dimsVal,
+        "Price": price,
+        "SKU": sku,
+        "GTIN": gtin
+      };
+      for (const [name, val] of Object.entries(fieldsToCheck)) {
+        if (!val || val === "This spec is not listed yet.") {
+          missingList.push(name);
+        }
+      }
+
+      let markdown = `${header}\n\n${possibleMatchNote}`;
+      markdown += `* **Product Name:** ${name}\n`;
+      markdown += `* **SKU:** ${sku}\n`;
+      markdown += `* **GTIN:** ${gtin}\n`;
+      markdown += `* **Brand:** ${brand}\n`;
+      markdown += `* **Category:** ${category}\n`;
+      markdown += `* **Price:** ${price}\n`;
+      markdown += `* **Short Description:** ${shortDesc}\n`;
+      markdown += `* **Key Specs:**\n`;
+      markdown += `  * **Horsepower:** ${hp}\n`;
+      markdown += `  * **Engine:** ${engine}\n`;
+      markdown += `  * **Operating Weight:** ${weight}\n`;
+      markdown += `  * **Lift Capacity:** ${lift}\n`;
+      markdown += `  * **Digging Depth:** ${depth}\n`;
+      markdown += `  * **Dimensions:** ${dimsVal}\n`;
+      markdown += `* **Product Link:** [Explore ${matchedProfile.name} Catalog Page](${pUrl})`;
+
+      if (missingList.length > 0) {
+        markdown += `\n\n*Note: The following fields are not listed yet: ${missingList.join(", ")}.*`;
+      }
+
+      const finishAns = finish({
+        markdown,
+        products: [nextMemory.activeMachine],
+        followups: [`Compare ${matchedProfile.name}`, `Build quote request`, `Ask sales team`]
+      }, nextMemory);
+
+      return finishAns;
+    }
+
+    const suggestions = skuSearchResult.allCandidates.slice(0, 3);
+    if (suggestions.length > 0) {
+      const isPartial = skuSearchResult.partialMatches.length > 0;
+      let header = "";
+      if (isPartial) {
+        header = `I could not find an exact SKU for ${skuSearchResult.searchTerm.toUpperCase()}. Did you mean one of these?`;
+      } else {
+        header = `I could not find an exact match for ${skuSearchResult.searchTerm}. These are the closest product codes I found:`;
+      }
+
+      let markdown = `${header}\n\n`;
+      for (const p of suggestions) {
+        const name = getSkuDisplayName(p);
+        const sku = p.sku !== "Not listed" ? p.sku.replace(/\s*(blue|red|yellow|green|black|white|orange|grey|gray)/gi, "") : "Unknown SKU";
+        markdown += `* ${sku} — ${name}\n`;
+      }
+      markdown += `\nWhich model did you want to check?`;
+
+      return finish({
+        markdown: markdown.trim(),
+        followups: suggestions.map(p => `Show specs for ${p.name}`)
+      }, nextMemory);
+    }
+
+    return finish({
+      markdown: `I could not find a product matching the SKU or code "${skuSearchResult.searchTerm}". Could you please verify the number or provide one more detail, such as the machine model name (e.g. STOMP 509 or TERROR XXV) or category?`,
+      followups: ["Find the right TYPHON machine", "Compare TYPHON equipment"]
+    }, nextMemory);
+  }
+
 
   // 1. Terminology spec helper trigger
   for (const [key, expl] of Object.entries(SPEC_HELPERS)) {
@@ -340,7 +469,7 @@ export function getReply(
       const leadCompany = parsedContact.company || "";
       const leadEmail = parsedContact.email || "";
       const leadPhone = parsedContact.phone || "";
-      
+
       return finish({
         markdown: `### Lead Capture Success\n\nThank you, **${leadName}**! I have successfully captured your contact details and routed them to our sales team:\n\n* **Name:** ${leadName}\n${leadCompany ? `* **Company:** ${leadCompany}\n` : ""}${leadEmail ? `* **Email:** ${leadEmail}\n` : ""}${leadPhone ? `* **Phone:** ${leadPhone}\n` : ""}\nOur sales specialists will contact you shortly regarding Typhon Machinery products.`,
         followups: ["Find the right TYPHON machine", "Browse categories"],
@@ -363,7 +492,7 @@ export function getReply(
   // 3. Guided Quote Request Builder Flow
   if (memory.awaiting && memory.awaiting.startsWith("quote_")) {
     const quoteSlots = memory.quoteSlots ? { ...memory.quoteSlots } : {};
-    
+
     if (memory.awaiting === "quote_name") {
       quoteSlots.name = m;
       nextMemory.quoteSlots = quoteSlots;
@@ -383,7 +512,7 @@ export function getReply(
         followups: ["Cancel quote request"]
       }, nextMemory);
     }
-    
+
     if (memory.awaiting === "quote_contact") {
       quoteSlots.contact = m;
       nextMemory.quoteSlots = quoteSlots;
@@ -402,7 +531,7 @@ export function getReply(
         }, nextMemory);
       }
     }
-    
+
     if (memory.awaiting === "quote_product") {
       quoteSlots.product = m;
       nextMemory.quoteSlots = quoteSlots;
@@ -412,7 +541,7 @@ export function getReply(
         followups: ["Digging trenches", "Lifting pallets", "Loading gravel", "Landscaping", "Cancel quote request"]
       }, nextMemory);
     }
-    
+
     if (memory.awaiting === "quote_job") {
       quoteSlots.job = m;
       nextMemory.quoteSlots = quoteSlots;
@@ -423,12 +552,12 @@ export function getReply(
         followups: ["United States", "Overseas", "Cancel quote request"]
       }, nextMemory);
     }
-    
+
     if (memory.awaiting === "quote_location") {
       quoteSlots.location = m;
       nextMemory.quoteSlots = quoteSlots;
       nextMemory.awaiting = null;
-      
+
       const summaryTable = `
 ### ${t("chatbot.quote.summaryTitle", "Quote Request Summary")}
 
@@ -460,8 +589,8 @@ export function getReply(
   }
 
   // 4. Default intent detection
-  const detectedIntent = detectIntent(m, memory);
-  
+  detectedIntent = detectIntent(m, memory);
+
   switch (detectedIntent) {
     case "Greeting": {
       return finish({
@@ -505,7 +634,7 @@ export function getReply(
 
     case "Ask exact spec": {
       const res = matchProductAndSpec(mLower, memory.activeMachine, pathname);
-      
+
       if (res.type === "clarify" && res.candidates.length > 0) {
         return finish({
           markdown: `### ${t("chatbot.whichProductTitle", "Which product do you mean?")}\n\n${t("chatbot.whichProductDesc", "I found multiple matching TYPHON products. Select a model below:")}`,
@@ -542,15 +671,15 @@ export function getReply(
 
       const fieldKey = specFieldMap[specName] || "horsepower";
       const val = profile[fieldKey];
-      
+
       let md = `### TYPHON ${profile.name} ${specName}\n\n`;
-      
+
       if (!val || val === "Not listed") {
         md += `**Not listed**\n\nThis specification is not listed in the official product catalog database for this model. Please contact our sales team to confirm the exact figures.\n\n`;
       } else {
         md += `**${val}**\n\n`;
       }
-      
+
       if (specName === "Price") {
         md += `*Final price and availability should be confirmed with sales.*\n\n`;
       } else if (specName === "Stock") {
@@ -610,7 +739,7 @@ export function getReply(
       }
 
       const formattedMarkdown = formatProductOverview(profile, t);
-      
+
       const matchedRef: ProductRef = {
         id: profile.id,
         name: profile.name,
@@ -636,7 +765,7 @@ export function getReply(
 
     case "Ask product comparison": {
       const compResult = productMatcher.matchComparison(mLower);
-      
+
       // Internal matching logs (for development and debug safety)
       // Query: mLower
       // Matches Found: compResult.matchesFound
@@ -662,11 +791,11 @@ export function getReply(
       if (compResult.matchesFound === 1 && compResult.productA) {
         const anchor = compResult.productA;
         const profiles = getCanonicalProfiles();
-        
+
         // Find a similar model in the same category, prioritizing closest weight
         const anchorProfile = profiles.find(p => p.id === anchor.id)!;
         const sameCategory = profiles.filter(p => p.id !== anchor.id && p.category === anchorProfile.category);
-        
+
         let similar = sameCategory[0];
         if (sameCategory.length > 1) {
           // Sort by weight difference
@@ -713,7 +842,7 @@ export function getReply(
       if (/\b(farm|hay|chores|agricultural|gardening)\b/i.test(mLower)) {
         return finish({
           markdown: `### Recommended Equipment for Farm Chores & Agricultural Work
-          
+
 For farming and agricultural operations (such as moving feed, lifting hay bales, manure management, or clearing brush), we highly recommend:
 1. **TYPHON STOMP 509 Mini Skid Steer**: Exceptional maneuverability, compatible with Pallet Forks, Augers, and standard Buckets.
 2. **TYPHON Tyrant 17 Mini Excavator**: Best for fence post digging, irrigation line layout, and ditch clearing.
@@ -758,12 +887,12 @@ For farming and agricultural operations (such as moving feed, lifting hay bales,
       if (matchedCategory) {
         const profiles = getCanonicalProfiles();
         const matches = profiles.filter(p => p.category.toLowerCase().includes(matchedCategory.toLowerCase())).slice(0, 2);
-        
+
         let intro = t("chatbot.recommend.intro", "### Best TYPHON Options for {jobTitle}\n\n*Here are the recommended models matching your job description:*").replace("{jobTitle}", t(`chatbot.job.${jobTitle.replace(/\s+/g, "").replace(/[^a-zA-Z0-9]/g, "")}`, jobTitle));
         const headers = [t("chatbot.compare.machine", "Machine"), t("chatbot.compare.matchStrength", "Match Strength"), t("chatbot.compare.why", "Why")];
         const rows = matches.map((m, idx) => [
-          m.name, 
-          idx === 0 ? t("chatbot.recommend.strong", "Strong") : t("chatbot.recommend.good", "Good"), 
+          m.name,
+          idx === 0 ? t("chatbot.recommend.strong", "Strong") : t("chatbot.recommend.good", "Good"),
           idx === 0 ? t("chatbot.recommend.whyPrimary", "Primary model featuring optimized specifications.") : t("chatbot.recommend.whySecondary", "Secondary option with alternate sizing.")
         ]);
 
@@ -789,7 +918,7 @@ For farming and agricultural operations (such as moving feed, lifting hay bales,
       if (isSkidSteerAttach && !isExcavatorAttach) {
         return finish({
           markdown: `### TYPHON Skid Steer Loader Attachments
-          
+
 Our **TYPHON STOMP mini skid steer loaders** feature a standard quick coupler and dual auxiliary hydraulic flow lines (main flow 11.4 GPM, auxiliary 5.7 GPM).
 
 **Compatible attachments:**
@@ -811,7 +940,7 @@ Would you like to get a quote or see financing options for a TYPHON loader or at
       if (isExcavatorAttach && !isSkidSteerAttach) {
         return finish({
           markdown: `### TYPHON Mini Excavator Attachments
-          
+
 All **TYPHON mini excavators** (from the TERROR XI up to the KUVUO 4.0) are equipped with standard auxiliary hydraulics and support a quick coupler workflow. Many bundles come with a package of attachments.
 
 **Compatible attachments:**
@@ -836,10 +965,10 @@ Would you like to check compatibility for a specific model like the STOMP 509 or
       if (res.product) {
         const profile = getCanonicalProfiles().find(p => p.id === res.product?.id);
         if (profile) {
-          const compatible = profile.attachmentCompatibility.length > 0 
+          const compatible = profile.attachmentCompatibility.length > 0
             ? profile.attachmentCompatibility.map(item => `* ${item}`).join("\n")
             : `* Hydraulic auger\n* Trencher\n* Hydraulic breaker\n* Hydraulic thumb\n* Grading bucket`;
-          
+
           let intro = `### TYPHON ${profile.displayName} Attachment Compatibility\n\n**Fits auxiliary attachments:** Yes.\n\n*Compatible attachments for this model:*`;
           const bullets = [
             `**Hydraulic flow:** ${profile.hydraulicFlow}`,
@@ -866,7 +995,7 @@ Would you like to check compatibility for a specific model like the STOMP 509 or
       if (mLower.includes("no cabin") || mLower.includes("canopy") || mLower.includes("capony") || mLower.includes("open")) {
         return finish({
           markdown: `### TYPHON Open Canopy Models (No Cabin)
-          
+
 These models are designed with an **open operator platform** equipped with a protective overhead ROPS canopy (no enclosed cab or AC/Heater):
 
 * **TYPHON Terror XI** (1.1-Ton Excavator)
@@ -884,7 +1013,7 @@ Would you like to get a quote or see specifications for one of these models?`,
       if (mLower.includes("cabin") || mLower.includes("closed") || mLower.includes("enclosed")) {
         return finish({
           markdown: `### TYPHON Enclosed Cabin Models (with A/C & Heating)
-          
+
 These models feature a **fully enclosed, climate-controlled operator station** equipped with both **air conditioning and heating** standard:
 
 * **TYPHON Terror XVIII Cabin / Prestige** (2-Ton Excavator)
@@ -902,7 +1031,7 @@ Would you like to get a quote or see specifications for one of these models?`,
       if (res.product) {
         const profile = getCanonicalProfiles().find(p => p.id === res.product?.id);
         if (profile) {
-          const desc = profile.cabinType === "Enclosed Cab" 
+          const desc = profile.cabinType === "Enclosed Cab"
             ? `The TYPHON ${profile.name} features a **fully enclosed, climate-controlled cabin** equipped with both **air conditioning and heating** standard. This provides year-round operator comfort.`
             : `The TYPHON ${profile.name} has an **open station operator platform** equipped with a heavy-duty protective canopy (no enclosed cabin/AC).`;
           return finish({
@@ -911,11 +1040,11 @@ Would you like to get a quote or see specifications for one of these models?`,
           }, nextMemory);
         }
       }
-      
+
       // General cabin/canopy query fallback
       return finish({
         markdown: `### Operator Station options (Cabin vs. Canopy)
-        
+
 TYPHON mini excavators and loaders come in both enclosed climate-controlled cabin and open-canopy designs:
 
 * **Enclosed Cabin Models (with A/C & Heating):**
@@ -1082,7 +1211,7 @@ import { getSimilarityScore } from "./matchingEngine";
 export { getSimilarityScore };
 
 export function getSpecValAndConfidence(
-  rawProduct: any, 
+  rawProduct: any,
   specName: string
 ): { value: string; source: string; confidence: string; warning?: string } {
   const profiles = getCanonicalProfiles();
@@ -1116,7 +1245,7 @@ export function getSpecValAndConfidence(
 
   let source = "Product DB";
   let confidence = "High";
-  
+
   if (profile.raw?.specs) {
     const hasSpec = profile.raw.specs.some((s: any) => s.label.toLowerCase() === specName.toLowerCase());
     if (hasSpec) {
@@ -1149,7 +1278,7 @@ export function normalizeSpecValue(specName: string, val: string): string {
 export function parseContactDetails(text: string): { name?: string; email?: string; phone?: string; company?: string } | null {
   const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/i;
   // matches formats like 123456, 123-456-7890, +1 (213) 214-2203, etc.
-  const phoneRegex = /(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}|\b\d{6,11}\b/; 
+  const phoneRegex = /(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}|\b\d{6,11}\b/;
   const nameRegex = /(?:my name is|i am|call me)\s+([a-zA-Z\s]+?)(?:,|\.|\band\b|email|phone|$)/i;
   const companyRegex = /(?:my company is|company name is|work at|from)\s+([a-zA-Z0-9\s]+?)(?:,|\.|\band\b|email|phone|$)/i;
 

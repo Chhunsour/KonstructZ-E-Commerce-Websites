@@ -1,10 +1,10 @@
-import { 
-  getMergedProducts, 
-  PRODUCT_DETAIL, 
-  PRODUCT_REFS, 
+import {
+  getMergedProducts,
+  PRODUCT_DETAIL,
+  PRODUCT_REFS,
   getChatbotConfig,
-  type ProductRef, 
-  type ProductDetail 
+  type ProductRef,
+  type ProductDetail
 } from "./knowledge";
 
 export function parsePriceNumber(priceStr: string | null): number {
@@ -19,7 +19,7 @@ export function parseWeightNumber(weightStr: string | null): number {
   const cleaned = weightStr.replace(/[^0-9.]/g, "");
   let num = parseFloat(cleaned);
   if (isNaN(num)) return Infinity;
-  
+
   const lower = weightStr.toLowerCase();
   if (lower.includes("ton")) {
     num = num * 1000;
@@ -53,11 +53,11 @@ export function resolveNicknames(cleanSearch: string): string {
     .replace(/\btyphon machinery\b/g, "typhon")
     .replace(/\bx\s+1300\b/g, "x1300")
     .replace(/\b18\s+flex\b/g, "18 flex");
-  
+
   if (s === "big skid steer" || s === "stronger stomp" || s === "big skid") return "stomp x1300";
   if (s === "small skid" || s === "small stomp") return "stomp 509";
   if (s.includes("small skid vs big skid") || s.includes("small skid steer vs big skid steer")) return "stomp 509 vs stomp x1300";
-  
+
   if (s === "small excavator" || s === "cheap excavator" || s === "cheap" || s === "cheap one") return "terror xi";
   if (s === "cabin excavator" || s === "cabin one" || s === "with cabin" || s === "cabin" || s === "closed cabin") return "cabin";
   if (s === "no cabin" || s === "canopy" || s === "capony" || s === "open cabin") return "canopy";
@@ -67,7 +67,7 @@ export function resolveNicknames(cleanSearch: string): string {
   if (s === "25hp" || s === "25hp excavator") return "terror xxv";
   if (s === "2.7 ton excavator") return "terror xxv";
   if (s === "mini loader") return "skoop ii";
-  
+
   // Lazy inputs smart mappings
   if (s === "stomp" || s === "mini skid" || s === "skid steer" || s === "skid" || s === "loader" || s === "skid with canopy") return "stomp";
   if (s === "509" || s === "stomp 509") return "stomp 509";
@@ -78,7 +78,7 @@ export function resolveNicknames(cleanSearch: string): string {
   if (s === "18 flex" || s === "flex 18" || s === "18flex") return "flex 18 pro";
   if (s === "flex pro") return "flex 18 pro";
   if (s === "attachment for skid steer" || s === "skid steer attachment" || s === "skid steer attachments" || s === "attachment for skid" || s === "attachments for skid") return "skid steer attachments";
-  
+
   return s;
 }
 
@@ -138,9 +138,9 @@ export function getSimilarityScore(s1: string, s2: string): number {
     .replace(/[^a-z0-9]/gi, " ");
   const w1 = clean(s1).split(/\s+/).filter(Boolean);
   const w2 = clean(s2).split(/\s+/).filter(Boolean);
-  
+
   if (w1.length === 0 || w2.length === 0) return 0.0;
-  
+
   let matchCount = 0;
   for (const w of w1) {
     if (w2.includes(w)) {
@@ -159,7 +159,7 @@ export function getSimilarityScore(s1: string, s2: string): number {
       }
     }
   }
-  
+
   return matchCount / Math.max(w1.length, w2.length, 1);
 }
 
@@ -199,7 +199,7 @@ export function getAliasesMap(): Record<string, string[]> {
   const map: Record<string, string[]> = {};
   const config = getChatbotConfig();
   if (!config || !config.productAliases) return map;
-  
+
   const lines = config.productAliases.split(";");
   for (const line of lines) {
     const parts = line.split(":");
@@ -217,10 +217,10 @@ export function getCanonicalProducts(): CanonicalProduct[] {
   const { baseProducts, baseTyphonProducts } = getMergedProducts();
   const allRaw = [...baseProducts, ...baseTyphonProducts];
   const aliasMap = getAliasesMap();
-  
+
   return allRaw.map(p => {
     const isAttachment = p.productType === "attachment";
-    
+
     // Core Specs Extraction
     const specsMap: Record<string, string> = {};
     if (p.specs) {
@@ -231,14 +231,14 @@ export function getCanonicalProducts(): CanonicalProduct[] {
         }
       }
     }
-    
+
     // Set fallback key specs
     const horsepower = specsMap["Horsepower"] || p.specs?.find((s: any) => /power|hp/i.test(s.label))?.value || null;
     const engine = specsMap["Engine"] || p.specs?.find((s: any) => /engine/i.test(s.label))?.value || null;
     const weight = p.weight || specsMap["Weight"] || p.specs?.find((s: any) => /weight/i.test(s.label))?.value || null;
     const liftCapacity = specsMap["Lift Capacity"] || p.specs?.find((s: any) => /lift/i.test(s.label))?.value || null;
     const digDepth = specsMap["Digging Depth"] || p.specs?.find((s: any) => /dig/i.test(s.label))?.value || null;
-    
+
     const finalSpecs: Record<string, string> = {
       "Horsepower": horsepower || "Not listed",
       "Engine": engine || "Not listed",
@@ -252,7 +252,7 @@ export function getCanonicalProducts(): CanonicalProduct[] {
     const cleanName = p.name.toLowerCase().replace(/typhon\s+/gi, "").trim();
     aliases.add(cleanName);
     aliases.add(p.name.toLowerCase());
-    
+
     // Split words
     const tokens = cleanName.split(/\s+/);
     if (tokens.length > 1) {
@@ -262,18 +262,18 @@ export function getCanonicalProducts(): CanonicalProduct[] {
         }
       }
     }
-    
+
     // Model numbers
     const modelMatch = p.name.match(/\b([A-Z0-9.]+)\b/i);
     if (modelMatch) {
       aliases.add(normalizeNumericTokens(modelMatch[1].toLowerCase()));
     }
-    
+
     // Add custom defined aliases from config mapping
     const cleanLowerName = p.name.toLowerCase();
     for (const [key, vals] of Object.entries(aliasMap)) {
       if (
-        cleanLowerName.includes(key) || 
+        cleanLowerName.includes(key) ||
         key.includes(cleanLowerName) ||
         (key.includes("vigor 1.5") && cleanLowerName.includes("1.5") && cleanLowerName.includes("forklift")) ||
         (key.includes("vigor 2") && cleanLowerName.includes("2.0") && cleanLowerName.includes("forklift")) ||
@@ -294,7 +294,7 @@ export function getCanonicalProducts(): CanonicalProduct[] {
         aliases.add(a.toLowerCase().trim());
       }
     }
-    
+
     // Category aliases
     let cat = p.categoryLabel || "";
     if (!cat && (p as any).category) {
@@ -389,13 +389,13 @@ export function escapeRegExp(string: string): string {
 
 // Core Matching Engine
 export function matchProductAndSpec(
-  query: string, 
-  activeMachine?: ProductRef, 
+  query: string,
+  activeMachine?: ProductRef,
   currentPageUrl?: string
 ): MatchResult {
   const q = normalizeNumericTokens(query).replace(/[?.,!]/g, "").replace(/\s+/g, " ").trim();
   const specIntent = matchSpecSynonym(q);
-  
+
   let attachmentCandidate = "";
   if (/\b(pallet fork|forks|auger|breaker|grapple|thumb|trencher|bucket)\b/i.test(q)) {
     const attMatch = q.match(/\b(pallet fork|forks|auger|breaker|grapple|thumb|trencher|bucket)\b/i);
@@ -497,17 +497,17 @@ export function matchProductAndSpec(
   // 2. Token-based Mentions Scanner
   const tokenCandidates: CanonicalProduct[] = [];
   const searchWords = qLower.split(/\s+/).filter(w => w.length >= 2);
-  
+
   if (searchWords.length > 0) {
     for (const p of products) {
       const cleanProdName = p.name.toLowerCase().replace(/typhon\s+/gi, "").trim();
       const prodWords = cleanProdName.split(/\s+/).map(w => w.toLowerCase());
-      
+
       // Look for model number indicators (e.g. 509, x1300, xxv, xviii, xvii, xix, xi)
       const modelNum = prodWords.find(w => /\b(x|x2|17|509|508|1300|xxv|xviii|xvii|xix|xi|v980|skoop|vigor)\b/i.test(w));
-      
+
       let matched = false;
-      
+
       // Match if full clean name or any alias is directly contained in the query
       if (qLower === cleanProdName || qLower === p.name.toLowerCase()) {
         matched = true;
@@ -520,14 +520,14 @@ export function matchProductAndSpec(
           }
         }
       }
-      
+
       // Match by model number specifically
       if (!matched && modelNum) {
         if (new RegExp(`\\b${escapeRegExp(modelNum)}\\b`, "i").test(qLower)) {
           matched = true;
         }
       }
-      
+
       if (matched) {
         tokenCandidates.push(p);
       }
@@ -570,7 +570,7 @@ export function matchProductAndSpec(
       candidates: tokenCandidates.slice(0, 5)
     };
   }
-  
+
   if (tokenCandidates.length === 1) {
     return {
       product: tokenCandidates[0],
@@ -596,7 +596,7 @@ export function matchProductAndSpec(
     let score = 0;
     const cleanSearch = normalizeNumericTokens(pSearch);
     const cleanProdName = normalizeNumericTokens(p.name);
-    
+
     if (cleanProdName === cleanSearch) score = 100;
     else if (cleanProdName.replace(/typhon\s+/gi, "") === cleanSearch) score = 98;
     else {
@@ -608,20 +608,20 @@ export function matchProductAndSpec(
           score = Math.max(score, 85);
         }
       }
-      
+
       for (const m of p.misspellings) {
         const cleanM = normalizeNumericTokens(m);
         if (cleanM === cleanSearch) {
           score = Math.max(score, 90);
         }
       }
-      
+
       const nameSim = getSimilarityScore(cleanSearch, cleanProdName);
       if (nameSim >= 0.75) {
         score = Math.max(score, Math.round(nameSim * 90));
       }
     }
-    
+
     // Specifications Boosts
     if (cleanSearch.includes("kubota") && p.specs["Engine"]?.toLowerCase().includes("kubota")) {
       score = Math.max(score, 85);
@@ -629,14 +629,14 @@ export function matchProductAndSpec(
     if (cleanSearch.includes("cabin") && p.raw?.description?.toLowerCase().includes("cabin")) {
       score = Math.max(score, 80);
     }
-    
+
     if (currentPageUrl && p.url && currentPageUrl.includes(p.id)) {
       score += 15;
     }
     if (activeMachine && (p.id === activeMachine.id || (p.url && activeMachine.href.includes(p.id)))) {
       score += 10;
     }
-    
+
     score = Math.min(score, 100);
     return { product: p, score };
   });
@@ -645,7 +645,7 @@ export function matchProductAndSpec(
   const penalized = scored.map(item => {
     let score = item.score;
     const prodWords = normalizeNumericTokens(item.product.name).split(/\s+/);
-    
+
     const hasModelNumber = /\b(x|x2|17|509|508|1300|xxv|xviii|xvii|xix|xi|v980|skoop|vigor)\b/i;
     const searchModels = searchWords.filter(w => hasModelNumber.test(w));
     if (searchModels.length > 0) {
@@ -659,7 +659,7 @@ export function matchProductAndSpec(
   });
 
   const validCandidates = penalized.filter(c => c.score >= 40).sort((a, b) => b.score - a.score);
-  
+
   if (validCandidates.length === 0) {
     return {
       product: null,
@@ -672,7 +672,7 @@ export function matchProductAndSpec(
 
   const best = validCandidates[0];
   const closeCandidates = validCandidates.filter(c => c.product.id !== best.product.id && (best.score - c.score) <= 10);
-  
+
   if (closeCandidates.length > 0) {
     return {
       product: null,
@@ -717,7 +717,7 @@ export function cleanSpecUnit(val: string | undefined): string {
 export function matchTwoProductsForComparison(query: string): { productA: CanonicalProduct | null; productB: CanonicalProduct | null; matchesFound: number; candidates: CanonicalProduct[] } {
   const products = getCanonicalProducts();
   const qLower = query.toLowerCase();
-  
+
   const strictModels = [
     { key: "terror xix storm", id: "typhon-terror-xix-storm-mini-excavator-1-8-ton-trench-digger-with-boom-swing-canopy" },
     { key: "terror xix prestige", id: "typhon-terror-xix-prestige-cabin-mini-excavator-4200lbs-20-4-hp-kubota-d902-with-boom-swing-retractable-tracks" },
@@ -758,7 +758,7 @@ export function matchTwoProductsForComparison(query: string): { productA: Canoni
   ];
 
   const matchedIds: string[] = [];
-  
+
   for (const m of strictModels) {
     if (new RegExp(`\\b${escapeRegExp(m.key)}\\b`, "i").test(qLower)) {
       if (!matchedIds.includes(m.id)) {
@@ -768,7 +768,7 @@ export function matchTwoProductsForComparison(query: string): { productA: Canoni
   }
 
   const matches = matchedIds.map(id => products.find(p => p.id === id)).filter((x): x is CanonicalProduct => !!x);
-  
+
   if (matches.length >= 2) {
     return { productA: matches[0], productB: matches[1], matchesFound: matches.length, candidates: matches };
   } else if (matches.length === 1) {
@@ -787,4 +787,182 @@ export function matchTwoProductsForComparison(query: string): { productA: Canoni
   }
 
   return { productA: null, productB: null, matchesFound: 0, candidates: candidates.slice(0, 3) };
+}
+
+export interface SkuSearchResult {
+  isSkuSearch: boolean;
+  searchTerm: string;
+  exactMatch: any | null;
+  isLikelyDigitsMatch: boolean;
+  isPossibleMatch: boolean;
+  partialMatches: any[];
+  fuzzyMatches: any[];
+  allCandidates: any[];
+}
+
+export function getSkuDisplayName(profile: any): string {
+  const cleanSku = (profile.sku || "").replace(/\s*Blue|\s*Red|\s*Yellow/gi, "").trim();
+  if (cleanSku === "TYPH-0611") {
+    return "TYPHON VIGOR 1.5 Blue Electric Forklift";
+  }
+  if (cleanSku === "TYPH-0612") {
+    return "TYPHON VIGOR 2.0 Blue Electric Forklift";
+  }
+  return profile.displayName || profile.name;
+}
+
+export function isSkuSearchQuery(query: string): boolean {
+  const q = query.toLowerCase().trim();
+  // Check for keywords
+  if (/\b(sku|gtin|upc|barcode|product[\s-]*code|model[\s-]*code|model[\s-]*number|part[\s-]*number|serial[\s-]*number)\b/i.test(q)) {
+    return true;
+  }
+  // Check if it's a code-like token or number
+  const words = q.split(/\s+/).filter(Boolean);
+  if (words.length === 1) {
+    const w = words[0];
+    // Pure digits of length >= 3
+    if (/^\d{3,}$/.test(w)) return true;
+    // Alphanumeric with letters and digits (e.g., typh0611, typh-0611)
+    if (/[a-z]/i.test(w) && /\d/.test(w)) return true;
+  }
+  return false;
+}
+
+export function extractSkuSearchTerm(query: string): string {
+  const cleanQuery = query.toLowerCase().replace(/[^a-z0-9\s.-]/gi, " ").replace(/\s+/g, " ").trim();
+  let searchTerm = cleanQuery;
+  const prefixes = [
+    "what product is",
+    "find sku for",
+    "do you have sku for",
+    "sku for",
+    "gtin for",
+    "product code for",
+    "model code for",
+    "model number for",
+    "wrong sku",
+    "product code",
+    "model code",
+    "model number",
+    "sku",
+    "gtin",
+    "upc"
+  ];
+  for (const prefix of prefixes) {
+    if (searchTerm.startsWith(prefix)) {
+      searchTerm = searchTerm.slice(prefix.length).trim();
+      break;
+    }
+  }
+  return searchTerm;
+}
+
+export function executeSkuSearch(query: string, profiles: any[]): SkuSearchResult {
+  const isSku = isSkuSearchQuery(query);
+  const searchTerm = extractSkuSearchTerm(query);
+  const cleanTarget = searchTerm.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  let exactMatch: any | null = null;
+  let isLikelyDigitsMatch = false;
+  let isPossibleMatch = false;
+  const partialMatches: any[] = [];
+  const fuzzyMatches: any[] = [];
+
+  const scored = profiles.map(p => {
+    const skuRaw = p.sku || "";
+    const gtinRaw = p.gtin || "";
+    const nameRaw = p.name || "";
+    const modelRaw = p.model || "";
+
+    const pSkuClean = skuRaw.toLowerCase().replace(/[^a-z0-9]/g, "");
+    // Remove color/suffix for core SKU comparison
+    const pSkuCore = skuRaw.toLowerCase()
+      .replace(/\s*(blue|red|yellow|green|black|white|orange|grey|gray|pro|max|flex|stomp|terror|tyrant|bundle)/gi, "")
+      .replace(/[^a-z0-9]/g, "");
+    const pGtinClean = gtinRaw.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const pSkuDigits = skuRaw.replace(/[^0-9]/g, "");
+    const pModelClean = modelRaw.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const pNameClean = nameRaw.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+    let score = 0;
+
+    // 1. Exact Match on full SKU, core SKU or GTIN -> 100
+    if (cleanTarget && (pSkuClean === cleanTarget || pSkuCore === cleanTarget || pGtinClean === cleanTarget)) {
+      score = Math.max(score, 100);
+    }
+    // 2. Exact match on pure digits to SKU digits -> 95
+    if (/^\d+$/.test(cleanTarget) && cleanTarget.length >= 3 && (pSkuDigits === cleanTarget || pSkuDigits.replace(/^0+/, "") === cleanTarget.replace(/^0+/, ""))) {
+      score = Math.max(score, 95);
+    }
+    // 3. Partial SKU/GTIN match -> 80
+    if (cleanTarget && cleanTarget.length >= 3 && (pSkuClean.includes(cleanTarget) || pSkuCore.includes(cleanTarget) || pGtinClean.includes(cleanTarget))) {
+      score = Math.max(score, 80);
+    }
+    // 4. Exact model match -> 75
+    if (cleanTarget && pModelClean === cleanTarget) {
+      score = Math.max(score, 75);
+    }
+    // 5. Fuzzy SKU match -> 70-75
+    if (cleanTarget && cleanTarget.length >= 3 && pSkuCore.length >= 3) {
+      const sim = getFuzzySimilarity(cleanTarget, pSkuCore);
+      if (sim >= 0.75) {
+        score = Math.max(score, 70 + Math.round(sim * 5));
+      }
+    }
+    // 6. Name/Category/description match -> 45-65
+    if (cleanTarget) {
+      const nameContains = pNameClean.includes(cleanTarget);
+      const catContains = (p.category || "").toLowerCase().replace(/[^a-z0-9]/g, "").includes(cleanTarget);
+      const urlContains = (p.productUrl || "").toLowerCase().replace(/[^a-z0-9]/g, "").includes(cleanTarget);
+      const descContains = (p.raw?.description || p.shortSummary || "").toLowerCase().replace(/[^a-z0-9]/g, "").includes(cleanTarget);
+      const specsContains = JSON.stringify(p.specs || {}).toLowerCase().replace(/[^a-z0-9]/g, "").includes(cleanTarget);
+
+      if (nameContains) {
+        score = Math.max(score, 65);
+      } else if (catContains || urlContains) {
+        score = Math.max(score, 55);
+      } else if (descContains || specsContains) {
+        score = Math.max(score, 45);
+      }
+    }
+
+    return { profile: p, score };
+  });
+
+  const sorted = scored.filter(s => s.score >= 40).sort((a, b) => b.score - a.score);
+
+  if (sorted.length > 0) {
+    const best = sorted[0];
+    if (best.score >= 90) {
+      exactMatch = best.profile;
+      if (best.score === 95) {
+        isLikelyDigitsMatch = true;
+      }
+    } else if (best.score >= 60 && (sorted.length === 1 || (best.score - sorted[1].score) >= 15)) {
+      exactMatch = best.profile;
+      isPossibleMatch = true;
+    }
+
+    for (const item of sorted) {
+      if (item.score >= 90) {
+        // Main exact match already captured or multiple identical
+      } else if (item.score === 80) {
+        partialMatches.push(item.profile);
+      } else if (item.score >= 70) {
+        fuzzyMatches.push(item.profile);
+      }
+    }
+  }
+
+  return {
+    isSkuSearch: isSku,
+    searchTerm,
+    exactMatch,
+    isLikelyDigitsMatch,
+    isPossibleMatch,
+    partialMatches,
+    fuzzyMatches,
+    allCandidates: sorted.map(s => s.profile)
+  };
 }

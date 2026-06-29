@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useI18n } from "../../context/I18nContext";
 import { AnimaScaler } from "../../components/layout/AnimaScaler";
 import { MobileFrontpage } from "./MobileFrontpage";
@@ -20,6 +21,8 @@ export const Frontpage = (): JSX.Element => {
   const [activeModel, setActiveModel] = useState<"v950" | "v980">("v950");
   const v950Ref = useRef<HTMLVideoElement>(null);
   const v980Ref = useRef<HTMLVideoElement>(null);
+  const activeEquipmentSlug = activeModel === "v950" ? "stomp-v950" : "stomp-v980";
+  const activeEquipmentName = activeModel === "v950" ? "STOMP V950" : "STOMP V980";
 
   useEffect(() => {
     if (activeModel === "v950") {
@@ -129,6 +132,20 @@ export const Frontpage = (): JSX.Element => {
         <span className="text-[#d8c79a]">
           {activeModel === "v950" ? t("auto.frontpage.stomp.v950") : "STOMP V980"}
         </span>
+      </Reveal>
+
+      <Reveal
+        variant="fade"
+        delay={2550}
+        className="absolute top-[683px] left-[125px] z-20"
+      >
+        <Link
+          to={`/equipment/${activeEquipmentSlug}`}
+          aria-label={`View ${activeEquipmentName} equipment`}
+          className="inline-flex h-[58px] min-w-[202px] items-center justify-center border-[3px] border-solid border-[#d8c79a] bg-[#d8c79a] px-7 font-googleSans text-[18px] font-bold text-[#153d28] shadow-[0_18px_44px_rgba(0,0,0,0.34)] transition-colors duration-200 hover:bg-transparent hover:text-[#d8c79a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d8c79a]"
+        >
+          View Equipment
+        </Link>
       </Reveal>
 
       {/* Model Switcher Buttons */}

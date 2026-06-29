@@ -169,17 +169,17 @@ interface Slot {
  * `BannerSlide.display.scale`.
  */
 function slotForOffset(off: number, isDark: boolean): Slot {
-  // CENTER — dominant but balanced (Figma 632×479 ⇒ +10% bump)
+  // CENTER — dominant but balanced (Figma 632×479)
   if (off === 0) return {
-    left: 568, top: 118, width: 784, height: 594,
-    imgScale: 1.12, blur: 0, brightness: 1, opacity: 1, z: 5,
+    left: 610, top: 138, width: 700, height: 530,
+    imgScale: 1.0, blur: 0, brightness: 1, opacity: 1, z: 5,
     shadow: isDark
       ? "drop-shadow(0 28px 44px rgba(0,0,0,0.7))"
       : "drop-shadow(0 20px 30px rgba(21,61,40,0.15))",
   };
   // LEFT (prev) — secondary, soft (Figma left 455×455)
   if (off === -1) return {
-    left: 80, top: 168, width: 480, height: 480,
+    left: 130, top: 192, width: 430, height: 430,
     imgScale: 0.78, blur: 4, brightness: isDark ? 0.72 : 0.9, opacity: isDark ? 1 : 0.6, z: 3,
     shadow: isDark
       ? "drop-shadow(0 16px 24px rgba(0,0,0,0.4))"
@@ -187,7 +187,7 @@ function slotForOffset(off: number, isDark: boolean): Slot {
   };
   // RIGHT (next) — equal size to LEFT
   if (off === 1) return {
-    left: 1360, top: 168, width: 480, height: 480,
+    left: 1360, top: 192, width: 430, height: 430,
     imgScale: 0.78, blur: 4, brightness: isDark ? 0.72 : 0.9, opacity: isDark ? 1 : 0.6, z: 3,
     shadow: isDark
       ? "drop-shadow(0 16px 24px rgba(0,0,0,0.4))"
@@ -195,12 +195,12 @@ function slotForOffset(off: number, isDark: boolean): Slot {
   };
   // FAR LEFT — fades in from off-stage during rotation
   if (off === -2) return {
-    left: -300, top: 210, width: 400, height: 400,
+    left: -260, top: 230, width: 360, height: 360,
     imgScale: 0.6, blur: 8, brightness: isDark ? 0.5 : 0.9, opacity: 0, z: 1, shadow: "none",
   };
   // FAR RIGHT
   if (off === 2) return {
-    left: 1820, top: 210, width: 400, height: 400,
+    left: 1820, top: 230, width: 360, height: 360,
     imgScale: 0.6, blur: 8, brightness: isDark ? 0.5 : 0.9, opacity: 0, z: 1, shadow: "none",
   };
   // HIDDEN — parked behind centre
@@ -386,7 +386,7 @@ export const EquipmentBanner: React.FC = () => {
 
   // Figma headline = 210px on 1920 (10.94cqw); reduced 15% per request → 9.30cqw,
   // auto-shrinking for longer category names so they never overflow.
-  const headlineCqw = Math.min(10.5, 168.0 / slide.category.length);
+  const headlineCqw = Math.min(9.3, 148.8 / slide.category.length);
 
   const SpecCol = ({ s, scale = 1 }: { s: BannerStat; scale?: number }) => (
     <div className="flex flex-col items-center justify-center" style={{ gap: C(14 * scale) }}>
@@ -414,11 +414,11 @@ export const EquipmentBanner: React.FC = () => {
       </p>
 
       {/* ═══════════════ DESKTOP STAGE (lg+) — 1:1 Figma replica ═══════════════ */}
-      {/* Container is capped at 1792w so cqw-based typography stays controlled */}
+      {/* Container is capped at 1600w so cqw-based typography stays controlled */}
       {/* on ultra-wide monitors and the section height lands ~720–900px sweet spot. */}
       <div
         className="hidden lg:block relative w-full mx-auto"
-        style={{ aspectRatio: "1920 / 1030", maxWidth: "1792px", containerType: "inline-size" }}
+        style={{ aspectRatio: "1920 / 920", maxWidth: "1600px", containerType: "inline-size" }}
       >
         {/* Spotlight glow */}
         <div
@@ -437,7 +437,7 @@ export const EquipmentBanner: React.FC = () => {
           key={`hl-${slide.id}`}
           aria-hidden="true"
           className={`absolute z-[2] left-0 right-0 text-center font-[Malking-Regular] text-theme-accent whitespace-nowrap ${fade}`}
-          style={{ top: Y(220), fontSize: `${headlineCqw}cqw`, lineHeight: 1, letterSpacing: C(-4.2) }}
+          style={{ top: Y(201), fontSize: `${headlineCqw}cqw`, lineHeight: 1, letterSpacing: C(-4.2) }}
         >
           {slide.category}
         </div>
@@ -519,22 +519,22 @@ export const EquipmentBanner: React.FC = () => {
         {/* ── Bottom content row (model · specs · CTA) ───────────────── */}
         <div
           className="absolute z-[10] flex items-center justify-between"
-          style={{ left: X(329), top: Y(825), width: X(1262) }}
+          style={{ left: X(329), top: Y(735), width: X(1262) }}
         >
-          <div className="flex items-stretch" style={{ gap: C(25.8) }}>
-            <span aria-hidden="true" className="bg-theme-accent shrink-0" style={{ width: C(4.5), height: C(161.3) }} />
-            <div className="flex flex-col" style={{ gap: C(9) }}>
-              <h3 className={`font-clofieBold text-theme-text ${fade}`} key={`name-${slide.id}`} style={{ fontSize: C(47), lineHeight: 1.15 }}>{slide.modelName}</h3>
-              <p className={`font-glonimove text-theme-muted ${fade}`} key={`desc-${slide.id}`} style={{ width: C(340), fontSize: C(22.4), lineHeight: 1.4 }}>{slide.description}</p>
+          <div className="flex items-stretch" style={{ gap: C(23) }}>
+            <span aria-hidden="true" className="bg-theme-accent shrink-0" style={{ width: C(4), height: C(144) }} />
+            <div className="flex flex-col" style={{ gap: C(8) }}>
+              <h3 className={`font-clofieBold text-theme-text ${fade}`} key={`name-${slide.id}`} style={{ fontSize: C(42), lineHeight: 1.15 }}>{slide.modelName}</h3>
+              <p className={`font-glonimove text-theme-muted ${fade}`} key={`desc-${slide.id}`} style={{ width: C(301), fontSize: C(20), lineHeight: 1.4 }}>{slide.description}</p>
             </div>
           </div>
 
-          <ul className="flex items-center" style={{ gap: C(45) }} aria-label={`${slide.modelName} specifications`}>
+          <ul className="flex items-center" style={{ gap: C(40) }} aria-label={`${slide.modelName} specifications`}>
             {slide.stats.map((s, i) => (
               <React.Fragment key={`${s.label}-${i}`}>
-                <li><SpecCol s={s} scale={1.12} /></li>
+                <li><SpecCol s={s} /></li>
                 {i < slide.stats.length - 1 && (
-                  <li aria-hidden="true" className="bg-theme-text/20" style={{ width: 1.5, height: C(58) }} />
+                  <li aria-hidden="true" className="bg-theme-text/20" style={{ width: 1.5, height: C(52) }} />
                 )}
               </React.Fragment>
             ))}
@@ -543,11 +543,11 @@ export const EquipmentBanner: React.FC = () => {
           <Link
             to={`/equipment/${slide.productSlug}`}
             aria-label={`Explore more about ${slide.modelName}`}
-            className="inline-flex items-center bg-theme-accent text-theme-bg hover:bg-theme-text hover:text-theme-bg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-accent font-semibold tracking-wide"
-            style={{ paddingInline: C(24), paddingBlock: C(15), gap: C(14) }}
+            className="inline-flex items-center bg-theme-accent text-theme-bg hover:bg-theme-text hover:text-theme-bg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-accent"
+            style={{ paddingInline: C(20), paddingBlock: C(12), gap: C(12) }}
           >
-            <span className="font-googleSans font-medium" style={{ fontSize: C(27), letterSpacing: C(-0.5) }}>EXPLORE MORE</span>
-            <svg width="19" height="18" viewBox="0 0 19 18" fill="none" aria-hidden="true" style={{ width: C(21), height: "auto" }}>
+            <span className="font-googleSans font-medium" style={{ fontSize: C(24), letterSpacing: C(-0.48) }}>EXPLORE MORE</span>
+            <svg width="19" height="18" viewBox="0 0 19 18" fill="none" aria-hidden="true" style={{ width: C(19), height: "auto" }}>
               <path d="M17.4121 17V1H1.41211M17.4121 1L1.41211 15.4008" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
             </svg>
           </Link>

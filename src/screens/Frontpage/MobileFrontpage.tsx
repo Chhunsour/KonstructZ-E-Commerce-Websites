@@ -492,21 +492,21 @@ export const MobileFrontpage = (): JSX.Element => {
             </div>
           </Link>
 
-          {/* Card B: Skid Steer */}
+          {/* Card B: Trencher */}
           <Link
-            to="/product/skid-steer"
+            to="/product/trenchers"
             className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden group"
           >
             <div className="relative h-[120px] bg-[#2d1c15]/30 overflow-hidden flex items-center justify-center">
               <img
                 src="/img/change-the-aspect-ratio-to-202605291023-1.png"
-                alt="KonstructZ Skid Steers"
+                alt="KonstructZ Trenchers"
                 className="max-h-[100px] w-auto object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-3">
               <h4 className="font-heading text-[#d8c79a] text-xs uppercase tracking-wide">
-                Skid Steers
+                Trenchers
               </h4>
               <p className="font-googleSans text-[10px] text-white/60 mt-1 leading-snug">
                 Heavy loading & grading.

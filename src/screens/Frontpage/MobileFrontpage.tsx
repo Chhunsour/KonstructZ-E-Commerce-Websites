@@ -439,7 +439,7 @@ export const MobileFrontpage = (): JSX.Element => {
         {/* Section Heading */}
         <div className="flex flex-col gap-1 text-center">
           <span className="font-googleSans text-[10px] tracking-[0.2em] text-[#d8c79a] uppercase font-bold">
-            Typhon Machinery
+            KonstructZ
           </span>
           <h2 className="font-heading text-white text-3xl font-normal uppercase">
             Equipment Lineup
@@ -448,11 +448,14 @@ export const MobileFrontpage = (): JSX.Element => {
         </div>
 
         {/* 1. Main large product card first (focus) */}
-        <div className="relative w-full h-[240px] bg-[#1a1b1a] overflow-hidden border border-white/5 shadow-lg">
+        <Link
+          to="/equipment"
+          className="relative block w-full h-[240px] bg-[#1a1b1a] overflow-hidden border border-white/5 shadow-lg group"
+        >
           <img
             src="/img/rectangle-9581.png"
-            alt="Typhon Excavation Showcase"
-            className="w-full h-full object-cover"
+            alt="KonstructZ Excavation Showcase"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
           <div className="absolute bottom-4 left-4 right-4">
@@ -463,17 +466,20 @@ export const MobileFrontpage = (): JSX.Element => {
               Heavy Duty Commercial Grade
             </h3>
           </div>
-        </div>
+        </Link>
 
         {/* 2. Two smaller machine cards below it */}
         <div className="grid grid-cols-2 gap-4">
           {/* Card A: Excavator */}
-          <div className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden">
+          <Link
+            to="/product/excavator"
+            className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden group"
+          >
             <div className="relative h-[120px] bg-[#114f2f]/30 overflow-hidden flex items-center justify-center">
               <img
                 src="/img/remove-the-white-background-and-202605291020-1.png"
-                alt="Typhon Compact Excavators"
-                className="max-h-[100px] w-auto object-contain p-2"
+                alt="KonstructZ Compact Excavators"
+                className="max-h-[100px] w-auto object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-3">
@@ -484,15 +490,18 @@ export const MobileFrontpage = (): JSX.Element => {
                 Precision digging & trenching.
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Card B: Skid Steer */}
-          <div className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden">
+          <Link
+            to="/product/skid-steer"
+            className="flex flex-col bg-[#111211] border border-white/5 overflow-hidden group"
+          >
             <div className="relative h-[120px] bg-[#2d1c15]/30 overflow-hidden flex items-center justify-center">
               <img
                 src="/img/change-the-aspect-ratio-to-202605291023-1.png"
-                alt="Typhon Skid Steers"
-                className="max-h-[100px] w-auto object-contain p-2"
+                alt="KonstructZ Skid Steers"
+                className="max-h-[100px] w-auto object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-3">
@@ -503,7 +512,7 @@ export const MobileFrontpage = (): JSX.Element => {
                 Heavy loading & grading.
               </p>
             </div>
-          </div>
+          </Link>
         </div>
       </Reveal>
 

@@ -111,9 +111,17 @@ const mergeTyphon = (s: TyphonProduct, p: DbProduct): TyphonProduct => ({
   name: p.name || s.name,
   description: p.full_description || s.description,
   tagline: p.short_description || s.tagline,
-  image: s.originalImageSource || p.featured_image || s.image,
-  thumbnailImage: s.originalImageSource || p.thumbnail_image || s.thumbnailImage || p.featured_image || s.image,
-  gallery: s.originalGallerySources?.length ? s.originalGallerySources : p.gallery_images?.length ? p.gallery_images : s.gallery,
+  image: p.featured_image || p.thumbnail_image || s.image || s.originalImageSource || "",
+  thumbnailImage:
+    p.thumbnail_image || p.featured_image || s.thumbnailImage || s.image || s.originalImageSource || "",
+  gallery:
+    p.gallery_images?.length
+      ? p.gallery_images
+      : s.gallery.length
+        ? s.gallery
+        : s.originalGallerySources?.length
+          ? s.originalGallerySources
+          : [],
   imageImportWarnings: p.image_import_warnings?.length ? p.image_import_warnings : s.imageImportWarnings,
   price: p.price || s.price,
   buttonUrl: p.button_url || s.buttonUrl,

@@ -36,9 +36,12 @@ export const TyphonProductCard: React.FC<TyphonProductCardProps> = ({ product })
   const { t } = useI18n();
   const detailHref = getTyphonProductHref(product);
   const quoteHref = `/contact?product=${product.id}`;
-  const cardImage = product.originalImageSource || product.thumbnailImage || product.image;
-  const fallbackImage =
-    cardImage === product.image ? product.originalImageSource : product.image || product.thumbnailImage;
+  const imageCandidates = [
+    product.thumbnailImage,
+    product.image,
+    product.originalImageSource,
+  ].filter((value, index, values): value is string => Boolean(value) && values.indexOf(value) === index);
+  const [cardImage = "", fallbackImage] = imageCandidates;
 
   const quickSpecs = QUICK_SPECS.map((spec) => {
     const match = product.specs?.find(

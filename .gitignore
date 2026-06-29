@@ -16,9 +16,8 @@ dist-ssr
 # Synced product images — delivered to the server by the receiver, not via git
 static/uploads/
 
-# Product sync runtime output (written by the receiver, not source)
-static/data/products.json
-static/product-images/
+# Product sync manifest stays local; the catalog snapshot and product-images
+# are committed so git-based deploys can ship the current storefront state.
 static/api/storage/
 
 # Supabase CLI internal state

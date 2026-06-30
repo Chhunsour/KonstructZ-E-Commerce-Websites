@@ -15,11 +15,19 @@
  */
 import { DbProduct, DbProductCategory, supabase, supabaseConfigured } from "./supabase";
 
-const PRODUCTS_SOURCE = (import.meta.env.VITE_PRODUCTS_SOURCE as string | undefined) ?? "supabase";
+// NOTE: intentionally NOT keyed off VITE_PRODUCTS_SOURCE. Hostinger sets that
+// variable in its dashboard, where it overrides .env.production at build time and
+// silently forced the public storefront back to Supabase — making it ignore the
+// KiuQ-synced /data/products.json that the receiver writes. (Same Hostinger
+// override trap the blog system hit; see VITE_BLOG_SOURCE in blogStore.ts.)
+// Default to the synced local catalog so KiuQ + Sync actually drives the site;
+// only an explicit VITE_PRODUCTS_MODE=supabase opts back out (admin/master use).
+const PRODUCTS_SOURCE =
+  (import.meta.env.VITE_PRODUCTS_MODE as string | undefined) ?? "local";
 const LOCAL_CATALOG_URL =
   (import.meta.env.VITE_PRODUCTS_LOCAL_URL as string | undefined) ?? "/data/products.json";
 
-const useLocal = PRODUCTS_SOURCE === "local";
+const useLocal = PRODUCTS_SOURCE !== "supabase";
 
 /* ── local JSON source (synced catalog on this site) ───────────────────── */
 

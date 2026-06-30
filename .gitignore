@@ -21,6 +21,7 @@ dist/*
 !dist/fonts/
 !dist/icons/
 !dist/img/
+!dist/api/
 dist-qa*
 dist-ssr
 *.local

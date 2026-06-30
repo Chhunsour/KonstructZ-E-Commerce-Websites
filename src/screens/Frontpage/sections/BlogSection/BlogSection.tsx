@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../../../../context/I18nContext";
-import { blogPosts } from "../../../../data/blogPosts";
+import { blogPosts as staticBlogPosts } from "../../../../data/blogPosts";
+import { listPublicPosts, type PublicBlogSummary } from "../../../../lib/blogStore";
 import { Reveal } from "../../../../components/Reveal";
 import { Stagger } from "../../../../components/Stagger";
 
 export const BlogSection = (): JSX.Element => {
   const { t } = useI18n();
-  // Fetch the latest 3 posts
-  const posts = blogPosts.slice(0, 3);
+  const [posts, setPosts] = useState<PublicBlogSummary[]>(() =>
+    staticBlogPosts.slice(0, 3).map((p) => ({
+      id: String(p.id),
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      image: p.image,
+      author: p.author,
+      category: p.category,
+      date: p.date,
+      publishedAt: p.date,
+    }))
+  );
+
+  useEffect(() => {
+    let active = true;
+    listPublicPosts().then((rows) => {
+      if (active && rows.length > 0) {
+        setPosts(rows.slice(0, 3));
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   return (
     <section

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../../context/I18nContext";
 import { KonstructzLogo } from "./Navbar";
-import { blogPosts, getBlogPostHref } from "../../data/blogPosts";
+import { blogPosts as staticBlogPosts, getBlogPostHref } from "../../data/blogPosts";
+import { listPublicPosts, type PublicBlogSummary } from "../../lib/blogStore";
 
 type FooterVariant = "default" | "embedded";
 
@@ -81,7 +82,31 @@ const FooterColumn: React.FC<{ title: string; links: FooterLink[] }> = ({ title,
 
 export const Footer: React.FC<FooterProps> = ({ variant = "default", style }) => {
   const { t } = useI18n();
-  const recentBlogs = blogPosts.slice(0, 2);
+  const [recentBlogs, setRecentBlogs] = useState<PublicBlogSummary[]>(() =>
+    staticBlogPosts.slice(0, 2).map((p) => ({
+      id: String(p.id),
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      image: p.image,
+      author: p.author,
+      category: p.category,
+      date: p.date,
+      publishedAt: p.date,
+    }))
+  );
+
+  useEffect(() => {
+    let active = true;
+    listPublicPosts().then((rows) => {
+      if (active && rows.length > 0) {
+        setRecentBlogs(rows.slice(0, 2));
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const serviceLinks: FooterLink[] = [
     { label: t("nav.allLabel", { values: { label: t("nav.equipment") } }), href: "/categories" },

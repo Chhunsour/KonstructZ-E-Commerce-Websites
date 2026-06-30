@@ -3,7 +3,8 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MachineLogoSlider } from "../../components/sections/MachineLogoSlider";
 import { Reveal } from "../../components/Reveal";
-import { blogPosts } from "../../data/blogPosts";
+import { blogPosts as staticBlogPosts } from "../../data/blogPosts";
+import { listPublicPosts, type PublicBlogSummary } from "../../lib/blogStore";
 import "../../styles/home-reveal.css";
 
 const ProductSlider = () => {
@@ -284,6 +285,32 @@ const ProductSlider = () => {
 
 export const MobileFrontpage = (): JSX.Element => {
   const { t } = useI18n();
+  const [posts, setPosts] = useState<PublicBlogSummary[]>(() =>
+    staticBlogPosts.slice(0, 3).map((p) => ({
+      id: String(p.id),
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      image: p.image,
+      author: p.author,
+      category: p.category,
+      date: p.date,
+      publishedAt: p.date,
+    }))
+  );
+
+  useEffect(() => {
+    let active = true;
+    listPublicPosts().then((rows) => {
+      if (active && rows.length > 0) {
+        setPosts(rows.slice(0, 3));
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   const [activeModel, setActiveModel] = useState<"v950" | "v980">("v950");
   const v950Ref = useRef<HTMLVideoElement>(null);
   const v980Ref = useRef<HTMLVideoElement>(null);
@@ -633,7 +660,7 @@ export const MobileFrontpage = (): JSX.Element => {
         </div>
 
         <div className="flex flex-col gap-6 max-w-md mx-auto">
-          {blogPosts.slice(0, 3).map((post) => (
+          {posts.map((post) => (
             <Link
               key={post.id}
               to={`/blog/${post.slug}`}

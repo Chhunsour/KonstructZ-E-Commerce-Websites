@@ -1,24 +1,4 @@
 {
-    "posts": [
-        {
-            "id": "67bb1130-1733-4b94-a3f7-3e270bf31d5a",
-            "target_website_id": "4c83ba48-ad05-4528-857d-39f220e1f45f",
-            "slug": "testiong",
-            "title": "testiong",
-            "excerpt": "yes",
-            "content": "<p>yes</p>",
-            "category": "Equipment Guides",
-            "author": "",
-            "featuredImage": "/product-images/blog-testiong/blog-testiong-01-0a9016ed2f.png",
-            "featuredImageAlt": "",
-            "publishedAt": "2026-06-30T03:07:52.079+00:00",
-            "seoTitle": null,
-            "seoDescription": null,
-            "keywords": null,
-            "tags": [],
-            "updatedAt": "2026-06-30T03:07:52.079+00:00",
-            "_synced_at": "2026-06-30T03:07:54+00:00"
-        }
-    ],
-    "updated_at": "2026-06-30T03:07:54+00:00"
+    "posts": [],
+    "updated_at": "2026-06-30T00:00:00+00:00"
 }

@@ -135,7 +135,7 @@ export const HeaderSection = (): JSX.Element => {
         </span>
       </button>
       <a
-        href="/quote"
+        href="/contact"
         className="relative ml-6 mt-[29px] block h-[61px] w-[204.87px] shrink-0"
         aria-label={t("auto.header.get.a.quote")}
       >

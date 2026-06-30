@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { blogPosts, getBlogPostBySlug } from "../data/blogPosts";
 import { categories } from "../data/categories";
+import { getCategoryBySlug } from "../data/productCategories";
 import { products } from "../data/products";
 import { getTyphonProductById } from "../data/typhonProducts";
 import { normalizeBrandCopy } from "../lib/brandCopy";
@@ -21,92 +22,96 @@ type MetaConfig = {
   description: string;
   image?: string;
   type?: "website" | "article";
+  canonicalPath?: string;
   schema?: Record<string, unknown>[];
 };
 
-const categoryFaqs: Record<string, FAQ[]> = {
-  "mini-excavators": [
+const supportRouteFaqs: Record<string, FAQ[]> = {
+  "/support": [
     {
-      q: "What is a mini excavator used for?",
-      a: "A mini excavator is used for trenching, drainage, small foundations, landscaping, demolition prep, and utility work where access is tight.",
+      q: "How long does delivery take?",
+      a: "Most in-stock machines ship from our Commerce, CA depot within 2-4 business days, with transit times of 3-10 days depending on your destination. You'll receive tracking once your unit is dispatched.",
     },
     {
-      q: "Who should choose a mini excavator?",
-      a: "Choose a mini excavator if you need precise digging power on residential, landscaping, farm, or compact commercial worksites.",
-    },
-  ],
-  "skid-steer-loaders": [
-    {
-      q: "What is a skid steer loader used for?",
-      a: "A skid steer loader is used for loading, grading, cleanup, snow work, material handling, and powered attachments such as augers or trenchers.",
+      q: "What warranty comes with my machine?",
+      a: "Every Konstructz machine ships with a structural and powertrain warranty covering the frame, hydraulics, and diesel engine. Coverage length varies by model - full terms are on the Warranty & Returns page.",
     },
     {
-      q: "How do I choose the right skid steer?",
-      a: "Match the machine to lift class, ground conditions, hydraulic flow needs, transport limits, and attachment plans.",
+      q: "How do I know which attachment fits?",
+      a: "Attachment fit depends on your machine's mounting plate and hydraulic flow. Use our Attachments Support compatibility guide or send us your model and we'll confirm the right match.",
     },
   ],
-  "mini-skid-steers": [
+  "/support/order-purchase-support": [
     {
-      q: "What is a mini skid steer used for?",
-      a: "A mini skid steer is used for compact loading, grading, landscaping, cleanup, material handling, and attachment work where larger loaders cannot easily fit.",
+      q: "Can I change my order after paying a deposit?",
+      a: "Yes - modifications to model, attachments, or shipping address are possible before the dispatch stage. Contact purchase support with your order number to adjust.",
     },
     {
-      q: "How do I choose the right mini skid steer?",
-      a: "Match the machine to access width, operating surface, attachment needs, hydraulic flow, lift requirements, and transport setup.",
+      q: "Do you issue formal invoices for accounting?",
+      a: "Absolutely. Itemized invoices with tax and freight breakdowns are issued at order confirmation and on request for your records.",
     },
-  ],
-  trenchers: [
     {
-      q: "What is a trencher used for?",
-      a: "A trencher cuts narrow channels for irrigation, drainage, electrical conduit, fiber, water lines, and other utility runs.",
+      q: "Can I request a custom build configuration?",
+      a: "Yes - many machines accept optional auxiliary hydraulic kits, canopy upgrades, attachment plates, and lighting packages. Tell your specialist what the job site needs and they will confirm what is buildable and how it affects lead time.",
     },
   ],
-  "wheel-loaders": [
+  "/support/shipping-delivery": [
     {
-      q: "What is a wheel loader best for?",
-      a: "A wheel loader is best for loading, stockpiling, moving aggregate, clearing yards, and repeated material handling on firm ground.",
+      q: "How long does delivery take?",
+      a: "In-stock machines dispatch within 2-4 business days, then 3-10 days in transit depending on distance. Coast-to-coast freight sits at the longer end of that range.",
+    },
+    {
+      q: "Can I pick up my machine from the warehouse?",
+      a: "Yes. Warehouse pickup is available at our Commerce, CA depot by appointment once your unit clears pre-delivery inspection.",
+    },
+    {
+      q: "What happens if my shipment arrives damaged?",
+      a: "Note any damage on the delivery receipt, photograph it immediately, and contact our logistics team the same day so we can open a freight claim and arrange resolution.",
     },
   ],
-  dumpers: [
+  "/support/warranty-returns": [
     {
-      q: "What is a compact dumper used for?",
-      a: "A compact dumper hauls soil, concrete, aggregate, debris, and other materials across soft, narrow, or sloped jobsites.",
+      q: "What warranty comes with my machine?",
+      a: "Each machine includes structural, powertrain, and hydraulic coverage against manufacturing defects. Exact duration depends on the model and is listed on your purchase documents.",
+    },
+    {
+      q: "How do I file a warranty claim?",
+      a: "Submit your machine model, serial number, and issue details through Contact Support. The service team reviews the case, asks for photos or video if needed, and responds with the next practical step.",
+    },
+    {
+      q: "Does the warranty cover wear items?",
+      a: "Routine wear items such as filters, teeth, and fluids are maintenance responsibilities and are not covered, but we stock genuine replacements for all of them.",
     },
   ],
-  "stone-crushers": [
+  "/support/machine-guidance": [
     {
-      q: "What is a stone crusher used for?",
-      a: "A stone crusher reduces concrete, rubble, masonry, asphalt, and stone into usable fill or aggregate on or near the jobsite.",
+      q: "How do I choose between an excavator and a skid steer?",
+      a: "Choose an excavator for digging, trenching, and reach work; choose a skid steer for surface material handling, loading, and attachment versatility. Many job sites benefit from both.",
+    },
+    {
+      q: "Which machine is best for tight or residential sites?",
+      a: "Mini excavators and mini skid steers are built for confined access - they fit through gates and work close to structures without the footprint of full-size machines.",
+    },
+    {
+      q: "Can one machine run multiple attachments?",
+      a: "Yes. With the right mounting plate and hydraulic flow, a single machine can run buckets, augers, breakers, and more. See our Attachments Support guide for compatibility.",
     },
   ],
-  "backhoe-loaders": [
+  "/support/attachments-support": [
     {
-      q: "Why choose a backhoe loader?",
-      a: "A backhoe loader combines front loading and rear digging in one machine, making it useful for utility, farm, road, and site-prep work.",
+      q: "How do I maintain my attachments?",
+      a: "Grease pivot points regularly, inspect wear parts before each use, and store attachments off the ground. Our maintenance tips section covers the essentials per attachment type.",
     },
-  ],
-  "towable-excavators": [
     {
-      q: "Who should choose a towable excavator?",
-      a: "A towable excavator is useful for landowners, farms, remote maintenance crews, and smaller jobs that need portable digging power.",
+      q: "What hydraulic flow does my attachment need?",
+      a: "Each powered attachment lists a required GPM and PSI range. Running below spec underperforms; running above risks damage. We help you match attachment demand to machine output.",
+    },
+    {
+      q: "Can I run a high-flow attachment on a standard machine?",
+      a: "Only if the selected machine is configured for that attachment's hydraulic demand. Running a mismatched powered tool can underperform, overheat oil, or shorten seal life, so Konstructz confirms the setup before quoting.",
     },
   ],
 };
-
-const supportFaqs: FAQ[] = [
-  {
-    q: "What support is available after purchase?",
-    a: "Konstructz helps with order questions, delivery coordination, manuals, parts guidance, attachment fitment, technical support, and warranty or return questions.",
-  },
-  {
-    q: "How should I maintain compact machinery?",
-    a: "Follow the operator manual, grease pins regularly, check fluids and filters, inspect tracks or tires, keep attachments secure, and address leaks before work continues.",
-  },
-  {
-    q: "How do I get the right machine recommendation?",
-    a: "Share your job type, access limits, soil or surface conditions, attachment needs, transport setup, and expected duty cycle with the Konstructz team.",
-  },
-];
 
 const categoryMeta: Record<string, { title: string; description: string }> = {
   "mini-excavators": {
@@ -166,6 +171,16 @@ const staticMeta: Record<string, MetaConfig> = {
     title: "Konstructz Machine Lineup | Compact Equipment Guide",
     description:
       "Explore the Konstructz compact machinery lineup with buyer guidance, category summaries, attachment support, and jobsite-ready equipment options.",
+  },
+  "/categories": {
+    title: "Equipment Categories | Konstructz Compact Machinery",
+    description:
+      "Compare Konstructz equipment categories including mini excavators, skid steers, wheel loaders, trenchers, dumpers, crushers, backhoes, and towable excavators.",
+  },
+  "/product": {
+    title: "Konstructz Product Store | Machines, Parts & Attachments",
+    description:
+      "Browse the Konstructz product store for compact machinery, attachments, parts, and purchase options connected to the equipment catalog.",
   },
   "/typhon-machinery": {
     title: "Typhon Products | Konstructz",
@@ -232,17 +247,66 @@ const staticMeta: Record<string, MetaConfig> = {
     description:
       "Contact Konstructz to request a quote, confirm machine fit, ask about attachments, discuss delivery, or get support from the equipment team.",
   },
+  "/quality-equipment": {
+    title: "Quality Equipment | Konstructz Compact Machinery",
+    description:
+      "Learn how Konstructz presents compact equipment with clear machine guidance, category context, and practical buyer support.",
+  },
+  "/trusted-support": {
+    title: "Trusted Support | Konstructz Sales, Parts & Service Help",
+    description:
+      "See how Konstructz supports equipment buyers with sales guidance, attachment fitment help, delivery coordination, and after-sales support.",
+  },
+  "/job-site-ready": {
+    title: "Job-Site Ready Equipment | Konstructz",
+    description:
+      "Explore the Konstructz focus on compact machinery configured for real access limits, worksite conditions, attachments, and support needs.",
+  },
+  "/long-term-value": {
+    title: "Long-Term Equipment Value | Konstructz",
+    description:
+      "Learn how Konstructz helps buyers consider configuration, serviceability, attachment fitment, and practical long-term equipment use.",
+  },
+  "/privacy": {
+    title: "Privacy Policy | Konstructz",
+    description:
+      "Read the Konstructz privacy policy for information about site data, customer inquiries, lead forms, and communication handling.",
+  },
+  "/policy": {
+    title: "Website Policy | Konstructz",
+    description:
+      "Review Konstructz website policies for public site use, equipment information, support inquiries, and customer communication.",
+  },
   "/blog": {
     title: "Construction Machinery Blog | Konstructz Guides & Safety",
     description:
       "Read Konstructz articles about compact equipment, machine safety, buying guidance, attachments, construction workflows, and jobsite planning.",
   },
   "/media": {
-    title: "Construction Machinery Blog | Konstructz Guides & Safety",
+    title: "Construction Machinery Media & Equipment Articles | Konstructz",
     description:
-      "Read Konstructz articles about compact equipment, machine safety, buying guidance, attachments, construction workflows, and jobsite planning.",
+      "Browse Konstructz media and equipment articles. The canonical blog archive is available at /blog for search indexing.",
+    canonicalPath: "/blog",
   },
 };
+
+const toAbsoluteImage = (image?: string) =>
+  image ? (image.startsWith("http") ? image : `${SITE_URL}${image}`) : undefined;
+
+const cleanDescription = (value: string, maxLength = 158) => {
+  const plain = getPlainText(value).replace(/\s+/g, " ").trim();
+  if (plain.length <= maxLength) return plain;
+  return `${plain.slice(0, maxLength - 1).replace(/\s+\S*$/, "")}.`;
+};
+
+const productProperties = (specs: { label: string; value: string }[]) =>
+  specs
+    .filter((spec) => spec.label.trim() && spec.value.trim())
+    .map((spec) => ({
+      "@type": "PropertyValue",
+      name: spec.label,
+      value: spec.value,
+    }));
 
 const upsertMeta = (selector: string, create: () => HTMLMetaElement, content: string) => {
   let tag = document.head.querySelector<HTMLMetaElement>(selector);
@@ -333,18 +397,27 @@ const getRouteConfig = (pathname: string): MetaConfig => {
   if (productMatch) {
     const product = products.find((item) => item.id === productMatch[1]);
     if (product) {
+      const productUrl = `${SITE_URL}/equipment/${product.id}`;
+      const images = (product.gallery?.length ? product.gallery : [product.image])
+        .map(toAbsoluteImage)
+        .filter(Boolean);
       return {
         title: `${product.name} ${product.categoryLabel} | Konstructz Equipment`,
-        description: `${product.name} is a Konstructz ${product.categoryLabel.toLowerCase()} for ${getPlainText(product.description).toLowerCase()} Review applications, buyer guidance, support, and attachment fitment.`,
-        image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
+        description: cleanDescription(
+          `${product.name} is a Konstructz ${product.categoryLabel.toLowerCase()} for ${product.description} Review specs, applications, support, and attachment guidance.`
+        ),
+        image: toAbsoluteImage(product.image),
         schema: [
           {
             "@type": "Product",
+            "@id": `${productUrl}#product`,
             name: product.name,
             brand: { "@type": "Brand", name: SITE_NAME },
             category: product.categoryLabel,
             description: getPlainText(product.description),
-            image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
+            url: productUrl,
+            image: images,
+            additionalProperty: productProperties(product.specs),
           },
         ],
       };
@@ -355,20 +428,31 @@ const getRouteConfig = (pathname: string): MetaConfig => {
   if (typhonProductMatch) {
     const product = getTyphonProductById(typhonProductMatch[1]);
     if (product) {
+      const productUrl = `${SITE_URL}/typhon-machinery/${product.id}`;
+      const images = (product.gallery?.length ? product.gallery : [product.image])
+        .map(toAbsoluteImage)
+        .filter(Boolean);
+      const productSchema: Record<string, unknown> = {
+        "@type": "Product",
+        "@id": `${productUrl}#product`,
+        name: product.name,
+        brand: { "@type": "Brand", name: "Typhon" },
+        category: product.categoryLabel,
+        description: getPlainText(normalizeBrandCopy(product.description)),
+        url: productUrl,
+        image: images,
+        additionalProperty: productProperties(product.specs),
+      };
+      if (product.sku) productSchema.sku = product.sku;
+      if (product.gtin) productSchema.gtin = product.gtin;
+
       return {
         title: `${product.name} ${product.categoryLabel} | Typhon`,
-        description: `${product.name} is a Typhon ${product.categoryLabel.toLowerCase()} for ${product.applications.join(", ").toLowerCase()}.`,
-        image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
-        schema: [
-          {
-            "@type": "Product",
-            name: product.name,
-            brand: { "@type": "Brand", name: "Typhon" },
-            category: product.categoryLabel,
-            description: getPlainText(normalizeBrandCopy(product.description)),
-            image: product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`,
-          },
-        ],
+        description: cleanDescription(
+          `${product.name} is a Typhon ${product.categoryLabel.toLowerCase()} for ${product.applications.join(", ").toLowerCase()}. SKU ${product.sku || "available on request"}.`
+        ),
+        image: toAbsoluteImage(product.image),
+        schema: [productSchema],
       };
     }
   }
@@ -377,43 +461,50 @@ const getRouteConfig = (pathname: string): MetaConfig => {
   if (blogMatch) {
     const post = getBlogPostBySlug(blogMatch[1]);
     if (post) {
+      const canonicalPath = `/blog/${post.slug}`;
       return {
         title: `${post.title} | Konstructz Blog`,
         description: post.excerpt,
-        image: post.image.startsWith("http") ? post.image : `${SITE_URL}${post.image}`,
+        image: toAbsoluteImage(post.image),
         type: "article",
+        canonicalPath,
         schema: [
           {
-            "@type": "Article",
+            "@type": "BlogPosting",
+            "@id": `${SITE_URL}${canonicalPath}#article`,
             headline: post.title,
             description: post.excerpt,
-            image: post.image.startsWith("http") ? post.image : `${SITE_URL}${post.image}`,
+            image: toAbsoluteImage(post.image),
             author: { "@type": "Person", name: post.author },
             publisher: { "@id": `${SITE_URL}/#organization` },
             datePublished: post.date,
-            mainEntityOfPage: `${SITE_URL}${pathname}`,
+            mainEntityOfPage: `${SITE_URL}${canonicalPath}`,
           },
         ],
       };
     }
   }
 
-  const categorySlug = pathname.replace("/equipment/", "");
-  if (categoryMeta[categorySlug]) {
-    const category = categories.find((item) => item.slug === categorySlug || item.id === categorySlug);
+  const categoryMatch = pathname.match(/^\/(?:product|equipment)\/([^/]+)$/);
+  const categorySlug = categoryMatch?.[1] ?? "";
+  const categoryConfig = getCategoryBySlug(categorySlug);
+  if (categoryConfig) {
+    const legacyCategory = categories.find((item) => item.slug === categorySlug || item.id === categorySlug);
+    const preferredPath = `/product/${categorySlug}`;
     return {
-      ...categoryMeta[categorySlug],
-      image: category?.image
-        ? category.image.startsWith("http")
-          ? category.image
-          : `${SITE_URL}${category.image}`
-        : DEFAULT_IMAGE,
-      schema: categoryFaqs[categorySlug] ? [faqSchema(categoryFaqs[categorySlug])] : undefined,
+      ...(categoryMeta[categorySlug] ?? {
+        title: `${categoryConfig.name} | Konstructz Equipment`,
+        description: categoryConfig.shortDescription,
+      }),
+      canonicalPath: preferredPath,
+      image: toAbsoluteImage(categoryConfig.heroImage || legacyCategory?.image) ?? DEFAULT_IMAGE,
+      schema: categoryConfig.faqs.length ? [faqSchema(categoryConfig.faqs)] : undefined,
     };
   }
 
   const config = staticMeta[pathname] ?? staticMeta["/"];
-  const schema = pathname.startsWith("/support") ? [faqSchema(supportFaqs), ...(config.schema ?? [])] : config.schema;
+  const routeFaqs = supportRouteFaqs[pathname];
+  const schema = routeFaqs ? [faqSchema(routeFaqs), ...(config.schema ?? [])] : config.schema;
   return { ...config, schema };
 };
 
@@ -423,7 +514,8 @@ export const SeoManager = () => {
   useEffect(() => {
     const pathname = location.pathname === "" ? "/" : location.pathname;
     const config = getRouteConfig(pathname);
-    const canonical = `${SITE_URL}${pathname === "/" ? "/" : pathname}`;
+    const canonicalPath = config.canonicalPath ?? pathname;
+    const canonical = `${SITE_URL}${canonicalPath === "/" ? "/" : canonicalPath}`;
     const image = config.image ?? DEFAULT_IMAGE;
 
     document.title = config.title;
@@ -460,11 +552,21 @@ export const SeoManager = () => {
       tag.setAttribute("property", "og:type");
       return tag;
     }, config.type ?? "website");
+    upsertMeta('meta[property="og:site_name"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("property", "og:site_name");
+      return tag;
+    }, SITE_NAME);
     upsertMeta('meta[property="og:url"]', () => {
       const tag = document.createElement("meta");
       tag.setAttribute("property", "og:url");
       return tag;
     }, canonical);
+    upsertMeta('meta[name="twitter:card"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("name", "twitter:card");
+      return tag;
+    }, "summary_large_image");
     upsertMeta('meta[property="og:image"]', () => {
       const tag = document.createElement("meta");
       tag.setAttribute("property", "og:image");
@@ -488,7 +590,7 @@ export const SeoManager = () => {
     ensureCanonical(canonical);
 
     document.head.querySelectorAll('script[data-konstructz-schema="true"]').forEach((node) => node.remove());
-    const graph = [...baseSchema(), breadcrumbSchema(pathname), ...(config.schema ?? [])];
+    const graph = [...baseSchema(), breadcrumbSchema(canonicalPath), ...(config.schema ?? [])];
     const schemaTag = document.createElement("script");
     schemaTag.type = "application/ld+json";
     schemaTag.dataset.konstructzSchema = "true";

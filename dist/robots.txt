@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /sour
+Disallow: /sour/
+Disallow: /api/
+Disallow: /*?preview=
+
+Sitemap: https://konstructz.com/sitemap.xml

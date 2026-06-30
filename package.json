@@ -11,6 +11,8 @@
     "import:typhon": "node scripts/build-typhon-products.cjs",
     "repair:typhon-images": "node scripts/build-typhon-products.cjs",
     "repair:product-images": "node scripts/repair-product-images.mjs",
+    "seo:generate": "node scripts/generate-seo-files.mjs",
+    "seo:check": "node scripts/validate-seo.mjs",
     "translate": "node scripts/translate.cjs",
     "compile-i18n": "node scripts/compile-dictionaries.cjs"
   },

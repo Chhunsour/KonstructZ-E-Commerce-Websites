@@ -12,6 +12,8 @@ dist/*
 !dist/index.html
 !dist/assets/
 !dist/.htaccess
+!dist/robots.txt
+!dist/sitemap.xml
 !dist/favicon.ico
 !dist/favicon-16x16.png
 !dist/favicon-32x32.png

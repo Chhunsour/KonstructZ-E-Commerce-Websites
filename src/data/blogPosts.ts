@@ -27,7 +27,7 @@ export const blogCategories = [
 
 export const latestBlogPosts: BlogPost[] = [];
 
-export const getBlogPostHref = (post: Pick<BlogPost, "slug">) => `/media/${post.slug}`;
+export const getBlogPostHref = (post: Pick<BlogPost, "slug">) => `/blog/${post.slug}`;
 
 export const getBlogPostBySlug = (slug: string | undefined) =>
   blogPosts.find((post) => post.slug === slug);

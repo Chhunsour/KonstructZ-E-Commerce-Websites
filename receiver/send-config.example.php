@@ -19,7 +19,7 @@ define('SMTP_USER', 'sales@konstructz.com');        // full email address
 define('SMTP_PASS', 'paste-the-mailbox-password-here');
 
 // ── Where the message is sent and how it appears ──
-define('MAIL_TO',        'sales@konstructz.com');    // inbox that receives leads
+define('MAIL_TO',        'support@konstructz.com');    // inbox that receives leads
 define('MAIL_FROM',      'sales@konstructz.com');    // should match SMTP_USER
 define('MAIL_FROM_NAME', 'Konstructz Website');
 

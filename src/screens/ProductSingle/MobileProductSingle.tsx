@@ -28,7 +28,14 @@ const toComparable = (p: Product): ComparableMachine => ({
  */
 export const MobileProductSingle: React.FC<{ product: Product }> = ({ product }) => {
   const { t } = useI18n();
-  const gallery = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
+  // Lead with the feature image (product.image = featured_image), de-duplicated,
+  // so the single page opens on the same image shown on the card.
+  const gallery = (() => {
+    const feat = product.image;
+    const rest = (product.gallery ?? []).filter((u) => u && u !== feat);
+    const list = feat ? [feat, ...rest] : rest;
+    return list.length > 0 ? list : [product.image];
+  })();
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState(false);
 

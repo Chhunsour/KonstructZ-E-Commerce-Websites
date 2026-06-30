@@ -92,12 +92,18 @@ export const TyphonProductSingle: React.FC<TyphonProductSingleProps> = ({ produc
   const richDescription = getDbProduct("typhon", product.id)?.full_description?.trim();
   const localGallery = product.gallery.filter(Boolean);
   const originalGallery = product.originalGallerySources?.filter(Boolean) ?? [];
-  const gallery =
+  const baseGallery =
     localGallery.length > 0
       ? localGallery
       : originalGallery.length > 0
         ? originalGallery
         : [product.image, product.originalImageSource].filter(Boolean);
+  // Lead with the feature image (product.image = featured_image), de-duplicated,
+  // so the single page opens on the same image shown on the card.
+  const feat = product.image;
+  const gallery = feat
+    ? [feat, ...baseGallery.filter((u) => u && u !== feat)]
+    : baseGallery;
   const fallbackGallery =
     originalGallery.length > 0 ? originalGallery : [product.originalImageSource].filter(Boolean);
   const [activeImage, setActiveImage] = useState(0);

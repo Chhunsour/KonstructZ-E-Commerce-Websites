@@ -19,10 +19,14 @@ interface ProductSingleProps {
 
 export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
   const { t } = useI18n();
-  const gallery =
-    product.gallery && product.gallery.length > 0
-      ? product.gallery
-      : [product.image];
+  // Lead the gallery with the feature image (product.image = featured_image),
+  // de-duplicated, so the single page opens on the same image shown on the card.
+  const gallery = (() => {
+    const feat = product.image;
+    const rest = (product.gallery ?? []).filter((u) => u && u !== feat);
+    const list = feat ? [feat, ...rest] : rest;
+    return list.length > 0 ? list : [product.image];
+  })();
   const [activeImgIdx, setActiveImgIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 

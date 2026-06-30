@@ -1,0 +1,11 @@
+# SPA routing for BrowserRouter (clean URLs, no #/).
+# Serve real files/folders as-is; route everything else to index.html so
+# deep links and refreshes (e.g. /product/mini-excavators, /blog/foo) work.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

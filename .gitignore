@@ -8,7 +8,17 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+dist/*
+!dist/index.html
+!dist/assets/
+!dist/.htaccess
+!dist/favicon.ico
+!dist/favicon-16x16.png
+!dist/favicon-32x32.png
+!dist/apple-touch-icon.png
+!dist/fonts/
+!dist/icons/
+!dist/img/
 dist-qa*
 dist-ssr
 *.local

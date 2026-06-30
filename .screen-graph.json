@@ -296,15 +296,15 @@
   ],
   "edges": [
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:273:12-to-src/pages/AllEquipment.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:420:12-to-src/pages/AllEquipment.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link\n              to=\"/equipment\"\n              className=\"px-5 py-3 bg-[#153d28] text-white font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.explore.equipment\")}</Link>",
-          "line": 273,
-          "endLine": 276,
+          "line": 420,
+          "endLine": 423,
           "column": 12,
           "endColumn": 65,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -312,15 +312,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:277:12-to-src/pages/Contact.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:424:12-to-src/pages/Contact.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n              to=\"/contact\"\n              className=\"px-5 py-3 border-2 border-[#d8c79a] text-[#d8c79a] font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.get.a.quote\")}</Link>",
-          "line": 277,
-          "endLine": 280,
+          "line": 424,
+          "endLine": 427,
           "column": 12,
           "endColumn": 59,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -328,15 +328,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:461:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:672:10-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/blog",
         "trigger": {
           "element": "<Link\n            to=\"/blog\"\n            className=\"w-full max-w-md py-4 bg-[#153d28] text-white text-center font-googleSans font-bold text-base tracking-wide flex items-center justify-center gap-2 btn\"\n          >\n            <span>EXPLORE ALL ARTICLES</span>\n            <span>→</span>\n          </Link>",
-          "line": 461,
-          "endLine": 467,
+          "line": 672,
+          "endLine": 678,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -430,7 +430,7 @@
       "data": {
         "viaRoute": "/contact",
         "trigger": {
-          "element": "<Link\n                to=\"/contact\"\n                className=\"k-btn-lift inline-flex items-center justify-center gap-2 bg-[#d8c79a] px-6 py-4 font-googleSans text-sm font-bold uppercase tracking-wider text-[#153d28] hover:bg-white transition-colors\"\n              >\n                Get a Quote\n                <svg width=\"14\" height=\"10\" viewBox=\"0 0 14 10\" fill=\"none\" aria-hidden=\"true\">\n                  <path d=\"M1 5h12m0 0L9 1m4 4l-4 4\" stroke=\"currentColor\" strokeWidth=\"1.8\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n                </svg>\n              </Link>",
+          "element": "<Link\n                to=\"/contact\"\n                className=\"k-btn-lift inline-flex items-center justify-center gap-2 bg-[#d8c79a] px-6 py-4 font-googleSans text-sm font-bold uppercase tracking-wider text-[#153d28] hover:bg-white transition-colors\"\n              >\n                {t(\"action.getAQuote\", { fallback: \"Get a Quote\" })}\n                <svg width=\"14\" height=\"10\" viewBox=\"0 0 14 10\" fill=\"none\" aria-hidden=\"true\">\n                  <path d=\"M1 5h12m0 0L9 1m4 4l-4 4\" stroke=\"currentColor\" strokeWidth=\"1.8\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n                </svg>\n              </Link>",
           "line": 226,
           "endLine": 234,
           "column": 14,
@@ -446,7 +446,7 @@
       "data": {
         "viaRoute": "/support/machine-guidance",
         "trigger": {
-          "element": "<Link\n                to=\"/support/machine-guidance\"\n                className=\"k-btn-lift inline-flex items-center justify-center gap-2 border border-white/40 px-6 py-4 font-googleSans text-sm font-bold uppercase tracking-wider text-white hover:border-[#d8c79a] hover:text-[#d8c79a] transition-colors\"\n              >\n                Machine Guidance\n              </Link>",
+          "element": "<Link\n                to=\"/support/machine-guidance\"\n                className=\"k-btn-lift inline-flex items-center justify-center gap-2 border border-white/40 px-6 py-4 font-googleSans text-sm font-bold uppercase tracking-wider text-white hover:border-[#d8c79a] hover:text-[#d8c79a] transition-colors\"\n              >\n                {t(\"auto.machineguidance.machine.guidance\", { fallback: \"Machine Guidance\" })}\n              </Link>",
           "line": 235,
           "endLine": 240,
           "column": 14,
@@ -456,15 +456,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/ProductCategoryPage.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -568,15 +568,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -680,15 +680,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -792,15 +792,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -904,15 +904,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -1016,15 +1016,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -1128,15 +1128,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -1240,15 +1240,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -1352,15 +1352,15 @@
       }
     },
     {
-      "id": "src/pages/ProductCategoryPage.tsx:40:10-to-src/pages/ProductOverview.tsx",
+      "id": "src/pages/ProductCategoryPage.tsx:41:10-to-src/pages/ProductOverview.tsx",
       "source": "src/pages/equipment/MiniExcavators.tsx",
       "target": "src/pages/ProductOverview.tsx",
       "data": {
         "viaRoute": "/categories",
         "trigger": {
-          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            All Equipment Categories\n          </Link>",
-          "line": 40,
-          "endLine": 45,
+          "element": "<Link\n            to=\"/categories\"\n            className=\"mt-8 inline-flex items-center gap-2 bg-theme-accent px-6 py-3 font-googleSans text-sm font-bold uppercase tracking-wider text-theme-bg hover:bg-brand-green hover:text-white transition-colors\"\n          >\n            {t(\"categories.viewAllCategories\", { fallback: \"All Equipment Categories\" })}\n          </Link>",
+          "line": 41,
+          "endLine": 46,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/pages/ProductCategoryPage.tsx"
@@ -1480,15 +1480,15 @@
       }
     },
     {
-      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:47:10-to-src/pages/Home.tsx",
+      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:49:10-to-src/pages/Home.tsx",
       "source": "src/pages/ProductDetail.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link to=\"/\" className=\"hover:text-theme-accent\">{t(\"nav.home\")}</Link>",
-          "line": 47,
-          "endLine": 47,
+          "line": 49,
+          "endLine": 49,
           "column": 10,
           "endColumn": 81,
           "sourceFile": "src/screens/ProductSingle/MobileProductSingle.tsx"
@@ -1496,15 +1496,15 @@
       }
     },
     {
-      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:49:10-to-src/pages/AllEquipment.tsx",
+      "id": "src/screens/ProductSingle/MobileProductSingle.tsx:51:10-to-src/pages/AllEquipment.tsx",
       "source": "src/pages/ProductDetail.tsx",
       "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link to=\"/equipment\" className=\"hover:text-theme-accent\">{t(\"nav.equipment\")}</Link>",
-          "line": 49,
-          "endLine": 49,
+          "line": 51,
+          "endLine": 51,
           "column": 10,
           "endColumn": 95,
           "sourceFile": "src/screens/ProductSingle/MobileProductSingle.tsx"
@@ -1576,15 +1576,15 @@
       }
     },
     {
-      "id": "src/pages/TyphonProductDetail.tsx:22:8-to-src/pages/TyphonCatalog.tsx",
+      "id": "src/pages/TyphonProductDetail.tsx:26:8-to-src/pages/TyphonCatalog.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/TyphonCatalog.tsx",
       "data": {
         "viaRoute": "/typhon-machinery",
         "trigger": {
-          "element": "<Link\n          to=\"/typhon-machinery\"\n          className=\"mt-7 inline-flex min-h-[48px] items-center justify-center bg-[#d8c79a] px-6 font-googleSans font-bold text-[#153d28]\"\n        >\n          Back to Typhon catalog\n        </Link>",
-          "line": 22,
-          "endLine": 27,
+          "element": "<Link\n          to=\"/typhon-machinery\"\n          className=\"mt-7 inline-flex min-h-[48px] items-center justify-center bg-[#d8c79a] px-6 font-googleSans font-bold text-[#153d28]\"\n        >\n          {t(\"catalog.backToCatalog\", { fallback: \"Back to Typhon catalog\" })}\n        </Link>",
+          "line": 26,
+          "endLine": 31,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src/pages/TyphonProductDetail.tsx"
@@ -1592,15 +1592,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:134:10-to-src/pages/Home.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:163:10-to-src/pages/Home.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link to=\"/\" className=\"hover:text-white\">\n            Home\n          </Link>",
-          "line": 134,
-          "endLine": 136,
+          "element": "<Link to=\"/\" className=\"hover:text-[#153d28] dark:hover:text-[#d8c79a] text-neutral-600 dark:text-white/60 transition-colors\">\n            {t(\"nav.home\", { fallback: \"Home\" })}\n          </Link>",
+          "line": 163,
+          "endLine": 165,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1608,15 +1608,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:138:10-to-src/pages/TyphonCatalog.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:167:10-to-src/pages/TyphonCatalog.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/TyphonCatalog.tsx",
       "data": {
         "viaRoute": "/typhon-machinery",
         "trigger": {
-          "element": "<Link to=\"/typhon-machinery\" className=\"hover:text-white\">\n            Typhon Machinery\n          </Link>",
-          "line": 138,
-          "endLine": 140,
+          "element": "<Link to=\"/typhon-machinery\" className=\"hover:text-[#153d28] dark:hover:text-[#d8c79a] text-neutral-600 dark:text-white/60 transition-colors\">\n            {t(\"nav.typhonMachinery\", { fallback: \"Typhon\" })}\n          </Link>",
+          "line": 167,
+          "endLine": 169,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1624,15 +1624,15 @@
       }
     },
     {
-      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:470:10-to-src/pages/TyphonCatalog.tsx",
+      "id": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx:525:10-to-src/pages/TyphonCatalog.tsx",
       "source": "src/pages/TyphonProductDetail.tsx",
       "target": "src/pages/TyphonCatalog.tsx",
       "data": {
         "viaRoute": "/typhon-machinery",
         "trigger": {
-          "element": "<Link to=\"/typhon-machinery\" className=\"font-googleSans text-sm font-bold uppercase text-[#d8c79a] hover:text-white\">\n            View Typhon Catalog\n          </Link>",
-          "line": 470,
-          "endLine": 472,
+          "element": "<Link to=\"/typhon-machinery\" className=\"font-googleSans text-sm font-bold uppercase text-[#8c7a52] dark:text-[#d8c79a] hover:text-[#153d28] dark:hover:text-white transition-colors\">\n            {t(\"product.viewCatalog\", { fallback: \"View Typhon Catalog\" })}\n          </Link>",
+          "line": 525,
+          "endLine": 527,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/TyphonProductSingle/TyphonProductSingle.tsx"
@@ -1816,15 +1816,15 @@
       }
     },
     {
-      "id": "src/screens/About/MobileAbout.tsx:257:8-to-src/pages/Contact.tsx",
+      "id": "src/screens/About/MobileAbout.tsx:252:8-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n          to=\"/contact\"\n          className=\"mt-8 flex items-center justify-center bg-[#153d28] py-4 text-white font-googleSans text-lg shadow hover:bg-brand-green transition-colors\"\n        >{t(\"auto.mobileabout.get.a.quote\")}</Link>",
-          "line": 257,
-          "endLine": 260,
+          "line": 252,
+          "endLine": 255,
           "column": 8,
           "endColumn": 51,
           "sourceFile": "src/screens/About/MobileAbout.tsx"
@@ -1880,15 +1880,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:206:2-to-src/pages/AllEquipment.tsx",
+      "id": "src/components/layout/Navbar.tsx:175:2-to-src/pages/AllEquipment.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link\n    to=\"/equipment\"\n    aria-label={label}\n    className={className}\n  >\n    <svg\n      width=\"15\"\n      height=\"15\"\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2.25\"\n      className=\"transition-colors\"\n    >\n      <circle cx=\"11\" cy=\"11\" r=\"7\" />\n      <path d=\"M21 21L16.65 16.65\" strokeLinecap=\"round\" />\n    </svg>\n  </Link>",
-          "line": 206,
-          "endLine": 223,
+          "line": 175,
+          "endLine": 192,
           "column": 2,
           "endColumn": 9,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1896,15 +1896,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:392:10-to-src/pages/Home.tsx",
+      "id": "src/components/layout/Navbar.tsx:398:10-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n            <KonstructzLogo height={61.6} isDark={theme === \"light\" && !useLightHeader} />\n          </Link>",
-          "line": 392,
-          "endLine": 394,
+          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n            <KonstructzLogo height={61.6} isDark={(theme === \"light\" && !useLightHeader) || isLightPage} />\n          </Link>",
+          "line": 398,
+          "endLine": 400,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1912,15 +1912,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:654:12-to-src/pages/Contact.tsx",
+      "id": "src/components/layout/Navbar.tsx:701:12-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
-          "element": "<Link\n              to=\"/contact\"\n              className={`flex h-[32px] min-w-[98px] items-center justify-center border rounded-[3px] px-[15px] cursor-pointer bg-transparent transition-all duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#68825B] ${\n                scrolled\n                  ? \"border-theme-border text-theme-text hover:bg-theme-border/10\"\n                  : useLightHeader\n                    ? \"border-[#68825B] text-white hover:bg-white/10\"\n                    : \"border-[#153d28] text-[#212121] hover:bg-black/5\"\n              }`}\n            >\n              <span className={`${headerActionTextClass} whitespace-nowrap`}>\n                {t(\"action.getAQuote\")}\n              </span>\n            </Link>",
-          "line": 654,
-          "endLine": 667,
+          "element": "<Link\n              to=\"/contact\"\n              className={headerQuoteButtonClass}\n            >\n              <span className={`${headerActionTextClass} whitespace-nowrap`}>\n                {t(\"action.getAQuote\")}\n              </span>\n            </Link>",
+          "line": 701,
+          "endLine": 708,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1928,15 +1928,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:682:8-to-src/pages/Home.tsx",
+      "id": "src/components/layout/Navbar.tsx:723:8-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n          <KonstructzLogo height={36.96} isDark={theme === \"light\" && !useLightHeader} />\n        </Link>",
-          "line": 682,
-          "endLine": 684,
+          "element": "<Link to=\"/\" className=\"shrink-0\" aria-label={t(\"auto.navbar.go.to.homepage\")}>\n          <KonstructzLogo height={36.96} isDark={(theme === \"light\" && !useLightHeader) || isLightPage} />\n        </Link>",
+          "line": 723,
+          "endLine": 725,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1944,15 +1944,15 @@
       }
     },
     {
-      "id": "src/components/layout/Navbar.tsx:984:10-to-src/pages/Contact.tsx",
+      "id": "src/components/layout/Navbar.tsx:1036:10-to-src/pages/Contact.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n            to=\"/contact\"\n            className=\"text-center py-3 px-5 [font-family:'Clofie-Regular',Helvetica] text-lg leading-none text-white border border-white/25 bg-white/[0.04] hover:border-[#d8c79a] hover:text-[#d8c79a] active:translate-y-px transition-all duration-200\"\n          >\n            {t(\"action.getAQuote\")}\n          </Link>",
-          "line": 984,
-          "endLine": 989,
+          "line": 1036,
+          "endLine": 1041,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/components/layout/Navbar.tsx"
@@ -1960,15 +1960,15 @@
       }
     },
     {
-      "id": "src/pages/LegalPage.tsx:55:8-to-src/pages/Home.tsx",
+      "id": "src/pages/LegalPage.tsx:57:8-to-src/pages/Home.tsx",
       "source": "src/pages/LegalPage.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link\n          to=\"/\"\n          className=\"font-googleSans text-sm font-bold uppercase tracking-[0.16em] text-theme-accent transition-colors hover:text-brand-green\"\n        >\n          KonstructZ\n        </Link>",
-          "line": 55,
-          "endLine": 60,
+          "line": 57,
+          "endLine": 62,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src/pages/LegalPage.tsx"
@@ -1976,15 +1976,15 @@
       }
     },
     {
-      "id": "src/pages/LegalPage.tsx:79:8-to-src/pages/Contact.tsx",
+      "id": "src/pages/LegalPage.tsx:81:8-to-src/pages/Contact.tsx",
       "source": "src/pages/LegalPage.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
-          "element": "<Link\n          to=\"/contact\"\n          className=\"mt-10 inline-flex min-h-[46px] items-center justify-center bg-theme-accent px-6 font-googleSans text-sm font-bold uppercase tracking-[0.12em] text-theme-bg transition-colors hover:bg-brand-green hover:text-white\"\n        >\n          Contact Us\n        </Link>",
-          "line": 79,
-          "endLine": 84,
+          "element": "<Link\n          to=\"/contact\"\n          className=\"mt-10 inline-flex min-h-[46px] items-center justify-center bg-theme-accent px-6 font-googleSans text-sm font-bold uppercase tracking-[0.12em] text-theme-bg transition-colors hover:bg-brand-green hover:text-white\"\n        >\n          {t(\"nav.contactUs\", { fallback: \"Contact Us\" })}\n        </Link>",
+          "line": 81,
+          "endLine": 86,
           "column": 8,
           "endColumn": 15,
           "sourceFile": "src/pages/LegalPage.tsx"
@@ -2088,31 +2088,31 @@
       }
     },
     {
-      "id": "src/pages/admin/ProductsDashboard.tsx:239:10-to-src/pages/admin/ProductEditor.tsx",
+      "id": "src/pages/admin/ProductsDashboard.tsx:200:8-to-src/pages/admin/ProductEditor.tsx",
       "source": "src/pages/admin/ProductsDashboard.tsx",
       "target": "src/pages/admin/ProductEditor.tsx",
       "data": {
         "viaRoute": "/sour/products/new",
         "trigger": {
-          "element": "<Link\n            to=\"/sour/products/new\"\n            className=\"inline-flex items-center justify-center bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded transition-colors\"\n          >\n            + New product\n          </Link>",
-          "line": 239,
-          "endLine": 244,
-          "column": 10,
-          "endColumn": 17,
+          "element": "<Link\n          to=\"/sour/products/new\"\n          className=\"inline-flex items-center justify-center bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded transition-colors\"\n        >\n          + New product\n        </Link>",
+          "line": 200,
+          "endLine": 205,
+          "column": 8,
+          "endColumn": 15,
           "sourceFile": "src/pages/admin/ProductsDashboard.tsx"
         }
       }
     },
     {
-      "id": "src/pages/admin/ProductsDashboard.tsx:353:12-to-src/pages/admin/ProductEditor.tsx",
+      "id": "src/pages/admin/ProductsDashboard.tsx:285:12-to-src/pages/admin/ProductEditor.tsx",
       "source": "src/pages/admin/ProductsDashboard.tsx",
       "target": "src/pages/admin/ProductEditor.tsx",
       "data": {
         "viaRoute": "/sour/products/new",
         "trigger": {
           "element": "<Link\n              to=\"/sour/products/new\"\n              className=\"inline-block bg-theme-accent text-theme-bg hover:bg-brand-green hover:text-white font-googleSans font-bold text-sm uppercase tracking-wider px-5 py-3 rounded transition-colors\"\n            >\n              + New product\n            </Link>",
-          "line": 353,
-          "endLine": 358,
+          "line": 285,
+          "endLine": 290,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src/pages/admin/ProductsDashboard.tsx"

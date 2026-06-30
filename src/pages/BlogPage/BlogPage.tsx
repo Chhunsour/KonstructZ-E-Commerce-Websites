@@ -419,7 +419,7 @@ export const BlogPage: React.FC = () => {
             </div>
 
             {/* Sidebar */}
-            <aside className="flex flex-col gap-6 lg:gap-8">
+            <aside className="flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start lg:gap-8">
               <SidebarBox title={t("blog.categories")}>
                 <ul className="flex flex-col gap-3">
                   {blogCategories.map((c) => (

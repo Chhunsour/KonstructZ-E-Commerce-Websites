@@ -48,9 +48,8 @@ import { AuthProvider, RequireAuth } from "./context/AuthContext";
 import { ProductsProvider } from "./context/ProductsContext";
 import { AdminLogin } from "./pages/admin/Login";
 import { AdminLayout } from "./pages/admin/AdminLayout";
-import { AdminDashboard } from "./pages/admin/Dashboard";
+import { BlogStudio } from "./pages/admin/BlogStudio";
 import { LeadsDashboard } from "./pages/admin/LeadsDashboard";
-import { PostEditor } from "./pages/admin/PostEditor";
 import { AdminCategories } from "./pages/admin/Categories";
 import { ProductsDashboard } from "./pages/admin/ProductsDashboard";
 import { ProductEditor } from "./pages/admin/ProductEditor";
@@ -203,10 +202,10 @@ const AppLayout: React.FC = () => {
               </RequireAuth>
             }
           >
-            <Route path="/sour/dashboard" element={<AdminDashboard />} />
+            <Route path="/sour/dashboard" element={<BlogStudio />} />
             <Route path="/sour/leads" element={<LeadsDashboard />} />
-            <Route path="/sour/posts/new" element={<PostEditor />} />
-            <Route path="/sour/posts/:id" element={<PostEditor />} />
+            <Route path="/sour/posts/new" element={<BlogStudio />} />
+            <Route path="/sour/posts/:id" element={<BlogStudio />} />
             <Route path="/sour/categories" element={<AdminCategories />} />
             <Route path="/sour/products" element={<ProductsDashboard />} />
             <Route path="/sour/products/new" element={<ProductEditor />} />

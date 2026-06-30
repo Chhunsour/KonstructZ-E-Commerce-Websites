@@ -1,0 +1,10 @@
+{
+  "categories": [
+    { "id": "equipment-guides", "name": "Equipment Guides", "slug": "equipment-guides", "description": "In-depth guides on construction equipment selection and use." },
+    { "id": "construction-tips", "name": "Construction Tips", "slug": "construction-tips", "description": "Practical jobsite tips and best practices." },
+    { "id": "product-knowledge", "name": "Product Knowledge", "slug": "product-knowledge", "description": "Deep dives into Konstructz machines and attachments." },
+    { "id": "maintenance", "name": "Maintenance", "slug": "maintenance", "description": "Servicing, upkeep, and longevity advice." },
+    { "id": "buying-guide", "name": "Buying Guide", "slug": "buying-guide", "description": "How to choose and purchase the right equipment." },
+    { "id": "company-updates", "name": "Company Updates", "slug": "company-updates", "description": "News and announcements from Konstructz." }
+  ]
+}

@@ -289,12 +289,64 @@ $action = $req['action'] ?? 'sync';
 if ($action === 'ping') {
     $store = read_json(PRODUCTS_PUBLIC_FILE, ['products' => []]);
     ok([
-        'version' => '1.0',
+        'version' => '1.1',
         'product_count' => is_array($store['products'] ?? null) ? count($store['products']) : 0,
         'gd' => extension_loaded('gd'),
         'curl' => function_exists('curl_init'),
         'writable' => is_writable(dirname(PRODUCTS_PUBLIC_FILE)) || @ensure_dir(dirname(PRODUCTS_PUBLIC_FILE)),
+        // Capabilities advertised to the KiuQ controller.
+        'features' => [
+            'product_sync'   => true,
+            'blog_sync'      => true,
+            'blog_categories' => true,
+            'image_import'   => true,
+        ],
     ]);
+}
+
+/* ── action: blog-categories (KiuQ → list this site's blog categories) ──── */
+if ($action === 'blog-categories') {
+    // Managed list lives next to blogs.json as /data/blog-categories.json.
+    // Accept either a bare array or { "categories": [...] }. If it's missing or
+    // empty, derive distinct categories from existing posts so the dropdown is
+    // never empty.
+    $catFile = rtrim(dirname(PRODUCTS_PUBLIC_FILE), '/') . '/blog-categories.json';
+    $raw = read_json($catFile, null);
+    $managed = is_array($raw) && isset($raw['categories']) && is_array($raw['categories'])
+        ? $raw['categories']
+        : (is_array($raw) ? $raw : []);
+
+    $out = [];
+    foreach ($managed as $c) {
+        if (!is_array($c)) continue;
+        $name = trim((string) ($c['name'] ?? ''));
+        if ($name === '') continue;
+        $slug = (string) ($c['slug'] ?? safe_slug($name));
+        $out[] = [
+            'id'          => (string) ($c['id'] ?? $slug),
+            'name'        => $name,
+            'slug'        => $slug,
+            'description' => (string) ($c['description'] ?? ''),
+            'post_count'  => isset($c['post_count']) ? (int) $c['post_count'] : null,
+        ];
+    }
+
+    if (count($out) === 0) {
+        $blogsFile = rtrim(dirname(PRODUCTS_PUBLIC_FILE), '/') . '/blogs.json';
+        $store = read_json($blogsFile, ['posts' => []]);
+        $counts = [];
+        foreach (($store['posts'] ?? []) as $p) {
+            $name = is_array($p) && isset($p['category']) ? trim((string) $p['category']) : '';
+            if ($name === '') continue;
+            $counts[$name] = ($counts[$name] ?? 0) + 1;
+        }
+        foreach ($counts as $name => $count) {
+            $slug = safe_slug($name);
+            $out[] = ['id' => $slug, 'name' => $name, 'slug' => $slug, 'description' => '', 'post_count' => $count];
+        }
+    }
+
+    ok(['categories' => array_values($out)]);
 }
 
 /* ── action: sync-blogs (KiuQ blog-sync → /data/blogs.json) ──────────────── */

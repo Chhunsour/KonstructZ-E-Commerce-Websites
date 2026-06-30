@@ -296,15 +296,15 @@
   ],
   "edges": [
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:420:12-to-src/pages/AllEquipment.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:447:12-to-src/pages/AllEquipment.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/AllEquipment.tsx",
       "data": {
         "viaRoute": "/equipment",
         "trigger": {
           "element": "<Link\n              to=\"/equipment\"\n              className=\"px-5 py-3 bg-[#153d28] text-white font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.explore.equipment\")}</Link>",
-          "line": 420,
-          "endLine": 423,
+          "line": 447,
+          "endLine": 450,
           "column": 12,
           "endColumn": 65,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -312,15 +312,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:424:12-to-src/pages/Contact.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:451:12-to-src/pages/Contact.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/Contact.tsx",
       "data": {
         "viaRoute": "/contact",
         "trigger": {
           "element": "<Link\n              to=\"/contact\"\n              className=\"px-5 py-3 border-2 border-[#d8c79a] text-[#d8c79a] font-googleSans font-bold text-sm\"\n            >{t(\"auto.mobilefrontpage.get.a.quote\")}</Link>",
-          "line": 424,
-          "endLine": 427,
+          "line": 451,
+          "endLine": 454,
           "column": 12,
           "endColumn": 59,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -328,15 +328,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/MobileFrontpage.tsx:672:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/screens/Frontpage/MobileFrontpage.tsx:699:10-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/blog",
         "trigger": {
           "element": "<Link\n            to=\"/blog\"\n            className=\"w-full max-w-md py-4 bg-[#153d28] text-white text-center font-googleSans font-bold text-base tracking-wide flex items-center justify-center gap-2 btn\"\n          >\n            <span>EXPLORE ALL ARTICLES</span>\n            <span>→</span>\n          </Link>",
-          "line": 672,
-          "endLine": 678,
+          "line": 699,
+          "endLine": 705,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/Frontpage/MobileFrontpage.tsx"
@@ -408,15 +408,15 @@
       }
     },
     {
-      "id": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx:112:10-to-src/pages/BlogPage/BlogPage.tsx",
+      "id": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx:136:10-to-src/pages/BlogPage/BlogPage.tsx",
       "source": "src/pages/Home.tsx",
       "target": "src/pages/BlogPage/BlogPage.tsx",
       "data": {
         "viaRoute": "/blog",
         "trigger": {
           "element": "<Link\n            to=\"/blog\"\n            className=\"k-btn-lift inline-flex items-center justify-center gap-3 bg-[#153d28] border-3 border-[#153d28] text-white hover:bg-theme-accent hover:text-[#153d28] hover:border-theme-accent h-14 px-10 font-googleSans font-bold text-lg tracking-[0.02em] shadow-md\"\n          >\n            <span>{t(\"action.exploreMore\") || \"EXPLORE MORE ARTICLES\"}</span>\n            <span aria-hidden>→</span>\n          </Link>",
-          "line": 112,
-          "endLine": 118,
+          "line": 136,
+          "endLine": 142,
           "column": 10,
           "endColumn": 17,
           "sourceFile": "src/screens/Frontpage/sections/BlogSection/BlogSection.tsx"
@@ -1864,15 +1864,15 @@
       }
     },
     {
-      "id": "src/components/layout/Footer.tsx:127:12-to-src/pages/Home.tsx",
+      "id": "src/components/layout/Footer.tsx:152:12-to-src/pages/Home.tsx",
       "source": "src/screens/About/About.tsx",
       "target": "src/pages/Home.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link\n              to=\"/\"\n              aria-label=\"Go to homepage\"\n              className=\"inline-flex h-[58px] max-w-full items-center overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d8c79a]\"\n            >\n              <KonstructzLogo height={58} isDark={false} />\n            </Link>",
-          "line": 127,
-          "endLine": 133,
+          "line": 152,
+          "endLine": 158,
           "column": 12,
           "endColumn": 19,
           "sourceFile": "src/components/layout/Footer.tsx"

@@ -75,7 +75,6 @@ const staticToDetail = (p: StaticPost): PublicBlogDetail => ({
 /* ── local JSON source (blogs synced to this site by the KiuQ receiver) ──── */
 const BLOG_SOURCE =
   (import.meta.env.VITE_BLOG_SOURCE as string | undefined) ??
-  (import.meta.env.VITE_PRODUCTS_SOURCE as string | undefined) ??
   "local";
 const useLocalBlogs = BLOG_SOURCE === "local";
 const LOCAL_BLOG_URL =

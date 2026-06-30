@@ -300,7 +300,11 @@ if ($action === 'ping') {
 /* ── action: sync-blogs (KiuQ blog-sync → /data/blogs.json) ──────────────── */
 if ($action === 'sync-blogs') {
     $incoming = $req['posts'] ?? [];
-    if (!is_array($incoming) || count($incoming) === 0) {
+    // "replace" makes the synced set authoritative: posts not included are dropped
+    // (so archiving/unpublishing/deleting in KiuQ removes them here too). An empty
+    // set with replace=true clears the blog entirely.
+    $replace = !empty($req['replace']);
+    if (!is_array($incoming) || (count($incoming) === 0 && !$replace)) {
         fail(400, 'No posts in payload');
     }
 
@@ -312,9 +316,11 @@ if ($action === 'sync-blogs') {
 
     $store = read_json($blogsFile, ['posts' => [], 'updated_at' => null]);
     $byId = [];
-    foreach (($store['posts'] ?? []) as $b) {
-        if (isset($b['id'])) {
-            $byId[$b['id']] = $b;
+    if (!$replace) {
+        foreach (($store['posts'] ?? []) as $b) {
+            if (isset($b['id'])) {
+                $byId[$b['id']] = $b;
+            }
         }
     }
 

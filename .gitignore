@@ -25,7 +25,6 @@ dist-qa*
 dist-ssr
 *.local
 receiver/send-config.php
-static/api/send-config.php
 
 # Synced product images — delivered to the server by the receiver, not via git
 static/uploads/

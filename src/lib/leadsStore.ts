@@ -15,6 +15,10 @@
  * which require an authenticated admin session (enforced by RLS).
  */
 import { supabase } from "./supabase";
+import { hubSupabase } from "./hubSupabase";
+
+/** Identifies this site's messages in the shared hub `website_messages` table. */
+const HUB_WEBSITE = "konstructz";
 
 export type LeadStatus = "new" | "read" | "archived";
 
@@ -46,6 +50,7 @@ export interface SubmitResult {
   ok: boolean;
   stored: boolean;
   emailed: boolean;
+  hubStored: boolean;
 }
 
 const EMAIL_ENDPOINT = import.meta.env.VITE_LEADS_EMAIL_ENDPOINT as string | undefined;
@@ -73,8 +78,9 @@ export async function submitLead(input: LeadInput): Promise<SubmitResult> {
 
   let stored = false;
   let emailed = false;
+  let hubStored = false;
 
-  // 1. Store in Supabase
+  // 1. Store in this site's own Supabase
   if (supabase) {
     try {
       const { error } = await supabase.from("leads").insert(payload);
@@ -85,7 +91,21 @@ export async function submitLead(input: LeadInput): Promise<SubmitResult> {
     }
   }
 
-  // 2. Email via the PHP endpoint (best-effort, doesn't block storage)
+  // 2. Forward to the central hub (Wordpress prompt System) so it appears in
+  //    the hub admin's Messages page. Best-effort, independent of the above.
+  if (hubSupabase) {
+    try {
+      const { error } = await hubSupabase
+        .from("website_messages")
+        .insert({ website: HUB_WEBSITE, ...payload });
+      hubStored = !error;
+      if (error) console.error("[leads] Hub insert failed:", error.message);
+    } catch (e) {
+      console.error("[leads] Hub insert threw:", e);
+    }
+  }
+
+  // 3. Email via the PHP endpoint (best-effort, doesn't block storage)
   if (EMAIL_ENDPOINT) {
     try {
       const res = await fetch(EMAIL_ENDPOINT, {
@@ -100,7 +120,7 @@ export async function submitLead(input: LeadInput): Promise<SubmitResult> {
     }
   }
 
-  return { ok: stored || emailed, stored, emailed };
+  return { ok: stored || emailed || hubStored, stored, emailed, hubStored };
 }
 
 /* ── Admin dashboard operations (require an admin session via RLS) ── */

@@ -76,7 +76,7 @@ const staticToDetail = (p: StaticPost): PublicBlogDetail => ({
 const BLOG_SOURCE =
   (import.meta.env.VITE_BLOG_SOURCE as string | undefined) ??
   (import.meta.env.VITE_PRODUCTS_SOURCE as string | undefined) ??
-  "supabase";
+  "local";
 const useLocalBlogs = BLOG_SOURCE === "local";
 const LOCAL_BLOG_URL =
   (import.meta.env.VITE_BLOG_LOCAL_URL as string | undefined) ?? "/data/blogs.json";

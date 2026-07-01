@@ -72,32 +72,32 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="bg-brand-beige/10 min-h-screen pt-32 pb-24 text-brand-dark">
+    <div className="bg-theme-bg min-h-screen pt-32 pb-24 text-theme-text transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="text-brand-green text-sm uppercase tracking-widest font-googleSans font-bold block">{t("auto.contact.quote.support.center")}</span>
-          <h1 className="text-4xl md:text-6xl font-heading uppercase tracking-wide">{t("auto.contact.request.machinery.pricing")}</h1>
-          <div className="w-16 h-1 bg-brand-green mx-auto my-2" />
-          <p className="text-neutral-600 font-glonimove text-base leading-relaxed">{t("auto.contact.get.spec.catalogs")}</p>
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16 animate-gallery-swap">
+          <span className="text-theme-accent text-sm uppercase tracking-widest font-googleSans font-bold block">{t("auto.contact.quote.support.center")}</span>
+          <h1 className="text-4xl md:text-6xl font-heading uppercase tracking-wide text-theme-heading">{t("auto.contact.request.machinery.pricing")}</h1>
+          <div className="w-16 h-1 bg-theme-accent mx-auto my-2" />
+          <p className="text-theme-muted font-glonimove text-base leading-relaxed">{t("auto.contact.get.spec.catalogs")}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left: Contact Form */}
-          <div className="lg:col-span-7 bg-white p-6 md:p-10 border border-brand-green/10 rounded-lg shadow-sm">
+          <div className="lg:col-span-7 bg-theme-card p-6 md:p-10 border border-theme-border/10 rounded-lg shadow-lg transition-colors duration-200">
             {success ? (
-              <div className="bg-brand-green/10 border-2 border-brand-green text-brand-greenDark p-6 rounded text-center space-y-4">
+              <div className="bg-theme-accent/10 border-2 border-theme-accent text-theme-text p-6 rounded text-center space-y-4">
                 <span className="text-4xl">✅</span>
-                <h3 className="text-xl font-bold font-googleSans uppercase">{t("auto.contact.quote.request.submitted")}</h3>
-                <p className="text-sm font-glonimove max-w-md mx-auto leading-relaxed">{t("auto.contact.thank.you.a")}</p>
+                <h3 className="text-xl font-bold font-googleSans uppercase text-theme-heading">{t("auto.contact.quote.request.submitted")}</h3>
+                <p className="text-sm font-glonimove max-w-md mx-auto leading-relaxed text-theme-muted">{t("auto.contact.thank.you.a")}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Name */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
+                    <label className="text-xs font-bold uppercase tracking-wider text-theme-muted font-googleSans">
                       {t("contact.form.fullName", { fallback: "Full Name *" })}
                     </label>
                     <input
@@ -105,14 +105,14 @@ export const Contact: React.FC = () => {
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="border-2 border-neutral-300 focus:border-brand-green p-3 font-googleSans text-sm focus:outline-none rounded"
+                      className="border-2 border-theme-border/20 focus:border-theme-accent p-3 font-googleSans text-sm focus:outline-none rounded bg-theme-card text-theme-text transition-colors"
                       placeholder={t("auto.contact.e.g.john")}
                     />
                   </div>
 
                   {/* Email */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
+                    <label className="text-xs font-bold uppercase tracking-wider text-theme-muted font-googleSans">
                       {t("contact.form.emailAddress", { fallback: "Email Address *" })}
                     </label>
                     <input
@@ -120,7 +120,7 @@ export const Contact: React.FC = () => {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="border-2 border-neutral-300 focus:border-brand-green p-3 font-googleSans text-sm focus:outline-none rounded"
+                      className="border-2 border-theme-border/20 focus:border-theme-accent p-3 font-googleSans text-sm focus:outline-none rounded bg-theme-card text-theme-text transition-colors"
                       placeholder="johndoe@company.com"
                     />
                   </div>
@@ -129,7 +129,7 @@ export const Contact: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Phone */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
+                    <label className="text-xs font-bold uppercase tracking-wider text-theme-muted font-googleSans">
                       {t("contact.form.phoneNumber", { fallback: "Phone Number *" })}
                     </label>
                     <input
@@ -137,19 +137,19 @@ export const Contact: React.FC = () => {
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="border-2 border-neutral-300 focus:border-brand-green p-3 font-googleSans text-sm focus:outline-none rounded"
+                      className="border-2 border-theme-border/20 focus:border-theme-accent p-3 font-googleSans text-sm focus:outline-none rounded bg-theme-card text-theme-text transition-colors"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
 
                   {/* Company */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">{t("auto.contact.company.organization")}</label>
+                    <label className="text-xs font-bold uppercase tracking-wider text-theme-muted font-googleSans">{t("auto.contact.company.organization")}</label>
                     <input
                       type="text"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
-                      className="border-2 border-neutral-300 focus:border-brand-green p-3 font-googleSans text-sm focus:outline-none rounded"
+                      className="border-2 border-theme-border/20 focus:border-theme-accent p-3 font-googleSans text-sm focus:outline-none rounded bg-theme-card text-theme-text transition-colors"
                       placeholder={t("auto.contact.e.g.heavy")}
                     />
                   </div>
@@ -157,15 +157,15 @@ export const Contact: React.FC = () => {
 
                 {/* Interest Type */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">{t("auto.contact.quote.subject")}</label>
-                  <div className="flex gap-4 font-googleSans text-sm text-neutral-700">
+                  <label className="text-xs font-bold uppercase tracking-wider text-theme-muted font-googleSans">{t("auto.contact.quote.subject")}</label>
+                  <div className="flex gap-4 font-googleSans text-sm text-theme-text">
                     <label className="flex items-center gap-2 cursor-pointer">
                       <input
                         type="radio"
                         name="interestType"
                         checked={interestType === "product"}
                         onChange={() => setInterestType("product")}
-                        className="accent-brand-green"
+                        className="accent-theme-accent"
                       />{t("auto.contact.machinery.model")}</label>
                     <label className="flex items-center gap-2 cursor-pointer">
                       <input
@@ -173,7 +173,7 @@ export const Contact: React.FC = () => {
                         name="interestType"
                         checked={interestType === "attachment"}
                         onChange={() => setInterestType("attachment")}
-                        className="accent-brand-green"
+                        className="accent-theme-accent"
                       />{t("auto.contact.attachments.only")}</label>
                     <label className="flex items-center gap-2 cursor-pointer">
                       <input
@@ -181,7 +181,7 @@ export const Contact: React.FC = () => {
                         name="interestType"
                         checked={interestType === "general"}
                         onChange={() => setInterestType("general")}
-                        className="accent-brand-green"
+                        className="accent-theme-accent"
                       />{t("auto.contact.general.inquiries")}</label>
                   </div>
                 </div>
@@ -189,30 +189,30 @@ export const Contact: React.FC = () => {
                 {/* Model Interest Selector */}
                 {interestType !== "general" && (
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">
+                    <label className="text-xs font-bold uppercase tracking-wider text-theme-muted font-googleSans">
                       {interestType === "product" ? t("contact.form.selectModel", { fallback: "Select Machinery Model" }) : t("auto.contact.select.attachment.of")}
                     </label>
                     <select
                       value={modelInterest}
                       onChange={(e) => setModelInterest(e.target.value)}
-                      className="border-2 border-neutral-300 focus:border-brand-green p-3 font-googleSans text-sm focus:outline-none rounded bg-white"
+                      className="border-2 border-theme-border/20 focus:border-theme-accent p-3 font-googleSans text-sm focus:outline-none rounded bg-theme-card text-theme-text transition-colors"
                     >
-                      <option value="">{t("auto.contact.choose.option")}</option>
+                      <option value="" className="bg-theme-card text-theme-text">{t("auto.contact.choose.option")}</option>
                       {interestType === "product" ? (
                         products
                           .filter((p) => p.category !== "attachments")
                           .map((p) => (
-                            <option key={p.id} value={p.id}>
+                            <option key={p.id} value={p.id} className="bg-theme-card text-theme-text">
                               {p.name}
                             </option>
                           ))
                       ) : (
                         <>
-                          <option value="auger-drive">{t("auto.contact.planetary.auger.drive")}</option>
-                          <option value="excavator-thumb">{t("auto.contact.hydraulic.thumb")}</option>
-                          <option value="concrete-breaker">{t("auto.contact.hydraulic.hammer.breaker")}</option>
-                          <option value="skeleton-bucket">{t("auto.contact.skeleton.aggregates.bucket")}</option>
-                          <option value="attachments">{t("auto.contact.generic.quick.attach")}</option>
+                          <option value="auger-drive" className="bg-theme-card text-theme-text">{t("auto.contact.planetary.auger.drive")}</option>
+                          <option value="excavator-thumb" className="bg-theme-card text-theme-text">{t("auto.contact.hydraulic.thumb")}</option>
+                          <option value="concrete-breaker" className="bg-theme-card text-theme-text">{t("auto.contact.hydraulic.hammer.breaker")}</option>
+                          <option value="skeleton-bucket" className="bg-theme-card text-theme-text">{t("auto.contact.skeleton.aggregates.bucket")}</option>
+                          <option value="attachments" className="bg-theme-card text-theme-text">{t("auto.contact.generic.quick.attach")}</option>
                         </>
                       )}
                     </select>
@@ -221,26 +221,36 @@ export const Contact: React.FC = () => {
 
                 {/* Project notes */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-neutral-500 font-googleSans">{t("auto.contact.worksite.parameters.logistics")}</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-theme-muted font-googleSans">{t("auto.contact.worksite.parameters.logistics")}</label>
                   <textarea
                     rows={4}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="border-2 border-neutral-300 focus:border-brand-green p-3 font-googleSans text-sm focus:outline-none rounded"
+                    className="border-2 border-theme-border/20 focus:border-theme-accent p-3 font-googleSans text-sm focus:outline-none rounded bg-theme-card text-theme-text transition-colors"
                     placeholder={t("auto.contact.tell.us.about")}
                   />
                 </div>
 
                 {error && (
-                  <p className="text-sm font-googleSans text-red-600 bg-red-50 border border-red-200 rounded p-3 text-center">
-                    {t("contact.form.error", { fallback: "Sorry, your message couldn't be sent. Please try again, or email us directly at sales@konstructz.com." })}
+                  <p className="text-sm font-googleSans text-red-400 bg-red-950/20 border border-red-500/30 rounded p-3 text-center">
+                    {t("contact.form.error", { fallback: "Sorry, your message couldn't be sent. Please try again, or email us directly at support@konstructz.com." })}
                   </p>
                 )}
-                <Button type="submit" variant="filled" className="w-full" disabled={submitting}>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-greenDark text-white font-googleSans font-bold text-sm uppercase tracking-wider px-7 py-4 transition-colors duration-300 border-2 border-brand-green hover:border-brand-greenDark disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   {submitting
                     ? t("contact.form.submitting", { fallback: "Sending…" })
                     : t("auto.contact.submit.quote.request")}
-                </Button>
+                  <span className="w-4 h-4">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </button>
               </form>
             )}
           </div>
@@ -250,7 +260,7 @@ export const Contact: React.FC = () => {
             {/* Call Direct banner */}
             <div className="bg-brand-greenDark text-brand-sand border-2 border-brand-sand/30 p-8 rounded-lg space-y-4 shadow-md text-center">
               <span className="text-5xl block">📞</span>
-              <h2 className="text-2xl font-heading uppercase tracking-wider">{t("auto.contact.direct.line")}</h2>
+              <h2 className="text-2xl font-heading uppercase tracking-wider text-white">{t("auto.contact.direct.line")}</h2>
               <p className="text-brand-beige/85 font-glonimove text-sm leading-relaxed">{t("auto.contact.connect.directly.with")}</p>
               <a
                 href="tel:+12132142203"
@@ -261,22 +271,24 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Warehouse hours / locations */}
-            <div className="bg-white border border-brand-green/10 rounded-lg p-6 space-y-4">
-              <h3 className="font-heading text-xl uppercase tracking-wider text-brand-dark border-b pb-2">{t("auto.contact.depot.location")}</h3>
-              <p className="font-glonimove text-sm text-neutral-600 leading-relaxed">
-                <strong>{t("contact.warehouseAddress", { fallback: "Warehouse Address:" })}</strong>
-                <br />{t("auto.contact.commerce.california.usa")}</p>
-              <p className="font-glonimove text-sm text-neutral-600 leading-relaxed">
-                <strong>{t("contact.businessHours", { fallback: "Business Hours:" })}</strong>
+            <div className="bg-theme-card border border-theme-border/10 rounded-lg p-6 space-y-4 transition-colors duration-200">
+              <h3 className="font-heading text-xl uppercase tracking-wider text-theme-heading border-b border-theme-border/20 pb-2">{t("auto.contact.depot.location")}</h3>
+              <p className="font-glonimove text-sm text-theme-text leading-relaxed">
+                <strong className="text-theme-accent">{t("contact.warehouseAddress", { fallback: "Warehouse Address:" })}</strong>
+                <br /><span className="text-theme-muted">{t("auto.contact.commerce.california.usa")}</span></p>
+              <p className="font-glonimove text-sm text-theme-text leading-relaxed">
+                <strong className="text-theme-accent">{t("contact.businessHours", { fallback: "Business Hours:" })}</strong>
                 <br />
-                {t("contact.hours.weekday", { fallback: "Monday - Friday: 8:00 AM - 5:00 PM (PST)" })}
-                <br />
-                {t("contact.hours.weekend", { fallback: "Saturday & Sunday: Closed for field testing" })}
+                <span className="text-theme-muted">
+                  {t("contact.hours.weekday", { fallback: "Monday - Friday: 8:00 AM - 5:00 PM (PST)" })}
+                  <br />
+                  {t("contact.hours.weekend", { fallback: "Saturday & Sunday: Closed for field testing" })}
+                </span>
               </p>
             </div>
 
             {/* Map visual */}
-            <div className="relative rounded-lg overflow-hidden border border-brand-green/20 aspect-square max-w-[320px] mx-auto">
+            <div className="relative rounded-lg overflow-hidden border border-theme-border/20 aspect-square max-w-[320px] mx-auto shadow-md">
               <img
                 src="https://c.animaapp.com/9h31joeZ/img/a1ae787b-3532-4fdb-b941-933e9d0075b4-1.png"
                 alt={t("auto.contact.commerce.ca.depot")}

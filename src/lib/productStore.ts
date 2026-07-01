@@ -24,8 +24,15 @@ import { DbProduct, DbProductCategory, supabase, supabaseConfigured } from "./su
 // only an explicit VITE_PRODUCTS_MODE=supabase opts back out (admin/master use).
 const PRODUCTS_SOURCE =
   (import.meta.env.VITE_PRODUCTS_MODE as string | undefined) ?? "local";
+// The catalog is served from public Supabase Storage (written by the product-sync
+// Edge Function), NOT the git-deployed /data/products.json. Hostinger git deploys
+// overwrite files under the site and were reverting every synced price/product;
+// Storage is immune to deploys, so a synced change stays put. Falls back to the
+// local file if an env override is set.
+const CATALOG_STORAGE_URL =
+  "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/site-catalog/konstructz.com/products.json";
 const LOCAL_CATALOG_URL =
-  (import.meta.env.VITE_PRODUCTS_LOCAL_URL as string | undefined) ?? "/data/products.json";
+  (import.meta.env.VITE_PRODUCTS_LOCAL_URL as string | undefined) ?? CATALOG_STORAGE_URL;
 
 const useLocal = PRODUCTS_SOURCE !== "supabase";
 

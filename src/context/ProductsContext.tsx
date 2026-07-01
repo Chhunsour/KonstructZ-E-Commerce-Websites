@@ -123,7 +123,12 @@ const mergeTyphon = (s: TyphonProduct, p: DbProduct): TyphonProduct => ({
           ? s.originalGallerySources
           : [],
   imageImportWarnings: p.image_import_warnings?.length ? p.image_import_warnings : s.imageImportWarnings,
+  // The Typhon card + single page display currentPrice/originalPrice, so the
+  // synced price MUST flow into those too — otherwise a synced price update
+  // silently keeps the old static price on the page.
   price: p.price || s.price,
+  originalPrice: p.price || s.originalPrice,
+  currentPrice: p.sale_price || p.price || s.currentPrice,
   buttonUrl: p.button_url || s.buttonUrl,
   specs: specsFromDb(p).length ? specsFromDb(p) : s.specs,
 });

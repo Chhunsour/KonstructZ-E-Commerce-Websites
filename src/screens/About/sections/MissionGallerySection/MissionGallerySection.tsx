@@ -103,8 +103,8 @@ export const MissionGallerySection = (): JSX.Element => {
 </article>
 ))}
       </div>
-<h3 className="absolute top-[993px] left-[175px] w-[514px] [font-family:'Clofie-Bold',Helvetica] font-bold text-[#d8c79a] text-[36px] tracking-[0] leading-[normal]">{t("auto.missiongallery.empowering.small.businesses")}</h3>
-<p className="absolute top-[976px] left-[827px] w-[746px] [font-family:'Glonimove-Regular',Helvetica] font-normal text-white text-[24px] tracking-[0] leading-relaxed">{t("auto.missiongallery.we.aim.to")}</p>
+<h3 className="absolute top-[993px] left-[175px] w-[514px] [font-family:'Clofie-Bold',Helvetica] font-bold text-theme-heading text-[36px] tracking-[0] leading-[normal] transition-colors duration-200">{t("auto.missiongallery.empowering.small.businesses")}</h3>
+<p className="absolute top-[976px] left-[827px] w-[746px] [font-family:'Glonimove-Regular',Helvetica] font-normal text-theme-text text-[24px] tracking-[0] leading-relaxed transition-colors duration-200">{t("auto.missiongallery.we.aim.to")}</p>
 </section>
 );
 };

@@ -77,8 +77,13 @@ const BLOG_SOURCE =
   (import.meta.env.VITE_BLOG_SOURCE as string | undefined) ??
   "local";
 const useLocalBlogs = BLOG_SOURCE === "local";
+// Blogs are served from public Supabase Storage (written by the blog-sync Edge
+// Function), not the git-deployed /data/blogs.json — deploy-proof, same as the
+// product catalog.
+const BLOG_STORAGE_URL =
+  "https://kaaekveaaoriacwzzrnf.supabase.co/storage/v1/object/public/site-catalog/konstructz.com/blogs.json";
 const LOCAL_BLOG_URL =
-  (import.meta.env.VITE_BLOG_LOCAL_URL as string | undefined) ?? "/data/blogs.json";
+  (import.meta.env.VITE_BLOG_LOCAL_URL as string | undefined) ?? BLOG_STORAGE_URL;
 
 interface LocalBlog {
   id: string | number;

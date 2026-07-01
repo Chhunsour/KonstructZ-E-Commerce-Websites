@@ -1,10 +1,11 @@
 {
   "categories": [
-    { "id": "equipment-guides", "name": "Equipment Guides", "slug": "equipment-guides", "description": "In-depth guides on construction equipment selection and use." },
-    { "id": "construction-tips", "name": "Construction Tips", "slug": "construction-tips", "description": "Practical jobsite tips and best practices." },
-    { "id": "product-knowledge", "name": "Product Knowledge", "slug": "product-knowledge", "description": "Deep dives into Konstructz machines and attachments." },
-    { "id": "maintenance", "name": "Maintenance", "slug": "maintenance", "description": "Servicing, upkeep, and longevity advice." },
-    { "id": "buying-guide", "name": "Buying Guide", "slug": "buying-guide", "description": "How to choose and purchase the right equipment." },
-    { "id": "company-updates", "name": "Company Updates", "slug": "company-updates", "description": "News and announcements from Konstructz." }
+    { "id": "forklift", "name": "Forklift's Blog", "slug": "forklift" },
+    { "id": "mini-excavator", "name": "Mini Excavator's Blog", "slug": "mini-excavator" },
+    { "id": "road-roller", "name": "Road Roller's Blog", "slug": "road-roller" },
+    { "id": "scissor-lift", "name": "Scissor Lift's Blog", "slug": "scissor-lift" },
+    { "id": "skid-steer", "name": "Skid Steer's Blog", "slug": "skid-steer" },
+    { "id": "stone-crusher", "name": "Stone Crusher's Blog", "slug": "stone-crusher" },
+    { "id": "wheel-loader", "name": "Wheel Loader's Blog", "slug": "wheel-loader" }
   ]
 }

@@ -1,1 +1,0 @@
-export { FooterLegalLinksSection } from "./FooterLegalLinksSection";

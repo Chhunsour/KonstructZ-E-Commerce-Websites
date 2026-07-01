@@ -1,1 +1,0 @@
-export { ServiceHighlightsSection } from "./ServiceHighlightsSection";

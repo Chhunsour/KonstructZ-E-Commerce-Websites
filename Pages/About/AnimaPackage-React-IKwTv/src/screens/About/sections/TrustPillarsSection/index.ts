@@ -1,1 +1,0 @@
-export { TrustPillarsSection } from "./TrustPillarsSection";

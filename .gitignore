@@ -47,3 +47,6 @@ supabase/.temp/
 *.njsproj
 *.sln
 *.sw?
+
+# Local archive of removed design exports / junk (not part of the app)
+archive/

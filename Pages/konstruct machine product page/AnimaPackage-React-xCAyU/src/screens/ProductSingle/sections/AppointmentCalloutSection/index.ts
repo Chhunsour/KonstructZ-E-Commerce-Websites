@@ -1,1 +1,0 @@
-export { AppointmentCalloutSection } from "./AppointmentCalloutSection";

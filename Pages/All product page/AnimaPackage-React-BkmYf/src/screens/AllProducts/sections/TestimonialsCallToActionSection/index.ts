@@ -1,1 +1,0 @@
-export { TestimonialsCallToActionSection } from "./TestimonialsCallToActionSection";

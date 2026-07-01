@@ -261,7 +261,7 @@ export const BlogStudio: React.FC = () => {
     setPreview({
       title: post.title,
       excerpt: post.excerpt ?? "",
-      author: post.author ?? "Konstructz Editorial",
+      author: post.author ?? "Denvor",
       category: post.category_id ? catMap.get(post.category_id)?.name ?? "" : "",
       image: blogImagePublicUrl(post.featured_image),
       content: "",

@@ -598,7 +598,7 @@ export const PostEditorPanel: React.FC<PostEditorPanelProps> = ({
                 type="text"
                 value={form.author}
                 onChange={(e) => setField("author", e.target.value)}
-                placeholder="Konstructz Editorial"
+                placeholder="Denvor"
                 className="w-full bg-theme-bg border border-theme-border/20 focus:border-theme-accent rounded-lg px-3 py-2 font-glonimove text-sm text-theme-text focus:outline-none transition-colors"
               />
             </div>
@@ -657,7 +657,7 @@ export const PostEditorPanel: React.FC<PostEditorPanelProps> = ({
         <PostPreviewOverlay
           title={form.title}
           excerpt={form.excerpt}
-          author={form.author || "Konstructz Editorial"}
+          author={form.author || "Denvor"}
           category={categories.find((c) => c.id === form.category_id)?.name ?? ""}
           image={previewImageUrl}
           content={form.content}

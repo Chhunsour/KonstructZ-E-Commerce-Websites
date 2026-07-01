@@ -102,13 +102,38 @@ const CategoryItem: React.FC<{
         type="checkbox"
         checked={checked}
         onChange={onChange}
-        className="w-[18px] h-[18px] accent-theme-accent border-2 border-theme-accent cursor-pointer transition-colors"
+        className="sr-only"
       />
       <label
         htmlFor={id}
-        className="font-glonimove text-theme-text text-base cursor-pointer hover:text-theme-accent transition-colors"
+        className="flex items-center gap-3 cursor-pointer group select-none"
       >
-        {t(blogCategoryKey(label), { fallback: label })}
+        <div
+          className={`w-[18px] h-[18px] flex items-center justify-center border-2 border-theme-accent transition-all ${
+            checked
+              ? "bg-theme-accent text-theme-bg"
+              : "bg-transparent text-transparent"
+          }`}
+        >
+          <svg
+            className="w-3.5 h-3.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="4"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+        <span className={`font-glonimove text-base transition-colors ${
+          checked ? "text-theme-accent font-bold" : "text-theme-text group-hover:text-theme-accent"
+        }`}>
+          {t(blogCategoryKey(label), { fallback: label })}
+        </span>
       </label>
     </li>
   );

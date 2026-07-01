@@ -304,6 +304,15 @@ if ($action === 'ping') {
     ]);
 }
 
+/* ── action: get-catalog (KiuQ reads back the localized product catalog) ── */
+if ($action === 'get-catalog') {
+    $store = read_json(PRODUCTS_PUBLIC_FILE, ['products' => [], 'updated_at' => null]);
+    ok([
+        'products'   => $store['products'] ?? [],
+        'updated_at' => $store['updated_at'] ?? null,
+    ]);
+}
+
 /* ── action: blog-categories (KiuQ → list this site's blog categories) ──── */
 if ($action === 'blog-categories') {
     // Managed list lives next to blogs.json as /data/blog-categories.json.

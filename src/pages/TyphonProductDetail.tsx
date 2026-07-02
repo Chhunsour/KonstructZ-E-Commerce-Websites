@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { TyphonProductSingle } from "../screens/TyphonProductSingle/TyphonProductSingle";
-import { useTyphonProducts } from "../context/ProductsContext";
+import { useTyphonProducts, useProducts } from "../context/ProductsContext";
 import { useI18n } from "../context/I18nContext";
+import { useNoindexNotFound } from "../hooks/useNoindexNotFound";
 
 export const TyphonProductDetail: React.FC = () => {
   const { t } = useI18n();
   const { productId } = useParams<{ productId: string }>();
   const typhonProducts = useTyphonProducts();
+  const { loading } = useProducts();
   const product = typhonProducts.find((p) => p.id === productId);
+
+  // Only a definitive miss (after the Supabase merge settles) is a 404.
+  useNoindexNotFound(!loading && !product, "Product Not Found | Konstructz");
 
   useEffect(() => {
     window.scrollTo(0, 0);

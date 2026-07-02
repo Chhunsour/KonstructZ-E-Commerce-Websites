@@ -22,6 +22,9 @@ dist/*
 !dist/icons/
 !dist/img/
 !dist/api/
+# Prerendered SEO snapshots + SPA fallback shell — must deploy with the app
+!dist/prerendered/
+!dist/spa-shell.html
 dist-qa*
 dist-ssr
 *.local

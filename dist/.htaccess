@@ -1,11 +1,25 @@
 # SPA routing for BrowserRouter (clean URLs, no #/).
-# Serve real files/folders as-is; route everything else to index.html so
-# deep links and refreshes (e.g. /product/mini-excavators, /blog/foo) work.
+# Serve real files/folders as-is. For app routes, first try the prerendered
+# SEO snapshot (dist/prerendered/<route>/index.html — same app bundle plus
+# correct per-page <head> for crawlers that don't run JS). Anything left
+# falls back to spa-shell.html (index.html without the homepage canonical),
+# so unknown URLs don't declare themselves duplicates of the homepage.
+# All rewrites are internal — visitor URLs never change.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
+
+  # 1) Known route → prerendered snapshot. If the snapshot file doesn't
+  #    exist, the rewritten URL re-enters these rules and lands on the SPA
+  #    fallback below (the /prerendered/ guard prevents a rewrite loop).
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteCond %{REQUEST_URI} !^/prerendered/
+  RewriteRule ^(.+)$ /prerendered/$1/index.html [L]
+
+  # 2) SPA fallback for everything else (unknown/new routes).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /spa-shell.html [L]
 </IfModule>

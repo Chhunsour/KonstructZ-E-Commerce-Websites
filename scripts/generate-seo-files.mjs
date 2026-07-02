@@ -157,6 +157,10 @@ Disallow: /sour
 Disallow: /sour/
 Disallow: /api/
 Disallow: /*?preview=
+# Internal SEO snapshots — served via rewrite at the clean URLs; direct
+# fetches would only create duplicate copies.
+Disallow: /prerendered/
+Disallow: /spa-shell.html
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;

@@ -55,6 +55,7 @@ import { ProductsDashboard } from "./pages/admin/ProductsDashboard";
 import { ProductEditor } from "./pages/admin/ProductEditor";
 import { ProductPreview } from "./pages/admin/ProductPreview";
 import { AdminChatbot } from "./pages/admin/Chatbot";
+import { NotFound } from "./pages/NotFound";
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -213,6 +214,9 @@ const AppLayout: React.FC = () => {
             <Route path="/sour/products/:id/preview" element={<ProductPreview />} />
             <Route path="/sour/chatbot" element={<AdminChatbot />} />
           </Route>
+
+          {/* Catch-all 404 — unknown URLs must not index as homepage clones */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       {!hideAppFooter && <Footer />}

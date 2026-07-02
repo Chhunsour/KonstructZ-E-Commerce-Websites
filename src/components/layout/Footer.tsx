@@ -124,7 +124,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = "default", style }) =>
     { label: t("auto.footer.about.company"), href: "/about" },
     { label: t("auto.footer.our.products"), href: "/categories" },
     { label: t("nav.typhonMachinery"), href: "/equipment" },
-    { label: t("auto.footer.blog.and.news"), href: "/media" },
+    { label: t("auto.footer.blog.and.news"), href: "/blog" },
     { label: t("nav.support"), href: "/support" },
     { label: t("auto.footer.contact.us"), href: "/contact" },
   ];

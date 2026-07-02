@@ -5,13 +5,18 @@ import { MobileProductSingle } from "../screens/ProductSingle/MobileProductSingl
 import { AnimaScaler } from "../components/layout/AnimaScaler";
 import { Button } from "../components/ui/Button";
 import { useI18n } from "../context/I18nContext";
-import { useKonstructzProducts } from "../context/ProductsContext";
+import { useKonstructzProducts, useProducts } from "../context/ProductsContext";
+import { useNoindexNotFound } from "../hooks/useNoindexNotFound";
 
 export const ProductDetail: React.FC = () => {
   const { t } = useI18n();
   const { productId } = useParams<{ productId: string }>();
   const products = useKonstructzProducts();
+  const { loading } = useProducts();
   const product = products.find((p) => p.id === productId);
+
+  // Only a definitive miss (after the Supabase merge settles) is a 404.
+  useNoindexNotFound(!loading && !product, "Machine Not Found | Konstructz");
 
   useEffect(() => {
     window.scrollTo(0, 0);

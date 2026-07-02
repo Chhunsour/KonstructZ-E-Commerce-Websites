@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Google+Sans+Flex:400,700|Readex+Pro:600");
+
+:root {
+  --secondery: rgba(31, 31, 31, 1);
+  --www-ferrari-com-inter-medium-font-family: "Inter", Helvetica;
+  --www-ferrari-com-inter-medium-font-size: 13px;
+  --www-ferrari-com-inter-medium-font-style: normal;
+  --www-ferrari-com-inter-medium-font-weight: 500;
+  --www-ferrari-com-inter-medium-letter-spacing: 0px;
+  --www-ferrari-com-inter-medium-line-height: normal;
+  --www-ferrari-com-inter-regular-font-family: "Inter", Helvetica;
+  --www-ferrari-com-inter-regular-font-size: 15.100000381469727px;
+  --www-ferrari-com-inter-regular-font-style: normal;
+  --www-ferrari-com-inter-regular-font-weight: 400;
+  --www-ferrari-com-inter-regular-letter-spacing: 0px;
+  --www-ferrari-com-inter-regular-line-height: normal;
+  --www-ferrari-com-inter-regular-upper-font-family: "Inter", Helvetica;
+  --www-ferrari-com-inter-regular-upper-font-size: 10px;
+  --www-ferrari-com-inter-regular-upper-font-style: normal;
+  --www-ferrari-com-inter-regular-upper-font-weight: 400;
+  --www-ferrari-com-inter-regular-upper-letter-spacing: 0px;
+  --www-ferrari-com-inter-regular-upper-line-height: normal;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-family: "Roboto", Helvetica;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-size: 18px;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-style: normal;
+  --www-lamborghini-com-roboto-condensed-light-upper-font-weight: 300;
+  --www-lamborghini-com-roboto-condensed-light-upper-letter-spacing: 0px;
+  --www-lamborghini-com-roboto-condensed-light-upper-line-height: 28px;
+  --www-lamborghini-com-roboto-light-font-family: "Roboto", Helvetica;
+  --www-lamborghini-com-roboto-light-font-size: 16px;
+  --www-lamborghini-com-roboto-light-font-style: normal;
+  --www-lamborghini-com-roboto-light-font-weight: 300;
+  --www-lamborghini-com-roboto-light-letter-spacing: 0px;
+  --www-lamborghini-com-roboto-light-line-height: 26px;
+  --www-lamborghini-com-roboto-light-upper-font-family: "Roboto", Helvetica;
+  --www-lamborghini-com-roboto-light-upper-font-size: 10px;
+  --www-lamborghini-com-roboto-light-upper-font-style: normal;
+  --www-lamborghini-com-roboto-light-upper-font-weight: 300;
+  --www-lamborghini-com-roboto-light-upper-letter-spacing: 0.22499999403953552px;
+  --www-lamborghini-com-roboto-light-upper-line-height: 20px;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-family: "Inter", Helvetica;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-size: 23.399999618530273px;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-inter-light-font-weight: 300;
+  --www-lamborghini-com-www-boleous-com-inter-light-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-inter-light-line-height: normal;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-family: "Inter", Helvetica;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-size: 8px;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-inter-regular-font-weight: 400;
+  --www-lamborghini-com-www-boleous-com-inter-regular-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-inter-regular-line-height: 16px;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-size: 19.200000762939453px;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-font-weight: 200;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-extralight-line-height: 31.68000030517578px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-size: 29.600000381469727px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-light-font-weight: 300;
+  --www-lamborghini-com-www-boleous-com-poppins-light-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-line-height: 48.84000015258789px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-size: 57.599998474121094px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-font-weight: 300;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-light-upper-line-height: 69.12000274658203px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-size: 28px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-font-weight: 500;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-line-height: 35px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-size: 18px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-font-weight: 500;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-medium-title-line-height: 29.700000762939453px;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-size: 110px;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-font-weight: 400;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-regular-line-height: 126.5px;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-family: "Poppins", Helvetica;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-size: 54px;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-style: normal;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-font-weight: 600;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-letter-spacing: 0px;
+  --www-lamborghini-com-www-boleous-com-poppins-semibold-line-height: 54px;
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}

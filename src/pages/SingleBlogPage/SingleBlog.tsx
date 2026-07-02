@@ -13,6 +13,7 @@ import {
   type PublicBlogDetail,
   type PublicBlogSummary,
 } from "../../lib/blogStore";
+import { useNoindexNotFound } from "../../hooks/useNoindexNotFound";
 
 const toSummary = (p: typeof staticBlogPosts[number]): PublicBlogSummary => ({
   id: String(p.id),
@@ -36,6 +37,37 @@ interface Comment {
   date: string;
   replies?: Comment[];
 }
+
+const renderAvatar = (avatarUrl?: string, name?: string, sizeClass = "w-12 h-12 md:w-14 md:h-14") => {
+  const hasAvatar =
+    avatarUrl &&
+    avatarUrl !== "/single-blog/img/image-74.png" &&
+    avatarUrl !== "/img/image-74.png";
+
+  if (hasAvatar) {
+    return (
+      <img
+        src={avatarUrl}
+        alt={name}
+        className={`${sizeClass} rounded-full object-cover border border-theme-border/10 shrink-0 bg-theme-sec`}
+      />
+    );
+  }
+
+  return (
+    <div className={`${sizeClass} rounded-full border border-theme-border/10 shrink-0 bg-theme-sec flex items-center justify-center text-theme-text/40`}>
+      <svg
+        width="50%"
+        height="50%"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A9.75 9.75 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+      </svg>
+    </div>
+  );
+};
 
 const SidebarBox: React.FC<{
   title: string;
@@ -119,8 +151,10 @@ export const SingleBlog = (): JSX.Element => {
     isMarkdown: boolean;
   };
 
+  // Exact slug match only — falling back to the first post here would make
+  // every unknown /blog/* URL a 200 duplicate of that article for crawlers.
   const staticByCurrentSlug = useMemo(() => {
-    const s = staticBlogPosts.find((p) => p.slug === blogSlug) ?? staticBlogPosts[0];
+    const s = staticBlogPosts.find((p) => p.slug === blogSlug);
     return s
       ? ({
           ...toSummary(s),
@@ -137,6 +171,7 @@ export const SingleBlog = (): JSX.Element => {
   }, [blogSlug]);
 
   const [post, setPost] = useState<RenderablePost | null>(staticByCurrentSlug);
+  const [checkedDb, setCheckedDb] = useState(false);
   const [latestBlogPosts, setLatestBlogPosts] = useState<PublicBlogSummary[]>(
     () => staticBlogPosts.slice(0, 3).map(toSummary)
   );
@@ -144,16 +179,22 @@ export const SingleBlog = (): JSX.Element => {
   useEffect(() => {
     let active = true;
     setPost(staticByCurrentSlug);
+    setCheckedDb(false);
     (async () => {
       const dbPost = await getPublicPostBySlug(blogSlug);
       if (active && dbPost) {
         setPost({ ...dbPost, isMarkdown: true });
       }
+      if (active) setCheckedDb(true);
     })();
     return () => {
       active = false;
     };
   }, [blogSlug, staticByCurrentSlug]);
+
+  // A slug that matches neither a static post nor a published DB post is a
+  // definitive 404 — noindex it so crawlers drop the URL.
+  useNoindexNotFound(checkedDb && !post, "Article Not Found | Konstructz");
 
   useEffect(() => {
     let active = true;
@@ -165,11 +206,21 @@ export const SingleBlog = (): JSX.Element => {
     };
   }, []);
 
-  // Reader-submitted comments. Starts empty (no template/demo comment); reset
-  // when navigating to a different article.
+  // Reader-submitted comments. Loads from localStorage keyed by slug, or empty array if not present.
   const [postComments, setPostComments] = useState<Comment[]>([]);
 
   useEffect(() => {
+    if (post?.slug) {
+      const stored = localStorage.getItem(`blog_comments_${post.slug}`);
+      if (stored) {
+        try {
+          setPostComments(JSON.parse(stored));
+          return;
+        } catch (e) {
+          console.error("Failed to parse comments from localStorage", e);
+        }
+      }
+    }
     setPostComments([]);
   }, [post?.slug]);
 
@@ -230,7 +281,7 @@ export const SingleBlog = (): JSX.Element => {
 
     const newComment: Comment = {
       id: Date.now(),
-      avatar: "/single-blog/img/image-74.png", // default avatar
+      avatar: "", // default avatar (empty string triggers default SVG icon)
       name: formData.name,
       message: formData.message,
       date: new Date().toLocaleDateString("en-US", {
@@ -241,9 +292,21 @@ export const SingleBlog = (): JSX.Element => {
       replies: [],
     };
 
-    setPostComments((current) => [...current, newComment]);
+    const updatedComments = [...postComments, newComment];
+    setPostComments(updatedComments);
+    if (post?.slug) {
+      localStorage.setItem(`blog_comments_${post.slug}`, JSON.stringify(updatedComments));
+    }
     setFormData({ name: "", email: "", message: "" });
   };
+
+  if (!post && !checkedDb) {
+    // Slug isn't in the static set but Supabase may still have it — hold a
+    // quiet loading frame instead of flashing "not found" for DB-only posts.
+    return (
+      <main className="bg-theme-bg text-theme-text min-h-screen pt-28 pb-16 transition-colors duration-200" />
+    );
+  }
 
   if (!post) {
     return (
@@ -459,11 +522,7 @@ export const SingleBlog = (): JSX.Element => {
                 <div className="flex flex-col gap-6">
                   {postComments.map((comment) => (
                     <article key={comment.id} className="flex gap-4 items-start border-b border-theme-border/10 pb-6 last:border-b-0 last:pb-0">
-                      <img
-                        src={comment.avatar || "/single-blog/img/image-74.png"}
-                        alt={comment.name}
-                        className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-theme-border/10 shrink-0 bg-theme-sec"
-                      />
+                      {renderAvatar(comment.avatar, comment.name)}
                       <div className="flex-grow min-w-0">
                         <div className="flex items-center justify-between gap-4">
                           <h3 className="font-clofieBold text-theme-text text-lg md:text-xl truncate">
@@ -480,11 +539,7 @@ export const SingleBlog = (): JSX.Element => {
                         {/* Render replies if any */}
                         {comment.replies && comment.replies.map((reply) => (
                           <div key={reply.id} className="mt-4 flex gap-3 items-start bg-theme-sec p-4 border-l-2 border-theme-accent">
-                            <img
-                              src={reply.avatar}
-                              alt={reply.name}
-                              className="w-9 h-9 rounded-full object-cover border border-theme-border/10 shrink-0 bg-theme-bg"
-                            />
+                            {renderAvatar(reply.avatar, reply.name, "w-9 h-9")}
                             <div className="flex-grow min-w-0">
                               <div className="flex items-center justify-between gap-4">
                                 <h4 className="font-clofieBold text-theme-text text-sm md:text-base truncate">

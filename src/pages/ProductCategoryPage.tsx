@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getCategoryBySlug } from "../data/productCategories";
 import { CategoryLanding } from "../components/sections/CategoryLanding";
 import { useI18n } from "../context/I18nContext";
+import { useNoindexNotFound } from "../hooks/useNoindexNotFound";
 
 /**
  * Dynamic category landing page.
@@ -24,6 +25,9 @@ export const ProductCategoryPage: React.FC<ProductCategoryPageProps> = ({
   const params = useParams<{ slug?: string; productId?: string }>();
   const slug = slugOverride ?? params.slug ?? params.productId ?? "";
   const category = getCategoryBySlug(slug);
+
+  // Category list is static, so a miss is definitive — flag it as a 404.
+  useNoindexNotFound(!category, "Category Not Found | Konstructz");
 
   if (!category) {
     return (

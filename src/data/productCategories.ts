@@ -715,6 +715,10 @@ export const productCategories: ProductCategory[] = [
 export const getCategoryBySlug = (slug: string): ProductCategory | undefined =>
   productCategories.find((c) => c.slug === slug);
 
+/** Look up a category by the product-side key (Product.category). */
+export const getCategoryByProductKey = (key: string): ProductCategory | undefined =>
+  productCategories.find((c) => c.productCategoryKey === key);
+
 /** Count products in a given category. */
 export const getCategoryProductCount = (category: ProductCategory): number =>
   products.filter((p) => p.category === category.productCategoryKey).length;

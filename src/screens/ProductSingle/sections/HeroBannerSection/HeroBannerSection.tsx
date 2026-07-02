@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Product } from "../../../../data/products";
+import { getCategoryByProductKey } from "../../../../data/productCategories";
 import { useI18n } from "../../../../context/I18nContext";
 import { specLabelKey } from "../../../../i18n/keys";
 import { getPlainText } from "../../../../lib/sanitizeHtml";
@@ -96,6 +97,35 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ product })
         alt={`${product.name} product image`}
         src={product.image}
       />
+      {/* Breadcrumb — links every product back to its category landing page */}
+      {(() => {
+        const category = getCategoryByProductKey(product.category);
+        return (
+          <nav
+            aria-label="Breadcrumb"
+            className="absolute left-[91px] top-[168px] flex items-center gap-2 font-googleSans text-[15px] font-bold uppercase tracking-[0.18em] text-theme-muted"
+          >
+            <Link to="/" className="hover:text-theme-accent transition-colors">
+              {t("nav.home", { fallback: "Home" })}
+            </Link>
+            <span aria-hidden="true">/</span>
+            <Link to="/categories" className="hover:text-theme-accent transition-colors">
+              {t("nav.equipment", { fallback: "Equipment" })}
+            </Link>
+            {category && (
+              <>
+                <span aria-hidden="true">/</span>
+                <Link
+                  to={`/product/${category.slug}`}
+                  className="text-theme-accent hover:text-theme-heading transition-colors"
+                >
+                  {category.name}
+                </Link>
+              </>
+            )}
+          </nav>
+        );
+      })()}
       <header className="absolute left-[91px] top-[226px]">
         <h2
           id="hero-banner-heading"

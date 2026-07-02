@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Product, products } from "../../data/products";
+import { getCategoryByProductKey } from "../../data/productCategories";
 import {
   MachineComparison,
   ComparableMachine,
@@ -98,10 +99,22 @@ export const MobileProductSingle: React.FC<{ product: Product }> = ({ product })
           )}
         </div>
 
-        {/* Title block */}
-        <p className="mt-6 font-googleSans text-xs font-bold uppercase tracking-[0.2em] text-theme-accent">
-          {product.categoryLabel}
-        </p>
+        {/* Title block — category label links back to its landing page */}
+        {(() => {
+          const category = getCategoryByProductKey(product.category);
+          return category ? (
+            <Link
+              to={`/product/${category.slug}`}
+              className="mt-6 inline-block font-googleSans text-xs font-bold uppercase tracking-[0.2em] text-theme-accent hover:text-theme-heading transition-colors"
+            >
+              {product.categoryLabel}
+            </Link>
+          ) : (
+            <p className="mt-6 font-googleSans text-xs font-bold uppercase tracking-[0.2em] text-theme-accent">
+              {product.categoryLabel}
+            </p>
+          );
+        })()}
         <h1 className="mt-2 font-heading uppercase tracking-wide text-3xl leading-tight text-theme-heading">
           {product.name}
         </h1>

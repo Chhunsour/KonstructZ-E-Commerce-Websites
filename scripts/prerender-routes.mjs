@@ -313,7 +313,13 @@ const main = async () => {
     const safe = path.normalize(routePath).replace(/^(\.\.[/\\])+/, "");
     const dir = path.join(OUT, ...safe.split("/").filter(Boolean));
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, "index.html"), renderRoute(template, routePath, seo, data));
+    const html = renderRoute(template, routePath, seo, data);
+    fs.writeFileSync(path.join(dir, "index.html"), html);
+    if (routePath === "/blog") {
+      const publicBlogDir = path.join(DIST, "blog");
+      fs.mkdirSync(publicBlogDir, { recursive: true });
+      fs.writeFileSync(path.join(publicBlogDir, "index.html"), html);
+    }
     count += 1;
   }
 

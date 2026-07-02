@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { I18nProvider } from "./context/I18nContext";
 import "./styles/home-reveal.css";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
-import { ChatAssistant } from "./components/chat/ChatAssistant";
 import { SeoManager } from "./components/SeoManager";
 import { Home } from "./pages/Home";
 import { AllProducts } from "./pages/AllProductsPage";
@@ -46,16 +45,32 @@ import { AttachmentsSupport } from "./pages/support/AttachmentsSupport";
 import { ContactSupport } from "./pages/support/ContactSupport";
 import { AuthProvider, RequireAuth } from "./context/AuthContext";
 import { ProductsProvider } from "./context/ProductsContext";
-import { AdminLogin } from "./pages/admin/Login";
-import { AdminLayout } from "./pages/admin/AdminLayout";
-import { BlogStudio } from "./pages/admin/BlogStudio";
-import { LeadsDashboard } from "./pages/admin/LeadsDashboard";
-import { AdminCategories } from "./pages/admin/Categories";
-import { ProductsDashboard } from "./pages/admin/ProductsDashboard";
-import { ProductEditor } from "./pages/admin/ProductEditor";
-import { ProductPreview } from "./pages/admin/ProductPreview";
-import { AdminChatbot } from "./pages/admin/Chatbot";
 import { NotFound } from "./pages/NotFound";
+
+// Admin pages are code-split so public visitors never download the editor,
+// dashboards, or their dependencies. Loaded on demand when /sour is opened.
+const AdminLogin = lazy(() => import("./pages/admin/Login").then((m) => ({ default: m.AdminLogin })));
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout").then((m) => ({ default: m.AdminLayout })));
+const BlogStudio = lazy(() => import("./pages/admin/BlogStudio").then((m) => ({ default: m.BlogStudio })));
+const LeadsDashboard = lazy(() => import("./pages/admin/LeadsDashboard").then((m) => ({ default: m.LeadsDashboard })));
+const AdminCategories = lazy(() => import("./pages/admin/Categories").then((m) => ({ default: m.AdminCategories })));
+const ProductsDashboard = lazy(() => import("./pages/admin/ProductsDashboard").then((m) => ({ default: m.ProductsDashboard })));
+const ProductEditor = lazy(() => import("./pages/admin/ProductEditor").then((m) => ({ default: m.ProductEditor })));
+const ProductPreview = lazy(() => import("./pages/admin/ProductPreview").then((m) => ({ default: m.ProductPreview })));
+const AdminChatbot = lazy(() => import("./pages/admin/Chatbot").then((m) => ({ default: m.AdminChatbot })));
+
+// The floating chat assistant is not needed for first paint; it mounts after
+// the browser goes idle so its engine/knowledge code stays out of the
+// critical bundle path.
+const LazyChatAssistant = lazy(() =>
+  import("./components/chat/ChatAssistant").then((m) => ({ default: m.ChatAssistant }))
+);
+
+const AdminFallback: React.FC = () => (
+  <div className="min-h-screen flex items-center justify-center bg-theme-bg">
+    <div className="h-10 w-10 border-2 border-theme-accent border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 // /media was renamed to /blog. The server 301s direct hits (.htaccess);
 // this handles in-app navigation to any stale /media link.
@@ -78,6 +93,19 @@ const AppLayout: React.FC = () => {
   const [isDesktop, setIsDesktop] = useState(
     typeof window !== "undefined" ? window.innerWidth >= 1024 : true
   );
+  const [chatReady, setChatReady] = useState(false);
+
+  // Mount the chat assistant once the browser is idle so its bundle chunk
+  // downloads after the page content, not in competition with it.
+  useEffect(() => {
+    const ready = () => setChatReady(true);
+    if (typeof window.requestIdleCallback === "function") {
+      const id = window.requestIdleCallback(ready, { timeout: 4000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(ready, 2500);
+    return () => window.clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     const onResize = () => setIsDesktop(window.innerWidth >= 1024);
@@ -155,6 +183,7 @@ const AppLayout: React.FC = () => {
     }`}>
       {!isAdminRoute && <Navbar />}
       <main className="flex-grow">
+        <Suspense fallback={<AdminFallback />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/equipment" element={<AllEquipment />} />
@@ -225,9 +254,14 @@ const AppLayout: React.FC = () => {
           {/* Catch-all 404 — unknown URLs must not index as homepage clones */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </main>
       {!hideAppFooter && <Footer />}
-      {!isAdminRoute && <ChatAssistant />}
+      {!isAdminRoute && chatReady && (
+        <Suspense fallback={null}>
+          <LazyChatAssistant />
+        </Suspense>
+      )}
     </div>
   );
 };

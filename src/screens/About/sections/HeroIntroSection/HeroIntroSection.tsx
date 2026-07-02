@@ -16,7 +16,7 @@ export const HeroIntroSection = (): JSX.Element => {
         <img
           className="absolute left-0 top-0 h-[1080px] w-[1920px] object-cover aspect-[1.5]"
           alt={t("auto.herointro.manager.meeting.with")}
-          src="/img/manager-meeting-with-engineer-outdoor-site-stack-hand-teamwork-1.png"
+          src="/img/manager-meeting-with-engineer-outdoor-site-stack-hand-teamwork-1.webp"
         />
         <div
           aria-hidden="true"

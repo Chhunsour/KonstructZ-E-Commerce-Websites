@@ -75,7 +75,7 @@ export const TemplateGrid = (): JSX.Element => {
       <img
         className="absolute top-[296px] left-[906px] w-[932px] h-[761px] aspect-[1.23]"
         alt="STOMP V980 compact track loader"
-        src="/img/stomp-v980-4.png"
+        src="/img/stomp-v980-4.webp"
       />
       <section
         className="absolute top-[407px] left-[91px] w-[934px] h-52"

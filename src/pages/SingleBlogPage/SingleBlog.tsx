@@ -416,7 +416,7 @@ export const SingleBlog = (): JSX.Element => {
       >
         <div className="relative w-full aspect-[488/192] min-h-[260px] sm:min-h-[320px] lg:min-h-[420px] xl:min-h-[480px] bg-theme-sec">
           <img
-            src="/single-blog/img/new-project-24-1.png"
+            src="/single-blog/img/new-project-24-1.webp"
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none opacity-40 dark:opacity-100"

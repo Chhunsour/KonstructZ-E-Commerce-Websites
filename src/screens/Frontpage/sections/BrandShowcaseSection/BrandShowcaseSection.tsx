@@ -6,13 +6,13 @@ import { Parallax } from "../../../../components/Parallax";
 const DecorativeMagnets = () => (
   <>
     <Parallax strength={0.18} ariaHidden className="absolute top-[234px] left-0 w-[334px] h-[508px]">
-      <img className="h-full w-full" alt="" src="/img/magnet.svg" aria-hidden="true" />
+      <img loading="lazy" decoding="async" className="h-full w-full" alt="" src="/img/magnet.svg" aria-hidden="true" />
     </Parallax>
     <Parallax strength={0.28} ariaHidden className="absolute top-[26px] left-[1773px] w-[147px] h-[224px]">
-      <img className="h-full w-full" alt="" src="/img/magnet-1.svg" aria-hidden="true" />
+      <img loading="lazy" decoding="async" className="h-full w-full" alt="" src="/img/magnet-1.svg" aria-hidden="true" />
     </Parallax>
     <Parallax strength={0.22} ariaHidden className="absolute top-[732px] left-[1822px] w-[98px] h-[179px]">
-      <img className="h-full w-full" alt="" src="/img/magnet-2.svg" aria-hidden="true" />
+      <img loading="lazy" decoding="async" className="h-full w-full" alt="" src="/img/magnet-2.svg" aria-hidden="true" />
     </Parallax>
   </>
 );
@@ -39,7 +39,7 @@ const LearnMoreButton = ({
       className={`${className} k-btn-lift cursor-pointer border-[1.5px] border-solid border-white bg-transparent flex items-center justify-center gap-1.5 hover:bg-white/10 text-white font-googleSans ${textSizeClass} font-normal leading-[normal]`}
     >
       <span>{t("auto.brandshowcase.learn.more")}</span>
-      <img
+      <img loading="lazy" decoding="async"
         className="w-[8px] h-[8px] object-contain ml-0.5"
         alt=""
         src={vectorSrc}
@@ -60,18 +60,18 @@ export const BrandShowcaseSection = (): JSX.Element => {
 
       {/* Card 1: Quality Equipment */}
       <Reveal variant="stack" delay={0} className="k-card-hover absolute top-[90px] left-[570px] w-[378px] h-[378px] overflow-hidden bg-[#bababa] k-image-zoom">
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-0 left-0 w-[378px] h-[378px]"
           alt=""
           src="/img/rectangle-34625626.svg"
           aria-hidden="true"
         />
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-0 left-0 w-[378px] h-[378px] object-cover"
           alt={t("auto.brandshowcase.super.red.betta")}
-          src="/img/super-red-betta-fish-siamese-fighting-fish-isolated-white-backgr.png"
+          src="/img/super-red-betta-fish-siamese-fighting-fish-isolated-white-backgr.webp"
         />
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-[74px] left-0 w-[378px] h-[304px]"
           alt=""
           src="/img/rectangle-34625639.svg"
@@ -96,12 +96,12 @@ export const BrandShowcaseSection = (): JSX.Element => {
 
       {/* Card 2: Trusted Support */}
       <Reveal variant="stack" delay={140} className="k-card-hover k-image-zoom absolute top-[90px] left-[972px] w-[378px] h-[378px] overflow-hidden bg-[#bababa]">
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-0 left-0 w-[378px] h-[378px] object-cover"
           alt=""
-          src="/img/engineer-provides-technical-support-via-headset-solar-panel-fact.png"
+          src="/img/engineer-provides-technical-support-via-headset-solar-panel-fact.webp"
         />
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-[74px] left-0 w-[378px] h-[303px]"
           alt=""
           src="/img/rectangle-34625639-1.svg"
@@ -126,12 +126,12 @@ export const BrandShowcaseSection = (): JSX.Element => {
 
       {/* Card 3: Job-Site Ready */}
       <Reveal variant="stack" delay={260} className="k-card-hover k-image-zoom absolute top-[492px] left-[570px] w-[378px] h-[378px] overflow-hidden bg-[#bababa]">
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-0 left-0 w-[378px] h-[378px] object-cover"
           alt={t("auto.brandshowcase.site.engineer.at")}
-          src="/img/site-engineer-construction-site-1.png"
+          src="/img/site-engineer-construction-site-1.webp"
         />
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-[82px] left-0 w-[378px] h-[296px]"
           alt=""
           src="/img/rectangle-34625639-2.svg"
@@ -156,12 +156,12 @@ export const BrandShowcaseSection = (): JSX.Element => {
 
       {/* Card 4: Long-Term Value */}
       <Reveal variant="stack" delay={380} className="k-card-hover k-image-zoom absolute top-[492px] left-[972px] w-[378px] h-[378px] overflow-hidden bg-[#bababa]">
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-0 left-0 w-[378px] h-[378px] object-cover"
           alt={t("auto.brandshowcase.businessman.holding.growth")}
-          src="/img/businessman-holding-growth-arrow-1.png"
+          src="/img/businessman-holding-growth-arrow-1.webp"
         />
-        <img
+        <img loading="lazy" decoding="async"
           className="absolute top-[73px] left-0 w-[378px] h-[304px]"
           alt=""
           src="/img/rectangle-34625639-3.svg"

@@ -20,7 +20,7 @@ const BEFORE_AFTER_THUMBS = [
   "/all-products/img/chatgpt-image-jun-10-2026-01-24-24-pm-3.png",
   "/all-products/img/chatgpt-image-jun-10-2026-01-24-16-pm-3.png",
   "/all-products/img/chatgpt-image-jun-10-2026-01-24-31-pm-3.png",
-  "/all-products/img/chatgpt-image-jun-10-2026-11-18-24-am-4.png",
+  "/all-products/img/chatgpt-image-jun-10-2026-11-18-24-am-4.webp",
 ];
 
 /* Real products from /data/products.ts drive the cards directly. */
@@ -192,9 +192,9 @@ const HeroSection: React.FC = () => {
   const { t } = useI18n();
 
   const HERO_PRODUCTS = [
-    { src: "/all-products/img/new-project-18-2.png", alt: t("auto.allproducts.compact.skid.steer"), size: "side" as const },
-    { src: "/all-products/img/stomp-v980-4-3.png", alt: t("auto.allproducts.kuvuo.4.0"), size: "main" as const },
-    { src: "/all-products/img/new-project-15-2-5.png", alt: t("auto.allproducts.skid.steer.attachment"), size: "side" as const },
+    { src: "/all-products/img/new-project-18-2.webp", alt: t("auto.allproducts.compact.skid.steer"), size: "side" as const },
+    { src: "/all-products/img/stomp-v980-4-3.webp", alt: t("auto.allproducts.kuvuo.4.0"), size: "main" as const },
+    { src: "/all-products/img/new-project-15-2-5.webp", alt: t("auto.allproducts.skid.steer.attachment"), size: "side" as const },
   ];
 
   const HERO_SPECS = [
@@ -374,14 +374,14 @@ export const BeforeAfterSection: React.FC = () => {
 
           {/* AFTER Image (Background) */}
           <img
-            src="/all-products/img/chatgpt-image-jun-10-2026-11-18-24-am-1-1.png"
+            src="/all-products/img/chatgpt-image-jun-10-2026-11-18-24-am-1-1.webp"
             alt={t("allProducts.afterSiteTransformation")}
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             loading="eager"
           />
           {/* BEFORE Image (Hardware-Accelerated Clipped Overlay) */}
           <img
-            src="/all-products/img/before 4th image.png"
+            src="/all-products/img/before 4th image.webp"
             alt={t("allProducts.beforeSiteTransformation")}
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
@@ -458,14 +458,14 @@ const CategoriesSection: React.FC<CategoriesSectionProps> = ({ selectedCategory,
   const { t } = useI18n();
 
   const CATEGORIES = [
-    { slug: "skid-steer-loaders", translationKey: "category.skid-steer", label: "Skid Steer", count: 2, src: "/img/banner/banner-stomp-v980.png", display: { scale: 1.09, yOffset: 0 } },
-    { slug: "mini-excavators", translationKey: "category.mini-excavator", label: "Mini Excavator", count: 2, src: "/img/banner/banner-kuvuo.png", display: { scale: 1.33, yOffset: 6 } },
-    { slug: "wheel-loaders", translationKey: "category.wheel-loader", label: "Wheel Loader", count: 1, src: "/img/banner/banner-skoop-ii.png", display: { scale: 1.36, yOffset: 9 } },
-    { slug: "backhoe-loaders", translationKey: "category.backhoe-loader", label: "Backhoe Loader", count: 1, src: "/img/banner/banner-scoopydig.png", display: { scale: 1.42, yOffset: 15 } },
-    { slug: "dumpers", translationKey: "category.dumper", label: "Dumper", count: 2, src: "/img/banner/banner-thunderdump.png", display: { scale: 1.15, yOffset: 0 } },
-    { slug: "trenchers", translationKey: "category.trencher", label: "Trencher", count: 1, src: "/img/banner/banner-trencher.png", display: { scale: 1.57, yOffset: 24 } },
-    { slug: "towable-excavators", translationKey: "category.towable-excavator", label: "Towable Excavator", count: 1, src: "/img/banner/banner-spider-one.png", display: { scale: 1.15, yOffset: 9 } },
-    { slug: "stone-crushers", translationKey: "category.stone-crusher", label: "Stone Crusher", count: 3, src: "/img/banner/banner-stone-crusher.png", display: { scale: 1.36, yOffset: 12 } },
+    { slug: "skid-steer-loaders", translationKey: "category.skid-steer", label: "Skid Steer", count: 2, src: "/img/banner/banner-stomp-v980.webp", display: { scale: 1.09, yOffset: 0 } },
+    { slug: "mini-excavators", translationKey: "category.mini-excavator", label: "Mini Excavator", count: 2, src: "/img/banner/banner-kuvuo.webp", display: { scale: 1.33, yOffset: 6 } },
+    { slug: "wheel-loaders", translationKey: "category.wheel-loader", label: "Wheel Loader", count: 1, src: "/img/banner/banner-skoop-ii.webp", display: { scale: 1.36, yOffset: 9 } },
+    { slug: "backhoe-loaders", translationKey: "category.backhoe-loader", label: "Backhoe Loader", count: 1, src: "/img/banner/banner-scoopydig.webp", display: { scale: 1.42, yOffset: 15 } },
+    { slug: "dumpers", translationKey: "category.dumper", label: "Dumper", count: 2, src: "/img/banner/banner-thunderdump.webp", display: { scale: 1.15, yOffset: 0 } },
+    { slug: "trenchers", translationKey: "category.trencher", label: "Trencher", count: 1, src: "/img/banner/banner-trencher.webp", display: { scale: 1.57, yOffset: 24 } },
+    { slug: "towable-excavators", translationKey: "category.towable-excavator", label: "Towable Excavator", count: 1, src: "/img/banner/banner-spider-one.webp", display: { scale: 1.15, yOffset: 9 } },
+    { slug: "stone-crushers", translationKey: "category.stone-crusher", label: "Stone Crusher", count: 3, src: "/img/banner/banner-stone-crusher.webp", display: { scale: 1.36, yOffset: 12 } },
   ];
 
   return (

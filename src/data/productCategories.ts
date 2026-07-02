@@ -75,7 +75,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Compact tracked diggers for tight access, trenching, and precision earthwork.",
     heroIntro:
       "Mini excavators dig clean trenches, set footings, and handle landscape and utility work where a full-size excavator cannot reach. Tracked stability, zero-tail-swing options, and a deep attachment library make one machine cover several roles across the workday.",
-    heroImage: "/img/kuvuo 2.5.png",
+    heroImage: "/img/kuvuo 2.5.webp",
     aboutBody:
       "A mini excavator is a compact tracked digging machine used for trenching, foundation prep, utility installation, drainage, demolition, and landscaping in tight spaces where a full-size excavator cannot work. With the right attachment it can dig, grade, break, drill, lift and handle materials on the same job.",
     commonUses: [
@@ -122,7 +122,7 @@ export const productCategories: ProductCategory[] = [
           "Smaller engine and lighter chassis means lower fuel burn, easier transport, and simpler service than a full-size excavator.",
       },
     ],
-    splitImage: "/img/kuvuo 2.7.png",
+    splitImage: "/img/kuvuo 2.7.webp",
     splitHeading: "Built for tight-access digging",
     splitBody:
       "Konstructz mini excavators are configured for jobs where access, footprint and surface protection matter. Zero-tail-swing geometry protects walls and finished surfaces, retractable tracks slip through narrow gates, and auxiliary hydraulics power a wide library of work tools — so one machine moves from trenching to grading to breaking without leaving the site.",
@@ -159,7 +159,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Tight-turning loaders that swap tools fast and work in confined spaces.",
     heroIntro:
       "Mini skid steer loaders combine zero-radius turning with a deep quick-attach library, so a single operator can load, grade, sweep, dig and break across one workday. Their compact footprint opens up sites where wheel loaders cannot fit.",
-    heroImage: "/img/STOMP V980 v1.png",
+    heroImage: "/img/STOMP V980 v1.webp",
     aboutBody:
       "A mini skid steer loader is a compact, highly maneuverable loader used for material handling, grading, loading trucks, snow clearing, demolition, landscaping, and running a wide library of work-tool attachments. Its zero-radius turning lets it work in confined spaces where wheel loaders cannot.",
     commonUses: [
@@ -206,7 +206,7 @@ export const productCategories: ProductCategory[] = [
           "Choose tracked for soft, muddy or sloped ground; choose wheels for fast travel across hard yards and finished pavement.",
       },
     ],
-    splitImage: "/img/skoop v950 v1.png",
+    splitImage: "/img/skoop v950 v1.webp",
     splitHeading: "Engineered for high-cycle production",
     splitBody:
       "Konstructz mini skid steers are built for crews that work the machine all day. Ergonomic dual-joystick controls reduce operator fatigue, the quick-attach plate keeps tool-change downtime measured in seconds, and the lift geometry is matched to common pallet, hopper and stockpile heights so cycle times stay tight.",
@@ -239,7 +239,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Articulated four-wheel-drive loaders for bulk material and high-cycle yards.",
     heroIntro:
       "Wheel loaders move serious volume — aggregate, soil, snow, mulch and demolition waste — between piles, trucks and work areas every cycle. An articulated chassis keeps the bucket level through tight yard turns and predictable cycle times.",
-    heroImage: "/img/skoop ii v2.png",
+    heroImage: "/img/skoop ii v2.webp",
     aboutBody:
       "A wheel loader is an articulated, four-wheel-drive front loader used to scoop, lift and transport bulk material. It is the workhorse for any operation that moves large volumes of loose material between piles, trucks and work areas — the kind of work that defines aggregate yards, recycling sites and snow contracts.",
     commonUses: [
@@ -286,7 +286,7 @@ export const productCategories: ProductCategory[] = [
           "Quick-couplers let one wheel loader carry forks, snow tools, grapples and light-material buckets across the calendar.",
       },
     ],
-    splitImage: "/img/skoop-2-1-1.png",
+    splitImage: "/img/skoop-2-1-1.webp",
     splitHeading: "Configured for production yards",
     splitBody:
       "Konstructz wheel loaders are designed around a coupler-based attachment workflow — general-purpose buckets, light-material buckets, pallet forks, grapples, snow plows and snow buckets. Bucket size, coupler type and hydraulic flow are matched to the trucks, hoppers and stockpiles on your site so cycle time and machine strain stay balanced.",
@@ -319,7 +319,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Loader + digger on one chassis — load, trench, backfill and clean up with one operator.",
     heroIntro:
       "Backhoe loaders pair a front loader for hauling and grading with a rear backhoe arm for digging — so one operator can load, trench, backfill and clean up without switching machines. A roadable chassis moves the whole package between nearby jobsites under its own power.",
-    heroImage: "/img/scoopydig v1.png",
+    heroImage: "/img/scoopydig v1.webp",
     aboutBody:
       "A backhoe loader is a dual-purpose machine with a loader bucket on the front and a backhoe digging arm on the back. It is used for excavation, trenching, loading trucks, backfilling, grading and material handling — all from one operator's seat. The wheeled chassis makes it the natural choice when crews move between several sites in a workday.",
     commonUses: [
@@ -366,7 +366,7 @@ export const productCategories: ProductCategory[] = [
           "Swivel seat puts the operator in front of the active end — loader work facing forward, backhoe work facing back.",
       },
     ],
-    splitImage: "/img/scoopydigreal.png",
+    splitImage: "/img/scoopydigreal.webp",
     splitHeading: "One operator, two ends of work",
     splitBody:
       "Konstructz backhoe loaders configure with digging buckets, ditching buckets, hydraulic breakers, augers and thumbs on the backhoe end; and loader buckets, forks and blades on the front. Coupler type and hydraulic flow are matched to the attachments you plan to run, so the machine moves smoothly between digging and loading without a second machine on site.",
@@ -399,7 +399,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Tracked and wheeled site dumpers for moving bulk material across tough ground.",
     heroIntro:
       "Compact dumpers move concrete, soil and aggregate across the toughest sites — including the muddy, steep and tight-access ground that bigger trucks can't reach. Tracked models float on soft soil; wheeled models move fast across hard surfaces.",
-    heroImage: "/img/thunder dump lift.png",
+    heroImage: "/img/thunder dump lift.webp",
     aboutBody:
       "A compact dumper is a small jobsite hauler used on construction, landscaping and farm sites to move bulk material between the staging point and the work area. Tracked dumpers extend that capability onto soft, sloped or muddy ground when configured correctly — covering routes a full-size dump truck cannot safely cross.",
     commonUses: [
@@ -446,7 +446,7 @@ export const productCategories: ProductCategory[] = [
           "Low ground pressure tracks and rubber options preserve turf, pavers and finished concrete on residential sites.",
       },
     ],
-    splitImage: "/img/thunder dump 180.png",
+    splitImage: "/img/thunder dump 180.webp",
     splitHeading: "Match the dumper to the load and the ground",
     splitBody:
       "Konstructz dumpers ship in tracked and wheeled formats with hydraulic tip and — on select models — hydraulic swivel and self-loading shovel options. The configuration matches the chassis and box to how the material gets in, out and across the site. Hauling class is sized to the most-repeated load, since concrete is much heavier than mulch for the same box volume.",
@@ -479,7 +479,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Crush concrete, brick, asphalt and stone on site — turn debris into usable aggregate.",
     heroIntro:
       "On-site stone and concrete crushers turn demolition rubble, fieldstone and recycled aggregate into usable material right where you work. Eliminates haul-off fees, aggregate delivery costs and dozens of truck movements per project.",
-    heroImage: "/img/stone krusher k1.png",
+    heroImage: "/img/stone krusher k1.webp",
     aboutBody:
       "A stone crusher reduces stone, concrete, brick and asphalt into smaller, uniform pieces that can be reused on site as fill, sub-base or finished aggregate. Crushing in place removes the cost of trucking debris out and aggregate back in — and reduces dust on local roads, project schedule and disposal fees in the same pass.",
     commonUses: [
@@ -526,7 +526,7 @@ export const productCategories: ProductCategory[] = [
           "Recycling material at source cuts truck movements, dust on local roads and project carbon footprint at once.",
       },
     ],
-    splitImage: "/img/stone krusher k2.png",
+    splitImage: "/img/stone krusher k2.webp",
     splitHeading: "Sized for the input you actually feed",
     splitBody:
       "Konstructz crushers are sized for site-grade input material. Pair with a loader or excavator to feed the hopper, and a screener or conveyor downstream when you need graded output. Feed opening dimensions are matched against your largest input piece, since undersized intake just shifts the work to pre-breaking by hand.",
@@ -559,7 +559,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Dedicated channel-cutters for utility, irrigation and drainage installs.",
     heroIntro:
       "Trenchers cut clean, uniform channels through compacted soil, clay and roots — so backfill goes faster, pipe sits straight and the next stage of the install is ready sooner. Purpose-built for any long linear underground run.",
-    heroImage: "/img/ground ripper grx.png",
+    heroImage: "/img/ground ripper grx.webp",
     aboutBody:
       "A trencher is a dedicated digging machine that cuts narrow, uniform channels for buried utilities — water, sewer, gas, fiber, electrical, irrigation and drainage. A trencher delivers a cleaner, faster channel than an excavator bucket for any linear underground install, with much lower spoil volume to clean up.",
     commonUses: [
@@ -606,7 +606,7 @@ export const productCategories: ProductCategory[] = [
           "Small chassis fits through residential gates and works between fences and landscaping with minimal collateral damage.",
       },
     ],
-    splitImage: "/img/groundripper-png-4.png",
+    splitImage: "/img/groundripper-png-4.webp",
     splitHeading: "Match chain, tooth pattern and depth to the install",
     splitBody:
       "Konstructz trenchers come matched with digging chains and tooth options sized to common channel widths. Chain length, tooth pattern and chain speed are confirmed for the depth and soil class on your project — so the cut starts strong and stays clean across long runs. Worn teeth are replaced before they start tearing the channel.",
@@ -639,7 +639,7 @@ export const productCategories: ProductCategory[] = [
     shortDescription: "Tow-behind diggers that travel with a pickup and set up on outriggers.",
     heroIntro:
       "Towable excavators pull behind a pickup or utility vehicle, set up on outriggers, and dig where access keeps a full-size excavator off the property. Built for remote, off-grid and rural jobsites where transport simplicity matters.",
-    heroImage: "/img/spider one v1.png",
+    heroImage: "/img/spider one v1.webp",
     aboutBody:
       "A towable excavator is a small excavator on a tow-behind chassis that can be moved with a suitable pickup or utility vehicle where local towing rules allow. Once on site, outriggers deploy and the boom and bucket handle light excavation tasks. It is built for remote, rural and access-limited work where a tracked machine on a trailer is too much rig for the job.",
     commonUses: [
@@ -686,7 +686,7 @@ export const productCategories: ProductCategory[] = [
           "Folded-up footprint stores in a shop bay or under a carport between jobs — no trailer parking needed.",
       },
     ],
-    splitImage: "/img/spider-one.png",
+    splitImage: "/img/spider-one.webp",
     splitHeading: "Configure for the haul and the hole",
     splitBody:
       "Konstructz towable excavators can be configured with digging and trenching buckets and thumb options for material handling. Coupler pin size and hydraulic flow are matched against the attachments you plan to run, while towing weight, hitch class and brake spec are aligned with the vehicle that will pull it most often.",

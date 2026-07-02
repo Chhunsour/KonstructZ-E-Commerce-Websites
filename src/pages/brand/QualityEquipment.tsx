@@ -11,7 +11,7 @@ export const QualityEquipment: React.FC = () => {
       eyebrow={t("auto.qualityequipment.brand.pillar")}
       title={t("auto.qualityequipment.quality.equipment.engineered")}
       intro={t("auto.qualityequipment.every.machine.in")}
-      heroImage="/img/new-project-23-3.png"
+      heroImage="/img/new-project-23-3.webp"
       stats={[
         { value: "PDI", label: t("auto.qualityequipment.pre.shipping.inspection") },
         { value: "Terms", label: t("auto.qualityequipment.standard.warranty") },

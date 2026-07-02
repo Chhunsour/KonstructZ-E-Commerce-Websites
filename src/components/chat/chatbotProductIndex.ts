@@ -26,7 +26,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/stomp-v980",
-    "image": "/img/STOMP V980 v1.png",
+    "image": "/img/STOMP V980 v1.webp",
     "specs": {
       "horsepower": "65 HP",
       "engine": "Kubota V2403-CR-TE5B Diesel (65 HP)",
@@ -43,7 +43,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/kuvuo-2-5",
-    "image": "/img/kuvuo 2.5.png",
+    "image": "/img/kuvuo 2.5.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "Yanmar 3TNV76 Diesel (18.4 HP)",
@@ -60,7 +60,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/skoop-ii",
-    "image": "/img/skoop ii v2.png",
+    "image": "/img/skoop ii v2.webp",
     "specs": {
       "horsepower": "74 HP",
       "engine": "Deutz TD 2.9 L4 Diesel (74 HP)",
@@ -77,7 +77,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/scoopydig",
-    "image": "/img/scoopydig v1.png",
+    "image": "/img/scoopydig v1.webp",
     "specs": {
       "horsepower": "5 HP",
       "engine": "Perkins 904J Diesel (74.5 HP)",
@@ -94,7 +94,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/thunderdump-1",
-    "image": "/img/thunder dump lift.png",
+    "image": "/img/thunder dump lift.webp",
     "specs": {
       "horsepower": "13 HP",
       "engine": "Honda GX390 Petrol (13 HP)",
@@ -111,7 +111,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/stone-crusher-1",
-    "image": "/img/stone krusher k1.png",
+    "image": "/img/stone krusher k1.webp",
     "specs": {
       "horsepower": "24 HP",
       "engine": "Kohler KDW1003 Diesel (24 HP)",
@@ -128,7 +128,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/group-ripper-grx",
-    "image": "/img/ground ripper grx.png",
+    "image": "/img/ground ripper grx.webp",
     "specs": {
       "horsepower": "35 HP",
       "engine": "Vanguard V-Twin Petrol (35 HP)",
@@ -145,7 +145,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/kuvuo-2-7",
-    "image": "/img/kuvuo 2.7.png",
+    "image": "/img/kuvuo 2.7.webp",
     "specs": {
       "horsepower": "4 HP",
       "engine": "Yanmar 3TNV80F Diesel (24.4 HP)",
@@ -162,7 +162,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/spider-one",
-    "image": "/img/spider one v1.png",
+    "image": "/img/spider one v1.webp",
     "specs": {
       "horsepower": "9 HP",
       "engine": "Lifan Gas Engine (9 HP)",
@@ -179,7 +179,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/stone-crusher-2",
-    "image": "/img/stone krusher k2.png",
+    "image": "/img/stone krusher k2.webp",
     "specs": {
       "horsepower": "50 HP",
       "engine": "Perkins 404D Diesel (50 HP)",
@@ -196,7 +196,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/thunderdump-2",
-    "image": "/img/thunder dump 180.png",
+    "image": "/img/thunder dump 180.webp",
     "specs": {
       "horsepower": "8 HP",
       "engine": "Kubota D902 Diesel (24.8 HP)",
@@ -213,7 +213,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/stomp-v950",
-    "image": "/img/skoop v950 v1.png",
+    "image": "/img/skoop v950 v1.webp",
     "specs": {
       "horsepower": "72 HP",
       "engine": "Yanmar 4TNV98T Diesel (72 HP)",
@@ -230,7 +230,7 @@ export const normalizedProducts: NormalizedProduct[] = [
     "productType": "machine",
     "price": null,
     "url": "/typhon-machinery/stone-crusher-3",
-    "image": "/img/stone krusher k3.png",
+    "image": "/img/stone krusher k3.webp",
     "specs": {
       "horsepower": "115 HP",
       "engine": "Cummins F3.8 Diesel (115 HP)",

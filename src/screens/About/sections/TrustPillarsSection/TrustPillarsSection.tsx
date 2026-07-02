@@ -8,7 +8,7 @@ export const TrustPillarsSection = (): JSX.Element => {
       title: t("auto.trustpillars.affordable.machinery"),
       description: t("auto.trustpillars.quality.equipment.at"),
       imageSrc:
-        "/img/world-habitat-day-close-up-picture-pile-coins-sag-coin-2.png",
+        "/img/world-habitat-day-close-up-picture-pile-coins-sag-coin-2.webp",
       imageAlt: t("auto.trustpillars.affordable.machinery.represented"),
       cardLeft: "left-[141px]",
       cardWidth: "w-[371px]",
@@ -31,7 +31,7 @@ export const TrustPillarsSection = (): JSX.Element => {
       title: t("auto.trustpillars.reliable.tested"),
       description: t("auto.trustpillars.every.machine.checked"),
       imageSrc:
-        "/img/engineer-specialist-asian-female-technician-maintenance-inspect.png",
+        "/img/engineer-specialist-asian-female-technician-maintenance-inspect.webp",
       imageAlt: t("auto.trustpillars.technician.inspecting.equipment"),
       cardLeft: "left-[563px]",
       cardWidth: "w-[371px]",
@@ -54,7 +54,7 @@ export const TrustPillarsSection = (): JSX.Element => {
       title: t("auto.trustpillars.online.24.7"),
       description: t("auto.trustpillars.fast.answers.to"),
       imageSrc:
-        "/img/customer-support-black-technician-helpline-photovoltaic-facility.png",
+        "/img/customer-support-black-technician-helpline-photovoltaic-facility.webp",
       imageAlt: t("auto.trustpillars.customer.support.technician"),
       cardLeft: "left-[985px]",
       cardWidth: "w-[371px]",
@@ -76,7 +76,7 @@ export const TrustPillarsSection = (): JSX.Element => {
     {
       title: t("auto.trustpillars.perfect.for.local"),
       description: t("auto.trustpillars.compact.versatile.machines"),
-      imageSrc: "/img/men-standing-field-against-sky-1.png",
+      imageSrc: "/img/men-standing-field-against-sky-1.webp",
       imageAlt: t("auto.trustpillars.farmers.and.contractors"),
       cardLeft: "left-[1407px]",
       cardWidth: "w-[371px]",

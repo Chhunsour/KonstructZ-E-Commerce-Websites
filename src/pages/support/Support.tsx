@@ -66,7 +66,7 @@ export const Support: React.FC = () => {
         eyebrow={t("auto..support.center")}
         title={t("auto..how.can.we")}
         description={t("auto..find.answers.request")}
-        image="/img/support/factory-worker.png"
+        image="/img/support/factory-worker.webp"
         primary={{ label: t("auto..contact.support"), to: "/support/contact-support" }}
         secondary={{ label: t("auto..browse.resources"), to: "/support/machine-guidance" }}
       />
@@ -92,7 +92,7 @@ export const Support: React.FC = () => {
 
       {/* Atmospheric image band between sections */}
       <ImageBand
-        image="/img/support/sawmill-production.jpg"
+        image="/img/support/sawmill-production.webp"
         eyebrow="Built For Heavy Work"
         title="From The Yard To Your Site, Backed All The Way"
         body="Every Konstructz machine is supported with practical guidance before dispatch, during delivery, and after the first job."
@@ -148,7 +148,7 @@ export const Support: React.FC = () => {
       <SupportCTA
         heading={t("auto..still.need.assistance")}
         description={t("auto..our.team.is")}
-        image="/img/support/construction-site.jpg"
+        image="/img/support/construction-site.webp"
         primary={{ label: t("auto..contact.support"), to: "/support/contact-support" }}
         secondaryTel={{ label: t("auto..call.sales.team"), tel: "+12132142203" }}
       />

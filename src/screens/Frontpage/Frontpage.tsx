@@ -61,7 +61,7 @@ export const Frontpage = (): JSX.Element => {
       <video
         ref={v950Ref}
         className="absolute top-0 left-0 w-[1919px] h-[1080px] aspect-[1.78] object-cover transition-opacity duration-1000 ease-in-out"
-        src="/video/banner-konstructz.mp4"
+        poster="/video/banner-konstructz-poster.webp"
         autoPlay
         muted
         playsInline
@@ -69,19 +69,33 @@ export const Frontpage = (): JSX.Element => {
         aria-label={t("auto.frontpage.konstructz.hero.background")}
         style={{ opacity: activeModel === "v950" ? 1 : 0, zIndex: activeModel === "v950" ? 1 : 0 }}
         onEnded={() => setActiveModel("v980")}
-      />
+        onPlaying={() => {
+          // Defer the second hero video until the first is actually playing,
+          // so both don't compete for bandwidth on initial page load.
+          const v = v980Ref.current;
+          if (v && v.preload === "none") {
+            v.preload = "auto";
+            v.load();
+          }
+        }}
+      >
+        <source src="/video/banner-konstructz-1080.webm" type="video/webm" />
+        <source src="/video/banner-konstructz-1080.mp4" type="video/mp4" />
+      </video>
       <video
         ref={v980Ref}
         className="absolute top-0 left-0 w-[1919px] h-[1080px] aspect-[1.78] object-cover transition-opacity duration-1000 ease-in-out"
-        src="/video/skid-steer-v980-banner.mp4"
-        autoPlay
+        poster="/video/skid-steer-v980-banner-poster.webp"
         muted
         playsInline
-        preload="auto"
+        preload="none"
         aria-label="STOMP V980 Hero Video"
         style={{ opacity: activeModel === "v980" ? 1 : 0, zIndex: activeModel === "v980" ? 1 : 0 }}
         onEnded={() => setActiveModel("v950")}
-      />
+      >
+        <source src="/video/skid-steer-v980-banner-1080.webm" type="video/webm" />
+        <source src="/video/skid-steer-v980-banner-1080.mp4" type="video/mp4" />
+      </video>
 
       {/* Left-side cinematic vignette — no visible edges, just a soft darkening
           so the headline reads cleanly. Two stacked radial gradients fade
@@ -202,7 +216,7 @@ export const Frontpage = (): JSX.Element => {
         <img
           className="absolute top-0 left-[720px] w-[1200px] h-[900px] object-cover"
           alt="Rectangle"
-          src="/img/rectangle-9581.png"
+          src="/img/rectangle-9581.webp"
         />
         <div
           className="absolute top-[450px] left-0 w-[720px] h-[450px] bg-[#114f2f]"
@@ -211,7 +225,7 @@ export const Frontpage = (): JSX.Element => {
         <img
           className="absolute top-[450px] left-0 w-[720px] h-[450px] aspect-[1.6]"
           alt={t("auto.frontpage.equipment.showcase")}
-          src="/img/remove-the-white-background-and-202605291020-1.png"
+          src="/img/remove-the-white-background-and-202605291020-1.webp"
         />
         <div
           className="absolute top-0 left-0 w-[720px] h-[450px] bg-[#e22c2c]"
@@ -220,7 +234,7 @@ export const Frontpage = (): JSX.Element => {
         <img
           className="absolute top-0 left-0 w-[720px] h-[450px] aspect-[1.61]"
           alt={t("auto.frontpage.equipment.showcase")}
-          src="/img/change-the-aspect-ratio-to-202605291023-1.png"
+          src="/img/change-the-aspect-ratio-to-202605291023-1.webp"
         />
       </Reveal>
 

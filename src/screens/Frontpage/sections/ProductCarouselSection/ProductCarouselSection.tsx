@@ -31,56 +31,56 @@ export const ProductCarouselSection = (): JSX.Element => {
     {
       id: "scoopydig",
       title: t("auto.productcarousel.mini.excavator"),
-      imageSrc: "/img/mini-excavator-png-4-1.png",
+      imageSrc: "/img/mini-excavator-png-4-1.webp",
       scale: 1.05,
       translateY: 20,
     },
     {
       id: "spider-one",
       title: t("auto.productcarousel.spider.one"),
-      imageSrc: "/img/spider-one.png",
+      imageSrc: "/img/spider-one.webp",
       scale: 1.25,
       translateY: 144,
     },
     {
       id: "stomp-v950",
       title: t("auto.productcarousel.skid.steer.loader"),
-      imageSrc: "/img/skid-steer-loader.png",
+      imageSrc: "/img/skid-steer-loader.webp",
       scale: 1.15,
       translateY: 35,
     },
     {
       id: "groundripper-grx",
       title: t("auto.productcarousel.ground.ripper"),
-      imageSrc: "/img/groundripper-swipe.png",
+      imageSrc: "/img/groundripper-swipe.webp",
       scale: 1.2,
       translateY: 25,
     },
     {
       id: "scoopydig",
       title: t("auto.productcarousel.scoopy.dig"),
-      imageSrc: "/img/scoopy-dig-swipe.png",
+      imageSrc: "/img/scoopy-dig-swipe.webp",
       scale: 1.35,
       translateY: 10,
     },
     {
       id: "skoop-ii",
       title: "K-LOAD 1200",
-      imageSrc: "/img/skoop-swipe.png",
+      imageSrc: "/img/skoop-swipe.webp",
       scale: 1.25,
       translateY: 35,
     },
     {
       id: "thunderdump",
       title: t("auto.productcarousel.thunderdump.2"),
-      imageSrc: "/img/thunderdump-2.png",
+      imageSrc: "/img/thunderdump-2.webp",
       scale: 1.18,
       translateY: 73,
     },
     {
       id: "thunderdump",
       title: t("auto.productcarousel.thunderdump.2.alt"),
-      imageSrc: "/img/thunderdump-2-alt.png",
+      imageSrc: "/img/thunderdump-2-alt.webp",
       scale: 1.15,
       translateY: 40,
     },
@@ -121,7 +121,7 @@ export const ProductCarouselSection = (): JSX.Element => {
       className="absolute top-[2106px] left-px w-[1920px] h-[1479px] bg-[#ebebeb] overflow-hidden"
     >
       <Parallax strength={0.18} ariaHidden className="absolute top-0 left-[1162px] w-[758px] h-[1041px] pointer-events-none select-none">
-        <img
+        <img loading="lazy" decoding="async"
           className="h-full w-full"
           alt=""
           aria-hidden="true"
@@ -129,7 +129,7 @@ export const ProductCarouselSection = (): JSX.Element => {
         />
       </Parallax>
       <Parallax strength={0.22} ariaHidden className="absolute top-[189px] left-0 w-[320px] h-[870px] pointer-events-none select-none">
-        <img
+        <img loading="lazy" decoding="async"
           className="h-full w-full"
           alt=""
           aria-hidden="true"
@@ -175,7 +175,7 @@ export const ProductCarouselSection = (): JSX.Element => {
             { src: "/img/engine-logos/briggs-stratton.png", alt: "Briggs & Stratton", h: 220 },
           ].map((logo, i) => (
             <div key={i} className="shrink-0 flex items-center justify-center px-[110px]">
-              <img
+              <img loading="lazy" decoding="async"
                 src={logo.src}
                 alt={logo.alt}
                 style={{ height: logo.h }}
@@ -232,7 +232,7 @@ export const ProductCarouselSection = (): JSX.Element => {
         <span id="product-carousel-title">{activeProduct.title}</span>
       </Reveal>
       <Reveal variant="reveal-x" delay={220} ariaHidden className="absolute top-[699px] left-[75px] w-[291px] h-[29px] pointer-events-none select-none">
-        <img
+        <img loading="lazy" decoding="async"
           className="h-full w-full"
           alt=""
           aria-hidden="true"
@@ -264,7 +264,7 @@ export const ProductCarouselSection = (): JSX.Element => {
 
         {transitionState.direction === null ? (
           <div className="absolute w-full h-full flex items-end justify-center pb-[40px]">
-            <img
+            <img loading="lazy" decoding="async"
               className="max-w-[1100px] max-h-[580px] object-contain transition-all duration-300"
               alt={activeProduct.title}
               src={activeProduct.imageSrc}
@@ -282,7 +282,7 @@ export const ProductCarouselSection = (): JSX.Element => {
                   : t("auto.productcarousel.slideoutright.500ms.ease")
               }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 className="max-w-[1100px] max-h-[580px] object-contain"
                 alt={products[transitionState.prevIndex!].title}
                 src={products[transitionState.prevIndex!].imageSrc}
@@ -301,7 +301,7 @@ export const ProductCarouselSection = (): JSX.Element => {
                   : t("auto.productcarousel.slideinleft.500ms.ease")
               }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 className="max-w-[1100px] max-h-[580px] object-contain"
                 alt={activeProduct.title}
                 src={activeProduct.imageSrc}
@@ -332,7 +332,7 @@ export const ProductCarouselSection = (): JSX.Element => {
           >
             <span>{button.label === "BUY NOW" ? `BUY ${activeProduct.title.toUpperCase()}` : button.label}</span>
             {button.hasIcon && (
-              <img
+              <img loading="lazy" decoding="async"
                 src="/img/vector.svg"
                 alt=""
                 className="w-[12px] h-[20px] object-contain pointer-events-none select-none ml-1"

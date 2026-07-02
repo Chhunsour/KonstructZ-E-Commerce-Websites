@@ -56,7 +56,7 @@ export const ContactSupport: React.FC = () => {
         eyebrow={t("auto.contact.contact.support")}
         title={t("auto.contact.talk.to.a")}
         description={t("auto.contact.reach.our.team")}
-        image="/img/support/safety-team.jpg"
+        image="/img/support/safety-team.webp"
         primary={{ label: t("auto.contact.call.now"), to: "/support/contact-support" }}
         secondary={{ label: t("auto.contact.back.to.support"), to: "/support" }}
       />
@@ -183,7 +183,7 @@ export const ContactSupport: React.FC = () => {
       </Section>
 
       <ImageBand
-        image="/img/support/analyzing-data.jpg"
+        image="/img/support/analyzing-data.webp"
         eyebrow="Real Specialists"
         title="Direct Lines To People Who Run Machines"
         body="When you call, you reach a support path built around machine model, attachment fitment, hydraulic setup, and the job you need to finish."
@@ -259,7 +259,7 @@ export const ContactSupport: React.FC = () => {
       <SupportCTA
         heading={t("auto.contact.we.re.ready")}
         description={t("auto.contact.from.the.first")}
-        image="/img/support/construction-site.jpg"
+        image="/img/support/construction-site.webp"
         primary={{ label: t("auto.contact.browse.support.center"), to: "/support" }}
         secondaryTel={{ label: t("auto.contact.call.sales.team"), tel: "+12132142203" }}
       />

@@ -11,7 +11,7 @@ export const TrustedSupport: React.FC = () => {
       eyebrow={t("auto.trusted.brand.pillar")}
       title={t("auto.trusted.trusted.support.before")}
       intro={t("auto.trusted.choosing.the.right")}
-      heroImage="/img/engineer-provides-technical-support-via-headset-solar-panel-fact.png"
+      heroImage="/img/engineer-provides-technical-support-via-headset-solar-panel-fact.webp"
       stats={[
         { value: "Online", label: t("auto.trusted.online.channels") },
         { value: "Direct", label: t("auto.trusted.email.response") },

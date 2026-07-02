@@ -338,7 +338,7 @@ export const BlogPage: React.FC = () => {
         {/* Full-width banner image (devices on white platform + dark textured background) */}
         <div className="relative w-full aspect-[488/192] min-h-[260px] sm:min-h-[320px] lg:min-h-[420px] xl:min-h-[480px]">
           <img
-            src="/img/blog-banner-template.png"
+            src="/img/blog-banner-template.webp"
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover object-left select-none pointer-events-none opacity-40 dark:opacity-100"

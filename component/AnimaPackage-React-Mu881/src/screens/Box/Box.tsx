@@ -21,7 +21,7 @@ const productCards: ProductCard[] = [
     weight: "2.1T",
     title: "STOMP V980",
     category: "Skid Steer",
-    imageSrc: "/img/stomp-v980-4.png",
+    imageSrc: "/img/stomp-v980-4.webp",
     imageAlt: "Stomp V980 skid steer",
     imageClassName:
       "absolute top-[102px] left-5 w-[247px] h-[202px] aspect-[1.23]",
@@ -39,7 +39,7 @@ const productCards: ProductCard[] = [
     weight: "2.5T",
     title: "KUVUO 2.5",
     category: "Mini Excavator",
-    imageSrc: "/img/new-project-19-2.png",
+    imageSrc: "/img/new-project-19-2.webp",
     imageAlt: "Kuvuo 2.5 mini excavator",
     imageClassName:
       "absolute top-[62px] left-[30px] w-[233px] h-[233px] aspect-[1] object-cover",
@@ -57,7 +57,7 @@ const productCards: ProductCard[] = [
     weight: "2.4T",
     title: "SKOOP II",
     category: "Wheel Loader",
-    imageSrc: "/img/new-project-18-1.png",
+    imageSrc: "/img/new-project-18-1.webp",
     imageAlt: "Skoop II wheel loader",
     imageClassName:
       "absolute top-[76px] left-px w-[289px] h-[237px] aspect-[1.23]",
@@ -90,7 +90,7 @@ const productCards: ProductCard[] = [
     weight: "2.4T",
     title: "THUNDERDUMP",
     category: "DUMPER",
-    imageSrc: "/img/new-project-26-1.png",
+    imageSrc: "/img/new-project-26-1.webp",
     imageAlt: "Thunderdump dumper",
     imageClassName:
       "absolute top-[54px] left-[41px] w-[211px] h-[281px] aspect-[0.75] object-cover",
@@ -108,7 +108,7 @@ const productCards: ProductCard[] = [
     weight: "2.4T",
     title: "STONE KRUSHER",
     category: "Stone Crasher",
-    imageSrc: "/img/new-project-16-2.png",
+    imageSrc: "/img/new-project-16-2.webp",
     imageAlt: "Stone Krusher stone crasher",
     imageClassName:
       "absolute top-[75px] left-[34px] w-[225px] h-[225px] aspect-[1] object-cover",
@@ -126,7 +126,7 @@ const productCards: ProductCard[] = [
     weight: "2.4T",
     title: "GROUP RIPPER GRX",
     category: "Trencher",
-    imageSrc: "/img/new-project-15-2.png",
+    imageSrc: "/img/new-project-15-2.webp",
     imageAlt: "Group Ripper GRX trencher",
     imageClassName:
       "absolute top-[52px] left-[9px] w-[271px] h-[271px] aspect-[1] object-cover",
@@ -144,7 +144,7 @@ const productCards: ProductCard[] = [
     weight: "2.4T",
     title: "KUVUO 2.7",
     category: "Mini Excavator",
-    imageSrc: "/img/new-project-25-1.png",
+    imageSrc: "/img/new-project-25-1.webp",
     imageAlt: "Kuvuo 2.7 mini excavator",
     imageClassName:
       "absolute top-[62px] left-[50px] w-[194px] h-[258px] aspect-[0.75] object-cover",
@@ -162,7 +162,7 @@ const productCards: ProductCard[] = [
     weight: "2.4T",
     title: "SPIDER ONE",
     category: "Towable Excavator",
-    imageSrc: "/img/new-project-17-2.png",
+    imageSrc: "/img/new-project-17-2.webp",
     imageAlt: "Spider One towable excavator",
     imageClassName:
       "absolute top-[101px] left-2 w-[272px] h-[194px] aspect-[1.4]",
@@ -180,7 +180,7 @@ const productCards: ProductCard[] = [
     weight: "2.7T",
     title: "STONE KRUSHER",
     category: "Stone Crasher",
-    imageSrc: "/img/new-project-22-1.png",
+    imageSrc: "/img/new-project-22-1.webp",
     imageAlt: "Stone Krusher stone crasher",
     imageClassName:
       "absolute top-[122px] left-2 w-[277px] h-[180px] aspect-[1.54]",
@@ -198,7 +198,7 @@ const productCards: ProductCard[] = [
     weight: "2.4T",
     title: "THUNDERDUMP",
     category: "Dumper",
-    imageSrc: "/img/new-project-21-1.png",
+    imageSrc: "/img/new-project-21-1.webp",
     imageAlt: "Thunderdump dumper",
     imageClassName:
       "absolute top-[90px] left-[15px] w-[258px] h-[207px] aspect-[1.25]",
@@ -216,7 +216,7 @@ const productCards: ProductCard[] = [
     weight: "2.7T",
     title: "STOMP V950",
     category: "Skid Steer",
-    imageSrc: "/img/new-project-24-2.png",
+    imageSrc: "/img/new-project-24-2.webp",
     imageAlt: "Stomp V950 skid steer",
     imageClassName:
       "absolute top-[94px] left-[-3px] w-[260px] h-[194px] aspect-[1.33] object-cover",
@@ -234,7 +234,7 @@ const productCards: ProductCard[] = [
     weight: "2.7T",
     title: "STONE KRUSHER",
     category: "Stone Crasher",
-    imageSrc: "/img/screenshot-2026-06-22-at-11-24-05-1.png",
+    imageSrc: "/img/screenshot-2026-06-22-at-11-24-05-1.webp",
     imageAlt: "Stone Krusher stone crasher screenshot",
     imageClassName:
       "absolute top-[111px] left-0 w-[269px] h-[166px] aspect-[1.62] object-cover",
@@ -356,7 +356,7 @@ export const Box = (): JSX.Element => {
         <img
           className="absolute top-[105px] left-[985px] w-[283px] h-[167px] aspect-[1.69]"
           alt="Scoopydig backhoe loader"
-          src="/img/new-project-23-3.png"
+          src="/img/new-project-23-3.webp"
         />
       </div>
     </section>

@@ -11,10 +11,10 @@ export const MachineGuidance: React.FC = () => {
   const { t } = useI18n();
 
   const machines = [
-    { name: t("auto.machineguidance.mini.excavator"), best: t("auto.machineguidance.trenching.digging.tight"), power: t("auto.machineguidance.diesel.proportional.hydraulics"), image: "/img/mini-excavator-png-4-1.png" },
-    { name: t("auto.machineguidance.mini.skid.steer"), best: t("auto.machineguidance.material.handling.landscaping"), power: t("auto.machineguidance.compact.high.maneuverability"), image: "/img/stomp-v980-5.png" },
+    { name: t("auto.machineguidance.mini.excavator"), best: t("auto.machineguidance.trenching.digging.tight"), power: t("auto.machineguidance.diesel.proportional.hydraulics"), image: "/img/mini-excavator-png-4-1.webp" },
+    { name: t("auto.machineguidance.mini.skid.steer"), best: t("auto.machineguidance.material.handling.landscaping"), power: t("auto.machineguidance.compact.high.maneuverability"), image: "/img/stomp-v980-5.webp" },
     { name: t("auto.machineguidance.wheel.loader"), best: t("auto.machineguidance.loading.hauling.stockpiling"), power: t("auto.machineguidance.high.torque.bucket"), image: "/img/skoop-png-4.png" },
-    { name: t("auto.machineguidance.stone.crusher"), best: t("auto.machineguidance.on.site.aggregate"), power: t("auto.machineguidance.heavy.duty.ground"), image: "/img/groundripper-png-4.png" },
+    { name: t("auto.machineguidance.stone.crusher"), best: t("auto.machineguidance.on.site.aggregate"), power: t("auto.machineguidance.heavy.duty.ground"), image: "/img/groundripper-png-4.webp" },
   ];
 
   const faqs = [
@@ -79,7 +79,7 @@ export const MachineGuidance: React.FC = () => {
         eyebrow={t("auto.machineguidance.machine.guidance")}
         title={t("auto.machineguidance.find.the.right")}
         description={t("auto.machineguidance.compare.machine.categories")}
-        image="/img/support/construction-site.jpg"
+        image="/img/support/construction-site.webp"
         primary={{ label: t("auto.machineguidance.speak.to.a"), to: "/support/contact-support" }}
         secondary={{ label: t("auto.machineguidance.back.to.support"), to: "/support" }}
       />
@@ -94,12 +94,12 @@ export const MachineGuidance: React.FC = () => {
           title={t("auto.machineguidance.match.the.machine")}
           body={t("auto.machineguidance.the.wrong.machine")}
           points={[t("auto.machineguidance.sized.to.your"), t("auto.machineguidance.reach.vs.lift"), t("auto.machineguidance.attachment.compatibility.planning"), t("auto.machineguidance.honest.no.oversell")]}
-          image="/img/support/analyzing-data.jpg"
+          image="/img/support/analyzing-data.webp"
         />
       </Section>
 
       <ImageBand
-        image="/img/support/safety-team.jpg"
+        image="/img/support/safety-team.webp"
         eyebrow={t("guidance.operator.eyebrow")}
         title={t("guidance.operator.title", { fallback: "The Right Machine Is The One Your Crew Reaches For First" })}
         body={t("guidance.operator.body", { fallback: "Productive crews trust the unit that fits the job — not the biggest brochure spec sheet. We size around your operator, not around our inventory." })}
@@ -157,10 +157,10 @@ export const MachineGuidance: React.FC = () => {
           description={t("guidance.deep.description", { fallback: "A closer look at where each Konstructz category pulls its weight." })}
         />
         <div className="mt-14 space-y-16">
-          <FeatureSplit eyebrow={t("auto.machineguidance.mini.excavator.guide")} title={t("auto.machineguidance.dig.deep.fit")} body={t("auto.machineguidance.our.mini.excavators")} image="/img/mini-excavator-png-4-1.png" />
-          <FeatureSplit reverse eyebrow={t("auto.machineguidance.mini.skid.steer")} title={t("auto.machineguidance.compact.power.endless")} body={t("auto.machineguidance.the.stomp.class")} image="/img/stomp-v980-5.png" />
+          <FeatureSplit eyebrow={t("auto.machineguidance.mini.excavator.guide")} title={t("auto.machineguidance.dig.deep.fit")} body={t("auto.machineguidance.our.mini.excavators")} image="/img/mini-excavator-png-4-1.webp" />
+          <FeatureSplit reverse eyebrow={t("auto.machineguidance.mini.skid.steer")} title={t("auto.machineguidance.compact.power.endless")} body={t("auto.machineguidance.the.stomp.class")} image="/img/stomp-v980-5.webp" />
           <FeatureSplit eyebrow={t("auto.machineguidance.wheel.loader.guide")} title={t("auto.machineguidance.load.haul.repeat")} body={t("guidance.loader.body")} image="/img/skoop-png-4.png" />
-          <FeatureSplit reverse eyebrow={t("auto.machineguidance.stone.crusher.guide")} title={t("auto.machineguidance.process.aggregate.on")} body={t("auto.machineguidance.heavy.duty.ground")} image="/img/groundripper-png-4.png" />
+          <FeatureSplit reverse eyebrow={t("auto.machineguidance.stone.crusher.guide")} title={t("auto.machineguidance.process.aggregate.on")} body={t("auto.machineguidance.heavy.duty.ground")} image="/img/groundripper-png-4.webp" />
         </div>
       </Section>
 
@@ -213,7 +213,7 @@ export const MachineGuidance: React.FC = () => {
       <SupportCTA
         heading={t("auto.machineguidance.not.sure.which")}
         description={t("auto.machineguidance.tell.a.specialist")}
-        image="/img/support/factory-worker.png"
+        image="/img/support/factory-worker.webp"
         primary={{ label: t("auto.machineguidance.speak.to.a"), to: "/support/contact-support" }}
         secondaryTel={{ label: t("auto.machineguidance.call.sales.team"), tel: "+12132142203" }}
       />

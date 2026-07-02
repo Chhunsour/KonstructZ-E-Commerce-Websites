@@ -86,7 +86,7 @@ export const WarrantyReturns: React.FC = () => {
         eyebrow={t("auto.warrantyreturns.warranty.returns")}
         title={t("auto.warrantyreturns.backed.protected.supported")}
         description={t("auto.warrantyreturns.understand.your.coverage")}
-        image="/img/support/safety-team.jpg"
+        image="/img/support/safety-team.webp"
         primary={{ label: t("auto.warrantyreturns.submit.a.claim"), to: "/support/contact-support" }}
         secondary={{ label: t("auto.warrantyreturns.back.to.support"), to: "/support" }}
       />
@@ -157,7 +157,7 @@ export const WarrantyReturns: React.FC = () => {
       </Section>
 
       <ImageBand
-        image="/img/support/factory-worker.png"
+        image="/img/support/factory-worker.webp"
         eyebrow={t("warranty.repairable.eyebrow")}
         title={t("warranty.repairable.title", { fallback: "Heavy Castings, Honest Hydraulics, Simple Service" })}
         body={t("warranty.repairable.body", { fallback: "Konstructz machines are selected for serviceable layouts, accessible components, and practical troubleshooting. When something needs attention, the support path is documented before work begins." })}
@@ -170,7 +170,7 @@ export const WarrantyReturns: React.FC = () => {
           title={t("auto.warrantyreturns.clear.fair.return")}
           body={t("auto.warrantyreturns.we.want.you")}
           points={[t("auto.warrantyreturns.original.unused.condition"), t("auto.warrantyreturns.within.the.stated"), t("auto.warrantyreturns.inspection.based.assessment"), t("auto.warrantyreturns.restocking.terms.explained")]}
-          image="/img/support/analyzing-data.jpg"
+          image="/img/support/analyzing-data.webp"
         />
         <div className="mt-12 max-w-3xl mx-auto">
           <Callout
@@ -211,7 +211,7 @@ export const WarrantyReturns: React.FC = () => {
       <SupportCTA
         heading={t("auto.warrantyreturns.ready.to.submit")}
         description={t("auto.warrantyreturns.send.your.machine")}
-        image="/img/support/production-hall.jpg"
+        image="/img/support/production-hall.webp"
         primary={{ label: t("auto.warrantyreturns.submit.a.claim"), to: "/support/contact-support" }}
         secondaryTel={{ label: t("auto.warrantyreturns.call.service"), tel: "+12132142203" }}
       />

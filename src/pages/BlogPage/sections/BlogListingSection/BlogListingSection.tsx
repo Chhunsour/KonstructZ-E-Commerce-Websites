@@ -10,7 +10,7 @@ export const BlogListingSection = (): JSX.Element => {
     {
       id: 1,
       slug: "excavator-safety-practical-tips",
-      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-24-09-am-3.png",
+      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-24-09-am-3.webp",
       imageAlt: t("auto.bloglisting.mini.excavator.blog"),
       imageClassName:
         "absolute top-[85px] left-[90px] w-[655px] h-[369px] aspect-[1.78] object-cover",
@@ -26,7 +26,7 @@ export const BlogListingSection = (): JSX.Element => {
     {
       id: 2,
       slug: "wheel-loader-field-productivity",
-      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-26-28-am-3.png",
+      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-26-28-am-3.webp",
       imageAlt: t("auto.bloglisting.wheel.loader.blog"),
       imageClassName:
         "absolute top-[85px] left-[775px] w-[655px] h-[369px] aspect-[1.78] object-cover",
@@ -42,7 +42,7 @@ export const BlogListingSection = (): JSX.Element => {
     {
       id: 3,
       slug: "compact-excavator-buying-guide",
-      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-01-54-28-pm-2.png",
+      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-01-54-28-pm-2.webp",
       imageAlt: t("auto.bloglisting.excavator.blog.cover"),
       imageClassName:
         "absolute top-[917px] left-[87px] w-[655px] h-[369px] aspect-[1.78] object-cover",
@@ -58,7 +58,7 @@ export const BlogListingSection = (): JSX.Element => {
     {
       id: 4,
       slug: "forklift-site-handling-guide",
-      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-02-48-35-pm-2.png",
+      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-02-48-35-pm-2.webp",
       imageAlt: t("auto.bloglisting.forklift.blog.cover"),
       imageClassName:
         "absolute top-[917px] left-[775px] w-[651px] h-[367px] aspect-[1.78] object-cover",
@@ -74,7 +74,7 @@ export const BlogListingSection = (): JSX.Element => {
     {
       id: 5,
       slug: "mini-excavator-maintenance-basics",
-      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-24-09-am-3.png",
+      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-24-09-am-3.webp",
       imageAlt: t("auto.bloglisting.mini.excavator.blog"),
       imageClassName:
         "absolute top-[1747px] left-[90px] w-[655px] h-[369px] aspect-[1.78] object-cover",
@@ -90,7 +90,7 @@ export const BlogListingSection = (): JSX.Element => {
     {
       id: 6,
       slug: "wheel-loader-operator-checklist",
-      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-26-28-am-3.png",
+      imageSrc: "/blog/img/chatgpt-image-apr-28-2026-09-26-28-am-3.webp",
       imageAlt: t("auto.bloglisting.wheel.loader.blog"),
       imageClassName:
         "absolute top-[1747px] left-[775px] w-[655px] h-[369px] aspect-[1.78] object-cover",

@@ -48,7 +48,7 @@ const SLIDES: BannerSlide[] = [
     id: "skid-steer", category: "SKID STEER", productSlug: "stomp-v980",
     modelName: "STOMP V980",
     description: "Compact loader platform for loading, grading, cleanup, and attachment-driven work.",
-    image: "/img/banner/banner-stomp-v980.png",
+    image: "/img/banner/banner-stomp-v980.webp",
     display: { scale: 1.09, xOffset: 0, yOffset: 0 },
     stats: [
       { icon: ICON_TONS, value: "Setup", label: "Varies" },
@@ -60,7 +60,7 @@ const SLIDES: BannerSlide[] = [
     id: "wheel-loader", category: "WHEEL LOADER", productSlug: "skoop-ii",
     modelName: "SKOOP II",
     description: "Material-handling loader for aggregate yards, farms, stockpiles, and cleanup cycles.",
-    image: "/img/banner/banner-skoop-ii.png",
+    image: "/img/banner/banner-skoop-ii.webp",
     display: { scale: 1.36, xOffset: 0, yOffset: 9 },
     stats: [
       { icon: ICON_TONS, value: "Setup", label: "Varies" },
@@ -72,7 +72,7 @@ const SLIDES: BannerSlide[] = [
     id: "excavator", category: "EXCAVATOR", productSlug: "kuvuo-2-5",
     modelName: "KUVUO 2.5",
     description: "Controlled digging platform for trenches, drainage, landscaping, and utility access.",
-    image: "/img/banner/banner-kuvuo.png",
+    image: "/img/banner/banner-kuvuo.webp",
     display: { scale: 1.33, xOffset: 0, yOffset: 6 },
     stats: [
       { icon: ICON_TONS, value: "Setup", label: "Varies" },
@@ -84,7 +84,7 @@ const SLIDES: BannerSlide[] = [
     id: "backhoe-loader", category: "BACKHOE LOADER", productSlug: "scoopydig",
     modelName: "SCOOPYDIG",
     description: "Dual-purpose digging and loading machine for utility, farm, and site-service work.",
-    image: "/img/banner/banner-scoopydig.png",
+    image: "/img/banner/banner-scoopydig.webp",
     display: { scale: 1.42, xOffset: 0, yOffset: 15 },
     stats: [
       { icon: ICON_TONS, value: "Setup", label: "Varies" },
@@ -96,7 +96,7 @@ const SLIDES: BannerSlide[] = [
     id: "dumper", category: "DUMPER", productSlug: "thunderdump-1",
     modelName: "THUNDERDUMP",
     description: "Compact material hauler for soil, concrete, aggregate, debris, and narrow access.",
-    image: "/img/banner/banner-thunderdump.png",
+    image: "/img/banner/banner-thunderdump.webp",
     display: { scale: 1.15, xOffset: 0, yOffset: 0 },
     stats: [
       { icon: ICON_TONS, value: "Payload", label: "Varies" },
@@ -108,7 +108,7 @@ const SLIDES: BannerSlide[] = [
     id: "towable-excavator", category: "TOWABLE EXCAVATOR", productSlug: "spider-one",
     modelName: "SPIDER ONE",
     description: "Portable excavator for farms, trail work, drainage, and remote property jobs.",
-    image: "/img/banner/banner-spider-one.png",
+    image: "/img/banner/banner-spider-one.webp",
     display: { scale: 1.15, xOffset: 0, yOffset: 9 },
     stats: [
       { icon: ICON_TONS, value: "Tow", label: "Confirm" },
@@ -120,7 +120,7 @@ const SLIDES: BannerSlide[] = [
     id: "stone-crusher", category: "STONE CRUSHER", productSlug: "stone-crusher-1",
     modelName: "STONE CRUSHER",
     description: "On-site material reduction for rubble, masonry, concrete, asphalt, and stone.",
-    image: "/img/banner/banner-stone-crusher.png",
+    image: "/img/banner/banner-stone-crusher.webp",
     display: { scale: 1.36, xOffset: 0, yOffset: 12 },
     stats: [
       { icon: ICON_TONS, value: "Setup", label: "Varies" },
@@ -132,7 +132,7 @@ const SLIDES: BannerSlide[] = [
     id: "trencher", category: "TRENCHER", productSlug: "group-ripper-grx",
     modelName: "GROUP RIPPER GRX",
     description: "Narrow-channel trenching for irrigation, drainage, conduit, and utility routing.",
-    image: "/img/banner/banner-trencher.png",
+    image: "/img/banner/banner-trencher.webp",
     display: { scale: 1.57, xOffset: 0, yOffset: 24 },
     stats: [
       { icon: ICON_TONS, value: "Setup", label: "Varies" },

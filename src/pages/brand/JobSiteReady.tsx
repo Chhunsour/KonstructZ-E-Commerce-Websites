@@ -11,7 +11,7 @@ export const JobSiteReady: React.FC = () => {
       eyebrow={t("auto.jobsiteready.brand.pillar")}
       title={t("auto.jobsiteready.job.site.ready")}
       intro={t("auto.jobsiteready.practical.machines.designed")}
-      heroImage="/img/site-engineer-construction-site-1.png"
+      heroImage="/img/site-engineer-construction-site-1.webp"
       stats={[
         { value: "5+", label: t("auto.jobsiteready.label") },
         { value: "13", label: t("auto.jobsiteready.models.in.stock") },

@@ -10,42 +10,42 @@ export const MobileAbout = (): JSX.Element => {
     {
       id: "road-ironing-or-compaction",
       title: t("auto.mobileabout.road.ironing.or"),
-      image: "/img/chatgpt-image-jun-11-2026-09-17-59-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-17-59-am-1.webp",
     },
     {
       id: "material-handling-and-lifting",
       title: t("auto.mobileabout.material.handling.lifting"),
-      image: "/img/chatgpt-image-jun-11-2026-09-18-07-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-18-07-am-1.webp",
     },
     {
       id: "vertical-reach-and-maintenance",
       title: t("auto.mobileabout.vertical.reach.and"),
-      image: "/img/chatgpt-image-jun-11-2026-09-18-16-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-18-16-am-1.webp",
     },
     {
       id: "bulk-transport-and-stockpiling",
       title: t("auto.mobileabout.bulk.transport.and"),
-      image: "/img/chatgpt-image-jun-11-2026-09-18-20-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-18-20-am-1.webp",
     },
     {
       id: "stone-and-aggregate-processing",
       title: t("auto.mobileabout.stone.aggregate.processing"),
-      image: "/img/chatgpt-image-jun-11-2026-09-18-31-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-18-31-am-1.webp",
     },
     {
       id: "heavy-goods-and-pallet-handling",
       title: t("auto.mobileabout.heavy.goods.and"),
-      image: "/img/chatgpt-image-jun-11-2026-09-18-23-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-18-23-am-1.webp",
     },
     {
       id: "soil-ripping-and-site-prep",
       title: t("auto.mobileabout.soil.ripping.and"),
-      image: "/img/chatgpt-image-jun-11-2026-09-18-27-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-18-27-am-1.webp",
     },
     {
       id: "excavation-and-trenching",
       title: t("auto.mobileabout.excavation.and.trenching"),
-      image: "/img/chatgpt-image-jun-11-2026-09-18-03-am-1.png",
+      image: "/img/chatgpt-image-jun-11-2026-09-18-03-am-1.webp",
     },
   ];
 
@@ -54,27 +54,27 @@ export const MobileAbout = (): JSX.Element => {
       title: t("auto.mobileabout.affordable.machinery"),
       description: t("auto.mobileabout.quality.equipment.at"),
       imageSrc:
-        "/img/world-habitat-day-close-up-picture-pile-coins-sag-coin-2.png",
+        "/img/world-habitat-day-close-up-picture-pile-coins-sag-coin-2.webp",
       badgeSrc: "/img/6141-1.png",
     },
     {
       title: t("auto.mobileabout.reliable.tested"),
       description: t("auto.mobileabout.every.machine.checked"),
       imageSrc:
-        "/img/engineer-specialist-asian-female-technician-maintenance-inspect.png",
+        "/img/engineer-specialist-asian-female-technician-maintenance-inspect.webp",
       badgeSrc: "/img/77a00bd6-65f1-421c-8ae5-a2251b7b3802-1.png",
     },
     {
       title: t("auto.mobileabout.online.24.7"),
       description: t("auto.mobileabout.fast.answers.to"),
       imageSrc:
-        "/img/customer-support-black-technician-helpline-photovoltaic-facility.png",
+        "/img/customer-support-black-technician-helpline-photovoltaic-facility.webp",
       badgeSrc: "/img/390026be-717f-44d5-862f-db591784d1fa-1.png",
     },
     {
       title: t("auto.mobileabout.perfect.for.farmers"),
       description: t("auto.mobileabout.compact.versatile.machines"),
-      imageSrc: "/img/men-standing-field-against-sky-1.png",
+      imageSrc: "/img/men-standing-field-against-sky-1.webp",
       badgeSrc: "/img/519b3f36-465f-437a-83b4-0a6c77226948-1.png",
     },
   ];
@@ -113,7 +113,7 @@ export const MobileAbout = (): JSX.Element => {
     <div className="bg-theme-bg text-theme-text w-full overflow-hidden transition-colors duration-200">
       <section className="relative h-screen min-h-[500px] overflow-hidden">
         <img
-          src="/img/manager-meeting-with-engineer-outdoor-site-stack-hand-teamwork-1.png"
+          src="/img/manager-meeting-with-engineer-outdoor-site-stack-hand-teamwork-1.webp"
           alt={t("auto.mobileabout.manager.and.engineer")}
           className="absolute inset-0 w-full h-full object-cover"
         />

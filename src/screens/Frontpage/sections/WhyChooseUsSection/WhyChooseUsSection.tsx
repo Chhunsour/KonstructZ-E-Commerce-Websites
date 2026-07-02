@@ -3,7 +3,7 @@ import { Reveal } from "../../../../components/Reveal";
 
 const imageAssets = [
   {
-    src: "/img/groundripper-png-4.png",
+    src: "/img/groundripper-png-4.webp",
     alt: "Groundripper machine",
     className: "absolute top-[351px] left-[90px] flex h-[426px] w-[897px]",
     imageClassName:
@@ -16,25 +16,25 @@ const imageAssets = [
     imageClassName: "h-full w-full aspect-[1.78] object-cover",
   },
   {
-    src: "/img/new-project-16-2.png",
+    src: "/img/new-project-16-2.webp",
     alt: "Compact construction machine",
     className: "absolute top-[503px] left-[298px] h-[380px] w-[380px]",
     imageClassName: "h-full w-full aspect-[1] object-cover",
   },
   {
-    src: "/img/new-project-19-3.png",
+    src: "/img/new-project-19-3.webp",
     alt: "Tracked construction machine",
     className: "absolute top-[436px] left-[507px] h-[490px] w-[490px]",
     imageClassName: "h-full w-full aspect-[1] object-cover",
   },
   {
-    src: "/img/scoopydigreal.png",
+    src: "/img/scoopydigreal.webp",
     alt: "ScoopyDig machine",
     className: "absolute top-[368px] left-[1008px] h-[691px] w-[725px]",
     imageClassName: "h-full w-full object-contain",
   },
   {
-    src: "/img/stomp-v980-5.png",
+    src: "/img/stomp-v980-5.webp",
     alt: "Stomp machine",
     className: "absolute top-[592px] left-[933px] h-[369px] w-[452px]",
     imageClassName: "h-full w-full aspect-[1.23] object-contain",

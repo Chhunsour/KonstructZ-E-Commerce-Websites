@@ -143,12 +143,12 @@ export const Frame = (): JSX.Element => {
       <img
         className="absolute top-[368px] left-[591px] w-[632px] h-[479px] aspect-[1.32]"
         alt="Kuvuo 4.0 skid steer front view"
-        src="/img/stomp-v980-4.png"
+        src="/img/stomp-v980-4.webp"
       />
       <img
         className="absolute top-[428px] left-[1256px] w-[401px] h-[401px] aspect-[1] object-cover"
         alt="Skid steer attachment vehicle"
-        src="/img/new-project-15-2.png"
+        src="/img/new-project-15-2.webp"
       />
     </main>
   );

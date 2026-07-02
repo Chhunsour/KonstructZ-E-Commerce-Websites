@@ -1,6 +1,6 @@
 const imageAssets = [
   {
-    src: "/img/groundripper-png-4.png",
+    src: "/img/groundripper-png-4.webp",
     alt: "Groundripper png",
     className:
       "absolute top-[266px] left-[62px] mt-[70px] w-[473.96px] h-[355.47px] aspect-[1.33] object-cover",
@@ -12,25 +12,25 @@ const imageAssets = [
       "absolute top-[341px] left-[1234px] w-[624px] h-[351px] aspect-[1.78] object-cover",
   },
   {
-    src: "/img/new-project-16-2.png",
+    src: "/img/new-project-16-2.webp",
     alt: "New project",
     className:
       "absolute top-[418px] left-[270px] w-[380px] h-[380px] aspect-[1] object-cover",
   },
   {
-    src: "/img/new-project-19-3.png",
+    src: "/img/new-project-19-3.webp",
     alt: "New project",
     className:
       "absolute top-[351px] left-[479px] w-[490px] h-[490px] aspect-[1] object-cover",
   },
   {
-    src: "/img/new-project-23-3.png",
+    src: "/img/new-project-23-3.webp",
     alt: "New project",
     className:
       "absolute top-52 left-[959px] w-[745px] h-[714px] aspect-[0.93] object-cover",
   },
   {
-    src: "/img/stomp-v980-5.png",
+    src: "/img/stomp-v980-5.webp",
     alt: "Stomp",
     className:
       "absolute top-[507px] left-[905px] w-[452px] h-[369px] aspect-[1.23] object-contain",

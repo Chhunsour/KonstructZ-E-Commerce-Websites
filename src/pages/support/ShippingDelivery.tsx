@@ -77,10 +77,10 @@ export const ShippingDelivery: React.FC = () => {
   ];
 
   const gallery = [
-    { src: "/img/support/production-hall.jpg", alt: "Konstructz production hall", caption: t("shipping.gallery.caption") },
-    { src: "/img/support/factory-worker.png", alt: "Operator on the load floor", caption: "Load Crew" },
-    { src: "/img/support/sawmill-production.jpg", alt: "Industrial production yard", caption: "Yard Operations" },
-    { src: "/img/support/construction-site.jpg", alt: "Job-site delivery", caption: "Site Delivery" },
+    { src: "/img/support/production-hall.webp", alt: "Konstructz production hall", caption: t("shipping.gallery.caption") },
+    { src: "/img/support/factory-worker.webp", alt: "Operator on the load floor", caption: "Load Crew" },
+    { src: "/img/support/sawmill-production.webp", alt: "Industrial production yard", caption: "Yard Operations" },
+    { src: "/img/support/construction-site.webp", alt: "Job-site delivery", caption: "Site Delivery" },
   ];
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -91,7 +91,7 @@ export const ShippingDelivery: React.FC = () => {
         eyebrow={t("auto.shippingdelivery.shipping.delivery")}
         title={t("auto.shippingdelivery.from.our.yard")}
         description={t("auto.shippingdelivery.freight.timelines.warehouse")}
-        image="/img/support/production-hall.jpg"
+        image="/img/support/production-hall.webp"
         primary={{ label: t("auto.shippingdelivery.contact.logistics.team"), to: "/support/contact-support" }}
         secondary={{ label: t("auto.shippingdelivery.back.to.support"), to: "/support" }}
       />
@@ -106,12 +106,12 @@ export const ShippingDelivery: React.FC = () => {
           title={t("auto.shippingdelivery.heavy.machinery.handled")}
           body={t("auto.shippingdelivery.every.konstructz.machine")}
           points={[t("auto.shippingdelivery.dot.compliant.load"), t("auto.shippingdelivery.flatbed.step.deck"), t("auto.shippingdelivery.nationwide.carrier.network"), t("auto.shippingdelivery.inspected.before.every")]}
-          image="/img/support/factory-worker.png"
+          image="/img/support/factory-worker.webp"
         />
       </Section>
 
       <ImageBand
-        image="/img/support/sawmill-production.jpg"
+        image="/img/support/sawmill-production.webp"
         eyebrow={t("shipping.band.eyebrow")}
         title={t("shipping.band.title")}
         body={t("shipping.band.body")}
@@ -164,7 +164,7 @@ export const ShippingDelivery: React.FC = () => {
           title={t("auto.shippingdelivery.picking.up.or")}
           body={t("auto.shippingdelivery.prefer.to.collect")}
           points={[t("auto.shippingdelivery.appointment.based.depot"), t("auto.shippingdelivery.clear.firm.truck"), t("auto.shippingdelivery.on.site.contact"), t("auto.shippingdelivery.offloading.guidance.for")]}
-          image="/img/support/construction-site.jpg"
+          image="/img/support/construction-site.webp"
         />
       </Section>
 
@@ -226,7 +226,7 @@ export const ShippingDelivery: React.FC = () => {
       <SupportCTA
         heading={t("auto.shippingdelivery.questions.about.your")}
         description={t("auto.shippingdelivery.our.logistics.team")}
-        image="/img/support/construction-site.jpg"
+        image="/img/support/construction-site.webp"
         primary={{ label: t("auto.shippingdelivery.contact.logistics.team"), to: "/support/contact-support" }}
         secondaryTel={{ label: t("auto.shippingdelivery.call.logistics"), tel: "+12132142203" }}
       />

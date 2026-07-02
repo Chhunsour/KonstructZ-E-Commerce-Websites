@@ -11,7 +11,7 @@ export const LongTermValue: React.FC = () => {
       eyebrow={t("auto.longtermvalue.brand.pillar")}
       title={t("auto.longtermvalue.long.term.value")}
       intro={t("auto.longtermvalue.equipment.that.earns")}
-      heroImage="/img/businessman-holding-growth-arrow-1.png"
+      heroImage="/img/businessman-holding-growth-arrow-1.webp"
       stats={[
         { value: "ROI", label: t("auto.longtermvalue.built.into.spec") },
         { value: "↓", label: t("auto.longtermvalue.lower.wasted.hours") },

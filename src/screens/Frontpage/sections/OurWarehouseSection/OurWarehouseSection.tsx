@@ -13,18 +13,18 @@ export const OurWarehouseSection = (): JSX.Element => {
   const { t } = useI18n();
   const galleryImages = [
     {
-      src: "/img/factory-with-machines-machinery-inside-it-1.png",
+      src: "/img/factory-with-machines-machinery-inside-it-1.webp",
       alt: t("auto.ourwarehouse.factory.with.machines"),
       className: "absolute top-[729px] left-0 w-[634px] h-[355px] aspect-[1.79]",
     },
     {
-      src: "/img/engineer-provides-technical-support-via-headset-solar-panel-fact-1.png",
+      src: "/img/engineer-provides-technical-support-via-headset-solar-panel-fact-1.webp",
       alt: t("auto.ourwarehouse.engineer.provides.technical"),
       className:
         "absolute top-[729px] left-[643px] w-[633px] h-[355px] aspect-[1.78]",
     },
     {
-      src: "/img/male-worker-factory-1.png",
+      src: "/img/male-worker-factory-1.webp",
       alt: t("auto.ourwarehouse.male.worker.in"),
       className:
         "absolute top-[729px] left-[1286px] w-[634px] h-[355px] aspect-[1.79]",
@@ -43,10 +43,10 @@ export const OurWarehouseSection = (): JSX.Element => {
       <div className="absolute top-[544px] left-[829px] w-[261px] h-[63px] bg-[#515151]" />
       <div className="absolute top-[455px] left-[685px] w-[549px] h-[63px] bg-[#515151]" />
       <Parallax strength={0.18} ariaHidden className="absolute top-0 left-0 w-[1920px] h-[720px]">
-        <img
+        <img loading="lazy" decoding="async"
           className="h-full w-full aspect-[2.67] object-cover"
           alt={t("auto.ourwarehouse.machine.with.large")}
-          src="/img/machine-with-large-number-machines-background-1.png"
+          src="/img/machine-with-large-number-machines-background-1.webp"
         />
       </Parallax>
 
@@ -58,7 +58,7 @@ export const OurWarehouseSection = (): JSX.Element => {
             variant="reveal-x"
             className={`${image.className} k-image-zoom`}
           >
-            <img
+            <img loading="lazy" decoding="async"
               className="h-full w-full object-cover"
               alt={image.alt}
               src={image.src}

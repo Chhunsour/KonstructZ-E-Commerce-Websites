@@ -62,7 +62,7 @@ export const OrderPurchaseSupport: React.FC = () => {
         eyebrow={t("auto.orderpurchase.order.purchase.support")}
         title={t("auto.orderpurchase.buy.with.total")}
         description={t("auto.orderpurchase.guidance.through.every")}
-        image="/img/support/analyzing-data.jpg"
+        image="/img/support/analyzing-data.webp"
         primary={{ label: t("auto.orderpurchase.contact.purchase.support"), to: "/support/contact-support" }}
         secondary={{ label: t("auto.orderpurchase.back.to.support"), to: "/support" }}
       />
@@ -82,12 +82,12 @@ export const OrderPurchaseSupport: React.FC = () => {
             t("auto.orderpurchase.pre.delivery.inspection"),
             t("auto.orderpurchase.clear.documentation.for"),
           ]}
-          image="/img/support/safety-team.jpg"
+          image="/img/support/safety-team.webp"
         />
       </Section>
 
       <ImageBand
-        image="/img/support/production-hall.jpg"
+        image="/img/support/production-hall.webp"
         eyebrow="Inside The Process"
         title="Quotes Built By People Who've Run These Machines"
         body="Your purchase specialist has run units off the same depot floor where yours is being prepared. Expect questions about your soil, your access, and your duty cycle — not your credit card."
@@ -150,7 +150,7 @@ export const OrderPurchaseSupport: React.FC = () => {
           title={t("auto.orderpurchase.documentation.done.right")}
           body={t("auto.orderpurchase.need.a.proforma")}
           points={[t("auto.orderpurchase.proforma.final.invoices"), t("auto.orderpurchase.tax.and.freight"), t("auto.orderpurchase.duplicate.copies.on")]}
-          image="/img/support/analyzing-data.jpg"
+          image="/img/support/analyzing-data.webp"
         />
       </Section>
 
@@ -200,7 +200,7 @@ export const OrderPurchaseSupport: React.FC = () => {
       <SupportCTA
         heading={t("auto.orderpurchase.need.help.with")}
         description={t("auto.orderpurchase.our.purchase.support")}
-        image="/img/support/factory-worker.png"
+        image="/img/support/factory-worker.webp"
         primary={{ label: t("auto.orderpurchase.contact.purchase.support"), to: "/support/contact-support" }}
         secondaryTel={{ label: t("auto.orderpurchase.call.sales.team"), tel: "+12132142203" }}
       />

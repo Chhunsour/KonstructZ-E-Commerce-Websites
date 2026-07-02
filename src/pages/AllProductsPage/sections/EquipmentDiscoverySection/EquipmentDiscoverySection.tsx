@@ -73,7 +73,7 @@ const EquipmentCard = ({
       className="absolute w-[293px] h-[482px] bg-[#d9d9d9]"
       style={{ top: `${top}px`, left: `${left}px` }}
     >
-      <img
+      <img loading="lazy" decoding="async"
         className="absolute top-[9px] left-2.5 w-[41px] h-[49px] aspect-[0.83]"
         alt={t("auto.equipmentdiscovery.2.ton.weight")}
         src="/all-products/img/kilogram-kg-and-pound-lbs-weight-symbol-icon-dumbbell-vector-ill-19.png"
@@ -81,7 +81,7 @@ const EquipmentCard = ({
       <div className="absolute top-[35px] left-[22px] [font-family:'Clofie-Bold',Helvetica] font-bold text-white text-[15px] tracking-[0] leading-[normal] whitespace-nowrap">
         2T
       </div>
-      <img className={imageClassName} alt={imageAlt} src={imageSrc} />
+      <img loading="lazy" decoding="async" className={imageClassName} alt={imageAlt} src={imageSrc} />
       <h3 className="absolute top-[323px] left-2.5 w-[139px] [font-family:'Cal_Sans',Helvetica] font-normal text-[#153d28] text-2xl tracking-[0] leading-[normal] whitespace-nowrap">{t("auto.equipmentdiscovery.stomp.v980")}</h3>
       <p className="absolute top-[330px] left-[215px] [font-family:'Cal_Sans',Helvetica] font-normal text-black text-[15px] tracking-[0] leading-[normal]">{t("auto.equipmentdiscovery.skid.steer")}</p>
       <div className="absolute top-[365px] left-2.5 [font-family:'Glonimove-Regular',Helvetica] font-normal text-[#646464] text-lg tracking-[0] leading-[normal] whitespace-nowrap">
@@ -112,7 +112,7 @@ const EquipmentCard = ({
           />
           <div className="absolute top-[439px] left-[37px] w-[223px] h-[19px] pointer-events-none">
             <div className="absolute top-0 left-0 [font-family:'Google_Sans_Flex',Helvetica] font-normal text-[#153d28] text-[15px] tracking-[0] leading-[normal]">{t("auto.equipmentdiscovery.quote")}</div>
-            <img
+            <img loading="lazy" decoding="async"
               className="absolute w-[77.45%] h-[77.41%] top-[22.59%] left-[22.55%]"
               alt=""
               aria-hidden="true"
@@ -121,7 +121,7 @@ const EquipmentCard = ({
             <div className="absolute top-0 left-[119px] [font-family:'Google_Sans_Flex',Helvetica] font-normal text-[#d9d9d9] text-[15px] tracking-[0] leading-[normal]">{t("auto.equipmentdiscovery.view.detials")}</div>
           </div>
           <div className="absolute w-0 h-[2.07%] top-[92.12%] left-[87.71%] flex pointer-events-none">
-            <img
+            <img loading="lazy" decoding="async"
               className="flex-1 w-[6.71px]"
               alt=""
               aria-hidden="true"
@@ -143,7 +143,7 @@ const EquipmentCard = ({
           />
           <div className="absolute top-[439px] left-[37px] w-[58px] h-[19px] pointer-events-none">
             <div className="absolute top-0 left-0 [font-family:'Google_Sans_Flex',Helvetica] font-normal text-[#153d28] text-[15px] tracking-[0] leading-[normal]">{t("auto.equipmentdiscovery.quote")}</div>
-            <img
+            <img loading="lazy" decoding="async"
               className="absolute w-[13.29%] h-[77.41%] top-[22.59%] left-[86.71%]"
               alt=""
               aria-hidden="true"
@@ -152,7 +152,7 @@ const EquipmentCard = ({
           </div>
           <div className="absolute top-[439px] left-[149px] w-[115px] h-[19px] pointer-events-none">
             <div className="absolute top-0 left-0 [font-family:'Google_Sans_Flex',Helvetica] font-normal text-[#d9d9d9] text-[15px] tracking-[0] leading-[normal]">{t("auto.equipmentdiscovery.view.detials")}</div>
-            <img
+            <img loading="lazy" decoding="async"
               className="absolute w-[6.70%] h-[77.41%] top-[22.59%] left-[93.30%]"
               alt=""
               aria-hidden="true"
@@ -171,7 +171,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 319,
       left: 538,
-      imageSrc: "/all-products/img/new-project-18-1-3.png",
+      imageSrc: "/all-products/img/new-project-18-1-3.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "top-[37px] left-px w-[291px] h-[291px] absolute aspect-[1] object-cover",
@@ -180,7 +180,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 836,
       left: 538,
-      imageSrc: "/all-products/img/new-project-15-2-4.png",
+      imageSrc: "/all-products/img/new-project-15-2-4.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[52px] left-[9px] w-[271px] h-[271px] aspect-[1] object-cover",
@@ -188,7 +188,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 1353,
       left: 538,
-      imageSrc: "/all-products/img/new-project-21-1-1.png",
+      imageSrc: "/all-products/img/new-project-21-1-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[83px] left-[15px] w-[258px] h-[258px] aspect-[1] object-cover",
@@ -196,7 +196,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 1870,
       left: 543,
-      imageSrc: "/all-products/img/new-project-18-1-3.png",
+      imageSrc: "/all-products/img/new-project-18-1-3.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "top-[37px] left-px w-[291px] h-[291px] absolute aspect-[1] object-cover",
@@ -204,7 +204,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 2387,
       left: 543,
-      imageSrc: "/all-products/img/new-project-15-2-4.png",
+      imageSrc: "/all-products/img/new-project-15-2-4.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[52px] left-[9px] w-[271px] h-[271px] aspect-[1] object-cover",
@@ -215,7 +215,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 0,
       left: 0,
-      imageSrc: "/all-products/img/stomp-v980-4-2.png",
+      imageSrc: "/all-products/img/stomp-v980-4-2.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[102px] left-5 w-[247px] h-[202px] aspect-[1.23]",
@@ -223,7 +223,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 0,
       left: 327,
-      imageSrc: "/all-products/img/new-project-19-2-1.png",
+      imageSrc: "/all-products/img/new-project-19-2-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[62px] left-[30px] w-[233px] h-[233px] aspect-[1] object-cover",
@@ -231,7 +231,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 0,
       left: 654,
-      imageSrc: "/all-products/img/new-project-18-1-3.png",
+      imageSrc: "/all-products/img/new-project-18-1-3.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "top-[37px] left-px w-[291px] h-[291px] absolute aspect-[1] object-cover",
@@ -239,7 +239,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 517,
       left: 0,
-      imageSrc: "/all-products/img/new-project-23-2-1.png",
+      imageSrc: "/all-products/img/new-project-23-2-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "top-[39px] left-0 w-[293px] h-[314px] absolute aspect-[0.93] object-cover",
@@ -247,7 +247,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 517,
       left: 327,
-      imageSrc: "/all-products/img/new-project-16-2-2.png",
+      imageSrc: "/all-products/img/new-project-16-2-2.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[75px] left-[34px] w-[225px] h-[225px] aspect-[1] object-cover",
@@ -255,7 +255,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 517,
       left: 654,
-      imageSrc: "/all-products/img/new-project-15-2-4.png",
+      imageSrc: "/all-products/img/new-project-15-2-4.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[52px] left-[9px] w-[271px] h-[271px] aspect-[1] object-cover",
@@ -263,7 +263,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 1034,
       left: 0,
-      imageSrc: "/all-products/img/new-project-17-2-1.png",
+      imageSrc: "/all-products/img/new-project-17-2-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[63px] left-2 w-[272px] h-[272px] aspect-[1] object-cover",
@@ -271,7 +271,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 1034,
       left: 327,
-      imageSrc: "/all-products/img/new-project-22-1-1.png",
+      imageSrc: "/all-products/img/new-project-22-1-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[68px] left-2 w-[277px] h-[277px] aspect-[1] object-cover",
@@ -279,7 +279,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 1034,
       left: 654,
-      imageSrc: "/all-products/img/new-project-21-1-1.png",
+      imageSrc: "/all-products/img/new-project-21-1-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[83px] left-[15px] w-[258px] h-[258px] aspect-[1] object-cover",
@@ -290,7 +290,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 0,
       left: 0,
-      imageSrc: "/all-products/img/stomp-v980-4-2.png",
+      imageSrc: "/all-products/img/stomp-v980-4-2.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[102px] left-5 w-[247px] h-[202px] aspect-[1.23]",
@@ -298,7 +298,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 0,
       left: 327,
-      imageSrc: "/all-products/img/new-project-19-2-1.png",
+      imageSrc: "/all-products/img/new-project-19-2-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[62px] left-[30px] w-[233px] h-[233px] aspect-[1] object-cover",
@@ -306,7 +306,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 0,
       left: 654,
-      imageSrc: "/all-products/img/new-project-18-1-3.png",
+      imageSrc: "/all-products/img/new-project-18-1-3.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "top-[37px] left-px w-[291px] h-[291px] absolute aspect-[1] object-cover",
@@ -314,7 +314,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 517,
       left: 0,
-      imageSrc: "/all-products/img/new-project-23-2-1.png",
+      imageSrc: "/all-products/img/new-project-23-2-1.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "top-[39px] left-0 w-[293px] h-[314px] absolute aspect-[0.93] object-cover",
@@ -322,7 +322,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 517,
       left: 327,
-      imageSrc: "/all-products/img/new-project-16-2-2.png",
+      imageSrc: "/all-products/img/new-project-16-2-2.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[75px] left-[34px] w-[225px] h-[225px] aspect-[1] object-cover",
@@ -330,7 +330,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
     {
       top: 517,
       left: 654,
-      imageSrc: "/all-products/img/new-project-15-2-4.png",
+      imageSrc: "/all-products/img/new-project-15-2-4.webp",
       imageAlt: t("auto.equipmentdiscovery.stomp.v980.equipment"),
       imageClassName:
         "absolute top-[52px] left-[9px] w-[271px] h-[271px] aspect-[1] object-cover",
@@ -403,7 +403,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
           className="absolute top-0 left-[377px] w-16 h-16 bg-[#d8c79a] border-[6px] border-solid"
           aria-label={t("auto.equipmentdiscovery.submit.search")}
         >
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute top-4 left-[15px] w-[33px] h-[33px]"
             alt=""
             aria-hidden="true"
@@ -424,7 +424,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
           className="top-[328px] left-[414px] absolute w-10 h-10"
           aria-label={t("auto.equipmentdiscovery.collapse.categories.filter")}
         >
-          <img alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
+          <img loading="lazy" decoding="async" alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
         </button>
         {categories.map((category) => (
           <FilterCheckbox
@@ -444,7 +444,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
           className="top-[714px] left-[406px] absolute w-10 h-10"
           aria-label={t("auto.equipmentdiscovery.collapse.price.filter")}
         >
-          <img alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
+          <img loading="lazy" decoding="async" alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
         </button>
         <div className="absolute top-[719px] left-[99px] [font-family:'Clofie-Bold',Helvetica] font-bold text-[27px] whitespace-nowrap text-black tracking-[0] leading-[normal]">
           Price
@@ -481,7 +481,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
             className="absolute top-[9px] left-[321px] w-10 h-10"
             aria-label={t("auto.equipmentdiscovery.collapse.operation.weight")}
           >
-            <img alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
+            <img loading="lazy" decoding="async" alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
           </button>
           {operationWeightOptions.map((option) => (
             <FilterCheckbox
@@ -503,7 +503,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
             className="absolute top-[9px] left-[321px] w-10 h-10"
             aria-label={t("auto.equipmentdiscovery.collapse.engine.filter")}
           >
-            <img alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
+            <img loading="lazy" decoding="async" alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
           </button>
           {engineOptions.map((option) => (
             <FilterCheckbox
@@ -525,7 +525,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
             className="absolute top-[9px] left-[321px] w-10 h-10"
             aria-label={t("auto.equipmentdiscovery.collapse.horsepower.filter")}
           >
-            <img alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
+            <img loading="lazy" decoding="async" alt="" aria-hidden="true" src="/all-products/img/arrow-drop-left-4.svg" />
           </button>
           {horsepowerOptions.map((option) => (
             <FilterCheckbox
@@ -551,7 +551,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
           <EquipmentCard key={`grid-two-card-${index}`} {...card} />
         ))}
       </div>
-      <img
+      <img loading="lazy" decoding="async"
         className="absolute top-[2229px] left-0 w-[319px] h-[486px]"
         alt={t("auto.equipmentdiscovery.decorative.polygon")}
         src="/all-products/img/polygon.svg"
@@ -629,7 +629,7 @@ export const EquipmentDiscoverySection = (): JSX.Element => {
           className="absolute top-0 left-[438px] w-[54px] h-[57px]"
           aria-label={t("auto.equipmentdiscovery.next.page")}
         >
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute w-[6.84%] h-[92.35%] top-[7.65%] left-[93.16%]"
             alt=""
             aria-hidden="true"

@@ -73,7 +73,7 @@ export const ProductSingle: React.FC<ProductSingleProps> = ({ product }) => {
         <img
           className="absolute top-0 left-0 w-[1920px] h-[720px] object-cover"
           alt={t("product.heroBackground", { values: { name: product.name } })}
-          src="/img/single-product-page-banner.png"
+          src="/img/single-product-page-banner.webp"
         />
         <div
           className="absolute top-0 left-0 w-[1920px] h-[720px] bg-gradient-to-r from-black/90 via-black/50 to-transparent pointer-events-none"

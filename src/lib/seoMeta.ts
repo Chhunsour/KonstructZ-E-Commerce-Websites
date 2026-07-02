@@ -295,8 +295,27 @@ export const staticMeta: Record<string, MetaConfig> = {
   },
 };
 
-export const toAbsoluteImage = (image?: string) =>
-  image ? (image.startsWith("http") ? image : `${SITE_URL}${image}`) : undefined;
+// Display images under these folders were batch-converted to WebP with the
+// PNG/JPG original kept alongside. Social crawlers (WhatsApp especially)
+// preview PNG/JPG more reliably than WebP, so SEO/OG images point at the
+// original file while the site itself renders the smaller WebP.
+const CONVERTED_WEBP = /^\/(img|all-products|blog|single-blog)\/.*\.webp$/;
+const JPG_ORIGINALS = new Set([
+  "/img/support/analyzing-data.webp",
+  "/img/support/construction-site.webp",
+  "/img/support/production-hall.webp",
+  "/img/support/safety-team.webp",
+  "/img/support/sawmill-production.webp",
+]);
+
+export const toAbsoluteImage = (image?: string) => {
+  if (!image) return undefined;
+  if (image.startsWith("http")) return image;
+  const social = CONVERTED_WEBP.test(image)
+    ? image.replace(/\.webp$/, JPG_ORIGINALS.has(image) ? ".jpg" : ".png")
+    : image;
+  return `${SITE_URL}${social}`;
+};
 
 export const cleanDescription = (value: string, maxLength = 158) => {
   const plain = getPlainText(value).replace(/\s+/g, " ").trim();

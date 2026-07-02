@@ -26,19 +26,19 @@ export const SkidSteerHeroSection = (): JSX.Element => {
 
   const productImages = [
     {
-      src: "/all-products/img/new-project-18-2.png",
+      src: "/all-products/img/new-project-18-2.webp",
       alt: t("auto.skidsteerhero.compact.skid.steer"),
       className:
         "top-[401px] left-[158px] w-[455px] h-[455px] absolute aspect-[1] object-cover",
     },
     {
-      src: "/all-products/img/stomp-v980-4-3.png",
+      src: "/all-products/img/stomp-v980-4-3.webp",
       alt: t("auto.skidsteerhero.kuvuo.4.0"),
       className:
         "top-[368px] left-[591px] w-[632px] h-[479px] absolute aspect-[1.32]",
     },
     {
-      src: "/all-products/img/new-project-15-2-5.png",
+      src: "/all-products/img/new-project-15-2-5.webp",
       alt: t("auto.skidsteerhero.additional.skid.steer"),
       className:
         "top-[428px] left-[1256px] w-[401px] h-[401px] absolute aspect-[1] object-cover",

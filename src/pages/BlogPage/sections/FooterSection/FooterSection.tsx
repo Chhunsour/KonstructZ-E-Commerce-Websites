@@ -106,41 +106,41 @@ export const FooterSection = (): JSX.Element => {
           className="absolute left-[46px] top-[42px] h-[69px] w-[69px] bg-[url(/blog/img/vector-10.svg)] bg-[100%_100%]"
           aria-hidden="true"
         >
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute left-[46.67%] top-[11.66%] h-[88.34%] w-[53.33%]"
             alt=""
             src="/blog/img/vector-11.svg"
           />
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute left-[46.67%] top-[23.34%] h-[76.66%] w-[53.33%]"
             alt=""
             src="/blog/img/vector-12.svg"
           />
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute left-[60.00%] top-[31.67%] h-[68.33%] w-[40.00%]"
             alt=""
             src="/blog/img/vector-13.svg"
           />
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute left-[46.67%] top-[31.67%] h-[68.33%] w-[53.33%]"
             alt=""
             src="/blog/img/vector-14.svg"
           />
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute left-[46.67%] top-[40.00%] h-[60.00%] w-[53.33%]"
             alt=""
             src="/blog/img/vector-15.svg"
           />
         </div>
       </div>
-      <img
+      <img loading="lazy" decoding="async"
         className="absolute left-[211px] top-[175px] h-[101px] w-[345px]"
         alt={t("auto.footer.konstructz.logo")}
         src="/blog/img/vector-7.png"
       />
       <div className="absolute left-0 top-[77px] h-[594px] w-[1920px]">
         <div className="absolute left-0 top-0 flex h-[539px] w-[1920px] bg-[url(/blog/img/rectangle-916.svg)] bg-[100%_100%]">
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-[30px] h-[509px] w-[1920px]"
             alt=""
             src="/blog/img/mask-group.png"
@@ -149,7 +149,7 @@ export const FooterSection = (): JSX.Element => {
         <div className="absolute left-[211px] top-[214px] flex h-[218px] w-[347px] flex-col gap-10">
           <p className="h-[138px] w-[345px] [font-family:'Glonimove-Regular',Helvetica] text-[21px] font-normal leading-[23.3px] tracking-[0] text-white">{t("auto.footer.konstructz.delivers.tough")}</p>
           {socialIcons.map((icon) => (
-            <img
+            <img loading="lazy" decoding="async"
               key={icon.src}
               className="h-10 w-[259.71px]"
               alt={icon.alt}
@@ -207,7 +207,7 @@ export const FooterSection = (): JSX.Element => {
         <div className="absolute left-[1348px] top-[266px] h-[162px] w-[343px]">
           {recentBlogs.map((blog) => (
             <article key={blog.date} className="contents">
-              <img
+              <img loading="lazy" decoding="async"
                 className={`absolute left-0 ${blog.top} ${blog.imageWidth} ${blog.imageHeight} aspect-[1.78] object-cover`}
                 alt={blog.imageAlt}
                 src={blog.image}
@@ -226,7 +226,7 @@ export const FooterSection = (): JSX.Element => {
           ))}
         </div>
         <div className="absolute left-0 top-[539px] h-[55px] w-[1924px]">
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute left-0 top-0 h-[55px] w-[1920px]"
             alt=""
             src="/blog/img/rectangle-917.svg"
@@ -246,7 +246,7 @@ export const FooterSection = (): JSX.Element => {
           className="absolute left-[1568px] top-[550px] h-[34px] w-[42px] rotate-[-0.06deg]"
           aria-label={t("auto.footer.language.selector")}
         >
-          <img
+          <img loading="lazy" decoding="async"
             className="absolute left-0 top-0 h-[34px] w-10 rotate-[0.06deg]"
             alt=""
             src="/blog/img/3.svg"

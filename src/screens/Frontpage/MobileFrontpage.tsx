@@ -11,14 +11,14 @@ const ProductSlider = () => {
   const { t } = useI18n();
 
   const products = [
-    { id: "scoopydig", title: t("auto.mobilefrontpage.mini.excavator"), imageSrc: "/img/mini-excavator-png-4-1.png" },
-    { id: "spider-one", title: t("auto.mobilefrontpage.spider.one"), imageSrc: "/img/spider-one.png" },
-    { id: "stomp-v950", title: t("auto.mobilefrontpage.skid.steer.loader"), imageSrc: "/img/skid-steer-loader.png" },
-    { id: "groundripper-grx", title: t("auto.mobilefrontpage.ground.ripper"), imageSrc: "/img/groundripper-swipe.png" },
-    { id: "scoopydig", title: t("auto.mobilefrontpage.scoopy.dig"), imageSrc: "/img/scoopy-dig-swipe.png" },
-    { id: "skoop-ii", title: "K-LOAD 1200", imageSrc: "/img/skoop-swipe.png" },
-    { id: "thunderdump", title: t("auto.mobilefrontpage.thunderdump.2"), imageSrc: "/img/thunderdump-2.png" },
-    { id: "thunderdump", title: t("auto.mobilefrontpage.thunderdump.2.alt"), imageSrc: "/img/thunderdump-2-alt.png" },
+    { id: "scoopydig", title: t("auto.mobilefrontpage.mini.excavator"), imageSrc: "/img/mini-excavator-png-4-1.webp" },
+    { id: "spider-one", title: t("auto.mobilefrontpage.spider.one"), imageSrc: "/img/spider-one.webp" },
+    { id: "stomp-v950", title: t("auto.mobilefrontpage.skid.steer.loader"), imageSrc: "/img/skid-steer-loader.webp" },
+    { id: "groundripper-grx", title: t("auto.mobilefrontpage.ground.ripper"), imageSrc: "/img/groundripper-swipe.webp" },
+    { id: "scoopydig", title: t("auto.mobilefrontpage.scoopy.dig"), imageSrc: "/img/scoopy-dig-swipe.webp" },
+    { id: "skoop-ii", title: "K-LOAD 1200", imageSrc: "/img/skoop-swipe.webp" },
+    { id: "thunderdump", title: t("auto.mobilefrontpage.thunderdump.2"), imageSrc: "/img/thunderdump-2.webp" },
+    { id: "thunderdump", title: t("auto.mobilefrontpage.thunderdump.2.alt"), imageSrc: "/img/thunderdump-2-alt.webp" },
   ];
 
   const [index, setIndex] = useState(0);
@@ -319,7 +319,7 @@ export const MobileFrontpage = (): JSX.Element => {
       description:
         t("auto.mobilefrontpage.carefully.selected.machinery"),
       image:
-        "/img/super-red-betta-fish-siamese-fighting-fish-isolated-white-backgr.png",
+        "/img/super-red-betta-fish-siamese-fighting-fish-isolated-white-backgr.webp",
       href: "/quality-equipment",
     },
     {
@@ -327,47 +327,47 @@ export const MobileFrontpage = (): JSX.Element => {
       description:
         t("auto.mobilefrontpage.get.clear.guidance"),
       image:
-        "/img/engineer-provides-technical-support-via-headset-solar-panel-fact.png",
+        "/img/engineer-provides-technical-support-via-headset-solar-panel-fact.webp",
       href: "/trusted-support",
     },
     {
       title: t("auto.mobilefrontpage.job.site.ready"),
       description:
         t("auto.mobilefrontpage.practical.machines.designed"),
-      image: "/img/site-engineer-construction-site-1.png",
+      image: "/img/site-engineer-construction-site-1.webp",
       href: "/job-site-ready",
     },
     {
       title: t("auto.mobilefrontpage.long.term.value"),
       description:
         t("auto.mobilefrontpage.equipment.solutions.focused"),
-      image: "/img/businessman-holding-growth-arrow-1.png",
+      image: "/img/businessman-holding-growth-arrow-1.webp",
       href: "/long-term-value",
     },
   ];
 
   const warehouseImages = [
     {
-      src: "/img/factory-with-machines-machinery-inside-it-1.png",
+      src: "/img/factory-with-machines-machinery-inside-it-1.webp",
       alt: t("auto.mobilefrontpage.factory.with.machines"),
     },
     {
-      src: "/img/engineer-provides-technical-support-via-headset-solar-panel-fact-1.png",
+      src: "/img/engineer-provides-technical-support-via-headset-solar-panel-fact-1.webp",
       alt: t("auto.mobilefrontpage.engineer.providing.technical"),
     },
     {
-      src: "/img/male-worker-factory-1.png",
+      src: "/img/male-worker-factory-1.webp",
       alt: t("auto.mobilefrontpage.male.worker.in"),
     },
   ];
 
   const whyChooseImages = [
-    { src: "/img/groundripper-png-4.png", alt: t("auto.whychooseus.groundripper.machine") },
+    { src: "/img/groundripper-png-4.webp", alt: t("auto.whychooseus.groundripper.machine") },
     { src: "/img/skoop-png-4.png", alt: t("auto.whychooseus.skoop.machine") },
-    { src: "/img/new-project-16-2.png", alt: t("auto.whychooseus.compact.construction.machine") },
-    { src: "/img/new-project-19-3.png", alt: t("auto.whychooseus.tracked.construction.machine") },
-    { src: "/img/scoopydigreal.png", alt: t("auto.whychooseus.heavy.equipment.lineup") },
-    { src: "/img/stomp-v980-5.png", alt: t("auto.whychooseus.stomp.machine") },
+    { src: "/img/new-project-16-2.webp", alt: t("auto.whychooseus.compact.construction.machine") },
+    { src: "/img/new-project-19-3.webp", alt: t("auto.whychooseus.tracked.construction.machine") },
+    { src: "/img/scoopydigreal.webp", alt: t("auto.whychooseus.heavy.equipment.lineup") },
+    { src: "/img/stomp-v980-5.webp", alt: t("auto.whychooseus.stomp.machine") },
   ];
 
   return (
@@ -378,7 +378,7 @@ export const MobileFrontpage = (): JSX.Element => {
         <video
           ref={v950Ref}
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
-          src="/video/banner-konstructz.mp4"
+          poster="/video/banner-konstructz-poster.webp"
           autoPlay
           muted
           playsInline
@@ -386,19 +386,33 @@ export const MobileFrontpage = (): JSX.Element => {
           aria-label={t("auto.frontpage.konstructz.hero.background")}
           style={{ opacity: activeModel === "v950" ? 1 : 0, zIndex: activeModel === "v950" ? 1 : 0 }}
           onEnded={() => setActiveModel("v980")}
-        />
+          onPlaying={() => {
+            // Defer the second hero video until the first is actually playing,
+            // so both don't compete for bandwidth on initial page load.
+            const v = v980Ref.current;
+            if (v && v.preload === "none") {
+              v.preload = "auto";
+              v.load();
+            }
+          }}
+        >
+          <source src="/video/banner-konstructz-720.webm" type="video/webm" />
+          <source src="/video/banner-konstructz-720.mp4" type="video/mp4" />
+        </video>
         <video
           ref={v980Ref}
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
-          src="/video/skid-steer-v980-banner.mp4"
-          autoPlay
+          poster="/video/skid-steer-v980-banner-poster.webp"
           muted
           playsInline
-          preload="auto"
+          preload="none"
           aria-label="STOMP V980 Hero Video"
           style={{ opacity: activeModel === "v980" ? 1 : 0, zIndex: activeModel === "v980" ? 1 : 0 }}
           onEnded={() => setActiveModel("v950")}
-        />
+        >
+          <source src="/video/skid-steer-v980-banner-720.webm" type="video/webm" />
+          <source src="/video/skid-steer-v980-banner-720.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80 z-[2]" />
 
         <div className="relative z-10 px-5 pt-28 pb-16 flex flex-col h-full justify-end">
@@ -456,7 +470,7 @@ export const MobileFrontpage = (): JSX.Element => {
           className="relative block w-full h-[240px] bg-[#1a1b1a] overflow-hidden border border-white/5 shadow-lg group"
         >
           <img
-            src="/img/rectangle-9581.png"
+            src="/img/rectangle-9581.webp"
             alt="KonstructZ Excavation Showcase"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
@@ -480,7 +494,7 @@ export const MobileFrontpage = (): JSX.Element => {
           >
             <div className="relative h-[120px] bg-[#114f2f]/30 overflow-hidden flex items-center justify-center">
               <img
-                src="/img/remove-the-white-background-and-202605291020-1.png"
+                src="/img/remove-the-white-background-and-202605291020-1.webp"
                 alt="KonstructZ Compact Excavators"
                 className="max-h-[100px] w-auto object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
@@ -502,7 +516,7 @@ export const MobileFrontpage = (): JSX.Element => {
           >
             <div className="relative h-[120px] bg-[#2d1c15]/30 overflow-hidden flex items-center justify-center">
               <img
-                src="/img/change-the-aspect-ratio-to-202605291023-1.png"
+                src="/img/change-the-aspect-ratio-to-202605291023-1.webp"
                 alt="KonstructZ Trenchers"
                 className="max-h-[100px] w-auto object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
@@ -623,7 +637,7 @@ export const MobileFrontpage = (): JSX.Element => {
       <Reveal as="section" variant="blur" className="bg-theme-sec transition-colors duration-200">
         <div className="relative w-full h-[260px]">
           <img
-            src="/img/machine-with-large-number-machines-background-1.png"
+            src="/img/machine-with-large-number-machines-background-1.webp"
             alt={t("auto.mobilefrontpage.konstructz.warehouse")}
             className="absolute inset-0 w-full h-full object-cover"
           />

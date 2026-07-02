@@ -32,12 +32,12 @@ export const products: Product[] = [
     weight: "3.5 Tons",
     tagline: "Uncompromised Torque and Performance",
     description: "Built for compact loading, grading, cleanup, and attachment work where access is limited but daily production still matters. Final configuration should be matched to the jobsite and attachment plan.",
-    image: "/img/STOMP V980 v1.png",
+    image: "/img/STOMP V980 v1.webp",
     gallery: [
-      "/img/STOMP V980 v1.png",
-      "/img/stomp-v980-poster-1.png",
-      "/img/stomp-v980-poster-2.png",
-      "/img/stomp-v980-poster-3.png"
+      "/img/STOMP V980 v1.webp",
+      "/img/stomp-v980-poster-1.webp",
+      "/img/stomp-v980-poster-2.webp",
+      "/img/stomp-v980-poster-3.webp"
     ],
     specs: [
       { label: "Operating Capacity", value: "2,160 lbs" },
@@ -62,12 +62,12 @@ export const products: Product[] = [
     weight: "2.5 Tons",
     tagline: "Agile Compact Excavator",
     description: "KUVUO 2.5 is a compact mini excavator delivering precise digging power for tight job sites, utility trenching, and residential landscaping.",
-    image: "/img/kuvuo 2.5.png",
+    image: "/img/kuvuo 2.5.webp",
     gallery: [
-      "/img/kuvuo 2.5.png",
-      "/img/kuvuo-2-5-poster-1.png",
-      "/img/kuvuo-2-5-poster-2.png",
-      "/img/kuvuo-2-5-poster-3.png"
+      "/img/kuvuo 2.5.webp",
+      "/img/kuvuo-2-5-poster-1.webp",
+      "/img/kuvuo-2-5-poster-2.webp",
+      "/img/kuvuo-2-5-poster-3.webp"
     ],
     specs: [
       { label: "Operating Weight", value: "2.5 Tons" },
@@ -90,12 +90,12 @@ export const products: Product[] = [
     weight: "5.7 Tons",
     tagline: "Heavy Duty Wheel Loader",
     description: "The SKOOP II is a wheel-loader platform for bulk material handling, yard cleanup, stockpile work, and repeated loading cycles on firm ground.",
-    image: "/img/skoop ii v2.png",
+    image: "/img/skoop ii v2.webp",
     gallery: [
-      "/img/skoop ii v2.png",
-      "/img/skoop-ii-poster-1.png",
-      "/img/skoop-ii-poster-2.png",
-      "/img/skoop-ii-poster-3.png"
+      "/img/skoop ii v2.webp",
+      "/img/skoop-ii-poster-1.webp",
+      "/img/skoop-ii-poster-2.webp",
+      "/img/skoop-ii-poster-3.webp"
     ],
     specs: [
       { label: "Operating Capacity", value: "3,530 lbs" },
@@ -118,12 +118,12 @@ export const products: Product[] = [
     weight: "8.6 Tons",
     tagline: "The Dual-Duty Excavator & Loader",
     description: "SCOOPYDIG integrates backhoe depth and front-end loader capability on a single rugged chassis. Perfect for heavy digging, loading, backfilling, and carrying.",
-    image: "/img/scoopydig v1.png",
+    image: "/img/scoopydig v1.webp",
     gallery: [
-      "/img/scoopydig v1.png",
-      "/img/scoopydig-poster-1.png",
-      "/img/scoopydig-poster-2.png",
-      "/img/scoopydig-poster-3.png"
+      "/img/scoopydig v1.webp",
+      "/img/scoopydig-poster-1.webp",
+      "/img/scoopydig-poster-2.webp",
+      "/img/scoopydig-poster-3.webp"
     ],
     specs: [
       { label: "Backhoe Dig Depth", value: "14.3 ft" },
@@ -146,12 +146,12 @@ export const products: Product[] = [
     weight: "1.4 Tons",
     tagline: "Unstoppable Bulk Materials Hauler",
     description: "THUNDERDUMP is a compact dumper platform for moving soil, aggregate, concrete, and debris through narrow, soft, or uneven access routes.",
-    image: "/img/thunder dump lift.png",
+    image: "/img/thunder dump lift.webp",
     gallery: [
-      "/img/thunder dump lift.png",
-      "/img/thunderdump-1-poster-1.png",
-      "/img/thunderdump-1-poster-2.png",
-      "/img/thunderdump-1-poster-3.png"
+      "/img/thunder dump lift.webp",
+      "/img/thunderdump-1-poster-1.webp",
+      "/img/thunderdump-1-poster-2.webp",
+      "/img/thunderdump-1-poster-3.webp"
     ],
     specs: [
       { label: "Payload Capacity", value: "2,200 lbs" },
@@ -174,12 +174,12 @@ export const products: Product[] = [
     weight: "3.75 Tons",
     tagline: "Aggregate Reduction in Place",
     description: "The STONE CRUSHER supports on-site material reduction for rubble, masonry, concrete, asphalt, and stone where reclaimed aggregate can be reused or staged more efficiently.",
-    image: "/img/stone krusher k1.png",
+    image: "/img/stone krusher k1.webp",
     gallery: [
-      "/img/stone krusher k1.png",
-      "/img/stone-crusher-1-poster-1.png",
-      "/img/stone-crusher-1-poster-2.png",
-      "/img/stone-crusher-1-poster-3.png"
+      "/img/stone krusher k1.webp",
+      "/img/stone-crusher-1-poster-1.webp",
+      "/img/stone-crusher-1-poster-2.webp",
+      "/img/stone-crusher-1-poster-3.webp"
     ],
     specs: [
       { label: "Crushing Capacity", value: "15 - 20 Tons/hr" },
@@ -202,12 +202,12 @@ export const products: Product[] = [
     weight: "1.6 Tons",
     tagline: "Tough Soil and Roots Are No Match",
     description: "GROUP RIPPER GRX cutting systems carve clean utility channels through packed clay, roots, and rocky soil. The dual track system ensures stable forward progress.",
-    image: "/img/ground ripper grx.png",
+    image: "/img/ground ripper grx.webp",
     gallery: [
-      "/img/ground ripper grx.png",
-      "/img/group-ripper-grx-poster-1.png",
-      "/img/group-ripper-grx-poster-2.png",
-      "/img/group-ripper-grx-poster-3.png"
+      "/img/ground ripper grx.webp",
+      "/img/group-ripper-grx-poster-1.webp",
+      "/img/group-ripper-grx-poster-2.webp",
+      "/img/group-ripper-grx-poster-3.webp"
     ],
     specs: [
       { label: "Trench Depth", value: "4.0 ft" },
@@ -230,12 +230,12 @@ export const products: Product[] = [
     weight: "2.7 Tons",
     tagline: "High-Performance Compact Excavator",
     description: "The KUVUO 2.7 is an upgraded compact excavator with extended digging depth and enhanced breakout force. Designed for heavy utility trenching and foundation work.",
-    image: "/img/kuvuo 2.7.png",
+    image: "/img/kuvuo 2.7.webp",
     gallery: [
-      "/img/kuvuo 2.7.png",
-      "/img/kuvuo-2-7-poster-1.png",
-      "/img/kuvuo-2-7-poster-2.png",
-      "/img/kuvuo-2-7-poster-3.png"
+      "/img/kuvuo 2.7.webp",
+      "/img/kuvuo-2-7-poster-1.webp",
+      "/img/kuvuo-2-7-poster-2.webp",
+      "/img/kuvuo-2-7-poster-3.webp"
     ],
     specs: [
       { label: "Digging Depth", value: "9.3 ft" },
@@ -258,12 +258,12 @@ export const products: Product[] = [
     weight: "1,500 lbs",
     tagline: "All-Terrain Compact Digger",
     description: "The SPIDER ONE is a towable excavator built for remote projects. Its outrigger design allows it to set up on steep embankments, hillsides, and muddy terrains.",
-    image: "/img/spider one v1.png",
+    image: "/img/spider one v1.webp",
     gallery: [
-      "/img/spider one v1.png",
-      "/img/spider-one-poster-1.png",
-      "/img/spider-one-poster-2.png",
-      "/img/spider-one-poster-3.png"
+      "/img/spider one v1.webp",
+      "/img/spider-one-poster-1.webp",
+      "/img/spider-one-poster-2.webp",
+      "/img/spider-one-poster-3.webp"
     ],
     specs: [
       { label: "Operating Weight", value: "1,500 lbs" },
@@ -286,12 +286,12 @@ export const products: Product[] = [
     weight: "7.2 Tons",
     tagline: "Medium-Duty Aggregate Crusher",
     description: "A larger STONE CRUSHER designed for contractors with moderate recycling requirements. Easily handles masonry, brick, asphalt, and concrete debris.",
-    image: "/img/stone krusher k2.png",
+    image: "/img/stone krusher k2.webp",
     gallery: [
-      "/img/stone krusher k2.png",
-      "/img/stone-crusher-2-poster-1.png",
-      "/img/stone-crusher-2-poster-2.png",
-      "/img/stone-crusher-2-poster-3.png"
+      "/img/stone krusher k2.webp",
+      "/img/stone-crusher-2-poster-1.webp",
+      "/img/stone-crusher-2-poster-2.webp",
+      "/img/stone-crusher-2-poster-3.webp"
     ],
     specs: [
       { label: "Crushing Capacity", value: "30 - 45 Tons/hr" },
@@ -314,12 +314,12 @@ export const products: Product[] = [
     weight: "2.3 Tons",
     tagline: "High-Capacity Tracked Dumper",
     description: "The THUNDERDUMP Pro is a compact tracked dumper option for crews that need controlled material movement across soft, uneven, or access-limited worksites.",
-    image: "/img/thunder dump 180.png",
+    image: "/img/thunder dump 180.webp",
     gallery: [
-      "/img/thunder dump 180.png",
-      "/img/thunderdump-2-poster-1.png",
-      "/img/thunderdump-2-poster-2.png",
-      "/img/thunderdump-2-poster-3.png"
+      "/img/thunder dump 180.webp",
+      "/img/thunderdump-2-poster-1.webp",
+      "/img/thunderdump-2-poster-2.webp",
+      "/img/thunderdump-2-poster-3.webp"
     ],
     specs: [
       { label: "Payload Capacity", value: "3,970 lbs" },
@@ -342,12 +342,12 @@ export const products: Product[] = [
     weight: "3.25 Tons",
     tagline: "Compact Powerhouse for High-Production Work",
     description: "The STOMP V950 is a state-of-the-art skid steer loader designed to deliver maximum productivity in tight quarters. Featuring heavy-duty steel tracks and high-torque hydraulics.",
-    image: "/img/skoop v950 v1.png",
+    image: "/img/skoop v950 v1.webp",
     gallery: [
-      "/img/skoop v950 v1.png",
-      "/img/stomp-v950-poster-1.png",
-      "/img/stomp-v950-poster-2.png",
-      "/img/stomp-v950-poster-3.png"
+      "/img/skoop v950 v1.webp",
+      "/img/stomp-v950-poster-1.webp",
+      "/img/stomp-v950-poster-2.webp",
+      "/img/stomp-v950-poster-3.webp"
     ],
     specs: [
       { label: "Operating Capacity", value: "2,090 lbs" },
@@ -370,12 +370,12 @@ export const products: Product[] = [
     weight: "14.1 Tons",
     tagline: "High-Volume Mobile Crusher",
     description: "Our commercial-grade STONE CRUSHER. Developed to handle maximum material size and throughput, transforming demolition waste into profits.",
-    image: "/img/stone krusher k3.png",
+    image: "/img/stone krusher k3.webp",
     gallery: [
-      "/img/stone krusher k3.png",
-      "/img/stone-crusher-3-poster-1.png",
-      "/img/stone-crusher-3-poster-2.png",
-      "/img/stone-crusher-3-poster-3.png"
+      "/img/stone krusher k3.webp",
+      "/img/stone-crusher-3-poster-1.webp",
+      "/img/stone-crusher-3-poster-2.webp",
+      "/img/stone-crusher-3-poster-3.webp"
     ],
     specs: [
       { label: "Crushing Capacity", value: "60 - 80 Tons/hr" },

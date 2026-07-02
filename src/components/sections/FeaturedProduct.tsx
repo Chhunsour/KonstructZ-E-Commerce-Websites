@@ -44,7 +44,7 @@ export const FeaturedProduct: React.FC = () => {
     <section className="bg-brand-dark py-24 border-b border-brand-green/20 relative text-white">
       {/* Decorative vectors from Anima */}
       <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none w-[300px] h-[300px]">
-        <img src="https://c.animaapp.com/9h31joeZ/img/vector-1.svg" alt="" className="w-full h-full" />
+        <img loading="lazy" decoding="async" src="https://c.animaapp.com/9h31joeZ/img/vector-1.svg" alt="" className="w-full h-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +53,7 @@ export const FeaturedProduct: React.FC = () => {
           {/* Left: Gallery Showcase */}
           <div className="lg:col-span-6 space-y-6">
             <div className="relative aspect-[4/3] bg-brand-dark/50 border border-brand-green/30 overflow-hidden rounded">
-              <img
+              <img loading="lazy" decoding="async"
                 src={images[activeImgIdx].src}
                 alt={images[activeImgIdx].alt}
                 className="w-full h-full object-contain p-4 md:p-8"
@@ -75,7 +75,7 @@ export const FeaturedProduct: React.FC = () => {
                       : t("auto.featuredproduct.border.brand.green")
                   }`}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={img.src}
                     alt={img.label}
                     className="w-full h-full object-contain"

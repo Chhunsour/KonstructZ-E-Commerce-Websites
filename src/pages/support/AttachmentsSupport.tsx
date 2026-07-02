@@ -104,7 +104,7 @@ export const AttachmentsSupport: React.FC = () => {
         eyebrow={t("auto.attachments.attachments.support")}
         title={t("auto.attachments.one.machine.many")}
         description={t("auto.attachments.check.compatibility.confirm")}
-        image="/img/support/factory-worker.png"
+        image="/img/support/factory-worker.webp"
         primary={{ label: t("auto.attachments.request.attachment.support"), to: "/support/contact-support" }}
         secondary={{ label: t("auto.attachments.back.to.support"), to: "/support" }}
       />
@@ -119,12 +119,12 @@ export const AttachmentsSupport: React.FC = () => {
           title={t("auto.attachments.fit.first.then")}
           body={t("auto.attachments.an.attachment.is")}
           points={[t("auto.attachments.coupler.mounting.plate"), t("auto.attachments.hydraulic.flow.pressure"), t("auto.attachments.model.specific.confirmation"), t("auto.attachments.quick.attach.compatibility")]}
-          image="/img/support/construction-site.jpg"
+          image="/img/support/construction-site.webp"
         />
       </Section>
 
       <ImageBand
-        image="/img/support/production-hall.jpg"
+        image="/img/support/production-hall.webp"
         eyebrow="Real Hydraulics, Real Tools"
         title="Attachments Engineered, Not Adapted"
         body="Every attachment inquiry is checked against machine fitment, hydraulic demand, and mounting style before quote. The result is a cleaner buying path and fewer surprises at first start."
@@ -237,7 +237,7 @@ export const AttachmentsSupport: React.FC = () => {
       <SupportCTA
         heading={t("auto.attachments.need.the.right")}
         description={t("auto.attachments.send.us.your")}
-        image="/img/support/sawmill-production.jpg"
+        image="/img/support/sawmill-production.webp"
         primary={{ label: t("auto.attachments.request.attachment.support"), to: "/support/contact-support" }}
         secondaryTel={{ label: t("auto.attachments.call.support"), tel: "+12132142203" }}
       />

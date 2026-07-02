@@ -25,7 +25,7 @@ export const categories: Category[] = [
     id: "mini-excavators",
     name: "Mini Excavator",
     description: "Compact and powerful excavators designed for tight spaces and reliable utility work.",
-    image: "/img/new-project-19-2.png",
+    image: "/img/new-project-19-2.webp",
     slug: "mini-excavators",
   },
   {
@@ -46,7 +46,7 @@ export const categories: Category[] = [
     id: "trenchers",
     name: "Trencher",
     description: "High-efficiency trenching tools for utility piping, electrical routing, and irrigation.",
-    image: "/img/new-project-15-2.png",
+    image: "/img/new-project-15-2.webp",
     slug: "trenchers",
   },
   {

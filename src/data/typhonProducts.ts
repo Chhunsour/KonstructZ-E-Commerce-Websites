@@ -7364,37 +7364,37 @@ export const typhonCategories: TyphonCategory[] = [
     id: "forklifts",
     label: "Forklift",
     count: 5,
-    image: "/img/new-project-18-1.png"
+    image: "/img/new-project-18-1.webp"
   },
   {
     id: "mini-excavators",
     label: "Mini Excavator",
     count: 34,
-    image: "/img/kuvuo 2.5.png"
+    image: "/img/kuvuo 2.5.webp"
   },
   {
     id: "road-rollers",
     label: "Road Roller",
     count: 4,
-    image: "/img/ground ripper grx.png"
+    image: "/img/ground ripper grx.webp"
   },
   {
     id: "scissor-lifts",
     label: "Scissor Lift",
     count: 5,
-    image: "/img/new-project-16-2.png"
+    image: "/img/new-project-16-2.webp"
   },
   {
     id: "skid-steer-loaders",
     label: "Skid Steer Loader",
     count: 31,
-    image: "/img/STOMP V980 v1.png"
+    image: "/img/STOMP V980 v1.webp"
   },
   {
     id: "wheel-loaders",
     label: "Wheel Loader",
     count: 3,
-    image: "/img/skoop ii v2.png"
+    image: "/img/skoop ii v2.webp"
   }
 ];
 

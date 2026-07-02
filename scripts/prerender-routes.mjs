@@ -78,6 +78,28 @@ const linkList = (heading, items) =>
         .join("")}</ul>`
     : "";
 
+/**
+ * Branded splash shown while the app bundle loads — JS browsers only.
+ *
+ * The inline <head> script adds the kz-js class before first paint, which
+ * hides the crawler fallback content and shows the loader instead, so
+ * visitors never see the raw link dump while the (large) bundle downloads.
+ * Non-JS crawlers never get the class, so they see the full fallback and
+ * no spinner. Everything lives inside #app, so React removes it on mount.
+ * The 15s timeout is a safety hatch: if the bundle fails to load, the
+ * fallback links reappear instead of an endless spinner.
+ */
+const BOOT_HEAD_SCRIPT = `<script>document.documentElement.classList.add("kz-js");setTimeout(function(){document.documentElement.classList.remove("kz-js")},15000)</script>`;
+const BOOT_MARKUP = `<style>
+.kz-js .kz-seo-fallback{display:none}
+.kz-js body{background:#0e0e0e}
+.kz-boot{display:none}
+.kz-js .kz-boot{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:#0e0e0e}
+.kz-boot-ring{width:44px;height:44px;border:3px solid rgba(216,199,154,.22);border-top-color:#d8c79a;border-radius:50%;animation:kz-spin .9s linear infinite}
+.kz-boot-name{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:14px;letter-spacing:.35em;color:#d8c79a}
+@keyframes kz-spin{to{transform:rotate(360deg)}}
+</style><div class="kz-boot" aria-hidden="true"><span class="kz-boot-ring"></span><span class="kz-boot-name">KONSTRUCTZ</span></div>`;
+
 const SITE_NAV = [
   { href: "/", label: "Home" },
   { href: "/categories", label: "Equipment Categories" },
@@ -200,8 +222,9 @@ const buildFallbackBody = (routePath, config, data) => {
     ).join("")}</ul></nav>`
   );
 
-  // Plain neutral block — visible only until React mounts and replaces #app.
-  return `<div style="max-width:960px;margin:0 auto;padding:48px 20px;font-family:Arial,Helvetica,sans-serif;line-height:1.6">${pieces.join("\n")}</div>`;
+  // Crawlers (no JS) see this content; JS browsers see the boot splash
+  // until React mounts and replaces all of #app.
+  return `${BOOT_MARKUP}<div class="kz-seo-fallback" style="max-width:960px;margin:0 auto;padding:48px 20px;font-family:Arial,Helvetica,sans-serif;line-height:1.6">${pieces.join("\n")}</div>`;
 };
 
 const setTag = (html, pattern, replacement, label, routePath) => {
@@ -224,6 +247,13 @@ const renderRoute = (template, routePath, seo, data) => {
   const jsonLd = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
 
   let html = template;
+  html = setTag(
+    html,
+    /<meta charset="utf-8" \/>/,
+    `<meta charset="utf-8" />\n${BOOT_HEAD_SCRIPT}`,
+    "charset meta",
+    routePath
+  );
   html = setTag(html, /<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(config.title)}</title>`, "<title>", routePath);
   html = setTag(
     html,
@@ -331,6 +361,8 @@ const main = async () => {
   shell = shell.replace(/<title>[\s\S]*?<\/title>/, "<title>Konstructz</title>");
   shell = shell.replace(/[ \t]*<link rel="canonical"[^>]*>\s*/, "");
   shell = shell.replace(/[ \t]*<meta property="og:url"[^>]*>\s*/, "");
+  shell = shell.replace('<meta charset="utf-8" />', `<meta charset="utf-8" />\n${BOOT_HEAD_SCRIPT}`);
+  shell = shell.replace('<div id="app"></div>', `<div id="app">${BOOT_MARKUP}</div>`);
   fs.writeFileSync(path.join(DIST, "spa-shell.html"), shell);
 
   console.log(`Prerendered ${count} routes into dist/ (+ spa-shell.html)`);

@@ -1,6 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useI18n } from "../../context/I18nContext";
 import { categoryNameKey } from "../../i18n/keys";
+
+const desktopQuery = "(min-width: 1024px)";
+
+const getResponsiveDefaultOpen = (defaultOpen: boolean, mobileDefaultOpen: boolean) => {
+  if (typeof window === "undefined") return defaultOpen;
+  return window.matchMedia(desktopQuery).matches ? defaultOpen : mobileDefaultOpen;
+};
+
+const useResponsiveOpen = (defaultOpen: boolean, mobileDefaultOpen: boolean) => {
+  const [open, setOpen] = useState(() => getResponsiveDefaultOpen(defaultOpen, mobileDefaultOpen));
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const media = window.matchMedia(desktopQuery);
+    const syncOpen = () => setOpen(media.matches ? defaultOpen : mobileDefaultOpen);
+
+    media.addEventListener("change", syncOpen);
+    return () => media.removeEventListener("change", syncOpen);
+  }, [defaultOpen, mobileDefaultOpen]);
+
+  return [open, setOpen] as const;
+};
 
 /**
  * Collapsible filter group — the Konstructz product-filter design.
@@ -12,6 +35,7 @@ export const FilterGroup: React.FC<{
   title: string;
   options: string[];
   defaultOpen?: boolean;
+  mobileDefaultOpen?: boolean;
   translateOptions?: boolean;
   selectedOption?: string | null;
   onOptionSelect?: (option: string | null) => void;
@@ -21,6 +45,7 @@ export const FilterGroup: React.FC<{
   title,
   options,
   defaultOpen = true,
+  mobileDefaultOpen = defaultOpen,
   translateOptions = false,
   selectedOption,
   onOptionSelect,
@@ -28,7 +53,7 @@ export const FilterGroup: React.FC<{
   disabled = false,
 }) => {
   const { t } = useI18n();
-  const [open, setOpen] = useState(defaultOpen);
+  const [open, setOpen] = useResponsiveOpen(defaultOpen, mobileDefaultOpen);
 
   return (
     <div className={`bg-theme-sec text-theme-text p-4 border border-theme-border/10 rounded transition-all duration-200 ${disabled ? "opacity-50" : ""}`}>
@@ -114,16 +139,38 @@ export const PriceFilter: React.FC<{
   onChange: (val: number) => void;
   max?: number;
   disabled?: boolean;
-}> = ({ value, onChange, max = 69999, disabled = false }) => {
+  defaultOpen?: boolean;
+  mobileDefaultOpen?: boolean;
+}> = ({ value, onChange, max = 69999, disabled = false, defaultOpen = true, mobileDefaultOpen = defaultOpen }) => {
   const { t } = useI18n();
+  const [open, setOpen] = useResponsiveOpen(defaultOpen, mobileDefaultOpen);
+
   return (
     <div className={`bg-theme-sec text-theme-text p-4 border border-theme-border/10 rounded transition-all duration-200 ${disabled ? "opacity-50" : ""}`}>
-      <div className="flex items-center justify-between pb-3 border-b-[3px] border-theme-border">
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={() => setOpen((o) => !o)}
+        className={`flex w-full items-center justify-between pb-3 border-b-[3px] border-theme-border ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
+      >
         <span className="font-clofieBold text-theme-text text-lg sm:text-xl flex items-center gap-2">
           <span>{t("equipment.price", { fallback: "Price" })}</span>
         </span>
-      </div>
-      <div className="mt-4">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 10 7"
+          fill="none"
+          className={`transition-transform ${open ? "rotate-180" : ""}`}
+        >
+          <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" />
+        </svg>
+      </button>
+      <div
+        className={`overflow-hidden transition-all ${
+          open ? "max-h-[160px] opacity-100 mt-4" : "max-h-0 opacity-0"
+        }`}
+      >
         <input
           type="range"
           min={0}

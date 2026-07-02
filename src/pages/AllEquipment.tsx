@@ -382,26 +382,30 @@ export const AllEquipment: React.FC = () => {
               <FilterGroup
                 title={t("equipment.categories", { fallback: "Categories" })}
                 options={categoryLabels}
+                mobileDefaultOpen={false}
                 selectedOption={selectedCategory}
                 onOptionSelect={selectCategory}
                 optionValueMapping={categoryValueMapping}
               />
-              <PriceFilter value={priceMax} max={maxPrice} onChange={setPriceMax} />
+              <PriceFilter value={priceMax} max={maxPrice} onChange={setPriceMax} mobileDefaultOpen={false} />
               <FilterGroup
                 title={t("equipment.operationWeight", { fallback: "Operation Weight" })}
                 options={WEIGHT_FILTERS}
+                mobileDefaultOpen={false}
                 selectedOption={selectedWeight}
                 onOptionSelect={setSelectedWeight}
               />
               <FilterGroup
                 title={t("equipment.engine", { fallback: "Engine" })}
                 options={ENGINE_FILTERS}
+                mobileDefaultOpen={false}
                 selectedOption={selectedEngine}
                 onOptionSelect={setSelectedEngine}
               />
               <FilterGroup
                 title={t("equipment.horsepower", { fallback: "Horsepower" })}
                 options={HORSEPOWER_FILTERS}
+                mobileDefaultOpen={false}
                 selectedOption={selectedHorsepower}
                 onOptionSelect={setSelectedHorsepower}
               />

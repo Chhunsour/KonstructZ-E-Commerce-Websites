@@ -195,36 +195,10 @@ export const ProductCarouselSection = (): JSX.Element => {
             type="button"
             onClick={isPrev ? handlePrev : handleNext}
             aria-label={isPrev ? "Previous product" : t("auto.productcarousel.next.product")}
-            className={`group absolute ${isPrev ? "top-[1017px]" : "top-[1016px]"} ${decoration.left} w-[92px] h-[76px] flex items-center justify-center cursor-pointer z-10 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B]`}
+            className={`group absolute top-[1016px] ${decoration.left} w-[92px] h-[76px] flex items-center justify-center cursor-pointer z-10 bg-[#153d28] border border-[#d8c79a]/50 rounded-[3px] shadow-[0_10px_24px_rgba(21,61,40,0.22)] transition-all duration-200 hover:bg-[#d8c79a] hover:border-[#153d28]/25 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_rgba(21,61,40,0.28)] active:translate-y-0 active:shadow-[0_6px_14px_rgba(21,61,40,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#153d28]`}
           >
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-[5px] translate-y-[5px] bg-black/25 [clip-path:polygon(10px_0,100%_0,100%_calc(100%_-_10px),calc(100%_-_10px)_100%,0_100%,0_10px)] transition-transform duration-200 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-active:translate-x-[2px] group-active:translate-y-[2px]"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 bg-[#20251f] border border-[#DDC49A]/70 [clip-path:polygon(10px_0,100%_0,100%_calc(100%_-_10px),calc(100%_-_10px)_100%,0_100%,0_10px)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-10px_18px_rgba(0,0,0,0.28),0_12px_22px_rgba(0,0,0,0.28)] transition-colors duration-200 group-hover:bg-[#283326] group-hover:border-[#DDC49A]"
-            />
-            <span
-              aria-hidden="true"
-              className={`absolute top-0 bottom-0 w-[5px] bg-[#68825B] transition-colors duration-200 group-hover:bg-[#DDC49A] ${
-                isPrev ? "left-0" : "right-0"
-              }`}
-            />
-            <span
-              aria-hidden="true"
-              className={`absolute top-[9px] w-3 h-3 border-t border-[#DDC49A]/75 transition-colors duration-200 group-hover:border-white ${
-                isPrev ? "left-[13px] border-l" : t("auto.productcarousel.right.13px.border")
-              }`}
-            />
-            <span
-              aria-hidden="true"
-              className={`absolute bottom-[9px] w-3 h-3 border-b border-[#DDC49A]/75 transition-colors duration-200 group-hover:border-white ${
-                isPrev ? "right-[13px] border-r" : t("auto.productcarousel.left.13px.border")
-              }`}
-            />
             <svg
-              className={`relative w-9 h-9 text-[#DDC49A] transition-transform duration-200 group-hover:text-white ${
+              className={`relative w-8 h-8 text-[#d8c79a] transition-all duration-200 group-hover:text-[#153d28] ${
                 isPrev ? "group-hover:-translate-x-1" : "group-hover:translate-x-1"
               }`}
               viewBox="0 0 24 24"

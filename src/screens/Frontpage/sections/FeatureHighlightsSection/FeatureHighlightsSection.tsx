@@ -30,7 +30,7 @@ export const FeatureHighlightsSection = (): JSX.Element => {
   const { t } = useI18n();
   return (
     <section
-      className="absolute left-0 top-[4561px] h-[375px] w-[1920px] overflow-hidden"
+      className="absolute left-0 top-[4546px] h-[375px] w-[1920px] overflow-hidden"
       aria-labelledby="feature-highlights-call-title"
     >
       <div
@@ -57,10 +57,17 @@ export const FeatureHighlightsSection = (): JSX.Element => {
         </div>
       </Parallax>
       <div className="absolute left-0 w-full flex items-center justify-center gap-[46px] top-[116px] z-20">
-        <Reveal variant="zoom" className="h-[98px] w-[98px] rounded-full bg-[#d8c79a]/10 border-2 border-[#d8c79a]/40 flex items-center justify-center shrink-0 k-float">
-          <svg width="42" height="42" viewBox="0 0 24 24" fill="#d8c79a" className="animate-pulse">
-            <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15 15 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1-1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1Z" />
-          </svg>
+        <Reveal variant="zoom" className="relative h-[98px] w-[98px] rounded-full flex items-center justify-center shrink-0">
+          {/* Animated double ripple/breath rings */}
+          <div className="absolute inset-0 rounded-full bg-[#d8c79a]/5 border border-[#d8c79a]/20 scale-110 animate-[ping_3s_ease-in-out_infinite]" />
+          <div className="absolute inset-0 rounded-full bg-[#d8c79a]/10 border border-[#d8c79a]/30 scale-100" />
+          
+          {/* Inner solid circular glass container */}
+          <div className="relative h-16 w-16 rounded-full bg-[#d8c79a]/15 backdrop-blur-sm border border-[#d8c79a]/50 flex items-center justify-center shadow-[0_0_15px_rgba(216,199,154,0.3)]">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d8c79a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
         </Reveal>
         <Reveal as="div" variant="slide-l" delay={140}
           className="flex flex-col justify-center [font-family:'Readex_Pro',Helvetica] text-white"

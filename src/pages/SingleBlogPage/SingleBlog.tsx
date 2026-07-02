@@ -575,7 +575,7 @@ export const SingleBlog = (): JSX.Element => {
           </div>
 
           {/* Right Column (Sidebar) */}
-          <aside className="flex flex-col gap-6 lg:gap-8">
+          <aside className="flex flex-col gap-6 lg:gap-8 lg:sticky lg:top-28 self-start">
             <SidebarBox title={t("blog.categories")}>
               <ul className="flex flex-col gap-3 font-glonimove text-theme-text text-base">
                 {blogCategories.map((c) => (

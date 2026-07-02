@@ -561,15 +561,22 @@ export const MobileFrontpage = (): JSX.Element => {
       </Reveal>
 
       {/* Call CTA */}
-      <Reveal as="section" variant="zoom-out" className="relative bg-[#153d28] px-6 py-8 mx-5 my-8 rounded-lg shadow-xl overflow-hidden border border-white/5">
+      <Reveal as="section" variant="zoom-out" className="relative bg-[#153d28] px-6 py-8 mx-5 mt-4 mb-8 rounded-lg shadow-xl overflow-hidden border border-white/5">
         <div className="absolute -right-16 -top-16 w-36 h-36 bg-[#d8c79a]/10 rounded-full blur-2xl pointer-events-none" />
         <div className="absolute -left-16 -bottom-16 w-36 h-36 bg-[#d8c79a]/5 rounded-full blur-2xl pointer-events-none" />
         
         <div className="flex items-center gap-4 relative z-10">
-          <div className="w-14 h-14 rounded-full bg-[#d8c79a]/10 border border-[#d8c79a]/40 flex items-center justify-center shrink-0">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#d8c79a" className="animate-pulse">
-              <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15 15 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1-1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1Z" />
-            </svg>
+          <div className="relative h-14 w-14 rounded-full flex items-center justify-center shrink-0">
+            {/* Animated double ripple/breath rings */}
+            <div className="absolute inset-0 rounded-full bg-[#d8c79a]/5 border border-[#d8c79a]/20 scale-110 animate-[ping_3s_ease-in-out_infinite]" />
+            <div className="absolute inset-0 rounded-full bg-[#d8c79a]/10 border border-[#d8c79a]/30 scale-100" />
+            
+            {/* Inner solid circular glass container */}
+            <div className="relative h-10 w-10 rounded-full bg-[#d8c79a]/15 backdrop-blur-sm border border-[#d8c79a]/50 flex items-center justify-center shadow-[0_0_10px_rgba(216,199,154,0.3)]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d8c79a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
           </div>
           <div className="flex flex-col">
             <p className="font-googleSans text-white/70 text-xs uppercase tracking-wider font-semibold">

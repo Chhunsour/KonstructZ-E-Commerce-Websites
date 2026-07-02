@@ -191,22 +191,10 @@ const ProductSlider = () => {
           onClick={prev}
           disabled={animating}
           aria-label={t("auto.mobilefrontpage.previous.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
+          className="group relative w-14 h-12 flex items-center justify-center bg-[#153d28] border border-[#d8c79a]/50 rounded-[3px] shadow-[0_6px_14px_rgba(21,61,40,0.22)] transition-all duration-200 active:translate-y-0.5 active:shadow-[0_3px_8px_rgba(21,61,40,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#153d28] disabled:opacity-50"
         >
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 translate-x-[3px] translate-y-[3px] bg-black/20 [clip-path:polygon(8px_0,100%_0,100%_calc(100%_-_8px),calc(100%_-_8px)_100%,0_100%,0_8px)]"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 bg-[#20251f] border border-[#DDC49A]/75 [clip-path:polygon(8px_0,100%_0,100%_calc(100%_-_8px),calc(100%_-_8px)_100%,0_100%,0_8px)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-8px_14px_rgba(0,0,0,0.26)] transition-colors duration-200 group-hover:bg-[#283326] group-hover:border-[#DDC49A]"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute left-0 top-0 bottom-0 w-1 bg-[#68825B] transition-colors duration-200 group-hover:bg-[#DDC49A]"
-          />
           <svg
-            className="relative w-7 h-7 text-[#DDC49A] transition-transform duration-200 group-hover:-translate-x-0.5 group-hover:text-white"
+            className="relative w-7 h-7 text-[#d8c79a] transition-transform duration-200"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -225,22 +213,10 @@ const ProductSlider = () => {
           onClick={next}
           disabled={animating}
           aria-label={t("auto.mobilefrontpage.next.product")}
-          className="group relative w-14 h-12 flex items-center justify-center transition-transform duration-200 active:translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68825B] disabled:opacity-50"
+          className="group relative w-14 h-12 flex items-center justify-center bg-[#153d28] border border-[#d8c79a]/50 rounded-[3px] shadow-[0_6px_14px_rgba(21,61,40,0.22)] transition-all duration-200 active:translate-y-0.5 active:shadow-[0_3px_8px_rgba(21,61,40,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#153d28] disabled:opacity-50"
         >
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 translate-x-[3px] translate-y-[3px] bg-black/20 [clip-path:polygon(8px_0,100%_0,100%_calc(100%_-_8px),calc(100%_-_8px)_100%,0_100%,0_8px)]"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 bg-[#20251f] border border-[#DDC49A]/75 [clip-path:polygon(8px_0,100%_0,100%_calc(100%_-_8px),calc(100%_-_8px)_100%,0_100%,0_8px)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-8px_14px_rgba(0,0,0,0.26)] transition-colors duration-200 group-hover:bg-[#283326] group-hover:border-[#DDC49A]"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute right-0 top-0 bottom-0 w-1 bg-[#68825B] transition-colors duration-200 group-hover:bg-[#DDC49A]"
-          />
           <svg
-            className="relative w-7 h-7 text-[#DDC49A] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-white"
+            className="relative w-7 h-7 text-[#d8c79a] transition-transform duration-200"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

@@ -15,6 +15,10 @@
   RewriteRule ^media$ /blog [R=301,L]
   RewriteRule ^media/(.+)$ /blog/$1 [R=301,L]
 
+  # /blog has a real static asset folder, so handle the route explicitly
+  # before Apache treats it as a directory and returns 403 for /blog/.
+  RewriteRule ^blog/?$ /prerendered/blog/index.html [L]
+
   # 1) Known route → prerendered snapshot. If the snapshot file doesn't
   #    exist, the rewritten URL re-enters these rules and lands on the SPA
   #    fallback below (the /prerendered/ guard prevents a rewrite loop).

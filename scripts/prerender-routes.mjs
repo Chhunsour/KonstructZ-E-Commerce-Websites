@@ -277,10 +277,12 @@ const main = async () => {
   const routePaths = routes.map((r) => r.loc.replace(SITE_URL, "") || "/");
 
   // Legacy/alias URLs — prerendered with a canonical pointing at the
-  // preferred URL, but never listed in the sitemap.
+  // preferred URL, but never listed in the sitemap. Includes re-imported
+  // Typhon duplicates, which buildRoutes drops from the sitemap.
   const aliases = [
     "/media",
     ...seo.productCategories.map((c) => `/equipment/${c.slug}`),
+    ...seo.typhonProducts.map((p) => `/typhon-machinery/${p.id}`),
   ].filter((alias) => !routePaths.includes(alias));
 
   const data = {

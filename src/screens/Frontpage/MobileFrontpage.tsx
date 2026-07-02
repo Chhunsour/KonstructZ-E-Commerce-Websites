@@ -732,18 +732,18 @@ export const MobileFrontpage = (): JSX.Element => {
           <span className="font-glonimoveBold font-bold">California</span>
           <span className="font-light">{t("auto.whychooseus.giving.customers.a").replace(/\n\s*/g, " ")}</span>
         </p>
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {whyChooseImages.map((img, i) => (
             <Reveal
               key={img.src}
               variant="zoom"
               delay={i * 90}
-              className="bg-[#1e1e1e] border border-white/5 rounded-xl p-3 flex items-center justify-center h-[140px] sm:h-[180px]"
+              className="flex items-center justify-center h-[130px] sm:h-[160px] k-float"
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300"
+                className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-500 drop-shadow-[0_15px_20px_rgba(0,0,0,0.55)]"
               />
             </Reveal>
           ))}

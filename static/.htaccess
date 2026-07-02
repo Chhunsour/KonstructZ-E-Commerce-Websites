@@ -10,6 +10,11 @@
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
 
+  # /media was renamed to /blog — permanent redirect so old links and any
+  # indexed /media URLs transfer cleanly.
+  RewriteRule ^media$ /blog [R=301,L]
+  RewriteRule ^media/(.+)$ /blog/$1 [R=301,L]
+
   # 1) Known route → prerendered snapshot. If the snapshot file doesn't
   #    exist, the rewritten URL re-enters these rules and lands on the SPA
   #    fallback below (the /prerendered/ guard prevents a rewrite loop).

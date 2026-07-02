@@ -91,7 +91,7 @@ export const MediaGallery: React.FC = () => {
 
         {/* Footer CTA */}
         <div className="text-center">
-          <Link to="/media" className="inline-block">
+          <Link to="/blog" className="inline-block">
             <Button variant="sand">{t("auto.mediagallery.launch.media.center")}</Button>
           </Link>
         </div>

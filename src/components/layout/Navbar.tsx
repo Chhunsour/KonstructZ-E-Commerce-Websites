@@ -45,7 +45,7 @@ const navItems = [
   //   ],
   // },
   { labelKey: "nav.about", href: "/about" },
-  { labelKey: "nav.blog", href: "/media" },
+  { labelKey: "nav.blog", href: "/blog" },
   {
     labelKey: "nav.support",
     href: "/support",

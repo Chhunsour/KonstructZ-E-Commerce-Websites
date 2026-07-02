@@ -293,12 +293,6 @@ export const staticMeta: Record<string, MetaConfig> = {
     description:
       "Read Konstructz articles about compact equipment, machine safety, buying guidance, attachments, construction workflows, and jobsite planning.",
   },
-  "/media": {
-    title: "Construction Machinery Media & Equipment Articles | Konstructz",
-    description:
-      "Browse Konstructz media and equipment articles. The canonical blog archive is available at /blog for search indexing.",
-    canonicalPath: "/blog",
-  },
 };
 
 export const toAbsoluteImage = (image?: string) =>

@@ -279,8 +279,8 @@ const main = async () => {
   // Legacy/alias URLs — prerendered with a canonical pointing at the
   // preferred URL, but never listed in the sitemap. Includes re-imported
   // Typhon duplicates, which buildRoutes drops from the sitemap.
+  // (/media is NOT prerendered: .htaccess 301s it to /blog.)
   const aliases = [
-    "/media",
     ...seo.productCategories.map((c) => `/equipment/${c.slug}`),
     ...seo.typhonProducts.map((p) => `/typhon-machinery/${p.id}`),
   ].filter((alias) => !routePaths.includes(alias));

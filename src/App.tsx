@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { I18nProvider } from "./context/I18nContext";
 import "./styles/home-reveal.css";
@@ -56,6 +56,13 @@ import { ProductEditor } from "./pages/admin/ProductEditor";
 import { ProductPreview } from "./pages/admin/ProductPreview";
 import { AdminChatbot } from "./pages/admin/Chatbot";
 import { NotFound } from "./pages/NotFound";
+
+// /media was renamed to /blog. The server 301s direct hits (.htaccess);
+// this handles in-app navigation to any stale /media link.
+const MediaToBlogRedirect: React.FC = () => {
+  const { blogSlug } = useParams<{ blogSlug?: string }>();
+  return <Navigate to={blogSlug ? `/blog/${blogSlug}` : "/blog"} replace />;
+};
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -174,8 +181,8 @@ const AppLayout: React.FC = () => {
           <Route path="/attachments" element={<Attachments />} />
           <Route path="/attachments/mini-excavator" element={<MiniExcavatorAttachments />} />
           <Route path="/attachments/mini-skid-steer" element={<MiniSkidSteerAttachments />} />
-          <Route path="/media" element={<BlogPage />} />
-          <Route path="/media/:blogSlug" element={<SingleBlog />} />
+          <Route path="/media" element={<MediaToBlogRedirect />} />
+          <Route path="/media/:blogSlug" element={<MediaToBlogRedirect />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:blogSlug" element={<SingleBlog />} />
           <Route path="/quality-equipment" element={<QualityEquipment />} />

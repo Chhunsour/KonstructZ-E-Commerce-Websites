@@ -286,7 +286,7 @@ const ProductSlider = () => {
 export const MobileFrontpage = (): JSX.Element => {
   const { t } = useI18n();
   const [posts, setPosts] = useState<PublicBlogSummary[]>(() =>
-    staticBlogPosts.slice(0, 3).map((p) => ({
+    staticBlogPosts.slice(0, 4).map((p) => ({
       id: String(p.id),
       slug: p.slug,
       title: p.title,
@@ -303,7 +303,7 @@ export const MobileFrontpage = (): JSX.Element => {
     let active = true;
     listPublicPosts().then((rows) => {
       if (active && rows.length > 0) {
-        setPosts(rows.slice(0, 3));
+        setPosts(rows.slice(0, 4));
       }
     });
     return () => {
@@ -585,23 +585,37 @@ export const MobileFrontpage = (): JSX.Element => {
       </Reveal>
 
       {/* Call CTA */}
-      <Reveal as="section" variant="zoom-out" className="relative bg-[#153d28] px-5 py-10 overflow-hidden">
-        <div className="flex items-start gap-4">
-          <img src="/img/call.png" alt="" className="w-14 h-14 shrink-0" />
-          <div className="flex-1">
-            <p className="font-readex text-white text-lg leading-snug">{t("auto.mobilefrontpage.make.an.appointment")}</p>
+      <Reveal as="section" variant="zoom-out" className="relative bg-[#153d28] px-6 py-8 mx-5 my-8 rounded-lg shadow-xl overflow-hidden border border-white/5">
+        <div className="absolute -right-16 -top-16 w-36 h-36 bg-[#d8c79a]/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -left-16 -bottom-16 w-36 h-36 bg-[#d8c79a]/5 rounded-full blur-2xl pointer-events-none" />
+        
+        <div className="flex items-center gap-4 relative z-10">
+          <div className="w-14 h-14 rounded-full bg-[#d8c79a]/10 border border-[#d8c79a]/40 flex items-center justify-center shrink-0">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#d8c79a" className="animate-pulse">
+              <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15 15 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1-1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1Z" />
+            </svg>
+          </div>
+          <div className="flex flex-col">
+            <p className="font-googleSans text-white/70 text-xs uppercase tracking-wider font-semibold">
+              {t("auto.mobilefrontpage.make.an.appointment")}
+            </p>
             <a
               href="tel:+12132142203"
-              className="font-readex font-semibold text-[#d8c79a] underline text-xl"
+              className="font-readex font-bold text-[#d8c79a] text-2xl hover:text-white transition-colors mt-0.5"
             >
               +1 213-214-2203
             </a>
           </div>
         </div>
+        
         <a
           href="tel:+12132142203"
-          className="mt-6 flex items-center justify-center gap-3 border-4 border-[#d8c79a] text-[#d8c79a] py-4 font-googleSans font-bold text-base"
-        >{t("auto.mobilefrontpage.call.us.now")}<img src="/img/vector-9.svg" alt="" className="w-2 h-auto" />
+          className="mt-6 flex items-center justify-center gap-2 bg-[#d8c79a] hover:bg-[#c7b689] text-[#153d28] py-3.5 rounded-[4px] font-googleSans font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(216,199,154,0.2)] relative z-10"
+        >
+          <span>{t("auto.mobilefrontpage.call.us.now")}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="translate-y-[0.5px]">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </a>
       </Reveal>
 
@@ -659,14 +673,14 @@ export const MobileFrontpage = (): JSX.Element => {
           <div className="w-16 h-1 bg-[#153d28] mt-2" />
         </div>
 
-        <div className="flex flex-col gap-6 max-w-md mx-auto">
+        <div className="grid grid-cols-2 gap-4 w-full">
           {posts.map((post) => (
             <Link
               key={post.id}
               to={`/blog/${post.slug}`}
               className="group flex flex-col bg-transparent"
             >
-              <div className="relative w-full aspect-video overflow-hidden bg-[#1e1e1e]">
+              <div className="relative w-full aspect-video overflow-hidden bg-[#1e1e1e] rounded-sm">
                 <img
                   src={post.image}
                   alt={post.title}
@@ -674,21 +688,23 @@ export const MobileFrontpage = (): JSX.Element => {
                   loading="lazy"
                 />
               </div>
-              <div className="pt-4 px-0 pb-1 flex flex-col justify-between">
-                <span className="font-glonimove text-[10px] text-theme-accent uppercase tracking-widest font-semibold mb-1 block">
-                  {post.date} &nbsp;·&nbsp; BY {post.author.toUpperCase()}
-                </span>
-                <h3 className="font-clofieBold text-lg text-theme-text group-hover:text-theme-accent transition-colors">
-                  {post.title}
-                </h3>
-                <p className="font-glonimove text-xs text-theme-muted mt-2 line-clamp-2 leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <div className="mt-4 flex items-center justify-between border-t border-theme-border/10 pt-3">
-                  <span className="font-googleSans text-xs font-bold text-theme-accent">
+              <div className="pt-3 px-0 pb-1 flex flex-col justify-between flex-grow">
+                <div>
+                  <span className="font-glonimove text-[9px] text-theme-accent uppercase tracking-widest font-semibold mb-1 block">
+                    {post.date}
+                  </span>
+                  <h3 className="font-clofieBold text-sm sm:text-base text-theme-text group-hover:text-theme-accent transition-colors line-clamp-2 leading-tight">
+                    {post.title}
+                  </h3>
+                  <p className="font-glonimove text-[11px] text-theme-muted mt-1 line-clamp-2 leading-snug">
+                    {post.excerpt}
+                  </p>
+                </div>
+                <div className="mt-3 flex items-center justify-between border-t border-theme-border/10 pt-2">
+                  <span className="font-googleSans text-[10px] font-bold text-theme-accent tracking-wider">
                     READ ARTICLE
                   </span>
-                  <span className="text-theme-accent">→</span>
+                  <span className="text-theme-accent text-xs">→</span>
                 </div>
               </div>
             </Link>
@@ -698,7 +714,7 @@ export const MobileFrontpage = (): JSX.Element => {
         <div className="mt-8 flex justify-center">
           <Link
             to="/blog"
-            className="w-full max-w-md py-4 bg-[#153d28] text-white text-center font-googleSans font-bold text-base tracking-wide flex items-center justify-center gap-2 btn"
+            className="w-full py-3.5 bg-[#153d28] hover:bg-[#113120] text-white text-center font-googleSans font-bold text-sm tracking-wider flex items-center justify-center gap-2 rounded-[4px] btn transition-colors duration-300"
           >
             <span>EXPLORE ALL ARTICLES</span>
             <span>→</span>

@@ -68,11 +68,17 @@ html[lang="de"], html[lang="de"] body {
   --theme-bg: rgb(var(--theme-bg-rgb));
   --theme-sec: rgb(var(--theme-sec-rgb));
   --theme-card-rgb: 33 33 33; /* #212121 dark card bg */
+  --theme-card: rgb(var(--theme-card-rgb));
   --theme-border-rgb: 104 130 91; /* #68825B dark border green */
+  --theme-border: rgb(var(--theme-border-rgb));
   --theme-text-rgb: 255 255 255; /* white text */
+  --theme-text: rgb(var(--theme-text-rgb));
   --theme-muted-rgb: 153 153 153; /* #999999 muted text */
+  --theme-muted: rgb(var(--theme-muted-rgb));
   --theme-accent-rgb: 216 199 154; /* #d8c79a desert sand accent */
+  --theme-accent: rgb(var(--theme-accent-rgb));
   --theme-heading-rgb: 216 199 154; /* #d8c79a heading accent */
+  --theme-heading: rgb(var(--theme-heading-rgb));
 
   --www-ferrari-com-inter-medium-font-family: "Inter", Helvetica;
   --www-ferrari-com-inter-medium-font-size: 13px;
@@ -359,13 +365,21 @@ html[lang="de"], html[lang="de"] body {
 
 [data-theme="light"] {
   --theme-bg-rgb: 245 245 245; /* #f5f5f5 off-white background */
+  --theme-bg: rgb(var(--theme-bg-rgb));
   --theme-sec-rgb: 244 238 224; /* Soft sand/cream section bg */
+  --theme-sec: rgb(var(--theme-sec-rgb));
   --theme-card-rgb: 255 255 255; /* White cards for nice elevation */
+  --theme-card: rgb(var(--theme-card-rgb));
   --theme-border-rgb: 21 61 40; /* Soft dark green borders */
+  --theme-border: rgb(var(--theme-border-rgb));
   --theme-text-rgb: 23 26 22; /* Charcoal text */
+  --theme-text: rgb(var(--theme-text-rgb));
   --theme-muted-rgb: 100 100 100; /* Soft dark grey text */
+  --theme-muted: rgb(var(--theme-muted-rgb));
   --theme-accent-rgb: 104 130 91; /* Industrial green */
+  --theme-accent: rgb(var(--theme-accent-rgb));
   --theme-heading-rgb: 21 61 40; /* Dark green headings */
+  --theme-heading: rgb(var(--theme-heading-rgb));
 }
 @keyframes gallery-swap {
   0% {
@@ -441,4 +455,452 @@ html[lang="de"], html[lang="de"] body {
 .product-prose tr {
   @apply hover:bg-neutral-50/10 dark:hover:bg-neutral-900/10 transition-colors;
 }
+
+/* --- Ecwid Storefront Premium Dark Mode Overrides --- */
+
+/* High Specificity Rule Prefix to override Ecwid's Chameleon Stylesheet */
+
+/* 1. Main Backgrounds and Container Elements */
+html.dark#ecwid_html body#ecwid_body .ec-store,
+html.dark#ecwid_html body#ecwid_body .ec-store__body,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-card,
+html.dark#ecwid_html body#ecwid_body .ecwid-productBrowser,
+html.dark#ecwid_html body#ecwid_body .ec-store__product-page,
+html.dark#ecwid_html body#ecwid_body .ec-store__category-page,
+html.dark#ecwid_html body#ecwid_body .ec-store__cart,
+html.dark#ecwid_html body#ecwid_body .ec-store .ecwid-productBrowser-details-rightPanel,
+html.dark#ecwid_html body#ecwid_body .ec-store .ecwid-productBrowser-details-leftPanel,
+html.dark#ecwid_html body#ecwid_body .ec-store .details-product-purchase,
+html.dark#ecwid_html body#ecwid_body .ec-store .details-product-gallery,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-grid__cell,
+html.dark#ecwid_html body#ecwid_body .ec-store .grid-product__wrap,
+html.dark#ecwid_html body#ecwid_body .ec-store .grid-product__wrap-inner,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-step,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-summary,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-step__content,
+html.dark#ecwid_html body#ecwid_body .ecwid-invoice,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-store__invoice-page {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
+}
+
+/* 2. Universal Text Colors to Override Defaults */
+html.dark#ecwid_html body#ecwid_body .ec-store h1,
+html.dark#ecwid_html body#ecwid_body .ec-store h2,
+html.dark#ecwid_html body#ecwid_body .ec-store h3,
+html.dark#ecwid_html body#ecwid_body .ec-store h4,
+html.dark#ecwid_html body#ecwid_body .ec-store h5,
+html.dark#ecwid_html body#ecwid_body .ec-store h6,
+html.dark#ecwid_html body#ecwid_body .ec-store p,
+html.dark#ecwid_html body#ecwid_body .ec-store span,
+html.dark#ecwid_html body#ecwid_body .ec-store div,
+html.dark#ecwid_html body#ecwid_body .ec-store a,
+html.dark#ecwid_html body#ecwid_body .ec-store li,
+html.dark#ecwid_html body#ecwid_body .ec-store label,
+html.dark#ecwid_html body#ecwid_body .ec-store th,
+html.dark#ecwid_html body#ecwid_body .ec-store td,
+html.dark#ecwid_html body#ecwid_body .ec-store legend,
+html.dark#ecwid_html body#ecwid_body .ec-store dt,
+html.dark#ecwid_html body#ecwid_body .ec-store dd,
+html.dark#ecwid_html body#ecwid_body .ecwid h1,
+html.dark#ecwid_html body#ecwid_body .ecwid h2,
+html.dark#ecwid_html body#ecwid_body .ecwid h3,
+html.dark#ecwid_html body#ecwid_body .ecwid h4,
+html.dark#ecwid_html body#ecwid_body .ecwid h5,
+html.dark#ecwid_html body#ecwid_body .ecwid h6,
+html.dark#ecwid_html body#ecwid_body .ecwid p,
+html.dark#ecwid_html body#ecwid_body .ecwid span,
+html.dark#ecwid_html body#ecwid_body .ecwid div,
+html.dark#ecwid_html body#ecwid_body .ecwid a,
+html.dark#ecwid_html body#ecwid_body .ecwid li,
+html.dark#ecwid_html body#ecwid_body .ecwid label,
+html.dark#ecwid_html body#ecwid_body .ecwid th,
+html.dark#ecwid_html body#ecwid_body .ecwid td,
+html.dark#ecwid_html body#ecwid_body .ec-store .grid-category__title,
+html.dark#ecwid_html body#ecwid_body .ec-store .grid-category__title div,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-store__category-description,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-store__category-description div,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-store__category-description p {
+  color: var(--theme-text) !important;
+}
+
+/* Force inherit typography from the website root */
+.ec-store, 
+.ec-store * {
+  font-family: inherit !important;
+}
+
+/* 3. Link and Navigation Styling */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-link,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-link:link,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-link:visited,
+html.dark#ecwid_html body#ecwid_body .ec-store a.ec-link {
+  color: var(--theme-accent) !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease !important;
+}
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-link:hover,
+html.dark#ecwid_html body#ecwid_body .ec-store a.ec-link:hover {
+  opacity: 0.8 !important;
+  text-decoration: underline !important;
+}
+
+/* Breadcrumbs colors */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs a,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs span,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs__item {
+  color: var(--theme-muted) !important;
+}
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs a:hover {
+  color: var(--theme-accent) !important;
+}
+
+/* 4. Product Price & Highlights */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-price,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-price__value,
+html.dark#ecwid_html body#ecwid_body .ec-store .details-product-price__value,
+html.dark#ecwid_html body#ecwid_body .ec-store .details-product-price,
+html.dark#ecwid_html body#ecwid_body .ec-store .grid-product__price-value,
+html.dark#ecwid_html body#ecwid_body .ec-store .grid-product__price,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__price-value {
+  color: var(--theme-heading) !important;
+  font-weight: 700 !important;
+}
+
+/* On Sale Badges & pre-orders */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-label--onsale,
+html.dark#ecwid_html body#ecwid_body .ec-store .grid-product__label--onsale {
+  background-color: var(--theme-accent) !important;
+  color: var(--theme-bg) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  border-radius: 0px !important;
+}
+
+/* 5. Form Fields, Inputs, Dropdowns and Select Elements */
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__input,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__select,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__textarea,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control--text .form-control__input,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-form__input,
+html.dark#ecwid_html body#ecwid_body .ec-store select,
+html.dark#ecwid_html body#ecwid_body .ec-store input[type="text"],
+html.dark#ecwid_html body#ecwid_body .ec-store input[type="email"],
+html.dark#ecwid_html body#ecwid_body .ec-store input[type="tel"],
+html.dark#ecwid_html body#ecwid_body .ec-store input[type="search"],
+html.dark#ecwid_html body#ecwid_body .ec-store select.form-control__select,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-search__input {
+  background-color: var(--theme-sec) !important;
+  color: var(--theme-text) !important;
+  border: 1px solid rgba(var(--theme-border-rgb), 0.4) !important;
+  border-radius: 0px !important;
+  padding: 10px 14px !important;
+  height: auto !important;
+  min-height: 44px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__input:focus,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__select:focus,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__textarea:focus,
+html.dark#ecwid_html body#ecwid_body .ec-store select:focus,
+html.dark#ecwid_html body#ecwid_body .ec-store input:focus {
+  border-color: var(--theme-accent) !important;
+  box-shadow: 0 0 0 1px var(--theme-accent) !important;
+}
+
+/* Style field placeholders */
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__input::placeholder,
+html.dark#ecwid_html body#ecwid_body .ec-store input::placeholder {
+  color: var(--theme-muted) !important;
+  opacity: 0.7 !important;
+}
+
+/* Style label titles */
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__placeholder {
+  color: var(--theme-muted) !important;
+}
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control--focus .form-control__placeholder,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control--has-value .form-control__placeholder {
+  color: var(--theme-accent) !important;
+}
+
+/* Checkbox and Radio styling */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-checkbox__control,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-radio__control {
+  border-color: rgba(var(--theme-border-rgb), 0.5) !important;
+  background-color: var(--theme-sec) !important;
+  border-radius: 0px !important;
+}
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-checkbox__input:checked + .ec-checkbox__control,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-radio__input:checked + .ec-radio__control {
+  background-color: var(--theme-accent) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+/* 6. Checkout Layout & Cards */
+html.dark#ecwid_html body#ecwid_body .ec-store .shipping-option,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-step__content,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__section,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__row {
+  background-color: var(--theme-sec) !important;
+  border: 1px solid rgba(var(--theme-border-rgb), 0.2) !important;
+}
+
+html.dark#ecwid_html body#ecwid_body .ec-store .shipping-option--selected,
+html.dark#ecwid_html body#ecwid_body .ec-store .shipping-option:hover {
+  border-color: var(--theme-accent) !important;
+  background-color: rgba(var(--theme-accent-rgb), 0.08) !important;
+}
+
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-step--active,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-step--complete {
+  border-color: rgba(var(--theme-border-rgb), 0.3) !important;
+}
+
+/* 7. Buttons: Premium Accent Theme styling */
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__button,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control--primary .form-control__button,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-btn,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-btn--primary,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__checkout-button {
+  background-color: var(--theme-accent) !important;
+  color: var(--theme-bg) !important;
+  border: 1px solid var(--theme-accent) !important;
+  border-radius: 0px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  transition: all 0.25s ease !important;
+  padding: 12px 24px !important;
+  cursor: pointer !important;
+}
+
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control__button:hover,
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control--primary .form-control__button:hover,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-btn:hover,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-btn--primary:hover,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__checkout-button:hover {
+  background-color: transparent !important;
+  color: var(--theme-accent) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+/* Secondary Buttons */
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control--secondary .form-control__button,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-btn--secondary {
+  background-color: transparent !important;
+  color: var(--theme-text) !important;
+  border: 1px solid rgba(var(--theme-border-rgb), 0.4) !important;
+  border-radius: 0px !important;
+}
+
+html.dark#ecwid_html body#ecwid_body .ec-store .form-control--secondary .form-control__button:hover,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-btn--secondary:hover {
+  background-color: rgba(var(--theme-accent-rgb), 0.1) !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-accent) !important;
+}
+
+/* 8. Ecwid Footer Navigation Bar (Shopping Bag, Search, Track orders) */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-footer {
+  background-color: var(--theme-sec) !important;
+  border-top: 1px solid rgba(var(--theme-border-rgb), 0.3) !important;
+}
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-footer__item {
+  color: var(--theme-muted) !important;
+}
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-footer__item--active {
+  color: var(--theme-accent) !important;
+}
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-footer__item:hover {
+  color: var(--theme-accent) !important;
+}
+
+/* 9. Descriptions / Technical Specifications Visibility fix */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-text-prose [style*="color"],
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-product-description [style*="color"],
+html.dark#ecwid_html body#ecwid_body .ec-store [style*="color"] {
+  color: var(--theme-text) !important;
+}
+
+/* Ensure list items inside product description get correct color */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-text-prose li,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-product-description li,
+html.dark#ecwid_html body#ecwid_body .ec-store .details-product-description li {
+  color: var(--theme-text) !important;
+}
+
+/* Rating Stars override */
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-stars__icon--filled,
+html.dark#ecwid_html body#ecwid_body .ec-store .details-product-rating__stars--filled,
+html.dark#ecwid_html body#ecwid_body .ec-store .ec-rating__star--active {
+  color: var(--theme-accent) !important;
+}
+
+/* --- Ecwid Storefront Premium Light Mode Overrides --- */
+
+/* High Specificity Rule Prefix to override Ecwid's Chameleon Stylesheet when theme is switched to light */
+
+/* 1. Main Backgrounds and Container Elements */
+html.light#ecwid_html body#ecwid_body .ec-store,
+html.light#ecwid_html body#ecwid_body .ec-store__body,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-card,
+html.light#ecwid_html body#ecwid_body .ecwid-productBrowser,
+html.light#ecwid_html body#ecwid_body .ec-store__product-page,
+html.light#ecwid_html body#ecwid_body .ec-store__category-page,
+html.light#ecwid_html body#ecwid_body .ec-store__cart,
+html.light#ecwid_html body#ecwid_body .ec-store .ecwid-productBrowser-details-rightPanel,
+html.light#ecwid_html body#ecwid_body .ec-store .ecwid-productBrowser-details-leftPanel,
+html.light#ecwid_html body#ecwid_body .ec-store .details-product-purchase,
+html.light#ecwid_html body#ecwid_body .ec-store .details-product-gallery,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-grid__cell,
+html.light#ecwid_html body#ecwid_body .ec-store .grid-product__wrap,
+html.light#ecwid_html body#ecwid_body .ec-store .grid-product__wrap-inner,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-step,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-summary,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-step__content,
+html.light#ecwid_html body#ecwid_body .ecwid-invoice,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-store__invoice-page {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
+}
+
+/* 2. Universal Text Colors to Override Defaults */
+html.light#ecwid_html body#ecwid_body .ec-store h1,
+html.light#ecwid_html body#ecwid_body .ec-store h2,
+html.light#ecwid_html body#ecwid_body .ec-store h3,
+html.light#ecwid_html body#ecwid_body .ec-store h4,
+html.light#ecwid_html body#ecwid_body .ec-store h5,
+html.light#ecwid_html body#ecwid_body .ec-store h6,
+html.light#ecwid_html body#ecwid_body .ec-store p,
+html.light#ecwid_html body#ecwid_body .ec-store span,
+html.light#ecwid_html body#ecwid_body .ec-store div,
+html.light#ecwid_html body#ecwid_body .ec-store a,
+html.light#ecwid_html body#ecwid_body .ec-store li,
+html.light#ecwid_html body#ecwid_body .ec-store label,
+html.light#ecwid_html body#ecwid_body .ec-store th,
+html.light#ecwid_html body#ecwid_body .ec-store td,
+html.light#ecwid_html body#ecwid_body .ec-store legend,
+html.light#ecwid_html body#ecwid_body .ec-store dt,
+html.light#ecwid_html body#ecwid_body .ec-store dd,
+html.light#ecwid_html body#ecwid_body .ecwid h1,
+html.light#ecwid_html body#ecwid_body .ecwid h2,
+html.light#ecwid_html body#ecwid_body .ecwid h3,
+html.light#ecwid_html body#ecwid_body .ecwid h4,
+html.light#ecwid_html body#ecwid_body .ecwid h5,
+html.light#ecwid_html body#ecwid_body .ecwid h6,
+html.light#ecwid_html body#ecwid_body .ecwid p,
+html.light#ecwid_html body#ecwid_body .ecwid span,
+html.light#ecwid_html body#ecwid_body .ecwid div,
+html.light#ecwid_html body#ecwid_body .ecwid a,
+html.light#ecwid_html body#ecwid_body .ecwid li,
+html.light#ecwid_html body#ecwid_body .ecwid label,
+html.light#ecwid_html body#ecwid_body .ecwid th,
+html.light#ecwid_html body#ecwid_body .ecwid td,
+html.light#ecwid_html body#ecwid_body .ec-store .grid-category__title,
+html.light#ecwid_html body#ecwid_body .ec-store .grid-category__title div,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-store__category-description,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-store__category-description div,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-store__category-description p {
+  color: var(--theme-text) !important;
+}
+
+/* 3. Link and Navigation Styling */
+html.light#ecwid_html body#ecwid_body .ec-store .ec-link,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-link:link,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-link:visited,
+html.light#ecwid_html body#ecwid_body .ec-store a.ec-link {
+  color: var(--theme-accent) !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+/* Breadcrumbs colors */
+html.light#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs a,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs span,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs__item {
+  color: var(--theme-muted) !important;
+}
+html.light#ecwid_html body#ecwid_body .ec-store .ec-breadcrumbs a:hover {
+  color: var(--theme-accent) !important;
+}
+
+/* 4. Product Price & Highlights */
+html.light#ecwid_html body#ecwid_body .ec-store .ec-price,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-price__value,
+html.light#ecwid_html body#ecwid_body .ec-store .details-product-price__value,
+html.light#ecwid_html body#ecwid_body .ec-store .details-product-price,
+html.light#ecwid_html body#ecwid_body .ec-store .grid-product__price-value,
+html.light#ecwid_html body#ecwid_body .ec-store .grid-product__price,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__price-value {
+  color: var(--theme-heading) !important;
+  font-weight: 700 !important;
+}
+
+/* 5. Form Fields, Inputs, Dropdowns and Select Elements */
+html.light#ecwid_html body#ecwid_body .ec-store .form-control__input,
+html.light#ecwid_html body#ecwid_body .ec-store .form-control__select,
+html.light#ecwid_html body#ecwid_body .ec-store .form-control__textarea,
+html.light#ecwid_html body#ecwid_body .ec-store .form-control--text .form-control__input,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-form__input,
+html.light#ecwid_html body#ecwid_body .ec-store select,
+html.light#ecwid_html body#ecwid_body .ec-store input[type="text"],
+html.light#ecwid_html body#ecwid_body .ec-store input[type="email"],
+html.light#ecwid_html body#ecwid_body .ec-store input[type="tel"],
+html.light#ecwid_html body#ecwid_body .ec-store input[type="search"],
+html.light#ecwid_html body#ecwid_body .ec-store select.form-control__select,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-search__input {
+  background-color: var(--theme-card) !important;
+  color: var(--theme-text) !important;
+  border: 1px solid rgba(var(--theme-border-rgb), 0.3) !important;
+  border-radius: 0px !important;
+}
+
+/* Checkbox and Radio styling */
+html.light#ecwid_html body#ecwid_body .ec-store .ec-checkbox__control,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-radio__control {
+  border-color: rgba(var(--theme-border-rgb), 0.3) !important;
+  background-color: var(--theme-card) !important;
+}
+
+/* 6. Checkout Layout & Cards */
+html.light#ecwid_html body#ecwid_body .ec-store .shipping-option,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-step__content,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__section,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__row {
+  background-color: var(--theme-card) !important;
+  border: 1px solid rgba(var(--theme-border-rgb), 0.15) !important;
+}
+
+/* 7. Buttons: Premium Accent Theme styling */
+html.light#ecwid_html body#ecwid_body .ec-store .form-control__button,
+html.light#ecwid_html body#ecwid_body .ec-store .form-control--primary .form-control__button,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-btn,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-btn--primary,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-cart-summary__checkout-button {
+  background-color: var(--theme-accent) !important;
+  color: var(--theme-card) !important;
+  border: 1px solid var(--theme-accent) !important;
+}
+
+html.light#ecwid_html body#ecwid_body .ec-store .form-control__button:hover,
+html.light#ecwid_html body#ecwid_body .ec-store .form-control--primary .form-control__button:hover,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-btn:hover,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-btn--primary:hover {
+  background-color: transparent !important;
+  color: var(--theme-accent) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+/* 9. Descriptions / Technical Specifications Visibility fix */
+html.light#ecwid_html body#ecwid_body .ec-store .ec-text-prose [style*="color"],
+html.light#ecwid_html body#ecwid_body .ec-store .ec-product-description [style*="color"],
+html.light#ecwid_html body#ecwid_body .ec-store [style*="color"],
+html.light#ecwid_html body#ecwid_body .ec-store .ec-text-prose li,
+html.light#ecwid_html body#ecwid_body .ec-store .ec-product-description li,
+html.light#ecwid_html body#ecwid_body .ec-store .details-product-description li {
+  color: var(--theme-text) !important;
+}
+
 

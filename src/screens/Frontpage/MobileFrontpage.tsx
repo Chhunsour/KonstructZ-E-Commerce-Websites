@@ -549,32 +549,32 @@ export const MobileFrontpage = (): JSX.Element => {
       {/* Brand Showcase — cards lift in one by one */}
       <Reveal as="section" variant="fade" className="bg-theme-bg px-5 py-12 transition-colors duration-200">
         <h2 className="font-clofieBold text-theme-heading text-3xl text-center mb-8">{t("auto.mobilefrontpage.why.konstructz")}</h2>
-        <div className="grid grid-cols-1 gap-5">
+        <div className="grid grid-cols-2 gap-3.5">
           {showcaseCards.map((card, i) => (
             <Reveal
               key={card.title}
               as="article"
               variant="rise"
               delay={i * 110}
-              className="relative h-[360px] overflow-hidden bg-theme-sec"
+              className="relative h-[250px] overflow-hidden bg-theme-sec rounded-sm"
             >
               <img
                 src={card.image}
                 alt={card.title}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-2">
-                <h3 className="font-clofieBold text-white text-2xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-3.5 flex flex-col justify-end min-h-[60%]">
+                <h3 className="font-clofieBold text-white text-base leading-tight">
                   {card.title}
                 </h3>
-                <p className="font-glonimove text-white/90 text-sm leading-snug">
+                <p className="font-glonimove text-white/80 text-[11px] leading-snug mt-1 line-clamp-3">
                   {card.description}
                 </p>
                 <Link
                   to={card.href}
                   aria-label={`Learn more about ${card.title}`}
-                  className="self-start mt-2 border-2 border-white px-4 py-2 text-white font-googleSans text-sm hover:bg-white/10 transition-colors"
+                  className="self-start mt-2 text-[#d8c79a] hover:text-[#e8d7aa] font-googleSans text-xs font-semibold hover:underline flex items-center gap-1 transition-colors"
                 >
                   Learn More →
                 </Link>

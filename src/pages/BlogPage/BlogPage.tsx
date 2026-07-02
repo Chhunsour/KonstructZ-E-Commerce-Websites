@@ -108,29 +108,9 @@ const CategoryItem: React.FC<{
         htmlFor={id}
         className="flex items-center gap-3 cursor-pointer group select-none"
       >
-        <div
-          className={`w-[18px] h-[18px] flex items-center justify-center border-2 border-theme-accent transition-all ${
-            checked
-              ? "bg-theme-accent text-theme-bg"
-              : "bg-transparent text-transparent"
-          }`}
-        >
-          <svg
-            className="w-3.5 h-3.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="4"
-          >
-            <path
-              d="M20 6L9 17l-5-5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
+        <span className="w-2 h-2 bg-theme-accent rotate-45 shrink-0 transition-colors" />
         <span className={`font-glonimove text-base transition-colors ${
-          checked ? "text-theme-accent font-bold" : "text-theme-text group-hover:text-theme-accent"
+          checked ? "text-theme-accent" : "text-theme-text group-hover:text-theme-accent"
         }`}>
           {t(blogCategoryKey(label), { fallback: label })}
         </span>
@@ -468,11 +448,11 @@ export const BlogPage: React.FC = () => {
 
               <section
                 aria-labelledby="social-medias-heading"
-                className="flex flex-col items-center gap-4"
+                className="flex flex-col items-center gap-4 bg-theme-card border border-theme-border/10 p-5 lg:p-6"
               >
                 <h2
                   id="social-medias-heading"
-                  className="font-clofieBold text-theme-heading text-2xl lg:text-3xl transition-colors"
+                  className="font-clofieBold text-theme-text text-xl lg:text-2xl transition-colors"
                 >
                   {t("blog.social")}
                 </h2>
@@ -482,7 +462,7 @@ export const BlogPage: React.FC = () => {
                       <a
                         href={s.href}
                         aria-label={s.name}
-                        className="w-10 h-10 lg:w-11 lg:h-11 rounded-full border-2 border-theme-accent text-theme-accent hover:bg-theme-accent hover:text-theme-bg flex items-center justify-center transition-colors"
+                        className="w-10 h-10 rounded-full border-2 border-theme-accent text-theme-accent hover:bg-theme-accent hover:text-theme-bg flex items-center justify-center transition-colors"
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                           {s.icon}

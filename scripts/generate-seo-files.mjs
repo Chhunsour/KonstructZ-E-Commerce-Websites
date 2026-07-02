@@ -120,7 +120,13 @@ export const buildRoutes = async () => {
     addRoute(routes, `/equipment/${product.id}`, productDate, "0.85", "weekly");
   });
 
+  // Skip re-imported duplicates (same name + SKU): those pages canonicalize
+  // to the first copy, and sitemaps should only list canonical URLs.
+  const seenTyphon = new Set();
   typhonProducts.forEach((product) => {
+    const twinKey = `${product.name}|${product.sku}`;
+    if (seenTyphon.has(twinKey)) return;
+    seenTyphon.add(twinKey);
     addRoute(routes, `/typhon-machinery/${product.id}`, typhonDate, "0.75", "weekly");
   });
 

@@ -12,7 +12,11 @@ import {
   listPublicPosts,
   type PublicBlogDetail,
   type PublicBlogSummary,
+  getCommentsForPost,
+  addComment,
+  type Comment,
 } from "../../lib/blogStore";
+import { supabaseConfigured } from "../../lib/supabase";
 import { useNoindexNotFound } from "../../hooks/useNoindexNotFound";
 
 const toSummary = (p: typeof staticBlogPosts[number]): PublicBlogSummary => ({
@@ -28,15 +32,6 @@ const toSummary = (p: typeof staticBlogPosts[number]): PublicBlogSummary => ({
 });
 
 const getBlogPostHref = (post: Pick<PublicBlogSummary, "slug">) => `/blog/${post.slug}`;
-
-interface Comment {
-  id: number;
-  avatar: string;
-  name: string;
-  message: string;
-  date: string;
-  replies?: Comment[];
-}
 
 const renderAvatar = (avatarUrl?: string, name?: string, sizeClass = "w-12 h-12 md:w-14 md:h-14") => {
   const hasAvatar =
@@ -206,22 +201,34 @@ export const SingleBlog = (): JSX.Element => {
     };
   }, []);
 
-  // Reader-submitted comments. Loads from localStorage keyed by slug, or empty array if not present.
+  // Reader-submitted comments. Loads from Supabase if configured, otherwise falls back to localStorage.
   const [postComments, setPostComments] = useState<Comment[]>([]);
 
   useEffect(() => {
+    let active = true;
     if (post?.slug) {
-      const stored = localStorage.getItem(`blog_comments_${post.slug}`);
-      if (stored) {
-        try {
-          setPostComments(JSON.parse(stored));
-          return;
-        } catch (e) {
-          console.error("Failed to parse comments from localStorage", e);
+      if (supabaseConfigured) {
+        getCommentsForPost(post.slug).then((comments) => {
+          if (active) setPostComments(comments);
+        });
+      } else {
+        const stored = localStorage.getItem(`blog_comments_${post.slug}`);
+        if (stored) {
+          try {
+            setPostComments(JSON.parse(stored));
+            return;
+          } catch (e) {
+            console.error("Failed to parse comments from localStorage", e);
+          }
         }
+        setPostComments([]);
       }
+    } else {
+      setPostComments([]);
     }
-    setPostComments([]);
+    return () => {
+      active = false;
+    };
   }, [post?.slug]);
 
   useEffect(() => {
@@ -275,29 +282,43 @@ export const SingleBlog = (): JSX.Element => {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formData.name.trim() || !formData.message.trim()) return;
 
-    const newComment: Comment = {
-      id: Date.now(),
-      avatar: "", // default avatar (empty string triggers default SVG icon)
-      name: formData.name,
-      message: formData.message,
-      date: new Date().toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      }),
-      replies: [],
-    };
+    if (supabaseConfigured && post?.slug) {
+      const added = await addComment(
+        post.slug,
+        formData.name,
+        formData.email,
+        formData.message,
+        ""
+      );
+      if (added) {
+        setPostComments((current) => [...current, added]);
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } else {
+      const newComment: Comment = {
+        id: Date.now(),
+        avatar: "", // default avatar (empty string triggers default SVG icon)
+        name: formData.name,
+        message: formData.message,
+        date: new Date().toLocaleDateString("en-US", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        }),
+        replies: [],
+      };
 
-    const updatedComments = [...postComments, newComment];
-    setPostComments(updatedComments);
-    if (post?.slug) {
-      localStorage.setItem(`blog_comments_${post.slug}`, JSON.stringify(updatedComments));
+      const updatedComments = [...postComments, newComment];
+      setPostComments(updatedComments);
+      if (post?.slug) {
+        localStorage.setItem(`blog_comments_${post.slug}`, JSON.stringify(updatedComments));
+      }
+      setFormData({ name: "", email: "", message: "" });
     }
-    setFormData({ name: "", email: "", message: "" });
   };
 
   if (!post && !checkedDb) {

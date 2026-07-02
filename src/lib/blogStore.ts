@@ -264,3 +264,122 @@ export const getPublicPostBySlug = async (
   }
   return dbToDetail(row);
 };
+
+export interface Comment {
+  id: string | number;
+  avatar: string;
+  name: string;
+  message: string;
+  date: string;
+  replies?: Comment[];
+}
+
+export interface DBComment {
+  id: string;
+  created_at: string;
+  post_slug: string;
+  name: string;
+  email: string | null;
+  message: string;
+  avatar: string | null;
+  parent_id: string | null;
+}
+
+const dbCommentToComment = (
+  c: DBComment,
+  allComments: DBComment[]
+): Comment => {
+  const replies = allComments
+    .filter((reply) => reply.parent_id === c.id)
+    .map((reply) => dbCommentToComment(reply, allComments));
+
+  return {
+    id: c.id,
+    avatar: c.avatar || "",
+    name: c.name,
+    message: c.message,
+    date: new Date(c.created_at).toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }),
+    replies,
+  };
+};
+
+/** Get all comments (and nested replies) for a post by slug. */
+export const getCommentsForPost = async (
+  slug: string
+): Promise<Comment[]> => {
+  if (!supabaseConfigured || !supabase) {
+    return [];
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("blog_comments")
+      .select("*")
+      .eq("post_slug", slug)
+      .order("created_at", { ascending: true });
+
+    if (error) throw error;
+    if (!data) return [];
+
+    const dbComments = data as DBComment[];
+    return dbComments
+      .filter((c) => !c.parent_id)
+      .map((c) => dbCommentToComment(c, dbComments));
+  } catch (e) {
+    console.error("Failed to fetch comments from Supabase", e);
+    return [];
+  }
+};
+
+/** Add a new comment for a post. Returns the saved Comment representation. */
+export const addComment = async (
+  slug: string,
+  name: string,
+  email: string,
+  message: string,
+  avatar = "",
+  parentId: string | null = null
+): Promise<Comment | null> => {
+  if (!supabaseConfigured || !supabase) {
+    return null;
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("blog_comments")
+      .insert({
+        post_slug: slug,
+        name,
+        email: email || null,
+        message,
+        avatar: avatar || null,
+        parent_id: parentId,
+      })
+      .select()
+      .single();
+
+    if (error) throw error;
+    if (!data) return null;
+
+    const saved = data as DBComment;
+    return {
+      id: saved.id,
+      avatar: saved.avatar || "",
+      name: saved.name,
+      message: saved.message,
+      date: new Date(saved.created_at).toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      }),
+      replies: [],
+    };
+  } catch (e) {
+    console.error("Failed to add comment to Supabase", e);
+    return null;
+  }
+};

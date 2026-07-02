@@ -15,7 +15,7 @@ import { blogPosts, getBlogPostBySlug } from "../data/blogPosts";
 import { categories } from "../data/categories";
 import { getCategoryBySlug } from "../data/productCategories";
 import { products } from "../data/products";
-import { getTyphonProductById } from "../data/typhonProducts";
+import { getTyphonProductById, typhonProducts } from "../data/typhonProducts";
 import { normalizeBrandCopy } from "./brandCopy";
 import { getPlainText } from "./sanitizeHtml";
 
@@ -438,8 +438,27 @@ export const getRouteConfig = (pathname: string): MetaConfig => {
       if (product.sku) productSchema.sku = product.sku;
       if (product.gtin) productSchema.gtin = product.gtin;
 
+      // Several Typhon variants (colour/engine configs) share a display name;
+      // add the SKU so every page keeps a unique <title>.
+      const nameCollides =
+        typhonProducts.filter(
+          (item) => item.name === product.name && item.categoryLabel === product.categoryLabel
+        ).length > 1;
+      const titleName = nameCollides && product.sku ? `${product.name} (${product.sku})` : product.name;
+
+      // A re-imported twin (same name AND same SKU) is duplicate content, not
+      // a variant — canonicalize every copy to the first-imported page.
+      const primaryTwin = typhonProducts.find(
+        (item) => item.name === product.name && item.sku === product.sku
+      );
+      const canonicalPath =
+        primaryTwin && primaryTwin.id !== product.id
+          ? `/typhon-machinery/${primaryTwin.id}`
+          : undefined;
+
       return {
-        title: `${product.name} ${product.categoryLabel} | Typhon`,
+        canonicalPath,
+        title: `${titleName} ${product.categoryLabel} | Typhon`,
         description: cleanDescription(
           `${product.name} is a Typhon ${product.categoryLabel.toLowerCase()} for ${product.applications.join(", ").toLowerCase()}. SKU ${product.sku || "available on request"}.`
         ),

@@ -144,14 +144,23 @@ export const PriceFilter: React.FC<{
 }> = ({ value, onChange, max = 69999, disabled = false, defaultOpen = true, mobileDefaultOpen = defaultOpen }) => {
   const { t } = useI18n();
   const [open, setOpen] = useResponsiveOpen(defaultOpen, mobileDefaultOpen);
+  const mobileOnlyCollapsible = mobileDefaultOpen !== defaultOpen;
+
+  const togglePrice = () => {
+    if (!mobileOnlyCollapsible) return;
+    if (typeof window !== "undefined" && window.matchMedia(desktopQuery).matches) return;
+    setOpen((o) => !o);
+  };
 
   return (
     <div className={`bg-theme-sec text-theme-text p-4 border border-theme-border/10 rounded transition-all duration-200 ${disabled ? "opacity-50" : ""}`}>
       <button
         type="button"
         disabled={disabled}
-        onClick={() => setOpen((o) => !o)}
-        className={`flex w-full items-center justify-between pb-3 border-b-[3px] border-theme-border ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
+        onClick={togglePrice}
+        className={`flex w-full items-center justify-between pb-3 border-b-[3px] border-theme-border ${
+          disabled ? "cursor-not-allowed" : mobileOnlyCollapsible ? "cursor-pointer lg:cursor-default" : "cursor-default"
+        }`}
       >
         <span className="font-clofieBold text-theme-text text-lg sm:text-xl flex items-center gap-2">
           <span>{t("equipment.price", { fallback: "Price" })}</span>
@@ -161,7 +170,7 @@ export const PriceFilter: React.FC<{
           height="14"
           viewBox="0 0 10 7"
           fill="none"
-          className={`transition-transform ${open ? "rotate-180" : ""}`}
+          className={`transition-transform ${mobileOnlyCollapsible ? "lg:hidden" : "hidden"} ${open ? "rotate-180" : ""}`}
         >
           <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" />
         </svg>
